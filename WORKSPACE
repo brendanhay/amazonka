@@ -12,7 +12,6 @@ versioned_http_archive(
     build_file_content = """
 exports_files(glob(["**/*.json"]))
 """,
-    sha256 = "1e8ab0f11f0df6b1d3bc8f5708150606becc08f20e38da1785a8ab7c0b8c232a",
     strip_prefix = "botocore-{version}/botocore/data",
     url = "https://github.com/boto/botocore/archive/{version}.tar.gz",
     version = "2757b42a80626ae236720abbe470371198f3c8a4",

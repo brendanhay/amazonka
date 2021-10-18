@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.PatchAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.PatchAction</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchAction.html#PatchAction"><span class="hs-identifier">PatchAction</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchAction.html#PatchAction_ALLOW_AS_DEPENDENCY"><span class="hs-identifier">PatchAction_ALLOW_AS_DEPENDENCY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchAction.html#PatchAction_BLOCK"><span class="hs-identifier">PatchAction_BLOCK</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679805973"><span id="local-6989586621679805974"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PatchAction"><span class="annot"><a href="Network.AWS.SSM.Types.PatchAction.html#PatchAction"><span class="hs-identifier hs-var">PatchAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchAction%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchAction.html#PatchAction%27"><span class="hs-identifier hs-var">PatchAction'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPatchAction"><span class="annot"><span class="annottext">PatchAction -&gt; Text
+</span><a href="Network.AWS.SSM.Types.PatchAction.html#fromPatchAction"><span class="hs-identifier hs-var hs-var">fromPatchAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679805965"><span id="local-6989586621679805967"><span id="local-6989586621679805969"><span class="annot"><span class="annottext">Int -&gt; PatchAction -&gt; ShowS
+[PatchAction] -&gt; ShowS
+PatchAction -&gt; String
+(Int -&gt; PatchAction -&gt; ShowS)
+-&gt; (PatchAction -&gt; String)
+-&gt; ([PatchAction] -&gt; ShowS)
+-&gt; Show PatchAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PatchAction] -&gt; ShowS
+$cshowList :: [PatchAction] -&gt; ShowS
+show :: PatchAction -&gt; String
+$cshow :: PatchAction -&gt; String
+showsPrec :: Int -&gt; PatchAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; PatchAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679805956"><span id="local-6989586621679805958"><span id="local-6989586621679805960"><span id="local-6989586621679805962"><span class="annot"><span class="annottext">ReadPrec [PatchAction]
+ReadPrec PatchAction
+Int -&gt; ReadS PatchAction
+ReadS [PatchAction]
+(Int -&gt; ReadS PatchAction)
+-&gt; ReadS [PatchAction]
+-&gt; ReadPrec PatchAction
+-&gt; ReadPrec [PatchAction]
+-&gt; Read PatchAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PatchAction]
+$creadListPrec :: ReadPrec [PatchAction]
+readPrec :: ReadPrec PatchAction
+$creadPrec :: ReadPrec PatchAction
+readList :: ReadS [PatchAction]
+$creadList :: ReadS [PatchAction]
+readsPrec :: Int -&gt; ReadS PatchAction
+$creadsPrec :: Int -&gt; ReadS PatchAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679805951"><span id="local-6989586621679805953"><span class="annot"><span class="annottext">PatchAction -&gt; PatchAction -&gt; Bool
+(PatchAction -&gt; PatchAction -&gt; Bool)
+-&gt; (PatchAction -&gt; PatchAction -&gt; Bool) -&gt; Eq PatchAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PatchAction -&gt; PatchAction -&gt; Bool
+$c/= :: PatchAction -&gt; PatchAction -&gt; Bool
+== :: PatchAction -&gt; PatchAction -&gt; Bool
+$c== :: PatchAction -&gt; PatchAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679805935"><span id="local-6989586621679805937"><span id="local-6989586621679805939"><span id="local-6989586621679805941"><span id="local-6989586621679805943"><span id="local-6989586621679805945"><span id="local-6989586621679805947"><span class="annot"><span class="annottext">Eq PatchAction
+Eq PatchAction
+-&gt; (PatchAction -&gt; PatchAction -&gt; Ordering)
+-&gt; (PatchAction -&gt; PatchAction -&gt; Bool)
+-&gt; (PatchAction -&gt; PatchAction -&gt; Bool)
+-&gt; (PatchAction -&gt; PatchAction -&gt; Bool)
+-&gt; (PatchAction -&gt; PatchAction -&gt; Bool)
+-&gt; (PatchAction -&gt; PatchAction -&gt; PatchAction)
+-&gt; (PatchAction -&gt; PatchAction -&gt; PatchAction)
+-&gt; Ord PatchAction
+PatchAction -&gt; PatchAction -&gt; Bool
+PatchAction -&gt; PatchAction -&gt; Ordering
+PatchAction -&gt; PatchAction -&gt; PatchAction
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PatchAction -&gt; PatchAction -&gt; PatchAction
+$cmin :: PatchAction -&gt; PatchAction -&gt; PatchAction
+max :: PatchAction -&gt; PatchAction -&gt; PatchAction
+$cmax :: PatchAction -&gt; PatchAction -&gt; PatchAction
+&gt;= :: PatchAction -&gt; PatchAction -&gt; Bool
+$c&gt;= :: PatchAction -&gt; PatchAction -&gt; Bool
+&gt; :: PatchAction -&gt; PatchAction -&gt; Bool
+$c&gt; :: PatchAction -&gt; PatchAction -&gt; Bool
+&lt;= :: PatchAction -&gt; PatchAction -&gt; Bool
+$c&lt;= :: PatchAction -&gt; PatchAction -&gt; Bool
+&lt; :: PatchAction -&gt; PatchAction -&gt; Bool
+$c&lt; :: PatchAction -&gt; PatchAction -&gt; Bool
+compare :: PatchAction -&gt; PatchAction -&gt; Ordering
+$ccompare :: PatchAction -&gt; PatchAction -&gt; Ordering
+$cp1Ord :: Eq PatchAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PatchAction -&gt; Rep PatchAction x)
+-&gt; (forall x. Rep PatchAction x -&gt; PatchAction)
+-&gt; Generic PatchAction
+forall x. Rep PatchAction x -&gt; PatchAction
+forall x. PatchAction -&gt; Rep PatchAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PatchAction x -&gt; PatchAction
+$cfrom :: forall x. PatchAction -&gt; Rep PatchAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679805927"><span id="local-6989586621679805929"><span class="annot"><span class="annottext">Int -&gt; PatchAction -&gt; Int
+PatchAction -&gt; Int
+(Int -&gt; PatchAction -&gt; Int)
+-&gt; (PatchAction -&gt; Int) -&gt; Hashable PatchAction
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PatchAction -&gt; Int
+$chash :: PatchAction -&gt; Int
+hashWithSalt :: Int -&gt; PatchAction -&gt; Int
+$chashWithSalt :: Int -&gt; PatchAction -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679805924"><span class="annot"><span class="annottext">PatchAction -&gt; ()
+(PatchAction -&gt; ()) -&gt; NFData PatchAction
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PatchAction -&gt; ()
+$crnf :: PatchAction -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679805921"><span class="annot"><span class="annottext">Text -&gt; Either String PatchAction
+(Text -&gt; Either String PatchAction) -&gt; FromText PatchAction
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PatchAction
+$cfromText :: Text -&gt; Either String PatchAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679805918"><span class="annot"><span class="annottext">PatchAction -&gt; Text
+(PatchAction -&gt; Text) -&gt; ToText PatchAction
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PatchAction -&gt; Text
+$ctoText :: PatchAction -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679805915"><span class="annot"><span class="annottext">PatchAction -&gt; ByteString
+(PatchAction -&gt; ByteString) -&gt; ToByteString PatchAction
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PatchAction -&gt; ByteString
+$ctoBS :: PatchAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679805912"><span class="annot"><span class="annottext">PatchAction -&gt; ByteStringBuilder
+(PatchAction -&gt; ByteStringBuilder) -&gt; ToLog PatchAction
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PatchAction -&gt; ByteStringBuilder
+$cbuild :: PatchAction -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679805909"><span class="annot"><span class="annottext">HeaderName -&gt; PatchAction -&gt; [Header]
+(HeaderName -&gt; PatchAction -&gt; [Header]) -&gt; ToHeader PatchAction
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PatchAction -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PatchAction -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679805906"><span class="annot"><span class="annottext">PatchAction -&gt; QueryString
+(PatchAction -&gt; QueryString) -&gt; ToQuery PatchAction
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PatchAction -&gt; QueryString
+$ctoQuery :: PatchAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679805901"><span id="local-6989586621679805903"><span class="annot"><span class="annottext">Value -&gt; Parser [PatchAction]
+Value -&gt; Parser PatchAction
+(Value -&gt; Parser PatchAction)
+-&gt; (Value -&gt; Parser [PatchAction]) -&gt; FromJSON PatchAction
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PatchAction]
+$cparseJSONList :: Value -&gt; Parser [PatchAction]
+parseJSON :: Value -&gt; Parser PatchAction
+$cparseJSON :: Value -&gt; Parser PatchAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679805896"><span id="local-6989586621679805898"><span class="annot"><span class="annottext">FromJSONKeyFunction [PatchAction]
+FromJSONKeyFunction PatchAction
+FromJSONKeyFunction PatchAction
+-&gt; FromJSONKeyFunction [PatchAction] -&gt; FromJSONKey PatchAction
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PatchAction]
+$cfromJSONKeyList :: FromJSONKeyFunction [PatchAction]
+fromJSONKey :: FromJSONKeyFunction PatchAction
+$cfromJSONKey :: FromJSONKeyFunction PatchAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679805887"><span id="local-6989586621679805889"><span id="local-6989586621679805891"><span id="local-6989586621679805893"><span class="annot"><span class="annottext">[PatchAction] -&gt; Encoding
+[PatchAction] -&gt; Value
+PatchAction -&gt; Encoding
+PatchAction -&gt; Value
+(PatchAction -&gt; Value)
+-&gt; (PatchAction -&gt; Encoding)
+-&gt; ([PatchAction] -&gt; Value)
+-&gt; ([PatchAction] -&gt; Encoding)
+-&gt; ToJSON PatchAction
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PatchAction] -&gt; Encoding
+$ctoEncodingList :: [PatchAction] -&gt; Encoding
+toJSONList :: [PatchAction] -&gt; Value
+$ctoJSONList :: [PatchAction] -&gt; Value
+toEncoding :: PatchAction -&gt; Encoding
+$ctoEncoding :: PatchAction -&gt; Encoding
+toJSON :: PatchAction -&gt; Value
+$ctoJSON :: PatchAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679805882"><span id="local-6989586621679805884"><span class="annot"><span class="annottext">ToJSONKeyFunction [PatchAction]
+ToJSONKeyFunction PatchAction
+ToJSONKeyFunction PatchAction
+-&gt; ToJSONKeyFunction [PatchAction] -&gt; ToJSONKey PatchAction
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PatchAction]
+$ctoJSONKeyList :: ToJSONKeyFunction [PatchAction]
+toJSONKey :: ToJSONKeyFunction PatchAction
+$ctoJSONKey :: ToJSONKeyFunction PatchAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679805879"><span class="annot"><span class="annottext">[Node] -&gt; Either String PatchAction
+([Node] -&gt; Either String PatchAction) -&gt; FromXML PatchAction
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PatchAction
+$cparseXML :: [Node] -&gt; Either String PatchAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679805876"><span class="annot"><span class="annottext">PatchAction -&gt; XML
+(PatchAction -&gt; XML) -&gt; ToXML PatchAction
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PatchAction -&gt; XML
+$ctoXML :: PatchAction -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchAction.html#PatchAction_ALLOW_AS_DEPENDENCY"><span class="hs-identifier hs-type">PatchAction_ALLOW_AS_DEPENDENCY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchAction.html#PatchAction"><span class="hs-identifier hs-type">PatchAction</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchAction_ALLOW_AS_DEPENDENCY"><span id="%24mPatchAction_ALLOW_AS_DEPENDENCY"><span id="PatchAction_ALLOW_AS_DEPENDENCY"><span class="annot"><span class="annottext">$bPatchAction_ALLOW_AS_DEPENDENCY :: PatchAction
+$mPatchAction_ALLOW_AS_DEPENDENCY :: forall r. PatchAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.PatchAction.html#%24bPatchAction_ALLOW_AS_DEPENDENCY"><span class="hs-identifier hs-var hs-var hs-var">PatchAction_ALLOW_AS_DEPENDENCY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchAction.html#PatchAction%27"><span class="hs-identifier hs-type">PatchAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALLOW_AS_DEPENDENCY&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchAction.html#PatchAction_BLOCK"><span class="hs-identifier hs-type">PatchAction_BLOCK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchAction.html#PatchAction"><span class="hs-identifier hs-type">PatchAction</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchAction_BLOCK"><span id="%24mPatchAction_BLOCK"><span id="PatchAction_BLOCK"><span class="annot"><span class="annottext">$bPatchAction_BLOCK :: PatchAction
+$mPatchAction_BLOCK :: forall r. PatchAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.PatchAction.html#%24bPatchAction_BLOCK"><span class="hs-identifier hs-var hs-var hs-var">PatchAction_BLOCK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchAction.html#PatchAction%27"><span class="hs-identifier hs-type">PatchAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BLOCK&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchAction.html#PatchAction_ALLOW_AS_DEPENDENCY"><span class="hs-pragma hs-type">PatchAction_ALLOW_AS_DEPENDENCY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchAction.html#PatchAction_BLOCK"><span class="hs-pragma hs-type">PatchAction_BLOCK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchAction.html#PatchAction%27"><span class="hs-pragma hs-type">PatchAction'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

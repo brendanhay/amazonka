@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EFS.Types.PerformanceMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EFS.Types.PerformanceMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.PerformanceMode.html#PerformanceMode"><span class="hs-identifier">PerformanceMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EFS.Types.PerformanceMode.html#PerformanceMode_GeneralPurpose"><span class="hs-identifier">PerformanceMode_GeneralPurpose</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EFS.Types.PerformanceMode.html#PerformanceMode_MaxIO"><span class="hs-identifier">PerformanceMode_MaxIO</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679186565"><span id="local-6989586621679186566"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PerformanceMode"><span class="annot"><a href="Network.AWS.EFS.Types.PerformanceMode.html#PerformanceMode"><span class="hs-identifier hs-var">PerformanceMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PerformanceMode%27"><span class="annot"><a href="Network.AWS.EFS.Types.PerformanceMode.html#PerformanceMode%27"><span class="hs-identifier hs-var">PerformanceMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPerformanceMode"><span class="annot"><span class="annottext">PerformanceMode -&gt; Text
+</span><a href="Network.AWS.EFS.Types.PerformanceMode.html#fromPerformanceMode"><span class="hs-identifier hs-var hs-var">fromPerformanceMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186557"><span id="local-6989586621679186559"><span id="local-6989586621679186561"><span class="annot"><span class="annottext">Int -&gt; PerformanceMode -&gt; ShowS
+[PerformanceMode] -&gt; ShowS
+PerformanceMode -&gt; String
+(Int -&gt; PerformanceMode -&gt; ShowS)
+-&gt; (PerformanceMode -&gt; String)
+-&gt; ([PerformanceMode] -&gt; ShowS)
+-&gt; Show PerformanceMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PerformanceMode] -&gt; ShowS
+$cshowList :: [PerformanceMode] -&gt; ShowS
+show :: PerformanceMode -&gt; String
+$cshow :: PerformanceMode -&gt; String
+showsPrec :: Int -&gt; PerformanceMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; PerformanceMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679186548"><span id="local-6989586621679186550"><span id="local-6989586621679186552"><span id="local-6989586621679186554"><span class="annot"><span class="annottext">ReadPrec [PerformanceMode]
+ReadPrec PerformanceMode
+Int -&gt; ReadS PerformanceMode
+ReadS [PerformanceMode]
+(Int -&gt; ReadS PerformanceMode)
+-&gt; ReadS [PerformanceMode]
+-&gt; ReadPrec PerformanceMode
+-&gt; ReadPrec [PerformanceMode]
+-&gt; Read PerformanceMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PerformanceMode]
+$creadListPrec :: ReadPrec [PerformanceMode]
+readPrec :: ReadPrec PerformanceMode
+$creadPrec :: ReadPrec PerformanceMode
+readList :: ReadS [PerformanceMode]
+$creadList :: ReadS [PerformanceMode]
+readsPrec :: Int -&gt; ReadS PerformanceMode
+$creadsPrec :: Int -&gt; ReadS PerformanceMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679186543"><span id="local-6989586621679186545"><span class="annot"><span class="annottext">PerformanceMode -&gt; PerformanceMode -&gt; Bool
+(PerformanceMode -&gt; PerformanceMode -&gt; Bool)
+-&gt; (PerformanceMode -&gt; PerformanceMode -&gt; Bool)
+-&gt; Eq PerformanceMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PerformanceMode -&gt; PerformanceMode -&gt; Bool
+$c/= :: PerformanceMode -&gt; PerformanceMode -&gt; Bool
+== :: PerformanceMode -&gt; PerformanceMode -&gt; Bool
+$c== :: PerformanceMode -&gt; PerformanceMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679186527"><span id="local-6989586621679186529"><span id="local-6989586621679186531"><span id="local-6989586621679186533"><span id="local-6989586621679186535"><span id="local-6989586621679186537"><span id="local-6989586621679186539"><span class="annot"><span class="annottext">Eq PerformanceMode
+Eq PerformanceMode
+-&gt; (PerformanceMode -&gt; PerformanceMode -&gt; Ordering)
+-&gt; (PerformanceMode -&gt; PerformanceMode -&gt; Bool)
+-&gt; (PerformanceMode -&gt; PerformanceMode -&gt; Bool)
+-&gt; (PerformanceMode -&gt; PerformanceMode -&gt; Bool)
+-&gt; (PerformanceMode -&gt; PerformanceMode -&gt; Bool)
+-&gt; (PerformanceMode -&gt; PerformanceMode -&gt; PerformanceMode)
+-&gt; (PerformanceMode -&gt; PerformanceMode -&gt; PerformanceMode)
+-&gt; Ord PerformanceMode
+PerformanceMode -&gt; PerformanceMode -&gt; Bool
+PerformanceMode -&gt; PerformanceMode -&gt; Ordering
+PerformanceMode -&gt; PerformanceMode -&gt; PerformanceMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PerformanceMode -&gt; PerformanceMode -&gt; PerformanceMode
+$cmin :: PerformanceMode -&gt; PerformanceMode -&gt; PerformanceMode
+max :: PerformanceMode -&gt; PerformanceMode -&gt; PerformanceMode
+$cmax :: PerformanceMode -&gt; PerformanceMode -&gt; PerformanceMode
+&gt;= :: PerformanceMode -&gt; PerformanceMode -&gt; Bool
+$c&gt;= :: PerformanceMode -&gt; PerformanceMode -&gt; Bool
+&gt; :: PerformanceMode -&gt; PerformanceMode -&gt; Bool
+$c&gt; :: PerformanceMode -&gt; PerformanceMode -&gt; Bool
+&lt;= :: PerformanceMode -&gt; PerformanceMode -&gt; Bool
+$c&lt;= :: PerformanceMode -&gt; PerformanceMode -&gt; Bool
+&lt; :: PerformanceMode -&gt; PerformanceMode -&gt; Bool
+$c&lt; :: PerformanceMode -&gt; PerformanceMode -&gt; Bool
+compare :: PerformanceMode -&gt; PerformanceMode -&gt; Ordering
+$ccompare :: PerformanceMode -&gt; PerformanceMode -&gt; Ordering
+$cp1Ord :: Eq PerformanceMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PerformanceMode -&gt; Rep PerformanceMode x)
+-&gt; (forall x. Rep PerformanceMode x -&gt; PerformanceMode)
+-&gt; Generic PerformanceMode
+forall x. Rep PerformanceMode x -&gt; PerformanceMode
+forall x. PerformanceMode -&gt; Rep PerformanceMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PerformanceMode x -&gt; PerformanceMode
+$cfrom :: forall x. PerformanceMode -&gt; Rep PerformanceMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186519"><span id="local-6989586621679186521"><span class="annot"><span class="annottext">Int -&gt; PerformanceMode -&gt; Int
+PerformanceMode -&gt; Int
+(Int -&gt; PerformanceMode -&gt; Int)
+-&gt; (PerformanceMode -&gt; Int) -&gt; Hashable PerformanceMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PerformanceMode -&gt; Int
+$chash :: PerformanceMode -&gt; Int
+hashWithSalt :: Int -&gt; PerformanceMode -&gt; Int
+$chashWithSalt :: Int -&gt; PerformanceMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679186516"><span class="annot"><span class="annottext">PerformanceMode -&gt; ()
+(PerformanceMode -&gt; ()) -&gt; NFData PerformanceMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PerformanceMode -&gt; ()
+$crnf :: PerformanceMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679186513"><span class="annot"><span class="annottext">Text -&gt; Either String PerformanceMode
+(Text -&gt; Either String PerformanceMode) -&gt; FromText PerformanceMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PerformanceMode
+$cfromText :: Text -&gt; Either String PerformanceMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679186510"><span class="annot"><span class="annottext">PerformanceMode -&gt; Text
+(PerformanceMode -&gt; Text) -&gt; ToText PerformanceMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PerformanceMode -&gt; Text
+$ctoText :: PerformanceMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679186507"><span class="annot"><span class="annottext">PerformanceMode -&gt; ByteString
+(PerformanceMode -&gt; ByteString) -&gt; ToByteString PerformanceMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PerformanceMode -&gt; ByteString
+$ctoBS :: PerformanceMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679186504"><span class="annot"><span class="annottext">PerformanceMode -&gt; ByteStringBuilder
+(PerformanceMode -&gt; ByteStringBuilder) -&gt; ToLog PerformanceMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PerformanceMode -&gt; ByteStringBuilder
+$cbuild :: PerformanceMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679186501"><span class="annot"><span class="annottext">HeaderName -&gt; PerformanceMode -&gt; [Header]
+(HeaderName -&gt; PerformanceMode -&gt; [Header])
+-&gt; ToHeader PerformanceMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PerformanceMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PerformanceMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679186498"><span class="annot"><span class="annottext">PerformanceMode -&gt; QueryString
+(PerformanceMode -&gt; QueryString) -&gt; ToQuery PerformanceMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PerformanceMode -&gt; QueryString
+$ctoQuery :: PerformanceMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679186493"><span id="local-6989586621679186495"><span class="annot"><span class="annottext">Value -&gt; Parser [PerformanceMode]
+Value -&gt; Parser PerformanceMode
+(Value -&gt; Parser PerformanceMode)
+-&gt; (Value -&gt; Parser [PerformanceMode]) -&gt; FromJSON PerformanceMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PerformanceMode]
+$cparseJSONList :: Value -&gt; Parser [PerformanceMode]
+parseJSON :: Value -&gt; Parser PerformanceMode
+$cparseJSON :: Value -&gt; Parser PerformanceMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679186488"><span id="local-6989586621679186490"><span class="annot"><span class="annottext">FromJSONKeyFunction [PerformanceMode]
+FromJSONKeyFunction PerformanceMode
+FromJSONKeyFunction PerformanceMode
+-&gt; FromJSONKeyFunction [PerformanceMode]
+-&gt; FromJSONKey PerformanceMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PerformanceMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [PerformanceMode]
+fromJSONKey :: FromJSONKeyFunction PerformanceMode
+$cfromJSONKey :: FromJSONKeyFunction PerformanceMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679186479"><span id="local-6989586621679186481"><span id="local-6989586621679186483"><span id="local-6989586621679186485"><span class="annot"><span class="annottext">[PerformanceMode] -&gt; Encoding
+[PerformanceMode] -&gt; Value
+PerformanceMode -&gt; Encoding
+PerformanceMode -&gt; Value
+(PerformanceMode -&gt; Value)
+-&gt; (PerformanceMode -&gt; Encoding)
+-&gt; ([PerformanceMode] -&gt; Value)
+-&gt; ([PerformanceMode] -&gt; Encoding)
+-&gt; ToJSON PerformanceMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PerformanceMode] -&gt; Encoding
+$ctoEncodingList :: [PerformanceMode] -&gt; Encoding
+toJSONList :: [PerformanceMode] -&gt; Value
+$ctoJSONList :: [PerformanceMode] -&gt; Value
+toEncoding :: PerformanceMode -&gt; Encoding
+$ctoEncoding :: PerformanceMode -&gt; Encoding
+toJSON :: PerformanceMode -&gt; Value
+$ctoJSON :: PerformanceMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679186474"><span id="local-6989586621679186476"><span class="annot"><span class="annottext">ToJSONKeyFunction [PerformanceMode]
+ToJSONKeyFunction PerformanceMode
+ToJSONKeyFunction PerformanceMode
+-&gt; ToJSONKeyFunction [PerformanceMode] -&gt; ToJSONKey PerformanceMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PerformanceMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [PerformanceMode]
+toJSONKey :: ToJSONKeyFunction PerformanceMode
+$ctoJSONKey :: ToJSONKeyFunction PerformanceMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679186471"><span class="annot"><span class="annottext">[Node] -&gt; Either String PerformanceMode
+([Node] -&gt; Either String PerformanceMode)
+-&gt; FromXML PerformanceMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PerformanceMode
+$cparseXML :: [Node] -&gt; Either String PerformanceMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679186468"><span class="annot"><span class="annottext">PerformanceMode -&gt; XML
+(PerformanceMode -&gt; XML) -&gt; ToXML PerformanceMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PerformanceMode -&gt; XML
+$ctoXML :: PerformanceMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.PerformanceMode.html#PerformanceMode_GeneralPurpose"><span class="hs-identifier hs-type">PerformanceMode_GeneralPurpose</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.PerformanceMode.html#PerformanceMode"><span class="hs-identifier hs-type">PerformanceMode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPerformanceMode_GeneralPurpose"><span id="%24mPerformanceMode_GeneralPurpose"><span id="PerformanceMode_GeneralPurpose"><span class="annot"><span class="annottext">$bPerformanceMode_GeneralPurpose :: PerformanceMode
+$mPerformanceMode_GeneralPurpose :: forall r. PerformanceMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EFS.Types.PerformanceMode.html#%24bPerformanceMode_GeneralPurpose"><span class="hs-identifier hs-var hs-var hs-var">PerformanceMode_GeneralPurpose</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.PerformanceMode.html#PerformanceMode%27"><span class="hs-identifier hs-type">PerformanceMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;generalPurpose&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.PerformanceMode.html#PerformanceMode_MaxIO"><span class="hs-identifier hs-type">PerformanceMode_MaxIO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.PerformanceMode.html#PerformanceMode"><span class="hs-identifier hs-type">PerformanceMode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPerformanceMode_MaxIO"><span id="%24mPerformanceMode_MaxIO"><span id="PerformanceMode_MaxIO"><span class="annot"><span class="annottext">$bPerformanceMode_MaxIO :: PerformanceMode
+$mPerformanceMode_MaxIO :: forall r. PerformanceMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EFS.Types.PerformanceMode.html#%24bPerformanceMode_MaxIO"><span class="hs-identifier hs-var hs-var hs-var">PerformanceMode_MaxIO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.PerformanceMode.html#PerformanceMode%27"><span class="hs-identifier hs-type">PerformanceMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;maxIO&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.PerformanceMode.html#PerformanceMode_GeneralPurpose"><span class="hs-pragma hs-type">PerformanceMode_GeneralPurpose</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.PerformanceMode.html#PerformanceMode_MaxIO"><span class="hs-pragma hs-type">PerformanceMode_MaxIO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.PerformanceMode.html#PerformanceMode%27"><span class="hs-pragma hs-type">PerformanceMode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

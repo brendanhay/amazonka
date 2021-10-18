@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.UpdateCodeRepository</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the specified Git repository with the specified values.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.UpdateCodeRepository</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository"><span class="hs-identifier">UpdateCodeRepository</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#newUpdateCodeRepository"><span class="hs-identifier">newUpdateCodeRepository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#updateCodeRepository_gitConfig"><span class="hs-identifier">updateCodeRepository_gitConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#updateCodeRepository_codeRepositoryName"><span class="hs-identifier">updateCodeRepository_codeRepositoryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse"><span class="hs-identifier">UpdateCodeRepositoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#newUpdateCodeRepositoryResponse"><span class="hs-identifier">newUpdateCodeRepositoryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#updateCodeRepositoryResponse_httpStatus"><span class="hs-identifier">updateCodeRepositoryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#updateCodeRepositoryResponse_codeRepositoryArn"><span class="hs-identifier">updateCodeRepositoryResponse_codeRepositoryArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUpdateCodeRepository' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621680424141"><span id="local-6989586621680424142"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCodeRepository"><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository"><span class="hs-identifier hs-var">UpdateCodeRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCodeRepository%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository%27"><span class="hs-identifier hs-var">UpdateCodeRepository'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration of the git repository, including the URL and the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- secret that contains the credentials used to access the repository. The</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- secret must have a staging label of @AWSCURRENT@ and must be in the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- following format:</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- @{\&quot;username\&quot;: UserName, \&quot;password\&quot;: Password}@</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AgitConfig%3AUpdateCodeRepository%27"><span class="annot"><span class="annottext">UpdateCodeRepository -&gt; Maybe GitConfigForUpdate
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#%24sel%3AgitConfig%3AUpdateCodeRepository%27"><span class="hs-identifier hs-var hs-var">gitConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.GitConfigForUpdate.html#GitConfigForUpdate"><span class="hs-identifier hs-type">GitConfigForUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the Git repository to update.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AcodeRepositoryName%3AUpdateCodeRepository%27"><span class="annot"><span class="annottext">UpdateCodeRepository -&gt; Text
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#%24sel%3AcodeRepositoryName%3AUpdateCodeRepository%27"><span class="hs-identifier hs-var hs-var">codeRepositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680424134"><span id="local-6989586621680424136"><span class="annot"><span class="annottext">UpdateCodeRepository -&gt; UpdateCodeRepository -&gt; Bool
+(UpdateCodeRepository -&gt; UpdateCodeRepository -&gt; Bool)
+-&gt; (UpdateCodeRepository -&gt; UpdateCodeRepository -&gt; Bool)
+-&gt; Eq UpdateCodeRepository
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateCodeRepository -&gt; UpdateCodeRepository -&gt; Bool
+$c/= :: UpdateCodeRepository -&gt; UpdateCodeRepository -&gt; Bool
+== :: UpdateCodeRepository -&gt; UpdateCodeRepository -&gt; Bool
+$c== :: UpdateCodeRepository -&gt; UpdateCodeRepository -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424125"><span id="local-6989586621680424127"><span id="local-6989586621680424129"><span id="local-6989586621680424131"><span class="annot"><span class="annottext">ReadPrec [UpdateCodeRepository]
+ReadPrec UpdateCodeRepository
+Int -&gt; ReadS UpdateCodeRepository
+ReadS [UpdateCodeRepository]
+(Int -&gt; ReadS UpdateCodeRepository)
+-&gt; ReadS [UpdateCodeRepository]
+-&gt; ReadPrec UpdateCodeRepository
+-&gt; ReadPrec [UpdateCodeRepository]
+-&gt; Read UpdateCodeRepository
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateCodeRepository]
+$creadListPrec :: ReadPrec [UpdateCodeRepository]
+readPrec :: ReadPrec UpdateCodeRepository
+$creadPrec :: ReadPrec UpdateCodeRepository
+readList :: ReadS [UpdateCodeRepository]
+$creadList :: ReadS [UpdateCodeRepository]
+readsPrec :: Int -&gt; ReadS UpdateCodeRepository
+$creadsPrec :: Int -&gt; ReadS UpdateCodeRepository
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424118"><span id="local-6989586621680424120"><span id="local-6989586621680424122"><span class="annot"><span class="annottext">Int -&gt; UpdateCodeRepository -&gt; ShowS
+[UpdateCodeRepository] -&gt; ShowS
+UpdateCodeRepository -&gt; String
+(Int -&gt; UpdateCodeRepository -&gt; ShowS)
+-&gt; (UpdateCodeRepository -&gt; String)
+-&gt; ([UpdateCodeRepository] -&gt; ShowS)
+-&gt; Show UpdateCodeRepository
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateCodeRepository] -&gt; ShowS
+$cshowList :: [UpdateCodeRepository] -&gt; ShowS
+show :: UpdateCodeRepository -&gt; String
+$cshow :: UpdateCodeRepository -&gt; String
+showsPrec :: Int -&gt; UpdateCodeRepository -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateCodeRepository -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateCodeRepository -&gt; Rep UpdateCodeRepository x)
+-&gt; (forall x. Rep UpdateCodeRepository x -&gt; UpdateCodeRepository)
+-&gt; Generic UpdateCodeRepository
+forall x. Rep UpdateCodeRepository x -&gt; UpdateCodeRepository
+forall x. UpdateCodeRepository -&gt; Rep UpdateCodeRepository x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateCodeRepository x -&gt; UpdateCodeRepository
+$cfrom :: forall x. UpdateCodeRepository -&gt; Rep UpdateCodeRepository x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'UpdateCodeRepository' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'gitConfig', 'updateCodeRepository_gitConfig' - The configuration of the git repository, including the URL and the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- secret that contains the credentials used to access the repository. The</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- secret must have a staging label of @AWSCURRENT@ and must be in the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- following format:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- @{\&quot;username\&quot;: UserName, \&quot;password\&quot;: Password}@</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'codeRepositoryName', 'updateCodeRepository_codeRepositoryName' - The name of the Git repository to update.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#newUpdateCodeRepository"><span class="hs-identifier hs-type">newUpdateCodeRepository</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'codeRepositoryName'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository"><span class="hs-identifier hs-type">UpdateCodeRepository</span></a></span><span>
+</span><span id="line-86"></span><span id="newUpdateCodeRepository"><span class="annot"><span class="annottext">newUpdateCodeRepository :: Text -&gt; UpdateCodeRepository
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#newUpdateCodeRepository"><span class="hs-identifier hs-var hs-var">newUpdateCodeRepository</span></a></span></span><span> </span><span id="local-6989586621680424113"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424113"><span class="hs-identifier hs-var">pCodeRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">UpdateCodeRepository' :: Maybe GitConfigForUpdate -&gt; Text -&gt; UpdateCodeRepository
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository%27"><span class="hs-identifier hs-type">UpdateCodeRepository'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gitConfig:UpdateCodeRepository' :: Maybe GitConfigForUpdate
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#%24sel%3AgitConfig%3AUpdateCodeRepository%27"><span class="hs-identifier hs-var">gitConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GitConfigForUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:codeRepositoryName:UpdateCodeRepository' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#%24sel%3AcodeRepositoryName%3AUpdateCodeRepository%27"><span class="hs-identifier hs-var">codeRepositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424113"><span class="hs-identifier hs-var">pCodeRepositoryName_</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The configuration of the git repository, including the URL and the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- secret that contains the credentials used to access the repository. The</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- secret must have a staging label of @AWSCURRENT@ and must be in the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- following format:</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- @{\&quot;username\&quot;: UserName, \&quot;password\&quot;: Password}@</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#updateCodeRepository_gitConfig"><span class="hs-identifier hs-type">updateCodeRepository_gitConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository"><span class="hs-identifier hs-type">UpdateCodeRepository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.GitConfigForUpdate.html#GitConfigForUpdate"><span class="hs-identifier hs-type">GitConfigForUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="updateCodeRepository_gitConfig"><span class="annot"><span class="annottext">updateCodeRepository_gitConfig :: (Maybe GitConfigForUpdate -&gt; f (Maybe GitConfigForUpdate))
+-&gt; UpdateCodeRepository -&gt; f UpdateCodeRepository
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#updateCodeRepository_gitConfig"><span class="hs-identifier hs-var hs-var">updateCodeRepository_gitConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCodeRepository -&gt; Maybe GitConfigForUpdate)
+-&gt; (UpdateCodeRepository
+    -&gt; Maybe GitConfigForUpdate -&gt; UpdateCodeRepository)
+-&gt; Lens
+     UpdateCodeRepository
+     UpdateCodeRepository
+     (Maybe GitConfigForUpdate)
+     (Maybe GitConfigForUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository%27"><span class="hs-identifier hs-type">UpdateCodeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424110"><span class="annot"><span class="annottext">Maybe GitConfigForUpdate
+gitConfig :: Maybe GitConfigForUpdate
+$sel:gitConfig:UpdateCodeRepository' :: UpdateCodeRepository -&gt; Maybe GitConfigForUpdate
+</span><a href="#local-6989586621680424110"><span class="hs-identifier hs-var hs-var">gitConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GitConfigForUpdate
+</span><a href="#local-6989586621680424110"><span class="hs-identifier hs-var">gitConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424109"><span class="annot"><span class="annottext">s :: UpdateCodeRepository
+</span><a href="#local-6989586621680424109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository%27"><span class="hs-identifier hs-type">UpdateCodeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424108"><span class="annot"><span class="annottext">Maybe GitConfigForUpdate
+</span><a href="#local-6989586621680424108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCodeRepository
+</span><a href="#local-6989586621680424109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gitConfig:UpdateCodeRepository' :: Maybe GitConfigForUpdate
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#%24sel%3AgitConfig%3AUpdateCodeRepository%27"><span class="hs-identifier hs-var">gitConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GitConfigForUpdate
+</span><a href="#local-6989586621680424108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository"><span class="hs-identifier hs-type">UpdateCodeRepository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The name of the Git repository to update.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#updateCodeRepository_codeRepositoryName"><span class="hs-identifier hs-type">updateCodeRepository_codeRepositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository"><span class="hs-identifier hs-type">UpdateCodeRepository</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="updateCodeRepository_codeRepositoryName"><span class="annot"><span class="annottext">updateCodeRepository_codeRepositoryName :: (Text -&gt; f Text) -&gt; UpdateCodeRepository -&gt; f UpdateCodeRepository
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#updateCodeRepository_codeRepositoryName"><span class="hs-identifier hs-var hs-var">updateCodeRepository_codeRepositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCodeRepository -&gt; Text)
+-&gt; (UpdateCodeRepository -&gt; Text -&gt; UpdateCodeRepository)
+-&gt; Lens UpdateCodeRepository UpdateCodeRepository Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository%27"><span class="hs-identifier hs-type">UpdateCodeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424107"><span class="annot"><span class="annottext">Text
+codeRepositoryName :: Text
+$sel:codeRepositoryName:UpdateCodeRepository' :: UpdateCodeRepository -&gt; Text
+</span><a href="#local-6989586621680424107"><span class="hs-identifier hs-var hs-var">codeRepositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424107"><span class="hs-identifier hs-var">codeRepositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424106"><span class="annot"><span class="annottext">s :: UpdateCodeRepository
+</span><a href="#local-6989586621680424106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository%27"><span class="hs-identifier hs-type">UpdateCodeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424105"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCodeRepository
+</span><a href="#local-6989586621680424106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeRepositoryName:UpdateCodeRepository' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#%24sel%3AcodeRepositoryName%3AUpdateCodeRepository%27"><span class="hs-identifier hs-var">codeRepositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository"><span class="hs-identifier hs-type">UpdateCodeRepository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository"><span class="hs-identifier hs-type">UpdateCodeRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository"><span class="hs-identifier hs-type">UpdateCodeRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse"><span class="hs-identifier hs-type">UpdateCodeRepositoryResponse</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621680424101"><span class="annot"><span class="annottext">request :: UpdateCodeRepository -&gt; Request UpdateCodeRepository
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateCodeRepository -&gt; Request UpdateCodeRepository
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621680424097"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateCodeRepository
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateCodeRepository)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateCodeRepository))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateCodeRepository
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateCodeRepository)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680424094"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424094"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680424093"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680424093"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680424092"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680424092"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; UpdateCodeRepositoryResponse
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse%27"><span class="hs-identifier hs-var">UpdateCodeRepositoryResponse'</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; UpdateCodeRepositoryResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; UpdateCodeRepositoryResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424094"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; UpdateCodeRepositoryResponse)
+-&gt; Either String Text -&gt; Either String UpdateCodeRepositoryResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680424092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CodeRepositoryArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424084"><span id="local-6989586621680424086"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository"><span class="hs-identifier hs-type">UpdateCodeRepository</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424081"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository"><span class="hs-identifier hs-type">UpdateCodeRepository</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository"><span class="hs-identifier hs-type">UpdateCodeRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621680424077"><span class="annot"><span class="annottext">toHeaders :: UpdateCodeRepository -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateCodeRepository -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.UpdateCodeRepository&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-130"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-134"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424067"><span id="local-6989586621680424069"><span id="local-6989586621680424071"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository"><span class="hs-identifier hs-type">UpdateCodeRepository</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621680424065"><span class="annot"><span class="annottext">toJSON :: UpdateCodeRepository -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository%27"><span class="hs-identifier hs-type">UpdateCodeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424062"><span id="local-6989586621680424063"><span class="annot"><span class="annottext">Maybe GitConfigForUpdate
+Text
+codeRepositoryName :: Text
+gitConfig :: Maybe GitConfigForUpdate
+$sel:codeRepositoryName:UpdateCodeRepository' :: UpdateCodeRepository -&gt; Text
+$sel:gitConfig:UpdateCodeRepository' :: UpdateCodeRepository -&gt; Maybe GitConfigForUpdate
+</span><a href="#local-6989586621680424062"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GitConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GitConfigForUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(GitConfigForUpdate -&gt; Pair)
+-&gt; Maybe GitConfigForUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GitConfigForUpdate
+</span><a href="#local-6989586621680424063"><span class="hs-identifier hs-var">gitConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-144"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CodeRepositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424062"><span class="hs-identifier hs-var">codeRepositoryName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository"><span class="hs-identifier hs-type">UpdateCodeRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621680424056"><span class="annot"><span class="annottext">toPath :: UpdateCodeRepository -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateCodeRepository -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepository"><span class="hs-identifier hs-type">UpdateCodeRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621680424052"><span class="annot"><span class="annottext">toQuery :: UpdateCodeRepository -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateCodeRepository -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newUpdateCodeRepositoryResponse' smart constructor.</span><span>
+</span><span id="line-155"></span><span id="local-6989586621680424049"><span id="local-6989586621680424050"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCodeRepositoryResponse"><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse"><span class="hs-identifier hs-var">UpdateCodeRepositoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCodeRepositoryResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse%27"><span class="hs-identifier hs-var">UpdateCodeRepositoryResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateCodeRepositoryResponse%27"><span class="annot"><span class="annottext">UpdateCodeRepositoryResponse -&gt; Int
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#%24sel%3AhttpStatus%3AUpdateCodeRepositoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The ARN of the Git repository.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AcodeRepositoryArn%3AUpdateCodeRepositoryResponse%27"><span class="annot"><span class="annottext">UpdateCodeRepositoryResponse -&gt; Text
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#%24sel%3AcodeRepositoryArn%3AUpdateCodeRepositoryResponse%27"><span class="hs-identifier hs-var hs-var">codeRepositoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680424043"><span id="local-6989586621680424045"><span class="annot"><span class="annottext">UpdateCodeRepositoryResponse
+-&gt; UpdateCodeRepositoryResponse -&gt; Bool
+(UpdateCodeRepositoryResponse
+ -&gt; UpdateCodeRepositoryResponse -&gt; Bool)
+-&gt; (UpdateCodeRepositoryResponse
+    -&gt; UpdateCodeRepositoryResponse -&gt; Bool)
+-&gt; Eq UpdateCodeRepositoryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateCodeRepositoryResponse
+-&gt; UpdateCodeRepositoryResponse -&gt; Bool
+$c/= :: UpdateCodeRepositoryResponse
+-&gt; UpdateCodeRepositoryResponse -&gt; Bool
+== :: UpdateCodeRepositoryResponse
+-&gt; UpdateCodeRepositoryResponse -&gt; Bool
+$c== :: UpdateCodeRepositoryResponse
+-&gt; UpdateCodeRepositoryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424035"><span id="local-6989586621680424037"><span id="local-6989586621680424039"><span id="local-6989586621680424041"><span class="annot"><span class="annottext">ReadPrec [UpdateCodeRepositoryResponse]
+ReadPrec UpdateCodeRepositoryResponse
+Int -&gt; ReadS UpdateCodeRepositoryResponse
+ReadS [UpdateCodeRepositoryResponse]
+(Int -&gt; ReadS UpdateCodeRepositoryResponse)
+-&gt; ReadS [UpdateCodeRepositoryResponse]
+-&gt; ReadPrec UpdateCodeRepositoryResponse
+-&gt; ReadPrec [UpdateCodeRepositoryResponse]
+-&gt; Read UpdateCodeRepositoryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateCodeRepositoryResponse]
+$creadListPrec :: ReadPrec [UpdateCodeRepositoryResponse]
+readPrec :: ReadPrec UpdateCodeRepositoryResponse
+$creadPrec :: ReadPrec UpdateCodeRepositoryResponse
+readList :: ReadS [UpdateCodeRepositoryResponse]
+$creadList :: ReadS [UpdateCodeRepositoryResponse]
+readsPrec :: Int -&gt; ReadS UpdateCodeRepositoryResponse
+$creadsPrec :: Int -&gt; ReadS UpdateCodeRepositoryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424029"><span id="local-6989586621680424031"><span id="local-6989586621680424033"><span class="annot"><span class="annottext">Int -&gt; UpdateCodeRepositoryResponse -&gt; ShowS
+[UpdateCodeRepositoryResponse] -&gt; ShowS
+UpdateCodeRepositoryResponse -&gt; String
+(Int -&gt; UpdateCodeRepositoryResponse -&gt; ShowS)
+-&gt; (UpdateCodeRepositoryResponse -&gt; String)
+-&gt; ([UpdateCodeRepositoryResponse] -&gt; ShowS)
+-&gt; Show UpdateCodeRepositoryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateCodeRepositoryResponse] -&gt; ShowS
+$cshowList :: [UpdateCodeRepositoryResponse] -&gt; ShowS
+show :: UpdateCodeRepositoryResponse -&gt; String
+$cshow :: UpdateCodeRepositoryResponse -&gt; String
+showsPrec :: Int -&gt; UpdateCodeRepositoryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateCodeRepositoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateCodeRepositoryResponse -&gt; Rep UpdateCodeRepositoryResponse x)
+-&gt; (forall x.
+    Rep UpdateCodeRepositoryResponse x -&gt; UpdateCodeRepositoryResponse)
+-&gt; Generic UpdateCodeRepositoryResponse
+forall x.
+Rep UpdateCodeRepositoryResponse x -&gt; UpdateCodeRepositoryResponse
+forall x.
+UpdateCodeRepositoryResponse -&gt; Rep UpdateCodeRepositoryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateCodeRepositoryResponse x -&gt; UpdateCodeRepositoryResponse
+$cfrom :: forall x.
+UpdateCodeRepositoryResponse -&gt; Rep UpdateCodeRepositoryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Create a value of 'UpdateCodeRepositoryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'updateCodeRepositoryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'codeRepositoryArn', 'updateCodeRepositoryResponse_codeRepositoryArn' - The ARN of the Git repository.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#newUpdateCodeRepositoryResponse"><span class="hs-identifier hs-type">newUpdateCodeRepositoryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-comment">-- | 'codeRepositoryArn'</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse"><span class="hs-identifier hs-type">UpdateCodeRepositoryResponse</span></a></span><span>
+</span><span id="line-180"></span><span id="newUpdateCodeRepositoryResponse"><span class="annot"><span class="annottext">newUpdateCodeRepositoryResponse :: Int -&gt; Text -&gt; UpdateCodeRepositoryResponse
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#newUpdateCodeRepositoryResponse"><span class="hs-identifier hs-var hs-var">newUpdateCodeRepositoryResponse</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621680424026"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424026"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621680424025"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424025"><span class="hs-identifier hs-var">pCodeRepositoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">UpdateCodeRepositoryResponse' :: Int -&gt; Text -&gt; UpdateCodeRepositoryResponse
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse%27"><span class="hs-identifier hs-type">UpdateCodeRepositoryResponse'</span></a></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateCodeRepositoryResponse' :: Int
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#%24sel%3AhttpStatus%3AUpdateCodeRepositoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424026"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">$sel:codeRepositoryArn:UpdateCodeRepositoryResponse' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#%24sel%3AcodeRepositoryArn%3AUpdateCodeRepositoryResponse%27"><span class="hs-identifier hs-var">codeRepositoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424025"><span class="hs-identifier hs-var">pCodeRepositoryArn_</span></a></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#updateCodeRepositoryResponse_httpStatus"><span class="hs-identifier hs-type">updateCodeRepositoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse"><span class="hs-identifier hs-type">UpdateCodeRepositoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-191"></span><span id="updateCodeRepositoryResponse_httpStatus"><span class="annot"><span class="annottext">updateCodeRepositoryResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateCodeRepositoryResponse -&gt; f UpdateCodeRepositoryResponse
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#updateCodeRepositoryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateCodeRepositoryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCodeRepositoryResponse -&gt; Int)
+-&gt; (UpdateCodeRepositoryResponse
+    -&gt; Int -&gt; UpdateCodeRepositoryResponse)
+-&gt; Lens
+     UpdateCodeRepositoryResponse UpdateCodeRepositoryResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse%27"><span class="hs-identifier hs-type">UpdateCodeRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424024"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateCodeRepositoryResponse' :: UpdateCodeRepositoryResponse -&gt; Int
+</span><a href="#local-6989586621680424024"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424024"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424023"><span class="annot"><span class="annottext">s :: UpdateCodeRepositoryResponse
+</span><a href="#local-6989586621680424023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse%27"><span class="hs-identifier hs-type">UpdateCodeRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424022"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCodeRepositoryResponse
+</span><a href="#local-6989586621680424023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateCodeRepositoryResponse' :: Int
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#%24sel%3AhttpStatus%3AUpdateCodeRepositoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse"><span class="hs-identifier hs-type">UpdateCodeRepositoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The ARN of the Git repository.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#updateCodeRepositoryResponse_codeRepositoryArn"><span class="hs-identifier hs-type">updateCodeRepositoryResponse_codeRepositoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse"><span class="hs-identifier hs-type">UpdateCodeRepositoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-195"></span><span id="updateCodeRepositoryResponse_codeRepositoryArn"><span class="annot"><span class="annottext">updateCodeRepositoryResponse_codeRepositoryArn :: (Text -&gt; f Text)
+-&gt; UpdateCodeRepositoryResponse -&gt; f UpdateCodeRepositoryResponse
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#updateCodeRepositoryResponse_codeRepositoryArn"><span class="hs-identifier hs-var hs-var">updateCodeRepositoryResponse_codeRepositoryArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCodeRepositoryResponse -&gt; Text)
+-&gt; (UpdateCodeRepositoryResponse
+    -&gt; Text -&gt; UpdateCodeRepositoryResponse)
+-&gt; Lens
+     UpdateCodeRepositoryResponse UpdateCodeRepositoryResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse%27"><span class="hs-identifier hs-type">UpdateCodeRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424021"><span class="annot"><span class="annottext">Text
+codeRepositoryArn :: Text
+$sel:codeRepositoryArn:UpdateCodeRepositoryResponse' :: UpdateCodeRepositoryResponse -&gt; Text
+</span><a href="#local-6989586621680424021"><span class="hs-identifier hs-var hs-var">codeRepositoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424021"><span class="hs-identifier hs-var">codeRepositoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424020"><span class="annot"><span class="annottext">s :: UpdateCodeRepositoryResponse
+</span><a href="#local-6989586621680424020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse%27"><span class="hs-identifier hs-type">UpdateCodeRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCodeRepositoryResponse
+</span><a href="#local-6989586621680424020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeRepositoryArn:UpdateCodeRepositoryResponse' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#%24sel%3AcodeRepositoryArn%3AUpdateCodeRepositoryResponse%27"><span class="hs-identifier hs-var">codeRepositoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse"><span class="hs-identifier hs-type">UpdateCodeRepositoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateCodeRepository.html#UpdateCodeRepositoryResponse"><span class="hs-identifier hs-type">UpdateCodeRepositoryResponse</span></a></span></span><span>
+</span><span id="line-198"></span></pre></body></html>

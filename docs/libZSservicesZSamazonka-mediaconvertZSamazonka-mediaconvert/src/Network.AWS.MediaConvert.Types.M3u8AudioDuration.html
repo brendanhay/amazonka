@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.M3u8AudioDuration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.M3u8AudioDuration</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#M3u8AudioDuration"><span class="hs-identifier">M3u8AudioDuration</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#M3u8AudioDuration_DEFAULT_CODEC_DURATION"><span class="hs-identifier">M3u8AudioDuration_DEFAULT_CODEC_DURATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#M3u8AudioDuration_MATCH_VIDEO_DURATION"><span class="hs-identifier">M3u8AudioDuration_MATCH_VIDEO_DURATION</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Specify this setting only when your output will be consumed by a</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- downstream repackaging workflow that is sensitive to very small duration</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- differences between video and audio. For this situation, choose Match</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- video duration (MATCH_VIDEO_DURATION). In all other cases, keep the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- default value, Default codec duration (DEFAULT_CODEC_DURATION). When you</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- choose Match video duration, MediaConvert pads the output audio streams</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- with silence or trims them to ensure that the total duration of each</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- audio stream is at least as long as the total duration of the video</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- stream. After padding or trimming, the audio stream duration is no more</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- than one frame longer than the video stream. MediaConvert applies audio</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- padding or trimming only to the end of the last segment of the output.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- For unsegmented outputs, MediaConvert adds padding only to the end of</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- the file. When you keep the default value, any minor discrepancies</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- between audio and video duration will depend on your output audio codec.</span><span>
+</span><span id="line-46"></span><span id="local-6989586621679981488"><span id="local-6989586621679981489"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M3u8AudioDuration"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#M3u8AudioDuration"><span class="hs-identifier hs-var">M3u8AudioDuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M3u8AudioDuration%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#M3u8AudioDuration%27"><span class="hs-identifier hs-var">M3u8AudioDuration'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM3u8AudioDuration"><span class="annot"><span class="annottext">M3u8AudioDuration -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#fromM3u8AudioDuration"><span class="hs-identifier hs-var hs-var">fromM3u8AudioDuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981480"><span id="local-6989586621679981482"><span id="local-6989586621679981484"><span class="annot"><span class="annottext">Int -&gt; M3u8AudioDuration -&gt; ShowS
+[M3u8AudioDuration] -&gt; ShowS
+M3u8AudioDuration -&gt; String
+(Int -&gt; M3u8AudioDuration -&gt; ShowS)
+-&gt; (M3u8AudioDuration -&gt; String)
+-&gt; ([M3u8AudioDuration] -&gt; ShowS)
+-&gt; Show M3u8AudioDuration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [M3u8AudioDuration] -&gt; ShowS
+$cshowList :: [M3u8AudioDuration] -&gt; ShowS
+show :: M3u8AudioDuration -&gt; String
+$cshow :: M3u8AudioDuration -&gt; String
+showsPrec :: Int -&gt; M3u8AudioDuration -&gt; ShowS
+$cshowsPrec :: Int -&gt; M3u8AudioDuration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679981471"><span id="local-6989586621679981473"><span id="local-6989586621679981475"><span id="local-6989586621679981477"><span class="annot"><span class="annottext">ReadPrec [M3u8AudioDuration]
+ReadPrec M3u8AudioDuration
+Int -&gt; ReadS M3u8AudioDuration
+ReadS [M3u8AudioDuration]
+(Int -&gt; ReadS M3u8AudioDuration)
+-&gt; ReadS [M3u8AudioDuration]
+-&gt; ReadPrec M3u8AudioDuration
+-&gt; ReadPrec [M3u8AudioDuration]
+-&gt; Read M3u8AudioDuration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [M3u8AudioDuration]
+$creadListPrec :: ReadPrec [M3u8AudioDuration]
+readPrec :: ReadPrec M3u8AudioDuration
+$creadPrec :: ReadPrec M3u8AudioDuration
+readList :: ReadS [M3u8AudioDuration]
+$creadList :: ReadS [M3u8AudioDuration]
+readsPrec :: Int -&gt; ReadS M3u8AudioDuration
+$creadsPrec :: Int -&gt; ReadS M3u8AudioDuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679981466"><span id="local-6989586621679981468"><span class="annot"><span class="annottext">M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool
+(M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool)
+-&gt; (M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool)
+-&gt; Eq M3u8AudioDuration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool
+$c/= :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool
+== :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool
+$c== :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679981450"><span id="local-6989586621679981452"><span id="local-6989586621679981454"><span id="local-6989586621679981456"><span id="local-6989586621679981458"><span id="local-6989586621679981460"><span id="local-6989586621679981462"><span class="annot"><span class="annottext">Eq M3u8AudioDuration
+Eq M3u8AudioDuration
+-&gt; (M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Ordering)
+-&gt; (M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool)
+-&gt; (M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool)
+-&gt; (M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool)
+-&gt; (M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool)
+-&gt; (M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; M3u8AudioDuration)
+-&gt; (M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; M3u8AudioDuration)
+-&gt; Ord M3u8AudioDuration
+M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool
+M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Ordering
+M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; M3u8AudioDuration
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; M3u8AudioDuration
+$cmin :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; M3u8AudioDuration
+max :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; M3u8AudioDuration
+$cmax :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; M3u8AudioDuration
+&gt;= :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool
+$c&gt;= :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool
+&gt; :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool
+$c&gt; :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool
+&lt;= :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool
+$c&lt;= :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool
+&lt; :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool
+$c&lt; :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Bool
+compare :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Ordering
+$ccompare :: M3u8AudioDuration -&gt; M3u8AudioDuration -&gt; Ordering
+$cp1Ord :: Eq M3u8AudioDuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">(forall x. M3u8AudioDuration -&gt; Rep M3u8AudioDuration x)
+-&gt; (forall x. Rep M3u8AudioDuration x -&gt; M3u8AudioDuration)
+-&gt; Generic M3u8AudioDuration
+forall x. Rep M3u8AudioDuration x -&gt; M3u8AudioDuration
+forall x. M3u8AudioDuration -&gt; Rep M3u8AudioDuration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep M3u8AudioDuration x -&gt; M3u8AudioDuration
+$cfrom :: forall x. M3u8AudioDuration -&gt; Rep M3u8AudioDuration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981442"><span id="local-6989586621679981444"><span class="annot"><span class="annottext">Int -&gt; M3u8AudioDuration -&gt; Int
+M3u8AudioDuration -&gt; Int
+(Int -&gt; M3u8AudioDuration -&gt; Int)
+-&gt; (M3u8AudioDuration -&gt; Int) -&gt; Hashable M3u8AudioDuration
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: M3u8AudioDuration -&gt; Int
+$chash :: M3u8AudioDuration -&gt; Int
+hashWithSalt :: Int -&gt; M3u8AudioDuration -&gt; Int
+$chashWithSalt :: Int -&gt; M3u8AudioDuration -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679981439"><span class="annot"><span class="annottext">M3u8AudioDuration -&gt; ()
+(M3u8AudioDuration -&gt; ()) -&gt; NFData M3u8AudioDuration
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: M3u8AudioDuration -&gt; ()
+$crnf :: M3u8AudioDuration -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679981436"><span class="annot"><span class="annottext">Text -&gt; Either String M3u8AudioDuration
+(Text -&gt; Either String M3u8AudioDuration)
+-&gt; FromText M3u8AudioDuration
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String M3u8AudioDuration
+$cfromText :: Text -&gt; Either String M3u8AudioDuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679981433"><span class="annot"><span class="annottext">M3u8AudioDuration -&gt; Text
+(M3u8AudioDuration -&gt; Text) -&gt; ToText M3u8AudioDuration
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: M3u8AudioDuration -&gt; Text
+$ctoText :: M3u8AudioDuration -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679981430"><span class="annot"><span class="annottext">M3u8AudioDuration -&gt; ByteString
+(M3u8AudioDuration -&gt; ByteString) -&gt; ToByteString M3u8AudioDuration
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: M3u8AudioDuration -&gt; ByteString
+$ctoBS :: M3u8AudioDuration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679981427"><span class="annot"><span class="annottext">M3u8AudioDuration -&gt; ByteStringBuilder
+(M3u8AudioDuration -&gt; ByteStringBuilder) -&gt; ToLog M3u8AudioDuration
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: M3u8AudioDuration -&gt; ByteStringBuilder
+$cbuild :: M3u8AudioDuration -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679981424"><span class="annot"><span class="annottext">HeaderName -&gt; M3u8AudioDuration -&gt; [Header]
+(HeaderName -&gt; M3u8AudioDuration -&gt; [Header])
+-&gt; ToHeader M3u8AudioDuration
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; M3u8AudioDuration -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; M3u8AudioDuration -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679981421"><span class="annot"><span class="annottext">M3u8AudioDuration -&gt; QueryString
+(M3u8AudioDuration -&gt; QueryString) -&gt; ToQuery M3u8AudioDuration
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: M3u8AudioDuration -&gt; QueryString
+$ctoQuery :: M3u8AudioDuration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679981416"><span id="local-6989586621679981418"><span class="annot"><span class="annottext">Value -&gt; Parser [M3u8AudioDuration]
+Value -&gt; Parser M3u8AudioDuration
+(Value -&gt; Parser M3u8AudioDuration)
+-&gt; (Value -&gt; Parser [M3u8AudioDuration])
+-&gt; FromJSON M3u8AudioDuration
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [M3u8AudioDuration]
+$cparseJSONList :: Value -&gt; Parser [M3u8AudioDuration]
+parseJSON :: Value -&gt; Parser M3u8AudioDuration
+$cparseJSON :: Value -&gt; Parser M3u8AudioDuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679981411"><span id="local-6989586621679981413"><span class="annot"><span class="annottext">FromJSONKeyFunction [M3u8AudioDuration]
+FromJSONKeyFunction M3u8AudioDuration
+FromJSONKeyFunction M3u8AudioDuration
+-&gt; FromJSONKeyFunction [M3u8AudioDuration]
+-&gt; FromJSONKey M3u8AudioDuration
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [M3u8AudioDuration]
+$cfromJSONKeyList :: FromJSONKeyFunction [M3u8AudioDuration]
+fromJSONKey :: FromJSONKeyFunction M3u8AudioDuration
+$cfromJSONKey :: FromJSONKeyFunction M3u8AudioDuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679981402"><span id="local-6989586621679981404"><span id="local-6989586621679981406"><span id="local-6989586621679981408"><span class="annot"><span class="annottext">[M3u8AudioDuration] -&gt; Encoding
+[M3u8AudioDuration] -&gt; Value
+M3u8AudioDuration -&gt; Encoding
+M3u8AudioDuration -&gt; Value
+(M3u8AudioDuration -&gt; Value)
+-&gt; (M3u8AudioDuration -&gt; Encoding)
+-&gt; ([M3u8AudioDuration] -&gt; Value)
+-&gt; ([M3u8AudioDuration] -&gt; Encoding)
+-&gt; ToJSON M3u8AudioDuration
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [M3u8AudioDuration] -&gt; Encoding
+$ctoEncodingList :: [M3u8AudioDuration] -&gt; Encoding
+toJSONList :: [M3u8AudioDuration] -&gt; Value
+$ctoJSONList :: [M3u8AudioDuration] -&gt; Value
+toEncoding :: M3u8AudioDuration -&gt; Encoding
+$ctoEncoding :: M3u8AudioDuration -&gt; Encoding
+toJSON :: M3u8AudioDuration -&gt; Value
+$ctoJSON :: M3u8AudioDuration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679981397"><span id="local-6989586621679981399"><span class="annot"><span class="annottext">ToJSONKeyFunction [M3u8AudioDuration]
+ToJSONKeyFunction M3u8AudioDuration
+ToJSONKeyFunction M3u8AudioDuration
+-&gt; ToJSONKeyFunction [M3u8AudioDuration]
+-&gt; ToJSONKey M3u8AudioDuration
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [M3u8AudioDuration]
+$ctoJSONKeyList :: ToJSONKeyFunction [M3u8AudioDuration]
+toJSONKey :: ToJSONKeyFunction M3u8AudioDuration
+$ctoJSONKey :: ToJSONKeyFunction M3u8AudioDuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679981394"><span class="annot"><span class="annottext">[Node] -&gt; Either String M3u8AudioDuration
+([Node] -&gt; Either String M3u8AudioDuration)
+-&gt; FromXML M3u8AudioDuration
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String M3u8AudioDuration
+$cparseXML :: [Node] -&gt; Either String M3u8AudioDuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679981391"><span class="annot"><span class="annottext">M3u8AudioDuration -&gt; XML
+(M3u8AudioDuration -&gt; XML) -&gt; ToXML M3u8AudioDuration
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: M3u8AudioDuration -&gt; XML
+$ctoXML :: M3u8AudioDuration -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#M3u8AudioDuration_DEFAULT_CODEC_DURATION"><span class="hs-identifier hs-type">M3u8AudioDuration_DEFAULT_CODEC_DURATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#M3u8AudioDuration"><span class="hs-identifier hs-type">M3u8AudioDuration</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bM3u8AudioDuration_DEFAULT_CODEC_DURATION"><span id="%24mM3u8AudioDuration_DEFAULT_CODEC_DURATION"><span id="M3u8AudioDuration_DEFAULT_CODEC_DURATION"><span class="annot"><span class="annottext">$bM3u8AudioDuration_DEFAULT_CODEC_DURATION :: M3u8AudioDuration
+$mM3u8AudioDuration_DEFAULT_CODEC_DURATION :: forall r. M3u8AudioDuration -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#%24bM3u8AudioDuration_DEFAULT_CODEC_DURATION"><span class="hs-identifier hs-var hs-var hs-var">M3u8AudioDuration_DEFAULT_CODEC_DURATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#M3u8AudioDuration%27"><span class="hs-identifier hs-type">M3u8AudioDuration'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEFAULT_CODEC_DURATION&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#M3u8AudioDuration_MATCH_VIDEO_DURATION"><span class="hs-identifier hs-type">M3u8AudioDuration_MATCH_VIDEO_DURATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#M3u8AudioDuration"><span class="hs-identifier hs-type">M3u8AudioDuration</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bM3u8AudioDuration_MATCH_VIDEO_DURATION"><span id="%24mM3u8AudioDuration_MATCH_VIDEO_DURATION"><span id="M3u8AudioDuration_MATCH_VIDEO_DURATION"><span class="annot"><span class="annottext">$bM3u8AudioDuration_MATCH_VIDEO_DURATION :: M3u8AudioDuration
+$mM3u8AudioDuration_MATCH_VIDEO_DURATION :: forall r. M3u8AudioDuration -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#%24bM3u8AudioDuration_MATCH_VIDEO_DURATION"><span class="hs-identifier hs-var hs-var hs-var">M3u8AudioDuration_MATCH_VIDEO_DURATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#M3u8AudioDuration%27"><span class="hs-identifier hs-type">M3u8AudioDuration'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MATCH_VIDEO_DURATION&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#M3u8AudioDuration_DEFAULT_CODEC_DURATION"><span class="hs-pragma hs-type">M3u8AudioDuration_DEFAULT_CODEC_DURATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#M3u8AudioDuration_MATCH_VIDEO_DURATION"><span class="hs-pragma hs-type">M3u8AudioDuration_MATCH_VIDEO_DURATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8AudioDuration.html#M3u8AudioDuration%27"><span class="hs-pragma hs-type">M3u8AudioDuration'</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-85"></span></pre></body></html>

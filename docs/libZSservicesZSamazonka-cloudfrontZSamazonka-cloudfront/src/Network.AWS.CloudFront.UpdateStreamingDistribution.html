@@ -1,0 +1,616 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.UpdateStreamingDistribution</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Update a streaming distribution.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.UpdateStreamingDistribution</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier">UpdateStreamingDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#newUpdateStreamingDistribution"><span class="hs-identifier">newUpdateStreamingDistribution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistribution_ifMatch"><span class="hs-identifier">updateStreamingDistribution_ifMatch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistribution_streamingDistributionConfig"><span class="hs-identifier">updateStreamingDistribution_streamingDistributionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistribution_id"><span class="hs-identifier">updateStreamingDistribution_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse"><span class="hs-identifier">UpdateStreamingDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#newUpdateStreamingDistributionResponse"><span class="hs-identifier">newUpdateStreamingDistributionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistributionResponse_eTag"><span class="hs-identifier">updateStreamingDistributionResponse_eTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistributionResponse_streamingDistribution"><span class="hs-identifier">updateStreamingDistributionResponse_streamingDistribution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistributionResponse_httpStatus"><span class="hs-identifier">updateStreamingDistributionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.html"><span class="hs-identifier">Network.AWS.CloudFront.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | The request to update a streaming distribution.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newUpdateStreamingDistribution' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679425415"><span id="local-6989586621679425416"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateStreamingDistribution"><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-var">UpdateStreamingDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateStreamingDistribution%27"><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution%27"><span class="hs-identifier hs-var">UpdateStreamingDistribution'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the @ETag@ header that you received when retrieving the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- streaming distribution\'s configuration. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AifMatch%3AUpdateStreamingDistribution%27"><span class="annot"><span class="annottext">UpdateStreamingDistribution -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3AifMatch%3AUpdateStreamingDistribution%27"><span class="hs-identifier hs-var hs-var">ifMatch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The streaming distribution\'s configuration information.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AstreamingDistributionConfig%3AUpdateStreamingDistribution%27"><span class="annot"><span class="annottext">UpdateStreamingDistribution -&gt; StreamingDistributionConfig
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3AstreamingDistributionConfig%3AUpdateStreamingDistribution%27"><span class="hs-identifier hs-var hs-var">streamingDistributionConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StreamingDistributionConfig.html#StreamingDistributionConfig"><span class="hs-identifier hs-type">StreamingDistributionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The streaming distribution\'s id.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Aid%3AUpdateStreamingDistribution%27"><span class="annot"><span class="annottext">UpdateStreamingDistribution -&gt; Text
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3Aid%3AUpdateStreamingDistribution%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425407"><span id="local-6989586621679425409"><span class="annot"><span class="annottext">UpdateStreamingDistribution -&gt; UpdateStreamingDistribution -&gt; Bool
+(UpdateStreamingDistribution
+ -&gt; UpdateStreamingDistribution -&gt; Bool)
+-&gt; (UpdateStreamingDistribution
+    -&gt; UpdateStreamingDistribution -&gt; Bool)
+-&gt; Eq UpdateStreamingDistribution
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateStreamingDistribution -&gt; UpdateStreamingDistribution -&gt; Bool
+$c/= :: UpdateStreamingDistribution -&gt; UpdateStreamingDistribution -&gt; Bool
+== :: UpdateStreamingDistribution -&gt; UpdateStreamingDistribution -&gt; Bool
+$c== :: UpdateStreamingDistribution -&gt; UpdateStreamingDistribution -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425398"><span id="local-6989586621679425400"><span id="local-6989586621679425402"><span id="local-6989586621679425404"><span class="annot"><span class="annottext">ReadPrec [UpdateStreamingDistribution]
+ReadPrec UpdateStreamingDistribution
+Int -&gt; ReadS UpdateStreamingDistribution
+ReadS [UpdateStreamingDistribution]
+(Int -&gt; ReadS UpdateStreamingDistribution)
+-&gt; ReadS [UpdateStreamingDistribution]
+-&gt; ReadPrec UpdateStreamingDistribution
+-&gt; ReadPrec [UpdateStreamingDistribution]
+-&gt; Read UpdateStreamingDistribution
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateStreamingDistribution]
+$creadListPrec :: ReadPrec [UpdateStreamingDistribution]
+readPrec :: ReadPrec UpdateStreamingDistribution
+$creadPrec :: ReadPrec UpdateStreamingDistribution
+readList :: ReadS [UpdateStreamingDistribution]
+$creadList :: ReadS [UpdateStreamingDistribution]
+readsPrec :: Int -&gt; ReadS UpdateStreamingDistribution
+$creadsPrec :: Int -&gt; ReadS UpdateStreamingDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425391"><span id="local-6989586621679425393"><span id="local-6989586621679425395"><span class="annot"><span class="annottext">Int -&gt; UpdateStreamingDistribution -&gt; ShowS
+[UpdateStreamingDistribution] -&gt; ShowS
+UpdateStreamingDistribution -&gt; String
+(Int -&gt; UpdateStreamingDistribution -&gt; ShowS)
+-&gt; (UpdateStreamingDistribution -&gt; String)
+-&gt; ([UpdateStreamingDistribution] -&gt; ShowS)
+-&gt; Show UpdateStreamingDistribution
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateStreamingDistribution] -&gt; ShowS
+$cshowList :: [UpdateStreamingDistribution] -&gt; ShowS
+show :: UpdateStreamingDistribution -&gt; String
+$cshow :: UpdateStreamingDistribution -&gt; String
+showsPrec :: Int -&gt; UpdateStreamingDistribution -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateStreamingDistribution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateStreamingDistribution -&gt; Rep UpdateStreamingDistribution x)
+-&gt; (forall x.
+    Rep UpdateStreamingDistribution x -&gt; UpdateStreamingDistribution)
+-&gt; Generic UpdateStreamingDistribution
+forall x.
+Rep UpdateStreamingDistribution x -&gt; UpdateStreamingDistribution
+forall x.
+UpdateStreamingDistribution -&gt; Rep UpdateStreamingDistribution x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateStreamingDistribution x -&gt; UpdateStreamingDistribution
+$cfrom :: forall x.
+UpdateStreamingDistribution -&gt; Rep UpdateStreamingDistribution x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'UpdateStreamingDistribution' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'ifMatch', 'updateStreamingDistribution_ifMatch' - The value of the @ETag@ header that you received when retrieving the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- streaming distribution\'s configuration. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'streamingDistributionConfig', 'updateStreamingDistribution_streamingDistributionConfig' - The streaming distribution\'s configuration information.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'id', 'updateStreamingDistribution_id' - The streaming distribution\'s id.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#newUpdateStreamingDistribution"><span class="hs-identifier hs-type">newUpdateStreamingDistribution</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'streamingDistributionConfig'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StreamingDistributionConfig.html#StreamingDistributionConfig"><span class="hs-identifier hs-type">StreamingDistributionConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-type">UpdateStreamingDistribution</span></a></span><span>
+</span><span id="line-86"></span><span id="newUpdateStreamingDistribution"><span class="annot"><span class="annottext">newUpdateStreamingDistribution :: StreamingDistributionConfig -&gt; Text -&gt; UpdateStreamingDistribution
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#newUpdateStreamingDistribution"><span class="hs-identifier hs-var hs-var">newUpdateStreamingDistribution</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679425386"><span class="annot"><span class="annottext">StreamingDistributionConfig
+</span><a href="#local-6989586621679425386"><span class="hs-identifier hs-var">pStreamingDistributionConfig_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679425385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425385"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">UpdateStreamingDistribution' :: Maybe Text
+-&gt; StreamingDistributionConfig
+-&gt; Text
+-&gt; UpdateStreamingDistribution
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution%27"><span class="hs-identifier hs-type">UpdateStreamingDistribution'</span></a></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ifMatch:UpdateStreamingDistribution' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3AifMatch%3AUpdateStreamingDistribution%27"><span class="hs-identifier hs-var">ifMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:streamingDistributionConfig:UpdateStreamingDistribution' :: StreamingDistributionConfig
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3AstreamingDistributionConfig%3AUpdateStreamingDistribution%27"><span class="hs-identifier hs-var">streamingDistributionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">StreamingDistributionConfig
+</span><a href="#local-6989586621679425386"><span class="hs-identifier hs-var">pStreamingDistributionConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:UpdateStreamingDistribution' :: Text
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3Aid%3AUpdateStreamingDistribution%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425385"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The value of the @ETag@ header that you received when retrieving the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- streaming distribution\'s configuration. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistribution_ifMatch"><span class="hs-identifier hs-type">updateStreamingDistribution_ifMatch</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-type">UpdateStreamingDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="updateStreamingDistribution_ifMatch"><span class="annot"><span class="annottext">updateStreamingDistribution_ifMatch :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateStreamingDistribution -&gt; f UpdateStreamingDistribution
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistribution_ifMatch"><span class="hs-identifier hs-var hs-var">updateStreamingDistribution_ifMatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateStreamingDistribution -&gt; Maybe Text)
+-&gt; (UpdateStreamingDistribution
+    -&gt; Maybe Text -&gt; UpdateStreamingDistribution)
+-&gt; Lens
+     UpdateStreamingDistribution
+     UpdateStreamingDistribution
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution%27"><span class="hs-identifier hs-type">UpdateStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425382"><span class="annot"><span class="annottext">Maybe Text
+ifMatch :: Maybe Text
+$sel:ifMatch:UpdateStreamingDistribution' :: UpdateStreamingDistribution -&gt; Maybe Text
+</span><a href="#local-6989586621679425382"><span class="hs-identifier hs-var hs-var">ifMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425382"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425381"><span class="annot"><span class="annottext">s :: UpdateStreamingDistribution
+</span><a href="#local-6989586621679425381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution%27"><span class="hs-identifier hs-type">UpdateStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425380"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStreamingDistribution
+</span><a href="#local-6989586621679425381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ifMatch:UpdateStreamingDistribution' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3AifMatch%3AUpdateStreamingDistribution%27"><span class="hs-identifier hs-var">ifMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-type">UpdateStreamingDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The streaming distribution\'s configuration information.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistribution_streamingDistributionConfig"><span class="hs-identifier hs-type">updateStreamingDistribution_streamingDistributionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-type">UpdateStreamingDistribution</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StreamingDistributionConfig.html#StreamingDistributionConfig"><span class="hs-identifier hs-type">StreamingDistributionConfig</span></a></span><span>
+</span><span id="line-104"></span><span id="updateStreamingDistribution_streamingDistributionConfig"><span class="annot"><span class="annottext">updateStreamingDistribution_streamingDistributionConfig :: (StreamingDistributionConfig -&gt; f StreamingDistributionConfig)
+-&gt; UpdateStreamingDistribution -&gt; f UpdateStreamingDistribution
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistribution_streamingDistributionConfig"><span class="hs-identifier hs-var hs-var">updateStreamingDistribution_streamingDistributionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateStreamingDistribution -&gt; StreamingDistributionConfig)
+-&gt; (UpdateStreamingDistribution
+    -&gt; StreamingDistributionConfig -&gt; UpdateStreamingDistribution)
+-&gt; Lens
+     UpdateStreamingDistribution
+     UpdateStreamingDistribution
+     StreamingDistributionConfig
+     StreamingDistributionConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution%27"><span class="hs-identifier hs-type">UpdateStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425379"><span class="annot"><span class="annottext">StreamingDistributionConfig
+streamingDistributionConfig :: StreamingDistributionConfig
+$sel:streamingDistributionConfig:UpdateStreamingDistribution' :: UpdateStreamingDistribution -&gt; StreamingDistributionConfig
+</span><a href="#local-6989586621679425379"><span class="hs-identifier hs-var hs-var">streamingDistributionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamingDistributionConfig
+</span><a href="#local-6989586621679425379"><span class="hs-identifier hs-var">streamingDistributionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425378"><span class="annot"><span class="annottext">s :: UpdateStreamingDistribution
+</span><a href="#local-6989586621679425378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution%27"><span class="hs-identifier hs-type">UpdateStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425377"><span class="annot"><span class="annottext">StreamingDistributionConfig
+</span><a href="#local-6989586621679425377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStreamingDistribution
+</span><a href="#local-6989586621679425378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamingDistributionConfig:UpdateStreamingDistribution' :: StreamingDistributionConfig
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3AstreamingDistributionConfig%3AUpdateStreamingDistribution%27"><span class="hs-identifier hs-var">streamingDistributionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StreamingDistributionConfig
+</span><a href="#local-6989586621679425377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-type">UpdateStreamingDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The streaming distribution\'s id.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistribution_id"><span class="hs-identifier hs-type">updateStreamingDistribution_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-type">UpdateStreamingDistribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="updateStreamingDistribution_id"><span class="annot"><span class="annottext">updateStreamingDistribution_id :: (Text -&gt; f Text)
+-&gt; UpdateStreamingDistribution -&gt; f UpdateStreamingDistribution
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistribution_id"><span class="hs-identifier hs-var hs-var">updateStreamingDistribution_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateStreamingDistribution -&gt; Text)
+-&gt; (UpdateStreamingDistribution
+    -&gt; Text -&gt; UpdateStreamingDistribution)
+-&gt; Lens
+     UpdateStreamingDistribution UpdateStreamingDistribution Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution%27"><span class="hs-identifier hs-type">UpdateStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425376"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:UpdateStreamingDistribution' :: UpdateStreamingDistribution -&gt; Text
+</span><a href="#local-6989586621679425376"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425376"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425375"><span class="annot"><span class="annottext">s :: UpdateStreamingDistribution
+</span><a href="#local-6989586621679425375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution%27"><span class="hs-identifier hs-type">UpdateStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425374"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStreamingDistribution
+</span><a href="#local-6989586621679425375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:UpdateStreamingDistribution' :: Text
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3Aid%3AUpdateStreamingDistribution%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-type">UpdateStreamingDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-type">UpdateStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-type">UpdateStreamingDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679425370"><span class="annot"><span class="annottext">request :: UpdateStreamingDistribution -&gt; Request UpdateStreamingDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateStreamingDistribution
+-&gt; Request UpdateStreamingDistribution
+forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putXML</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679425366"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateStreamingDistribution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateStreamingDistribution)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse UpdateStreamingDistribution))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateStreamingDistribution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateStreamingDistribution)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679425363"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425363"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679425362"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679425362"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679425361"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679425361"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe StreamingDistribution
+-&gt; Int
+-&gt; UpdateStreamingDistributionResponse
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">UpdateStreamingDistributionResponse'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe StreamingDistribution
+ -&gt; Int
+ -&gt; UpdateStreamingDistributionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe StreamingDistribution
+      -&gt; Int -&gt; UpdateStreamingDistributionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679425362"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;ETag&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe StreamingDistribution
+   -&gt; Int -&gt; UpdateStreamingDistributionResponse)
+-&gt; Either String (Maybe StreamingDistribution)
+-&gt; Either String (Int -&gt; UpdateStreamingDistributionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe StreamingDistribution)
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679425361"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateStreamingDistributionResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateStreamingDistributionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425363"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425352"><span id="local-6989586621679425354"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-type">UpdateStreamingDistribution</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425349"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-type">UpdateStreamingDistribution</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-type">UpdateStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679425345"><span class="annot"><span class="annottext">toElement :: UpdateStreamingDistribution -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution%27"><span class="hs-identifier hs-type">UpdateStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425341"><span id="local-6989586621679425342"><span id="local-6989586621679425343"><span class="annot"><span class="annottext">Maybe Text
+Text
+StreamingDistributionConfig
+id :: Text
+streamingDistributionConfig :: StreamingDistributionConfig
+ifMatch :: Maybe Text
+$sel:id:UpdateStreamingDistribution' :: UpdateStreamingDistribution -&gt; Text
+$sel:streamingDistributionConfig:UpdateStreamingDistribution' :: UpdateStreamingDistribution -&gt; StreamingDistributionConfig
+$sel:ifMatch:UpdateStreamingDistribution' :: UpdateStreamingDistribution -&gt; Maybe Text
+</span><a href="#local-6989586621679425341"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; StreamingDistributionConfig -&gt; Element
+forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
+</span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;{http://cloudfront.amazonaws.com/doc/2020-05-31/}StreamingDistributionConfig&quot;</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">StreamingDistributionConfig
+</span><a href="#local-6989586621679425342"><span class="hs-identifier hs-var">streamingDistributionConfig</span></a></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-type">UpdateStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679425337"><span class="annot"><span class="annottext">toHeaders :: UpdateStreamingDistribution -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution%27"><span class="hs-identifier hs-type">UpdateStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425333"><span id="local-6989586621679425334"><span id="local-6989586621679425335"><span class="annot"><span class="annottext">Maybe Text
+Text
+StreamingDistributionConfig
+id :: Text
+streamingDistributionConfig :: StreamingDistributionConfig
+ifMatch :: Maybe Text
+$sel:id:UpdateStreamingDistribution' :: UpdateStreamingDistribution -&gt; Text
+$sel:streamingDistributionConfig:UpdateStreamingDistribution' :: UpdateStreamingDistribution -&gt; StreamingDistributionConfig
+$sel:ifMatch:UpdateStreamingDistribution' :: UpdateStreamingDistribution -&gt; Maybe Text
+</span><a href="#local-6989586621679425333"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;If-Match&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425335"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-type">UpdateStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679425329"><span class="annot"><span class="annottext">toPath :: UpdateStreamingDistribution -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution%27"><span class="hs-identifier hs-type">UpdateStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425325"><span id="local-6989586621679425326"><span id="local-6989586621679425327"><span class="annot"><span class="annottext">Maybe Text
+Text
+StreamingDistributionConfig
+id :: Text
+streamingDistributionConfig :: StreamingDistributionConfig
+ifMatch :: Maybe Text
+$sel:id:UpdateStreamingDistribution' :: UpdateStreamingDistribution -&gt; Text
+$sel:streamingDistributionConfig:UpdateStreamingDistribution' :: UpdateStreamingDistribution -&gt; StreamingDistributionConfig
+$sel:ifMatch:UpdateStreamingDistribution' :: UpdateStreamingDistribution -&gt; Maybe Text
+</span><a href="#local-6989586621679425325"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-05-31/streaming-distribution/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425325"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/config&quot;</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistribution"><span class="hs-identifier hs-type">UpdateStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679425321"><span class="annot"><span class="annottext">toQuery :: UpdateStreamingDistribution -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateStreamingDistribution -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The returned result of the corresponding request.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- /See:/ 'newUpdateStreamingDistributionResponse' smart constructor.</span><span>
+</span><span id="line-152"></span><span id="local-6989586621679425317"><span id="local-6989586621679425318"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateStreamingDistributionResponse"><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse"><span class="hs-identifier hs-var">UpdateStreamingDistributionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateStreamingDistributionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">UpdateStreamingDistributionResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AeTag%3AUpdateStreamingDistributionResponse%27"><span class="annot"><span class="annottext">UpdateStreamingDistributionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3AeTag%3AUpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The streaming distribution\'s information.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AstreamingDistribution%3AUpdateStreamingDistributionResponse%27"><span class="annot"><span class="annottext">UpdateStreamingDistributionResponse -&gt; Maybe StreamingDistribution
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3AstreamingDistribution%3AUpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-var hs-var">streamingDistribution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StreamingDistribution.html#StreamingDistribution"><span class="hs-identifier hs-type">StreamingDistribution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateStreamingDistributionResponse%27"><span class="annot"><span class="annottext">UpdateStreamingDistributionResponse -&gt; Int
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3AhttpStatus%3AUpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425310"><span id="local-6989586621679425312"><span class="annot"><span class="annottext">UpdateStreamingDistributionResponse
+-&gt; UpdateStreamingDistributionResponse -&gt; Bool
+(UpdateStreamingDistributionResponse
+ -&gt; UpdateStreamingDistributionResponse -&gt; Bool)
+-&gt; (UpdateStreamingDistributionResponse
+    -&gt; UpdateStreamingDistributionResponse -&gt; Bool)
+-&gt; Eq UpdateStreamingDistributionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateStreamingDistributionResponse
+-&gt; UpdateStreamingDistributionResponse -&gt; Bool
+$c/= :: UpdateStreamingDistributionResponse
+-&gt; UpdateStreamingDistributionResponse -&gt; Bool
+== :: UpdateStreamingDistributionResponse
+-&gt; UpdateStreamingDistributionResponse -&gt; Bool
+$c== :: UpdateStreamingDistributionResponse
+-&gt; UpdateStreamingDistributionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425302"><span id="local-6989586621679425304"><span id="local-6989586621679425306"><span id="local-6989586621679425308"><span class="annot"><span class="annottext">ReadPrec [UpdateStreamingDistributionResponse]
+ReadPrec UpdateStreamingDistributionResponse
+Int -&gt; ReadS UpdateStreamingDistributionResponse
+ReadS [UpdateStreamingDistributionResponse]
+(Int -&gt; ReadS UpdateStreamingDistributionResponse)
+-&gt; ReadS [UpdateStreamingDistributionResponse]
+-&gt; ReadPrec UpdateStreamingDistributionResponse
+-&gt; ReadPrec [UpdateStreamingDistributionResponse]
+-&gt; Read UpdateStreamingDistributionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateStreamingDistributionResponse]
+$creadListPrec :: ReadPrec [UpdateStreamingDistributionResponse]
+readPrec :: ReadPrec UpdateStreamingDistributionResponse
+$creadPrec :: ReadPrec UpdateStreamingDistributionResponse
+readList :: ReadS [UpdateStreamingDistributionResponse]
+$creadList :: ReadS [UpdateStreamingDistributionResponse]
+readsPrec :: Int -&gt; ReadS UpdateStreamingDistributionResponse
+$creadsPrec :: Int -&gt; ReadS UpdateStreamingDistributionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425296"><span id="local-6989586621679425298"><span id="local-6989586621679425300"><span class="annot"><span class="annottext">Int -&gt; UpdateStreamingDistributionResponse -&gt; ShowS
+[UpdateStreamingDistributionResponse] -&gt; ShowS
+UpdateStreamingDistributionResponse -&gt; String
+(Int -&gt; UpdateStreamingDistributionResponse -&gt; ShowS)
+-&gt; (UpdateStreamingDistributionResponse -&gt; String)
+-&gt; ([UpdateStreamingDistributionResponse] -&gt; ShowS)
+-&gt; Show UpdateStreamingDistributionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateStreamingDistributionResponse] -&gt; ShowS
+$cshowList :: [UpdateStreamingDistributionResponse] -&gt; ShowS
+show :: UpdateStreamingDistributionResponse -&gt; String
+$cshow :: UpdateStreamingDistributionResponse -&gt; String
+showsPrec :: Int -&gt; UpdateStreamingDistributionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateStreamingDistributionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateStreamingDistributionResponse
+ -&gt; Rep UpdateStreamingDistributionResponse x)
+-&gt; (forall x.
+    Rep UpdateStreamingDistributionResponse x
+    -&gt; UpdateStreamingDistributionResponse)
+-&gt; Generic UpdateStreamingDistributionResponse
+forall x.
+Rep UpdateStreamingDistributionResponse x
+-&gt; UpdateStreamingDistributionResponse
+forall x.
+UpdateStreamingDistributionResponse
+-&gt; Rep UpdateStreamingDistributionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateStreamingDistributionResponse x
+-&gt; UpdateStreamingDistributionResponse
+$cfrom :: forall x.
+UpdateStreamingDistributionResponse
+-&gt; Rep UpdateStreamingDistributionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Create a value of 'UpdateStreamingDistributionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'eTag', 'updateStreamingDistributionResponse_eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'streamingDistribution', 'updateStreamingDistributionResponse_streamingDistribution' - The streaming distribution\'s information.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'httpStatus', 'updateStreamingDistributionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#newUpdateStreamingDistributionResponse"><span class="hs-identifier hs-type">newUpdateStreamingDistributionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse</span></a></span><span>
+</span><span id="line-179"></span><span id="newUpdateStreamingDistributionResponse"><span class="annot"><span class="annottext">newUpdateStreamingDistributionResponse :: Int -&gt; UpdateStreamingDistributionResponse
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#newUpdateStreamingDistributionResponse"><span class="hs-identifier hs-var hs-var">newUpdateStreamingDistributionResponse</span></a></span></span><span> </span><span id="local-6989586621679425293"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425293"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">UpdateStreamingDistributionResponse' :: Maybe Text
+-&gt; Maybe StreamingDistribution
+-&gt; Int
+-&gt; UpdateStreamingDistributionResponse
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse'</span></a></span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eTag:UpdateStreamingDistributionResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3AeTag%3AUpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamingDistribution:UpdateStreamingDistributionResponse' :: Maybe StreamingDistribution
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3AstreamingDistribution%3AUpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">streamingDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">Maybe StreamingDistribution
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateStreamingDistributionResponse' :: Int
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3AhttpStatus%3AUpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425293"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistributionResponse_eTag"><span class="hs-identifier hs-type">updateStreamingDistributionResponse_eTag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="updateStreamingDistributionResponse_eTag"><span class="annot"><span class="annottext">updateStreamingDistributionResponse_eTag :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateStreamingDistributionResponse
+-&gt; f UpdateStreamingDistributionResponse
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistributionResponse_eTag"><span class="hs-identifier hs-var hs-var">updateStreamingDistributionResponse_eTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateStreamingDistributionResponse -&gt; Maybe Text)
+-&gt; (UpdateStreamingDistributionResponse
+    -&gt; Maybe Text -&gt; UpdateStreamingDistributionResponse)
+-&gt; Lens
+     UpdateStreamingDistributionResponse
+     UpdateStreamingDistributionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425292"><span class="annot"><span class="annottext">Maybe Text
+eTag :: Maybe Text
+$sel:eTag:UpdateStreamingDistributionResponse' :: UpdateStreamingDistributionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679425292"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425292"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425291"><span class="annot"><span class="annottext">s :: UpdateStreamingDistributionResponse
+</span><a href="#local-6989586621679425291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425290"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStreamingDistributionResponse
+</span><a href="#local-6989586621679425291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:UpdateStreamingDistributionResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3AeTag%3AUpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The streaming distribution\'s information.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistributionResponse_streamingDistribution"><span class="hs-identifier hs-type">updateStreamingDistributionResponse_streamingDistribution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StreamingDistribution.html#StreamingDistribution"><span class="hs-identifier hs-type">StreamingDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="updateStreamingDistributionResponse_streamingDistribution"><span class="annot"><span class="annottext">updateStreamingDistributionResponse_streamingDistribution :: (Maybe StreamingDistribution -&gt; f (Maybe StreamingDistribution))
+-&gt; UpdateStreamingDistributionResponse
+-&gt; f UpdateStreamingDistributionResponse
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistributionResponse_streamingDistribution"><span class="hs-identifier hs-var hs-var">updateStreamingDistributionResponse_streamingDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateStreamingDistributionResponse
+ -&gt; Maybe StreamingDistribution)
+-&gt; (UpdateStreamingDistributionResponse
+    -&gt; Maybe StreamingDistribution
+    -&gt; UpdateStreamingDistributionResponse)
+-&gt; Lens
+     UpdateStreamingDistributionResponse
+     UpdateStreamingDistributionResponse
+     (Maybe StreamingDistribution)
+     (Maybe StreamingDistribution)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425289"><span class="annot"><span class="annottext">Maybe StreamingDistribution
+streamingDistribution :: Maybe StreamingDistribution
+$sel:streamingDistribution:UpdateStreamingDistributionResponse' :: UpdateStreamingDistributionResponse -&gt; Maybe StreamingDistribution
+</span><a href="#local-6989586621679425289"><span class="hs-identifier hs-var hs-var">streamingDistribution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamingDistribution
+</span><a href="#local-6989586621679425289"><span class="hs-identifier hs-var">streamingDistribution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425288"><span class="annot"><span class="annottext">s :: UpdateStreamingDistributionResponse
+</span><a href="#local-6989586621679425288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425287"><span class="annot"><span class="annottext">Maybe StreamingDistribution
+</span><a href="#local-6989586621679425287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStreamingDistributionResponse
+</span><a href="#local-6989586621679425288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamingDistribution:UpdateStreamingDistributionResponse' :: Maybe StreamingDistribution
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3AstreamingDistribution%3AUpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">streamingDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamingDistribution
+</span><a href="#local-6989586621679425287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistributionResponse_httpStatus"><span class="hs-identifier hs-type">updateStreamingDistributionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-198"></span><span id="updateStreamingDistributionResponse_httpStatus"><span class="annot"><span class="annottext">updateStreamingDistributionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateStreamingDistributionResponse
+-&gt; f UpdateStreamingDistributionResponse
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#updateStreamingDistributionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateStreamingDistributionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateStreamingDistributionResponse -&gt; Int)
+-&gt; (UpdateStreamingDistributionResponse
+    -&gt; Int -&gt; UpdateStreamingDistributionResponse)
+-&gt; Lens
+     UpdateStreamingDistributionResponse
+     UpdateStreamingDistributionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425286"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateStreamingDistributionResponse' :: UpdateStreamingDistributionResponse -&gt; Int
+</span><a href="#local-6989586621679425286"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425286"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425285"><span class="annot"><span class="annottext">s :: UpdateStreamingDistributionResponse
+</span><a href="#local-6989586621679425285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425284"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStreamingDistributionResponse
+</span><a href="#local-6989586621679425285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateStreamingDistributionResponse' :: Int
+</span><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#%24sel%3AhttpStatus%3AUpdateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679425282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateStreamingDistribution.html#UpdateStreamingDistributionResponse"><span class="hs-identifier hs-type">UpdateStreamingDistributionResponse</span></a></span></span><span>
+</span><span id="line-203"></span></pre></body></html>

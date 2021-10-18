@@ -1,0 +1,554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.RDS.RemoveSourceIdentifierFromSubscription</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Removes a source identifier from an existing RDS event notification</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- subscription.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RDS.RemoveSourceIdentifierFromSubscription</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription"><span class="hs-identifier">RemoveSourceIdentifierFromSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#newRemoveSourceIdentifierFromSubscription"><span class="hs-identifier">newRemoveSourceIdentifierFromSubscription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#removeSourceIdentifierFromSubscription_subscriptionName"><span class="hs-identifier">removeSourceIdentifierFromSubscription_subscriptionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#removeSourceIdentifierFromSubscription_sourceIdentifier"><span class="hs-identifier">removeSourceIdentifierFromSubscription_sourceIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse"><span class="hs-identifier">RemoveSourceIdentifierFromSubscriptionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#newRemoveSourceIdentifierFromSubscriptionResponse"><span class="hs-identifier">newRemoveSourceIdentifierFromSubscriptionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#removeSourceIdentifierFromSubscriptionResponse_eventSubscription"><span class="hs-identifier">removeSourceIdentifierFromSubscriptionResponse_eventSubscription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#removeSourceIdentifierFromSubscriptionResponse_httpStatus"><span class="hs-identifier">removeSourceIdentifierFromSubscriptionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.html"><span class="hs-identifier">Network.AWS.RDS.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newRemoveSourceIdentifierFromSubscription' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679777938"><span id="local-6989586621679777939"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveSourceIdentifierFromSubscription"><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription"><span class="hs-identifier hs-var">RemoveSourceIdentifierFromSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveSourceIdentifierFromSubscription%27"><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription%27"><span class="hs-identifier hs-var">RemoveSourceIdentifierFromSubscription'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the RDS event notification subscription you want to remove a</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- source identifier from.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AsubscriptionName%3ARemoveSourceIdentifierFromSubscription%27"><span class="annot"><span class="annottext">RemoveSourceIdentifierFromSubscription -&gt; Text
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#%24sel%3AsubscriptionName%3ARemoveSourceIdentifierFromSubscription%27"><span class="hs-identifier hs-var hs-var">subscriptionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The source identifier to be removed from the subscription, such as the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- __DB instance identifier__ for a DB instance or the name of a security</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AsourceIdentifier%3ARemoveSourceIdentifierFromSubscription%27"><span class="annot"><span class="annottext">RemoveSourceIdentifierFromSubscription -&gt; Text
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#%24sel%3AsourceIdentifier%3ARemoveSourceIdentifierFromSubscription%27"><span class="hs-identifier hs-var hs-var">sourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679777931"><span id="local-6989586621679777933"><span class="annot"><span class="annottext">RemoveSourceIdentifierFromSubscription
+-&gt; RemoveSourceIdentifierFromSubscription -&gt; Bool
+(RemoveSourceIdentifierFromSubscription
+ -&gt; RemoveSourceIdentifierFromSubscription -&gt; Bool)
+-&gt; (RemoveSourceIdentifierFromSubscription
+    -&gt; RemoveSourceIdentifierFromSubscription -&gt; Bool)
+-&gt; Eq RemoveSourceIdentifierFromSubscription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemoveSourceIdentifierFromSubscription
+-&gt; RemoveSourceIdentifierFromSubscription -&gt; Bool
+$c/= :: RemoveSourceIdentifierFromSubscription
+-&gt; RemoveSourceIdentifierFromSubscription -&gt; Bool
+== :: RemoveSourceIdentifierFromSubscription
+-&gt; RemoveSourceIdentifierFromSubscription -&gt; Bool
+$c== :: RemoveSourceIdentifierFromSubscription
+-&gt; RemoveSourceIdentifierFromSubscription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777922"><span id="local-6989586621679777924"><span id="local-6989586621679777926"><span id="local-6989586621679777928"><span class="annot"><span class="annottext">ReadPrec [RemoveSourceIdentifierFromSubscription]
+ReadPrec RemoveSourceIdentifierFromSubscription
+Int -&gt; ReadS RemoveSourceIdentifierFromSubscription
+ReadS [RemoveSourceIdentifierFromSubscription]
+(Int -&gt; ReadS RemoveSourceIdentifierFromSubscription)
+-&gt; ReadS [RemoveSourceIdentifierFromSubscription]
+-&gt; ReadPrec RemoveSourceIdentifierFromSubscription
+-&gt; ReadPrec [RemoveSourceIdentifierFromSubscription]
+-&gt; Read RemoveSourceIdentifierFromSubscription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemoveSourceIdentifierFromSubscription]
+$creadListPrec :: ReadPrec [RemoveSourceIdentifierFromSubscription]
+readPrec :: ReadPrec RemoveSourceIdentifierFromSubscription
+$creadPrec :: ReadPrec RemoveSourceIdentifierFromSubscription
+readList :: ReadS [RemoveSourceIdentifierFromSubscription]
+$creadList :: ReadS [RemoveSourceIdentifierFromSubscription]
+readsPrec :: Int -&gt; ReadS RemoveSourceIdentifierFromSubscription
+$creadsPrec :: Int -&gt; ReadS RemoveSourceIdentifierFromSubscription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777915"><span id="local-6989586621679777917"><span id="local-6989586621679777919"><span class="annot"><span class="annottext">Int -&gt; RemoveSourceIdentifierFromSubscription -&gt; ShowS
+[RemoveSourceIdentifierFromSubscription] -&gt; ShowS
+RemoveSourceIdentifierFromSubscription -&gt; String
+(Int -&gt; RemoveSourceIdentifierFromSubscription -&gt; ShowS)
+-&gt; (RemoveSourceIdentifierFromSubscription -&gt; String)
+-&gt; ([RemoveSourceIdentifierFromSubscription] -&gt; ShowS)
+-&gt; Show RemoveSourceIdentifierFromSubscription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemoveSourceIdentifierFromSubscription] -&gt; ShowS
+$cshowList :: [RemoveSourceIdentifierFromSubscription] -&gt; ShowS
+show :: RemoveSourceIdentifierFromSubscription -&gt; String
+$cshow :: RemoveSourceIdentifierFromSubscription -&gt; String
+showsPrec :: Int -&gt; RemoveSourceIdentifierFromSubscription -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemoveSourceIdentifierFromSubscription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RemoveSourceIdentifierFromSubscription
+ -&gt; Rep RemoveSourceIdentifierFromSubscription x)
+-&gt; (forall x.
+    Rep RemoveSourceIdentifierFromSubscription x
+    -&gt; RemoveSourceIdentifierFromSubscription)
+-&gt; Generic RemoveSourceIdentifierFromSubscription
+forall x.
+Rep RemoveSourceIdentifierFromSubscription x
+-&gt; RemoveSourceIdentifierFromSubscription
+forall x.
+RemoveSourceIdentifierFromSubscription
+-&gt; Rep RemoveSourceIdentifierFromSubscription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RemoveSourceIdentifierFromSubscription x
+-&gt; RemoveSourceIdentifierFromSubscription
+$cfrom :: forall x.
+RemoveSourceIdentifierFromSubscription
+-&gt; Rep RemoveSourceIdentifierFromSubscription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'RemoveSourceIdentifierFromSubscription' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'subscriptionName', 'removeSourceIdentifierFromSubscription_subscriptionName' - The name of the RDS event notification subscription you want to remove a</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- source identifier from.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'sourceIdentifier', 'removeSourceIdentifierFromSubscription_sourceIdentifier' - The source identifier to be removed from the subscription, such as the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- __DB instance identifier__ for a DB instance or the name of a security</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#newRemoveSourceIdentifierFromSubscription"><span class="hs-identifier hs-type">newRemoveSourceIdentifierFromSubscription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'subscriptionName'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'sourceIdentifier'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription</span></a></span><span>
+</span><span id="line-85"></span><span id="newRemoveSourceIdentifierFromSubscription"><span class="annot"><span class="annottext">newRemoveSourceIdentifierFromSubscription :: Text -&gt; Text -&gt; RemoveSourceIdentifierFromSubscription
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#newRemoveSourceIdentifierFromSubscription"><span class="hs-identifier hs-var hs-var">newRemoveSourceIdentifierFromSubscription</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679777910"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679777910"><span class="hs-identifier hs-var">pSubscriptionName_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679777909"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679777909"><span class="hs-identifier hs-var">pSourceIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">RemoveSourceIdentifierFromSubscription' :: Text -&gt; Text -&gt; RemoveSourceIdentifierFromSubscription
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription%27"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription'</span></a></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subscriptionName:RemoveSourceIdentifierFromSubscription' :: Text
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#%24sel%3AsubscriptionName%3ARemoveSourceIdentifierFromSubscription%27"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679777910"><span class="hs-identifier hs-var">pSubscriptionName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceIdentifier:RemoveSourceIdentifierFromSubscription' :: Text
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#%24sel%3AsourceIdentifier%3ARemoveSourceIdentifierFromSubscription%27"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679777909"><span class="hs-identifier hs-var">pSourceIdentifier_</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The name of the RDS event notification subscription you want to remove a</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- source identifier from.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#removeSourceIdentifierFromSubscription_subscriptionName"><span class="hs-identifier hs-type">removeSourceIdentifierFromSubscription_subscriptionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span id="removeSourceIdentifierFromSubscription_subscriptionName"><span class="annot"><span class="annottext">removeSourceIdentifierFromSubscription_subscriptionName :: (Text -&gt; f Text)
+-&gt; RemoveSourceIdentifierFromSubscription
+-&gt; f RemoveSourceIdentifierFromSubscription
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#removeSourceIdentifierFromSubscription_subscriptionName"><span class="hs-identifier hs-var hs-var">removeSourceIdentifierFromSubscription_subscriptionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveSourceIdentifierFromSubscription -&gt; Text)
+-&gt; (RemoveSourceIdentifierFromSubscription
+    -&gt; Text -&gt; RemoveSourceIdentifierFromSubscription)
+-&gt; Lens
+     RemoveSourceIdentifierFromSubscription
+     RemoveSourceIdentifierFromSubscription
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription%27"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777906"><span class="annot"><span class="annottext">Text
+subscriptionName :: Text
+$sel:subscriptionName:RemoveSourceIdentifierFromSubscription' :: RemoveSourceIdentifierFromSubscription -&gt; Text
+</span><a href="#local-6989586621679777906"><span class="hs-identifier hs-var hs-var">subscriptionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679777906"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777905"><span class="annot"><span class="annottext">s :: RemoveSourceIdentifierFromSubscription
+</span><a href="#local-6989586621679777905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription%27"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777904"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679777904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveSourceIdentifierFromSubscription
+</span><a href="#local-6989586621679777905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionName:RemoveSourceIdentifierFromSubscription' :: Text
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#%24sel%3AsubscriptionName%3ARemoveSourceIdentifierFromSubscription%27"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679777904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The source identifier to be removed from the subscription, such as the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- __DB instance identifier__ for a DB instance or the name of a security</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#removeSourceIdentifierFromSubscription_sourceIdentifier"><span class="hs-identifier hs-type">removeSourceIdentifierFromSubscription_sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="removeSourceIdentifierFromSubscription_sourceIdentifier"><span class="annot"><span class="annottext">removeSourceIdentifierFromSubscription_sourceIdentifier :: (Text -&gt; f Text)
+-&gt; RemoveSourceIdentifierFromSubscription
+-&gt; f RemoveSourceIdentifierFromSubscription
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#removeSourceIdentifierFromSubscription_sourceIdentifier"><span class="hs-identifier hs-var hs-var">removeSourceIdentifierFromSubscription_sourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveSourceIdentifierFromSubscription -&gt; Text)
+-&gt; (RemoveSourceIdentifierFromSubscription
+    -&gt; Text -&gt; RemoveSourceIdentifierFromSubscription)
+-&gt; Lens
+     RemoveSourceIdentifierFromSubscription
+     RemoveSourceIdentifierFromSubscription
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription%27"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777903"><span class="annot"><span class="annottext">Text
+sourceIdentifier :: Text
+$sel:sourceIdentifier:RemoveSourceIdentifierFromSubscription' :: RemoveSourceIdentifierFromSubscription -&gt; Text
+</span><a href="#local-6989586621679777903"><span class="hs-identifier hs-var hs-var">sourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679777903"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777902"><span class="annot"><span class="annottext">s :: RemoveSourceIdentifierFromSubscription
+</span><a href="#local-6989586621679777902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription%27"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777901"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679777901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveSourceIdentifierFromSubscription
+</span><a href="#local-6989586621679777902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdentifier:RemoveSourceIdentifierFromSubscription' :: Text
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#%24sel%3AsourceIdentifier%3ARemoveSourceIdentifierFromSubscription%27"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679777901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscriptionResponse</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679777897"><span class="annot"><span class="annottext">request :: RemoveSourceIdentifierFromSubscription
+-&gt; Request RemoveSourceIdentifierFromSubscription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; RemoveSourceIdentifierFromSubscription
+-&gt; Request RemoveSourceIdentifierFromSubscription
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679777893"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RemoveSourceIdentifierFromSubscription
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse RemoveSourceIdentifierFromSubscription)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either
+         String (AWSResponse RemoveSourceIdentifierFromSubscription))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RemoveSourceIdentifierFromSubscription
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse RemoveSourceIdentifierFromSubscription)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RemoveSourceIdentifierFromSubscriptionResult&quot;</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679777890"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679777890"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679777889"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679777889"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679777888"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679777888"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe EventSubscription
+-&gt; Int -&gt; RemoveSourceIdentifierFromSubscriptionResponse
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse%27"><span class="hs-identifier hs-var">RemoveSourceIdentifierFromSubscriptionResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EventSubscription
+ -&gt; Int -&gt; RemoveSourceIdentifierFromSubscriptionResponse)
+-&gt; Either String (Maybe EventSubscription)
+-&gt; Either
+     String (Int -&gt; RemoveSourceIdentifierFromSubscriptionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679777888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EventSubscription)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventSubscription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; RemoveSourceIdentifierFromSubscriptionResponse)
+-&gt; Either String Int
+-&gt; Either String RemoveSourceIdentifierFromSubscriptionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679777890"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679777880"><span id="local-6989586621679777882"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription</span></a></span></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679777877"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription</span></a></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679777873"><span class="annot"><span class="annottext">toHeaders :: RemoveSourceIdentifierFromSubscription -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; RemoveSourceIdentifierFromSubscription -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679777868"><span class="annot"><span class="annottext">toPath :: RemoveSourceIdentifierFromSubscription -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RemoveSourceIdentifierFromSubscription -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679777864"><span class="annot"><span class="annottext">toQuery :: RemoveSourceIdentifierFromSubscription -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscription%27"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777861"><span id="local-6989586621679777862"><span class="annot"><span class="annottext">Text
+sourceIdentifier :: Text
+subscriptionName :: Text
+$sel:sourceIdentifier:RemoveSourceIdentifierFromSubscription' :: RemoveSourceIdentifierFromSubscription -&gt; Text
+$sel:subscriptionName:RemoveSourceIdentifierFromSubscription' :: RemoveSourceIdentifierFromSubscription -&gt; Text
+</span><a href="#local-6989586621679777861"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RemoveSourceIdentifierFromSubscription&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SubscriptionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679777862"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SourceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679777861"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | /See:/ 'newRemoveSourceIdentifierFromSubscriptionResponse' smart constructor.</span><span>
+</span><span id="line-161"></span><span id="local-6989586621679777858"><span id="local-6989586621679777859"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveSourceIdentifierFromSubscriptionResponse"><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse"><span class="hs-identifier hs-var">RemoveSourceIdentifierFromSubscriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveSourceIdentifierFromSubscriptionResponse%27"><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse%27"><span class="hs-identifier hs-var">RemoveSourceIdentifierFromSubscriptionResponse'</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AeventSubscription%3ARemoveSourceIdentifierFromSubscriptionResponse%27"><span class="annot"><span class="annottext">RemoveSourceIdentifierFromSubscriptionResponse
+-&gt; Maybe EventSubscription
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#%24sel%3AeventSubscription%3ARemoveSourceIdentifierFromSubscriptionResponse%27"><span class="hs-identifier hs-var hs-var">eventSubscription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARemoveSourceIdentifierFromSubscriptionResponse%27"><span class="annot"><span class="annottext">RemoveSourceIdentifierFromSubscriptionResponse -&gt; Int
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#%24sel%3AhttpStatus%3ARemoveSourceIdentifierFromSubscriptionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679777852"><span id="local-6989586621679777854"><span class="annot"><span class="annottext">RemoveSourceIdentifierFromSubscriptionResponse
+-&gt; RemoveSourceIdentifierFromSubscriptionResponse -&gt; Bool
+(RemoveSourceIdentifierFromSubscriptionResponse
+ -&gt; RemoveSourceIdentifierFromSubscriptionResponse -&gt; Bool)
+-&gt; (RemoveSourceIdentifierFromSubscriptionResponse
+    -&gt; RemoveSourceIdentifierFromSubscriptionResponse -&gt; Bool)
+-&gt; Eq RemoveSourceIdentifierFromSubscriptionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemoveSourceIdentifierFromSubscriptionResponse
+-&gt; RemoveSourceIdentifierFromSubscriptionResponse -&gt; Bool
+$c/= :: RemoveSourceIdentifierFromSubscriptionResponse
+-&gt; RemoveSourceIdentifierFromSubscriptionResponse -&gt; Bool
+== :: RemoveSourceIdentifierFromSubscriptionResponse
+-&gt; RemoveSourceIdentifierFromSubscriptionResponse -&gt; Bool
+$c== :: RemoveSourceIdentifierFromSubscriptionResponse
+-&gt; RemoveSourceIdentifierFromSubscriptionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777844"><span id="local-6989586621679777846"><span id="local-6989586621679777848"><span id="local-6989586621679777850"><span class="annot"><span class="annottext">ReadPrec [RemoveSourceIdentifierFromSubscriptionResponse]
+ReadPrec RemoveSourceIdentifierFromSubscriptionResponse
+Int -&gt; ReadS RemoveSourceIdentifierFromSubscriptionResponse
+ReadS [RemoveSourceIdentifierFromSubscriptionResponse]
+(Int -&gt; ReadS RemoveSourceIdentifierFromSubscriptionResponse)
+-&gt; ReadS [RemoveSourceIdentifierFromSubscriptionResponse]
+-&gt; ReadPrec RemoveSourceIdentifierFromSubscriptionResponse
+-&gt; ReadPrec [RemoveSourceIdentifierFromSubscriptionResponse]
+-&gt; Read RemoveSourceIdentifierFromSubscriptionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemoveSourceIdentifierFromSubscriptionResponse]
+$creadListPrec :: ReadPrec [RemoveSourceIdentifierFromSubscriptionResponse]
+readPrec :: ReadPrec RemoveSourceIdentifierFromSubscriptionResponse
+$creadPrec :: ReadPrec RemoveSourceIdentifierFromSubscriptionResponse
+readList :: ReadS [RemoveSourceIdentifierFromSubscriptionResponse]
+$creadList :: ReadS [RemoveSourceIdentifierFromSubscriptionResponse]
+readsPrec :: Int -&gt; ReadS RemoveSourceIdentifierFromSubscriptionResponse
+$creadsPrec :: Int -&gt; ReadS RemoveSourceIdentifierFromSubscriptionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777838"><span id="local-6989586621679777840"><span id="local-6989586621679777842"><span class="annot"><span class="annottext">Int -&gt; RemoveSourceIdentifierFromSubscriptionResponse -&gt; ShowS
+[RemoveSourceIdentifierFromSubscriptionResponse] -&gt; ShowS
+RemoveSourceIdentifierFromSubscriptionResponse -&gt; String
+(Int -&gt; RemoveSourceIdentifierFromSubscriptionResponse -&gt; ShowS)
+-&gt; (RemoveSourceIdentifierFromSubscriptionResponse -&gt; String)
+-&gt; ([RemoveSourceIdentifierFromSubscriptionResponse] -&gt; ShowS)
+-&gt; Show RemoveSourceIdentifierFromSubscriptionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemoveSourceIdentifierFromSubscriptionResponse] -&gt; ShowS
+$cshowList :: [RemoveSourceIdentifierFromSubscriptionResponse] -&gt; ShowS
+show :: RemoveSourceIdentifierFromSubscriptionResponse -&gt; String
+$cshow :: RemoveSourceIdentifierFromSubscriptionResponse -&gt; String
+showsPrec :: Int -&gt; RemoveSourceIdentifierFromSubscriptionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemoveSourceIdentifierFromSubscriptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RemoveSourceIdentifierFromSubscriptionResponse
+ -&gt; Rep RemoveSourceIdentifierFromSubscriptionResponse x)
+-&gt; (forall x.
+    Rep RemoveSourceIdentifierFromSubscriptionResponse x
+    -&gt; RemoveSourceIdentifierFromSubscriptionResponse)
+-&gt; Generic RemoveSourceIdentifierFromSubscriptionResponse
+forall x.
+Rep RemoveSourceIdentifierFromSubscriptionResponse x
+-&gt; RemoveSourceIdentifierFromSubscriptionResponse
+forall x.
+RemoveSourceIdentifierFromSubscriptionResponse
+-&gt; Rep RemoveSourceIdentifierFromSubscriptionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RemoveSourceIdentifierFromSubscriptionResponse x
+-&gt; RemoveSourceIdentifierFromSubscriptionResponse
+$cfrom :: forall x.
+RemoveSourceIdentifierFromSubscriptionResponse
+-&gt; Rep RemoveSourceIdentifierFromSubscriptionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Create a value of 'RemoveSourceIdentifierFromSubscriptionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'eventSubscription', 'removeSourceIdentifierFromSubscriptionResponse_eventSubscription' - Undocumented member.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'httpStatus', 'removeSourceIdentifierFromSubscriptionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#newRemoveSourceIdentifierFromSubscriptionResponse"><span class="hs-identifier hs-type">newRemoveSourceIdentifierFromSubscriptionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscriptionResponse</span></a></span><span>
+</span><span id="line-183"></span><span id="newRemoveSourceIdentifierFromSubscriptionResponse"><span class="annot"><span class="annottext">newRemoveSourceIdentifierFromSubscriptionResponse :: Int -&gt; RemoveSourceIdentifierFromSubscriptionResponse
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#newRemoveSourceIdentifierFromSubscriptionResponse"><span class="hs-identifier hs-var hs-var">newRemoveSourceIdentifierFromSubscriptionResponse</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679777835"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679777835"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">RemoveSourceIdentifierFromSubscriptionResponse' :: Maybe EventSubscription
+-&gt; Int -&gt; RemoveSourceIdentifierFromSubscriptionResponse
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse%27"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscriptionResponse'</span></a></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventSubscription:RemoveSourceIdentifierFromSubscriptionResponse' :: Maybe EventSubscription
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#%24sel%3AeventSubscription%3ARemoveSourceIdentifierFromSubscriptionResponse%27"><span class="hs-identifier hs-var">eventSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe EventSubscription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveSourceIdentifierFromSubscriptionResponse' :: Int
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#%24sel%3AhttpStatus%3ARemoveSourceIdentifierFromSubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679777835"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#removeSourceIdentifierFromSubscriptionResponse_eventSubscription"><span class="hs-identifier hs-type">removeSourceIdentifierFromSubscriptionResponse_eventSubscription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscriptionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="removeSourceIdentifierFromSubscriptionResponse_eventSubscription"><span class="annot"><span class="annottext">removeSourceIdentifierFromSubscriptionResponse_eventSubscription :: (Maybe EventSubscription -&gt; f (Maybe EventSubscription))
+-&gt; RemoveSourceIdentifierFromSubscriptionResponse
+-&gt; f RemoveSourceIdentifierFromSubscriptionResponse
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#removeSourceIdentifierFromSubscriptionResponse_eventSubscription"><span class="hs-identifier hs-var hs-var">removeSourceIdentifierFromSubscriptionResponse_eventSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveSourceIdentifierFromSubscriptionResponse
+ -&gt; Maybe EventSubscription)
+-&gt; (RemoveSourceIdentifierFromSubscriptionResponse
+    -&gt; Maybe EventSubscription
+    -&gt; RemoveSourceIdentifierFromSubscriptionResponse)
+-&gt; Lens
+     RemoveSourceIdentifierFromSubscriptionResponse
+     RemoveSourceIdentifierFromSubscriptionResponse
+     (Maybe EventSubscription)
+     (Maybe EventSubscription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse%27"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777834"><span class="annot"><span class="annottext">Maybe EventSubscription
+eventSubscription :: Maybe EventSubscription
+$sel:eventSubscription:RemoveSourceIdentifierFromSubscriptionResponse' :: RemoveSourceIdentifierFromSubscriptionResponse
+-&gt; Maybe EventSubscription
+</span><a href="#local-6989586621679777834"><span class="hs-identifier hs-var hs-var">eventSubscription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventSubscription
+</span><a href="#local-6989586621679777834"><span class="hs-identifier hs-var">eventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777833"><span class="annot"><span class="annottext">s :: RemoveSourceIdentifierFromSubscriptionResponse
+</span><a href="#local-6989586621679777833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse%27"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777832"><span class="annot"><span class="annottext">Maybe EventSubscription
+</span><a href="#local-6989586621679777832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveSourceIdentifierFromSubscriptionResponse
+</span><a href="#local-6989586621679777833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSubscription:RemoveSourceIdentifierFromSubscriptionResponse' :: Maybe EventSubscription
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#%24sel%3AeventSubscription%3ARemoveSourceIdentifierFromSubscriptionResponse%27"><span class="hs-identifier hs-var">eventSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventSubscription
+</span><a href="#local-6989586621679777832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#removeSourceIdentifierFromSubscriptionResponse_httpStatus"><span class="hs-identifier hs-type">removeSourceIdentifierFromSubscriptionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscriptionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-197"></span><span id="removeSourceIdentifierFromSubscriptionResponse_httpStatus"><span class="annot"><span class="annottext">removeSourceIdentifierFromSubscriptionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RemoveSourceIdentifierFromSubscriptionResponse
+-&gt; f RemoveSourceIdentifierFromSubscriptionResponse
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#removeSourceIdentifierFromSubscriptionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">removeSourceIdentifierFromSubscriptionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveSourceIdentifierFromSubscriptionResponse -&gt; Int)
+-&gt; (RemoveSourceIdentifierFromSubscriptionResponse
+    -&gt; Int -&gt; RemoveSourceIdentifierFromSubscriptionResponse)
+-&gt; Lens
+     RemoveSourceIdentifierFromSubscriptionResponse
+     RemoveSourceIdentifierFromSubscriptionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse%27"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777831"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RemoveSourceIdentifierFromSubscriptionResponse' :: RemoveSourceIdentifierFromSubscriptionResponse -&gt; Int
+</span><a href="#local-6989586621679777831"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679777831"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777830"><span class="annot"><span class="annottext">s :: RemoveSourceIdentifierFromSubscriptionResponse
+</span><a href="#local-6989586621679777830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse%27"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777829"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679777829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveSourceIdentifierFromSubscriptionResponse
+</span><a href="#local-6989586621679777830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveSourceIdentifierFromSubscriptionResponse' :: Int
+</span><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#%24sel%3AhttpStatus%3ARemoveSourceIdentifierFromSubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679777829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679777827"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveSourceIdentifierFromSubscription.html#RemoveSourceIdentifierFromSubscriptionResponse"><span class="hs-identifier hs-type">RemoveSourceIdentifierFromSubscriptionResponse</span></a></span></span><span>
+</span><span id="line-202"></span></pre></body></html>

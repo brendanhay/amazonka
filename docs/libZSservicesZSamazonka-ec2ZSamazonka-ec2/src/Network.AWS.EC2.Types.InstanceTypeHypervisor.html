@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.InstanceTypeHypervisor</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.InstanceTypeHypervisor</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#InstanceTypeHypervisor"><span class="hs-identifier">InstanceTypeHypervisor</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#InstanceTypeHypervisor_Nitro"><span class="hs-identifier">InstanceTypeHypervisor_Nitro</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#InstanceTypeHypervisor_Xen"><span class="hs-identifier">InstanceTypeHypervisor_Xen</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681085909"><span id="local-6989586621681085910"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceTypeHypervisor"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#InstanceTypeHypervisor"><span class="hs-identifier hs-var">InstanceTypeHypervisor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceTypeHypervisor%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#InstanceTypeHypervisor%27"><span class="hs-identifier hs-var">InstanceTypeHypervisor'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceTypeHypervisor"><span class="annot"><span class="annottext">InstanceTypeHypervisor -&gt; Text
+</span><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#fromInstanceTypeHypervisor"><span class="hs-identifier hs-var hs-var">fromInstanceTypeHypervisor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681085901"><span id="local-6989586621681085903"><span id="local-6989586621681085905"><span class="annot"><span class="annottext">Int -&gt; InstanceTypeHypervisor -&gt; ShowS
+[InstanceTypeHypervisor] -&gt; ShowS
+InstanceTypeHypervisor -&gt; String
+(Int -&gt; InstanceTypeHypervisor -&gt; ShowS)
+-&gt; (InstanceTypeHypervisor -&gt; String)
+-&gt; ([InstanceTypeHypervisor] -&gt; ShowS)
+-&gt; Show InstanceTypeHypervisor
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceTypeHypervisor] -&gt; ShowS
+$cshowList :: [InstanceTypeHypervisor] -&gt; ShowS
+show :: InstanceTypeHypervisor -&gt; String
+$cshow :: InstanceTypeHypervisor -&gt; String
+showsPrec :: Int -&gt; InstanceTypeHypervisor -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceTypeHypervisor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681085892"><span id="local-6989586621681085894"><span id="local-6989586621681085896"><span id="local-6989586621681085898"><span class="annot"><span class="annottext">ReadPrec [InstanceTypeHypervisor]
+ReadPrec InstanceTypeHypervisor
+Int -&gt; ReadS InstanceTypeHypervisor
+ReadS [InstanceTypeHypervisor]
+(Int -&gt; ReadS InstanceTypeHypervisor)
+-&gt; ReadS [InstanceTypeHypervisor]
+-&gt; ReadPrec InstanceTypeHypervisor
+-&gt; ReadPrec [InstanceTypeHypervisor]
+-&gt; Read InstanceTypeHypervisor
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceTypeHypervisor]
+$creadListPrec :: ReadPrec [InstanceTypeHypervisor]
+readPrec :: ReadPrec InstanceTypeHypervisor
+$creadPrec :: ReadPrec InstanceTypeHypervisor
+readList :: ReadS [InstanceTypeHypervisor]
+$creadList :: ReadS [InstanceTypeHypervisor]
+readsPrec :: Int -&gt; ReadS InstanceTypeHypervisor
+$creadsPrec :: Int -&gt; ReadS InstanceTypeHypervisor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681085887"><span id="local-6989586621681085889"><span class="annot"><span class="annottext">InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool
+(InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool)
+-&gt; (InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool)
+-&gt; Eq InstanceTypeHypervisor
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool
+$c/= :: InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool
+== :: InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool
+$c== :: InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681085871"><span id="local-6989586621681085873"><span id="local-6989586621681085875"><span id="local-6989586621681085877"><span id="local-6989586621681085879"><span id="local-6989586621681085881"><span id="local-6989586621681085883"><span class="annot"><span class="annottext">Eq InstanceTypeHypervisor
+Eq InstanceTypeHypervisor
+-&gt; (InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Ordering)
+-&gt; (InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool)
+-&gt; (InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool)
+-&gt; (InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool)
+-&gt; (InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool)
+-&gt; (InstanceTypeHypervisor
+    -&gt; InstanceTypeHypervisor -&gt; InstanceTypeHypervisor)
+-&gt; (InstanceTypeHypervisor
+    -&gt; InstanceTypeHypervisor -&gt; InstanceTypeHypervisor)
+-&gt; Ord InstanceTypeHypervisor
+InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool
+InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Ordering
+InstanceTypeHypervisor
+-&gt; InstanceTypeHypervisor -&gt; InstanceTypeHypervisor
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InstanceTypeHypervisor
+-&gt; InstanceTypeHypervisor -&gt; InstanceTypeHypervisor
+$cmin :: InstanceTypeHypervisor
+-&gt; InstanceTypeHypervisor -&gt; InstanceTypeHypervisor
+max :: InstanceTypeHypervisor
+-&gt; InstanceTypeHypervisor -&gt; InstanceTypeHypervisor
+$cmax :: InstanceTypeHypervisor
+-&gt; InstanceTypeHypervisor -&gt; InstanceTypeHypervisor
+&gt;= :: InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool
+$c&gt;= :: InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool
+&gt; :: InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool
+$c&gt; :: InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool
+&lt;= :: InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool
+$c&lt;= :: InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool
+&lt; :: InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool
+$c&lt; :: InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Bool
+compare :: InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Ordering
+$ccompare :: InstanceTypeHypervisor -&gt; InstanceTypeHypervisor -&gt; Ordering
+$cp1Ord :: Eq InstanceTypeHypervisor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InstanceTypeHypervisor -&gt; Rep InstanceTypeHypervisor x)
+-&gt; (forall x.
+    Rep InstanceTypeHypervisor x -&gt; InstanceTypeHypervisor)
+-&gt; Generic InstanceTypeHypervisor
+forall x. Rep InstanceTypeHypervisor x -&gt; InstanceTypeHypervisor
+forall x. InstanceTypeHypervisor -&gt; Rep InstanceTypeHypervisor x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstanceTypeHypervisor x -&gt; InstanceTypeHypervisor
+$cfrom :: forall x. InstanceTypeHypervisor -&gt; Rep InstanceTypeHypervisor x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681085863"><span id="local-6989586621681085865"><span class="annot"><span class="annottext">Int -&gt; InstanceTypeHypervisor -&gt; Int
+InstanceTypeHypervisor -&gt; Int
+(Int -&gt; InstanceTypeHypervisor -&gt; Int)
+-&gt; (InstanceTypeHypervisor -&gt; Int)
+-&gt; Hashable InstanceTypeHypervisor
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InstanceTypeHypervisor -&gt; Int
+$chash :: InstanceTypeHypervisor -&gt; Int
+hashWithSalt :: Int -&gt; InstanceTypeHypervisor -&gt; Int
+$chashWithSalt :: Int -&gt; InstanceTypeHypervisor -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681085860"><span class="annot"><span class="annottext">InstanceTypeHypervisor -&gt; ()
+(InstanceTypeHypervisor -&gt; ()) -&gt; NFData InstanceTypeHypervisor
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InstanceTypeHypervisor -&gt; ()
+$crnf :: InstanceTypeHypervisor -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681085857"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceTypeHypervisor
+(Text -&gt; Either String InstanceTypeHypervisor)
+-&gt; FromText InstanceTypeHypervisor
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InstanceTypeHypervisor
+$cfromText :: Text -&gt; Either String InstanceTypeHypervisor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681085854"><span class="annot"><span class="annottext">InstanceTypeHypervisor -&gt; Text
+(InstanceTypeHypervisor -&gt; Text) -&gt; ToText InstanceTypeHypervisor
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InstanceTypeHypervisor -&gt; Text
+$ctoText :: InstanceTypeHypervisor -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681085851"><span class="annot"><span class="annottext">InstanceTypeHypervisor -&gt; ByteString
+(InstanceTypeHypervisor -&gt; ByteString)
+-&gt; ToByteString InstanceTypeHypervisor
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InstanceTypeHypervisor -&gt; ByteString
+$ctoBS :: InstanceTypeHypervisor -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681085848"><span class="annot"><span class="annottext">InstanceTypeHypervisor -&gt; ByteStringBuilder
+(InstanceTypeHypervisor -&gt; ByteStringBuilder)
+-&gt; ToLog InstanceTypeHypervisor
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InstanceTypeHypervisor -&gt; ByteStringBuilder
+$cbuild :: InstanceTypeHypervisor -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681085845"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceTypeHypervisor -&gt; [Header]
+(HeaderName -&gt; InstanceTypeHypervisor -&gt; [Header])
+-&gt; ToHeader InstanceTypeHypervisor
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InstanceTypeHypervisor -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InstanceTypeHypervisor -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681085842"><span class="annot"><span class="annottext">InstanceTypeHypervisor -&gt; QueryString
+(InstanceTypeHypervisor -&gt; QueryString)
+-&gt; ToQuery InstanceTypeHypervisor
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InstanceTypeHypervisor -&gt; QueryString
+$ctoQuery :: InstanceTypeHypervisor -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681085837"><span id="local-6989586621681085839"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceTypeHypervisor]
+Value -&gt; Parser InstanceTypeHypervisor
+(Value -&gt; Parser InstanceTypeHypervisor)
+-&gt; (Value -&gt; Parser [InstanceTypeHypervisor])
+-&gt; FromJSON InstanceTypeHypervisor
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InstanceTypeHypervisor]
+$cparseJSONList :: Value -&gt; Parser [InstanceTypeHypervisor]
+parseJSON :: Value -&gt; Parser InstanceTypeHypervisor
+$cparseJSON :: Value -&gt; Parser InstanceTypeHypervisor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681085832"><span id="local-6989586621681085834"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceTypeHypervisor]
+FromJSONKeyFunction InstanceTypeHypervisor
+FromJSONKeyFunction InstanceTypeHypervisor
+-&gt; FromJSONKeyFunction [InstanceTypeHypervisor]
+-&gt; FromJSONKey InstanceTypeHypervisor
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InstanceTypeHypervisor]
+$cfromJSONKeyList :: FromJSONKeyFunction [InstanceTypeHypervisor]
+fromJSONKey :: FromJSONKeyFunction InstanceTypeHypervisor
+$cfromJSONKey :: FromJSONKeyFunction InstanceTypeHypervisor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681085823"><span id="local-6989586621681085825"><span id="local-6989586621681085827"><span id="local-6989586621681085829"><span class="annot"><span class="annottext">[InstanceTypeHypervisor] -&gt; Encoding
+[InstanceTypeHypervisor] -&gt; Value
+InstanceTypeHypervisor -&gt; Encoding
+InstanceTypeHypervisor -&gt; Value
+(InstanceTypeHypervisor -&gt; Value)
+-&gt; (InstanceTypeHypervisor -&gt; Encoding)
+-&gt; ([InstanceTypeHypervisor] -&gt; Value)
+-&gt; ([InstanceTypeHypervisor] -&gt; Encoding)
+-&gt; ToJSON InstanceTypeHypervisor
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InstanceTypeHypervisor] -&gt; Encoding
+$ctoEncodingList :: [InstanceTypeHypervisor] -&gt; Encoding
+toJSONList :: [InstanceTypeHypervisor] -&gt; Value
+$ctoJSONList :: [InstanceTypeHypervisor] -&gt; Value
+toEncoding :: InstanceTypeHypervisor -&gt; Encoding
+$ctoEncoding :: InstanceTypeHypervisor -&gt; Encoding
+toJSON :: InstanceTypeHypervisor -&gt; Value
+$ctoJSON :: InstanceTypeHypervisor -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681085818"><span id="local-6989586621681085820"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceTypeHypervisor]
+ToJSONKeyFunction InstanceTypeHypervisor
+ToJSONKeyFunction InstanceTypeHypervisor
+-&gt; ToJSONKeyFunction [InstanceTypeHypervisor]
+-&gt; ToJSONKey InstanceTypeHypervisor
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InstanceTypeHypervisor]
+$ctoJSONKeyList :: ToJSONKeyFunction [InstanceTypeHypervisor]
+toJSONKey :: ToJSONKeyFunction InstanceTypeHypervisor
+$ctoJSONKey :: ToJSONKeyFunction InstanceTypeHypervisor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681085815"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceTypeHypervisor
+([Node] -&gt; Either String InstanceTypeHypervisor)
+-&gt; FromXML InstanceTypeHypervisor
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InstanceTypeHypervisor
+$cparseXML :: [Node] -&gt; Either String InstanceTypeHypervisor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681085812"><span class="annot"><span class="annottext">InstanceTypeHypervisor -&gt; XML
+(InstanceTypeHypervisor -&gt; XML) -&gt; ToXML InstanceTypeHypervisor
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InstanceTypeHypervisor -&gt; XML
+$ctoXML :: InstanceTypeHypervisor -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#InstanceTypeHypervisor_Nitro"><span class="hs-identifier hs-type">InstanceTypeHypervisor_Nitro</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#InstanceTypeHypervisor"><span class="hs-identifier hs-type">InstanceTypeHypervisor</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceTypeHypervisor_Nitro"><span id="%24mInstanceTypeHypervisor_Nitro"><span id="InstanceTypeHypervisor_Nitro"><span class="annot"><span class="annottext">$bInstanceTypeHypervisor_Nitro :: InstanceTypeHypervisor
+$mInstanceTypeHypervisor_Nitro :: forall r.
+InstanceTypeHypervisor -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#%24bInstanceTypeHypervisor_Nitro"><span class="hs-identifier hs-var hs-var hs-var">InstanceTypeHypervisor_Nitro</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#InstanceTypeHypervisor%27"><span class="hs-identifier hs-type">InstanceTypeHypervisor'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;nitro&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#InstanceTypeHypervisor_Xen"><span class="hs-identifier hs-type">InstanceTypeHypervisor_Xen</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#InstanceTypeHypervisor"><span class="hs-identifier hs-type">InstanceTypeHypervisor</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceTypeHypervisor_Xen"><span id="%24mInstanceTypeHypervisor_Xen"><span id="InstanceTypeHypervisor_Xen"><span class="annot"><span class="annottext">$bInstanceTypeHypervisor_Xen :: InstanceTypeHypervisor
+$mInstanceTypeHypervisor_Xen :: forall r.
+InstanceTypeHypervisor -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#%24bInstanceTypeHypervisor_Xen"><span class="hs-identifier hs-var hs-var hs-var">InstanceTypeHypervisor_Xen</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#InstanceTypeHypervisor%27"><span class="hs-identifier hs-type">InstanceTypeHypervisor'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;xen&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#InstanceTypeHypervisor_Nitro"><span class="hs-pragma hs-type">InstanceTypeHypervisor_Nitro</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#InstanceTypeHypervisor_Xen"><span class="hs-pragma hs-type">InstanceTypeHypervisor_Xen</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceTypeHypervisor.html#InstanceTypeHypervisor%27"><span class="hs-pragma hs-type">InstanceTypeHypervisor'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

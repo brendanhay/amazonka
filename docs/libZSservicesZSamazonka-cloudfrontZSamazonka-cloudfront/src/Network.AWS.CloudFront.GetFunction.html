@@ -1,0 +1,535 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.GetFunction</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the code of a CloudFront function. To get configuration information</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- and metadata about a function, use @DescribeFunction@.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- To get a function&#8217;s code, you must provide the function&#8217;s name and</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- stage. To get these values, you can use @ListFunctions@.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.GetFunction</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction"><span class="hs-identifier">GetFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#newGetFunction"><span class="hs-identifier">newGetFunction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#getFunction_stage"><span class="hs-identifier">getFunction_stage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#getFunction_name"><span class="hs-identifier">getFunction_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse"><span class="hs-identifier">GetFunctionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#newGetFunctionResponse"><span class="hs-identifier">newGetFunctionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#getFunctionResponse_eTag"><span class="hs-identifier">getFunctionResponse_eTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#getFunctionResponse_contentType"><span class="hs-identifier">getFunctionResponse_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#getFunctionResponse_functionCode"><span class="hs-identifier">getFunctionResponse_functionCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#getFunctionResponse_httpStatus"><span class="hs-identifier">getFunctionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.html"><span class="hs-identifier">Network.AWS.CloudFront.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetFunction' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679415177"><span id="local-6989586621679415178"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFunction"><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction"><span class="hs-identifier hs-var">GetFunction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFunction%27"><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-var">GetFunction'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The function&#8217;s stage, either @DEVELOPMENT@ or @LIVE@.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Astage%3AGetFunction%27"><span class="annot"><span class="annottext">GetFunction -&gt; Maybe FunctionStage
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3Astage%3AGetFunction%27"><span class="hs-identifier hs-var hs-var">stage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionStage.html#FunctionStage"><span class="hs-identifier hs-type">FunctionStage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the function whose code you are getting.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aname%3AGetFunction%27"><span class="annot"><span class="annottext">GetFunction -&gt; Text
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3Aname%3AGetFunction%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415170"><span id="local-6989586621679415172"><span class="annot"><span class="annottext">GetFunction -&gt; GetFunction -&gt; Bool
+(GetFunction -&gt; GetFunction -&gt; Bool)
+-&gt; (GetFunction -&gt; GetFunction -&gt; Bool) -&gt; Eq GetFunction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetFunction -&gt; GetFunction -&gt; Bool
+$c/= :: GetFunction -&gt; GetFunction -&gt; Bool
+== :: GetFunction -&gt; GetFunction -&gt; Bool
+$c== :: GetFunction -&gt; GetFunction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415161"><span id="local-6989586621679415163"><span id="local-6989586621679415165"><span id="local-6989586621679415167"><span class="annot"><span class="annottext">ReadPrec [GetFunction]
+ReadPrec GetFunction
+Int -&gt; ReadS GetFunction
+ReadS [GetFunction]
+(Int -&gt; ReadS GetFunction)
+-&gt; ReadS [GetFunction]
+-&gt; ReadPrec GetFunction
+-&gt; ReadPrec [GetFunction]
+-&gt; Read GetFunction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetFunction]
+$creadListPrec :: ReadPrec [GetFunction]
+readPrec :: ReadPrec GetFunction
+$creadPrec :: ReadPrec GetFunction
+readList :: ReadS [GetFunction]
+$creadList :: ReadS [GetFunction]
+readsPrec :: Int -&gt; ReadS GetFunction
+$creadsPrec :: Int -&gt; ReadS GetFunction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415154"><span id="local-6989586621679415156"><span id="local-6989586621679415158"><span class="annot"><span class="annottext">Int -&gt; GetFunction -&gt; ShowS
+[GetFunction] -&gt; ShowS
+GetFunction -&gt; String
+(Int -&gt; GetFunction -&gt; ShowS)
+-&gt; (GetFunction -&gt; String)
+-&gt; ([GetFunction] -&gt; ShowS)
+-&gt; Show GetFunction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetFunction] -&gt; ShowS
+$cshowList :: [GetFunction] -&gt; ShowS
+show :: GetFunction -&gt; String
+$cshow :: GetFunction -&gt; String
+showsPrec :: Int -&gt; GetFunction -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetFunction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetFunction -&gt; Rep GetFunction x)
+-&gt; (forall x. Rep GetFunction x -&gt; GetFunction)
+-&gt; Generic GetFunction
+forall x. Rep GetFunction x -&gt; GetFunction
+forall x. GetFunction -&gt; Rep GetFunction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetFunction x -&gt; GetFunction
+$cfrom :: forall x. GetFunction -&gt; Rep GetFunction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'GetFunction' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'stage', 'getFunction_stage' - The function&#8217;s stage, either @DEVELOPMENT@ or @LIVE@.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'name', 'getFunction_name' - The name of the function whose code you are getting.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#newGetFunction"><span class="hs-identifier hs-type">newGetFunction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span>
+</span><span id="line-80"></span><span id="newGetFunction"><span class="annot"><span class="annottext">newGetFunction :: Text -&gt; GetFunction
+</span><a href="Network.AWS.CloudFront.GetFunction.html#newGetFunction"><span class="hs-identifier hs-var hs-var">newGetFunction</span></a></span></span><span> </span><span id="local-6989586621679415149"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415149"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">GetFunction' :: Maybe FunctionStage -&gt; Text -&gt; GetFunction
+</span><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-type">GetFunction'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stage:GetFunction' :: Maybe FunctionStage
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3Astage%3AGetFunction%27"><span class="hs-identifier hs-var">stage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionStage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetFunction' :: Text
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3Aname%3AGetFunction%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415149"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The function&#8217;s stage, either @DEVELOPMENT@ or @LIVE@.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#getFunction_stage"><span class="hs-identifier hs-type">getFunction_stage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionStage.html#FunctionStage"><span class="hs-identifier hs-type">FunctionStage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="getFunction_stage"><span class="annot"><span class="annottext">getFunction_stage :: (Maybe FunctionStage -&gt; f (Maybe FunctionStage))
+-&gt; GetFunction -&gt; f GetFunction
+</span><a href="Network.AWS.CloudFront.GetFunction.html#getFunction_stage"><span class="hs-identifier hs-var hs-var">getFunction_stage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunction -&gt; Maybe FunctionStage)
+-&gt; (GetFunction -&gt; Maybe FunctionStage -&gt; GetFunction)
+-&gt; Lens
+     GetFunction GetFunction (Maybe FunctionStage) (Maybe FunctionStage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-type">GetFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415146"><span class="annot"><span class="annottext">Maybe FunctionStage
+stage :: Maybe FunctionStage
+$sel:stage:GetFunction' :: GetFunction -&gt; Maybe FunctionStage
+</span><a href="#local-6989586621679415146"><span class="hs-identifier hs-var hs-var">stage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><a href="#local-6989586621679415146"><span class="hs-identifier hs-var">stage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415145"><span class="annot"><span class="annottext">s :: GetFunction
+</span><a href="#local-6989586621679415145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-type">GetFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415144"><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><a href="#local-6989586621679415144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunction
+</span><a href="#local-6989586621679415145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stage:GetFunction' :: Maybe FunctionStage
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3Astage%3AGetFunction%27"><span class="hs-identifier hs-var">stage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><a href="#local-6989586621679415144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The name of the function whose code you are getting.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#getFunction_name"><span class="hs-identifier hs-type">getFunction_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="getFunction_name"><span class="annot"><span class="annottext">getFunction_name :: (Text -&gt; f Text) -&gt; GetFunction -&gt; f GetFunction
+</span><a href="Network.AWS.CloudFront.GetFunction.html#getFunction_name"><span class="hs-identifier hs-var hs-var">getFunction_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunction -&gt; Text)
+-&gt; (GetFunction -&gt; Text -&gt; GetFunction)
+-&gt; Lens GetFunction GetFunction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-type">GetFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415143"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetFunction' :: GetFunction -&gt; Text
+</span><a href="#local-6989586621679415143"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415143"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415142"><span class="annot"><span class="annottext">s :: GetFunction
+</span><a href="#local-6989586621679415142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-type">GetFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415141"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunction
+</span><a href="#local-6989586621679415142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetFunction' :: Text
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3Aname%3AGetFunction%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679415137"><span class="annot"><span class="annottext">request :: GetFunction -&gt; Request GetFunction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetFunction -&gt; Request GetFunction
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679415133"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetFunction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetFunction)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ByteString
+ -&gt; Either String (AWSResponse GetFunction))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetFunction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetFunction)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int
+ -&gt; ResponseHeaders -&gt; ByteString -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveBytes</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679415130"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415130"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679415129"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679415129"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679415128"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679415128"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive ByteString)
+-&gt; Int
+-&gt; GetFunctionResponse
+</span><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-var">GetFunctionResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (Sensitive ByteString)
+ -&gt; Int
+ -&gt; GetFunctionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (Sensitive ByteString) -&gt; Int -&gt; GetFunctionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679415129"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;ETag&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (Sensitive ByteString) -&gt; Int -&gt; GetFunctionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe (Sensitive ByteString) -&gt; Int -&gt; GetFunctionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679415129"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe (Sensitive ByteString) -&gt; Int -&gt; GetFunctionResponse)
+-&gt; Either String (Maybe (Sensitive ByteString))
+-&gt; Either String (Int -&gt; GetFunctionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Maybe (Sensitive ByteString)
+-&gt; Either String (Maybe (Sensitive ByteString))
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Sensitive ByteString -&gt; Maybe (Sensitive ByteString)
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; Sensitive ByteString
+</span><span class="hs-identifier hs-var">Prelude.coerce</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679415128"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetFunctionResponse)
+-&gt; Either String Int -&gt; Either String GetFunctionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415130"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415120"><span id="local-6989586621679415122"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415117"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679415113"><span class="annot"><span class="annottext">toHeaders :: GetFunction -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetFunction -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679415108"><span class="annot"><span class="annottext">toPath :: GetFunction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-type">GetFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415105"><span id="local-6989586621679415106"><span class="annot"><span class="annottext">Maybe FunctionStage
+Text
+name :: Text
+stage :: Maybe FunctionStage
+$sel:name:GetFunction' :: GetFunction -&gt; Text
+$sel:stage:GetFunction' :: GetFunction -&gt; Maybe FunctionStage
+</span><a href="#local-6989586621679415105"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-05-31/function/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415105"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679415101"><span class="annot"><span class="annottext">toQuery :: GetFunction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-type">GetFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415098"><span id="local-6989586621679415099"><span class="annot"><span class="annottext">Maybe FunctionStage
+Text
+name :: Text
+stage :: Maybe FunctionStage
+$sel:name:GetFunction' :: GetFunction -&gt; Text
+$sel:stage:GetFunction' :: GetFunction -&gt; Maybe FunctionStage
+</span><a href="#local-6989586621679415098"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Stage&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe FunctionStage -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><a href="#local-6989586621679415099"><span class="hs-identifier hs-var">stage</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newGetFunctionResponse' smart constructor.</span><span>
+</span><span id="line-124"></span><span id="local-6989586621679415095"><span id="local-6989586621679415096"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFunctionResponse"><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-var">GetFunctionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFunctionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-var">GetFunctionResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version identifier for the current version of the CloudFront</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- function.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AeTag%3AGetFunctionResponse%27"><span class="annot"><span class="annottext">GetFunctionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3AeTag%3AGetFunctionResponse%27"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The content type (media type) of the response.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AcontentType%3AGetFunctionResponse%27"><span class="annot"><span class="annottext">GetFunctionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3AcontentType%3AGetFunctionResponse%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The function code of a CloudFront function.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AfunctionCode%3AGetFunctionResponse%27"><span class="annot"><span class="annottext">GetFunctionResponse -&gt; Maybe (Sensitive ByteString)
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3AfunctionCode%3AGetFunctionResponse%27"><span class="hs-identifier hs-var hs-var">functionCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetFunctionResponse%27"><span class="annot"><span class="annottext">GetFunctionResponse -&gt; Int
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3AhttpStatus%3AGetFunctionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415087"><span id="local-6989586621679415089"><span class="annot"><span class="annottext">GetFunctionResponse -&gt; GetFunctionResponse -&gt; Bool
+(GetFunctionResponse -&gt; GetFunctionResponse -&gt; Bool)
+-&gt; (GetFunctionResponse -&gt; GetFunctionResponse -&gt; Bool)
+-&gt; Eq GetFunctionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetFunctionResponse -&gt; GetFunctionResponse -&gt; Bool
+$c/= :: GetFunctionResponse -&gt; GetFunctionResponse -&gt; Bool
+== :: GetFunctionResponse -&gt; GetFunctionResponse -&gt; Bool
+$c== :: GetFunctionResponse -&gt; GetFunctionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415081"><span id="local-6989586621679415083"><span id="local-6989586621679415085"><span class="annot"><span class="annottext">Int -&gt; GetFunctionResponse -&gt; ShowS
+[GetFunctionResponse] -&gt; ShowS
+GetFunctionResponse -&gt; String
+(Int -&gt; GetFunctionResponse -&gt; ShowS)
+-&gt; (GetFunctionResponse -&gt; String)
+-&gt; ([GetFunctionResponse] -&gt; ShowS)
+-&gt; Show GetFunctionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetFunctionResponse] -&gt; ShowS
+$cshowList :: [GetFunctionResponse] -&gt; ShowS
+show :: GetFunctionResponse -&gt; String
+$cshow :: GetFunctionResponse -&gt; String
+showsPrec :: Int -&gt; GetFunctionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetFunctionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetFunctionResponse -&gt; Rep GetFunctionResponse x)
+-&gt; (forall x. Rep GetFunctionResponse x -&gt; GetFunctionResponse)
+-&gt; Generic GetFunctionResponse
+forall x. Rep GetFunctionResponse x -&gt; GetFunctionResponse
+forall x. GetFunctionResponse -&gt; Rep GetFunctionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetFunctionResponse x -&gt; GetFunctionResponse
+$cfrom :: forall x. GetFunctionResponse -&gt; Rep GetFunctionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Create a value of 'GetFunctionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'eTag', 'getFunctionResponse_eTag' - The version identifier for the current version of the CloudFront</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- function.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'contentType', 'getFunctionResponse_contentType' - The content type (media type) of the response.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'functionCode', 'getFunctionResponse_functionCode' - The function code of a CloudFront function.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'getFunctionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#newGetFunctionResponse"><span class="hs-identifier hs-type">newGetFunctionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newGetFunctionResponse"><span class="annot"><span class="annottext">newGetFunctionResponse :: Int -&gt; GetFunctionResponse
+</span><a href="Network.AWS.CloudFront.GetFunction.html#newGetFunctionResponse"><span class="hs-identifier hs-var hs-var">newGetFunctionResponse</span></a></span></span><span> </span><span id="local-6989586621679415078"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415078"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">GetFunctionResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive ByteString)
+-&gt; Int
+-&gt; GetFunctionResponse
+</span><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eTag:GetFunctionResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3AeTag%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentType:GetFunctionResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3AcontentType%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:functionCode:GetFunctionResponse' :: Maybe (Sensitive ByteString)
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3AfunctionCode%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">functionCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ByteString)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetFunctionResponse' :: Int
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3AhttpStatus%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415078"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The version identifier for the current version of the CloudFront</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- function.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#getFunctionResponse_eTag"><span class="hs-identifier hs-type">getFunctionResponse_eTag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="getFunctionResponse_eTag"><span class="annot"><span class="annottext">getFunctionResponse_eTag :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetFunctionResponse -&gt; f GetFunctionResponse
+</span><a href="Network.AWS.CloudFront.GetFunction.html#getFunctionResponse_eTag"><span class="hs-identifier hs-var hs-var">getFunctionResponse_eTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionResponse -&gt; Maybe Text)
+-&gt; (GetFunctionResponse -&gt; Maybe Text -&gt; GetFunctionResponse)
+-&gt; Lens
+     GetFunctionResponse GetFunctionResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415077"><span class="annot"><span class="annottext">Maybe Text
+eTag :: Maybe Text
+$sel:eTag:GetFunctionResponse' :: GetFunctionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679415077"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415077"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415076"><span class="annot"><span class="annottext">s :: GetFunctionResponse
+</span><a href="#local-6989586621679415076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415075"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionResponse
+</span><a href="#local-6989586621679415076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:GetFunctionResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3AeTag%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The content type (media type) of the response.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#getFunctionResponse_contentType"><span class="hs-identifier hs-type">getFunctionResponse_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="getFunctionResponse_contentType"><span class="annot"><span class="annottext">getFunctionResponse_contentType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetFunctionResponse -&gt; f GetFunctionResponse
+</span><a href="Network.AWS.CloudFront.GetFunction.html#getFunctionResponse_contentType"><span class="hs-identifier hs-var hs-var">getFunctionResponse_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionResponse -&gt; Maybe Text)
+-&gt; (GetFunctionResponse -&gt; Maybe Text -&gt; GetFunctionResponse)
+-&gt; Lens
+     GetFunctionResponse GetFunctionResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415074"><span class="annot"><span class="annottext">Maybe Text
+contentType :: Maybe Text
+$sel:contentType:GetFunctionResponse' :: GetFunctionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679415074"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415074"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415073"><span class="annot"><span class="annottext">s :: GetFunctionResponse
+</span><a href="#local-6989586621679415073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415072"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionResponse
+</span><a href="#local-6989586621679415073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:GetFunctionResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3AcontentType%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The function code of a CloudFront function.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#getFunctionResponse_functionCode"><span class="hs-identifier hs-type">getFunctionResponse_functionCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="getFunctionResponse_functionCode"><span class="annot"><span class="annottext">getFunctionResponse_functionCode :: (Maybe ByteString -&gt; f (Maybe ByteString))
+-&gt; GetFunctionResponse -&gt; f GetFunctionResponse
+</span><a href="Network.AWS.CloudFront.GetFunction.html#getFunctionResponse_functionCode"><span class="hs-identifier hs-var hs-var">getFunctionResponse_functionCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionResponse -&gt; Maybe (Sensitive ByteString))
+-&gt; (GetFunctionResponse
+    -&gt; Maybe (Sensitive ByteString) -&gt; GetFunctionResponse)
+-&gt; Lens
+     GetFunctionResponse
+     GetFunctionResponse
+     (Maybe (Sensitive ByteString))
+     (Maybe (Sensitive ByteString))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415071"><span class="annot"><span class="annottext">Maybe (Sensitive ByteString)
+functionCode :: Maybe (Sensitive ByteString)
+$sel:functionCode:GetFunctionResponse' :: GetFunctionResponse -&gt; Maybe (Sensitive ByteString)
+</span><a href="#local-6989586621679415071"><span class="hs-identifier hs-var hs-var">functionCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ByteString)
+</span><a href="#local-6989586621679415071"><span class="hs-identifier hs-var">functionCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415070"><span class="annot"><span class="annottext">s :: GetFunctionResponse
+</span><a href="#local-6989586621679415070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415069"><span class="annot"><span class="annottext">Maybe (Sensitive ByteString)
+</span><a href="#local-6989586621679415069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionResponse
+</span><a href="#local-6989586621679415070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionCode:GetFunctionResponse' :: Maybe (Sensitive ByteString)
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3AfunctionCode%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">functionCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ByteString)
+</span><a href="#local-6989586621679415069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive ByteString) -&gt; f (Maybe (Sensitive ByteString)))
+ -&gt; GetFunctionResponse -&gt; f GetFunctionResponse)
+-&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
+    -&gt; Maybe (Sensitive ByteString)
+    -&gt; f (Maybe (Sensitive ByteString)))
+-&gt; (Maybe ByteString -&gt; f (Maybe ByteString))
+-&gt; GetFunctionResponse
+-&gt; f GetFunctionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (Sensitive ByteString) (Sensitive ByteString) ByteString ByteString
+-&gt; Iso
+     (Maybe (Sensitive ByteString))
+     (Maybe (Sensitive ByteString))
+     (Maybe ByteString)
+     (Maybe ByteString)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (Sensitive ByteString) (Sensitive ByteString) ByteString ByteString
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#getFunctionResponse_httpStatus"><span class="hs-identifier hs-type">getFunctionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-180"></span><span id="getFunctionResponse_httpStatus"><span class="annot"><span class="annottext">getFunctionResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetFunctionResponse -&gt; f GetFunctionResponse
+</span><a href="Network.AWS.CloudFront.GetFunction.html#getFunctionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getFunctionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionResponse -&gt; Int)
+-&gt; (GetFunctionResponse -&gt; Int -&gt; GetFunctionResponse)
+-&gt; Lens GetFunctionResponse GetFunctionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415065"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetFunctionResponse' :: GetFunctionResponse -&gt; Int
+</span><a href="#local-6989586621679415065"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415065"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415064"><span class="annot"><span class="annottext">s :: GetFunctionResponse
+</span><a href="#local-6989586621679415064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415063"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionResponse
+</span><a href="#local-6989586621679415064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFunctionResponse' :: Int
+</span><a href="Network.AWS.CloudFront.GetFunction.html#%24sel%3AhttpStatus%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span></span><span>
+</span><span id="line-183"></span></pre></body></html>

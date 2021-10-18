@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.S3.Types.ReplicationRuleAndOperator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.Types.ReplicationRuleAndOperator</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html"><span class="hs-identifier">Network.AWS.S3.Types.Tag</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A container for specifying rule filters. The filters determine the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- subset of objects to which the rule applies. This element is required</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- only if you specify more than one filter.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- -   If you specify both a @Prefix@ and a @Tag@ filter, wrap these</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     filters in an @And@ tag.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- -   If you specify a filter based on multiple tags, wrap the @Tag@</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     elements in an @And@ tag.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newReplicationRuleAndOperator' smart constructor.</span><span>
+</span><span id="line-41"></span><span id="local-6989586621679554506"><span id="local-6989586621679554507"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationRuleAndOperator"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator"><span class="hs-identifier hs-var">ReplicationRuleAndOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationRuleAndOperator%27"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator%27"><span class="hs-identifier hs-var">ReplicationRuleAndOperator'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object key name prefix that identifies the subset of objects to which</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- the rule applies.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aprefix%3AReplicationRuleAndOperator%27"><span class="annot"><span class="annottext">ReplicationRuleAndOperator -&gt; Maybe Text
+</span><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#%24sel%3Aprefix%3AReplicationRuleAndOperator%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | An array of tags containing key and value pairs.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Atags%3AReplicationRuleAndOperator%27"><span class="annot"><span class="annottext">ReplicationRuleAndOperator -&gt; Maybe [Tag]
+</span><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#%24sel%3Atags%3AReplicationRuleAndOperator%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679554499"><span id="local-6989586621679554501"><span class="annot"><span class="annottext">ReplicationRuleAndOperator -&gt; ReplicationRuleAndOperator -&gt; Bool
+(ReplicationRuleAndOperator -&gt; ReplicationRuleAndOperator -&gt; Bool)
+-&gt; (ReplicationRuleAndOperator
+    -&gt; ReplicationRuleAndOperator -&gt; Bool)
+-&gt; Eq ReplicationRuleAndOperator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReplicationRuleAndOperator -&gt; ReplicationRuleAndOperator -&gt; Bool
+$c/= :: ReplicationRuleAndOperator -&gt; ReplicationRuleAndOperator -&gt; Bool
+== :: ReplicationRuleAndOperator -&gt; ReplicationRuleAndOperator -&gt; Bool
+$c== :: ReplicationRuleAndOperator -&gt; ReplicationRuleAndOperator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679554490"><span id="local-6989586621679554492"><span id="local-6989586621679554494"><span id="local-6989586621679554496"><span class="annot"><span class="annottext">ReadPrec [ReplicationRuleAndOperator]
+ReadPrec ReplicationRuleAndOperator
+Int -&gt; ReadS ReplicationRuleAndOperator
+ReadS [ReplicationRuleAndOperator]
+(Int -&gt; ReadS ReplicationRuleAndOperator)
+-&gt; ReadS [ReplicationRuleAndOperator]
+-&gt; ReadPrec ReplicationRuleAndOperator
+-&gt; ReadPrec [ReplicationRuleAndOperator]
+-&gt; Read ReplicationRuleAndOperator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReplicationRuleAndOperator]
+$creadListPrec :: ReadPrec [ReplicationRuleAndOperator]
+readPrec :: ReadPrec ReplicationRuleAndOperator
+$creadPrec :: ReadPrec ReplicationRuleAndOperator
+readList :: ReadS [ReplicationRuleAndOperator]
+$creadList :: ReadS [ReplicationRuleAndOperator]
+readsPrec :: Int -&gt; ReadS ReplicationRuleAndOperator
+$creadsPrec :: Int -&gt; ReadS ReplicationRuleAndOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679554483"><span id="local-6989586621679554485"><span id="local-6989586621679554487"><span class="annot"><span class="annottext">Int -&gt; ReplicationRuleAndOperator -&gt; ShowS
+[ReplicationRuleAndOperator] -&gt; ShowS
+ReplicationRuleAndOperator -&gt; String
+(Int -&gt; ReplicationRuleAndOperator -&gt; ShowS)
+-&gt; (ReplicationRuleAndOperator -&gt; String)
+-&gt; ([ReplicationRuleAndOperator] -&gt; ShowS)
+-&gt; Show ReplicationRuleAndOperator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReplicationRuleAndOperator] -&gt; ShowS
+$cshowList :: [ReplicationRuleAndOperator] -&gt; ShowS
+show :: ReplicationRuleAndOperator -&gt; String
+$cshow :: ReplicationRuleAndOperator -&gt; String
+showsPrec :: Int -&gt; ReplicationRuleAndOperator -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReplicationRuleAndOperator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ReplicationRuleAndOperator -&gt; Rep ReplicationRuleAndOperator x)
+-&gt; (forall x.
+    Rep ReplicationRuleAndOperator x -&gt; ReplicationRuleAndOperator)
+-&gt; Generic ReplicationRuleAndOperator
+forall x.
+Rep ReplicationRuleAndOperator x -&gt; ReplicationRuleAndOperator
+forall x.
+ReplicationRuleAndOperator -&gt; Rep ReplicationRuleAndOperator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ReplicationRuleAndOperator x -&gt; ReplicationRuleAndOperator
+$cfrom :: forall x.
+ReplicationRuleAndOperator -&gt; Rep ReplicationRuleAndOperator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'ReplicationRuleAndOperator' with all optional fields omitted.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'prefix', 'replicationRuleAndOperator_prefix' - An object key name prefix that identifies the subset of objects to which</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- the rule applies.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'tags', 'replicationRuleAndOperator_tags' - An array of tags containing key and value pairs.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#newReplicationRuleAndOperator"><span class="hs-identifier hs-type">newReplicationRuleAndOperator</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator"><span class="hs-identifier hs-type">ReplicationRuleAndOperator</span></a></span><span>
+</span><span id="line-64"></span><span id="newReplicationRuleAndOperator"><span class="annot"><span class="annottext">newReplicationRuleAndOperator :: ReplicationRuleAndOperator
+</span><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#newReplicationRuleAndOperator"><span class="hs-identifier hs-var hs-var">newReplicationRuleAndOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">ReplicationRuleAndOperator' :: Maybe Text -&gt; Maybe [Tag] -&gt; ReplicationRuleAndOperator
+</span><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator%27"><span class="hs-identifier hs-type">ReplicationRuleAndOperator'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:prefix:ReplicationRuleAndOperator' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#%24sel%3Aprefix%3AReplicationRuleAndOperator%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ReplicationRuleAndOperator' :: Maybe [Tag]
+</span><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#%24sel%3Atags%3AReplicationRuleAndOperator%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | An object key name prefix that identifies the subset of objects to which</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the rule applies.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#replicationRuleAndOperator_prefix"><span class="hs-identifier hs-type">replicationRuleAndOperator_prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator"><span class="hs-identifier hs-type">ReplicationRuleAndOperator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="replicationRuleAndOperator_prefix"><span class="annot"><span class="annottext">replicationRuleAndOperator_prefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationRuleAndOperator -&gt; f ReplicationRuleAndOperator
+</span><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#replicationRuleAndOperator_prefix"><span class="hs-identifier hs-var hs-var">replicationRuleAndOperator_prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationRuleAndOperator -&gt; Maybe Text)
+-&gt; (ReplicationRuleAndOperator
+    -&gt; Maybe Text -&gt; ReplicationRuleAndOperator)
+-&gt; Lens
+     ReplicationRuleAndOperator
+     ReplicationRuleAndOperator
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator%27"><span class="hs-identifier hs-type">ReplicationRuleAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554474"><span class="annot"><span class="annottext">Maybe Text
+prefix :: Maybe Text
+$sel:prefix:ReplicationRuleAndOperator' :: ReplicationRuleAndOperator -&gt; Maybe Text
+</span><a href="#local-6989586621679554474"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679554474"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554473"><span class="annot"><span class="annottext">s :: ReplicationRuleAndOperator
+</span><a href="#local-6989586621679554473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator%27"><span class="hs-identifier hs-type">ReplicationRuleAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554472"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679554472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationRuleAndOperator
+</span><a href="#local-6989586621679554473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:ReplicationRuleAndOperator' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#%24sel%3Aprefix%3AReplicationRuleAndOperator%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679554472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator"><span class="hs-identifier hs-type">ReplicationRuleAndOperator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | An array of tags containing key and value pairs.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#replicationRuleAndOperator_tags"><span class="hs-identifier hs-type">replicationRuleAndOperator_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator"><span class="hs-identifier hs-type">ReplicationRuleAndOperator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="replicationRuleAndOperator_tags"><span class="annot"><span class="annottext">replicationRuleAndOperator_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; ReplicationRuleAndOperator -&gt; f ReplicationRuleAndOperator
+</span><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#replicationRuleAndOperator_tags"><span class="hs-identifier hs-var hs-var">replicationRuleAndOperator_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationRuleAndOperator -&gt; Maybe [Tag])
+-&gt; (ReplicationRuleAndOperator
+    -&gt; Maybe [Tag] -&gt; ReplicationRuleAndOperator)
+-&gt; Lens
+     ReplicationRuleAndOperator
+     ReplicationRuleAndOperator
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator%27"><span class="hs-identifier hs-type">ReplicationRuleAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554470"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:ReplicationRuleAndOperator' :: ReplicationRuleAndOperator -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679554470"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679554470"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554469"><span class="annot"><span class="annottext">s :: ReplicationRuleAndOperator
+</span><a href="#local-6989586621679554469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator%27"><span class="hs-identifier hs-type">ReplicationRuleAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554468"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679554468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationRuleAndOperator
+</span><a href="#local-6989586621679554469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ReplicationRuleAndOperator' :: Maybe [Tag]
+</span><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#%24sel%3Atags%3AReplicationRuleAndOperator%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679554468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator"><span class="hs-identifier hs-type">ReplicationRuleAndOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; ReplicationRuleAndOperator -&gt; f ReplicationRuleAndOperator)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; ReplicationRuleAndOperator
+-&gt; f ReplicationRuleAndOperator
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator"><span class="hs-identifier hs-type">ReplicationRuleAndOperator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679554462"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReplicationRuleAndOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679554460"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679554460"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Tag] -&gt; ReplicationRuleAndOperator
+</span><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator%27"><span class="hs-identifier hs-var">ReplicationRuleAndOperator'</span></a></span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Tag] -&gt; ReplicationRuleAndOperator)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Tag] -&gt; ReplicationRuleAndOperator)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679554460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Prefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; ReplicationRuleAndOperator)
+-&gt; Either String (Maybe [Tag])
+-&gt; Either String ReplicationRuleAndOperator
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679554460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-85"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Tag]))
+-&gt; Either String (Maybe [Tag])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Tag])
+-&gt; [Node] -&gt; Either String (Maybe [Tag])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Tag]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tag&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679554451"><span id="local-6989586621679554453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator"><span class="hs-identifier hs-type">ReplicationRuleAndOperator</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679554448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator"><span class="hs-identifier hs-type">ReplicationRuleAndOperator</span></a></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator"><span class="hs-identifier hs-type">ReplicationRuleAndOperator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679554444"><span class="annot"><span class="annottext">toXML :: ReplicationRuleAndOperator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleAndOperator.html#ReplicationRuleAndOperator%27"><span class="hs-identifier hs-type">ReplicationRuleAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554441"><span id="local-6989586621679554442"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+tags :: Maybe [Tag]
+prefix :: Maybe Text
+$sel:tags:ReplicationRuleAndOperator' :: ReplicationRuleAndOperator -&gt; Maybe [Tag]
+$sel:prefix:ReplicationRuleAndOperator' :: ReplicationRuleAndOperator -&gt; Maybe Text
+</span><a href="#local-6989586621679554441"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679554442"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Tag&quot;</span></span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe XML -&gt; XML
+forall a. ToXML a =&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXML</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Name -&gt; [Tag] -&gt; XML
+forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; XML) -&gt; Maybe [Tag] -&gt; Maybe XML
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679554441"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span></pre></body></html>

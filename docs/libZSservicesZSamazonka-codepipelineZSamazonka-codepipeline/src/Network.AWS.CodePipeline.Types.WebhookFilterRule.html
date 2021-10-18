@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodePipeline.Types.WebhookFilterRule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodePipeline.Types.WebhookFilterRule</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The event criteria that specify when a webhook notification is sent to</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- your URL.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newWebhookFilterRule' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679284101"><span id="local-6989586621679284102"></span></span><span class="hs-keyword">data</span><span> </span><span id="WebhookFilterRule"><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule"><span class="hs-identifier hs-var">WebhookFilterRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebhookFilterRule%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule%27"><span class="hs-identifier hs-var">WebhookFilterRule'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value selected by the @JsonPath@ expression must match what is</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- supplied in the @MatchEquals@ field. Otherwise, the request is ignored.</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Properties from the target action configuration can be included as</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- placeholders in this value by surrounding the action configuration key</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- with curly brackets. For example, if the value supplied here is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- \&quot;refs\/heads\/{Branch}\&quot; and the target action has an action</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- configuration property called \&quot;Branch\&quot; with a value of \&quot;master\&quot;, the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @MatchEquals@ value is evaluated as \&quot;refs\/heads\/master\&quot;. For a list</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- of action configuration properties for built-in action types, see</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements&gt;.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AmatchEquals%3AWebhookFilterRule%27"><span class="annot"><span class="annottext">WebhookFilterRule -&gt; Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#%24sel%3AmatchEquals%3AWebhookFilterRule%27"><span class="hs-identifier hs-var hs-var">matchEquals</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A JsonPath expression that is applied to the body\/payload of the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- webhook. The value selected by the JsonPath expression must match the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- value specified in the @MatchEquals@ field. Otherwise, the request is</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- ignored. For more information, see</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- &lt;https://github.com/json-path/JsonPath Java JsonPath implementation&gt; in</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- GitHub.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AjsonPath%3AWebhookFilterRule%27"><span class="annot"><span class="annottext">WebhookFilterRule -&gt; Text
+</span><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#%24sel%3AjsonPath%3AWebhookFilterRule%27"><span class="hs-identifier hs-var hs-var">jsonPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284094"><span id="local-6989586621679284096"><span class="annot"><span class="annottext">WebhookFilterRule -&gt; WebhookFilterRule -&gt; Bool
+(WebhookFilterRule -&gt; WebhookFilterRule -&gt; Bool)
+-&gt; (WebhookFilterRule -&gt; WebhookFilterRule -&gt; Bool)
+-&gt; Eq WebhookFilterRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WebhookFilterRule -&gt; WebhookFilterRule -&gt; Bool
+$c/= :: WebhookFilterRule -&gt; WebhookFilterRule -&gt; Bool
+== :: WebhookFilterRule -&gt; WebhookFilterRule -&gt; Bool
+$c== :: WebhookFilterRule -&gt; WebhookFilterRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284085"><span id="local-6989586621679284087"><span id="local-6989586621679284089"><span id="local-6989586621679284091"><span class="annot"><span class="annottext">ReadPrec [WebhookFilterRule]
+ReadPrec WebhookFilterRule
+Int -&gt; ReadS WebhookFilterRule
+ReadS [WebhookFilterRule]
+(Int -&gt; ReadS WebhookFilterRule)
+-&gt; ReadS [WebhookFilterRule]
+-&gt; ReadPrec WebhookFilterRule
+-&gt; ReadPrec [WebhookFilterRule]
+-&gt; Read WebhookFilterRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WebhookFilterRule]
+$creadListPrec :: ReadPrec [WebhookFilterRule]
+readPrec :: ReadPrec WebhookFilterRule
+$creadPrec :: ReadPrec WebhookFilterRule
+readList :: ReadS [WebhookFilterRule]
+$creadList :: ReadS [WebhookFilterRule]
+readsPrec :: Int -&gt; ReadS WebhookFilterRule
+$creadsPrec :: Int -&gt; ReadS WebhookFilterRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284078"><span id="local-6989586621679284080"><span id="local-6989586621679284082"><span class="annot"><span class="annottext">Int -&gt; WebhookFilterRule -&gt; ShowS
+[WebhookFilterRule] -&gt; ShowS
+WebhookFilterRule -&gt; String
+(Int -&gt; WebhookFilterRule -&gt; ShowS)
+-&gt; (WebhookFilterRule -&gt; String)
+-&gt; ([WebhookFilterRule] -&gt; ShowS)
+-&gt; Show WebhookFilterRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WebhookFilterRule] -&gt; ShowS
+$cshowList :: [WebhookFilterRule] -&gt; ShowS
+show :: WebhookFilterRule -&gt; String
+$cshow :: WebhookFilterRule -&gt; String
+showsPrec :: Int -&gt; WebhookFilterRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; WebhookFilterRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. WebhookFilterRule -&gt; Rep WebhookFilterRule x)
+-&gt; (forall x. Rep WebhookFilterRule x -&gt; WebhookFilterRule)
+-&gt; Generic WebhookFilterRule
+forall x. Rep WebhookFilterRule x -&gt; WebhookFilterRule
+forall x. WebhookFilterRule -&gt; Rep WebhookFilterRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WebhookFilterRule x -&gt; WebhookFilterRule
+$cfrom :: forall x. WebhookFilterRule -&gt; Rep WebhookFilterRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'WebhookFilterRule' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'matchEquals', 'webhookFilterRule_matchEquals' - The value selected by the @JsonPath@ expression must match what is</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- supplied in the @MatchEquals@ field. Otherwise, the request is ignored.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Properties from the target action configuration can be included as</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- placeholders in this value by surrounding the action configuration key</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- with curly brackets. For example, if the value supplied here is</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- \&quot;refs\/heads\/{Branch}\&quot; and the target action has an action</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- configuration property called \&quot;Branch\&quot; with a value of \&quot;master\&quot;, the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- @MatchEquals@ value is evaluated as \&quot;refs\/heads\/master\&quot;. For a list</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- of action configuration properties for built-in action types, see</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements&gt;.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'jsonPath', 'webhookFilterRule_jsonPath' - A JsonPath expression that is applied to the body\/payload of the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- webhook. The value selected by the JsonPath expression must match the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- value specified in the @MatchEquals@ field. Otherwise, the request is</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- ignored. For more information, see</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- &lt;https://github.com/json-path/JsonPath Java JsonPath implementation&gt; in</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- GitHub.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#newWebhookFilterRule"><span class="hs-identifier hs-type">newWebhookFilterRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'jsonPath'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule"><span class="hs-identifier hs-type">WebhookFilterRule</span></a></span><span>
+</span><span id="line-81"></span><span id="newWebhookFilterRule"><span class="annot"><span class="annottext">newWebhookFilterRule :: Text -&gt; WebhookFilterRule
+</span><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#newWebhookFilterRule"><span class="hs-identifier hs-var hs-var">newWebhookFilterRule</span></a></span></span><span> </span><span id="local-6989586621679284072"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284072"><span class="hs-identifier hs-var">pJsonPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">WebhookFilterRule' :: Maybe Text -&gt; Text -&gt; WebhookFilterRule
+</span><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule%27"><span class="hs-identifier hs-type">WebhookFilterRule'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:matchEquals:WebhookFilterRule' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#%24sel%3AmatchEquals%3AWebhookFilterRule%27"><span class="hs-identifier hs-var">matchEquals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:jsonPath:WebhookFilterRule' :: Text
+</span><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#%24sel%3AjsonPath%3AWebhookFilterRule%27"><span class="hs-identifier hs-var">jsonPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284072"><span class="hs-identifier hs-var">pJsonPath_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The value selected by the @JsonPath@ expression must match what is</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- supplied in the @MatchEquals@ field. Otherwise, the request is ignored.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Properties from the target action configuration can be included as</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- placeholders in this value by surrounding the action configuration key</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- with curly brackets. For example, if the value supplied here is</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- \&quot;refs\/heads\/{Branch}\&quot; and the target action has an action</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- configuration property called \&quot;Branch\&quot; with a value of \&quot;master\&quot;, the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- @MatchEquals@ value is evaluated as \&quot;refs\/heads\/master\&quot;. For a list</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- of action configuration properties for built-in action types, see</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements&gt;.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#webhookFilterRule_matchEquals"><span class="hs-identifier hs-type">webhookFilterRule_matchEquals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule"><span class="hs-identifier hs-type">WebhookFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="webhookFilterRule_matchEquals"><span class="annot"><span class="annottext">webhookFilterRule_matchEquals :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WebhookFilterRule -&gt; f WebhookFilterRule
+</span><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#webhookFilterRule_matchEquals"><span class="hs-identifier hs-var hs-var">webhookFilterRule_matchEquals</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WebhookFilterRule -&gt; Maybe Text)
+-&gt; (WebhookFilterRule -&gt; Maybe Text -&gt; WebhookFilterRule)
+-&gt; Lens
+     WebhookFilterRule WebhookFilterRule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule%27"><span class="hs-identifier hs-type">WebhookFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284068"><span class="annot"><span class="annottext">Maybe Text
+matchEquals :: Maybe Text
+$sel:matchEquals:WebhookFilterRule' :: WebhookFilterRule -&gt; Maybe Text
+</span><a href="#local-6989586621679284068"><span class="hs-identifier hs-var hs-var">matchEquals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284068"><span class="hs-identifier hs-var">matchEquals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284067"><span class="annot"><span class="annottext">s :: WebhookFilterRule
+</span><a href="#local-6989586621679284067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule%27"><span class="hs-identifier hs-type">WebhookFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284066"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookFilterRule
+</span><a href="#local-6989586621679284067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchEquals:WebhookFilterRule' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#%24sel%3AmatchEquals%3AWebhookFilterRule%27"><span class="hs-identifier hs-var">matchEquals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule"><span class="hs-identifier hs-type">WebhookFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | A JsonPath expression that is applied to the body\/payload of the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- webhook. The value selected by the JsonPath expression must match the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- value specified in the @MatchEquals@ field. Otherwise, the request is</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- ignored. For more information, see</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- &lt;https://github.com/json-path/JsonPath Java JsonPath implementation&gt; in</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- GitHub.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#webhookFilterRule_jsonPath"><span class="hs-identifier hs-type">webhookFilterRule_jsonPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule"><span class="hs-identifier hs-type">WebhookFilterRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="webhookFilterRule_jsonPath"><span class="annot"><span class="annottext">webhookFilterRule_jsonPath :: (Text -&gt; f Text) -&gt; WebhookFilterRule -&gt; f WebhookFilterRule
+</span><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#webhookFilterRule_jsonPath"><span class="hs-identifier hs-var hs-var">webhookFilterRule_jsonPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WebhookFilterRule -&gt; Text)
+-&gt; (WebhookFilterRule -&gt; Text -&gt; WebhookFilterRule)
+-&gt; Lens WebhookFilterRule WebhookFilterRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule%27"><span class="hs-identifier hs-type">WebhookFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284064"><span class="annot"><span class="annottext">Text
+jsonPath :: Text
+$sel:jsonPath:WebhookFilterRule' :: WebhookFilterRule -&gt; Text
+</span><a href="#local-6989586621679284064"><span class="hs-identifier hs-var hs-var">jsonPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284064"><span class="hs-identifier hs-var">jsonPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284063"><span class="annot"><span class="annottext">s :: WebhookFilterRule
+</span><a href="#local-6989586621679284063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule%27"><span class="hs-identifier hs-type">WebhookFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284062"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookFilterRule
+</span><a href="#local-6989586621679284063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jsonPath:WebhookFilterRule' :: Text
+</span><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#%24sel%3AjsonPath%3AWebhookFilterRule%27"><span class="hs-identifier hs-var">jsonPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule"><span class="hs-identifier hs-type">WebhookFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284059"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule"><span class="hs-identifier hs-type">WebhookFilterRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679284057"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WebhookFilterRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser WebhookFilterRule)
+-&gt; Value
+-&gt; Parser WebhookFilterRule
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;WebhookFilterRule&quot;</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284054"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284054"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; WebhookFilterRule
+</span><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule%27"><span class="hs-identifier hs-var">WebhookFilterRule'</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; WebhookFilterRule)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; WebhookFilterRule)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;matchEquals&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; WebhookFilterRule)
+-&gt; Parser Text -&gt; Parser WebhookFilterRule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jsonPath&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284047"><span id="local-6989586621679284049"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule"><span class="hs-identifier hs-type">WebhookFilterRule</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule"><span class="hs-identifier hs-type">WebhookFilterRule</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284036"><span id="local-6989586621679284038"><span id="local-6989586621679284040"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule"><span class="hs-identifier hs-type">WebhookFilterRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679284034"><span class="annot"><span class="annottext">toJSON :: WebhookFilterRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookFilterRule.html#WebhookFilterRule%27"><span class="hs-identifier hs-type">WebhookFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284031"><span id="local-6989586621679284032"><span class="annot"><span class="annottext">Maybe Text
+Text
+jsonPath :: Text
+matchEquals :: Maybe Text
+$sel:jsonPath:WebhookFilterRule' :: WebhookFilterRule -&gt; Text
+$sel:matchEquals:WebhookFilterRule' :: WebhookFilterRule -&gt; Maybe Text
+</span><a href="#local-6989586621679284031"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;matchEquals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284032"><span class="hs-identifier hs-var">matchEquals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jsonPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284031"><span class="hs-identifier hs-var">jsonPath</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span></pre></body></html>

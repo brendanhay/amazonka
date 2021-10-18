@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode.html#Eac3AtmosBitstreamMode"><span class="hs-identifier">Eac3AtmosBitstreamMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode.html#Eac3AtmosBitstreamMode_COMPLETE_MAIN"><span class="hs-identifier">Eac3AtmosBitstreamMode_COMPLETE_MAIN</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Specify the bitstream mode for the E-AC-3 stream that the encoder emits.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- For more information about the EAC3 bitstream mode, see ATSC A\/52-2012</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- (Annex E).</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679953783"><span id="local-6989586621679953784"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3AtmosBitstreamMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode.html#Eac3AtmosBitstreamMode"><span class="hs-identifier hs-var">Eac3AtmosBitstreamMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3AtmosBitstreamMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode.html#Eac3AtmosBitstreamMode%27"><span class="hs-identifier hs-var">Eac3AtmosBitstreamMode'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEac3AtmosBitstreamMode"><span class="annot"><span class="annottext">Eac3AtmosBitstreamMode -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode.html#fromEac3AtmosBitstreamMode"><span class="hs-identifier hs-var hs-var">fromEac3AtmosBitstreamMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953775"><span id="local-6989586621679953777"><span id="local-6989586621679953779"><span class="annot"><span class="annottext">Int -&gt; Eac3AtmosBitstreamMode -&gt; ShowS
+[Eac3AtmosBitstreamMode] -&gt; ShowS
+Eac3AtmosBitstreamMode -&gt; String
+(Int -&gt; Eac3AtmosBitstreamMode -&gt; ShowS)
+-&gt; (Eac3AtmosBitstreamMode -&gt; String)
+-&gt; ([Eac3AtmosBitstreamMode] -&gt; ShowS)
+-&gt; Show Eac3AtmosBitstreamMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Eac3AtmosBitstreamMode] -&gt; ShowS
+$cshowList :: [Eac3AtmosBitstreamMode] -&gt; ShowS
+show :: Eac3AtmosBitstreamMode -&gt; String
+$cshow :: Eac3AtmosBitstreamMode -&gt; String
+showsPrec :: Int -&gt; Eac3AtmosBitstreamMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; Eac3AtmosBitstreamMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679953766"><span id="local-6989586621679953768"><span id="local-6989586621679953770"><span id="local-6989586621679953772"><span class="annot"><span class="annottext">ReadPrec [Eac3AtmosBitstreamMode]
+ReadPrec Eac3AtmosBitstreamMode
+Int -&gt; ReadS Eac3AtmosBitstreamMode
+ReadS [Eac3AtmosBitstreamMode]
+(Int -&gt; ReadS Eac3AtmosBitstreamMode)
+-&gt; ReadS [Eac3AtmosBitstreamMode]
+-&gt; ReadPrec Eac3AtmosBitstreamMode
+-&gt; ReadPrec [Eac3AtmosBitstreamMode]
+-&gt; Read Eac3AtmosBitstreamMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Eac3AtmosBitstreamMode]
+$creadListPrec :: ReadPrec [Eac3AtmosBitstreamMode]
+readPrec :: ReadPrec Eac3AtmosBitstreamMode
+$creadPrec :: ReadPrec Eac3AtmosBitstreamMode
+readList :: ReadS [Eac3AtmosBitstreamMode]
+$creadList :: ReadS [Eac3AtmosBitstreamMode]
+readsPrec :: Int -&gt; ReadS Eac3AtmosBitstreamMode
+$creadsPrec :: Int -&gt; ReadS Eac3AtmosBitstreamMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679953761"><span id="local-6989586621679953763"><span class="annot"><span class="annottext">Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool
+(Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool)
+-&gt; (Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool)
+-&gt; Eq Eac3AtmosBitstreamMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool
+$c/= :: Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool
+== :: Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool
+$c== :: Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679953745"><span id="local-6989586621679953747"><span id="local-6989586621679953749"><span id="local-6989586621679953751"><span id="local-6989586621679953753"><span id="local-6989586621679953755"><span id="local-6989586621679953757"><span class="annot"><span class="annottext">Eq Eac3AtmosBitstreamMode
+Eq Eac3AtmosBitstreamMode
+-&gt; (Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Ordering)
+-&gt; (Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool)
+-&gt; (Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool)
+-&gt; (Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool)
+-&gt; (Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool)
+-&gt; (Eac3AtmosBitstreamMode
+    -&gt; Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode)
+-&gt; (Eac3AtmosBitstreamMode
+    -&gt; Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode)
+-&gt; Ord Eac3AtmosBitstreamMode
+Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool
+Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Ordering
+Eac3AtmosBitstreamMode
+-&gt; Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Eac3AtmosBitstreamMode
+-&gt; Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode
+$cmin :: Eac3AtmosBitstreamMode
+-&gt; Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode
+max :: Eac3AtmosBitstreamMode
+-&gt; Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode
+$cmax :: Eac3AtmosBitstreamMode
+-&gt; Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode
+&gt;= :: Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool
+$c&gt;= :: Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool
+&gt; :: Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool
+$c&gt; :: Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool
+&lt;= :: Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool
+$c&lt;= :: Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool
+&lt; :: Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool
+$c&lt; :: Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Bool
+compare :: Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Ordering
+$ccompare :: Eac3AtmosBitstreamMode -&gt; Eac3AtmosBitstreamMode -&gt; Ordering
+$cp1Ord :: Eq Eac3AtmosBitstreamMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Eac3AtmosBitstreamMode -&gt; Rep Eac3AtmosBitstreamMode x)
+-&gt; (forall x.
+    Rep Eac3AtmosBitstreamMode x -&gt; Eac3AtmosBitstreamMode)
+-&gt; Generic Eac3AtmosBitstreamMode
+forall x. Rep Eac3AtmosBitstreamMode x -&gt; Eac3AtmosBitstreamMode
+forall x. Eac3AtmosBitstreamMode -&gt; Rep Eac3AtmosBitstreamMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Eac3AtmosBitstreamMode x -&gt; Eac3AtmosBitstreamMode
+$cfrom :: forall x. Eac3AtmosBitstreamMode -&gt; Rep Eac3AtmosBitstreamMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953737"><span id="local-6989586621679953739"><span class="annot"><span class="annottext">Int -&gt; Eac3AtmosBitstreamMode -&gt; Int
+Eac3AtmosBitstreamMode -&gt; Int
+(Int -&gt; Eac3AtmosBitstreamMode -&gt; Int)
+-&gt; (Eac3AtmosBitstreamMode -&gt; Int)
+-&gt; Hashable Eac3AtmosBitstreamMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Eac3AtmosBitstreamMode -&gt; Int
+$chash :: Eac3AtmosBitstreamMode -&gt; Int
+hashWithSalt :: Int -&gt; Eac3AtmosBitstreamMode -&gt; Int
+$chashWithSalt :: Int -&gt; Eac3AtmosBitstreamMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679953734"><span class="annot"><span class="annottext">Eac3AtmosBitstreamMode -&gt; ()
+(Eac3AtmosBitstreamMode -&gt; ()) -&gt; NFData Eac3AtmosBitstreamMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Eac3AtmosBitstreamMode -&gt; ()
+$crnf :: Eac3AtmosBitstreamMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679953731"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3AtmosBitstreamMode
+(Text -&gt; Either String Eac3AtmosBitstreamMode)
+-&gt; FromText Eac3AtmosBitstreamMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Eac3AtmosBitstreamMode
+$cfromText :: Text -&gt; Either String Eac3AtmosBitstreamMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679953728"><span class="annot"><span class="annottext">Eac3AtmosBitstreamMode -&gt; Text
+(Eac3AtmosBitstreamMode -&gt; Text) -&gt; ToText Eac3AtmosBitstreamMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Eac3AtmosBitstreamMode -&gt; Text
+$ctoText :: Eac3AtmosBitstreamMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679953725"><span class="annot"><span class="annottext">Eac3AtmosBitstreamMode -&gt; ByteString
+(Eac3AtmosBitstreamMode -&gt; ByteString)
+-&gt; ToByteString Eac3AtmosBitstreamMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Eac3AtmosBitstreamMode -&gt; ByteString
+$ctoBS :: Eac3AtmosBitstreamMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679953722"><span class="annot"><span class="annottext">Eac3AtmosBitstreamMode -&gt; ByteStringBuilder
+(Eac3AtmosBitstreamMode -&gt; ByteStringBuilder)
+-&gt; ToLog Eac3AtmosBitstreamMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Eac3AtmosBitstreamMode -&gt; ByteStringBuilder
+$cbuild :: Eac3AtmosBitstreamMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679953719"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3AtmosBitstreamMode -&gt; [Header]
+(HeaderName -&gt; Eac3AtmosBitstreamMode -&gt; [Header])
+-&gt; ToHeader Eac3AtmosBitstreamMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Eac3AtmosBitstreamMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Eac3AtmosBitstreamMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679953716"><span class="annot"><span class="annottext">Eac3AtmosBitstreamMode -&gt; QueryString
+(Eac3AtmosBitstreamMode -&gt; QueryString)
+-&gt; ToQuery Eac3AtmosBitstreamMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Eac3AtmosBitstreamMode -&gt; QueryString
+$ctoQuery :: Eac3AtmosBitstreamMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679953711"><span id="local-6989586621679953713"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3AtmosBitstreamMode]
+Value -&gt; Parser Eac3AtmosBitstreamMode
+(Value -&gt; Parser Eac3AtmosBitstreamMode)
+-&gt; (Value -&gt; Parser [Eac3AtmosBitstreamMode])
+-&gt; FromJSON Eac3AtmosBitstreamMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Eac3AtmosBitstreamMode]
+$cparseJSONList :: Value -&gt; Parser [Eac3AtmosBitstreamMode]
+parseJSON :: Value -&gt; Parser Eac3AtmosBitstreamMode
+$cparseJSON :: Value -&gt; Parser Eac3AtmosBitstreamMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679953706"><span id="local-6989586621679953708"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3AtmosBitstreamMode]
+FromJSONKeyFunction Eac3AtmosBitstreamMode
+FromJSONKeyFunction Eac3AtmosBitstreamMode
+-&gt; FromJSONKeyFunction [Eac3AtmosBitstreamMode]
+-&gt; FromJSONKey Eac3AtmosBitstreamMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Eac3AtmosBitstreamMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [Eac3AtmosBitstreamMode]
+fromJSONKey :: FromJSONKeyFunction Eac3AtmosBitstreamMode
+$cfromJSONKey :: FromJSONKeyFunction Eac3AtmosBitstreamMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679953697"><span id="local-6989586621679953699"><span id="local-6989586621679953701"><span id="local-6989586621679953703"><span class="annot"><span class="annottext">[Eac3AtmosBitstreamMode] -&gt; Encoding
+[Eac3AtmosBitstreamMode] -&gt; Value
+Eac3AtmosBitstreamMode -&gt; Encoding
+Eac3AtmosBitstreamMode -&gt; Value
+(Eac3AtmosBitstreamMode -&gt; Value)
+-&gt; (Eac3AtmosBitstreamMode -&gt; Encoding)
+-&gt; ([Eac3AtmosBitstreamMode] -&gt; Value)
+-&gt; ([Eac3AtmosBitstreamMode] -&gt; Encoding)
+-&gt; ToJSON Eac3AtmosBitstreamMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Eac3AtmosBitstreamMode] -&gt; Encoding
+$ctoEncodingList :: [Eac3AtmosBitstreamMode] -&gt; Encoding
+toJSONList :: [Eac3AtmosBitstreamMode] -&gt; Value
+$ctoJSONList :: [Eac3AtmosBitstreamMode] -&gt; Value
+toEncoding :: Eac3AtmosBitstreamMode -&gt; Encoding
+$ctoEncoding :: Eac3AtmosBitstreamMode -&gt; Encoding
+toJSON :: Eac3AtmosBitstreamMode -&gt; Value
+$ctoJSON :: Eac3AtmosBitstreamMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679953692"><span id="local-6989586621679953694"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3AtmosBitstreamMode]
+ToJSONKeyFunction Eac3AtmosBitstreamMode
+ToJSONKeyFunction Eac3AtmosBitstreamMode
+-&gt; ToJSONKeyFunction [Eac3AtmosBitstreamMode]
+-&gt; ToJSONKey Eac3AtmosBitstreamMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Eac3AtmosBitstreamMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [Eac3AtmosBitstreamMode]
+toJSONKey :: ToJSONKeyFunction Eac3AtmosBitstreamMode
+$ctoJSONKey :: ToJSONKeyFunction Eac3AtmosBitstreamMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679953689"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3AtmosBitstreamMode
+([Node] -&gt; Either String Eac3AtmosBitstreamMode)
+-&gt; FromXML Eac3AtmosBitstreamMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Eac3AtmosBitstreamMode
+$cparseXML :: [Node] -&gt; Either String Eac3AtmosBitstreamMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679953686"><span class="annot"><span class="annottext">Eac3AtmosBitstreamMode -&gt; XML
+(Eac3AtmosBitstreamMode -&gt; XML) -&gt; ToXML Eac3AtmosBitstreamMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Eac3AtmosBitstreamMode -&gt; XML
+$ctoXML :: Eac3AtmosBitstreamMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode.html#Eac3AtmosBitstreamMode_COMPLETE_MAIN"><span class="hs-identifier hs-type">Eac3AtmosBitstreamMode_COMPLETE_MAIN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode.html#Eac3AtmosBitstreamMode"><span class="hs-identifier hs-type">Eac3AtmosBitstreamMode</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3AtmosBitstreamMode_COMPLETE_MAIN"><span id="%24mEac3AtmosBitstreamMode_COMPLETE_MAIN"><span id="Eac3AtmosBitstreamMode_COMPLETE_MAIN"><span class="annot"><span class="annottext">$bEac3AtmosBitstreamMode_COMPLETE_MAIN :: Eac3AtmosBitstreamMode
+$mEac3AtmosBitstreamMode_COMPLETE_MAIN :: forall r.
+Eac3AtmosBitstreamMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode.html#%24bEac3AtmosBitstreamMode_COMPLETE_MAIN"><span class="hs-identifier hs-var hs-var hs-var">Eac3AtmosBitstreamMode_COMPLETE_MAIN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode.html#Eac3AtmosBitstreamMode%27"><span class="hs-identifier hs-type">Eac3AtmosBitstreamMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETE_MAIN&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode.html#Eac3AtmosBitstreamMode_COMPLETE_MAIN"><span class="hs-pragma hs-type">Eac3AtmosBitstreamMode_COMPLETE_MAIN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode.html#Eac3AtmosBitstreamMode%27"><span class="hs-pragma hs-type">Eac3AtmosBitstreamMode'</span></a></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-69"></span></pre></body></html>

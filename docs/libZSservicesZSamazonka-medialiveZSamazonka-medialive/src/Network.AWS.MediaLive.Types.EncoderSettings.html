@@ -1,0 +1,1034 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.EncoderSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.EncoderSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioDescription.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.AudioDescription</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailBlanking.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.AvailBlanking</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailConfiguration.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.AvailConfiguration</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.BlackoutSlate</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDescription.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.CaptionDescription</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FeatureActivations.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.FeatureActivations</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.GlobalConfiguration.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.GlobalConfiguration</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsConfiguration.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.MotionGraphicsConfiguration</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenConfiguration.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.NielsenConfiguration</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputGroup.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.OutputGroup</span></a></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.TimecodeConfig</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoDescription.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.VideoDescription</span></a></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- | Encoder Settings</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newEncoderSettings' smart constructor.</span><span>
+</span><span id="line-41"></span><span id="local-6989586621679925763"><span id="local-6989586621679925764"></span></span><span class="hs-keyword">data</span><span> </span><span id="EncoderSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-var">EncoderSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncoderSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-var">EncoderSettings'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Settings for motion graphics.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AmotionGraphicsConfiguration%3AEncoderSettings%27"><span class="annot"><span class="annottext">EncoderSettings -&gt; Maybe MotionGraphicsConfiguration
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AmotionGraphicsConfiguration%3AEncoderSettings%27"><span class="hs-identifier hs-var hs-var">motionGraphicsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsConfiguration.html#MotionGraphicsConfiguration"><span class="hs-identifier hs-type">MotionGraphicsConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Feature Activations</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AfeatureActivations%3AEncoderSettings%27"><span class="annot"><span class="annottext">EncoderSettings -&gt; Maybe FeatureActivations
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AfeatureActivations%3AEncoderSettings%27"><span class="hs-identifier hs-var hs-var">featureActivations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FeatureActivations.html#FeatureActivations"><span class="hs-identifier hs-type">FeatureActivations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Configuration settings that apply to the event as a whole.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AglobalConfiguration%3AEncoderSettings%27"><span class="annot"><span class="annottext">EncoderSettings -&gt; Maybe GlobalConfiguration
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AglobalConfiguration%3AEncoderSettings%27"><span class="hs-identifier hs-var hs-var">globalConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Event-wide configuration settings for ad avail insertion.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AavailConfiguration%3AEncoderSettings%27"><span class="annot"><span class="annottext">EncoderSettings -&gt; Maybe AvailConfiguration
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AavailConfiguration%3AEncoderSettings%27"><span class="hs-identifier hs-var hs-var">availConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailConfiguration.html#AvailConfiguration"><span class="hs-identifier hs-type">AvailConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Settings for ad avail blanking.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AavailBlanking%3AEncoderSettings%27"><span class="annot"><span class="annottext">EncoderSettings -&gt; Maybe AvailBlanking
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AavailBlanking%3AEncoderSettings%27"><span class="hs-identifier hs-var hs-var">availBlanking</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-type">AvailBlanking</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Nielsen configuration settings.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AnielsenConfiguration%3AEncoderSettings%27"><span class="annot"><span class="annottext">EncoderSettings -&gt; Maybe NielsenConfiguration
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AnielsenConfiguration%3AEncoderSettings%27"><span class="hs-identifier hs-var hs-var">nielsenConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration"><span class="hs-identifier hs-type">NielsenConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Settings for blackout slate.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AblackoutSlate%3AEncoderSettings%27"><span class="annot"><span class="annottext">EncoderSettings -&gt; Maybe BlackoutSlate
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AblackoutSlate%3AEncoderSettings%27"><span class="hs-identifier hs-var hs-var">blackoutSlate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Settings for caption decriptions</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AcaptionDescriptions%3AEncoderSettings%27"><span class="annot"><span class="annottext">EncoderSettings -&gt; Maybe [CaptionDescription]
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AcaptionDescriptions%3AEncoderSettings%27"><span class="hs-identifier hs-var hs-var">captionDescriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AvideoDescriptions%3AEncoderSettings%27"><span class="annot"><span class="annottext">EncoderSettings -&gt; [VideoDescription]
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AvideoDescriptions%3AEncoderSettings%27"><span class="hs-identifier hs-var hs-var">videoDescriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoDescription.html#VideoDescription"><span class="hs-identifier hs-type">VideoDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AaudioDescriptions%3AEncoderSettings%27"><span class="annot"><span class="annottext">EncoderSettings -&gt; [AudioDescription]
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AaudioDescriptions%3AEncoderSettings%27"><span class="hs-identifier hs-var hs-var">audioDescriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioDescription.html#AudioDescription"><span class="hs-identifier hs-type">AudioDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AoutputGroups%3AEncoderSettings%27"><span class="annot"><span class="annottext">EncoderSettings -&gt; [OutputGroup]
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AoutputGroups%3AEncoderSettings%27"><span class="hs-identifier hs-var hs-var">outputGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputGroup.html#OutputGroup"><span class="hs-identifier hs-type">OutputGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Contains settings used to acquire and adjust timecode information from</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- inputs.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AtimecodeConfig%3AEncoderSettings%27"><span class="annot"><span class="annottext">EncoderSettings -&gt; TimecodeConfig
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AtimecodeConfig%3AEncoderSettings%27"><span class="hs-identifier hs-var hs-var">timecodeConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679925746"><span id="local-6989586621679925748"><span class="annot"><span class="annottext">EncoderSettings -&gt; EncoderSettings -&gt; Bool
+(EncoderSettings -&gt; EncoderSettings -&gt; Bool)
+-&gt; (EncoderSettings -&gt; EncoderSettings -&gt; Bool)
+-&gt; Eq EncoderSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EncoderSettings -&gt; EncoderSettings -&gt; Bool
+$c/= :: EncoderSettings -&gt; EncoderSettings -&gt; Bool
+== :: EncoderSettings -&gt; EncoderSettings -&gt; Bool
+$c== :: EncoderSettings -&gt; EncoderSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679925737"><span id="local-6989586621679925739"><span id="local-6989586621679925741"><span id="local-6989586621679925743"><span class="annot"><span class="annottext">ReadPrec [EncoderSettings]
+ReadPrec EncoderSettings
+Int -&gt; ReadS EncoderSettings
+ReadS [EncoderSettings]
+(Int -&gt; ReadS EncoderSettings)
+-&gt; ReadS [EncoderSettings]
+-&gt; ReadPrec EncoderSettings
+-&gt; ReadPrec [EncoderSettings]
+-&gt; Read EncoderSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EncoderSettings]
+$creadListPrec :: ReadPrec [EncoderSettings]
+readPrec :: ReadPrec EncoderSettings
+$creadPrec :: ReadPrec EncoderSettings
+readList :: ReadS [EncoderSettings]
+$creadList :: ReadS [EncoderSettings]
+readsPrec :: Int -&gt; ReadS EncoderSettings
+$creadsPrec :: Int -&gt; ReadS EncoderSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679925730"><span id="local-6989586621679925732"><span id="local-6989586621679925734"><span class="annot"><span class="annottext">Int -&gt; EncoderSettings -&gt; ShowS
+[EncoderSettings] -&gt; ShowS
+EncoderSettings -&gt; String
+(Int -&gt; EncoderSettings -&gt; ShowS)
+-&gt; (EncoderSettings -&gt; String)
+-&gt; ([EncoderSettings] -&gt; ShowS)
+-&gt; Show EncoderSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EncoderSettings] -&gt; ShowS
+$cshowList :: [EncoderSettings] -&gt; ShowS
+show :: EncoderSettings -&gt; String
+$cshow :: EncoderSettings -&gt; String
+showsPrec :: Int -&gt; EncoderSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; EncoderSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EncoderSettings -&gt; Rep EncoderSettings x)
+-&gt; (forall x. Rep EncoderSettings x -&gt; EncoderSettings)
+-&gt; Generic EncoderSettings
+forall x. Rep EncoderSettings x -&gt; EncoderSettings
+forall x. EncoderSettings -&gt; Rep EncoderSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EncoderSettings x -&gt; EncoderSettings
+$cfrom :: forall x. EncoderSettings -&gt; Rep EncoderSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'EncoderSettings' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'motionGraphicsConfiguration', 'encoderSettings_motionGraphicsConfiguration' - Settings for motion graphics.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'featureActivations', 'encoderSettings_featureActivations' - Feature Activations</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'globalConfiguration', 'encoderSettings_globalConfiguration' - Configuration settings that apply to the event as a whole.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'availConfiguration', 'encoderSettings_availConfiguration' - Event-wide configuration settings for ad avail insertion.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'availBlanking', 'encoderSettings_availBlanking' - Settings for ad avail blanking.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'nielsenConfiguration', 'encoderSettings_nielsenConfiguration' - Nielsen configuration settings.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'blackoutSlate', 'encoderSettings_blackoutSlate' - Settings for blackout slate.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'captionDescriptions', 'encoderSettings_captionDescriptions' - Settings for caption decriptions</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'videoDescriptions', 'encoderSettings_videoDescriptions' - Undocumented member.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'audioDescriptions', 'encoderSettings_audioDescriptions' - Undocumented member.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'outputGroups', 'encoderSettings_outputGroups' - Undocumented member.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'timecodeConfig', 'encoderSettings_timecodeConfig' - Contains settings used to acquire and adjust timecode information from</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- inputs.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#newEncoderSettings"><span class="hs-identifier hs-type">newEncoderSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'timecodeConfig'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span>
+</span><span id="line-103"></span><span id="newEncoderSettings"><span class="annot"><span class="annottext">newEncoderSettings :: TimecodeConfig -&gt; EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#newEncoderSettings"><span class="hs-identifier hs-var hs-var">newEncoderSettings</span></a></span></span><span> </span><span id="local-6989586621679925724"><span class="annot"><span class="annottext">TimecodeConfig
+</span><a href="#local-6989586621679925724"><span class="hs-identifier hs-var">pTimecodeConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">EncoderSettings' :: Maybe MotionGraphicsConfiguration
+-&gt; Maybe FeatureActivations
+-&gt; Maybe GlobalConfiguration
+-&gt; Maybe AvailConfiguration
+-&gt; Maybe AvailBlanking
+-&gt; Maybe NielsenConfiguration
+-&gt; Maybe BlackoutSlate
+-&gt; Maybe [CaptionDescription]
+-&gt; [VideoDescription]
+-&gt; [AudioDescription]
+-&gt; [OutputGroup]
+-&gt; TimecodeConfig
+-&gt; EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:motionGraphicsConfiguration:EncoderSettings' :: Maybe MotionGraphicsConfiguration
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AmotionGraphicsConfiguration%3AEncoderSettings%27"><span class="hs-identifier hs-var">motionGraphicsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Maybe MotionGraphicsConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:featureActivations:EncoderSettings' :: Maybe FeatureActivations
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AfeatureActivations%3AEncoderSettings%27"><span class="hs-identifier hs-var">featureActivations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FeatureActivations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalConfiguration:EncoderSettings' :: Maybe GlobalConfiguration
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AglobalConfiguration%3AEncoderSettings%27"><span class="hs-identifier hs-var">globalConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:availConfiguration:EncoderSettings' :: Maybe AvailConfiguration
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AavailConfiguration%3AEncoderSettings%27"><span class="hs-identifier hs-var">availConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvailConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:availBlanking:EncoderSettings' :: Maybe AvailBlanking
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AavailBlanking%3AEncoderSettings%27"><span class="hs-identifier hs-var">availBlanking</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvailBlanking
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:nielsenConfiguration:EncoderSettings' :: Maybe NielsenConfiguration
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AnielsenConfiguration%3AEncoderSettings%27"><span class="hs-identifier hs-var">nielsenConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:blackoutSlate:EncoderSettings' :: Maybe BlackoutSlate
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AblackoutSlate%3AEncoderSettings%27"><span class="hs-identifier hs-var">blackoutSlate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:captionDescriptions:EncoderSettings' :: Maybe [CaptionDescription]
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AcaptionDescriptions%3AEncoderSettings%27"><span class="hs-identifier hs-var">captionDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionDescription]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:videoDescriptions:EncoderSettings' :: [VideoDescription]
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AvideoDescriptions%3AEncoderSettings%27"><span class="hs-identifier hs-var">videoDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[VideoDescription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:audioDescriptions:EncoderSettings' :: [AudioDescription]
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AaudioDescriptions%3AEncoderSettings%27"><span class="hs-identifier hs-var">audioDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AudioDescription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputGroups:EncoderSettings' :: [OutputGroup]
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AoutputGroups%3AEncoderSettings%27"><span class="hs-identifier hs-var">outputGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[OutputGroup]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:timecodeConfig:EncoderSettings' :: TimecodeConfig
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AtimecodeConfig%3AEncoderSettings%27"><span class="hs-identifier hs-var">timecodeConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TimecodeConfig
+</span><a href="#local-6989586621679925724"><span class="hs-identifier hs-var">pTimecodeConfig_</span></a></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Settings for motion graphics.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_motionGraphicsConfiguration"><span class="hs-identifier hs-type">encoderSettings_motionGraphicsConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsConfiguration.html#MotionGraphicsConfiguration"><span class="hs-identifier hs-type">MotionGraphicsConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="encoderSettings_motionGraphicsConfiguration"><span class="annot"><span class="annottext">encoderSettings_motionGraphicsConfiguration :: (Maybe MotionGraphicsConfiguration
+ -&gt; f (Maybe MotionGraphicsConfiguration))
+-&gt; EncoderSettings -&gt; f EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_motionGraphicsConfiguration"><span class="hs-identifier hs-var hs-var">encoderSettings_motionGraphicsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncoderSettings -&gt; Maybe MotionGraphicsConfiguration)
+-&gt; (EncoderSettings
+    -&gt; Maybe MotionGraphicsConfiguration -&gt; EncoderSettings)
+-&gt; Lens
+     EncoderSettings
+     EncoderSettings
+     (Maybe MotionGraphicsConfiguration)
+     (Maybe MotionGraphicsConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925720"><span class="annot"><span class="annottext">Maybe MotionGraphicsConfiguration
+motionGraphicsConfiguration :: Maybe MotionGraphicsConfiguration
+$sel:motionGraphicsConfiguration:EncoderSettings' :: EncoderSettings -&gt; Maybe MotionGraphicsConfiguration
+</span><a href="#local-6989586621679925720"><span class="hs-identifier hs-var hs-var">motionGraphicsConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MotionGraphicsConfiguration
+</span><a href="#local-6989586621679925720"><span class="hs-identifier hs-var">motionGraphicsConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925719"><span class="annot"><span class="annottext">s :: EncoderSettings
+</span><a href="#local-6989586621679925719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925718"><span class="annot"><span class="annottext">Maybe MotionGraphicsConfiguration
+</span><a href="#local-6989586621679925718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncoderSettings
+</span><a href="#local-6989586621679925719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:motionGraphicsConfiguration:EncoderSettings' :: Maybe MotionGraphicsConfiguration
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AmotionGraphicsConfiguration%3AEncoderSettings%27"><span class="hs-identifier hs-var">motionGraphicsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MotionGraphicsConfiguration
+</span><a href="#local-6989586621679925718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | Feature Activations</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_featureActivations"><span class="hs-identifier hs-type">encoderSettings_featureActivations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FeatureActivations.html#FeatureActivations"><span class="hs-identifier hs-type">FeatureActivations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="encoderSettings_featureActivations"><span class="annot"><span class="annottext">encoderSettings_featureActivations :: (Maybe FeatureActivations -&gt; f (Maybe FeatureActivations))
+-&gt; EncoderSettings -&gt; f EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_featureActivations"><span class="hs-identifier hs-var hs-var">encoderSettings_featureActivations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncoderSettings -&gt; Maybe FeatureActivations)
+-&gt; (EncoderSettings -&gt; Maybe FeatureActivations -&gt; EncoderSettings)
+-&gt; Lens
+     EncoderSettings
+     EncoderSettings
+     (Maybe FeatureActivations)
+     (Maybe FeatureActivations)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925716"><span class="annot"><span class="annottext">Maybe FeatureActivations
+featureActivations :: Maybe FeatureActivations
+$sel:featureActivations:EncoderSettings' :: EncoderSettings -&gt; Maybe FeatureActivations
+</span><a href="#local-6989586621679925716"><span class="hs-identifier hs-var hs-var">featureActivations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FeatureActivations
+</span><a href="#local-6989586621679925716"><span class="hs-identifier hs-var">featureActivations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925715"><span class="annot"><span class="annottext">s :: EncoderSettings
+</span><a href="#local-6989586621679925715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925714"><span class="annot"><span class="annottext">Maybe FeatureActivations
+</span><a href="#local-6989586621679925714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncoderSettings
+</span><a href="#local-6989586621679925715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureActivations:EncoderSettings' :: Maybe FeatureActivations
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AfeatureActivations%3AEncoderSettings%27"><span class="hs-identifier hs-var">featureActivations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FeatureActivations
+</span><a href="#local-6989586621679925714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Configuration settings that apply to the event as a whole.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_globalConfiguration"><span class="hs-identifier hs-type">encoderSettings_globalConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="encoderSettings_globalConfiguration"><span class="annot"><span class="annottext">encoderSettings_globalConfiguration :: (Maybe GlobalConfiguration -&gt; f (Maybe GlobalConfiguration))
+-&gt; EncoderSettings -&gt; f EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_globalConfiguration"><span class="hs-identifier hs-var hs-var">encoderSettings_globalConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncoderSettings -&gt; Maybe GlobalConfiguration)
+-&gt; (EncoderSettings
+    -&gt; Maybe GlobalConfiguration -&gt; EncoderSettings)
+-&gt; Lens
+     EncoderSettings
+     EncoderSettings
+     (Maybe GlobalConfiguration)
+     (Maybe GlobalConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925712"><span class="annot"><span class="annottext">Maybe GlobalConfiguration
+globalConfiguration :: Maybe GlobalConfiguration
+$sel:globalConfiguration:EncoderSettings' :: EncoderSettings -&gt; Maybe GlobalConfiguration
+</span><a href="#local-6989586621679925712"><span class="hs-identifier hs-var hs-var">globalConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfiguration
+</span><a href="#local-6989586621679925712"><span class="hs-identifier hs-var">globalConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925711"><span class="annot"><span class="annottext">s :: EncoderSettings
+</span><a href="#local-6989586621679925711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925710"><span class="annot"><span class="annottext">Maybe GlobalConfiguration
+</span><a href="#local-6989586621679925710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncoderSettings
+</span><a href="#local-6989586621679925711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalConfiguration:EncoderSettings' :: Maybe GlobalConfiguration
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AglobalConfiguration%3AEncoderSettings%27"><span class="hs-identifier hs-var">globalConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfiguration
+</span><a href="#local-6989586621679925710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Event-wide configuration settings for ad avail insertion.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_availConfiguration"><span class="hs-identifier hs-type">encoderSettings_availConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailConfiguration.html#AvailConfiguration"><span class="hs-identifier hs-type">AvailConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="encoderSettings_availConfiguration"><span class="annot"><span class="annottext">encoderSettings_availConfiguration :: (Maybe AvailConfiguration -&gt; f (Maybe AvailConfiguration))
+-&gt; EncoderSettings -&gt; f EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_availConfiguration"><span class="hs-identifier hs-var hs-var">encoderSettings_availConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncoderSettings -&gt; Maybe AvailConfiguration)
+-&gt; (EncoderSettings -&gt; Maybe AvailConfiguration -&gt; EncoderSettings)
+-&gt; Lens
+     EncoderSettings
+     EncoderSettings
+     (Maybe AvailConfiguration)
+     (Maybe AvailConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925708"><span class="annot"><span class="annottext">Maybe AvailConfiguration
+availConfiguration :: Maybe AvailConfiguration
+$sel:availConfiguration:EncoderSettings' :: EncoderSettings -&gt; Maybe AvailConfiguration
+</span><a href="#local-6989586621679925708"><span class="hs-identifier hs-var hs-var">availConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvailConfiguration
+</span><a href="#local-6989586621679925708"><span class="hs-identifier hs-var">availConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925707"><span class="annot"><span class="annottext">s :: EncoderSettings
+</span><a href="#local-6989586621679925707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925706"><span class="annot"><span class="annottext">Maybe AvailConfiguration
+</span><a href="#local-6989586621679925706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncoderSettings
+</span><a href="#local-6989586621679925707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availConfiguration:EncoderSettings' :: Maybe AvailConfiguration
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AavailConfiguration%3AEncoderSettings%27"><span class="hs-identifier hs-var">availConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvailConfiguration
+</span><a href="#local-6989586621679925706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Settings for ad avail blanking.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_availBlanking"><span class="hs-identifier hs-type">encoderSettings_availBlanking</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-type">AvailBlanking</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="encoderSettings_availBlanking"><span class="annot"><span class="annottext">encoderSettings_availBlanking :: (Maybe AvailBlanking -&gt; f (Maybe AvailBlanking))
+-&gt; EncoderSettings -&gt; f EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_availBlanking"><span class="hs-identifier hs-var hs-var">encoderSettings_availBlanking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncoderSettings -&gt; Maybe AvailBlanking)
+-&gt; (EncoderSettings -&gt; Maybe AvailBlanking -&gt; EncoderSettings)
+-&gt; Lens
+     EncoderSettings
+     EncoderSettings
+     (Maybe AvailBlanking)
+     (Maybe AvailBlanking)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925704"><span class="annot"><span class="annottext">Maybe AvailBlanking
+availBlanking :: Maybe AvailBlanking
+$sel:availBlanking:EncoderSettings' :: EncoderSettings -&gt; Maybe AvailBlanking
+</span><a href="#local-6989586621679925704"><span class="hs-identifier hs-var hs-var">availBlanking</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvailBlanking
+</span><a href="#local-6989586621679925704"><span class="hs-identifier hs-var">availBlanking</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925703"><span class="annot"><span class="annottext">s :: EncoderSettings
+</span><a href="#local-6989586621679925703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925702"><span class="annot"><span class="annottext">Maybe AvailBlanking
+</span><a href="#local-6989586621679925702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncoderSettings
+</span><a href="#local-6989586621679925703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availBlanking:EncoderSettings' :: Maybe AvailBlanking
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AavailBlanking%3AEncoderSettings%27"><span class="hs-identifier hs-var">availBlanking</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvailBlanking
+</span><a href="#local-6989586621679925702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | Nielsen configuration settings.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_nielsenConfiguration"><span class="hs-identifier hs-type">encoderSettings_nielsenConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration"><span class="hs-identifier hs-type">NielsenConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="encoderSettings_nielsenConfiguration"><span class="annot"><span class="annottext">encoderSettings_nielsenConfiguration :: (Maybe NielsenConfiguration -&gt; f (Maybe NielsenConfiguration))
+-&gt; EncoderSettings -&gt; f EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_nielsenConfiguration"><span class="hs-identifier hs-var hs-var">encoderSettings_nielsenConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncoderSettings -&gt; Maybe NielsenConfiguration)
+-&gt; (EncoderSettings
+    -&gt; Maybe NielsenConfiguration -&gt; EncoderSettings)
+-&gt; Lens
+     EncoderSettings
+     EncoderSettings
+     (Maybe NielsenConfiguration)
+     (Maybe NielsenConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925700"><span class="annot"><span class="annottext">Maybe NielsenConfiguration
+nielsenConfiguration :: Maybe NielsenConfiguration
+$sel:nielsenConfiguration:EncoderSettings' :: EncoderSettings -&gt; Maybe NielsenConfiguration
+</span><a href="#local-6989586621679925700"><span class="hs-identifier hs-var hs-var">nielsenConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenConfiguration
+</span><a href="#local-6989586621679925700"><span class="hs-identifier hs-var">nielsenConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925699"><span class="annot"><span class="annottext">s :: EncoderSettings
+</span><a href="#local-6989586621679925699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925698"><span class="annot"><span class="annottext">Maybe NielsenConfiguration
+</span><a href="#local-6989586621679925698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncoderSettings
+</span><a href="#local-6989586621679925699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenConfiguration:EncoderSettings' :: Maybe NielsenConfiguration
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AnielsenConfiguration%3AEncoderSettings%27"><span class="hs-identifier hs-var">nielsenConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenConfiguration
+</span><a href="#local-6989586621679925698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | Settings for blackout slate.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_blackoutSlate"><span class="hs-identifier hs-type">encoderSettings_blackoutSlate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="encoderSettings_blackoutSlate"><span class="annot"><span class="annottext">encoderSettings_blackoutSlate :: (Maybe BlackoutSlate -&gt; f (Maybe BlackoutSlate))
+-&gt; EncoderSettings -&gt; f EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_blackoutSlate"><span class="hs-identifier hs-var hs-var">encoderSettings_blackoutSlate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncoderSettings -&gt; Maybe BlackoutSlate)
+-&gt; (EncoderSettings -&gt; Maybe BlackoutSlate -&gt; EncoderSettings)
+-&gt; Lens
+     EncoderSettings
+     EncoderSettings
+     (Maybe BlackoutSlate)
+     (Maybe BlackoutSlate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925696"><span class="annot"><span class="annottext">Maybe BlackoutSlate
+blackoutSlate :: Maybe BlackoutSlate
+$sel:blackoutSlate:EncoderSettings' :: EncoderSettings -&gt; Maybe BlackoutSlate
+</span><a href="#local-6989586621679925696"><span class="hs-identifier hs-var hs-var">blackoutSlate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlate
+</span><a href="#local-6989586621679925696"><span class="hs-identifier hs-var">blackoutSlate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925695"><span class="annot"><span class="annottext">s :: EncoderSettings
+</span><a href="#local-6989586621679925695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925694"><span class="annot"><span class="annottext">Maybe BlackoutSlate
+</span><a href="#local-6989586621679925694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncoderSettings
+</span><a href="#local-6989586621679925695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blackoutSlate:EncoderSettings' :: Maybe BlackoutSlate
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AblackoutSlate%3AEncoderSettings%27"><span class="hs-identifier hs-var">blackoutSlate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlate
+</span><a href="#local-6989586621679925694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | Settings for caption decriptions</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_captionDescriptions"><span class="hs-identifier hs-type">encoderSettings_captionDescriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="encoderSettings_captionDescriptions"><span class="annot"><span class="annottext">encoderSettings_captionDescriptions :: (Maybe [CaptionDescription] -&gt; f (Maybe [CaptionDescription]))
+-&gt; EncoderSettings -&gt; f EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_captionDescriptions"><span class="hs-identifier hs-var hs-var">encoderSettings_captionDescriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncoderSettings -&gt; Maybe [CaptionDescription])
+-&gt; (EncoderSettings
+    -&gt; Maybe [CaptionDescription] -&gt; EncoderSettings)
+-&gt; Lens
+     EncoderSettings
+     EncoderSettings
+     (Maybe [CaptionDescription])
+     (Maybe [CaptionDescription])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925692"><span class="annot"><span class="annottext">Maybe [CaptionDescription]
+captionDescriptions :: Maybe [CaptionDescription]
+$sel:captionDescriptions:EncoderSettings' :: EncoderSettings -&gt; Maybe [CaptionDescription]
+</span><a href="#local-6989586621679925692"><span class="hs-identifier hs-var hs-var">captionDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionDescription]
+</span><a href="#local-6989586621679925692"><span class="hs-identifier hs-var">captionDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925691"><span class="annot"><span class="annottext">s :: EncoderSettings
+</span><a href="#local-6989586621679925691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925690"><span class="annot"><span class="annottext">Maybe [CaptionDescription]
+</span><a href="#local-6989586621679925690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncoderSettings
+</span><a href="#local-6989586621679925691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionDescriptions:EncoderSettings' :: Maybe [CaptionDescription]
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AcaptionDescriptions%3AEncoderSettings%27"><span class="hs-identifier hs-var">captionDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionDescription]
+</span><a href="#local-6989586621679925690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CaptionDescription] -&gt; f (Maybe [CaptionDescription]))
+ -&gt; EncoderSettings -&gt; f EncoderSettings)
+-&gt; ((Maybe [CaptionDescription] -&gt; f (Maybe [CaptionDescription]))
+    -&gt; Maybe [CaptionDescription] -&gt; f (Maybe [CaptionDescription]))
+-&gt; (Maybe [CaptionDescription] -&gt; f (Maybe [CaptionDescription]))
+-&gt; EncoderSettings
+-&gt; f EncoderSettings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CaptionDescription]
+  [CaptionDescription]
+  [CaptionDescription]
+  [CaptionDescription]
+-&gt; Iso
+     (Maybe [CaptionDescription])
+     (Maybe [CaptionDescription])
+     (Maybe [CaptionDescription])
+     (Maybe [CaptionDescription])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CaptionDescription]
+  [CaptionDescription]
+  [CaptionDescription]
+  [CaptionDescription]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_videoDescriptions"><span class="hs-identifier hs-type">encoderSettings_videoDescriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoDescription.html#VideoDescription"><span class="hs-identifier hs-type">VideoDescription</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span id="encoderSettings_videoDescriptions"><span class="annot"><span class="annottext">encoderSettings_videoDescriptions :: ([VideoDescription] -&gt; f [VideoDescription])
+-&gt; EncoderSettings -&gt; f EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_videoDescriptions"><span class="hs-identifier hs-var hs-var">encoderSettings_videoDescriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncoderSettings -&gt; [VideoDescription])
+-&gt; (EncoderSettings -&gt; [VideoDescription] -&gt; EncoderSettings)
+-&gt; Lens
+     EncoderSettings
+     EncoderSettings
+     [VideoDescription]
+     [VideoDescription]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925685"><span class="annot"><span class="annottext">[VideoDescription]
+videoDescriptions :: [VideoDescription]
+$sel:videoDescriptions:EncoderSettings' :: EncoderSettings -&gt; [VideoDescription]
+</span><a href="#local-6989586621679925685"><span class="hs-identifier hs-var hs-var">videoDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[VideoDescription]
+</span><a href="#local-6989586621679925685"><span class="hs-identifier hs-var">videoDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925684"><span class="annot"><span class="annottext">s :: EncoderSettings
+</span><a href="#local-6989586621679925684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925683"><span class="annot"><span class="annottext">[VideoDescription]
+</span><a href="#local-6989586621679925683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncoderSettings
+</span><a href="#local-6989586621679925684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoDescriptions:EncoderSettings' :: [VideoDescription]
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AvideoDescriptions%3AEncoderSettings%27"><span class="hs-identifier hs-var">videoDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[VideoDescription]
+</span><a href="#local-6989586621679925683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([VideoDescription] -&gt; f [VideoDescription])
+ -&gt; EncoderSettings -&gt; f EncoderSettings)
+-&gt; (([VideoDescription] -&gt; f [VideoDescription])
+    -&gt; [VideoDescription] -&gt; f [VideoDescription])
+-&gt; ([VideoDescription] -&gt; f [VideoDescription])
+-&gt; EncoderSettings
+-&gt; f EncoderSettings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([VideoDescription] -&gt; f [VideoDescription])
+-&gt; [VideoDescription] -&gt; f [VideoDescription]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_audioDescriptions"><span class="hs-identifier hs-type">encoderSettings_audioDescriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioDescription.html#AudioDescription"><span class="hs-identifier hs-type">AudioDescription</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span id="encoderSettings_audioDescriptions"><span class="annot"><span class="annottext">encoderSettings_audioDescriptions :: ([AudioDescription] -&gt; f [AudioDescription])
+-&gt; EncoderSettings -&gt; f EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_audioDescriptions"><span class="hs-identifier hs-var hs-var">encoderSettings_audioDescriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncoderSettings -&gt; [AudioDescription])
+-&gt; (EncoderSettings -&gt; [AudioDescription] -&gt; EncoderSettings)
+-&gt; Lens
+     EncoderSettings
+     EncoderSettings
+     [AudioDescription]
+     [AudioDescription]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925681"><span class="annot"><span class="annottext">[AudioDescription]
+audioDescriptions :: [AudioDescription]
+$sel:audioDescriptions:EncoderSettings' :: EncoderSettings -&gt; [AudioDescription]
+</span><a href="#local-6989586621679925681"><span class="hs-identifier hs-var hs-var">audioDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AudioDescription]
+</span><a href="#local-6989586621679925681"><span class="hs-identifier hs-var">audioDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925680"><span class="annot"><span class="annottext">s :: EncoderSettings
+</span><a href="#local-6989586621679925680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925679"><span class="annot"><span class="annottext">[AudioDescription]
+</span><a href="#local-6989586621679925679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncoderSettings
+</span><a href="#local-6989586621679925680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioDescriptions:EncoderSettings' :: [AudioDescription]
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AaudioDescriptions%3AEncoderSettings%27"><span class="hs-identifier hs-var">audioDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AudioDescription]
+</span><a href="#local-6989586621679925679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AudioDescription] -&gt; f [AudioDescription])
+ -&gt; EncoderSettings -&gt; f EncoderSettings)
+-&gt; (([AudioDescription] -&gt; f [AudioDescription])
+    -&gt; [AudioDescription] -&gt; f [AudioDescription])
+-&gt; ([AudioDescription] -&gt; f [AudioDescription])
+-&gt; EncoderSettings
+-&gt; f EncoderSettings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AudioDescription] -&gt; f [AudioDescription])
+-&gt; [AudioDescription] -&gt; f [AudioDescription]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_outputGroups"><span class="hs-identifier hs-type">encoderSettings_outputGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputGroup.html#OutputGroup"><span class="hs-identifier hs-type">OutputGroup</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-162"></span><span id="encoderSettings_outputGroups"><span class="annot"><span class="annottext">encoderSettings_outputGroups :: ([OutputGroup] -&gt; f [OutputGroup])
+-&gt; EncoderSettings -&gt; f EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_outputGroups"><span class="hs-identifier hs-var hs-var">encoderSettings_outputGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncoderSettings -&gt; [OutputGroup])
+-&gt; (EncoderSettings -&gt; [OutputGroup] -&gt; EncoderSettings)
+-&gt; Lens EncoderSettings EncoderSettings [OutputGroup] [OutputGroup]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925677"><span class="annot"><span class="annottext">[OutputGroup]
+outputGroups :: [OutputGroup]
+$sel:outputGroups:EncoderSettings' :: EncoderSettings -&gt; [OutputGroup]
+</span><a href="#local-6989586621679925677"><span class="hs-identifier hs-var hs-var">outputGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[OutputGroup]
+</span><a href="#local-6989586621679925677"><span class="hs-identifier hs-var">outputGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925676"><span class="annot"><span class="annottext">s :: EncoderSettings
+</span><a href="#local-6989586621679925676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925675"><span class="annot"><span class="annottext">[OutputGroup]
+</span><a href="#local-6989586621679925675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncoderSettings
+</span><a href="#local-6989586621679925676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputGroups:EncoderSettings' :: [OutputGroup]
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AoutputGroups%3AEncoderSettings%27"><span class="hs-identifier hs-var">outputGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[OutputGroup]
+</span><a href="#local-6989586621679925675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([OutputGroup] -&gt; f [OutputGroup])
+ -&gt; EncoderSettings -&gt; f EncoderSettings)
+-&gt; (([OutputGroup] -&gt; f [OutputGroup])
+    -&gt; [OutputGroup] -&gt; f [OutputGroup])
+-&gt; ([OutputGroup] -&gt; f [OutputGroup])
+-&gt; EncoderSettings
+-&gt; f EncoderSettings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([OutputGroup] -&gt; f [OutputGroup])
+-&gt; [OutputGroup] -&gt; f [OutputGroup]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Contains settings used to acquire and adjust timecode information from</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- inputs.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_timecodeConfig"><span class="hs-identifier hs-type">encoderSettings_timecodeConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span><span>
+</span><span id="line-167"></span><span id="encoderSettings_timecodeConfig"><span class="annot"><span class="annottext">encoderSettings_timecodeConfig :: (TimecodeConfig -&gt; f TimecodeConfig)
+-&gt; EncoderSettings -&gt; f EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#encoderSettings_timecodeConfig"><span class="hs-identifier hs-var hs-var">encoderSettings_timecodeConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncoderSettings -&gt; TimecodeConfig)
+-&gt; (EncoderSettings -&gt; TimecodeConfig -&gt; EncoderSettings)
+-&gt; Lens
+     EncoderSettings EncoderSettings TimecodeConfig TimecodeConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925673"><span class="annot"><span class="annottext">TimecodeConfig
+timecodeConfig :: TimecodeConfig
+$sel:timecodeConfig:EncoderSettings' :: EncoderSettings -&gt; TimecodeConfig
+</span><a href="#local-6989586621679925673"><span class="hs-identifier hs-var hs-var">timecodeConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimecodeConfig
+</span><a href="#local-6989586621679925673"><span class="hs-identifier hs-var">timecodeConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925672"><span class="annot"><span class="annottext">s :: EncoderSettings
+</span><a href="#local-6989586621679925672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925671"><span class="annot"><span class="annottext">TimecodeConfig
+</span><a href="#local-6989586621679925671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncoderSettings
+</span><a href="#local-6989586621679925672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecodeConfig:EncoderSettings' :: TimecodeConfig
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#%24sel%3AtimecodeConfig%3AEncoderSettings%27"><span class="hs-identifier hs-var">timecodeConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TimecodeConfig
+</span><a href="#local-6989586621679925671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925668"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679925666"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EncoderSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EncoderSettings)
+-&gt; Value
+-&gt; Parser EncoderSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EncoderSettings&quot;</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679925663"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925663"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">Maybe MotionGraphicsConfiguration
+-&gt; Maybe FeatureActivations
+-&gt; Maybe GlobalConfiguration
+-&gt; Maybe AvailConfiguration
+-&gt; Maybe AvailBlanking
+-&gt; Maybe NielsenConfiguration
+-&gt; Maybe BlackoutSlate
+-&gt; Maybe [CaptionDescription]
+-&gt; [VideoDescription]
+-&gt; [AudioDescription]
+-&gt; [OutputGroup]
+-&gt; TimecodeConfig
+-&gt; EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-var">EncoderSettings'</span></a></span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MotionGraphicsConfiguration
+ -&gt; Maybe FeatureActivations
+ -&gt; Maybe GlobalConfiguration
+ -&gt; Maybe AvailConfiguration
+ -&gt; Maybe AvailBlanking
+ -&gt; Maybe NielsenConfiguration
+ -&gt; Maybe BlackoutSlate
+ -&gt; Maybe [CaptionDescription]
+ -&gt; [VideoDescription]
+ -&gt; [AudioDescription]
+ -&gt; [OutputGroup]
+ -&gt; TimecodeConfig
+ -&gt; EncoderSettings)
+-&gt; Parser (Maybe MotionGraphicsConfiguration)
+-&gt; Parser
+     (Maybe FeatureActivations
+      -&gt; Maybe GlobalConfiguration
+      -&gt; Maybe AvailConfiguration
+      -&gt; Maybe AvailBlanking
+      -&gt; Maybe NielsenConfiguration
+      -&gt; Maybe BlackoutSlate
+      -&gt; Maybe [CaptionDescription]
+      -&gt; [VideoDescription]
+      -&gt; [AudioDescription]
+      -&gt; [OutputGroup]
+      -&gt; TimecodeConfig
+      -&gt; EncoderSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MotionGraphicsConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;motionGraphicsConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FeatureActivations
+   -&gt; Maybe GlobalConfiguration
+   -&gt; Maybe AvailConfiguration
+   -&gt; Maybe AvailBlanking
+   -&gt; Maybe NielsenConfiguration
+   -&gt; Maybe BlackoutSlate
+   -&gt; Maybe [CaptionDescription]
+   -&gt; [VideoDescription]
+   -&gt; [AudioDescription]
+   -&gt; [OutputGroup]
+   -&gt; TimecodeConfig
+   -&gt; EncoderSettings)
+-&gt; Parser (Maybe FeatureActivations)
+-&gt; Parser
+     (Maybe GlobalConfiguration
+      -&gt; Maybe AvailConfiguration
+      -&gt; Maybe AvailBlanking
+      -&gt; Maybe NielsenConfiguration
+      -&gt; Maybe BlackoutSlate
+      -&gt; Maybe [CaptionDescription]
+      -&gt; [VideoDescription]
+      -&gt; [AudioDescription]
+      -&gt; [OutputGroup]
+      -&gt; TimecodeConfig
+      -&gt; EncoderSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FeatureActivations)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;featureActivations&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe GlobalConfiguration
+   -&gt; Maybe AvailConfiguration
+   -&gt; Maybe AvailBlanking
+   -&gt; Maybe NielsenConfiguration
+   -&gt; Maybe BlackoutSlate
+   -&gt; Maybe [CaptionDescription]
+   -&gt; [VideoDescription]
+   -&gt; [AudioDescription]
+   -&gt; [OutputGroup]
+   -&gt; TimecodeConfig
+   -&gt; EncoderSettings)
+-&gt; Parser (Maybe GlobalConfiguration)
+-&gt; Parser
+     (Maybe AvailConfiguration
+      -&gt; Maybe AvailBlanking
+      -&gt; Maybe NielsenConfiguration
+      -&gt; Maybe BlackoutSlate
+      -&gt; Maybe [CaptionDescription]
+      -&gt; [VideoDescription]
+      -&gt; [AudioDescription]
+      -&gt; [OutputGroup]
+      -&gt; TimecodeConfig
+      -&gt; EncoderSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GlobalConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;globalConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AvailConfiguration
+   -&gt; Maybe AvailBlanking
+   -&gt; Maybe NielsenConfiguration
+   -&gt; Maybe BlackoutSlate
+   -&gt; Maybe [CaptionDescription]
+   -&gt; [VideoDescription]
+   -&gt; [AudioDescription]
+   -&gt; [OutputGroup]
+   -&gt; TimecodeConfig
+   -&gt; EncoderSettings)
+-&gt; Parser (Maybe AvailConfiguration)
+-&gt; Parser
+     (Maybe AvailBlanking
+      -&gt; Maybe NielsenConfiguration
+      -&gt; Maybe BlackoutSlate
+      -&gt; Maybe [CaptionDescription]
+      -&gt; [VideoDescription]
+      -&gt; [AudioDescription]
+      -&gt; [OutputGroup]
+      -&gt; TimecodeConfig
+      -&gt; EncoderSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvailConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AvailBlanking
+   -&gt; Maybe NielsenConfiguration
+   -&gt; Maybe BlackoutSlate
+   -&gt; Maybe [CaptionDescription]
+   -&gt; [VideoDescription]
+   -&gt; [AudioDescription]
+   -&gt; [OutputGroup]
+   -&gt; TimecodeConfig
+   -&gt; EncoderSettings)
+-&gt; Parser (Maybe AvailBlanking)
+-&gt; Parser
+     (Maybe NielsenConfiguration
+      -&gt; Maybe BlackoutSlate
+      -&gt; Maybe [CaptionDescription]
+      -&gt; [VideoDescription]
+      -&gt; [AudioDescription]
+      -&gt; [OutputGroup]
+      -&gt; TimecodeConfig
+      -&gt; EncoderSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvailBlanking)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availBlanking&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NielsenConfiguration
+   -&gt; Maybe BlackoutSlate
+   -&gt; Maybe [CaptionDescription]
+   -&gt; [VideoDescription]
+   -&gt; [AudioDescription]
+   -&gt; [OutputGroup]
+   -&gt; TimecodeConfig
+   -&gt; EncoderSettings)
+-&gt; Parser (Maybe NielsenConfiguration)
+-&gt; Parser
+     (Maybe BlackoutSlate
+      -&gt; Maybe [CaptionDescription]
+      -&gt; [VideoDescription]
+      -&gt; [AudioDescription]
+      -&gt; [OutputGroup]
+      -&gt; TimecodeConfig
+      -&gt; EncoderSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NielsenConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe BlackoutSlate
+   -&gt; Maybe [CaptionDescription]
+   -&gt; [VideoDescription]
+   -&gt; [AudioDescription]
+   -&gt; [OutputGroup]
+   -&gt; TimecodeConfig
+   -&gt; EncoderSettings)
+-&gt; Parser (Maybe BlackoutSlate)
+-&gt; Parser
+     (Maybe [CaptionDescription]
+      -&gt; [VideoDescription]
+      -&gt; [AudioDescription]
+      -&gt; [OutputGroup]
+      -&gt; TimecodeConfig
+      -&gt; EncoderSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BlackoutSlate)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;blackoutSlate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [CaptionDescription]
+   -&gt; [VideoDescription]
+   -&gt; [AudioDescription]
+   -&gt; [OutputGroup]
+   -&gt; TimecodeConfig
+   -&gt; EncoderSettings)
+-&gt; Parser (Maybe [CaptionDescription])
+-&gt; Parser
+     ([VideoDescription]
+      -&gt; [AudioDescription]
+      -&gt; [OutputGroup]
+      -&gt; TimecodeConfig
+      -&gt; EncoderSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CaptionDescription]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;captionDescriptions&quot;</span></span><span>
+</span><span id="line-183"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [CaptionDescription]))
+-&gt; Maybe [CaptionDescription]
+-&gt; Parser (Maybe [CaptionDescription])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionDescription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-184"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  ([VideoDescription]
+   -&gt; [AudioDescription]
+   -&gt; [OutputGroup]
+   -&gt; TimecodeConfig
+   -&gt; EncoderSettings)
+-&gt; Parser [VideoDescription]
+-&gt; Parser
+     ([AudioDescription]
+      -&gt; [OutputGroup] -&gt; TimecodeConfig -&gt; EncoderSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [VideoDescription])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;videoDescriptions&quot;</span></span><span>
+</span><span id="line-186"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe [VideoDescription])
+-&gt; [VideoDescription] -&gt; Parser [VideoDescription]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[VideoDescription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-187"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  ([AudioDescription]
+   -&gt; [OutputGroup] -&gt; TimecodeConfig -&gt; EncoderSettings)
+-&gt; Parser [AudioDescription]
+-&gt; Parser ([OutputGroup] -&gt; TimecodeConfig -&gt; EncoderSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [AudioDescription])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioDescriptions&quot;</span></span><span>
+</span><span id="line-189"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe [AudioDescription])
+-&gt; [AudioDescription] -&gt; Parser [AudioDescription]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[AudioDescription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-190"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser ([OutputGroup] -&gt; TimecodeConfig -&gt; EncoderSettings)
+-&gt; Parser [OutputGroup]
+-&gt; Parser (TimecodeConfig -&gt; EncoderSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [OutputGroup])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [OutputGroup])
+-&gt; [OutputGroup] -&gt; Parser [OutputGroup]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[OutputGroup]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser (TimecodeConfig -&gt; EncoderSettings)
+-&gt; Parser TimecodeConfig -&gt; Parser EncoderSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TimecodeConfig
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timecodeConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925655"><span id="local-6989586621679925657"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span></span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925644"><span id="local-6989586621679925646"><span id="local-6989586621679925648"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679925642"><span class="annot"><span class="annottext">toJSON :: EncoderSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings%27"><span class="hs-identifier hs-type">EncoderSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925629"><span id="local-6989586621679925630"><span id="local-6989586621679925631"><span id="local-6989586621679925632"><span id="local-6989586621679925633"><span id="local-6989586621679925634"><span id="local-6989586621679925635"><span id="local-6989586621679925636"><span id="local-6989586621679925637"><span id="local-6989586621679925638"><span id="local-6989586621679925639"><span id="local-6989586621679925640"><span class="annot"><span class="annottext">[OutputGroup]
+[VideoDescription]
+[AudioDescription]
+Maybe [CaptionDescription]
+Maybe FeatureActivations
+Maybe BlackoutSlate
+Maybe AvailBlanking
+Maybe GlobalConfiguration
+Maybe MotionGraphicsConfiguration
+Maybe NielsenConfiguration
+Maybe AvailConfiguration
+TimecodeConfig
+timecodeConfig :: TimecodeConfig
+outputGroups :: [OutputGroup]
+audioDescriptions :: [AudioDescription]
+videoDescriptions :: [VideoDescription]
+captionDescriptions :: Maybe [CaptionDescription]
+blackoutSlate :: Maybe BlackoutSlate
+nielsenConfiguration :: Maybe NielsenConfiguration
+availBlanking :: Maybe AvailBlanking
+availConfiguration :: Maybe AvailConfiguration
+globalConfiguration :: Maybe GlobalConfiguration
+featureActivations :: Maybe FeatureActivations
+motionGraphicsConfiguration :: Maybe MotionGraphicsConfiguration
+$sel:timecodeConfig:EncoderSettings' :: EncoderSettings -&gt; TimecodeConfig
+$sel:outputGroups:EncoderSettings' :: EncoderSettings -&gt; [OutputGroup]
+$sel:audioDescriptions:EncoderSettings' :: EncoderSettings -&gt; [AudioDescription]
+$sel:videoDescriptions:EncoderSettings' :: EncoderSettings -&gt; [VideoDescription]
+$sel:captionDescriptions:EncoderSettings' :: EncoderSettings -&gt; Maybe [CaptionDescription]
+$sel:blackoutSlate:EncoderSettings' :: EncoderSettings -&gt; Maybe BlackoutSlate
+$sel:nielsenConfiguration:EncoderSettings' :: EncoderSettings -&gt; Maybe NielsenConfiguration
+$sel:availBlanking:EncoderSettings' :: EncoderSettings -&gt; Maybe AvailBlanking
+$sel:availConfiguration:EncoderSettings' :: EncoderSettings -&gt; Maybe AvailConfiguration
+$sel:globalConfiguration:EncoderSettings' :: EncoderSettings -&gt; Maybe GlobalConfiguration
+$sel:featureActivations:EncoderSettings' :: EncoderSettings -&gt; Maybe FeatureActivations
+$sel:motionGraphicsConfiguration:EncoderSettings' :: EncoderSettings -&gt; Maybe MotionGraphicsConfiguration
+</span><a href="#local-6989586621679925629"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-203"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;motionGraphicsConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MotionGraphicsConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>              </span><span class="annot"><span class="annottext">(MotionGraphicsConfiguration -&gt; Pair)
+-&gt; Maybe MotionGraphicsConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MotionGraphicsConfiguration
+</span><a href="#local-6989586621679925640"><span class="hs-identifier hs-var">motionGraphicsConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;featureActivations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FeatureActivations -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">(FeatureActivations -&gt; Pair)
+-&gt; Maybe FeatureActivations -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FeatureActivations
+</span><a href="#local-6989586621679925639"><span class="hs-identifier hs-var">featureActivations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;globalConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GlobalConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">(GlobalConfiguration -&gt; Pair)
+-&gt; Maybe GlobalConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfiguration
+</span><a href="#local-6989586621679925638"><span class="hs-identifier hs-var">globalConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AvailConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>              </span><span class="annot"><span class="annottext">(AvailConfiguration -&gt; Pair)
+-&gt; Maybe AvailConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AvailConfiguration
+</span><a href="#local-6989586621679925637"><span class="hs-identifier hs-var">availConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availBlanking&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AvailBlanking -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AvailBlanking -&gt; Pair) -&gt; Maybe AvailBlanking -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AvailBlanking
+</span><a href="#local-6989586621679925636"><span class="hs-identifier hs-var">availBlanking</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NielsenConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">(NielsenConfiguration -&gt; Pair)
+-&gt; Maybe NielsenConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NielsenConfiguration
+</span><a href="#local-6989586621679925635"><span class="hs-identifier hs-var">nielsenConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;blackoutSlate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BlackoutSlate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(BlackoutSlate -&gt; Pair) -&gt; Maybe BlackoutSlate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlate
+</span><a href="#local-6989586621679925634"><span class="hs-identifier hs-var">blackoutSlate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;captionDescriptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CaptionDescription] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>              </span><span class="annot"><span class="annottext">([CaptionDescription] -&gt; Pair)
+-&gt; Maybe [CaptionDescription] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionDescription]
+</span><a href="#local-6989586621679925633"><span class="hs-identifier hs-var">captionDescriptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-218"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;videoDescriptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [VideoDescription] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[VideoDescription]
+</span><a href="#local-6989586621679925632"><span class="hs-identifier hs-var">videoDescriptions</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-220"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioDescriptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AudioDescription] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[AudioDescription]
+</span><a href="#local-6989586621679925631"><span class="hs-identifier hs-var">audioDescriptions</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [OutputGroup] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[OutputGroup]
+</span><a href="#local-6989586621679925630"><span class="hs-identifier hs-var">outputGroups</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-223"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timecodeConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimecodeConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TimecodeConfig
+</span><a href="#local-6989586621679925629"><span class="hs-identifier hs-var">timecodeConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span></pre></body></html>

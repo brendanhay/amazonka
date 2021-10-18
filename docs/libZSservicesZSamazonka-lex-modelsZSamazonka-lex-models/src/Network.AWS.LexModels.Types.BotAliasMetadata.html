@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.LexModels.Types.BotAliasMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LexModels.Types.BotAliasMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html"><span class="hs-identifier">Network.AWS.LexModels.Types.ConversationLogsResponse</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Provides information about a bot alias.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBotAliasMetadata' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679312510"><span id="local-6989586621679312511"></span></span><span class="hs-keyword">data</span><span> </span><span id="BotAliasMetadata"><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-var">BotAliasMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BotAliasMetadata%27"><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-var">BotAliasMetadata'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date that the bot alias was created.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcreatedDate%3ABotAliasMetadata%27"><span class="annot"><span class="annottext">BotAliasMetadata -&gt; Maybe POSIX
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3AcreatedDate%3ABotAliasMetadata%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the bot to which the alias points.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AbotName%3ABotAliasMetadata%27"><span class="annot"><span class="annottext">BotAliasMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3AbotName%3ABotAliasMetadata%27"><span class="hs-identifier hs-var hs-var">botName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The date that the bot alias was updated. When you create a resource, the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- creation date and last updated date are the same.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlastUpdatedDate%3ABotAliasMetadata%27"><span class="annot"><span class="annottext">BotAliasMetadata -&gt; Maybe POSIX
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3AlastUpdatedDate%3ABotAliasMetadata%27"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The version of the Amazon Lex bot to which the alias points.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AbotVersion%3ABotAliasMetadata%27"><span class="annot"><span class="annottext">BotAliasMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3AbotVersion%3ABotAliasMetadata%27"><span class="hs-identifier hs-var hs-var">botVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the bot alias.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aname%3ABotAliasMetadata%27"><span class="annot"><span class="annottext">BotAliasMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3Aname%3ABotAliasMetadata%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A description of the bot alias.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Adescription%3ABotAliasMetadata%27"><span class="annot"><span class="annottext">BotAliasMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3Adescription%3ABotAliasMetadata%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Checksum of the bot alias.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Achecksum%3ABotAliasMetadata%27"><span class="annot"><span class="annottext">BotAliasMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3Achecksum%3ABotAliasMetadata%27"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Settings that determine how Amazon Lex uses conversation logs for the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- alias.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AconversationLogs%3ABotAliasMetadata%27"><span class="annot"><span class="annottext">BotAliasMetadata -&gt; Maybe ConversationLogsResponse
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3AconversationLogs%3ABotAliasMetadata%27"><span class="hs-identifier hs-var hs-var">conversationLogs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse"><span class="hs-identifier hs-type">ConversationLogsResponse</span></a></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312497"><span id="local-6989586621679312499"><span class="annot"><span class="annottext">BotAliasMetadata -&gt; BotAliasMetadata -&gt; Bool
+(BotAliasMetadata -&gt; BotAliasMetadata -&gt; Bool)
+-&gt; (BotAliasMetadata -&gt; BotAliasMetadata -&gt; Bool)
+-&gt; Eq BotAliasMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BotAliasMetadata -&gt; BotAliasMetadata -&gt; Bool
+$c/= :: BotAliasMetadata -&gt; BotAliasMetadata -&gt; Bool
+== :: BotAliasMetadata -&gt; BotAliasMetadata -&gt; Bool
+$c== :: BotAliasMetadata -&gt; BotAliasMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312488"><span id="local-6989586621679312490"><span id="local-6989586621679312492"><span id="local-6989586621679312494"><span class="annot"><span class="annottext">ReadPrec [BotAliasMetadata]
+ReadPrec BotAliasMetadata
+Int -&gt; ReadS BotAliasMetadata
+ReadS [BotAliasMetadata]
+(Int -&gt; ReadS BotAliasMetadata)
+-&gt; ReadS [BotAliasMetadata]
+-&gt; ReadPrec BotAliasMetadata
+-&gt; ReadPrec [BotAliasMetadata]
+-&gt; Read BotAliasMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BotAliasMetadata]
+$creadListPrec :: ReadPrec [BotAliasMetadata]
+readPrec :: ReadPrec BotAliasMetadata
+$creadPrec :: ReadPrec BotAliasMetadata
+readList :: ReadS [BotAliasMetadata]
+$creadList :: ReadS [BotAliasMetadata]
+readsPrec :: Int -&gt; ReadS BotAliasMetadata
+$creadsPrec :: Int -&gt; ReadS BotAliasMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312481"><span id="local-6989586621679312483"><span id="local-6989586621679312485"><span class="annot"><span class="annottext">Int -&gt; BotAliasMetadata -&gt; ShowS
+[BotAliasMetadata] -&gt; ShowS
+BotAliasMetadata -&gt; String
+(Int -&gt; BotAliasMetadata -&gt; ShowS)
+-&gt; (BotAliasMetadata -&gt; String)
+-&gt; ([BotAliasMetadata] -&gt; ShowS)
+-&gt; Show BotAliasMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BotAliasMetadata] -&gt; ShowS
+$cshowList :: [BotAliasMetadata] -&gt; ShowS
+show :: BotAliasMetadata -&gt; String
+$cshow :: BotAliasMetadata -&gt; String
+showsPrec :: Int -&gt; BotAliasMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; BotAliasMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BotAliasMetadata -&gt; Rep BotAliasMetadata x)
+-&gt; (forall x. Rep BotAliasMetadata x -&gt; BotAliasMetadata)
+-&gt; Generic BotAliasMetadata
+forall x. Rep BotAliasMetadata x -&gt; BotAliasMetadata
+forall x. BotAliasMetadata -&gt; Rep BotAliasMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BotAliasMetadata x -&gt; BotAliasMetadata
+$cfrom :: forall x. BotAliasMetadata -&gt; Rep BotAliasMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'BotAliasMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'createdDate', 'botAliasMetadata_createdDate' - The date that the bot alias was created.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'botName', 'botAliasMetadata_botName' - The name of the bot to which the alias points.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'lastUpdatedDate', 'botAliasMetadata_lastUpdatedDate' - The date that the bot alias was updated. When you create a resource, the</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- creation date and last updated date are the same.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'botVersion', 'botAliasMetadata_botVersion' - The version of the Amazon Lex bot to which the alias points.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'name', 'botAliasMetadata_name' - The name of the bot alias.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'description', 'botAliasMetadata_description' - A description of the bot alias.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'checksum', 'botAliasMetadata_checksum' - Checksum of the bot alias.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'conversationLogs', 'botAliasMetadata_conversationLogs' - Settings that determine how Amazon Lex uses conversation logs for the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- alias.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#newBotAliasMetadata"><span class="hs-identifier hs-type">newBotAliasMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span>
+</span><span id="line-79"></span><span id="newBotAliasMetadata"><span class="annot"><span class="annottext">newBotAliasMetadata :: BotAliasMetadata
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#newBotAliasMetadata"><span class="hs-identifier hs-var hs-var">newBotAliasMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">BotAliasMetadata' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ConversationLogsResponse
+-&gt; BotAliasMetadata
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdDate:BotAliasMetadata' :: Maybe POSIX
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3AcreatedDate%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:botName:BotAliasMetadata' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3AbotName%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">botName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:BotAliasMetadata' :: Maybe POSIX
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3AlastUpdatedDate%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:botVersion:BotAliasMetadata' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3AbotVersion%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">botVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:BotAliasMetadata' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3Aname%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:BotAliasMetadata' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3Adescription%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:checksum:BotAliasMetadata' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3Achecksum%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">checksum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:conversationLogs:BotAliasMetadata' :: Maybe ConversationLogsResponse
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3AconversationLogs%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">conversationLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConversationLogsResponse
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The date that the bot alias was created.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_createdDate"><span class="hs-identifier hs-type">botAliasMetadata_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="botAliasMetadata_createdDate"><span class="annot"><span class="annottext">botAliasMetadata_createdDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BotAliasMetadata -&gt; f BotAliasMetadata
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_createdDate"><span class="hs-identifier hs-var hs-var">botAliasMetadata_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BotAliasMetadata -&gt; Maybe POSIX)
+-&gt; (BotAliasMetadata -&gt; Maybe POSIX -&gt; BotAliasMetadata)
+-&gt; Lens
+     BotAliasMetadata BotAliasMetadata (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312472"><span class="annot"><span class="annottext">Maybe POSIX
+createdDate :: Maybe POSIX
+$sel:createdDate:BotAliasMetadata' :: BotAliasMetadata -&gt; Maybe POSIX
+</span><a href="#local-6989586621679312472"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679312472"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312471"><span class="annot"><span class="annottext">s :: BotAliasMetadata
+</span><a href="#local-6989586621679312471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312470"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679312470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BotAliasMetadata
+</span><a href="#local-6989586621679312471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:BotAliasMetadata' :: Maybe POSIX
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3AcreatedDate%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679312470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; BotAliasMetadata -&gt; f BotAliasMetadata)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BotAliasMetadata
+-&gt; f BotAliasMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The name of the bot to which the alias points.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_botName"><span class="hs-identifier hs-type">botAliasMetadata_botName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="botAliasMetadata_botName"><span class="annot"><span class="annottext">botAliasMetadata_botName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BotAliasMetadata -&gt; f BotAliasMetadata
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_botName"><span class="hs-identifier hs-var hs-var">botAliasMetadata_botName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BotAliasMetadata -&gt; Maybe Text)
+-&gt; (BotAliasMetadata -&gt; Maybe Text -&gt; BotAliasMetadata)
+-&gt; Lens BotAliasMetadata BotAliasMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312465"><span class="annot"><span class="annottext">Maybe Text
+botName :: Maybe Text
+$sel:botName:BotAliasMetadata' :: BotAliasMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679312465"><span class="hs-identifier hs-var hs-var">botName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312465"><span class="hs-identifier hs-var">botName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312464"><span class="annot"><span class="annottext">s :: BotAliasMetadata
+</span><a href="#local-6989586621679312464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312463"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BotAliasMetadata
+</span><a href="#local-6989586621679312464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:botName:BotAliasMetadata' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3AbotName%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">botName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The date that the bot alias was updated. When you create a resource, the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- creation date and last updated date are the same.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_lastUpdatedDate"><span class="hs-identifier hs-type">botAliasMetadata_lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="botAliasMetadata_lastUpdatedDate"><span class="annot"><span class="annottext">botAliasMetadata_lastUpdatedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BotAliasMetadata -&gt; f BotAliasMetadata
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_lastUpdatedDate"><span class="hs-identifier hs-var hs-var">botAliasMetadata_lastUpdatedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BotAliasMetadata -&gt; Maybe POSIX)
+-&gt; (BotAliasMetadata -&gt; Maybe POSIX -&gt; BotAliasMetadata)
+-&gt; Lens
+     BotAliasMetadata BotAliasMetadata (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312461"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedDate :: Maybe POSIX
+$sel:lastUpdatedDate:BotAliasMetadata' :: BotAliasMetadata -&gt; Maybe POSIX
+</span><a href="#local-6989586621679312461"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679312461"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312460"><span class="annot"><span class="annottext">s :: BotAliasMetadata
+</span><a href="#local-6989586621679312460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312459"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679312459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BotAliasMetadata
+</span><a href="#local-6989586621679312460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:BotAliasMetadata' :: Maybe POSIX
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3AlastUpdatedDate%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679312459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; BotAliasMetadata -&gt; f BotAliasMetadata)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BotAliasMetadata
+-&gt; f BotAliasMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The version of the Amazon Lex bot to which the alias points.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_botVersion"><span class="hs-identifier hs-type">botAliasMetadata_botVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="botAliasMetadata_botVersion"><span class="annot"><span class="annottext">botAliasMetadata_botVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BotAliasMetadata -&gt; f BotAliasMetadata
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_botVersion"><span class="hs-identifier hs-var hs-var">botAliasMetadata_botVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BotAliasMetadata -&gt; Maybe Text)
+-&gt; (BotAliasMetadata -&gt; Maybe Text -&gt; BotAliasMetadata)
+-&gt; Lens BotAliasMetadata BotAliasMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312457"><span class="annot"><span class="annottext">Maybe Text
+botVersion :: Maybe Text
+$sel:botVersion:BotAliasMetadata' :: BotAliasMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679312457"><span class="hs-identifier hs-var hs-var">botVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312457"><span class="hs-identifier hs-var">botVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312456"><span class="annot"><span class="annottext">s :: BotAliasMetadata
+</span><a href="#local-6989586621679312456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312455"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BotAliasMetadata
+</span><a href="#local-6989586621679312456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:botVersion:BotAliasMetadata' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3AbotVersion%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">botVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The name of the bot alias.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_name"><span class="hs-identifier hs-type">botAliasMetadata_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="botAliasMetadata_name"><span class="annot"><span class="annottext">botAliasMetadata_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BotAliasMetadata -&gt; f BotAliasMetadata
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_name"><span class="hs-identifier hs-var hs-var">botAliasMetadata_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BotAliasMetadata -&gt; Maybe Text)
+-&gt; (BotAliasMetadata -&gt; Maybe Text -&gt; BotAliasMetadata)
+-&gt; Lens BotAliasMetadata BotAliasMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312453"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:BotAliasMetadata' :: BotAliasMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679312453"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312453"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312452"><span class="annot"><span class="annottext">s :: BotAliasMetadata
+</span><a href="#local-6989586621679312452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312451"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BotAliasMetadata
+</span><a href="#local-6989586621679312452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:BotAliasMetadata' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3Aname%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | A description of the bot alias.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_description"><span class="hs-identifier hs-type">botAliasMetadata_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="botAliasMetadata_description"><span class="annot"><span class="annottext">botAliasMetadata_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BotAliasMetadata -&gt; f BotAliasMetadata
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_description"><span class="hs-identifier hs-var hs-var">botAliasMetadata_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BotAliasMetadata -&gt; Maybe Text)
+-&gt; (BotAliasMetadata -&gt; Maybe Text -&gt; BotAliasMetadata)
+-&gt; Lens BotAliasMetadata BotAliasMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312449"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:BotAliasMetadata' :: BotAliasMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679312449"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312449"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312448"><span class="annot"><span class="annottext">s :: BotAliasMetadata
+</span><a href="#local-6989586621679312448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312447"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BotAliasMetadata
+</span><a href="#local-6989586621679312448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:BotAliasMetadata' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3Adescription%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Checksum of the bot alias.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_checksum"><span class="hs-identifier hs-type">botAliasMetadata_checksum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="botAliasMetadata_checksum"><span class="annot"><span class="annottext">botAliasMetadata_checksum :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BotAliasMetadata -&gt; f BotAliasMetadata
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_checksum"><span class="hs-identifier hs-var hs-var">botAliasMetadata_checksum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BotAliasMetadata -&gt; Maybe Text)
+-&gt; (BotAliasMetadata -&gt; Maybe Text -&gt; BotAliasMetadata)
+-&gt; Lens BotAliasMetadata BotAliasMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312445"><span class="annot"><span class="annottext">Maybe Text
+checksum :: Maybe Text
+$sel:checksum:BotAliasMetadata' :: BotAliasMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679312445"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312445"><span class="hs-identifier hs-var">checksum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312444"><span class="annot"><span class="annottext">s :: BotAliasMetadata
+</span><a href="#local-6989586621679312444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312443"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BotAliasMetadata
+</span><a href="#local-6989586621679312444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checksum:BotAliasMetadata' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3Achecksum%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">checksum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Settings that determine how Amazon Lex uses conversation logs for the</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- alias.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_conversationLogs"><span class="hs-identifier hs-type">botAliasMetadata_conversationLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse"><span class="hs-identifier hs-type">ConversationLogsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="botAliasMetadata_conversationLogs"><span class="annot"><span class="annottext">botAliasMetadata_conversationLogs :: (Maybe ConversationLogsResponse
+ -&gt; f (Maybe ConversationLogsResponse))
+-&gt; BotAliasMetadata -&gt; f BotAliasMetadata
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#botAliasMetadata_conversationLogs"><span class="hs-identifier hs-var hs-var">botAliasMetadata_conversationLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BotAliasMetadata -&gt; Maybe ConversationLogsResponse)
+-&gt; (BotAliasMetadata
+    -&gt; Maybe ConversationLogsResponse -&gt; BotAliasMetadata)
+-&gt; Lens
+     BotAliasMetadata
+     BotAliasMetadata
+     (Maybe ConversationLogsResponse)
+     (Maybe ConversationLogsResponse)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312441"><span class="annot"><span class="annottext">Maybe ConversationLogsResponse
+conversationLogs :: Maybe ConversationLogsResponse
+$sel:conversationLogs:BotAliasMetadata' :: BotAliasMetadata -&gt; Maybe ConversationLogsResponse
+</span><a href="#local-6989586621679312441"><span class="hs-identifier hs-var hs-var">conversationLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConversationLogsResponse
+</span><a href="#local-6989586621679312441"><span class="hs-identifier hs-var">conversationLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312440"><span class="annot"><span class="annottext">s :: BotAliasMetadata
+</span><a href="#local-6989586621679312440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-type">BotAliasMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312439"><span class="annot"><span class="annottext">Maybe ConversationLogsResponse
+</span><a href="#local-6989586621679312439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BotAliasMetadata
+</span><a href="#local-6989586621679312440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conversationLogs:BotAliasMetadata' :: Maybe ConversationLogsResponse
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#%24sel%3AconversationLogs%3ABotAliasMetadata%27"><span class="hs-identifier hs-var">conversationLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConversationLogsResponse
+</span><a href="#local-6989586621679312439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312436"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679312434"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BotAliasMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BotAliasMetadata)
+-&gt; Value
+-&gt; Parser BotAliasMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BotAliasMetadata&quot;</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312431"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312431"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ConversationLogsResponse
+-&gt; BotAliasMetadata
+</span><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata%27"><span class="hs-identifier hs-var">BotAliasMetadata'</span></a></span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ConversationLogsResponse
+ -&gt; BotAliasMetadata)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ConversationLogsResponse
+      -&gt; BotAliasMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ConversationLogsResponse
+   -&gt; BotAliasMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ConversationLogsResponse
+      -&gt; BotAliasMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;botName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ConversationLogsResponse
+   -&gt; BotAliasMetadata)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ConversationLogsResponse
+      -&gt; BotAliasMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ConversationLogsResponse
+   -&gt; BotAliasMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ConversationLogsResponse
+      -&gt; BotAliasMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;botVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ConversationLogsResponse
+   -&gt; BotAliasMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ConversationLogsResponse
+      -&gt; BotAliasMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ConversationLogsResponse
+   -&gt; BotAliasMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe ConversationLogsResponse -&gt; BotAliasMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe ConversationLogsResponse -&gt; BotAliasMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ConversationLogsResponse -&gt; BotAliasMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;checksum&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ConversationLogsResponse -&gt; BotAliasMetadata)
+-&gt; Parser (Maybe ConversationLogsResponse)
+-&gt; Parser BotAliasMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConversationLogsResponse)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;conversationLogs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312425"><span id="local-6989586621679312427"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312422"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BotAliasMetadata.html#BotAliasMetadata"><span class="hs-identifier hs-type">BotAliasMetadata</span></a></span></span><span>
+</span><span id="line-144"></span></pre></body></html>

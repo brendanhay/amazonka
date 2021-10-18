@@ -1,0 +1,679 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Greengrass.GetGroupVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves information about a group version.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Greengrass.GetGroupVersion</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion"><span class="hs-identifier">GetGroupVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#newGetGroupVersion"><span class="hs-identifier">newGetGroupVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersion_groupVersionId"><span class="hs-identifier">getGroupVersion_groupVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersion_groupId"><span class="hs-identifier">getGroupVersion_groupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier">GetGroupVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#newGetGroupVersionResponse"><span class="hs-identifier">newGetGroupVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_creationTimestamp"><span class="hs-identifier">getGroupVersionResponse_creationTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_arn"><span class="hs-identifier">getGroupVersionResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_id"><span class="hs-identifier">getGroupVersionResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_version"><span class="hs-identifier">getGroupVersionResponse_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_definition"><span class="hs-identifier">getGroupVersionResponse_definition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_httpStatus"><span class="hs-identifier">getGroupVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.html"><span class="hs-identifier">Network.AWS.Greengrass.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newGetGroupVersion' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679357043"><span id="local-6989586621679357044"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupVersion"><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion"><span class="hs-identifier hs-var">GetGroupVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupVersion%27"><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion%27"><span class="hs-identifier hs-var">GetGroupVersion'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the group version. This value maps to the \'\'Version\'\'</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- property of the corresponding \'\'VersionInformation\'\' object, which</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- is returned by \'\'ListGroupVersions\'\' requests. If the version is the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- last one that was associated with a group, the value also maps to the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- \'\'LatestVersion\'\' property of the corresponding</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- \'\'GroupInformation\'\' object.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AgroupVersionId%3AGetGroupVersion%27"><span class="annot"><span class="annottext">GetGroupVersion -&gt; Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3AgroupVersionId%3AGetGroupVersion%27"><span class="hs-identifier hs-var hs-var">groupVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The ID of the Greengrass group.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AgroupId%3AGetGroupVersion%27"><span class="annot"><span class="annottext">GetGroupVersion -&gt; Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3AgroupId%3AGetGroupVersion%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357036"><span id="local-6989586621679357038"><span class="annot"><span class="annottext">GetGroupVersion -&gt; GetGroupVersion -&gt; Bool
+(GetGroupVersion -&gt; GetGroupVersion -&gt; Bool)
+-&gt; (GetGroupVersion -&gt; GetGroupVersion -&gt; Bool)
+-&gt; Eq GetGroupVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetGroupVersion -&gt; GetGroupVersion -&gt; Bool
+$c/= :: GetGroupVersion -&gt; GetGroupVersion -&gt; Bool
+== :: GetGroupVersion -&gt; GetGroupVersion -&gt; Bool
+$c== :: GetGroupVersion -&gt; GetGroupVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357027"><span id="local-6989586621679357029"><span id="local-6989586621679357031"><span id="local-6989586621679357033"><span class="annot"><span class="annottext">ReadPrec [GetGroupVersion]
+ReadPrec GetGroupVersion
+Int -&gt; ReadS GetGroupVersion
+ReadS [GetGroupVersion]
+(Int -&gt; ReadS GetGroupVersion)
+-&gt; ReadS [GetGroupVersion]
+-&gt; ReadPrec GetGroupVersion
+-&gt; ReadPrec [GetGroupVersion]
+-&gt; Read GetGroupVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetGroupVersion]
+$creadListPrec :: ReadPrec [GetGroupVersion]
+readPrec :: ReadPrec GetGroupVersion
+$creadPrec :: ReadPrec GetGroupVersion
+readList :: ReadS [GetGroupVersion]
+$creadList :: ReadS [GetGroupVersion]
+readsPrec :: Int -&gt; ReadS GetGroupVersion
+$creadsPrec :: Int -&gt; ReadS GetGroupVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357020"><span id="local-6989586621679357022"><span id="local-6989586621679357024"><span class="annot"><span class="annottext">Int -&gt; GetGroupVersion -&gt; ShowS
+[GetGroupVersion] -&gt; ShowS
+GetGroupVersion -&gt; String
+(Int -&gt; GetGroupVersion -&gt; ShowS)
+-&gt; (GetGroupVersion -&gt; String)
+-&gt; ([GetGroupVersion] -&gt; ShowS)
+-&gt; Show GetGroupVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetGroupVersion] -&gt; ShowS
+$cshowList :: [GetGroupVersion] -&gt; ShowS
+show :: GetGroupVersion -&gt; String
+$cshow :: GetGroupVersion -&gt; String
+showsPrec :: Int -&gt; GetGroupVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetGroupVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetGroupVersion -&gt; Rep GetGroupVersion x)
+-&gt; (forall x. Rep GetGroupVersion x -&gt; GetGroupVersion)
+-&gt; Generic GetGroupVersion
+forall x. Rep GetGroupVersion x -&gt; GetGroupVersion
+forall x. GetGroupVersion -&gt; Rep GetGroupVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetGroupVersion x -&gt; GetGroupVersion
+$cfrom :: forall x. GetGroupVersion -&gt; Rep GetGroupVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'GetGroupVersion' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'groupVersionId', 'getGroupVersion_groupVersionId' - The ID of the group version. This value maps to the \'\'Version\'\'</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- property of the corresponding \'\'VersionInformation\'\' object, which</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- is returned by \'\'ListGroupVersions\'\' requests. If the version is the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- last one that was associated with a group, the value also maps to the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- \'\'LatestVersion\'\' property of the corresponding</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- \'\'GroupInformation\'\' object.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'groupId', 'getGroupVersion_groupId' - The ID of the Greengrass group.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#newGetGroupVersion"><span class="hs-identifier hs-type">newGetGroupVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'groupVersionId'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'groupId'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion"><span class="hs-identifier hs-type">GetGroupVersion</span></a></span><span>
+</span><span id="line-90"></span><span id="newGetGroupVersion"><span class="annot"><span class="annottext">newGetGroupVersion :: Text -&gt; Text -&gt; GetGroupVersion
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#newGetGroupVersion"><span class="hs-identifier hs-var hs-var">newGetGroupVersion</span></a></span></span><span> </span><span id="local-6989586621679357015"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357015"><span class="hs-identifier hs-var">pGroupVersionId_</span></a></span></span><span> </span><span id="local-6989586621679357014"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357014"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">GetGroupVersion' :: Text -&gt; Text -&gt; GetGroupVersion
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion%27"><span class="hs-identifier hs-type">GetGroupVersion'</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupVersionId:GetGroupVersion' :: Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3AgroupVersionId%3AGetGroupVersion%27"><span class="hs-identifier hs-var">groupVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357015"><span class="hs-identifier hs-var">pGroupVersionId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupId:GetGroupVersion' :: Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3AgroupId%3AGetGroupVersion%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357014"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The ID of the group version. This value maps to the \'\'Version\'\'</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- property of the corresponding \'\'VersionInformation\'\' object, which</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- is returned by \'\'ListGroupVersions\'\' requests. If the version is the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- last one that was associated with a group, the value also maps to the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- \'\'LatestVersion\'\' property of the corresponding</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- \'\'GroupInformation\'\' object.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersion_groupVersionId"><span class="hs-identifier hs-type">getGroupVersion_groupVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion"><span class="hs-identifier hs-type">GetGroupVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="getGroupVersion_groupVersionId"><span class="annot"><span class="annottext">getGroupVersion_groupVersionId :: (Text -&gt; f Text) -&gt; GetGroupVersion -&gt; f GetGroupVersion
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersion_groupVersionId"><span class="hs-identifier hs-var hs-var">getGroupVersion_groupVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGroupVersion -&gt; Text)
+-&gt; (GetGroupVersion -&gt; Text -&gt; GetGroupVersion)
+-&gt; Lens GetGroupVersion GetGroupVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion%27"><span class="hs-identifier hs-type">GetGroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357011"><span class="annot"><span class="annottext">Text
+groupVersionId :: Text
+$sel:groupVersionId:GetGroupVersion' :: GetGroupVersion -&gt; Text
+</span><a href="#local-6989586621679357011"><span class="hs-identifier hs-var hs-var">groupVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357011"><span class="hs-identifier hs-var">groupVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357010"><span class="annot"><span class="annottext">s :: GetGroupVersion
+</span><a href="#local-6989586621679357010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion%27"><span class="hs-identifier hs-type">GetGroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357009"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupVersion
+</span><a href="#local-6989586621679357010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupVersionId:GetGroupVersion' :: Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3AgroupVersionId%3AGetGroupVersion%27"><span class="hs-identifier hs-var">groupVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion"><span class="hs-identifier hs-type">GetGroupVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the Greengrass group.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersion_groupId"><span class="hs-identifier hs-type">getGroupVersion_groupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion"><span class="hs-identifier hs-type">GetGroupVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="getGroupVersion_groupId"><span class="annot"><span class="annottext">getGroupVersion_groupId :: (Text -&gt; f Text) -&gt; GetGroupVersion -&gt; f GetGroupVersion
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersion_groupId"><span class="hs-identifier hs-var hs-var">getGroupVersion_groupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGroupVersion -&gt; Text)
+-&gt; (GetGroupVersion -&gt; Text -&gt; GetGroupVersion)
+-&gt; Lens GetGroupVersion GetGroupVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion%27"><span class="hs-identifier hs-type">GetGroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357008"><span class="annot"><span class="annottext">Text
+groupId :: Text
+$sel:groupId:GetGroupVersion' :: GetGroupVersion -&gt; Text
+</span><a href="#local-6989586621679357008"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357008"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357007"><span class="annot"><span class="annottext">s :: GetGroupVersion
+</span><a href="#local-6989586621679357007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion%27"><span class="hs-identifier hs-type">GetGroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357006"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupVersion
+</span><a href="#local-6989586621679357007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:GetGroupVersion' :: Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3AgroupId%3AGetGroupVersion%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion"><span class="hs-identifier hs-type">GetGroupVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion"><span class="hs-identifier hs-type">GetGroupVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion"><span class="hs-identifier hs-type">GetGroupVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-type">GetGroupVersionResponse</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679357002"><span class="annot"><span class="annottext">request :: GetGroupVersion -&gt; Request GetGroupVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetGroupVersion -&gt; Request GetGroupVersion
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679356998"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetGroupVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetGroupVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetGroupVersion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetGroupVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetGroupVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679356995"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679356995"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679356994"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679356994"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679356993"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679356993"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe GroupVersion
+-&gt; Int
+-&gt; GetGroupVersionResponse
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse%27"><span class="hs-identifier hs-var">GetGroupVersionResponse'</span></a></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe GroupVersion
+ -&gt; Int
+ -&gt; GetGroupVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe GroupVersion
+      -&gt; Int
+      -&gt; GetGroupVersionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679356993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe GroupVersion
+   -&gt; Int
+   -&gt; GetGroupVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe GroupVersion
+      -&gt; Int
+      -&gt; GetGroupVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679356993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe GroupVersion
+   -&gt; Int
+   -&gt; GetGroupVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe GroupVersion -&gt; Int -&gt; GetGroupVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679356993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe GroupVersion -&gt; Int -&gt; GetGroupVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe GroupVersion -&gt; Int -&gt; GetGroupVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679356993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe GroupVersion -&gt; Int -&gt; GetGroupVersionResponse)
+-&gt; Either String (Maybe GroupVersion)
+-&gt; Either String (Int -&gt; GetGroupVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679356993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GroupVersion)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Definition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetGroupVersionResponse)
+-&gt; Either String Int -&gt; Either String GetGroupVersionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679356995"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679356985"><span id="local-6989586621679356987"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion"><span class="hs-identifier hs-type">GetGroupVersion</span></a></span></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679356982"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion"><span class="hs-identifier hs-type">GetGroupVersion</span></a></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion"><span class="hs-identifier hs-type">GetGroupVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679356978"><span class="annot"><span class="annottext">toHeaders :: GetGroupVersion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetGroupVersion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-134"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-137"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion"><span class="hs-identifier hs-type">GetGroupVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679356972"><span class="annot"><span class="annottext">toPath :: GetGroupVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion%27"><span class="hs-identifier hs-type">GetGroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356969"><span id="local-6989586621679356970"><span class="annot"><span class="annottext">Text
+groupId :: Text
+groupVersionId :: Text
+$sel:groupId:GetGroupVersion' :: GetGroupVersion -&gt; Text
+$sel:groupVersionId:GetGroupVersion' :: GetGroupVersion -&gt; Text
+</span><a href="#local-6989586621679356969"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/greengrass/groups/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679356969"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/versions/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679356970"><span class="hs-identifier hs-var">groupVersionId</span></a></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersion"><span class="hs-identifier hs-type">GetGroupVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679356965"><span class="annot"><span class="annottext">toQuery :: GetGroupVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetGroupVersion -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newGetGroupVersionResponse' smart constructor.</span><span>
+</span><span id="line-154"></span><span id="local-6989586621679356962"><span id="local-6989586621679356963"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupVersionResponse"><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-var">GetGroupVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupVersionResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse%27"><span class="hs-identifier hs-var">GetGroupVersionResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the group version was</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AcreationTimestamp%3AGetGroupVersionResponse%27"><span class="annot"><span class="annottext">GetGroupVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3AcreationTimestamp%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The ARN of the group version.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3Aarn%3AGetGroupVersionResponse%27"><span class="annot"><span class="annottext">GetGroupVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3Aarn%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | The ID of the group that the version is associated with.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3Aid%3AGetGroupVersionResponse%27"><span class="annot"><span class="annottext">GetGroupVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3Aid%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The ID of the group version.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3Aversion%3AGetGroupVersionResponse%27"><span class="annot"><span class="annottext">GetGroupVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3Aversion%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | Information about the group version definition.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3Adefinition%3AGetGroupVersionResponse%27"><span class="annot"><span class="annottext">GetGroupVersionResponse -&gt; Maybe GroupVersion
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3Adefinition%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.GroupVersion.html#GroupVersion"><span class="hs-identifier hs-type">GroupVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetGroupVersionResponse%27"><span class="annot"><span class="annottext">GetGroupVersionResponse -&gt; Int
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3AhttpStatus%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679356952"><span id="local-6989586621679356954"><span class="annot"><span class="annottext">GetGroupVersionResponse -&gt; GetGroupVersionResponse -&gt; Bool
+(GetGroupVersionResponse -&gt; GetGroupVersionResponse -&gt; Bool)
+-&gt; (GetGroupVersionResponse -&gt; GetGroupVersionResponse -&gt; Bool)
+-&gt; Eq GetGroupVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetGroupVersionResponse -&gt; GetGroupVersionResponse -&gt; Bool
+$c/= :: GetGroupVersionResponse -&gt; GetGroupVersionResponse -&gt; Bool
+== :: GetGroupVersionResponse -&gt; GetGroupVersionResponse -&gt; Bool
+$c== :: GetGroupVersionResponse -&gt; GetGroupVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679356944"><span id="local-6989586621679356946"><span id="local-6989586621679356948"><span id="local-6989586621679356950"><span class="annot"><span class="annottext">ReadPrec [GetGroupVersionResponse]
+ReadPrec GetGroupVersionResponse
+Int -&gt; ReadS GetGroupVersionResponse
+ReadS [GetGroupVersionResponse]
+(Int -&gt; ReadS GetGroupVersionResponse)
+-&gt; ReadS [GetGroupVersionResponse]
+-&gt; ReadPrec GetGroupVersionResponse
+-&gt; ReadPrec [GetGroupVersionResponse]
+-&gt; Read GetGroupVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetGroupVersionResponse]
+$creadListPrec :: ReadPrec [GetGroupVersionResponse]
+readPrec :: ReadPrec GetGroupVersionResponse
+$creadPrec :: ReadPrec GetGroupVersionResponse
+readList :: ReadS [GetGroupVersionResponse]
+$creadList :: ReadS [GetGroupVersionResponse]
+readsPrec :: Int -&gt; ReadS GetGroupVersionResponse
+$creadsPrec :: Int -&gt; ReadS GetGroupVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679356938"><span id="local-6989586621679356940"><span id="local-6989586621679356942"><span class="annot"><span class="annottext">Int -&gt; GetGroupVersionResponse -&gt; ShowS
+[GetGroupVersionResponse] -&gt; ShowS
+GetGroupVersionResponse -&gt; String
+(Int -&gt; GetGroupVersionResponse -&gt; ShowS)
+-&gt; (GetGroupVersionResponse -&gt; String)
+-&gt; ([GetGroupVersionResponse] -&gt; ShowS)
+-&gt; Show GetGroupVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetGroupVersionResponse] -&gt; ShowS
+$cshowList :: [GetGroupVersionResponse] -&gt; ShowS
+show :: GetGroupVersionResponse -&gt; String
+$cshow :: GetGroupVersionResponse -&gt; String
+showsPrec :: Int -&gt; GetGroupVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetGroupVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetGroupVersionResponse -&gt; Rep GetGroupVersionResponse x)
+-&gt; (forall x.
+    Rep GetGroupVersionResponse x -&gt; GetGroupVersionResponse)
+-&gt; Generic GetGroupVersionResponse
+forall x. Rep GetGroupVersionResponse x -&gt; GetGroupVersionResponse
+forall x. GetGroupVersionResponse -&gt; Rep GetGroupVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetGroupVersionResponse x -&gt; GetGroupVersionResponse
+$cfrom :: forall x. GetGroupVersionResponse -&gt; Rep GetGroupVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Create a value of 'GetGroupVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'creationTimestamp', 'getGroupVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the group version was</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'arn', 'getGroupVersionResponse_arn' - The ARN of the group version.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'id', 'getGroupVersionResponse_id' - The ID of the group that the version is associated with.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'version', 'getGroupVersionResponse_version' - The ID of the group version.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'definition', 'getGroupVersionResponse_definition' - Information about the group version definition.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'httpStatus', 'getGroupVersionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#newGetGroupVersionResponse"><span class="hs-identifier hs-type">newGetGroupVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-type">GetGroupVersionResponse</span></a></span><span>
+</span><span id="line-195"></span><span id="newGetGroupVersionResponse"><span class="annot"><span class="annottext">newGetGroupVersionResponse :: Int -&gt; GetGroupVersionResponse
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#newGetGroupVersionResponse"><span class="hs-identifier hs-var hs-var">newGetGroupVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679356935"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679356935"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">GetGroupVersionResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe GroupVersion
+-&gt; Int
+-&gt; GetGroupVersionResponse
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse%27"><span class="hs-identifier hs-type">GetGroupVersionResponse'</span></a></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetGroupVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3AcreationTimestamp%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:GetGroupVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3Aarn%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:GetGroupVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3Aid%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:GetGroupVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3Aversion%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:definition:GetGroupVersionResponse' :: Maybe GroupVersion
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3Adefinition%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GroupVersion
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupVersionResponse' :: Int
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3AhttpStatus%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679356935"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the group version was</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_creationTimestamp"><span class="hs-identifier hs-type">getGroupVersionResponse_creationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-type">GetGroupVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="getGroupVersionResponse_creationTimestamp"><span class="annot"><span class="annottext">getGroupVersionResponse_creationTimestamp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetGroupVersionResponse -&gt; f GetGroupVersionResponse
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_creationTimestamp"><span class="hs-identifier hs-var hs-var">getGroupVersionResponse_creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGroupVersionResponse -&gt; Maybe Text)
+-&gt; (GetGroupVersionResponse
+    -&gt; Maybe Text -&gt; GetGroupVersionResponse)
+-&gt; Lens
+     GetGroupVersionResponse
+     GetGroupVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse%27"><span class="hs-identifier hs-type">GetGroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356934"><span class="annot"><span class="annottext">Maybe Text
+creationTimestamp :: Maybe Text
+$sel:creationTimestamp:GetGroupVersionResponse' :: GetGroupVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679356934"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356934"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356933"><span class="annot"><span class="annottext">s :: GetGroupVersionResponse
+</span><a href="#local-6989586621679356933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse%27"><span class="hs-identifier hs-type">GetGroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356932"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupVersionResponse
+</span><a href="#local-6989586621679356933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetGroupVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3AcreationTimestamp%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-type">GetGroupVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The ARN of the group version.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_arn"><span class="hs-identifier hs-type">getGroupVersionResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-type">GetGroupVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="getGroupVersionResponse_arn"><span class="annot"><span class="annottext">getGroupVersionResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetGroupVersionResponse -&gt; f GetGroupVersionResponse
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_arn"><span class="hs-identifier hs-var hs-var">getGroupVersionResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGroupVersionResponse -&gt; Maybe Text)
+-&gt; (GetGroupVersionResponse
+    -&gt; Maybe Text -&gt; GetGroupVersionResponse)
+-&gt; Lens
+     GetGroupVersionResponse
+     GetGroupVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse%27"><span class="hs-identifier hs-type">GetGroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356931"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:GetGroupVersionResponse' :: GetGroupVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679356931"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356931"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356930"><span class="annot"><span class="annottext">s :: GetGroupVersionResponse
+</span><a href="#local-6989586621679356930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse%27"><span class="hs-identifier hs-type">GetGroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356929"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupVersionResponse
+</span><a href="#local-6989586621679356930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetGroupVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3Aarn%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-type">GetGroupVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The ID of the group that the version is associated with.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_id"><span class="hs-identifier hs-type">getGroupVersionResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-type">GetGroupVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="getGroupVersionResponse_id"><span class="annot"><span class="annottext">getGroupVersionResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetGroupVersionResponse -&gt; f GetGroupVersionResponse
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_id"><span class="hs-identifier hs-var hs-var">getGroupVersionResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGroupVersionResponse -&gt; Maybe Text)
+-&gt; (GetGroupVersionResponse
+    -&gt; Maybe Text -&gt; GetGroupVersionResponse)
+-&gt; Lens
+     GetGroupVersionResponse
+     GetGroupVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse%27"><span class="hs-identifier hs-type">GetGroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356928"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:GetGroupVersionResponse' :: GetGroupVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679356928"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356928"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356927"><span class="annot"><span class="annottext">s :: GetGroupVersionResponse
+</span><a href="#local-6989586621679356927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse%27"><span class="hs-identifier hs-type">GetGroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356926"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupVersionResponse
+</span><a href="#local-6989586621679356927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetGroupVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3Aid%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-type">GetGroupVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The ID of the group version.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_version"><span class="hs-identifier hs-type">getGroupVersionResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-type">GetGroupVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="getGroupVersionResponse_version"><span class="annot"><span class="annottext">getGroupVersionResponse_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetGroupVersionResponse -&gt; f GetGroupVersionResponse
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_version"><span class="hs-identifier hs-var hs-var">getGroupVersionResponse_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGroupVersionResponse -&gt; Maybe Text)
+-&gt; (GetGroupVersionResponse
+    -&gt; Maybe Text -&gt; GetGroupVersionResponse)
+-&gt; Lens
+     GetGroupVersionResponse
+     GetGroupVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse%27"><span class="hs-identifier hs-type">GetGroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356925"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:GetGroupVersionResponse' :: GetGroupVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679356925"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356925"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356924"><span class="annot"><span class="annottext">s :: GetGroupVersionResponse
+</span><a href="#local-6989586621679356924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse%27"><span class="hs-identifier hs-type">GetGroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356923"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupVersionResponse
+</span><a href="#local-6989586621679356924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:GetGroupVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3Aversion%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-type">GetGroupVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | Information about the group version definition.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_definition"><span class="hs-identifier hs-type">getGroupVersionResponse_definition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-type">GetGroupVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.GroupVersion.html#GroupVersion"><span class="hs-identifier hs-type">GroupVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="getGroupVersionResponse_definition"><span class="annot"><span class="annottext">getGroupVersionResponse_definition :: (Maybe GroupVersion -&gt; f (Maybe GroupVersion))
+-&gt; GetGroupVersionResponse -&gt; f GetGroupVersionResponse
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_definition"><span class="hs-identifier hs-var hs-var">getGroupVersionResponse_definition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGroupVersionResponse -&gt; Maybe GroupVersion)
+-&gt; (GetGroupVersionResponse
+    -&gt; Maybe GroupVersion -&gt; GetGroupVersionResponse)
+-&gt; Lens
+     GetGroupVersionResponse
+     GetGroupVersionResponse
+     (Maybe GroupVersion)
+     (Maybe GroupVersion)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse%27"><span class="hs-identifier hs-type">GetGroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356922"><span class="annot"><span class="annottext">Maybe GroupVersion
+definition :: Maybe GroupVersion
+$sel:definition:GetGroupVersionResponse' :: GetGroupVersionResponse -&gt; Maybe GroupVersion
+</span><a href="#local-6989586621679356922"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroupVersion
+</span><a href="#local-6989586621679356922"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356921"><span class="annot"><span class="annottext">s :: GetGroupVersionResponse
+</span><a href="#local-6989586621679356921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse%27"><span class="hs-identifier hs-type">GetGroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356920"><span class="annot"><span class="annottext">Maybe GroupVersion
+</span><a href="#local-6989586621679356920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupVersionResponse
+</span><a href="#local-6989586621679356921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:definition:GetGroupVersionResponse' :: Maybe GroupVersion
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3Adefinition%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GroupVersion
+</span><a href="#local-6989586621679356920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-type">GetGroupVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_httpStatus"><span class="hs-identifier hs-type">getGroupVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-type">GetGroupVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-229"></span><span id="getGroupVersionResponse_httpStatus"><span class="annot"><span class="annottext">getGroupVersionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetGroupVersionResponse -&gt; f GetGroupVersionResponse
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#getGroupVersionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getGroupVersionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGroupVersionResponse -&gt; Int)
+-&gt; (GetGroupVersionResponse -&gt; Int -&gt; GetGroupVersionResponse)
+-&gt; Lens GetGroupVersionResponse GetGroupVersionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse%27"><span class="hs-identifier hs-type">GetGroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356919"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetGroupVersionResponse' :: GetGroupVersionResponse -&gt; Int
+</span><a href="#local-6989586621679356919"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679356919"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356918"><span class="annot"><span class="annottext">s :: GetGroupVersionResponse
+</span><a href="#local-6989586621679356918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse%27"><span class="hs-identifier hs-type">GetGroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356917"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679356917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupVersionResponse
+</span><a href="#local-6989586621679356918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupVersionResponse' :: Int
+</span><a href="Network.AWS.Greengrass.GetGroupVersion.html#%24sel%3AhttpStatus%3AGetGroupVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679356917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-type">GetGroupVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679356915"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetGroupVersion.html#GetGroupVersionResponse"><span class="hs-identifier hs-type">GetGroupVersionResponse</span></a></span></span><span>
+</span><span id="line-232"></span></pre></body></html>

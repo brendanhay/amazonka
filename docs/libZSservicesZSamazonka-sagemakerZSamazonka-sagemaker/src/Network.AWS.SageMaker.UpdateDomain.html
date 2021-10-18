@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.UpdateDomain</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the default settings for new user profiles in the domain.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.UpdateDomain</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain"><span class="hs-identifier">UpdateDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#newUpdateDomain"><span class="hs-identifier">newUpdateDomain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#updateDomain_defaultUserSettings"><span class="hs-identifier">updateDomain_defaultUserSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#updateDomain_domainId"><span class="hs-identifier">updateDomain_domainId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse"><span class="hs-identifier">UpdateDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#newUpdateDomainResponse"><span class="hs-identifier">newUpdateDomainResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#updateDomainResponse_domainArn"><span class="hs-identifier">updateDomainResponse_domainArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#updateDomainResponse_httpStatus"><span class="hs-identifier">updateDomainResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUpdateDomain' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621680425006"><span id="local-6989586621680425007"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomain"><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain"><span class="hs-identifier hs-var">UpdateDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomain%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain%27"><span class="hs-identifier hs-var">UpdateDomain'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A collection of settings.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdefaultUserSettings%3AUpdateDomain%27"><span class="annot"><span class="annottext">UpdateDomain -&gt; Maybe UserSettings
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#%24sel%3AdefaultUserSettings%3AUpdateDomain%27"><span class="hs-identifier hs-var hs-var">defaultUserSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The ID of the domain to be updated.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdomainId%3AUpdateDomain%27"><span class="annot"><span class="annottext">UpdateDomain -&gt; Text
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#%24sel%3AdomainId%3AUpdateDomain%27"><span class="hs-identifier hs-var hs-var">domainId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680424999"><span id="local-6989586621680425001"><span class="annot"><span class="annottext">UpdateDomain -&gt; UpdateDomain -&gt; Bool
+(UpdateDomain -&gt; UpdateDomain -&gt; Bool)
+-&gt; (UpdateDomain -&gt; UpdateDomain -&gt; Bool) -&gt; Eq UpdateDomain
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDomain -&gt; UpdateDomain -&gt; Bool
+$c/= :: UpdateDomain -&gt; UpdateDomain -&gt; Bool
+== :: UpdateDomain -&gt; UpdateDomain -&gt; Bool
+$c== :: UpdateDomain -&gt; UpdateDomain -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424990"><span id="local-6989586621680424992"><span id="local-6989586621680424994"><span id="local-6989586621680424996"><span class="annot"><span class="annottext">ReadPrec [UpdateDomain]
+ReadPrec UpdateDomain
+Int -&gt; ReadS UpdateDomain
+ReadS [UpdateDomain]
+(Int -&gt; ReadS UpdateDomain)
+-&gt; ReadS [UpdateDomain]
+-&gt; ReadPrec UpdateDomain
+-&gt; ReadPrec [UpdateDomain]
+-&gt; Read UpdateDomain
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDomain]
+$creadListPrec :: ReadPrec [UpdateDomain]
+readPrec :: ReadPrec UpdateDomain
+$creadPrec :: ReadPrec UpdateDomain
+readList :: ReadS [UpdateDomain]
+$creadList :: ReadS [UpdateDomain]
+readsPrec :: Int -&gt; ReadS UpdateDomain
+$creadsPrec :: Int -&gt; ReadS UpdateDomain
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424983"><span id="local-6989586621680424985"><span id="local-6989586621680424987"><span class="annot"><span class="annottext">Int -&gt; UpdateDomain -&gt; ShowS
+[UpdateDomain] -&gt; ShowS
+UpdateDomain -&gt; String
+(Int -&gt; UpdateDomain -&gt; ShowS)
+-&gt; (UpdateDomain -&gt; String)
+-&gt; ([UpdateDomain] -&gt; ShowS)
+-&gt; Show UpdateDomain
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDomain] -&gt; ShowS
+$cshowList :: [UpdateDomain] -&gt; ShowS
+show :: UpdateDomain -&gt; String
+$cshow :: UpdateDomain -&gt; String
+showsPrec :: Int -&gt; UpdateDomain -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDomain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateDomain -&gt; Rep UpdateDomain x)
+-&gt; (forall x. Rep UpdateDomain x -&gt; UpdateDomain)
+-&gt; Generic UpdateDomain
+forall x. Rep UpdateDomain x -&gt; UpdateDomain
+forall x. UpdateDomain -&gt; Rep UpdateDomain x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateDomain x -&gt; UpdateDomain
+$cfrom :: forall x. UpdateDomain -&gt; Rep UpdateDomain x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'UpdateDomain' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'defaultUserSettings', 'updateDomain_defaultUserSettings' - A collection of settings.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'domainId', 'updateDomain_domainId' - The ID of the domain to be updated.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#newUpdateDomain"><span class="hs-identifier hs-type">newUpdateDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'domainId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain"><span class="hs-identifier hs-type">UpdateDomain</span></a></span><span>
+</span><span id="line-74"></span><span id="newUpdateDomain"><span class="annot"><span class="annottext">newUpdateDomain :: Text -&gt; UpdateDomain
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#newUpdateDomain"><span class="hs-identifier hs-var hs-var">newUpdateDomain</span></a></span></span><span> </span><span id="local-6989586621680424978"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424978"><span class="hs-identifier hs-var">pDomainId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">UpdateDomain' :: Maybe UserSettings -&gt; Text -&gt; UpdateDomain
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain%27"><span class="hs-identifier hs-type">UpdateDomain'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:defaultUserSettings:UpdateDomain' :: Maybe UserSettings
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#%24sel%3AdefaultUserSettings%3AUpdateDomain%27"><span class="hs-identifier hs-var">defaultUserSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe UserSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainId:UpdateDomain' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#%24sel%3AdomainId%3AUpdateDomain%27"><span class="hs-identifier hs-var">domainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424978"><span class="hs-identifier hs-var">pDomainId_</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | A collection of settings.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#updateDomain_defaultUserSettings"><span class="hs-identifier hs-type">updateDomain_defaultUserSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain"><span class="hs-identifier hs-type">UpdateDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="updateDomain_defaultUserSettings"><span class="annot"><span class="annottext">updateDomain_defaultUserSettings :: (Maybe UserSettings -&gt; f (Maybe UserSettings))
+-&gt; UpdateDomain -&gt; f UpdateDomain
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#updateDomain_defaultUserSettings"><span class="hs-identifier hs-var hs-var">updateDomain_defaultUserSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomain -&gt; Maybe UserSettings)
+-&gt; (UpdateDomain -&gt; Maybe UserSettings -&gt; UpdateDomain)
+-&gt; Lens
+     UpdateDomain UpdateDomain (Maybe UserSettings) (Maybe UserSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain%27"><span class="hs-identifier hs-type">UpdateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424975"><span class="annot"><span class="annottext">Maybe UserSettings
+defaultUserSettings :: Maybe UserSettings
+$sel:defaultUserSettings:UpdateDomain' :: UpdateDomain -&gt; Maybe UserSettings
+</span><a href="#local-6989586621680424975"><span class="hs-identifier hs-var hs-var">defaultUserSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserSettings
+</span><a href="#local-6989586621680424975"><span class="hs-identifier hs-var">defaultUserSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424974"><span class="annot"><span class="annottext">s :: UpdateDomain
+</span><a href="#local-6989586621680424974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain%27"><span class="hs-identifier hs-type">UpdateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424973"><span class="annot"><span class="annottext">Maybe UserSettings
+</span><a href="#local-6989586621680424973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomain
+</span><a href="#local-6989586621680424974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultUserSettings:UpdateDomain' :: Maybe UserSettings
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#%24sel%3AdefaultUserSettings%3AUpdateDomain%27"><span class="hs-identifier hs-var">defaultUserSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserSettings
+</span><a href="#local-6989586621680424973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain"><span class="hs-identifier hs-type">UpdateDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The ID of the domain to be updated.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#updateDomain_domainId"><span class="hs-identifier hs-type">updateDomain_domainId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain"><span class="hs-identifier hs-type">UpdateDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="updateDomain_domainId"><span class="annot"><span class="annottext">updateDomain_domainId :: (Text -&gt; f Text) -&gt; UpdateDomain -&gt; f UpdateDomain
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#updateDomain_domainId"><span class="hs-identifier hs-var hs-var">updateDomain_domainId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomain -&gt; Text)
+-&gt; (UpdateDomain -&gt; Text -&gt; UpdateDomain)
+-&gt; Lens UpdateDomain UpdateDomain Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain%27"><span class="hs-identifier hs-type">UpdateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424972"><span class="annot"><span class="annottext">Text
+domainId :: Text
+$sel:domainId:UpdateDomain' :: UpdateDomain -&gt; Text
+</span><a href="#local-6989586621680424972"><span class="hs-identifier hs-var hs-var">domainId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424972"><span class="hs-identifier hs-var">domainId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424971"><span class="annot"><span class="annottext">s :: UpdateDomain
+</span><a href="#local-6989586621680424971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain%27"><span class="hs-identifier hs-type">UpdateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424970"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomain
+</span><a href="#local-6989586621680424971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainId:UpdateDomain' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#%24sel%3AdomainId%3AUpdateDomain%27"><span class="hs-identifier hs-var">domainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain"><span class="hs-identifier hs-type">UpdateDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain"><span class="hs-identifier hs-type">UpdateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain"><span class="hs-identifier hs-type">UpdateDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse"><span class="hs-identifier hs-type">UpdateDomainResponse</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680424966"><span class="annot"><span class="annottext">request :: UpdateDomain -&gt; Request UpdateDomain
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDomain -&gt; Request UpdateDomain
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621680424962"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateDomain
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateDomain)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateDomain))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateDomain
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateDomain)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680424959"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424959"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680424958"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680424958"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680424957"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680424957"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UpdateDomainResponse
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse%27"><span class="hs-identifier hs-var">UpdateDomainResponse'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UpdateDomainResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateDomainResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680424957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateDomainResponse)
+-&gt; Either String Int -&gt; Either String UpdateDomainResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424959"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424949"><span id="local-6989586621680424951"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain"><span class="hs-identifier hs-type">UpdateDomain</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain"><span class="hs-identifier hs-type">UpdateDomain</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain"><span class="hs-identifier hs-type">UpdateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621680424942"><span class="annot"><span class="annottext">toHeaders :: UpdateDomain -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDomain -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.UpdateDomain&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-113"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424932"><span id="local-6989586621680424934"><span id="local-6989586621680424936"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain"><span class="hs-identifier hs-type">UpdateDomain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621680424930"><span class="annot"><span class="annottext">toJSON :: UpdateDomain -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain%27"><span class="hs-identifier hs-type">UpdateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424927"><span id="local-6989586621680424928"><span class="annot"><span class="annottext">Maybe UserSettings
+Text
+domainId :: Text
+defaultUserSettings :: Maybe UserSettings
+$sel:domainId:UpdateDomain' :: UpdateDomain -&gt; Text
+$sel:defaultUserSettings:UpdateDomain' :: UpdateDomain -&gt; Maybe UserSettings
+</span><a href="#local-6989586621680424927"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultUserSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UserSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">(UserSettings -&gt; Pair) -&gt; Maybe UserSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UserSettings
+</span><a href="#local-6989586621680424928"><span class="hs-identifier hs-var">defaultUserSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424927"><span class="hs-identifier hs-var">domainId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain"><span class="hs-identifier hs-type">UpdateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621680424921"><span class="annot"><span class="annottext">toPath :: UpdateDomain -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateDomain -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomain"><span class="hs-identifier hs-type">UpdateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621680424917"><span class="annot"><span class="annottext">toQuery :: UpdateDomain -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDomain -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newUpdateDomainResponse' smart constructor.</span><span>
+</span><span id="line-134"></span><span id="local-6989586621680424914"><span id="local-6989586621680424915"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainResponse"><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse"><span class="hs-identifier hs-var">UpdateDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse%27"><span class="hs-identifier hs-var">UpdateDomainResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the domain.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AdomainArn%3AUpdateDomainResponse%27"><span class="annot"><span class="annottext">UpdateDomainResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#%24sel%3AdomainArn%3AUpdateDomainResponse%27"><span class="hs-identifier hs-var hs-var">domainArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDomainResponse%27"><span class="annot"><span class="annottext">UpdateDomainResponse -&gt; Int
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#%24sel%3AhttpStatus%3AUpdateDomainResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680424908"><span id="local-6989586621680424910"><span class="annot"><span class="annottext">UpdateDomainResponse -&gt; UpdateDomainResponse -&gt; Bool
+(UpdateDomainResponse -&gt; UpdateDomainResponse -&gt; Bool)
+-&gt; (UpdateDomainResponse -&gt; UpdateDomainResponse -&gt; Bool)
+-&gt; Eq UpdateDomainResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDomainResponse -&gt; UpdateDomainResponse -&gt; Bool
+$c/= :: UpdateDomainResponse -&gt; UpdateDomainResponse -&gt; Bool
+== :: UpdateDomainResponse -&gt; UpdateDomainResponse -&gt; Bool
+$c== :: UpdateDomainResponse -&gt; UpdateDomainResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424900"><span id="local-6989586621680424902"><span id="local-6989586621680424904"><span id="local-6989586621680424906"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainResponse]
+ReadPrec UpdateDomainResponse
+Int -&gt; ReadS UpdateDomainResponse
+ReadS [UpdateDomainResponse]
+(Int -&gt; ReadS UpdateDomainResponse)
+-&gt; ReadS [UpdateDomainResponse]
+-&gt; ReadPrec UpdateDomainResponse
+-&gt; ReadPrec [UpdateDomainResponse]
+-&gt; Read UpdateDomainResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDomainResponse]
+$creadListPrec :: ReadPrec [UpdateDomainResponse]
+readPrec :: ReadPrec UpdateDomainResponse
+$creadPrec :: ReadPrec UpdateDomainResponse
+readList :: ReadS [UpdateDomainResponse]
+$creadList :: ReadS [UpdateDomainResponse]
+readsPrec :: Int -&gt; ReadS UpdateDomainResponse
+$creadsPrec :: Int -&gt; ReadS UpdateDomainResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424894"><span id="local-6989586621680424896"><span id="local-6989586621680424898"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainResponse -&gt; ShowS
+[UpdateDomainResponse] -&gt; ShowS
+UpdateDomainResponse -&gt; String
+(Int -&gt; UpdateDomainResponse -&gt; ShowS)
+-&gt; (UpdateDomainResponse -&gt; String)
+-&gt; ([UpdateDomainResponse] -&gt; ShowS)
+-&gt; Show UpdateDomainResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDomainResponse] -&gt; ShowS
+$cshowList :: [UpdateDomainResponse] -&gt; ShowS
+show :: UpdateDomainResponse -&gt; String
+$cshow :: UpdateDomainResponse -&gt; String
+showsPrec :: Int -&gt; UpdateDomainResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDomainResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateDomainResponse -&gt; Rep UpdateDomainResponse x)
+-&gt; (forall x. Rep UpdateDomainResponse x -&gt; UpdateDomainResponse)
+-&gt; Generic UpdateDomainResponse
+forall x. Rep UpdateDomainResponse x -&gt; UpdateDomainResponse
+forall x. UpdateDomainResponse -&gt; Rep UpdateDomainResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateDomainResponse x -&gt; UpdateDomainResponse
+$cfrom :: forall x. UpdateDomainResponse -&gt; Rep UpdateDomainResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'UpdateDomainResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'domainArn', 'updateDomainResponse_domainArn' - The Amazon Resource Name (ARN) of the domain.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'updateDomainResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#newUpdateDomainResponse"><span class="hs-identifier hs-type">newUpdateDomainResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse"><span class="hs-identifier hs-type">UpdateDomainResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newUpdateDomainResponse"><span class="annot"><span class="annottext">newUpdateDomainResponse :: Int -&gt; UpdateDomainResponse
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#newUpdateDomainResponse"><span class="hs-identifier hs-var hs-var">newUpdateDomainResponse</span></a></span></span><span> </span><span id="local-6989586621680424891"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424891"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">UpdateDomainResponse' :: Maybe Text -&gt; Int -&gt; UpdateDomainResponse
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse%27"><span class="hs-identifier hs-type">UpdateDomainResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainArn:UpdateDomainResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#%24sel%3AdomainArn%3AUpdateDomainResponse%27"><span class="hs-identifier hs-var">domainArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainResponse' :: Int
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#%24sel%3AhttpStatus%3AUpdateDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424891"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the domain.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#updateDomainResponse_domainArn"><span class="hs-identifier hs-type">updateDomainResponse_domainArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse"><span class="hs-identifier hs-type">UpdateDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="updateDomainResponse_domainArn"><span class="annot"><span class="annottext">updateDomainResponse_domainArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDomainResponse -&gt; f UpdateDomainResponse
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#updateDomainResponse_domainArn"><span class="hs-identifier hs-var hs-var">updateDomainResponse_domainArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainResponse -&gt; Maybe Text)
+-&gt; (UpdateDomainResponse -&gt; Maybe Text -&gt; UpdateDomainResponse)
+-&gt; Lens
+     UpdateDomainResponse UpdateDomainResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse%27"><span class="hs-identifier hs-type">UpdateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424890"><span class="annot"><span class="annottext">Maybe Text
+domainArn :: Maybe Text
+$sel:domainArn:UpdateDomainResponse' :: UpdateDomainResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680424890"><span class="hs-identifier hs-var hs-var">domainArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680424890"><span class="hs-identifier hs-var">domainArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424889"><span class="annot"><span class="annottext">s :: UpdateDomainResponse
+</span><a href="#local-6989586621680424889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse%27"><span class="hs-identifier hs-type">UpdateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424888"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680424888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainResponse
+</span><a href="#local-6989586621680424889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainArn:UpdateDomainResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#%24sel%3AdomainArn%3AUpdateDomainResponse%27"><span class="hs-identifier hs-var">domainArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680424888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse"><span class="hs-identifier hs-type">UpdateDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#updateDomainResponse_httpStatus"><span class="hs-identifier hs-type">updateDomainResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse"><span class="hs-identifier hs-type">UpdateDomainResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-169"></span><span id="updateDomainResponse_httpStatus"><span class="annot"><span class="annottext">updateDomainResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateDomainResponse -&gt; f UpdateDomainResponse
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#updateDomainResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateDomainResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainResponse -&gt; Int)
+-&gt; (UpdateDomainResponse -&gt; Int -&gt; UpdateDomainResponse)
+-&gt; Lens UpdateDomainResponse UpdateDomainResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse%27"><span class="hs-identifier hs-type">UpdateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424887"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateDomainResponse' :: UpdateDomainResponse -&gt; Int
+</span><a href="#local-6989586621680424887"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424887"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424886"><span class="annot"><span class="annottext">s :: UpdateDomainResponse
+</span><a href="#local-6989586621680424886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse%27"><span class="hs-identifier hs-type">UpdateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424885"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainResponse
+</span><a href="#local-6989586621680424886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainResponse' :: Int
+</span><a href="Network.AWS.SageMaker.UpdateDomain.html#%24sel%3AhttpStatus%3AUpdateDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse"><span class="hs-identifier hs-type">UpdateDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424883"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDomain.html#UpdateDomainResponse"><span class="hs-identifier hs-type">UpdateDomainResponse</span></a></span></span><span>
+</span><span id="line-172"></span></pre></body></html>

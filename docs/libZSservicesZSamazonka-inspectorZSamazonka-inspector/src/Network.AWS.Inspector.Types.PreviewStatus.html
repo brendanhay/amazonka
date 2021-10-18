@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Inspector.Types.PreviewStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Inspector.Types.PreviewStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus"><span class="hs-identifier">PreviewStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus_COMPLETED"><span class="hs-identifier">PreviewStatus_COMPLETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus_WORK_IN_PROGRESS"><span class="hs-identifier">PreviewStatus_WORK_IN_PROGRESS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679246416"><span id="local-6989586621679246417"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PreviewStatus"><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus"><span class="hs-identifier hs-var">PreviewStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PreviewStatus%27"><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus%27"><span class="hs-identifier hs-var">PreviewStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPreviewStatus"><span class="annot"><span class="annottext">PreviewStatus -&gt; Text
+</span><a href="Network.AWS.Inspector.Types.PreviewStatus.html#fromPreviewStatus"><span class="hs-identifier hs-var hs-var">fromPreviewStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246408"><span id="local-6989586621679246410"><span id="local-6989586621679246412"><span class="annot"><span class="annottext">Int -&gt; PreviewStatus -&gt; ShowS
+[PreviewStatus] -&gt; ShowS
+PreviewStatus -&gt; String
+(Int -&gt; PreviewStatus -&gt; ShowS)
+-&gt; (PreviewStatus -&gt; String)
+-&gt; ([PreviewStatus] -&gt; ShowS)
+-&gt; Show PreviewStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PreviewStatus] -&gt; ShowS
+$cshowList :: [PreviewStatus] -&gt; ShowS
+show :: PreviewStatus -&gt; String
+$cshow :: PreviewStatus -&gt; String
+showsPrec :: Int -&gt; PreviewStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; PreviewStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679246399"><span id="local-6989586621679246401"><span id="local-6989586621679246403"><span id="local-6989586621679246405"><span class="annot"><span class="annottext">ReadPrec [PreviewStatus]
+ReadPrec PreviewStatus
+Int -&gt; ReadS PreviewStatus
+ReadS [PreviewStatus]
+(Int -&gt; ReadS PreviewStatus)
+-&gt; ReadS [PreviewStatus]
+-&gt; ReadPrec PreviewStatus
+-&gt; ReadPrec [PreviewStatus]
+-&gt; Read PreviewStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PreviewStatus]
+$creadListPrec :: ReadPrec [PreviewStatus]
+readPrec :: ReadPrec PreviewStatus
+$creadPrec :: ReadPrec PreviewStatus
+readList :: ReadS [PreviewStatus]
+$creadList :: ReadS [PreviewStatus]
+readsPrec :: Int -&gt; ReadS PreviewStatus
+$creadsPrec :: Int -&gt; ReadS PreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679246394"><span id="local-6989586621679246396"><span class="annot"><span class="annottext">PreviewStatus -&gt; PreviewStatus -&gt; Bool
+(PreviewStatus -&gt; PreviewStatus -&gt; Bool)
+-&gt; (PreviewStatus -&gt; PreviewStatus -&gt; Bool) -&gt; Eq PreviewStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PreviewStatus -&gt; PreviewStatus -&gt; Bool
+$c/= :: PreviewStatus -&gt; PreviewStatus -&gt; Bool
+== :: PreviewStatus -&gt; PreviewStatus -&gt; Bool
+$c== :: PreviewStatus -&gt; PreviewStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679246378"><span id="local-6989586621679246380"><span id="local-6989586621679246382"><span id="local-6989586621679246384"><span id="local-6989586621679246386"><span id="local-6989586621679246388"><span id="local-6989586621679246390"><span class="annot"><span class="annottext">Eq PreviewStatus
+Eq PreviewStatus
+-&gt; (PreviewStatus -&gt; PreviewStatus -&gt; Ordering)
+-&gt; (PreviewStatus -&gt; PreviewStatus -&gt; Bool)
+-&gt; (PreviewStatus -&gt; PreviewStatus -&gt; Bool)
+-&gt; (PreviewStatus -&gt; PreviewStatus -&gt; Bool)
+-&gt; (PreviewStatus -&gt; PreviewStatus -&gt; Bool)
+-&gt; (PreviewStatus -&gt; PreviewStatus -&gt; PreviewStatus)
+-&gt; (PreviewStatus -&gt; PreviewStatus -&gt; PreviewStatus)
+-&gt; Ord PreviewStatus
+PreviewStatus -&gt; PreviewStatus -&gt; Bool
+PreviewStatus -&gt; PreviewStatus -&gt; Ordering
+PreviewStatus -&gt; PreviewStatus -&gt; PreviewStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PreviewStatus -&gt; PreviewStatus -&gt; PreviewStatus
+$cmin :: PreviewStatus -&gt; PreviewStatus -&gt; PreviewStatus
+max :: PreviewStatus -&gt; PreviewStatus -&gt; PreviewStatus
+$cmax :: PreviewStatus -&gt; PreviewStatus -&gt; PreviewStatus
+&gt;= :: PreviewStatus -&gt; PreviewStatus -&gt; Bool
+$c&gt;= :: PreviewStatus -&gt; PreviewStatus -&gt; Bool
+&gt; :: PreviewStatus -&gt; PreviewStatus -&gt; Bool
+$c&gt; :: PreviewStatus -&gt; PreviewStatus -&gt; Bool
+&lt;= :: PreviewStatus -&gt; PreviewStatus -&gt; Bool
+$c&lt;= :: PreviewStatus -&gt; PreviewStatus -&gt; Bool
+&lt; :: PreviewStatus -&gt; PreviewStatus -&gt; Bool
+$c&lt; :: PreviewStatus -&gt; PreviewStatus -&gt; Bool
+compare :: PreviewStatus -&gt; PreviewStatus -&gt; Ordering
+$ccompare :: PreviewStatus -&gt; PreviewStatus -&gt; Ordering
+$cp1Ord :: Eq PreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PreviewStatus -&gt; Rep PreviewStatus x)
+-&gt; (forall x. Rep PreviewStatus x -&gt; PreviewStatus)
+-&gt; Generic PreviewStatus
+forall x. Rep PreviewStatus x -&gt; PreviewStatus
+forall x. PreviewStatus -&gt; Rep PreviewStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PreviewStatus x -&gt; PreviewStatus
+$cfrom :: forall x. PreviewStatus -&gt; Rep PreviewStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246370"><span id="local-6989586621679246372"><span class="annot"><span class="annottext">Int -&gt; PreviewStatus -&gt; Int
+PreviewStatus -&gt; Int
+(Int -&gt; PreviewStatus -&gt; Int)
+-&gt; (PreviewStatus -&gt; Int) -&gt; Hashable PreviewStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PreviewStatus -&gt; Int
+$chash :: PreviewStatus -&gt; Int
+hashWithSalt :: Int -&gt; PreviewStatus -&gt; Int
+$chashWithSalt :: Int -&gt; PreviewStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679246367"><span class="annot"><span class="annottext">PreviewStatus -&gt; ()
+(PreviewStatus -&gt; ()) -&gt; NFData PreviewStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PreviewStatus -&gt; ()
+$crnf :: PreviewStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679246364"><span class="annot"><span class="annottext">Text -&gt; Either String PreviewStatus
+(Text -&gt; Either String PreviewStatus) -&gt; FromText PreviewStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PreviewStatus
+$cfromText :: Text -&gt; Either String PreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679246361"><span class="annot"><span class="annottext">PreviewStatus -&gt; Text
+(PreviewStatus -&gt; Text) -&gt; ToText PreviewStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PreviewStatus -&gt; Text
+$ctoText :: PreviewStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246358"><span class="annot"><span class="annottext">PreviewStatus -&gt; ByteString
+(PreviewStatus -&gt; ByteString) -&gt; ToByteString PreviewStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PreviewStatus -&gt; ByteString
+$ctoBS :: PreviewStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246355"><span class="annot"><span class="annottext">PreviewStatus -&gt; ByteStringBuilder
+(PreviewStatus -&gt; ByteStringBuilder) -&gt; ToLog PreviewStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PreviewStatus -&gt; ByteStringBuilder
+$cbuild :: PreviewStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246352"><span class="annot"><span class="annottext">HeaderName -&gt; PreviewStatus -&gt; [Header]
+(HeaderName -&gt; PreviewStatus -&gt; [Header]) -&gt; ToHeader PreviewStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PreviewStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PreviewStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246349"><span class="annot"><span class="annottext">PreviewStatus -&gt; QueryString
+(PreviewStatus -&gt; QueryString) -&gt; ToQuery PreviewStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PreviewStatus -&gt; QueryString
+$ctoQuery :: PreviewStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246344"><span id="local-6989586621679246346"><span class="annot"><span class="annottext">Value -&gt; Parser [PreviewStatus]
+Value -&gt; Parser PreviewStatus
+(Value -&gt; Parser PreviewStatus)
+-&gt; (Value -&gt; Parser [PreviewStatus]) -&gt; FromJSON PreviewStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PreviewStatus]
+$cparseJSONList :: Value -&gt; Parser [PreviewStatus]
+parseJSON :: Value -&gt; Parser PreviewStatus
+$cparseJSON :: Value -&gt; Parser PreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246339"><span id="local-6989586621679246341"><span class="annot"><span class="annottext">FromJSONKeyFunction [PreviewStatus]
+FromJSONKeyFunction PreviewStatus
+FromJSONKeyFunction PreviewStatus
+-&gt; FromJSONKeyFunction [PreviewStatus] -&gt; FromJSONKey PreviewStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PreviewStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [PreviewStatus]
+fromJSONKey :: FromJSONKeyFunction PreviewStatus
+$cfromJSONKey :: FromJSONKeyFunction PreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246330"><span id="local-6989586621679246332"><span id="local-6989586621679246334"><span id="local-6989586621679246336"><span class="annot"><span class="annottext">[PreviewStatus] -&gt; Encoding
+[PreviewStatus] -&gt; Value
+PreviewStatus -&gt; Encoding
+PreviewStatus -&gt; Value
+(PreviewStatus -&gt; Value)
+-&gt; (PreviewStatus -&gt; Encoding)
+-&gt; ([PreviewStatus] -&gt; Value)
+-&gt; ([PreviewStatus] -&gt; Encoding)
+-&gt; ToJSON PreviewStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PreviewStatus] -&gt; Encoding
+$ctoEncodingList :: [PreviewStatus] -&gt; Encoding
+toJSONList :: [PreviewStatus] -&gt; Value
+$ctoJSONList :: [PreviewStatus] -&gt; Value
+toEncoding :: PreviewStatus -&gt; Encoding
+$ctoEncoding :: PreviewStatus -&gt; Encoding
+toJSON :: PreviewStatus -&gt; Value
+$ctoJSON :: PreviewStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246325"><span id="local-6989586621679246327"><span class="annot"><span class="annottext">ToJSONKeyFunction [PreviewStatus]
+ToJSONKeyFunction PreviewStatus
+ToJSONKeyFunction PreviewStatus
+-&gt; ToJSONKeyFunction [PreviewStatus] -&gt; ToJSONKey PreviewStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PreviewStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [PreviewStatus]
+toJSONKey :: ToJSONKeyFunction PreviewStatus
+$ctoJSONKey :: ToJSONKeyFunction PreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246322"><span class="annot"><span class="annottext">[Node] -&gt; Either String PreviewStatus
+([Node] -&gt; Either String PreviewStatus) -&gt; FromXML PreviewStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PreviewStatus
+$cparseXML :: [Node] -&gt; Either String PreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246319"><span class="annot"><span class="annottext">PreviewStatus -&gt; XML
+(PreviewStatus -&gt; XML) -&gt; ToXML PreviewStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PreviewStatus -&gt; XML
+$ctoXML :: PreviewStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus_COMPLETED"><span class="hs-identifier hs-type">PreviewStatus_COMPLETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus"><span class="hs-identifier hs-type">PreviewStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPreviewStatus_COMPLETED"><span id="%24mPreviewStatus_COMPLETED"><span id="PreviewStatus_COMPLETED"><span class="annot"><span class="annottext">$bPreviewStatus_COMPLETED :: PreviewStatus
+$mPreviewStatus_COMPLETED :: forall r. PreviewStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Inspector.Types.PreviewStatus.html#%24bPreviewStatus_COMPLETED"><span class="hs-identifier hs-var hs-var hs-var">PreviewStatus_COMPLETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus%27"><span class="hs-identifier hs-type">PreviewStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus_WORK_IN_PROGRESS"><span class="hs-identifier hs-type">PreviewStatus_WORK_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus"><span class="hs-identifier hs-type">PreviewStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPreviewStatus_WORK_IN_PROGRESS"><span id="%24mPreviewStatus_WORK_IN_PROGRESS"><span id="PreviewStatus_WORK_IN_PROGRESS"><span class="annot"><span class="annottext">$bPreviewStatus_WORK_IN_PROGRESS :: PreviewStatus
+$mPreviewStatus_WORK_IN_PROGRESS :: forall r. PreviewStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Inspector.Types.PreviewStatus.html#%24bPreviewStatus_WORK_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">PreviewStatus_WORK_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus%27"><span class="hs-identifier hs-type">PreviewStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WORK_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus_COMPLETED"><span class="hs-pragma hs-type">PreviewStatus_COMPLETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus_WORK_IN_PROGRESS"><span class="hs-pragma hs-type">PreviewStatus_WORK_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus%27"><span class="hs-pragma hs-type">PreviewStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

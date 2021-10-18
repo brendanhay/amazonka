@@ -1,0 +1,731 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Redshift.CreateHsmConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an HSM configuration that contains the information required by</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- an Amazon Redshift cluster to store and use database encryption keys in</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- a Hardware Security Module (HSM). After creating the HSM configuration,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- you can specify it as a parameter when creating a cluster. The cluster</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- will then store its encryption keys in the HSM.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- In addition to creating an HSM configuration, you must also create an</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- HSM client certificate. For more information, go to</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- in the Amazon Redshift Cluster Management Guide.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Redshift.CreateHsmConfiguration</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier">CreateHsmConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#newCreateHsmConfiguration"><span class="hs-identifier">newCreateHsmConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_tags"><span class="hs-identifier">createHsmConfiguration_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_hsmConfigurationIdentifier"><span class="hs-identifier">createHsmConfiguration_hsmConfigurationIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_description"><span class="hs-identifier">createHsmConfiguration_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_hsmIpAddress"><span class="hs-identifier">createHsmConfiguration_hsmIpAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_hsmPartitionName"><span class="hs-identifier">createHsmConfiguration_hsmPartitionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_hsmPartitionPassword"><span class="hs-identifier">createHsmConfiguration_hsmPartitionPassword</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_hsmServerPublicCertificate"><span class="hs-identifier">createHsmConfiguration_hsmServerPublicCertificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse"><span class="hs-identifier">CreateHsmConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#newCreateHsmConfigurationResponse"><span class="hs-identifier">newCreateHsmConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfigurationResponse_hsmConfiguration"><span class="hs-identifier">createHsmConfigurationResponse_hsmConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfigurationResponse_httpStatus"><span class="hs-identifier">createHsmConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.html"><span class="hs-identifier">Network.AWS.Redshift.Types</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- /See:/ 'newCreateHsmConfiguration' smart constructor.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621679525185"><span id="local-6989586621679525186"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateHsmConfiguration"><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-var">CreateHsmConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateHsmConfiguration%27"><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-var">CreateHsmConfiguration'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of tag instances.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Atags%3ACreateHsmConfiguration%27"><span class="annot"><span class="annottext">CreateHsmConfiguration -&gt; Maybe [Tag]
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3Atags%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The identifier to be assigned to the new Amazon Redshift HSM</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AhsmConfigurationIdentifier%3ACreateHsmConfiguration%27"><span class="annot"><span class="annottext">CreateHsmConfiguration -&gt; Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmConfigurationIdentifier%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var hs-var">hsmConfigurationIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | A text description of the HSM configuration to be created.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Adescription%3ACreateHsmConfiguration%27"><span class="annot"><span class="annottext">CreateHsmConfiguration -&gt; Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3Adescription%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The IP address that the Amazon Redshift cluster must use to access the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- HSM.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AhsmIpAddress%3ACreateHsmConfiguration%27"><span class="annot"><span class="annottext">CreateHsmConfiguration -&gt; Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmIpAddress%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var hs-var">hsmIpAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The name of the partition in the HSM where the Amazon Redshift clusters</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- will store their database encryption keys.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AhsmPartitionName%3ACreateHsmConfiguration%27"><span class="annot"><span class="annottext">CreateHsmConfiguration -&gt; Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmPartitionName%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var hs-var">hsmPartitionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The password required to access the HSM partition.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AhsmPartitionPassword%3ACreateHsmConfiguration%27"><span class="annot"><span class="annottext">CreateHsmConfiguration -&gt; Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmPartitionPassword%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var hs-var">hsmPartitionPassword</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The HSMs public certificate file. When using Cloud HSM, the file name is</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- server.pem.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AhsmServerPublicCertificate%3ACreateHsmConfiguration%27"><span class="annot"><span class="annottext">CreateHsmConfiguration -&gt; Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmServerPublicCertificate%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var hs-var">hsmServerPublicCertificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679525173"><span id="local-6989586621679525175"><span class="annot"><span class="annottext">CreateHsmConfiguration -&gt; CreateHsmConfiguration -&gt; Bool
+(CreateHsmConfiguration -&gt; CreateHsmConfiguration -&gt; Bool)
+-&gt; (CreateHsmConfiguration -&gt; CreateHsmConfiguration -&gt; Bool)
+-&gt; Eq CreateHsmConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateHsmConfiguration -&gt; CreateHsmConfiguration -&gt; Bool
+$c/= :: CreateHsmConfiguration -&gt; CreateHsmConfiguration -&gt; Bool
+== :: CreateHsmConfiguration -&gt; CreateHsmConfiguration -&gt; Bool
+$c== :: CreateHsmConfiguration -&gt; CreateHsmConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679525164"><span id="local-6989586621679525166"><span id="local-6989586621679525168"><span id="local-6989586621679525170"><span class="annot"><span class="annottext">ReadPrec [CreateHsmConfiguration]
+ReadPrec CreateHsmConfiguration
+Int -&gt; ReadS CreateHsmConfiguration
+ReadS [CreateHsmConfiguration]
+(Int -&gt; ReadS CreateHsmConfiguration)
+-&gt; ReadS [CreateHsmConfiguration]
+-&gt; ReadPrec CreateHsmConfiguration
+-&gt; ReadPrec [CreateHsmConfiguration]
+-&gt; Read CreateHsmConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateHsmConfiguration]
+$creadListPrec :: ReadPrec [CreateHsmConfiguration]
+readPrec :: ReadPrec CreateHsmConfiguration
+$creadPrec :: ReadPrec CreateHsmConfiguration
+readList :: ReadS [CreateHsmConfiguration]
+$creadList :: ReadS [CreateHsmConfiguration]
+readsPrec :: Int -&gt; ReadS CreateHsmConfiguration
+$creadsPrec :: Int -&gt; ReadS CreateHsmConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679525157"><span id="local-6989586621679525159"><span id="local-6989586621679525161"><span class="annot"><span class="annottext">Int -&gt; CreateHsmConfiguration -&gt; ShowS
+[CreateHsmConfiguration] -&gt; ShowS
+CreateHsmConfiguration -&gt; String
+(Int -&gt; CreateHsmConfiguration -&gt; ShowS)
+-&gt; (CreateHsmConfiguration -&gt; String)
+-&gt; ([CreateHsmConfiguration] -&gt; ShowS)
+-&gt; Show CreateHsmConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateHsmConfiguration] -&gt; ShowS
+$cshowList :: [CreateHsmConfiguration] -&gt; ShowS
+show :: CreateHsmConfiguration -&gt; String
+$cshow :: CreateHsmConfiguration -&gt; String
+showsPrec :: Int -&gt; CreateHsmConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateHsmConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateHsmConfiguration -&gt; Rep CreateHsmConfiguration x)
+-&gt; (forall x.
+    Rep CreateHsmConfiguration x -&gt; CreateHsmConfiguration)
+-&gt; Generic CreateHsmConfiguration
+forall x. Rep CreateHsmConfiguration x -&gt; CreateHsmConfiguration
+forall x. CreateHsmConfiguration -&gt; Rep CreateHsmConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateHsmConfiguration x -&gt; CreateHsmConfiguration
+$cfrom :: forall x. CreateHsmConfiguration -&gt; Rep CreateHsmConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Create a value of 'CreateHsmConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'tags', 'createHsmConfiguration_tags' - A list of tag instances.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'hsmConfigurationIdentifier', 'createHsmConfiguration_hsmConfigurationIdentifier' - The identifier to be assigned to the new Amazon Redshift HSM</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'description', 'createHsmConfiguration_description' - A text description of the HSM configuration to be created.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'hsmIpAddress', 'createHsmConfiguration_hsmIpAddress' - The IP address that the Amazon Redshift cluster must use to access the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- HSM.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'hsmPartitionName', 'createHsmConfiguration_hsmPartitionName' - The name of the partition in the HSM where the Amazon Redshift clusters</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- will store their database encryption keys.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'hsmPartitionPassword', 'createHsmConfiguration_hsmPartitionPassword' - The password required to access the HSM partition.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'hsmServerPublicCertificate', 'createHsmConfiguration_hsmServerPublicCertificate' - The HSMs public certificate file. When using Cloud HSM, the file name is</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- server.pem.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#newCreateHsmConfiguration"><span class="hs-identifier hs-type">newCreateHsmConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-comment">-- | 'hsmConfigurationIdentifier'</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-comment">-- | 'description'</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-comment">-- | 'hsmIpAddress'</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-comment">-- | 'hsmPartitionName'</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-comment">-- | 'hsmPartitionPassword'</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-comment">-- | 'hsmServerPublicCertificate'</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span>
+</span><span id="line-128"></span><span id="newCreateHsmConfiguration"><span class="annot"><span class="annottext">newCreateHsmConfiguration :: Text
+-&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateHsmConfiguration
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#newCreateHsmConfiguration"><span class="hs-identifier hs-var hs-var">newCreateHsmConfiguration</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679525152"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525152"><span class="hs-identifier hs-var">pHsmConfigurationIdentifier_</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679525151"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525151"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679525150"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525150"><span class="hs-identifier hs-var">pHsmIpAddress_</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679525149"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525149"><span class="hs-identifier hs-var">pHsmPartitionName_</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679525148"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525148"><span class="hs-identifier hs-var">pHsmPartitionPassword_</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679525147"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525147"><span class="hs-identifier hs-var">pHsmServerPublicCertificate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">CreateHsmConfiguration' :: Maybe [Tag]
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CreateHsmConfiguration
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateHsmConfiguration' :: Maybe [Tag]
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3Atags%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:hsmConfigurationIdentifier:CreateHsmConfiguration' :: Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmConfigurationIdentifier%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var">hsmConfigurationIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525152"><span class="hs-identifier hs-var">pHsmConfigurationIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:CreateHsmConfiguration' :: Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3Adescription%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525151"><span class="hs-identifier hs-var">pDescription_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:hsmIpAddress:CreateHsmConfiguration' :: Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmIpAddress%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var">hsmIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525150"><span class="hs-identifier hs-var">pHsmIpAddress_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:hsmPartitionName:CreateHsmConfiguration' :: Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmPartitionName%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var">hsmPartitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525149"><span class="hs-identifier hs-var">pHsmPartitionName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:hsmPartitionPassword:CreateHsmConfiguration' :: Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmPartitionPassword%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var">hsmPartitionPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525148"><span class="hs-identifier hs-var">pHsmPartitionPassword_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:hsmServerPublicCertificate:CreateHsmConfiguration' :: Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmServerPublicCertificate%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var">hsmServerPublicCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525147"><span class="hs-identifier hs-var">pHsmServerPublicCertificate_</span></a></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | A list of tag instances.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_tags"><span class="hs-identifier hs-type">createHsmConfiguration_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="createHsmConfiguration_tags"><span class="annot"><span class="annottext">createHsmConfiguration_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateHsmConfiguration -&gt; f CreateHsmConfiguration
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_tags"><span class="hs-identifier hs-var hs-var">createHsmConfiguration_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHsmConfiguration -&gt; Maybe [Tag])
+-&gt; (CreateHsmConfiguration
+    -&gt; Maybe [Tag] -&gt; CreateHsmConfiguration)
+-&gt; Lens
+     CreateHsmConfiguration
+     CreateHsmConfiguration
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679525144"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateHsmConfiguration' :: CreateHsmConfiguration -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679525144"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679525144"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679525143"><span class="annot"><span class="annottext">s :: CreateHsmConfiguration
+</span><a href="#local-6989586621679525143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679525142"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679525142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHsmConfiguration
+</span><a href="#local-6989586621679525143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateHsmConfiguration' :: Maybe [Tag]
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3Atags%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679525142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateHsmConfiguration -&gt; f CreateHsmConfiguration)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateHsmConfiguration
+-&gt; f CreateHsmConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The identifier to be assigned to the new Amazon Redshift HSM</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_hsmConfigurationIdentifier"><span class="hs-identifier hs-type">createHsmConfiguration_hsmConfigurationIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-154"></span><span id="createHsmConfiguration_hsmConfigurationIdentifier"><span class="annot"><span class="annottext">createHsmConfiguration_hsmConfigurationIdentifier :: (Text -&gt; f Text)
+-&gt; CreateHsmConfiguration -&gt; f CreateHsmConfiguration
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_hsmConfigurationIdentifier"><span class="hs-identifier hs-var hs-var">createHsmConfiguration_hsmConfigurationIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHsmConfiguration -&gt; Text)
+-&gt; (CreateHsmConfiguration -&gt; Text -&gt; CreateHsmConfiguration)
+-&gt; Lens CreateHsmConfiguration CreateHsmConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679525138"><span class="annot"><span class="annottext">Text
+hsmConfigurationIdentifier :: Text
+$sel:hsmConfigurationIdentifier:CreateHsmConfiguration' :: CreateHsmConfiguration -&gt; Text
+</span><a href="#local-6989586621679525138"><span class="hs-identifier hs-var hs-var">hsmConfigurationIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525138"><span class="hs-identifier hs-var">hsmConfigurationIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679525137"><span class="annot"><span class="annottext">s :: CreateHsmConfiguration
+</span><a href="#local-6989586621679525137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679525136"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHsmConfiguration
+</span><a href="#local-6989586621679525137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmConfigurationIdentifier:CreateHsmConfiguration' :: Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmConfigurationIdentifier%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var">hsmConfigurationIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | A text description of the HSM configuration to be created.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_description"><span class="hs-identifier hs-type">createHsmConfiguration_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-158"></span><span id="createHsmConfiguration_description"><span class="annot"><span class="annottext">createHsmConfiguration_description :: (Text -&gt; f Text)
+-&gt; CreateHsmConfiguration -&gt; f CreateHsmConfiguration
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_description"><span class="hs-identifier hs-var hs-var">createHsmConfiguration_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHsmConfiguration -&gt; Text)
+-&gt; (CreateHsmConfiguration -&gt; Text -&gt; CreateHsmConfiguration)
+-&gt; Lens CreateHsmConfiguration CreateHsmConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679525135"><span class="annot"><span class="annottext">Text
+description :: Text
+$sel:description:CreateHsmConfiguration' :: CreateHsmConfiguration -&gt; Text
+</span><a href="#local-6989586621679525135"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525135"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679525134"><span class="annot"><span class="annottext">s :: CreateHsmConfiguration
+</span><a href="#local-6989586621679525134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679525133"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHsmConfiguration
+</span><a href="#local-6989586621679525134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateHsmConfiguration' :: Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3Adescription%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The IP address that the Amazon Redshift cluster must use to access the</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- HSM.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_hsmIpAddress"><span class="hs-identifier hs-type">createHsmConfiguration_hsmIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-163"></span><span id="createHsmConfiguration_hsmIpAddress"><span class="annot"><span class="annottext">createHsmConfiguration_hsmIpAddress :: (Text -&gt; f Text)
+-&gt; CreateHsmConfiguration -&gt; f CreateHsmConfiguration
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_hsmIpAddress"><span class="hs-identifier hs-var hs-var">createHsmConfiguration_hsmIpAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHsmConfiguration -&gt; Text)
+-&gt; (CreateHsmConfiguration -&gt; Text -&gt; CreateHsmConfiguration)
+-&gt; Lens CreateHsmConfiguration CreateHsmConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679525132"><span class="annot"><span class="annottext">Text
+hsmIpAddress :: Text
+$sel:hsmIpAddress:CreateHsmConfiguration' :: CreateHsmConfiguration -&gt; Text
+</span><a href="#local-6989586621679525132"><span class="hs-identifier hs-var hs-var">hsmIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525132"><span class="hs-identifier hs-var">hsmIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679525131"><span class="annot"><span class="annottext">s :: CreateHsmConfiguration
+</span><a href="#local-6989586621679525131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679525130"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHsmConfiguration
+</span><a href="#local-6989586621679525131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmIpAddress:CreateHsmConfiguration' :: Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmIpAddress%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var">hsmIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The name of the partition in the HSM where the Amazon Redshift clusters</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- will store their database encryption keys.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_hsmPartitionName"><span class="hs-identifier hs-type">createHsmConfiguration_hsmPartitionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-168"></span><span id="createHsmConfiguration_hsmPartitionName"><span class="annot"><span class="annottext">createHsmConfiguration_hsmPartitionName :: (Text -&gt; f Text)
+-&gt; CreateHsmConfiguration -&gt; f CreateHsmConfiguration
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_hsmPartitionName"><span class="hs-identifier hs-var hs-var">createHsmConfiguration_hsmPartitionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHsmConfiguration -&gt; Text)
+-&gt; (CreateHsmConfiguration -&gt; Text -&gt; CreateHsmConfiguration)
+-&gt; Lens CreateHsmConfiguration CreateHsmConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679525129"><span class="annot"><span class="annottext">Text
+hsmPartitionName :: Text
+$sel:hsmPartitionName:CreateHsmConfiguration' :: CreateHsmConfiguration -&gt; Text
+</span><a href="#local-6989586621679525129"><span class="hs-identifier hs-var hs-var">hsmPartitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525129"><span class="hs-identifier hs-var">hsmPartitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679525128"><span class="annot"><span class="annottext">s :: CreateHsmConfiguration
+</span><a href="#local-6989586621679525128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679525127"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHsmConfiguration
+</span><a href="#local-6989586621679525128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmPartitionName:CreateHsmConfiguration' :: Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmPartitionName%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var">hsmPartitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The password required to access the HSM partition.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_hsmPartitionPassword"><span class="hs-identifier hs-type">createHsmConfiguration_hsmPartitionPassword</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-172"></span><span id="createHsmConfiguration_hsmPartitionPassword"><span class="annot"><span class="annottext">createHsmConfiguration_hsmPartitionPassword :: (Text -&gt; f Text)
+-&gt; CreateHsmConfiguration -&gt; f CreateHsmConfiguration
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_hsmPartitionPassword"><span class="hs-identifier hs-var hs-var">createHsmConfiguration_hsmPartitionPassword</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHsmConfiguration -&gt; Text)
+-&gt; (CreateHsmConfiguration -&gt; Text -&gt; CreateHsmConfiguration)
+-&gt; Lens CreateHsmConfiguration CreateHsmConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679525126"><span class="annot"><span class="annottext">Text
+hsmPartitionPassword :: Text
+$sel:hsmPartitionPassword:CreateHsmConfiguration' :: CreateHsmConfiguration -&gt; Text
+</span><a href="#local-6989586621679525126"><span class="hs-identifier hs-var hs-var">hsmPartitionPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525126"><span class="hs-identifier hs-var">hsmPartitionPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679525125"><span class="annot"><span class="annottext">s :: CreateHsmConfiguration
+</span><a href="#local-6989586621679525125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679525124"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHsmConfiguration
+</span><a href="#local-6989586621679525125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmPartitionPassword:CreateHsmConfiguration' :: Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmPartitionPassword%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var">hsmPartitionPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The HSMs public certificate file. When using Cloud HSM, the file name is</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- server.pem.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_hsmServerPublicCertificate"><span class="hs-identifier hs-type">createHsmConfiguration_hsmServerPublicCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-177"></span><span id="createHsmConfiguration_hsmServerPublicCertificate"><span class="annot"><span class="annottext">createHsmConfiguration_hsmServerPublicCertificate :: (Text -&gt; f Text)
+-&gt; CreateHsmConfiguration -&gt; f CreateHsmConfiguration
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfiguration_hsmServerPublicCertificate"><span class="hs-identifier hs-var hs-var">createHsmConfiguration_hsmServerPublicCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHsmConfiguration -&gt; Text)
+-&gt; (CreateHsmConfiguration -&gt; Text -&gt; CreateHsmConfiguration)
+-&gt; Lens CreateHsmConfiguration CreateHsmConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679525123"><span class="annot"><span class="annottext">Text
+hsmServerPublicCertificate :: Text
+$sel:hsmServerPublicCertificate:CreateHsmConfiguration' :: CreateHsmConfiguration -&gt; Text
+</span><a href="#local-6989586621679525123"><span class="hs-identifier hs-var hs-var">hsmServerPublicCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525123"><span class="hs-identifier hs-var">hsmServerPublicCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679525122"><span class="annot"><span class="annottext">s :: CreateHsmConfiguration
+</span><a href="#local-6989586621679525122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679525121"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHsmConfiguration
+</span><a href="#local-6989586621679525122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmServerPublicCertificate:CreateHsmConfiguration' :: Text
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmServerPublicCertificate%3ACreateHsmConfiguration%27"><span class="hs-identifier hs-var">hsmServerPublicCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-181"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse"><span class="hs-identifier hs-type">CreateHsmConfigurationResponse</span></a></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679525117"><span class="annot"><span class="annottext">request :: CreateHsmConfiguration -&gt; Request CreateHsmConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateHsmConfiguration -&gt; Request CreateHsmConfiguration
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679525113"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateHsmConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateHsmConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse CreateHsmConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateHsmConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateHsmConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateHsmConfigurationResult&quot;</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679525110"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679525110"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679525109"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679525109"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679525108"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679525108"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Maybe HsmConfiguration -&gt; Int -&gt; CreateHsmConfigurationResponse
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse%27"><span class="hs-identifier hs-var">CreateHsmConfigurationResponse'</span></a></span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">(Maybe HsmConfiguration -&gt; Int -&gt; CreateHsmConfigurationResponse)
+-&gt; Either String (Maybe HsmConfiguration)
+-&gt; Either String (Int -&gt; CreateHsmConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679525108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe HsmConfiguration)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HsmConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateHsmConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either String CreateHsmConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679525110"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679525100"><span id="local-6989586621679525102"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span></span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679525097"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679525093"><span class="annot"><span class="annottext">toHeaders :: CreateHsmConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateHsmConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679525088"><span class="annot"><span class="annottext">toPath :: CreateHsmConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateHsmConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration"><span class="hs-identifier hs-type">CreateHsmConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679525084"><span class="annot"><span class="annottext">toQuery :: CreateHsmConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfiguration%27"><span class="hs-identifier hs-type">CreateHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679525076"><span id="local-6989586621679525077"><span id="local-6989586621679525078"><span id="local-6989586621679525079"><span id="local-6989586621679525080"><span id="local-6989586621679525081"><span id="local-6989586621679525082"><span class="annot"><span class="annottext">Maybe [Tag]
+Text
+hsmServerPublicCertificate :: Text
+hsmPartitionPassword :: Text
+hsmPartitionName :: Text
+hsmIpAddress :: Text
+description :: Text
+hsmConfigurationIdentifier :: Text
+tags :: Maybe [Tag]
+$sel:hsmServerPublicCertificate:CreateHsmConfiguration' :: CreateHsmConfiguration -&gt; Text
+$sel:hsmPartitionPassword:CreateHsmConfiguration' :: CreateHsmConfiguration -&gt; Text
+$sel:hsmPartitionName:CreateHsmConfiguration' :: CreateHsmConfiguration -&gt; Text
+$sel:hsmIpAddress:CreateHsmConfiguration' :: CreateHsmConfiguration -&gt; Text
+$sel:description:CreateHsmConfiguration' :: CreateHsmConfiguration -&gt; Text
+$sel:hsmConfigurationIdentifier:CreateHsmConfiguration' :: CreateHsmConfiguration -&gt; Text
+$sel:tags:CreateHsmConfiguration' :: CreateHsmConfiguration -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679525076"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-207"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateHsmConfiguration&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-209"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2012-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span>
+</span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Tag] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679525082"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;HsmConfigurationIdentifier&quot;</span></span><span>
+</span><span id="line-214"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525081"><span class="hs-identifier hs-var">hsmConfigurationIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525080"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;HsmIpAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525079"><span class="hs-identifier hs-var">hsmIpAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;HsmPartitionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525078"><span class="hs-identifier hs-var">hsmPartitionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;HsmPartitionPassword&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525077"><span class="hs-identifier hs-var">hsmPartitionPassword</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;HsmServerPublicCertificate&quot;</span></span><span>
+</span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679525076"><span class="hs-identifier hs-var">hsmServerPublicCertificate</span></a></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | /See:/ 'newCreateHsmConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-224"></span><span id="local-6989586621679525072"><span id="local-6989586621679525073"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateHsmConfigurationResponse"><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse"><span class="hs-identifier hs-var">CreateHsmConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateHsmConfigurationResponse%27"><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse%27"><span class="hs-identifier hs-var">CreateHsmConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AhsmConfiguration%3ACreateHsmConfigurationResponse%27"><span class="annot"><span class="annottext">CreateHsmConfigurationResponse -&gt; Maybe HsmConfiguration
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmConfiguration%3ACreateHsmConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">hsmConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.HsmConfiguration.html#HsmConfiguration"><span class="hs-identifier hs-type">HsmConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-227"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateHsmConfigurationResponse%27"><span class="annot"><span class="annottext">CreateHsmConfigurationResponse -&gt; Int
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhttpStatus%3ACreateHsmConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679525066"><span id="local-6989586621679525068"><span class="annot"><span class="annottext">CreateHsmConfigurationResponse
+-&gt; CreateHsmConfigurationResponse -&gt; Bool
+(CreateHsmConfigurationResponse
+ -&gt; CreateHsmConfigurationResponse -&gt; Bool)
+-&gt; (CreateHsmConfigurationResponse
+    -&gt; CreateHsmConfigurationResponse -&gt; Bool)
+-&gt; Eq CreateHsmConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateHsmConfigurationResponse
+-&gt; CreateHsmConfigurationResponse -&gt; Bool
+$c/= :: CreateHsmConfigurationResponse
+-&gt; CreateHsmConfigurationResponse -&gt; Bool
+== :: CreateHsmConfigurationResponse
+-&gt; CreateHsmConfigurationResponse -&gt; Bool
+$c== :: CreateHsmConfigurationResponse
+-&gt; CreateHsmConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679525058"><span id="local-6989586621679525060"><span id="local-6989586621679525062"><span id="local-6989586621679525064"><span class="annot"><span class="annottext">ReadPrec [CreateHsmConfigurationResponse]
+ReadPrec CreateHsmConfigurationResponse
+Int -&gt; ReadS CreateHsmConfigurationResponse
+ReadS [CreateHsmConfigurationResponse]
+(Int -&gt; ReadS CreateHsmConfigurationResponse)
+-&gt; ReadS [CreateHsmConfigurationResponse]
+-&gt; ReadPrec CreateHsmConfigurationResponse
+-&gt; ReadPrec [CreateHsmConfigurationResponse]
+-&gt; Read CreateHsmConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateHsmConfigurationResponse]
+$creadListPrec :: ReadPrec [CreateHsmConfigurationResponse]
+readPrec :: ReadPrec CreateHsmConfigurationResponse
+$creadPrec :: ReadPrec CreateHsmConfigurationResponse
+readList :: ReadS [CreateHsmConfigurationResponse]
+$creadList :: ReadS [CreateHsmConfigurationResponse]
+readsPrec :: Int -&gt; ReadS CreateHsmConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS CreateHsmConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679525052"><span id="local-6989586621679525054"><span id="local-6989586621679525056"><span class="annot"><span class="annottext">Int -&gt; CreateHsmConfigurationResponse -&gt; ShowS
+[CreateHsmConfigurationResponse] -&gt; ShowS
+CreateHsmConfigurationResponse -&gt; String
+(Int -&gt; CreateHsmConfigurationResponse -&gt; ShowS)
+-&gt; (CreateHsmConfigurationResponse -&gt; String)
+-&gt; ([CreateHsmConfigurationResponse] -&gt; ShowS)
+-&gt; Show CreateHsmConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateHsmConfigurationResponse] -&gt; ShowS
+$cshowList :: [CreateHsmConfigurationResponse] -&gt; ShowS
+show :: CreateHsmConfigurationResponse -&gt; String
+$cshow :: CreateHsmConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; CreateHsmConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateHsmConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateHsmConfigurationResponse
+ -&gt; Rep CreateHsmConfigurationResponse x)
+-&gt; (forall x.
+    Rep CreateHsmConfigurationResponse x
+    -&gt; CreateHsmConfigurationResponse)
+-&gt; Generic CreateHsmConfigurationResponse
+forall x.
+Rep CreateHsmConfigurationResponse x
+-&gt; CreateHsmConfigurationResponse
+forall x.
+CreateHsmConfigurationResponse
+-&gt; Rep CreateHsmConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateHsmConfigurationResponse x
+-&gt; CreateHsmConfigurationResponse
+$cfrom :: forall x.
+CreateHsmConfigurationResponse
+-&gt; Rep CreateHsmConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- Create a value of 'CreateHsmConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'hsmConfiguration', 'createHsmConfigurationResponse_hsmConfiguration' - Undocumented member.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'httpStatus', 'createHsmConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#newCreateHsmConfigurationResponse"><span class="hs-identifier hs-type">newCreateHsmConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse"><span class="hs-identifier hs-type">CreateHsmConfigurationResponse</span></a></span><span>
+</span><span id="line-246"></span><span id="newCreateHsmConfigurationResponse"><span class="annot"><span class="annottext">newCreateHsmConfigurationResponse :: Int -&gt; CreateHsmConfigurationResponse
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#newCreateHsmConfigurationResponse"><span class="hs-identifier hs-var hs-var">newCreateHsmConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679525049"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679525049"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="annottext">CreateHsmConfigurationResponse' :: Maybe HsmConfiguration -&gt; Int -&gt; CreateHsmConfigurationResponse
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse%27"><span class="hs-identifier hs-type">CreateHsmConfigurationResponse'</span></a></span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hsmConfiguration:CreateHsmConfigurationResponse' :: Maybe HsmConfiguration
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmConfiguration%3ACreateHsmConfigurationResponse%27"><span class="hs-identifier hs-var">hsmConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">Maybe HsmConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateHsmConfigurationResponse' :: Int
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhttpStatus%3ACreateHsmConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679525049"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfigurationResponse_hsmConfiguration"><span class="hs-identifier hs-type">createHsmConfigurationResponse_hsmConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse"><span class="hs-identifier hs-type">CreateHsmConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.HsmConfiguration.html#HsmConfiguration"><span class="hs-identifier hs-type">HsmConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="createHsmConfigurationResponse_hsmConfiguration"><span class="annot"><span class="annottext">createHsmConfigurationResponse_hsmConfiguration :: (Maybe HsmConfiguration -&gt; f (Maybe HsmConfiguration))
+-&gt; CreateHsmConfigurationResponse
+-&gt; f CreateHsmConfigurationResponse
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfigurationResponse_hsmConfiguration"><span class="hs-identifier hs-var hs-var">createHsmConfigurationResponse_hsmConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHsmConfigurationResponse -&gt; Maybe HsmConfiguration)
+-&gt; (CreateHsmConfigurationResponse
+    -&gt; Maybe HsmConfiguration -&gt; CreateHsmConfigurationResponse)
+-&gt; Lens
+     CreateHsmConfigurationResponse
+     CreateHsmConfigurationResponse
+     (Maybe HsmConfiguration)
+     (Maybe HsmConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse%27"><span class="hs-identifier hs-type">CreateHsmConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679525048"><span class="annot"><span class="annottext">Maybe HsmConfiguration
+hsmConfiguration :: Maybe HsmConfiguration
+$sel:hsmConfiguration:CreateHsmConfigurationResponse' :: CreateHsmConfigurationResponse -&gt; Maybe HsmConfiguration
+</span><a href="#local-6989586621679525048"><span class="hs-identifier hs-var hs-var">hsmConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HsmConfiguration
+</span><a href="#local-6989586621679525048"><span class="hs-identifier hs-var">hsmConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679525047"><span class="annot"><span class="annottext">s :: CreateHsmConfigurationResponse
+</span><a href="#local-6989586621679525047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse%27"><span class="hs-identifier hs-type">CreateHsmConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679525046"><span class="annot"><span class="annottext">Maybe HsmConfiguration
+</span><a href="#local-6989586621679525046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHsmConfigurationResponse
+</span><a href="#local-6989586621679525047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmConfiguration:CreateHsmConfigurationResponse' :: Maybe HsmConfiguration
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhsmConfiguration%3ACreateHsmConfigurationResponse%27"><span class="hs-identifier hs-var">hsmConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HsmConfiguration
+</span><a href="#local-6989586621679525046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse"><span class="hs-identifier hs-type">CreateHsmConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">createHsmConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse"><span class="hs-identifier hs-type">CreateHsmConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-259"></span><span id="createHsmConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">createHsmConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateHsmConfigurationResponse
+-&gt; f CreateHsmConfigurationResponse
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#createHsmConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createHsmConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHsmConfigurationResponse -&gt; Int)
+-&gt; (CreateHsmConfigurationResponse
+    -&gt; Int -&gt; CreateHsmConfigurationResponse)
+-&gt; Lens
+     CreateHsmConfigurationResponse
+     CreateHsmConfigurationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse%27"><span class="hs-identifier hs-type">CreateHsmConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679525045"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateHsmConfigurationResponse' :: CreateHsmConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679525045"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679525045"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679525044"><span class="annot"><span class="annottext">s :: CreateHsmConfigurationResponse
+</span><a href="#local-6989586621679525044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse%27"><span class="hs-identifier hs-type">CreateHsmConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679525043"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679525043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHsmConfigurationResponse
+</span><a href="#local-6989586621679525044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateHsmConfigurationResponse' :: Int
+</span><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#%24sel%3AhttpStatus%3ACreateHsmConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679525043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse"><span class="hs-identifier hs-type">CreateHsmConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679525041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateHsmConfiguration.html#CreateHsmConfigurationResponse"><span class="hs-identifier hs-type">CreateHsmConfigurationResponse</span></a></span></span><span>
+</span><span id="line-264"></span></pre></body></html>

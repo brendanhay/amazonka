@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.VariantPropertyType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.VariantPropertyType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType"><span class="hs-identifier">VariantPropertyType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType_DataCaptureConfig"><span class="hs-identifier">VariantPropertyType_DataCaptureConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType_DesiredInstanceCount"><span class="hs-identifier">VariantPropertyType_DesiredInstanceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType_DesiredWeight"><span class="hs-identifier">VariantPropertyType_DesiredWeight</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680357200"><span id="local-6989586621680357201"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VariantPropertyType"><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType"><span class="hs-identifier hs-var">VariantPropertyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VariantPropertyType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType%27"><span class="hs-identifier hs-var">VariantPropertyType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVariantPropertyType"><span class="annot"><span class="annottext">VariantPropertyType -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#fromVariantPropertyType"><span class="hs-identifier hs-var hs-var">fromVariantPropertyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680357192"><span id="local-6989586621680357194"><span id="local-6989586621680357196"><span class="annot"><span class="annottext">Int -&gt; VariantPropertyType -&gt; ShowS
+[VariantPropertyType] -&gt; ShowS
+VariantPropertyType -&gt; String
+(Int -&gt; VariantPropertyType -&gt; ShowS)
+-&gt; (VariantPropertyType -&gt; String)
+-&gt; ([VariantPropertyType] -&gt; ShowS)
+-&gt; Show VariantPropertyType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VariantPropertyType] -&gt; ShowS
+$cshowList :: [VariantPropertyType] -&gt; ShowS
+show :: VariantPropertyType -&gt; String
+$cshow :: VariantPropertyType -&gt; String
+showsPrec :: Int -&gt; VariantPropertyType -&gt; ShowS
+$cshowsPrec :: Int -&gt; VariantPropertyType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680357183"><span id="local-6989586621680357185"><span id="local-6989586621680357187"><span id="local-6989586621680357189"><span class="annot"><span class="annottext">ReadPrec [VariantPropertyType]
+ReadPrec VariantPropertyType
+Int -&gt; ReadS VariantPropertyType
+ReadS [VariantPropertyType]
+(Int -&gt; ReadS VariantPropertyType)
+-&gt; ReadS [VariantPropertyType]
+-&gt; ReadPrec VariantPropertyType
+-&gt; ReadPrec [VariantPropertyType]
+-&gt; Read VariantPropertyType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VariantPropertyType]
+$creadListPrec :: ReadPrec [VariantPropertyType]
+readPrec :: ReadPrec VariantPropertyType
+$creadPrec :: ReadPrec VariantPropertyType
+readList :: ReadS [VariantPropertyType]
+$creadList :: ReadS [VariantPropertyType]
+readsPrec :: Int -&gt; ReadS VariantPropertyType
+$creadsPrec :: Int -&gt; ReadS VariantPropertyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680357178"><span id="local-6989586621680357180"><span class="annot"><span class="annottext">VariantPropertyType -&gt; VariantPropertyType -&gt; Bool
+(VariantPropertyType -&gt; VariantPropertyType -&gt; Bool)
+-&gt; (VariantPropertyType -&gt; VariantPropertyType -&gt; Bool)
+-&gt; Eq VariantPropertyType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VariantPropertyType -&gt; VariantPropertyType -&gt; Bool
+$c/= :: VariantPropertyType -&gt; VariantPropertyType -&gt; Bool
+== :: VariantPropertyType -&gt; VariantPropertyType -&gt; Bool
+$c== :: VariantPropertyType -&gt; VariantPropertyType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680357162"><span id="local-6989586621680357164"><span id="local-6989586621680357166"><span id="local-6989586621680357168"><span id="local-6989586621680357170"><span id="local-6989586621680357172"><span id="local-6989586621680357174"><span class="annot"><span class="annottext">Eq VariantPropertyType
+Eq VariantPropertyType
+-&gt; (VariantPropertyType -&gt; VariantPropertyType -&gt; Ordering)
+-&gt; (VariantPropertyType -&gt; VariantPropertyType -&gt; Bool)
+-&gt; (VariantPropertyType -&gt; VariantPropertyType -&gt; Bool)
+-&gt; (VariantPropertyType -&gt; VariantPropertyType -&gt; Bool)
+-&gt; (VariantPropertyType -&gt; VariantPropertyType -&gt; Bool)
+-&gt; (VariantPropertyType
+    -&gt; VariantPropertyType -&gt; VariantPropertyType)
+-&gt; (VariantPropertyType
+    -&gt; VariantPropertyType -&gt; VariantPropertyType)
+-&gt; Ord VariantPropertyType
+VariantPropertyType -&gt; VariantPropertyType -&gt; Bool
+VariantPropertyType -&gt; VariantPropertyType -&gt; Ordering
+VariantPropertyType -&gt; VariantPropertyType -&gt; VariantPropertyType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: VariantPropertyType -&gt; VariantPropertyType -&gt; VariantPropertyType
+$cmin :: VariantPropertyType -&gt; VariantPropertyType -&gt; VariantPropertyType
+max :: VariantPropertyType -&gt; VariantPropertyType -&gt; VariantPropertyType
+$cmax :: VariantPropertyType -&gt; VariantPropertyType -&gt; VariantPropertyType
+&gt;= :: VariantPropertyType -&gt; VariantPropertyType -&gt; Bool
+$c&gt;= :: VariantPropertyType -&gt; VariantPropertyType -&gt; Bool
+&gt; :: VariantPropertyType -&gt; VariantPropertyType -&gt; Bool
+$c&gt; :: VariantPropertyType -&gt; VariantPropertyType -&gt; Bool
+&lt;= :: VariantPropertyType -&gt; VariantPropertyType -&gt; Bool
+$c&lt;= :: VariantPropertyType -&gt; VariantPropertyType -&gt; Bool
+&lt; :: VariantPropertyType -&gt; VariantPropertyType -&gt; Bool
+$c&lt; :: VariantPropertyType -&gt; VariantPropertyType -&gt; Bool
+compare :: VariantPropertyType -&gt; VariantPropertyType -&gt; Ordering
+$ccompare :: VariantPropertyType -&gt; VariantPropertyType -&gt; Ordering
+$cp1Ord :: Eq VariantPropertyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. VariantPropertyType -&gt; Rep VariantPropertyType x)
+-&gt; (forall x. Rep VariantPropertyType x -&gt; VariantPropertyType)
+-&gt; Generic VariantPropertyType
+forall x. Rep VariantPropertyType x -&gt; VariantPropertyType
+forall x. VariantPropertyType -&gt; Rep VariantPropertyType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VariantPropertyType x -&gt; VariantPropertyType
+$cfrom :: forall x. VariantPropertyType -&gt; Rep VariantPropertyType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680357154"><span id="local-6989586621680357156"><span class="annot"><span class="annottext">Int -&gt; VariantPropertyType -&gt; Int
+VariantPropertyType -&gt; Int
+(Int -&gt; VariantPropertyType -&gt; Int)
+-&gt; (VariantPropertyType -&gt; Int) -&gt; Hashable VariantPropertyType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: VariantPropertyType -&gt; Int
+$chash :: VariantPropertyType -&gt; Int
+hashWithSalt :: Int -&gt; VariantPropertyType -&gt; Int
+$chashWithSalt :: Int -&gt; VariantPropertyType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680357151"><span class="annot"><span class="annottext">VariantPropertyType -&gt; ()
+(VariantPropertyType -&gt; ()) -&gt; NFData VariantPropertyType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: VariantPropertyType -&gt; ()
+$crnf :: VariantPropertyType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680357148"><span class="annot"><span class="annottext">Text -&gt; Either String VariantPropertyType
+(Text -&gt; Either String VariantPropertyType)
+-&gt; FromText VariantPropertyType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String VariantPropertyType
+$cfromText :: Text -&gt; Either String VariantPropertyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680357145"><span class="annot"><span class="annottext">VariantPropertyType -&gt; Text
+(VariantPropertyType -&gt; Text) -&gt; ToText VariantPropertyType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: VariantPropertyType -&gt; Text
+$ctoText :: VariantPropertyType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680357142"><span class="annot"><span class="annottext">VariantPropertyType -&gt; ByteString
+(VariantPropertyType -&gt; ByteString)
+-&gt; ToByteString VariantPropertyType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: VariantPropertyType -&gt; ByteString
+$ctoBS :: VariantPropertyType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680357139"><span class="annot"><span class="annottext">VariantPropertyType -&gt; ByteStringBuilder
+(VariantPropertyType -&gt; ByteStringBuilder)
+-&gt; ToLog VariantPropertyType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: VariantPropertyType -&gt; ByteStringBuilder
+$cbuild :: VariantPropertyType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680357136"><span class="annot"><span class="annottext">HeaderName -&gt; VariantPropertyType -&gt; [Header]
+(HeaderName -&gt; VariantPropertyType -&gt; [Header])
+-&gt; ToHeader VariantPropertyType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; VariantPropertyType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; VariantPropertyType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680357133"><span class="annot"><span class="annottext">VariantPropertyType -&gt; QueryString
+(VariantPropertyType -&gt; QueryString) -&gt; ToQuery VariantPropertyType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: VariantPropertyType -&gt; QueryString
+$ctoQuery :: VariantPropertyType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680357128"><span id="local-6989586621680357130"><span class="annot"><span class="annottext">Value -&gt; Parser [VariantPropertyType]
+Value -&gt; Parser VariantPropertyType
+(Value -&gt; Parser VariantPropertyType)
+-&gt; (Value -&gt; Parser [VariantPropertyType])
+-&gt; FromJSON VariantPropertyType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [VariantPropertyType]
+$cparseJSONList :: Value -&gt; Parser [VariantPropertyType]
+parseJSON :: Value -&gt; Parser VariantPropertyType
+$cparseJSON :: Value -&gt; Parser VariantPropertyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680357123"><span id="local-6989586621680357125"><span class="annot"><span class="annottext">FromJSONKeyFunction [VariantPropertyType]
+FromJSONKeyFunction VariantPropertyType
+FromJSONKeyFunction VariantPropertyType
+-&gt; FromJSONKeyFunction [VariantPropertyType]
+-&gt; FromJSONKey VariantPropertyType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [VariantPropertyType]
+$cfromJSONKeyList :: FromJSONKeyFunction [VariantPropertyType]
+fromJSONKey :: FromJSONKeyFunction VariantPropertyType
+$cfromJSONKey :: FromJSONKeyFunction VariantPropertyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680357114"><span id="local-6989586621680357116"><span id="local-6989586621680357118"><span id="local-6989586621680357120"><span class="annot"><span class="annottext">[VariantPropertyType] -&gt; Encoding
+[VariantPropertyType] -&gt; Value
+VariantPropertyType -&gt; Encoding
+VariantPropertyType -&gt; Value
+(VariantPropertyType -&gt; Value)
+-&gt; (VariantPropertyType -&gt; Encoding)
+-&gt; ([VariantPropertyType] -&gt; Value)
+-&gt; ([VariantPropertyType] -&gt; Encoding)
+-&gt; ToJSON VariantPropertyType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [VariantPropertyType] -&gt; Encoding
+$ctoEncodingList :: [VariantPropertyType] -&gt; Encoding
+toJSONList :: [VariantPropertyType] -&gt; Value
+$ctoJSONList :: [VariantPropertyType] -&gt; Value
+toEncoding :: VariantPropertyType -&gt; Encoding
+$ctoEncoding :: VariantPropertyType -&gt; Encoding
+toJSON :: VariantPropertyType -&gt; Value
+$ctoJSON :: VariantPropertyType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680357109"><span id="local-6989586621680357111"><span class="annot"><span class="annottext">ToJSONKeyFunction [VariantPropertyType]
+ToJSONKeyFunction VariantPropertyType
+ToJSONKeyFunction VariantPropertyType
+-&gt; ToJSONKeyFunction [VariantPropertyType]
+-&gt; ToJSONKey VariantPropertyType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [VariantPropertyType]
+$ctoJSONKeyList :: ToJSONKeyFunction [VariantPropertyType]
+toJSONKey :: ToJSONKeyFunction VariantPropertyType
+$ctoJSONKey :: ToJSONKeyFunction VariantPropertyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680357106"><span class="annot"><span class="annottext">[Node] -&gt; Either String VariantPropertyType
+([Node] -&gt; Either String VariantPropertyType)
+-&gt; FromXML VariantPropertyType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String VariantPropertyType
+$cparseXML :: [Node] -&gt; Either String VariantPropertyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680357103"><span class="annot"><span class="annottext">VariantPropertyType -&gt; XML
+(VariantPropertyType -&gt; XML) -&gt; ToXML VariantPropertyType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: VariantPropertyType -&gt; XML
+$ctoXML :: VariantPropertyType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType_DataCaptureConfig"><span class="hs-identifier hs-type">VariantPropertyType_DataCaptureConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType"><span class="hs-identifier hs-type">VariantPropertyType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVariantPropertyType_DataCaptureConfig"><span id="%24mVariantPropertyType_DataCaptureConfig"><span id="VariantPropertyType_DataCaptureConfig"><span class="annot"><span class="annottext">$bVariantPropertyType_DataCaptureConfig :: VariantPropertyType
+$mVariantPropertyType_DataCaptureConfig :: forall r. VariantPropertyType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#%24bVariantPropertyType_DataCaptureConfig"><span class="hs-identifier hs-var hs-var hs-var">VariantPropertyType_DataCaptureConfig</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType%27"><span class="hs-identifier hs-type">VariantPropertyType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DataCaptureConfig&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType_DesiredInstanceCount"><span class="hs-identifier hs-type">VariantPropertyType_DesiredInstanceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType"><span class="hs-identifier hs-type">VariantPropertyType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVariantPropertyType_DesiredInstanceCount"><span id="%24mVariantPropertyType_DesiredInstanceCount"><span id="VariantPropertyType_DesiredInstanceCount"><span class="annot"><span class="annottext">$bVariantPropertyType_DesiredInstanceCount :: VariantPropertyType
+$mVariantPropertyType_DesiredInstanceCount :: forall r. VariantPropertyType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#%24bVariantPropertyType_DesiredInstanceCount"><span class="hs-identifier hs-var hs-var hs-var">VariantPropertyType_DesiredInstanceCount</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType%27"><span class="hs-identifier hs-type">VariantPropertyType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DesiredInstanceCount&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType_DesiredWeight"><span class="hs-identifier hs-type">VariantPropertyType_DesiredWeight</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType"><span class="hs-identifier hs-type">VariantPropertyType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVariantPropertyType_DesiredWeight"><span id="%24mVariantPropertyType_DesiredWeight"><span id="VariantPropertyType_DesiredWeight"><span class="annot"><span class="annottext">$bVariantPropertyType_DesiredWeight :: VariantPropertyType
+$mVariantPropertyType_DesiredWeight :: forall r. VariantPropertyType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#%24bVariantPropertyType_DesiredWeight"><span class="hs-identifier hs-var hs-var hs-var">VariantPropertyType_DesiredWeight</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType%27"><span class="hs-identifier hs-type">VariantPropertyType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DesiredWeight&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType_DataCaptureConfig"><span class="hs-pragma hs-type">VariantPropertyType_DataCaptureConfig</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType_DesiredInstanceCount"><span class="hs-pragma hs-type">VariantPropertyType_DesiredInstanceCount</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType_DesiredWeight"><span class="hs-pragma hs-type">VariantPropertyType_DesiredWeight</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType%27"><span class="hs-pragma hs-type">VariantPropertyType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

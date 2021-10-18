@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Additional query string parameter for the connection. You can include up</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- to 100 additional query string parameters per request. Each additional</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- parameter counts towards the event payload size, which cannot exceed 64</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- KB.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newConnectionQueryStringParameter' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679300695"><span id="local-6989586621679300696"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionQueryStringParameter"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter"><span class="hs-identifier hs-var">ConnectionQueryStringParameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionQueryStringParameter%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter%27"><span class="hs-identifier hs-var">ConnectionQueryStringParameter'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The key for a query string parameter.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Akey%3AConnectionQueryStringParameter%27"><span class="annot"><span class="annottext">ConnectionQueryStringParameter -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#%24sel%3Akey%3AConnectionQueryStringParameter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Specifies whether the value is secret.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AisValueSecret%3AConnectionQueryStringParameter%27"><span class="annot"><span class="annottext">ConnectionQueryStringParameter -&gt; Maybe Bool
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#%24sel%3AisValueSecret%3AConnectionQueryStringParameter%27"><span class="hs-identifier hs-var hs-var">isValueSecret</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The value associated with the key for the query string parameter.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Avalue%3AConnectionQueryStringParameter%27"><span class="annot"><span class="annottext">ConnectionQueryStringParameter -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#%24sel%3Avalue%3AConnectionQueryStringParameter%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300687"><span id="local-6989586621679300689"><span class="annot"><span class="annottext">ConnectionQueryStringParameter
+-&gt; ConnectionQueryStringParameter -&gt; Bool
+(ConnectionQueryStringParameter
+ -&gt; ConnectionQueryStringParameter -&gt; Bool)
+-&gt; (ConnectionQueryStringParameter
+    -&gt; ConnectionQueryStringParameter -&gt; Bool)
+-&gt; Eq ConnectionQueryStringParameter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConnectionQueryStringParameter
+-&gt; ConnectionQueryStringParameter -&gt; Bool
+$c/= :: ConnectionQueryStringParameter
+-&gt; ConnectionQueryStringParameter -&gt; Bool
+== :: ConnectionQueryStringParameter
+-&gt; ConnectionQueryStringParameter -&gt; Bool
+$c== :: ConnectionQueryStringParameter
+-&gt; ConnectionQueryStringParameter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300678"><span id="local-6989586621679300680"><span id="local-6989586621679300682"><span id="local-6989586621679300684"><span class="annot"><span class="annottext">ReadPrec [ConnectionQueryStringParameter]
+ReadPrec ConnectionQueryStringParameter
+Int -&gt; ReadS ConnectionQueryStringParameter
+ReadS [ConnectionQueryStringParameter]
+(Int -&gt; ReadS ConnectionQueryStringParameter)
+-&gt; ReadS [ConnectionQueryStringParameter]
+-&gt; ReadPrec ConnectionQueryStringParameter
+-&gt; ReadPrec [ConnectionQueryStringParameter]
+-&gt; Read ConnectionQueryStringParameter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConnectionQueryStringParameter]
+$creadListPrec :: ReadPrec [ConnectionQueryStringParameter]
+readPrec :: ReadPrec ConnectionQueryStringParameter
+$creadPrec :: ReadPrec ConnectionQueryStringParameter
+readList :: ReadS [ConnectionQueryStringParameter]
+$creadList :: ReadS [ConnectionQueryStringParameter]
+readsPrec :: Int -&gt; ReadS ConnectionQueryStringParameter
+$creadsPrec :: Int -&gt; ReadS ConnectionQueryStringParameter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300671"><span id="local-6989586621679300673"><span id="local-6989586621679300675"><span class="annot"><span class="annottext">Int -&gt; ConnectionQueryStringParameter -&gt; ShowS
+[ConnectionQueryStringParameter] -&gt; ShowS
+ConnectionQueryStringParameter -&gt; String
+(Int -&gt; ConnectionQueryStringParameter -&gt; ShowS)
+-&gt; (ConnectionQueryStringParameter -&gt; String)
+-&gt; ([ConnectionQueryStringParameter] -&gt; ShowS)
+-&gt; Show ConnectionQueryStringParameter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConnectionQueryStringParameter] -&gt; ShowS
+$cshowList :: [ConnectionQueryStringParameter] -&gt; ShowS
+show :: ConnectionQueryStringParameter -&gt; String
+$cshow :: ConnectionQueryStringParameter -&gt; String
+showsPrec :: Int -&gt; ConnectionQueryStringParameter -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConnectionQueryStringParameter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ConnectionQueryStringParameter
+ -&gt; Rep ConnectionQueryStringParameter x)
+-&gt; (forall x.
+    Rep ConnectionQueryStringParameter x
+    -&gt; ConnectionQueryStringParameter)
+-&gt; Generic ConnectionQueryStringParameter
+forall x.
+Rep ConnectionQueryStringParameter x
+-&gt; ConnectionQueryStringParameter
+forall x.
+ConnectionQueryStringParameter
+-&gt; Rep ConnectionQueryStringParameter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ConnectionQueryStringParameter x
+-&gt; ConnectionQueryStringParameter
+$cfrom :: forall x.
+ConnectionQueryStringParameter
+-&gt; Rep ConnectionQueryStringParameter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'ConnectionQueryStringParameter' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'key', 'connectionQueryStringParameter_key' - The key for a query string parameter.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'isValueSecret', 'connectionQueryStringParameter_isValueSecret' - Specifies whether the value is secret.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'value', 'connectionQueryStringParameter_value' - The value associated with the key for the query string parameter.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#newConnectionQueryStringParameter"><span class="hs-identifier hs-type">newConnectionQueryStringParameter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter"><span class="hs-identifier hs-type">ConnectionQueryStringParameter</span></a></span><span>
+</span><span id="line-57"></span><span id="newConnectionQueryStringParameter"><span class="annot"><span class="annottext">newConnectionQueryStringParameter :: ConnectionQueryStringParameter
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#newConnectionQueryStringParameter"><span class="hs-identifier hs-var hs-var">newConnectionQueryStringParameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">ConnectionQueryStringParameter' :: Maybe Text
+-&gt; Maybe Bool -&gt; Maybe Text -&gt; ConnectionQueryStringParameter
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter%27"><span class="hs-identifier hs-type">ConnectionQueryStringParameter'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:ConnectionQueryStringParameter' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#%24sel%3Akey%3AConnectionQueryStringParameter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:isValueSecret:ConnectionQueryStringParameter' :: Maybe Bool
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#%24sel%3AisValueSecret%3AConnectionQueryStringParameter%27"><span class="hs-identifier hs-var">isValueSecret</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:ConnectionQueryStringParameter' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#%24sel%3Avalue%3AConnectionQueryStringParameter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The key for a query string parameter.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#connectionQueryStringParameter_key"><span class="hs-identifier hs-type">connectionQueryStringParameter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter"><span class="hs-identifier hs-type">ConnectionQueryStringParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="connectionQueryStringParameter_key"><span class="annot"><span class="annottext">connectionQueryStringParameter_key :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConnectionQueryStringParameter
+-&gt; f ConnectionQueryStringParameter
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#connectionQueryStringParameter_key"><span class="hs-identifier hs-var hs-var">connectionQueryStringParameter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionQueryStringParameter -&gt; Maybe Text)
+-&gt; (ConnectionQueryStringParameter
+    -&gt; Maybe Text -&gt; ConnectionQueryStringParameter)
+-&gt; Lens
+     ConnectionQueryStringParameter
+     ConnectionQueryStringParameter
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter%27"><span class="hs-identifier hs-type">ConnectionQueryStringParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300662"><span class="annot"><span class="annottext">Maybe Text
+key :: Maybe Text
+$sel:key:ConnectionQueryStringParameter' :: ConnectionQueryStringParameter -&gt; Maybe Text
+</span><a href="#local-6989586621679300662"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300662"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300661"><span class="annot"><span class="annottext">s :: ConnectionQueryStringParameter
+</span><a href="#local-6989586621679300661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter%27"><span class="hs-identifier hs-type">ConnectionQueryStringParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300660"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionQueryStringParameter
+</span><a href="#local-6989586621679300661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ConnectionQueryStringParameter' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#%24sel%3Akey%3AConnectionQueryStringParameter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter"><span class="hs-identifier hs-type">ConnectionQueryStringParameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | Specifies whether the value is secret.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#connectionQueryStringParameter_isValueSecret"><span class="hs-identifier hs-type">connectionQueryStringParameter_isValueSecret</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter"><span class="hs-identifier hs-type">ConnectionQueryStringParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="connectionQueryStringParameter_isValueSecret"><span class="annot"><span class="annottext">connectionQueryStringParameter_isValueSecret :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ConnectionQueryStringParameter
+-&gt; f ConnectionQueryStringParameter
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#connectionQueryStringParameter_isValueSecret"><span class="hs-identifier hs-var hs-var">connectionQueryStringParameter_isValueSecret</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionQueryStringParameter -&gt; Maybe Bool)
+-&gt; (ConnectionQueryStringParameter
+    -&gt; Maybe Bool -&gt; ConnectionQueryStringParameter)
+-&gt; Lens
+     ConnectionQueryStringParameter
+     ConnectionQueryStringParameter
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter%27"><span class="hs-identifier hs-type">ConnectionQueryStringParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300658"><span class="annot"><span class="annottext">Maybe Bool
+isValueSecret :: Maybe Bool
+$sel:isValueSecret:ConnectionQueryStringParameter' :: ConnectionQueryStringParameter -&gt; Maybe Bool
+</span><a href="#local-6989586621679300658"><span class="hs-identifier hs-var hs-var">isValueSecret</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300658"><span class="hs-identifier hs-var">isValueSecret</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300657"><span class="annot"><span class="annottext">s :: ConnectionQueryStringParameter
+</span><a href="#local-6989586621679300657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter%27"><span class="hs-identifier hs-type">ConnectionQueryStringParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300656"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionQueryStringParameter
+</span><a href="#local-6989586621679300657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isValueSecret:ConnectionQueryStringParameter' :: Maybe Bool
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#%24sel%3AisValueSecret%3AConnectionQueryStringParameter%27"><span class="hs-identifier hs-var">isValueSecret</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter"><span class="hs-identifier hs-type">ConnectionQueryStringParameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The value associated with the key for the query string parameter.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#connectionQueryStringParameter_value"><span class="hs-identifier hs-type">connectionQueryStringParameter_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter"><span class="hs-identifier hs-type">ConnectionQueryStringParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="connectionQueryStringParameter_value"><span class="annot"><span class="annottext">connectionQueryStringParameter_value :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConnectionQueryStringParameter
+-&gt; f ConnectionQueryStringParameter
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#connectionQueryStringParameter_value"><span class="hs-identifier hs-var hs-var">connectionQueryStringParameter_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionQueryStringParameter -&gt; Maybe Text)
+-&gt; (ConnectionQueryStringParameter
+    -&gt; Maybe Text -&gt; ConnectionQueryStringParameter)
+-&gt; Lens
+     ConnectionQueryStringParameter
+     ConnectionQueryStringParameter
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter%27"><span class="hs-identifier hs-type">ConnectionQueryStringParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300654"><span class="annot"><span class="annottext">Maybe Text
+value :: Maybe Text
+$sel:value:ConnectionQueryStringParameter' :: ConnectionQueryStringParameter -&gt; Maybe Text
+</span><a href="#local-6989586621679300654"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300654"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300653"><span class="annot"><span class="annottext">s :: ConnectionQueryStringParameter
+</span><a href="#local-6989586621679300653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter%27"><span class="hs-identifier hs-type">ConnectionQueryStringParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300652"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionQueryStringParameter
+</span><a href="#local-6989586621679300653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ConnectionQueryStringParameter' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#%24sel%3Avalue%3AConnectionQueryStringParameter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter"><span class="hs-identifier hs-type">ConnectionQueryStringParameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300649"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter"><span class="hs-identifier hs-type">ConnectionQueryStringParameter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679300647"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConnectionQueryStringParameter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ConnectionQueryStringParameter)
+-&gt; Value
+-&gt; Parser ConnectionQueryStringParameter
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ConnectionQueryStringParameter&quot;</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300644"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300644"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool -&gt; Maybe Text -&gt; ConnectionQueryStringParameter
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter%27"><span class="hs-identifier hs-var">ConnectionQueryStringParameter'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool -&gt; Maybe Text -&gt; ConnectionQueryStringParameter)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool -&gt; Maybe Text -&gt; ConnectionQueryStringParameter)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Text -&gt; ConnectionQueryStringParameter)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Text -&gt; ConnectionQueryStringParameter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsValueSecret&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ConnectionQueryStringParameter)
+-&gt; Parser (Maybe Text) -&gt; Parser ConnectionQueryStringParameter
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679300638"><span id="local-6989586621679300640"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter"><span class="hs-identifier hs-type">ConnectionQueryStringParameter</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679300635"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter"><span class="hs-identifier hs-type">ConnectionQueryStringParameter</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300627"><span id="local-6989586621679300629"><span id="local-6989586621679300631"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter"><span class="hs-identifier hs-type">ConnectionQueryStringParameter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679300625"><span class="annot"><span class="annottext">toJSON :: ConnectionQueryStringParameter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter%27"><span class="hs-identifier hs-type">ConnectionQueryStringParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300621"><span id="local-6989586621679300622"><span id="local-6989586621679300623"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+value :: Maybe Text
+isValueSecret :: Maybe Bool
+key :: Maybe Text
+$sel:value:ConnectionQueryStringParameter' :: ConnectionQueryStringParameter -&gt; Maybe Text
+$sel:isValueSecret:ConnectionQueryStringParameter' :: ConnectionQueryStringParameter -&gt; Maybe Bool
+$sel:key:ConnectionQueryStringParameter' :: ConnectionQueryStringParameter -&gt; Maybe Text
+</span><a href="#local-6989586621679300621"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300623"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsValueSecret&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300622"><span class="hs-identifier hs-var">isValueSecret</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300621"><span class="hs-identifier hs-var">value</span></a></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span></pre></body></html>

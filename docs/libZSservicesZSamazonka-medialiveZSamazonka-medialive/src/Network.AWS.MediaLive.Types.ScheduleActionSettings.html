@@ -1,0 +1,1062 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.ScheduleActionSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.ScheduleActionSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsId3SegmentTaggingScheduleActionSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.HlsId3SegmentTaggingScheduleActionSettings</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputPrepareScheduleActionSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.InputPrepareScheduleActionSettings</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSwitchScheduleActionSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.InputSwitchScheduleActionSettings</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsDeactivateScheduleActionSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.MotionGraphicsDeactivateScheduleActionSettings</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalScheduleActionSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.Scte35TimeSignalScheduleActionSettings</span></a></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticImageActivateScheduleActionSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.StaticImageActivateScheduleActionSettings</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticImageDeactivateScheduleActionSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.StaticImageDeactivateScheduleActionSettings</span></a></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- | Holds the settings for a single schedule action.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newScheduleActionSettings' smart constructor.</span><span>
+</span><span id="line-41"></span><span id="local-6989586621679916801"><span id="local-6989586621679916802"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduleActionSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-var">ScheduleActionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleActionSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-var">ScheduleActionSettings'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Action to insert SCTE-35 time_signal message</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Ascte35TimeSignalSettings%3AScheduleActionSettings%27"><span class="annot"><span class="annottext">ScheduleActionSettings
+-&gt; Maybe Scte35TimeSignalScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3Ascte35TimeSignalSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">scte35TimeSignalSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalScheduleActionSettings.html#Scte35TimeSignalScheduleActionSettings"><span class="hs-identifier hs-type">Scte35TimeSignalScheduleActionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Action to switch the input</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AinputSwitchSettings%3AScheduleActionSettings%27"><span class="annot"><span class="annottext">ScheduleActionSettings -&gt; Maybe InputSwitchScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AinputSwitchSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">inputSwitchSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSwitchScheduleActionSettings.html#InputSwitchScheduleActionSettings"><span class="hs-identifier hs-type">InputSwitchScheduleActionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Action to insert HLS metadata</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AhlsTimedMetadataSettings%3AScheduleActionSettings%27"><span class="annot"><span class="annottext">ScheduleActionSettings
+-&gt; Maybe HlsTimedMetadataScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AhlsTimedMetadataSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">hlsTimedMetadataSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Action to deactivate a motion graphics image overlay</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AmotionGraphicsImageDeactivateSettings%3AScheduleActionSettings%27"><span class="annot"><span class="annottext">ScheduleActionSettings
+-&gt; Maybe MotionGraphicsDeactivateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AmotionGraphicsImageDeactivateSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">motionGraphicsImageDeactivateSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsDeactivateScheduleActionSettings.html#MotionGraphicsDeactivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsDeactivateScheduleActionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Action to activate a static image overlay</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AstaticImageActivateSettings%3AScheduleActionSettings%27"><span class="annot"><span class="annottext">ScheduleActionSettings
+-&gt; Maybe StaticImageActivateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AstaticImageActivateSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">staticImageActivateSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticImageActivateScheduleActionSettings.html#StaticImageActivateScheduleActionSettings"><span class="hs-identifier hs-type">StaticImageActivateScheduleActionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Action to pause or unpause one or both channel pipelines</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3ApauseStateSettings%3AScheduleActionSettings%27"><span class="annot"><span class="annottext">ScheduleActionSettings -&gt; Maybe PauseStateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3ApauseStateSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">pauseStateSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings"><span class="hs-identifier hs-type">PauseStateScheduleActionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Action to activate a motion graphics image overlay</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AmotionGraphicsImageActivateSettings%3AScheduleActionSettings%27"><span class="annot"><span class="annottext">ScheduleActionSettings
+-&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AmotionGraphicsImageActivateSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">motionGraphicsImageActivateSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Action to insert SCTE-35 return_to_network message</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Ascte35ReturnToNetworkSettings%3AScheduleActionSettings%27"><span class="annot"><span class="annottext">ScheduleActionSettings
+-&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3Ascte35ReturnToNetworkSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">scte35ReturnToNetworkSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings.html#Scte35ReturnToNetworkScheduleActionSettings"><span class="hs-identifier hs-type">Scte35ReturnToNetworkScheduleActionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Action to insert SCTE-35 splice_insert message</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Ascte35SpliceInsertSettings%3AScheduleActionSettings%27"><span class="annot"><span class="annottext">ScheduleActionSettings
+-&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3Ascte35SpliceInsertSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">scte35SpliceInsertSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Action to deactivate a static image overlay</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AstaticImageDeactivateSettings%3AScheduleActionSettings%27"><span class="annot"><span class="annottext">ScheduleActionSettings
+-&gt; Maybe StaticImageDeactivateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AstaticImageDeactivateSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">staticImageDeactivateSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticImageDeactivateScheduleActionSettings.html#StaticImageDeactivateScheduleActionSettings"><span class="hs-identifier hs-type">StaticImageDeactivateScheduleActionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Action to prepare an input for a future immediate input switch</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AinputPrepareSettings%3AScheduleActionSettings%27"><span class="annot"><span class="annottext">ScheduleActionSettings -&gt; Maybe InputPrepareScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AinputPrepareSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">inputPrepareSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputPrepareScheduleActionSettings.html#InputPrepareScheduleActionSettings"><span class="hs-identifier hs-type">InputPrepareScheduleActionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Action to insert HLS ID3 segment tagging</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AhlsId3SegmentTaggingSettings%3AScheduleActionSettings%27"><span class="annot"><span class="annottext">ScheduleActionSettings
+-&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AhlsId3SegmentTaggingSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">hlsId3SegmentTaggingSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsId3SegmentTaggingScheduleActionSettings.html#HlsId3SegmentTaggingScheduleActionSettings"><span class="hs-identifier hs-type">HlsId3SegmentTaggingScheduleActionSettings</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679916784"><span id="local-6989586621679916786"><span class="annot"><span class="annottext">ScheduleActionSettings -&gt; ScheduleActionSettings -&gt; Bool
+(ScheduleActionSettings -&gt; ScheduleActionSettings -&gt; Bool)
+-&gt; (ScheduleActionSettings -&gt; ScheduleActionSettings -&gt; Bool)
+-&gt; Eq ScheduleActionSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScheduleActionSettings -&gt; ScheduleActionSettings -&gt; Bool
+$c/= :: ScheduleActionSettings -&gt; ScheduleActionSettings -&gt; Bool
+== :: ScheduleActionSettings -&gt; ScheduleActionSettings -&gt; Bool
+$c== :: ScheduleActionSettings -&gt; ScheduleActionSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679916775"><span id="local-6989586621679916777"><span id="local-6989586621679916779"><span id="local-6989586621679916781"><span class="annot"><span class="annottext">ReadPrec [ScheduleActionSettings]
+ReadPrec ScheduleActionSettings
+Int -&gt; ReadS ScheduleActionSettings
+ReadS [ScheduleActionSettings]
+(Int -&gt; ReadS ScheduleActionSettings)
+-&gt; ReadS [ScheduleActionSettings]
+-&gt; ReadPrec ScheduleActionSettings
+-&gt; ReadPrec [ScheduleActionSettings]
+-&gt; Read ScheduleActionSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScheduleActionSettings]
+$creadListPrec :: ReadPrec [ScheduleActionSettings]
+readPrec :: ReadPrec ScheduleActionSettings
+$creadPrec :: ReadPrec ScheduleActionSettings
+readList :: ReadS [ScheduleActionSettings]
+$creadList :: ReadS [ScheduleActionSettings]
+readsPrec :: Int -&gt; ReadS ScheduleActionSettings
+$creadsPrec :: Int -&gt; ReadS ScheduleActionSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679916768"><span id="local-6989586621679916770"><span id="local-6989586621679916772"><span class="annot"><span class="annottext">Int -&gt; ScheduleActionSettings -&gt; ShowS
+[ScheduleActionSettings] -&gt; ShowS
+ScheduleActionSettings -&gt; String
+(Int -&gt; ScheduleActionSettings -&gt; ShowS)
+-&gt; (ScheduleActionSettings -&gt; String)
+-&gt; ([ScheduleActionSettings] -&gt; ShowS)
+-&gt; Show ScheduleActionSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScheduleActionSettings] -&gt; ShowS
+$cshowList :: [ScheduleActionSettings] -&gt; ShowS
+show :: ScheduleActionSettings -&gt; String
+$cshow :: ScheduleActionSettings -&gt; String
+showsPrec :: Int -&gt; ScheduleActionSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScheduleActionSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ScheduleActionSettings -&gt; Rep ScheduleActionSettings x)
+-&gt; (forall x.
+    Rep ScheduleActionSettings x -&gt; ScheduleActionSettings)
+-&gt; Generic ScheduleActionSettings
+forall x. Rep ScheduleActionSettings x -&gt; ScheduleActionSettings
+forall x. ScheduleActionSettings -&gt; Rep ScheduleActionSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ScheduleActionSettings x -&gt; ScheduleActionSettings
+$cfrom :: forall x. ScheduleActionSettings -&gt; Rep ScheduleActionSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'ScheduleActionSettings' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'scte35TimeSignalSettings', 'scheduleActionSettings_scte35TimeSignalSettings' - Action to insert SCTE-35 time_signal message</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'inputSwitchSettings', 'scheduleActionSettings_inputSwitchSettings' - Action to switch the input</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'hlsTimedMetadataSettings', 'scheduleActionSettings_hlsTimedMetadataSettings' - Action to insert HLS metadata</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'motionGraphicsImageDeactivateSettings', 'scheduleActionSettings_motionGraphicsImageDeactivateSettings' - Action to deactivate a motion graphics image overlay</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'staticImageActivateSettings', 'scheduleActionSettings_staticImageActivateSettings' - Action to activate a static image overlay</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'pauseStateSettings', 'scheduleActionSettings_pauseStateSettings' - Action to pause or unpause one or both channel pipelines</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'motionGraphicsImageActivateSettings', 'scheduleActionSettings_motionGraphicsImageActivateSettings' - Action to activate a motion graphics image overlay</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'scte35ReturnToNetworkSettings', 'scheduleActionSettings_scte35ReturnToNetworkSettings' - Action to insert SCTE-35 return_to_network message</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'scte35SpliceInsertSettings', 'scheduleActionSettings_scte35SpliceInsertSettings' - Action to insert SCTE-35 splice_insert message</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'staticImageDeactivateSettings', 'scheduleActionSettings_staticImageDeactivateSettings' - Action to deactivate a static image overlay</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'inputPrepareSettings', 'scheduleActionSettings_inputPrepareSettings' - Action to prepare an input for a future immediate input switch</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'hlsId3SegmentTaggingSettings', 'scheduleActionSettings_hlsId3SegmentTaggingSettings' - Action to insert HLS ID3 segment tagging</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#newScheduleActionSettings"><span class="hs-identifier hs-type">newScheduleActionSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span>
+</span><span id="line-102"></span><span id="newScheduleActionSettings"><span class="annot"><span class="annottext">newScheduleActionSettings :: ScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#newScheduleActionSettings"><span class="hs-identifier hs-var hs-var">newScheduleActionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">ScheduleActionSettings' :: Maybe Scte35TimeSignalScheduleActionSettings
+-&gt; Maybe InputSwitchScheduleActionSettings
+-&gt; Maybe HlsTimedMetadataScheduleActionSettings
+-&gt; Maybe MotionGraphicsDeactivateScheduleActionSettings
+-&gt; Maybe StaticImageActivateScheduleActionSettings
+-&gt; Maybe PauseStateScheduleActionSettings
+-&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+-&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+-&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+-&gt; Maybe StaticImageDeactivateScheduleActionSettings
+-&gt; Maybe InputPrepareScheduleActionSettings
+-&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+-&gt; ScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scte35TimeSignalSettings:ScheduleActionSettings' :: Maybe Scte35TimeSignalScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3Ascte35TimeSignalSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">scte35TimeSignalSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Maybe Scte35TimeSignalScheduleActionSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputSwitchSettings:ScheduleActionSettings' :: Maybe InputSwitchScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AinputSwitchSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">inputSwitchSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputSwitchScheduleActionSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:hlsTimedMetadataSettings:ScheduleActionSettings' :: Maybe HlsTimedMetadataScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AhlsTimedMetadataSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">hlsTimedMetadataSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsTimedMetadataScheduleActionSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:motionGraphicsImageDeactivateSettings:ScheduleActionSettings' :: Maybe MotionGraphicsDeactivateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AmotionGraphicsImageDeactivateSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">motionGraphicsImageDeactivateSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe MotionGraphicsDeactivateScheduleActionSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:staticImageActivateSettings:ScheduleActionSettings' :: Maybe StaticImageActivateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AstaticImageActivateSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">staticImageActivateSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StaticImageActivateScheduleActionSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:pauseStateSettings:ScheduleActionSettings' :: Maybe PauseStateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3ApauseStateSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">pauseStateSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PauseStateScheduleActionSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:motionGraphicsImageActivateSettings:ScheduleActionSettings' :: Maybe MotionGraphicsActivateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AmotionGraphicsImageActivateSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">motionGraphicsImageActivateSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">Maybe MotionGraphicsActivateScheduleActionSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:scte35ReturnToNetworkSettings:ScheduleActionSettings' :: Maybe Scte35ReturnToNetworkScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3Ascte35ReturnToNetworkSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">scte35ReturnToNetworkSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35ReturnToNetworkScheduleActionSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:scte35SpliceInsertSettings:ScheduleActionSettings' :: Maybe Scte35SpliceInsertScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3Ascte35SpliceInsertSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">scte35SpliceInsertSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertScheduleActionSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:staticImageDeactivateSettings:ScheduleActionSettings' :: Maybe StaticImageDeactivateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AstaticImageDeactivateSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">staticImageDeactivateSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StaticImageDeactivateScheduleActionSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputPrepareSettings:ScheduleActionSettings' :: Maybe InputPrepareScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AinputPrepareSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">inputPrepareSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputPrepareScheduleActionSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:hlsId3SegmentTaggingSettings:ScheduleActionSettings' :: Maybe HlsId3SegmentTaggingScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AhlsId3SegmentTaggingSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">hlsId3SegmentTaggingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsId3SegmentTaggingScheduleActionSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Action to insert SCTE-35 time_signal message</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_scte35TimeSignalSettings"><span class="hs-identifier hs-type">scheduleActionSettings_scte35TimeSignalSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalScheduleActionSettings.html#Scte35TimeSignalScheduleActionSettings"><span class="hs-identifier hs-type">Scte35TimeSignalScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="scheduleActionSettings_scte35TimeSignalSettings"><span class="annot"><span class="annottext">scheduleActionSettings_scte35TimeSignalSettings :: (Maybe Scte35TimeSignalScheduleActionSettings
+ -&gt; f (Maybe Scte35TimeSignalScheduleActionSettings))
+-&gt; ScheduleActionSettings -&gt; f ScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_scte35TimeSignalSettings"><span class="hs-identifier hs-var hs-var">scheduleActionSettings_scte35TimeSignalSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleActionSettings
+ -&gt; Maybe Scte35TimeSignalScheduleActionSettings)
+-&gt; (ScheduleActionSettings
+    -&gt; Maybe Scte35TimeSignalScheduleActionSettings
+    -&gt; ScheduleActionSettings)
+-&gt; Lens
+     ScheduleActionSettings
+     ScheduleActionSettings
+     (Maybe Scte35TimeSignalScheduleActionSettings)
+     (Maybe Scte35TimeSignalScheduleActionSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916759"><span class="annot"><span class="annottext">Maybe Scte35TimeSignalScheduleActionSettings
+scte35TimeSignalSettings :: Maybe Scte35TimeSignalScheduleActionSettings
+$sel:scte35TimeSignalSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe Scte35TimeSignalScheduleActionSettings
+</span><a href="#local-6989586621679916759"><span class="hs-identifier hs-var hs-var">scte35TimeSignalSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35TimeSignalScheduleActionSettings
+</span><a href="#local-6989586621679916759"><span class="hs-identifier hs-var">scte35TimeSignalSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916758"><span class="annot"><span class="annottext">s :: ScheduleActionSettings
+</span><a href="#local-6989586621679916758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916757"><span class="annot"><span class="annottext">Maybe Scte35TimeSignalScheduleActionSettings
+</span><a href="#local-6989586621679916757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><a href="#local-6989586621679916758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35TimeSignalSettings:ScheduleActionSettings' :: Maybe Scte35TimeSignalScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3Ascte35TimeSignalSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">scte35TimeSignalSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35TimeSignalScheduleActionSettings
+</span><a href="#local-6989586621679916757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Action to switch the input</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_inputSwitchSettings"><span class="hs-identifier hs-type">scheduleActionSettings_inputSwitchSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSwitchScheduleActionSettings.html#InputSwitchScheduleActionSettings"><span class="hs-identifier hs-type">InputSwitchScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="scheduleActionSettings_inputSwitchSettings"><span class="annot"><span class="annottext">scheduleActionSettings_inputSwitchSettings :: (Maybe InputSwitchScheduleActionSettings
+ -&gt; f (Maybe InputSwitchScheduleActionSettings))
+-&gt; ScheduleActionSettings -&gt; f ScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_inputSwitchSettings"><span class="hs-identifier hs-var hs-var">scheduleActionSettings_inputSwitchSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleActionSettings -&gt; Maybe InputSwitchScheduleActionSettings)
+-&gt; (ScheduleActionSettings
+    -&gt; Maybe InputSwitchScheduleActionSettings
+    -&gt; ScheduleActionSettings)
+-&gt; Lens
+     ScheduleActionSettings
+     ScheduleActionSettings
+     (Maybe InputSwitchScheduleActionSettings)
+     (Maybe InputSwitchScheduleActionSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916755"><span class="annot"><span class="annottext">Maybe InputSwitchScheduleActionSettings
+inputSwitchSettings :: Maybe InputSwitchScheduleActionSettings
+$sel:inputSwitchSettings:ScheduleActionSettings' :: ScheduleActionSettings -&gt; Maybe InputSwitchScheduleActionSettings
+</span><a href="#local-6989586621679916755"><span class="hs-identifier hs-var hs-var">inputSwitchSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputSwitchScheduleActionSettings
+</span><a href="#local-6989586621679916755"><span class="hs-identifier hs-var">inputSwitchSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916754"><span class="annot"><span class="annottext">s :: ScheduleActionSettings
+</span><a href="#local-6989586621679916754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916753"><span class="annot"><span class="annottext">Maybe InputSwitchScheduleActionSettings
+</span><a href="#local-6989586621679916753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><a href="#local-6989586621679916754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputSwitchSettings:ScheduleActionSettings' :: Maybe InputSwitchScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AinputSwitchSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">inputSwitchSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputSwitchScheduleActionSettings
+</span><a href="#local-6989586621679916753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | Action to insert HLS metadata</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_hlsTimedMetadataSettings"><span class="hs-identifier hs-type">scheduleActionSettings_hlsTimedMetadataSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="scheduleActionSettings_hlsTimedMetadataSettings"><span class="annot"><span class="annottext">scheduleActionSettings_hlsTimedMetadataSettings :: (Maybe HlsTimedMetadataScheduleActionSettings
+ -&gt; f (Maybe HlsTimedMetadataScheduleActionSettings))
+-&gt; ScheduleActionSettings -&gt; f ScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_hlsTimedMetadataSettings"><span class="hs-identifier hs-var hs-var">scheduleActionSettings_hlsTimedMetadataSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleActionSettings
+ -&gt; Maybe HlsTimedMetadataScheduleActionSettings)
+-&gt; (ScheduleActionSettings
+    -&gt; Maybe HlsTimedMetadataScheduleActionSettings
+    -&gt; ScheduleActionSettings)
+-&gt; Lens
+     ScheduleActionSettings
+     ScheduleActionSettings
+     (Maybe HlsTimedMetadataScheduleActionSettings)
+     (Maybe HlsTimedMetadataScheduleActionSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916751"><span class="annot"><span class="annottext">Maybe HlsTimedMetadataScheduleActionSettings
+hlsTimedMetadataSettings :: Maybe HlsTimedMetadataScheduleActionSettings
+$sel:hlsTimedMetadataSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe HlsTimedMetadataScheduleActionSettings
+</span><a href="#local-6989586621679916751"><span class="hs-identifier hs-var hs-var">hlsTimedMetadataSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsTimedMetadataScheduleActionSettings
+</span><a href="#local-6989586621679916751"><span class="hs-identifier hs-var">hlsTimedMetadataSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916750"><span class="annot"><span class="annottext">s :: ScheduleActionSettings
+</span><a href="#local-6989586621679916750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916749"><span class="annot"><span class="annottext">Maybe HlsTimedMetadataScheduleActionSettings
+</span><a href="#local-6989586621679916749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><a href="#local-6989586621679916750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsTimedMetadataSettings:ScheduleActionSettings' :: Maybe HlsTimedMetadataScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AhlsTimedMetadataSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">hlsTimedMetadataSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsTimedMetadataScheduleActionSettings
+</span><a href="#local-6989586621679916749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Action to deactivate a motion graphics image overlay</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_motionGraphicsImageDeactivateSettings"><span class="hs-identifier hs-type">scheduleActionSettings_motionGraphicsImageDeactivateSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsDeactivateScheduleActionSettings.html#MotionGraphicsDeactivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsDeactivateScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="scheduleActionSettings_motionGraphicsImageDeactivateSettings"><span class="annot"><span class="annottext">scheduleActionSettings_motionGraphicsImageDeactivateSettings :: (Maybe MotionGraphicsDeactivateScheduleActionSettings
+ -&gt; f (Maybe MotionGraphicsDeactivateScheduleActionSettings))
+-&gt; ScheduleActionSettings -&gt; f ScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_motionGraphicsImageDeactivateSettings"><span class="hs-identifier hs-var hs-var">scheduleActionSettings_motionGraphicsImageDeactivateSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleActionSettings
+ -&gt; Maybe MotionGraphicsDeactivateScheduleActionSettings)
+-&gt; (ScheduleActionSettings
+    -&gt; Maybe MotionGraphicsDeactivateScheduleActionSettings
+    -&gt; ScheduleActionSettings)
+-&gt; Lens
+     ScheduleActionSettings
+     ScheduleActionSettings
+     (Maybe MotionGraphicsDeactivateScheduleActionSettings)
+     (Maybe MotionGraphicsDeactivateScheduleActionSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916747"><span class="annot"><span class="annottext">Maybe MotionGraphicsDeactivateScheduleActionSettings
+motionGraphicsImageDeactivateSettings :: Maybe MotionGraphicsDeactivateScheduleActionSettings
+$sel:motionGraphicsImageDeactivateSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe MotionGraphicsDeactivateScheduleActionSettings
+</span><a href="#local-6989586621679916747"><span class="hs-identifier hs-var hs-var">motionGraphicsImageDeactivateSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MotionGraphicsDeactivateScheduleActionSettings
+</span><a href="#local-6989586621679916747"><span class="hs-identifier hs-var">motionGraphicsImageDeactivateSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916746"><span class="annot"><span class="annottext">s :: ScheduleActionSettings
+</span><a href="#local-6989586621679916746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916745"><span class="annot"><span class="annottext">Maybe MotionGraphicsDeactivateScheduleActionSettings
+</span><a href="#local-6989586621679916745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><a href="#local-6989586621679916746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:motionGraphicsImageDeactivateSettings:ScheduleActionSettings' :: Maybe MotionGraphicsDeactivateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AmotionGraphicsImageDeactivateSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">motionGraphicsImageDeactivateSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MotionGraphicsDeactivateScheduleActionSettings
+</span><a href="#local-6989586621679916745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Action to activate a static image overlay</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_staticImageActivateSettings"><span class="hs-identifier hs-type">scheduleActionSettings_staticImageActivateSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticImageActivateScheduleActionSettings.html#StaticImageActivateScheduleActionSettings"><span class="hs-identifier hs-type">StaticImageActivateScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="scheduleActionSettings_staticImageActivateSettings"><span class="annot"><span class="annottext">scheduleActionSettings_staticImageActivateSettings :: (Maybe StaticImageActivateScheduleActionSettings
+ -&gt; f (Maybe StaticImageActivateScheduleActionSettings))
+-&gt; ScheduleActionSettings -&gt; f ScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_staticImageActivateSettings"><span class="hs-identifier hs-var hs-var">scheduleActionSettings_staticImageActivateSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleActionSettings
+ -&gt; Maybe StaticImageActivateScheduleActionSettings)
+-&gt; (ScheduleActionSettings
+    -&gt; Maybe StaticImageActivateScheduleActionSettings
+    -&gt; ScheduleActionSettings)
+-&gt; Lens
+     ScheduleActionSettings
+     ScheduleActionSettings
+     (Maybe StaticImageActivateScheduleActionSettings)
+     (Maybe StaticImageActivateScheduleActionSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916743"><span class="annot"><span class="annottext">Maybe StaticImageActivateScheduleActionSettings
+staticImageActivateSettings :: Maybe StaticImageActivateScheduleActionSettings
+$sel:staticImageActivateSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe StaticImageActivateScheduleActionSettings
+</span><a href="#local-6989586621679916743"><span class="hs-identifier hs-var hs-var">staticImageActivateSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StaticImageActivateScheduleActionSettings
+</span><a href="#local-6989586621679916743"><span class="hs-identifier hs-var">staticImageActivateSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916742"><span class="annot"><span class="annottext">s :: ScheduleActionSettings
+</span><a href="#local-6989586621679916742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916741"><span class="annot"><span class="annottext">Maybe StaticImageActivateScheduleActionSettings
+</span><a href="#local-6989586621679916741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><a href="#local-6989586621679916742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticImageActivateSettings:ScheduleActionSettings' :: Maybe StaticImageActivateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AstaticImageActivateSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">staticImageActivateSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StaticImageActivateScheduleActionSettings
+</span><a href="#local-6989586621679916741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | Action to pause or unpause one or both channel pipelines</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_pauseStateSettings"><span class="hs-identifier hs-type">scheduleActionSettings_pauseStateSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings"><span class="hs-identifier hs-type">PauseStateScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="scheduleActionSettings_pauseStateSettings"><span class="annot"><span class="annottext">scheduleActionSettings_pauseStateSettings :: (Maybe PauseStateScheduleActionSettings
+ -&gt; f (Maybe PauseStateScheduleActionSettings))
+-&gt; ScheduleActionSettings -&gt; f ScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_pauseStateSettings"><span class="hs-identifier hs-var hs-var">scheduleActionSettings_pauseStateSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleActionSettings -&gt; Maybe PauseStateScheduleActionSettings)
+-&gt; (ScheduleActionSettings
+    -&gt; Maybe PauseStateScheduleActionSettings
+    -&gt; ScheduleActionSettings)
+-&gt; Lens
+     ScheduleActionSettings
+     ScheduleActionSettings
+     (Maybe PauseStateScheduleActionSettings)
+     (Maybe PauseStateScheduleActionSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916739"><span class="annot"><span class="annottext">Maybe PauseStateScheduleActionSettings
+pauseStateSettings :: Maybe PauseStateScheduleActionSettings
+$sel:pauseStateSettings:ScheduleActionSettings' :: ScheduleActionSettings -&gt; Maybe PauseStateScheduleActionSettings
+</span><a href="#local-6989586621679916739"><span class="hs-identifier hs-var hs-var">pauseStateSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PauseStateScheduleActionSettings
+</span><a href="#local-6989586621679916739"><span class="hs-identifier hs-var">pauseStateSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916738"><span class="annot"><span class="annottext">s :: ScheduleActionSettings
+</span><a href="#local-6989586621679916738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916737"><span class="annot"><span class="annottext">Maybe PauseStateScheduleActionSettings
+</span><a href="#local-6989586621679916737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><a href="#local-6989586621679916738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pauseStateSettings:ScheduleActionSettings' :: Maybe PauseStateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3ApauseStateSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">pauseStateSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PauseStateScheduleActionSettings
+</span><a href="#local-6989586621679916737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Action to activate a motion graphics image overlay</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_motionGraphicsImageActivateSettings"><span class="hs-identifier hs-type">scheduleActionSettings_motionGraphicsImageActivateSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="scheduleActionSettings_motionGraphicsImageActivateSettings"><span class="annot"><span class="annottext">scheduleActionSettings_motionGraphicsImageActivateSettings :: (Maybe MotionGraphicsActivateScheduleActionSettings
+ -&gt; f (Maybe MotionGraphicsActivateScheduleActionSettings))
+-&gt; ScheduleActionSettings -&gt; f ScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_motionGraphicsImageActivateSettings"><span class="hs-identifier hs-var hs-var">scheduleActionSettings_motionGraphicsImageActivateSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleActionSettings
+ -&gt; Maybe MotionGraphicsActivateScheduleActionSettings)
+-&gt; (ScheduleActionSettings
+    -&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+    -&gt; ScheduleActionSettings)
+-&gt; Lens
+     ScheduleActionSettings
+     ScheduleActionSettings
+     (Maybe MotionGraphicsActivateScheduleActionSettings)
+     (Maybe MotionGraphicsActivateScheduleActionSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916735"><span class="annot"><span class="annottext">Maybe MotionGraphicsActivateScheduleActionSettings
+motionGraphicsImageActivateSettings :: Maybe MotionGraphicsActivateScheduleActionSettings
+$sel:motionGraphicsImageActivateSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+</span><a href="#local-6989586621679916735"><span class="hs-identifier hs-var hs-var">motionGraphicsImageActivateSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MotionGraphicsActivateScheduleActionSettings
+</span><a href="#local-6989586621679916735"><span class="hs-identifier hs-var">motionGraphicsImageActivateSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916734"><span class="annot"><span class="annottext">s :: ScheduleActionSettings
+</span><a href="#local-6989586621679916734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916733"><span class="annot"><span class="annottext">Maybe MotionGraphicsActivateScheduleActionSettings
+</span><a href="#local-6989586621679916733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><a href="#local-6989586621679916734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:motionGraphicsImageActivateSettings:ScheduleActionSettings' :: Maybe MotionGraphicsActivateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AmotionGraphicsImageActivateSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">motionGraphicsImageActivateSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MotionGraphicsActivateScheduleActionSettings
+</span><a href="#local-6989586621679916733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Action to insert SCTE-35 return_to_network message</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_scte35ReturnToNetworkSettings"><span class="hs-identifier hs-type">scheduleActionSettings_scte35ReturnToNetworkSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings.html#Scte35ReturnToNetworkScheduleActionSettings"><span class="hs-identifier hs-type">Scte35ReturnToNetworkScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="scheduleActionSettings_scte35ReturnToNetworkSettings"><span class="annot"><span class="annottext">scheduleActionSettings_scte35ReturnToNetworkSettings :: (Maybe Scte35ReturnToNetworkScheduleActionSettings
+ -&gt; f (Maybe Scte35ReturnToNetworkScheduleActionSettings))
+-&gt; ScheduleActionSettings -&gt; f ScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_scte35ReturnToNetworkSettings"><span class="hs-identifier hs-var hs-var">scheduleActionSettings_scte35ReturnToNetworkSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleActionSettings
+ -&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings)
+-&gt; (ScheduleActionSettings
+    -&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+    -&gt; ScheduleActionSettings)
+-&gt; Lens
+     ScheduleActionSettings
+     ScheduleActionSettings
+     (Maybe Scte35ReturnToNetworkScheduleActionSettings)
+     (Maybe Scte35ReturnToNetworkScheduleActionSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916731"><span class="annot"><span class="annottext">Maybe Scte35ReturnToNetworkScheduleActionSettings
+scte35ReturnToNetworkSettings :: Maybe Scte35ReturnToNetworkScheduleActionSettings
+$sel:scte35ReturnToNetworkSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+</span><a href="#local-6989586621679916731"><span class="hs-identifier hs-var hs-var">scte35ReturnToNetworkSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35ReturnToNetworkScheduleActionSettings
+</span><a href="#local-6989586621679916731"><span class="hs-identifier hs-var">scte35ReturnToNetworkSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916730"><span class="annot"><span class="annottext">s :: ScheduleActionSettings
+</span><a href="#local-6989586621679916730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916729"><span class="annot"><span class="annottext">Maybe Scte35ReturnToNetworkScheduleActionSettings
+</span><a href="#local-6989586621679916729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><a href="#local-6989586621679916730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35ReturnToNetworkSettings:ScheduleActionSettings' :: Maybe Scte35ReturnToNetworkScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3Ascte35ReturnToNetworkSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">scte35ReturnToNetworkSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35ReturnToNetworkScheduleActionSettings
+</span><a href="#local-6989586621679916729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Action to insert SCTE-35 splice_insert message</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_scte35SpliceInsertSettings"><span class="hs-identifier hs-type">scheduleActionSettings_scte35SpliceInsertSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="scheduleActionSettings_scte35SpliceInsertSettings"><span class="annot"><span class="annottext">scheduleActionSettings_scte35SpliceInsertSettings :: (Maybe Scte35SpliceInsertScheduleActionSettings
+ -&gt; f (Maybe Scte35SpliceInsertScheduleActionSettings))
+-&gt; ScheduleActionSettings -&gt; f ScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_scte35SpliceInsertSettings"><span class="hs-identifier hs-var hs-var">scheduleActionSettings_scte35SpliceInsertSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleActionSettings
+ -&gt; Maybe Scte35SpliceInsertScheduleActionSettings)
+-&gt; (ScheduleActionSettings
+    -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+    -&gt; ScheduleActionSettings)
+-&gt; Lens
+     ScheduleActionSettings
+     ScheduleActionSettings
+     (Maybe Scte35SpliceInsertScheduleActionSettings)
+     (Maybe Scte35SpliceInsertScheduleActionSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916727"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertScheduleActionSettings
+scte35SpliceInsertSettings :: Maybe Scte35SpliceInsertScheduleActionSettings
+$sel:scte35SpliceInsertSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+</span><a href="#local-6989586621679916727"><span class="hs-identifier hs-var hs-var">scte35SpliceInsertSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertScheduleActionSettings
+</span><a href="#local-6989586621679916727"><span class="hs-identifier hs-var">scte35SpliceInsertSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916726"><span class="annot"><span class="annottext">s :: ScheduleActionSettings
+</span><a href="#local-6989586621679916726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916725"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertScheduleActionSettings
+</span><a href="#local-6989586621679916725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><a href="#local-6989586621679916726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35SpliceInsertSettings:ScheduleActionSettings' :: Maybe Scte35SpliceInsertScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3Ascte35SpliceInsertSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">scte35SpliceInsertSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertScheduleActionSettings
+</span><a href="#local-6989586621679916725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | Action to deactivate a static image overlay</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_staticImageDeactivateSettings"><span class="hs-identifier hs-type">scheduleActionSettings_staticImageDeactivateSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticImageDeactivateScheduleActionSettings.html#StaticImageDeactivateScheduleActionSettings"><span class="hs-identifier hs-type">StaticImageDeactivateScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="scheduleActionSettings_staticImageDeactivateSettings"><span class="annot"><span class="annottext">scheduleActionSettings_staticImageDeactivateSettings :: (Maybe StaticImageDeactivateScheduleActionSettings
+ -&gt; f (Maybe StaticImageDeactivateScheduleActionSettings))
+-&gt; ScheduleActionSettings -&gt; f ScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_staticImageDeactivateSettings"><span class="hs-identifier hs-var hs-var">scheduleActionSettings_staticImageDeactivateSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleActionSettings
+ -&gt; Maybe StaticImageDeactivateScheduleActionSettings)
+-&gt; (ScheduleActionSettings
+    -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+    -&gt; ScheduleActionSettings)
+-&gt; Lens
+     ScheduleActionSettings
+     ScheduleActionSettings
+     (Maybe StaticImageDeactivateScheduleActionSettings)
+     (Maybe StaticImageDeactivateScheduleActionSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916723"><span class="annot"><span class="annottext">Maybe StaticImageDeactivateScheduleActionSettings
+staticImageDeactivateSettings :: Maybe StaticImageDeactivateScheduleActionSettings
+$sel:staticImageDeactivateSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe StaticImageDeactivateScheduleActionSettings
+</span><a href="#local-6989586621679916723"><span class="hs-identifier hs-var hs-var">staticImageDeactivateSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StaticImageDeactivateScheduleActionSettings
+</span><a href="#local-6989586621679916723"><span class="hs-identifier hs-var">staticImageDeactivateSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916722"><span class="annot"><span class="annottext">s :: ScheduleActionSettings
+</span><a href="#local-6989586621679916722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916721"><span class="annot"><span class="annottext">Maybe StaticImageDeactivateScheduleActionSettings
+</span><a href="#local-6989586621679916721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><a href="#local-6989586621679916722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticImageDeactivateSettings:ScheduleActionSettings' :: Maybe StaticImageDeactivateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AstaticImageDeactivateSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">staticImageDeactivateSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StaticImageDeactivateScheduleActionSettings
+</span><a href="#local-6989586621679916721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Action to prepare an input for a future immediate input switch</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_inputPrepareSettings"><span class="hs-identifier hs-type">scheduleActionSettings_inputPrepareSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputPrepareScheduleActionSettings.html#InputPrepareScheduleActionSettings"><span class="hs-identifier hs-type">InputPrepareScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="scheduleActionSettings_inputPrepareSettings"><span class="annot"><span class="annottext">scheduleActionSettings_inputPrepareSettings :: (Maybe InputPrepareScheduleActionSettings
+ -&gt; f (Maybe InputPrepareScheduleActionSettings))
+-&gt; ScheduleActionSettings -&gt; f ScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_inputPrepareSettings"><span class="hs-identifier hs-var hs-var">scheduleActionSettings_inputPrepareSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleActionSettings
+ -&gt; Maybe InputPrepareScheduleActionSettings)
+-&gt; (ScheduleActionSettings
+    -&gt; Maybe InputPrepareScheduleActionSettings
+    -&gt; ScheduleActionSettings)
+-&gt; Lens
+     ScheduleActionSettings
+     ScheduleActionSettings
+     (Maybe InputPrepareScheduleActionSettings)
+     (Maybe InputPrepareScheduleActionSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916719"><span class="annot"><span class="annottext">Maybe InputPrepareScheduleActionSettings
+inputPrepareSettings :: Maybe InputPrepareScheduleActionSettings
+$sel:inputPrepareSettings:ScheduleActionSettings' :: ScheduleActionSettings -&gt; Maybe InputPrepareScheduleActionSettings
+</span><a href="#local-6989586621679916719"><span class="hs-identifier hs-var hs-var">inputPrepareSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputPrepareScheduleActionSettings
+</span><a href="#local-6989586621679916719"><span class="hs-identifier hs-var">inputPrepareSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916718"><span class="annot"><span class="annottext">s :: ScheduleActionSettings
+</span><a href="#local-6989586621679916718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916717"><span class="annot"><span class="annottext">Maybe InputPrepareScheduleActionSettings
+</span><a href="#local-6989586621679916717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><a href="#local-6989586621679916718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputPrepareSettings:ScheduleActionSettings' :: Maybe InputPrepareScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AinputPrepareSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">inputPrepareSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputPrepareScheduleActionSettings
+</span><a href="#local-6989586621679916717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | Action to insert HLS ID3 segment tagging</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_hlsId3SegmentTaggingSettings"><span class="hs-identifier hs-type">scheduleActionSettings_hlsId3SegmentTaggingSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsId3SegmentTaggingScheduleActionSettings.html#HlsId3SegmentTaggingScheduleActionSettings"><span class="hs-identifier hs-type">HlsId3SegmentTaggingScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="scheduleActionSettings_hlsId3SegmentTaggingSettings"><span class="annot"><span class="annottext">scheduleActionSettings_hlsId3SegmentTaggingSettings :: (Maybe HlsId3SegmentTaggingScheduleActionSettings
+ -&gt; f (Maybe HlsId3SegmentTaggingScheduleActionSettings))
+-&gt; ScheduleActionSettings -&gt; f ScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#scheduleActionSettings_hlsId3SegmentTaggingSettings"><span class="hs-identifier hs-var hs-var">scheduleActionSettings_hlsId3SegmentTaggingSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleActionSettings
+ -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings)
+-&gt; (ScheduleActionSettings
+    -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+    -&gt; ScheduleActionSettings)
+-&gt; Lens
+     ScheduleActionSettings
+     ScheduleActionSettings
+     (Maybe HlsId3SegmentTaggingScheduleActionSettings)
+     (Maybe HlsId3SegmentTaggingScheduleActionSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916715"><span class="annot"><span class="annottext">Maybe HlsId3SegmentTaggingScheduleActionSettings
+hlsId3SegmentTaggingSettings :: Maybe HlsId3SegmentTaggingScheduleActionSettings
+$sel:hlsId3SegmentTaggingSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+</span><a href="#local-6989586621679916715"><span class="hs-identifier hs-var hs-var">hlsId3SegmentTaggingSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsId3SegmentTaggingScheduleActionSettings
+</span><a href="#local-6989586621679916715"><span class="hs-identifier hs-var">hlsId3SegmentTaggingSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916714"><span class="annot"><span class="annottext">s :: ScheduleActionSettings
+</span><a href="#local-6989586621679916714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916713"><span class="annot"><span class="annottext">Maybe HlsId3SegmentTaggingScheduleActionSettings
+</span><a href="#local-6989586621679916713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><a href="#local-6989586621679916714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsId3SegmentTaggingSettings:ScheduleActionSettings' :: Maybe HlsId3SegmentTaggingScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#%24sel%3AhlsId3SegmentTaggingSettings%3AScheduleActionSettings%27"><span class="hs-identifier hs-var">hlsId3SegmentTaggingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsId3SegmentTaggingScheduleActionSettings
+</span><a href="#local-6989586621679916713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916710"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679916708"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ScheduleActionSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ScheduleActionSettings)
+-&gt; Value
+-&gt; Parser ScheduleActionSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ScheduleActionSettings&quot;</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679916705"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916705"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">Maybe Scte35TimeSignalScheduleActionSettings
+-&gt; Maybe InputSwitchScheduleActionSettings
+-&gt; Maybe HlsTimedMetadataScheduleActionSettings
+-&gt; Maybe MotionGraphicsDeactivateScheduleActionSettings
+-&gt; Maybe StaticImageActivateScheduleActionSettings
+-&gt; Maybe PauseStateScheduleActionSettings
+-&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+-&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+-&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+-&gt; Maybe StaticImageDeactivateScheduleActionSettings
+-&gt; Maybe InputPrepareScheduleActionSettings
+-&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+-&gt; ScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-var">ScheduleActionSettings'</span></a></span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Scte35TimeSignalScheduleActionSettings
+ -&gt; Maybe InputSwitchScheduleActionSettings
+ -&gt; Maybe HlsTimedMetadataScheduleActionSettings
+ -&gt; Maybe MotionGraphicsDeactivateScheduleActionSettings
+ -&gt; Maybe StaticImageActivateScheduleActionSettings
+ -&gt; Maybe PauseStateScheduleActionSettings
+ -&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+ -&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+ -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+ -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+ -&gt; Maybe InputPrepareScheduleActionSettings
+ -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+ -&gt; ScheduleActionSettings)
+-&gt; Parser (Maybe Scte35TimeSignalScheduleActionSettings)
+-&gt; Parser
+     (Maybe InputSwitchScheduleActionSettings
+      -&gt; Maybe HlsTimedMetadataScheduleActionSettings
+      -&gt; Maybe MotionGraphicsDeactivateScheduleActionSettings
+      -&gt; Maybe StaticImageActivateScheduleActionSettings
+      -&gt; Maybe PauseStateScheduleActionSettings
+      -&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+      -&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+      -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+      -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+      -&gt; Maybe InputPrepareScheduleActionSettings
+      -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+      -&gt; ScheduleActionSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe Scte35TimeSignalScheduleActionSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scte35TimeSignalSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputSwitchScheduleActionSettings
+   -&gt; Maybe HlsTimedMetadataScheduleActionSettings
+   -&gt; Maybe MotionGraphicsDeactivateScheduleActionSettings
+   -&gt; Maybe StaticImageActivateScheduleActionSettings
+   -&gt; Maybe PauseStateScheduleActionSettings
+   -&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+   -&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+   -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+   -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+   -&gt; Maybe InputPrepareScheduleActionSettings
+   -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+   -&gt; ScheduleActionSettings)
+-&gt; Parser (Maybe InputSwitchScheduleActionSettings)
+-&gt; Parser
+     (Maybe HlsTimedMetadataScheduleActionSettings
+      -&gt; Maybe MotionGraphicsDeactivateScheduleActionSettings
+      -&gt; Maybe StaticImageActivateScheduleActionSettings
+      -&gt; Maybe PauseStateScheduleActionSettings
+      -&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+      -&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+      -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+      -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+      -&gt; Maybe InputPrepareScheduleActionSettings
+      -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+      -&gt; ScheduleActionSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputSwitchScheduleActionSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputSwitchSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe HlsTimedMetadataScheduleActionSettings
+   -&gt; Maybe MotionGraphicsDeactivateScheduleActionSettings
+   -&gt; Maybe StaticImageActivateScheduleActionSettings
+   -&gt; Maybe PauseStateScheduleActionSettings
+   -&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+   -&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+   -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+   -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+   -&gt; Maybe InputPrepareScheduleActionSettings
+   -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+   -&gt; ScheduleActionSettings)
+-&gt; Parser (Maybe HlsTimedMetadataScheduleActionSettings)
+-&gt; Parser
+     (Maybe MotionGraphicsDeactivateScheduleActionSettings
+      -&gt; Maybe StaticImageActivateScheduleActionSettings
+      -&gt; Maybe PauseStateScheduleActionSettings
+      -&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+      -&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+      -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+      -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+      -&gt; Maybe InputPrepareScheduleActionSettings
+      -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+      -&gt; ScheduleActionSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe HlsTimedMetadataScheduleActionSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hlsTimedMetadataSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MotionGraphicsDeactivateScheduleActionSettings
+   -&gt; Maybe StaticImageActivateScheduleActionSettings
+   -&gt; Maybe PauseStateScheduleActionSettings
+   -&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+   -&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+   -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+   -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+   -&gt; Maybe InputPrepareScheduleActionSettings
+   -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+   -&gt; ScheduleActionSettings)
+-&gt; Parser (Maybe MotionGraphicsDeactivateScheduleActionSettings)
+-&gt; Parser
+     (Maybe StaticImageActivateScheduleActionSettings
+      -&gt; Maybe PauseStateScheduleActionSettings
+      -&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+      -&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+      -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+      -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+      -&gt; Maybe InputPrepareScheduleActionSettings
+      -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+      -&gt; ScheduleActionSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe MotionGraphicsDeactivateScheduleActionSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;motionGraphicsImageDeactivateSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe StaticImageActivateScheduleActionSettings
+   -&gt; Maybe PauseStateScheduleActionSettings
+   -&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+   -&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+   -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+   -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+   -&gt; Maybe InputPrepareScheduleActionSettings
+   -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+   -&gt; ScheduleActionSettings)
+-&gt; Parser (Maybe StaticImageActivateScheduleActionSettings)
+-&gt; Parser
+     (Maybe PauseStateScheduleActionSettings
+      -&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+      -&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+      -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+      -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+      -&gt; Maybe InputPrepareScheduleActionSettings
+      -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+      -&gt; ScheduleActionSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe StaticImageActivateScheduleActionSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;staticImageActivateSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PauseStateScheduleActionSettings
+   -&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+   -&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+   -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+   -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+   -&gt; Maybe InputPrepareScheduleActionSettings
+   -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+   -&gt; ScheduleActionSettings)
+-&gt; Parser (Maybe PauseStateScheduleActionSettings)
+-&gt; Parser
+     (Maybe MotionGraphicsActivateScheduleActionSettings
+      -&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+      -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+      -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+      -&gt; Maybe InputPrepareScheduleActionSettings
+      -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+      -&gt; ScheduleActionSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PauseStateScheduleActionSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pauseStateSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MotionGraphicsActivateScheduleActionSettings
+   -&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+   -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+   -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+   -&gt; Maybe InputPrepareScheduleActionSettings
+   -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+   -&gt; ScheduleActionSettings)
+-&gt; Parser (Maybe MotionGraphicsActivateScheduleActionSettings)
+-&gt; Parser
+     (Maybe Scte35ReturnToNetworkScheduleActionSettings
+      -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+      -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+      -&gt; Maybe InputPrepareScheduleActionSettings
+      -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+      -&gt; ScheduleActionSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe MotionGraphicsActivateScheduleActionSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;motionGraphicsImageActivateSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Scte35ReturnToNetworkScheduleActionSettings
+   -&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+   -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+   -&gt; Maybe InputPrepareScheduleActionSettings
+   -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+   -&gt; ScheduleActionSettings)
+-&gt; Parser (Maybe Scte35ReturnToNetworkScheduleActionSettings)
+-&gt; Parser
+     (Maybe Scte35SpliceInsertScheduleActionSettings
+      -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+      -&gt; Maybe InputPrepareScheduleActionSettings
+      -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+      -&gt; ScheduleActionSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe Scte35ReturnToNetworkScheduleActionSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scte35ReturnToNetworkSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Scte35SpliceInsertScheduleActionSettings
+   -&gt; Maybe StaticImageDeactivateScheduleActionSettings
+   -&gt; Maybe InputPrepareScheduleActionSettings
+   -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+   -&gt; ScheduleActionSettings)
+-&gt; Parser (Maybe Scte35SpliceInsertScheduleActionSettings)
+-&gt; Parser
+     (Maybe StaticImageDeactivateScheduleActionSettings
+      -&gt; Maybe InputPrepareScheduleActionSettings
+      -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+      -&gt; ScheduleActionSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe Scte35SpliceInsertScheduleActionSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scte35SpliceInsertSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe StaticImageDeactivateScheduleActionSettings
+   -&gt; Maybe InputPrepareScheduleActionSettings
+   -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+   -&gt; ScheduleActionSettings)
+-&gt; Parser (Maybe StaticImageDeactivateScheduleActionSettings)
+-&gt; Parser
+     (Maybe InputPrepareScheduleActionSettings
+      -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+      -&gt; ScheduleActionSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe StaticImageDeactivateScheduleActionSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;staticImageDeactivateSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputPrepareScheduleActionSettings
+   -&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+   -&gt; ScheduleActionSettings)
+-&gt; Parser (Maybe InputPrepareScheduleActionSettings)
+-&gt; Parser
+     (Maybe HlsId3SegmentTaggingScheduleActionSettings
+      -&gt; ScheduleActionSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputPrepareScheduleActionSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputPrepareSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe HlsId3SegmentTaggingScheduleActionSettings
+   -&gt; ScheduleActionSettings)
+-&gt; Parser (Maybe HlsId3SegmentTaggingScheduleActionSettings)
+-&gt; Parser ScheduleActionSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe HlsId3SegmentTaggingScheduleActionSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hlsId3SegmentTaggingSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916699"><span id="local-6989586621679916701"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span></span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916688"><span id="local-6989586621679916690"><span id="local-6989586621679916692"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679916686"><span class="annot"><span class="annottext">toJSON :: ScheduleActionSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings%27"><span class="hs-identifier hs-type">ScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916673"><span id="local-6989586621679916674"><span id="local-6989586621679916675"><span id="local-6989586621679916676"><span id="local-6989586621679916677"><span id="local-6989586621679916678"><span id="local-6989586621679916679"><span id="local-6989586621679916680"><span id="local-6989586621679916681"><span id="local-6989586621679916682"><span id="local-6989586621679916683"><span id="local-6989586621679916684"><span class="annot"><span class="annottext">Maybe HlsId3SegmentTaggingScheduleActionSettings
+Maybe HlsTimedMetadataScheduleActionSettings
+Maybe MotionGraphicsActivateScheduleActionSettings
+Maybe MotionGraphicsDeactivateScheduleActionSettings
+Maybe PauseStateScheduleActionSettings
+Maybe Scte35ReturnToNetworkScheduleActionSettings
+Maybe Scte35SpliceInsertScheduleActionSettings
+Maybe Scte35TimeSignalScheduleActionSettings
+Maybe StaticImageActivateScheduleActionSettings
+Maybe StaticImageDeactivateScheduleActionSettings
+Maybe InputSwitchScheduleActionSettings
+Maybe InputPrepareScheduleActionSettings
+hlsId3SegmentTaggingSettings :: Maybe HlsId3SegmentTaggingScheduleActionSettings
+inputPrepareSettings :: Maybe InputPrepareScheduleActionSettings
+staticImageDeactivateSettings :: Maybe StaticImageDeactivateScheduleActionSettings
+scte35SpliceInsertSettings :: Maybe Scte35SpliceInsertScheduleActionSettings
+scte35ReturnToNetworkSettings :: Maybe Scte35ReturnToNetworkScheduleActionSettings
+motionGraphicsImageActivateSettings :: Maybe MotionGraphicsActivateScheduleActionSettings
+pauseStateSettings :: Maybe PauseStateScheduleActionSettings
+staticImageActivateSettings :: Maybe StaticImageActivateScheduleActionSettings
+motionGraphicsImageDeactivateSettings :: Maybe MotionGraphicsDeactivateScheduleActionSettings
+hlsTimedMetadataSettings :: Maybe HlsTimedMetadataScheduleActionSettings
+inputSwitchSettings :: Maybe InputSwitchScheduleActionSettings
+scte35TimeSignalSettings :: Maybe Scte35TimeSignalScheduleActionSettings
+$sel:hlsId3SegmentTaggingSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings
+$sel:inputPrepareSettings:ScheduleActionSettings' :: ScheduleActionSettings -&gt; Maybe InputPrepareScheduleActionSettings
+$sel:staticImageDeactivateSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe StaticImageDeactivateScheduleActionSettings
+$sel:scte35SpliceInsertSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe Scte35SpliceInsertScheduleActionSettings
+$sel:scte35ReturnToNetworkSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings
+$sel:motionGraphicsImageActivateSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe MotionGraphicsActivateScheduleActionSettings
+$sel:pauseStateSettings:ScheduleActionSettings' :: ScheduleActionSettings -&gt; Maybe PauseStateScheduleActionSettings
+$sel:staticImageActivateSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe StaticImageActivateScheduleActionSettings
+$sel:motionGraphicsImageDeactivateSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe MotionGraphicsDeactivateScheduleActionSettings
+$sel:hlsTimedMetadataSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe HlsTimedMetadataScheduleActionSettings
+$sel:inputSwitchSettings:ScheduleActionSettings' :: ScheduleActionSettings -&gt; Maybe InputSwitchScheduleActionSettings
+$sel:scte35TimeSignalSettings:ScheduleActionSettings' :: ScheduleActionSettings
+-&gt; Maybe Scte35TimeSignalScheduleActionSettings
+</span><a href="#local-6989586621679916673"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scte35TimeSignalSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Scte35TimeSignalScheduleActionSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>              </span><span class="annot"><span class="annottext">(Scte35TimeSignalScheduleActionSettings -&gt; Pair)
+-&gt; Maybe Scte35TimeSignalScheduleActionSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Scte35TimeSignalScheduleActionSettings
+</span><a href="#local-6989586621679916684"><span class="hs-identifier hs-var">scte35TimeSignalSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputSwitchSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputSwitchScheduleActionSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">(InputSwitchScheduleActionSettings -&gt; Pair)
+-&gt; Maybe InputSwitchScheduleActionSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputSwitchScheduleActionSettings
+</span><a href="#local-6989586621679916683"><span class="hs-identifier hs-var">inputSwitchSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hlsTimedMetadataSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HlsTimedMetadataScheduleActionSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">(HlsTimedMetadataScheduleActionSettings -&gt; Pair)
+-&gt; Maybe HlsTimedMetadataScheduleActionSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HlsTimedMetadataScheduleActionSettings
+</span><a href="#local-6989586621679916682"><span class="hs-identifier hs-var">hlsTimedMetadataSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;motionGraphicsImageDeactivateSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MotionGraphicsDeactivateScheduleActionSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>              </span><span class="annot"><span class="annottext">(MotionGraphicsDeactivateScheduleActionSettings -&gt; Pair)
+-&gt; Maybe MotionGraphicsDeactivateScheduleActionSettings
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MotionGraphicsDeactivateScheduleActionSettings
+</span><a href="#local-6989586621679916681"><span class="hs-identifier hs-var">motionGraphicsImageDeactivateSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;staticImageActivateSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StaticImageActivateScheduleActionSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">(StaticImageActivateScheduleActionSettings -&gt; Pair)
+-&gt; Maybe StaticImageActivateScheduleActionSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StaticImageActivateScheduleActionSettings
+</span><a href="#local-6989586621679916680"><span class="hs-identifier hs-var">staticImageActivateSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pauseStateSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PauseStateScheduleActionSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">(PauseStateScheduleActionSettings -&gt; Pair)
+-&gt; Maybe PauseStateScheduleActionSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PauseStateScheduleActionSettings
+</span><a href="#local-6989586621679916679"><span class="hs-identifier hs-var">pauseStateSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;motionGraphicsImageActivateSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MotionGraphicsActivateScheduleActionSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>              </span><span class="annot"><span class="annottext">(MotionGraphicsActivateScheduleActionSettings -&gt; Pair)
+-&gt; Maybe MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MotionGraphicsActivateScheduleActionSettings
+</span><a href="#local-6989586621679916678"><span class="hs-identifier hs-var">motionGraphicsImageActivateSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scte35ReturnToNetworkSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Scte35ReturnToNetworkScheduleActionSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">(Scte35ReturnToNetworkScheduleActionSettings -&gt; Pair)
+-&gt; Maybe Scte35ReturnToNetworkScheduleActionSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Scte35ReturnToNetworkScheduleActionSettings
+</span><a href="#local-6989586621679916677"><span class="hs-identifier hs-var">scte35ReturnToNetworkSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scte35SpliceInsertSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Scte35SpliceInsertScheduleActionSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>              </span><span class="annot"><span class="annottext">(Scte35SpliceInsertScheduleActionSettings -&gt; Pair)
+-&gt; Maybe Scte35SpliceInsertScheduleActionSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertScheduleActionSettings
+</span><a href="#local-6989586621679916676"><span class="hs-identifier hs-var">scte35SpliceInsertSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;staticImageDeactivateSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StaticImageDeactivateScheduleActionSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>              </span><span class="annot"><span class="annottext">(StaticImageDeactivateScheduleActionSettings -&gt; Pair)
+-&gt; Maybe StaticImageDeactivateScheduleActionSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StaticImageDeactivateScheduleActionSettings
+</span><a href="#local-6989586621679916675"><span class="hs-identifier hs-var">staticImageDeactivateSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputPrepareSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputPrepareScheduleActionSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>              </span><span class="annot"><span class="annottext">(InputPrepareScheduleActionSettings -&gt; Pair)
+-&gt; Maybe InputPrepareScheduleActionSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputPrepareScheduleActionSettings
+</span><a href="#local-6989586621679916674"><span class="hs-identifier hs-var">inputPrepareSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hlsId3SegmentTaggingSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HlsId3SegmentTaggingScheduleActionSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>              </span><span class="annot"><span class="annottext">(HlsId3SegmentTaggingScheduleActionSettings -&gt; Pair)
+-&gt; Maybe HlsId3SegmentTaggingScheduleActionSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HlsId3SegmentTaggingScheduleActionSettings
+</span><a href="#local-6989586621679916673"><span class="hs-identifier hs-var">hlsId3SegmentTaggingSettings</span></a></span><span>
+</span><span id="line-221"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span></pre></body></html>

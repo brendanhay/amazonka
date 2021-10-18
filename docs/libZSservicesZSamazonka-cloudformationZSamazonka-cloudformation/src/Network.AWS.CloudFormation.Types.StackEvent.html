@@ -1,0 +1,711 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFormation.Types.StackEvent</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFormation.Types.StackEvent</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ResourceStatus.html"><span class="hs-identifier">Network.AWS.CloudFormation.Types.ResourceStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The StackEvent data type.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStackEvent' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679421629"><span id="local-6989586621679421630"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackEvent"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-var">StackEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackEvent%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-var">StackEvent'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | BLOB of the properties used to create the resource.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AresourceProperties%3AStackEvent%27"><span class="annot"><span class="annottext">StackEvent -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AresourceProperties%3AStackEvent%27"><span class="hs-identifier hs-var hs-var">resourceProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Type of resource. (For more information, go to</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference&gt;</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- in the CloudFormation User Guide.)</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AresourceType%3AStackEvent%27"><span class="annot"><span class="annottext">StackEvent -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AresourceType%3AStackEvent%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name or unique identifier associated with the physical instance of</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the resource.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AphysicalResourceId%3AStackEvent%27"><span class="annot"><span class="annottext">StackEvent -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AphysicalResourceId%3AStackEvent%27"><span class="hs-identifier hs-var hs-var">physicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Success\/failure message associated with the resource.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AresourceStatusReason%3AStackEvent%27"><span class="annot"><span class="annottext">StackEvent -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AresourceStatusReason%3AStackEvent%27"><span class="hs-identifier hs-var hs-var">resourceStatusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The logical name of the resource specified in the template.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlogicalResourceId%3AStackEvent%27"><span class="annot"><span class="annottext">StackEvent -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AlogicalResourceId%3AStackEvent%27"><span class="hs-identifier hs-var hs-var">logicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Current status of the resource.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AresourceStatus%3AStackEvent%27"><span class="annot"><span class="annottext">StackEvent -&gt; Maybe ResourceStatus
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AresourceStatus%3AStackEvent%27"><span class="hs-identifier hs-var hs-var">resourceStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The token passed to the operation that generated this event.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- All events triggered by a given stack operation are assigned the same</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- client request token, which you can use to track operations. For</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- example, if you execute a @CreateStack@ operation with the token</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @token1@, then all the @StackEvents@ generated by that operation will</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- have @ClientRequestToken@ set as @token1@.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- In the console, stack operations display the client request token on the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Events tab. Stack operations that are initiated from the console use the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- token format /Console-StackOperation-ID/, which helps you easily</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- identify the stack operation . For example, if you create a stack using</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the console, each stack event would be assigned the same token in the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- following format:</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AclientRequestToken%3AStackEvent%27"><span class="annot"><span class="annottext">StackEvent -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AclientRequestToken%3AStackEvent%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The unique ID name of the instance of the stack.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AstackId%3AStackEvent%27"><span class="annot"><span class="annottext">StackEvent -&gt; Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AstackId%3AStackEvent%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The unique ID of this event.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AeventId%3AStackEvent%27"><span class="annot"><span class="annottext">StackEvent -&gt; Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AeventId%3AStackEvent%27"><span class="hs-identifier hs-var hs-var">eventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The name associated with a stack.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AstackName%3AStackEvent%27"><span class="annot"><span class="annottext">StackEvent -&gt; Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AstackName%3AStackEvent%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Time the status was updated.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Atimestamp%3AStackEvent%27"><span class="annot"><span class="annottext">StackEvent -&gt; ISO8601
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3Atimestamp%3AStackEvent%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679421613"><span id="local-6989586621679421615"><span class="annot"><span class="annottext">StackEvent -&gt; StackEvent -&gt; Bool
+(StackEvent -&gt; StackEvent -&gt; Bool)
+-&gt; (StackEvent -&gt; StackEvent -&gt; Bool) -&gt; Eq StackEvent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StackEvent -&gt; StackEvent -&gt; Bool
+$c/= :: StackEvent -&gt; StackEvent -&gt; Bool
+== :: StackEvent -&gt; StackEvent -&gt; Bool
+$c== :: StackEvent -&gt; StackEvent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421604"><span id="local-6989586621679421606"><span id="local-6989586621679421608"><span id="local-6989586621679421610"><span class="annot"><span class="annottext">ReadPrec [StackEvent]
+ReadPrec StackEvent
+Int -&gt; ReadS StackEvent
+ReadS [StackEvent]
+(Int -&gt; ReadS StackEvent)
+-&gt; ReadS [StackEvent]
+-&gt; ReadPrec StackEvent
+-&gt; ReadPrec [StackEvent]
+-&gt; Read StackEvent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StackEvent]
+$creadListPrec :: ReadPrec [StackEvent]
+readPrec :: ReadPrec StackEvent
+$creadPrec :: ReadPrec StackEvent
+readList :: ReadS [StackEvent]
+$creadList :: ReadS [StackEvent]
+readsPrec :: Int -&gt; ReadS StackEvent
+$creadsPrec :: Int -&gt; ReadS StackEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421597"><span id="local-6989586621679421599"><span id="local-6989586621679421601"><span class="annot"><span class="annottext">Int -&gt; StackEvent -&gt; ShowS
+[StackEvent] -&gt; ShowS
+StackEvent -&gt; String
+(Int -&gt; StackEvent -&gt; ShowS)
+-&gt; (StackEvent -&gt; String)
+-&gt; ([StackEvent] -&gt; ShowS)
+-&gt; Show StackEvent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StackEvent] -&gt; ShowS
+$cshowList :: [StackEvent] -&gt; ShowS
+show :: StackEvent -&gt; String
+$cshow :: StackEvent -&gt; String
+showsPrec :: Int -&gt; StackEvent -&gt; ShowS
+$cshowsPrec :: Int -&gt; StackEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StackEvent -&gt; Rep StackEvent x)
+-&gt; (forall x. Rep StackEvent x -&gt; StackEvent) -&gt; Generic StackEvent
+forall x. Rep StackEvent x -&gt; StackEvent
+forall x. StackEvent -&gt; Rep StackEvent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StackEvent x -&gt; StackEvent
+$cfrom :: forall x. StackEvent -&gt; Rep StackEvent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'StackEvent' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'resourceProperties', 'stackEvent_resourceProperties' - BLOB of the properties used to create the resource.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'resourceType', 'stackEvent_resourceType' - Type of resource. (For more information, go to</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference&gt;</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- in the CloudFormation User Guide.)</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'physicalResourceId', 'stackEvent_physicalResourceId' - The name or unique identifier associated with the physical instance of</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- the resource.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'resourceStatusReason', 'stackEvent_resourceStatusReason' - Success\/failure message associated with the resource.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'logicalResourceId', 'stackEvent_logicalResourceId' - The logical name of the resource specified in the template.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'resourceStatus', 'stackEvent_resourceStatus' - Current status of the resource.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'clientRequestToken', 'stackEvent_clientRequestToken' - The token passed to the operation that generated this event.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- All events triggered by a given stack operation are assigned the same</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- client request token, which you can use to track operations. For</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- example, if you execute a @CreateStack@ operation with the token</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- @token1@, then all the @StackEvents@ generated by that operation will</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- have @ClientRequestToken@ set as @token1@.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- In the console, stack operations display the client request token on the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Events tab. Stack operations that are initiated from the console use the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- token format /Console-StackOperation-ID/, which helps you easily</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- identify the stack operation . For example, if you create a stack using</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the console, each stack event would be assigned the same token in the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- following format:</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'stackId', 'stackEvent_stackId' - The unique ID name of the instance of the stack.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'eventId', 'stackEvent_eventId' - The unique ID of this event.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'stackName', 'stackEvent_stackName' - The name associated with a stack.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'timestamp', 'stackEvent_timestamp' - Time the status was updated.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#newStackEvent"><span class="hs-identifier hs-type">newStackEvent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'stackId'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'eventId'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-comment">-- | 'stackName'</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'timestamp'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span>
+</span><span id="line-129"></span><span id="newStackEvent"><span class="annot"><span class="annottext">newStackEvent :: Text -&gt; Text -&gt; Text -&gt; UTCTime -&gt; StackEvent
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#newStackEvent"><span class="hs-identifier hs-var hs-var">newStackEvent</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679421591"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421591"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679421590"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421590"><span class="hs-identifier hs-var">pEventId_</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679421589"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421589"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679421588"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679421588"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">StackEvent' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ResourceStatus
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ISO8601
+-&gt; StackEvent
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceProperties:StackEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AresourceProperties%3AStackEvent%27"><span class="hs-identifier hs-var">resourceProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceType:StackEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AresourceType%3AStackEvent%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:physicalResourceId:StackEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AphysicalResourceId%3AStackEvent%27"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceStatusReason:StackEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AresourceStatusReason%3AStackEvent%27"><span class="hs-identifier hs-var">resourceStatusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:logicalResourceId:StackEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AlogicalResourceId%3AStackEvent%27"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceStatus:StackEvent' :: Maybe ResourceStatus
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AresourceStatus%3AStackEvent%27"><span class="hs-identifier hs-var">resourceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientRequestToken:StackEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AclientRequestToken%3AStackEvent%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackId:StackEvent' :: Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AstackId%3AStackEvent%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421591"><span class="hs-identifier hs-var">pStackId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:eventId:StackEvent' :: Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AeventId%3AStackEvent%27"><span class="hs-identifier hs-var">eventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421590"><span class="hs-identifier hs-var">pEventId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackName:StackEvent' :: Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AstackName%3AStackEvent%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421589"><span class="hs-identifier hs-var">pStackName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:timestamp:StackEvent' :: ISO8601
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3Atimestamp%3AStackEvent%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
+-&gt; Tagged ISO8601 (Identity ISO8601)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged ISO8601 (Identity ISO8601))
+-&gt; UTCTime -&gt; ISO8601
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679421588"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | BLOB of the properties used to create the resource.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_resourceProperties"><span class="hs-identifier hs-type">stackEvent_resourceProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="stackEvent_resourceProperties"><span class="annot"><span class="annottext">stackEvent_resourceProperties :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackEvent -&gt; f StackEvent
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_resourceProperties"><span class="hs-identifier hs-var hs-var">stackEvent_resourceProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackEvent -&gt; Maybe Text)
+-&gt; (StackEvent -&gt; Maybe Text -&gt; StackEvent)
+-&gt; Lens StackEvent StackEvent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421582"><span class="annot"><span class="annottext">Maybe Text
+resourceProperties :: Maybe Text
+$sel:resourceProperties:StackEvent' :: StackEvent -&gt; Maybe Text
+</span><a href="#local-6989586621679421582"><span class="hs-identifier hs-var hs-var">resourceProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421582"><span class="hs-identifier hs-var">resourceProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421581"><span class="annot"><span class="annottext">s :: StackEvent
+</span><a href="#local-6989586621679421581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421580"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackEvent
+</span><a href="#local-6989586621679421581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceProperties:StackEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AresourceProperties%3AStackEvent%27"><span class="hs-identifier hs-var">resourceProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Type of resource. (For more information, go to</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference&gt;</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- in the CloudFormation User Guide.)</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_resourceType"><span class="hs-identifier hs-type">stackEvent_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="stackEvent_resourceType"><span class="annot"><span class="annottext">stackEvent_resourceType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackEvent -&gt; f StackEvent
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_resourceType"><span class="hs-identifier hs-var hs-var">stackEvent_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackEvent -&gt; Maybe Text)
+-&gt; (StackEvent -&gt; Maybe Text -&gt; StackEvent)
+-&gt; Lens StackEvent StackEvent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421578"><span class="annot"><span class="annottext">Maybe Text
+resourceType :: Maybe Text
+$sel:resourceType:StackEvent' :: StackEvent -&gt; Maybe Text
+</span><a href="#local-6989586621679421578"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421578"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421577"><span class="annot"><span class="annottext">s :: StackEvent
+</span><a href="#local-6989586621679421577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421576"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackEvent
+</span><a href="#local-6989586621679421577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:StackEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AresourceType%3AStackEvent%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The name or unique identifier associated with the physical instance of</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- the resource.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_physicalResourceId"><span class="hs-identifier hs-type">stackEvent_physicalResourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="stackEvent_physicalResourceId"><span class="annot"><span class="annottext">stackEvent_physicalResourceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackEvent -&gt; f StackEvent
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_physicalResourceId"><span class="hs-identifier hs-var hs-var">stackEvent_physicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackEvent -&gt; Maybe Text)
+-&gt; (StackEvent -&gt; Maybe Text -&gt; StackEvent)
+-&gt; Lens StackEvent StackEvent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421574"><span class="annot"><span class="annottext">Maybe Text
+physicalResourceId :: Maybe Text
+$sel:physicalResourceId:StackEvent' :: StackEvent -&gt; Maybe Text
+</span><a href="#local-6989586621679421574"><span class="hs-identifier hs-var hs-var">physicalResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421574"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421573"><span class="annot"><span class="annottext">s :: StackEvent
+</span><a href="#local-6989586621679421573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421572"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackEvent
+</span><a href="#local-6989586621679421573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:physicalResourceId:StackEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AphysicalResourceId%3AStackEvent%27"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Success\/failure message associated with the resource.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_resourceStatusReason"><span class="hs-identifier hs-type">stackEvent_resourceStatusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="stackEvent_resourceStatusReason"><span class="annot"><span class="annottext">stackEvent_resourceStatusReason :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackEvent -&gt; f StackEvent
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_resourceStatusReason"><span class="hs-identifier hs-var hs-var">stackEvent_resourceStatusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackEvent -&gt; Maybe Text)
+-&gt; (StackEvent -&gt; Maybe Text -&gt; StackEvent)
+-&gt; Lens StackEvent StackEvent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421570"><span class="annot"><span class="annottext">Maybe Text
+resourceStatusReason :: Maybe Text
+$sel:resourceStatusReason:StackEvent' :: StackEvent -&gt; Maybe Text
+</span><a href="#local-6989586621679421570"><span class="hs-identifier hs-var hs-var">resourceStatusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421570"><span class="hs-identifier hs-var">resourceStatusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421569"><span class="annot"><span class="annottext">s :: StackEvent
+</span><a href="#local-6989586621679421569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421568"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackEvent
+</span><a href="#local-6989586621679421569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceStatusReason:StackEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AresourceStatusReason%3AStackEvent%27"><span class="hs-identifier hs-var">resourceStatusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The logical name of the resource specified in the template.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_logicalResourceId"><span class="hs-identifier hs-type">stackEvent_logicalResourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="stackEvent_logicalResourceId"><span class="annot"><span class="annottext">stackEvent_logicalResourceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackEvent -&gt; f StackEvent
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_logicalResourceId"><span class="hs-identifier hs-var hs-var">stackEvent_logicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackEvent -&gt; Maybe Text)
+-&gt; (StackEvent -&gt; Maybe Text -&gt; StackEvent)
+-&gt; Lens StackEvent StackEvent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421566"><span class="annot"><span class="annottext">Maybe Text
+logicalResourceId :: Maybe Text
+$sel:logicalResourceId:StackEvent' :: StackEvent -&gt; Maybe Text
+</span><a href="#local-6989586621679421566"><span class="hs-identifier hs-var hs-var">logicalResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421566"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421565"><span class="annot"><span class="annottext">s :: StackEvent
+</span><a href="#local-6989586621679421565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421564"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackEvent
+</span><a href="#local-6989586621679421565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logicalResourceId:StackEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AlogicalResourceId%3AStackEvent%27"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Current status of the resource.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_resourceStatus"><span class="hs-identifier hs-type">stackEvent_resourceStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="stackEvent_resourceStatus"><span class="annot"><span class="annottext">stackEvent_resourceStatus :: (Maybe ResourceStatus -&gt; f (Maybe ResourceStatus))
+-&gt; StackEvent -&gt; f StackEvent
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_resourceStatus"><span class="hs-identifier hs-var hs-var">stackEvent_resourceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackEvent -&gt; Maybe ResourceStatus)
+-&gt; (StackEvent -&gt; Maybe ResourceStatus -&gt; StackEvent)
+-&gt; Lens
+     StackEvent StackEvent (Maybe ResourceStatus) (Maybe ResourceStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421562"><span class="annot"><span class="annottext">Maybe ResourceStatus
+resourceStatus :: Maybe ResourceStatus
+$sel:resourceStatus:StackEvent' :: StackEvent -&gt; Maybe ResourceStatus
+</span><a href="#local-6989586621679421562"><span class="hs-identifier hs-var hs-var">resourceStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStatus
+</span><a href="#local-6989586621679421562"><span class="hs-identifier hs-var">resourceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421561"><span class="annot"><span class="annottext">s :: StackEvent
+</span><a href="#local-6989586621679421561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421560"><span class="annot"><span class="annottext">Maybe ResourceStatus
+</span><a href="#local-6989586621679421560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackEvent
+</span><a href="#local-6989586621679421561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceStatus:StackEvent' :: Maybe ResourceStatus
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AresourceStatus%3AStackEvent%27"><span class="hs-identifier hs-var">resourceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStatus
+</span><a href="#local-6989586621679421560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The token passed to the operation that generated this event.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- All events triggered by a given stack operation are assigned the same</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- client request token, which you can use to track operations. For</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- example, if you execute a @CreateStack@ operation with the token</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- @token1@, then all the @StackEvents@ generated by that operation will</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- have @ClientRequestToken@ set as @token1@.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- In the console, stack operations display the client request token on the</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Events tab. Stack operations that are initiated from the console use the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- token format /Console-StackOperation-ID/, which helps you easily</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- identify the stack operation . For example, if you create a stack using</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- the console, each stack event would be assigned the same token in the</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- following format:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_clientRequestToken"><span class="hs-identifier hs-type">stackEvent_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="stackEvent_clientRequestToken"><span class="annot"><span class="annottext">stackEvent_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackEvent -&gt; f StackEvent
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_clientRequestToken"><span class="hs-identifier hs-var hs-var">stackEvent_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackEvent -&gt; Maybe Text)
+-&gt; (StackEvent -&gt; Maybe Text -&gt; StackEvent)
+-&gt; Lens StackEvent StackEvent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421558"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:StackEvent' :: StackEvent -&gt; Maybe Text
+</span><a href="#local-6989586621679421558"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421558"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421557"><span class="annot"><span class="annottext">s :: StackEvent
+</span><a href="#local-6989586621679421557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421556"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackEvent
+</span><a href="#local-6989586621679421557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:StackEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AclientRequestToken%3AStackEvent%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The unique ID name of the instance of the stack.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_stackId"><span class="hs-identifier hs-type">stackEvent_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-195"></span><span id="stackEvent_stackId"><span class="annot"><span class="annottext">stackEvent_stackId :: (Text -&gt; f Text) -&gt; StackEvent -&gt; f StackEvent
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_stackId"><span class="hs-identifier hs-var hs-var">stackEvent_stackId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackEvent -&gt; Text)
+-&gt; (StackEvent -&gt; Text -&gt; StackEvent)
+-&gt; Lens StackEvent StackEvent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421554"><span class="annot"><span class="annottext">Text
+stackId :: Text
+$sel:stackId:StackEvent' :: StackEvent -&gt; Text
+</span><a href="#local-6989586621679421554"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421554"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421553"><span class="annot"><span class="annottext">s :: StackEvent
+</span><a href="#local-6989586621679421553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421552"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackEvent
+</span><a href="#local-6989586621679421553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:StackEvent' :: Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AstackId%3AStackEvent%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The unique ID of this event.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_eventId"><span class="hs-identifier hs-type">stackEvent_eventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-199"></span><span id="stackEvent_eventId"><span class="annot"><span class="annottext">stackEvent_eventId :: (Text -&gt; f Text) -&gt; StackEvent -&gt; f StackEvent
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_eventId"><span class="hs-identifier hs-var hs-var">stackEvent_eventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackEvent -&gt; Text)
+-&gt; (StackEvent -&gt; Text -&gt; StackEvent)
+-&gt; Lens StackEvent StackEvent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421550"><span class="annot"><span class="annottext">Text
+eventId :: Text
+$sel:eventId:StackEvent' :: StackEvent -&gt; Text
+</span><a href="#local-6989586621679421550"><span class="hs-identifier hs-var hs-var">eventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421550"><span class="hs-identifier hs-var">eventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421549"><span class="annot"><span class="annottext">s :: StackEvent
+</span><a href="#local-6989586621679421549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421548"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackEvent
+</span><a href="#local-6989586621679421549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventId:StackEvent' :: Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AeventId%3AStackEvent%27"><span class="hs-identifier hs-var">eventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The name associated with a stack.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_stackName"><span class="hs-identifier hs-type">stackEvent_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-203"></span><span id="stackEvent_stackName"><span class="annot"><span class="annottext">stackEvent_stackName :: (Text -&gt; f Text) -&gt; StackEvent -&gt; f StackEvent
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_stackName"><span class="hs-identifier hs-var hs-var">stackEvent_stackName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackEvent -&gt; Text)
+-&gt; (StackEvent -&gt; Text -&gt; StackEvent)
+-&gt; Lens StackEvent StackEvent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421546"><span class="annot"><span class="annottext">Text
+stackName :: Text
+$sel:stackName:StackEvent' :: StackEvent -&gt; Text
+</span><a href="#local-6989586621679421546"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421546"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421545"><span class="annot"><span class="annottext">s :: StackEvent
+</span><a href="#local-6989586621679421545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421544"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackEvent
+</span><a href="#local-6989586621679421545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:StackEvent' :: Text
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3AstackName%3AStackEvent%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | Time the status was updated.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_timestamp"><span class="hs-identifier hs-type">stackEvent_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-207"></span><span id="stackEvent_timestamp"><span class="annot"><span class="annottext">stackEvent_timestamp :: (UTCTime -&gt; f UTCTime) -&gt; StackEvent -&gt; f StackEvent
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#stackEvent_timestamp"><span class="hs-identifier hs-var hs-var">stackEvent_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackEvent -&gt; ISO8601)
+-&gt; (StackEvent -&gt; ISO8601 -&gt; StackEvent)
+-&gt; Lens StackEvent StackEvent ISO8601 ISO8601
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421542"><span class="annot"><span class="annottext">ISO8601
+timestamp :: ISO8601
+$sel:timestamp:StackEvent' :: StackEvent -&gt; ISO8601
+</span><a href="#local-6989586621679421542"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679421542"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421541"><span class="annot"><span class="annottext">s :: StackEvent
+</span><a href="#local-6989586621679421541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-type">StackEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421540"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679421540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackEvent
+</span><a href="#local-6989586621679421541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:StackEvent' :: ISO8601
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#%24sel%3Atimestamp%3AStackEvent%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679421540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; StackEvent -&gt; f StackEvent)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; StackEvent
+-&gt; f StackEvent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679421536"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StackEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679421534"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421534"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ResourceStatus
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ISO8601
+-&gt; StackEvent
+</span><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent%27"><span class="hs-identifier hs-var">StackEvent'</span></a></span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ResourceStatus
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; ISO8601
+ -&gt; StackEvent)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceStatus
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; StackEvent)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceStatus
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; StackEvent)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceStatus
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; StackEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceStatus
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; StackEvent)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceStatus
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; StackEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PhysicalResourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceStatus
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; StackEvent)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ResourceStatus
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; StackEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceStatusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ResourceStatus
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; StackEvent)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ResourceStatus
+      -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; ISO8601 -&gt; StackEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogicalResourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ResourceStatus
+   -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; ISO8601 -&gt; StackEvent)
+-&gt; Either String (Maybe ResourceStatus)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; ISO8601 -&gt; StackEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ResourceStatus)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; ISO8601 -&gt; StackEvent)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Text -&gt; Text -&gt; Text -&gt; ISO8601 -&gt; StackEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; Text -&gt; ISO8601 -&gt; StackEvent)
+-&gt; Either String Text
+-&gt; Either String (Text -&gt; Text -&gt; ISO8601 -&gt; StackEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; ISO8601 -&gt; StackEvent)
+-&gt; Either String Text
+-&gt; Either String (Text -&gt; ISO8601 -&gt; StackEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; ISO8601 -&gt; StackEvent)
+-&gt; Either String Text -&gt; Either String (ISO8601 -&gt; StackEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">Either String (ISO8601 -&gt; StackEvent)
+-&gt; Either String ISO8601 -&gt; Either String StackEvent
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679421527"><span id="local-6989586621679421529"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span></span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679421524"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackEvent.html#StackEvent"><span class="hs-identifier hs-type">StackEvent</span></a></span></span><span>
+</span><span id="line-227"></span></pre></body></html>

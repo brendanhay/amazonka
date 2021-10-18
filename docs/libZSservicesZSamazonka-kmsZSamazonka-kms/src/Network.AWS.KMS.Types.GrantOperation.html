@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.KMS.Types.GrantOperation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KMS.Types.GrantOperation</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier">GrantOperation</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_CreateGrant"><span class="hs-identifier">GrantOperation_CreateGrant</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_Decrypt"><span class="hs-identifier">GrantOperation_Decrypt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_DescribeKey"><span class="hs-identifier">GrantOperation_DescribeKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_Encrypt"><span class="hs-identifier">GrantOperation_Encrypt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_GenerateDataKey"><span class="hs-identifier">GrantOperation_GenerateDataKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_GenerateDataKeyPair"><span class="hs-identifier">GrantOperation_GenerateDataKeyPair</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_GenerateDataKeyPairWithoutPlaintext"><span class="hs-identifier">GrantOperation_GenerateDataKeyPairWithoutPlaintext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_GenerateDataKeyWithoutPlaintext"><span class="hs-identifier">GrantOperation_GenerateDataKeyWithoutPlaintext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_GetPublicKey"><span class="hs-identifier">GrantOperation_GetPublicKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_ReEncryptFrom"><span class="hs-identifier">GrantOperation_ReEncryptFrom</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_ReEncryptTo"><span class="hs-identifier">GrantOperation_ReEncryptTo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_RetireGrant"><span class="hs-identifier">GrantOperation_RetireGrant</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_Sign"><span class="hs-identifier">GrantOperation_Sign</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_Verify"><span class="hs-identifier">GrantOperation_Verify</span></a></span><span>
+</span><span id="line-37"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679247920"><span id="local-6989586621679247921"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GrantOperation"><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-var">GrantOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrantOperation%27"><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-var">GrantOperation'</span></a></span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGrantOperation"><span class="annot"><span class="annottext">GrantOperation -&gt; Text
+</span><a href="Network.AWS.KMS.Types.GrantOperation.html#fromGrantOperation"><span class="hs-identifier hs-var hs-var">fromGrantOperation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247912"><span id="local-6989586621679247914"><span id="local-6989586621679247916"><span class="annot"><span class="annottext">Int -&gt; GrantOperation -&gt; ShowS
+[GrantOperation] -&gt; ShowS
+GrantOperation -&gt; String
+(Int -&gt; GrantOperation -&gt; ShowS)
+-&gt; (GrantOperation -&gt; String)
+-&gt; ([GrantOperation] -&gt; ShowS)
+-&gt; Show GrantOperation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GrantOperation] -&gt; ShowS
+$cshowList :: [GrantOperation] -&gt; ShowS
+show :: GrantOperation -&gt; String
+$cshow :: GrantOperation -&gt; String
+showsPrec :: Int -&gt; GrantOperation -&gt; ShowS
+$cshowsPrec :: Int -&gt; GrantOperation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679247903"><span id="local-6989586621679247905"><span id="local-6989586621679247907"><span id="local-6989586621679247909"><span class="annot"><span class="annottext">ReadPrec [GrantOperation]
+ReadPrec GrantOperation
+Int -&gt; ReadS GrantOperation
+ReadS [GrantOperation]
+(Int -&gt; ReadS GrantOperation)
+-&gt; ReadS [GrantOperation]
+-&gt; ReadPrec GrantOperation
+-&gt; ReadPrec [GrantOperation]
+-&gt; Read GrantOperation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GrantOperation]
+$creadListPrec :: ReadPrec [GrantOperation]
+readPrec :: ReadPrec GrantOperation
+$creadPrec :: ReadPrec GrantOperation
+readList :: ReadS [GrantOperation]
+$creadList :: ReadS [GrantOperation]
+readsPrec :: Int -&gt; ReadS GrantOperation
+$creadsPrec :: Int -&gt; ReadS GrantOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679247898"><span id="local-6989586621679247900"><span class="annot"><span class="annottext">GrantOperation -&gt; GrantOperation -&gt; Bool
+(GrantOperation -&gt; GrantOperation -&gt; Bool)
+-&gt; (GrantOperation -&gt; GrantOperation -&gt; Bool) -&gt; Eq GrantOperation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GrantOperation -&gt; GrantOperation -&gt; Bool
+$c/= :: GrantOperation -&gt; GrantOperation -&gt; Bool
+== :: GrantOperation -&gt; GrantOperation -&gt; Bool
+$c== :: GrantOperation -&gt; GrantOperation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679247882"><span id="local-6989586621679247884"><span id="local-6989586621679247886"><span id="local-6989586621679247888"><span id="local-6989586621679247890"><span id="local-6989586621679247892"><span id="local-6989586621679247894"><span class="annot"><span class="annottext">Eq GrantOperation
+Eq GrantOperation
+-&gt; (GrantOperation -&gt; GrantOperation -&gt; Ordering)
+-&gt; (GrantOperation -&gt; GrantOperation -&gt; Bool)
+-&gt; (GrantOperation -&gt; GrantOperation -&gt; Bool)
+-&gt; (GrantOperation -&gt; GrantOperation -&gt; Bool)
+-&gt; (GrantOperation -&gt; GrantOperation -&gt; Bool)
+-&gt; (GrantOperation -&gt; GrantOperation -&gt; GrantOperation)
+-&gt; (GrantOperation -&gt; GrantOperation -&gt; GrantOperation)
+-&gt; Ord GrantOperation
+GrantOperation -&gt; GrantOperation -&gt; Bool
+GrantOperation -&gt; GrantOperation -&gt; Ordering
+GrantOperation -&gt; GrantOperation -&gt; GrantOperation
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: GrantOperation -&gt; GrantOperation -&gt; GrantOperation
+$cmin :: GrantOperation -&gt; GrantOperation -&gt; GrantOperation
+max :: GrantOperation -&gt; GrantOperation -&gt; GrantOperation
+$cmax :: GrantOperation -&gt; GrantOperation -&gt; GrantOperation
+&gt;= :: GrantOperation -&gt; GrantOperation -&gt; Bool
+$c&gt;= :: GrantOperation -&gt; GrantOperation -&gt; Bool
+&gt; :: GrantOperation -&gt; GrantOperation -&gt; Bool
+$c&gt; :: GrantOperation -&gt; GrantOperation -&gt; Bool
+&lt;= :: GrantOperation -&gt; GrantOperation -&gt; Bool
+$c&lt;= :: GrantOperation -&gt; GrantOperation -&gt; Bool
+&lt; :: GrantOperation -&gt; GrantOperation -&gt; Bool
+$c&lt; :: GrantOperation -&gt; GrantOperation -&gt; Bool
+compare :: GrantOperation -&gt; GrantOperation -&gt; Ordering
+$ccompare :: GrantOperation -&gt; GrantOperation -&gt; Ordering
+$cp1Ord :: Eq GrantOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">(forall x. GrantOperation -&gt; Rep GrantOperation x)
+-&gt; (forall x. Rep GrantOperation x -&gt; GrantOperation)
+-&gt; Generic GrantOperation
+forall x. Rep GrantOperation x -&gt; GrantOperation
+forall x. GrantOperation -&gt; Rep GrantOperation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GrantOperation x -&gt; GrantOperation
+$cfrom :: forall x. GrantOperation -&gt; Rep GrantOperation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247874"><span id="local-6989586621679247876"><span class="annot"><span class="annottext">Int -&gt; GrantOperation -&gt; Int
+GrantOperation -&gt; Int
+(Int -&gt; GrantOperation -&gt; Int)
+-&gt; (GrantOperation -&gt; Int) -&gt; Hashable GrantOperation
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: GrantOperation -&gt; Int
+$chash :: GrantOperation -&gt; Int
+hashWithSalt :: Int -&gt; GrantOperation -&gt; Int
+$chashWithSalt :: Int -&gt; GrantOperation -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679247871"><span class="annot"><span class="annottext">GrantOperation -&gt; ()
+(GrantOperation -&gt; ()) -&gt; NFData GrantOperation
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: GrantOperation -&gt; ()
+$crnf :: GrantOperation -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679247868"><span class="annot"><span class="annottext">Text -&gt; Either String GrantOperation
+(Text -&gt; Either String GrantOperation) -&gt; FromText GrantOperation
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String GrantOperation
+$cfromText :: Text -&gt; Either String GrantOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679247865"><span class="annot"><span class="annottext">GrantOperation -&gt; Text
+(GrantOperation -&gt; Text) -&gt; ToText GrantOperation
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: GrantOperation -&gt; Text
+$ctoText :: GrantOperation -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679247862"><span class="annot"><span class="annottext">GrantOperation -&gt; ByteString
+(GrantOperation -&gt; ByteString) -&gt; ToByteString GrantOperation
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: GrantOperation -&gt; ByteString
+$ctoBS :: GrantOperation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679247859"><span class="annot"><span class="annottext">GrantOperation -&gt; ByteStringBuilder
+(GrantOperation -&gt; ByteStringBuilder) -&gt; ToLog GrantOperation
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: GrantOperation -&gt; ByteStringBuilder
+$cbuild :: GrantOperation -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679247856"><span class="annot"><span class="annottext">HeaderName -&gt; GrantOperation -&gt; [Header]
+(HeaderName -&gt; GrantOperation -&gt; [Header])
+-&gt; ToHeader GrantOperation
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; GrantOperation -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; GrantOperation -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679247853"><span class="annot"><span class="annottext">GrantOperation -&gt; QueryString
+(GrantOperation -&gt; QueryString) -&gt; ToQuery GrantOperation
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: GrantOperation -&gt; QueryString
+$ctoQuery :: GrantOperation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679247848"><span id="local-6989586621679247850"><span class="annot"><span class="annottext">Value -&gt; Parser [GrantOperation]
+Value -&gt; Parser GrantOperation
+(Value -&gt; Parser GrantOperation)
+-&gt; (Value -&gt; Parser [GrantOperation]) -&gt; FromJSON GrantOperation
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [GrantOperation]
+$cparseJSONList :: Value -&gt; Parser [GrantOperation]
+parseJSON :: Value -&gt; Parser GrantOperation
+$cparseJSON :: Value -&gt; Parser GrantOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679247843"><span id="local-6989586621679247845"><span class="annot"><span class="annottext">FromJSONKeyFunction [GrantOperation]
+FromJSONKeyFunction GrantOperation
+FromJSONKeyFunction GrantOperation
+-&gt; FromJSONKeyFunction [GrantOperation]
+-&gt; FromJSONKey GrantOperation
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [GrantOperation]
+$cfromJSONKeyList :: FromJSONKeyFunction [GrantOperation]
+fromJSONKey :: FromJSONKeyFunction GrantOperation
+$cfromJSONKey :: FromJSONKeyFunction GrantOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679247834"><span id="local-6989586621679247836"><span id="local-6989586621679247838"><span id="local-6989586621679247840"><span class="annot"><span class="annottext">[GrantOperation] -&gt; Encoding
+[GrantOperation] -&gt; Value
+GrantOperation -&gt; Encoding
+GrantOperation -&gt; Value
+(GrantOperation -&gt; Value)
+-&gt; (GrantOperation -&gt; Encoding)
+-&gt; ([GrantOperation] -&gt; Value)
+-&gt; ([GrantOperation] -&gt; Encoding)
+-&gt; ToJSON GrantOperation
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [GrantOperation] -&gt; Encoding
+$ctoEncodingList :: [GrantOperation] -&gt; Encoding
+toJSONList :: [GrantOperation] -&gt; Value
+$ctoJSONList :: [GrantOperation] -&gt; Value
+toEncoding :: GrantOperation -&gt; Encoding
+$ctoEncoding :: GrantOperation -&gt; Encoding
+toJSON :: GrantOperation -&gt; Value
+$ctoJSON :: GrantOperation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679247829"><span id="local-6989586621679247831"><span class="annot"><span class="annottext">ToJSONKeyFunction [GrantOperation]
+ToJSONKeyFunction GrantOperation
+ToJSONKeyFunction GrantOperation
+-&gt; ToJSONKeyFunction [GrantOperation] -&gt; ToJSONKey GrantOperation
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [GrantOperation]
+$ctoJSONKeyList :: ToJSONKeyFunction [GrantOperation]
+toJSONKey :: ToJSONKeyFunction GrantOperation
+$ctoJSONKey :: ToJSONKeyFunction GrantOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679247826"><span class="annot"><span class="annottext">[Node] -&gt; Either String GrantOperation
+([Node] -&gt; Either String GrantOperation) -&gt; FromXML GrantOperation
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String GrantOperation
+$cparseXML :: [Node] -&gt; Either String GrantOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679247823"><span class="annot"><span class="annottext">GrantOperation -&gt; XML
+(GrantOperation -&gt; XML) -&gt; ToXML GrantOperation
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: GrantOperation -&gt; XML
+$ctoXML :: GrantOperation -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_CreateGrant"><span class="hs-identifier hs-type">GrantOperation_CreateGrant</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-type">GrantOperation</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantOperation_CreateGrant"><span id="%24mGrantOperation_CreateGrant"><span id="GrantOperation_CreateGrant"><span class="annot"><span class="annottext">$bGrantOperation_CreateGrant :: GrantOperation
+$mGrantOperation_CreateGrant :: forall r. GrantOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.GrantOperation.html#%24bGrantOperation_CreateGrant"><span class="hs-identifier hs-var hs-var hs-var">GrantOperation_CreateGrant</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-type">GrantOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CreateGrant&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_Decrypt"><span class="hs-identifier hs-type">GrantOperation_Decrypt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-type">GrantOperation</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantOperation_Decrypt"><span id="%24mGrantOperation_Decrypt"><span id="GrantOperation_Decrypt"><span class="annot"><span class="annottext">$bGrantOperation_Decrypt :: GrantOperation
+$mGrantOperation_Decrypt :: forall r. GrantOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.GrantOperation.html#%24bGrantOperation_Decrypt"><span class="hs-identifier hs-var hs-var hs-var">GrantOperation_Decrypt</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-type">GrantOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Decrypt&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_DescribeKey"><span class="hs-identifier hs-type">GrantOperation_DescribeKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-type">GrantOperation</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantOperation_DescribeKey"><span id="%24mGrantOperation_DescribeKey"><span id="GrantOperation_DescribeKey"><span class="annot"><span class="annottext">$bGrantOperation_DescribeKey :: GrantOperation
+$mGrantOperation_DescribeKey :: forall r. GrantOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.GrantOperation.html#%24bGrantOperation_DescribeKey"><span class="hs-identifier hs-var hs-var hs-var">GrantOperation_DescribeKey</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-type">GrantOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DescribeKey&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_Encrypt"><span class="hs-identifier hs-type">GrantOperation_Encrypt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-type">GrantOperation</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantOperation_Encrypt"><span id="%24mGrantOperation_Encrypt"><span id="GrantOperation_Encrypt"><span class="annot"><span class="annottext">$bGrantOperation_Encrypt :: GrantOperation
+$mGrantOperation_Encrypt :: forall r. GrantOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.GrantOperation.html#%24bGrantOperation_Encrypt"><span class="hs-identifier hs-var hs-var hs-var">GrantOperation_Encrypt</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-type">GrantOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Encrypt&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_GenerateDataKey"><span class="hs-identifier hs-type">GrantOperation_GenerateDataKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-type">GrantOperation</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantOperation_GenerateDataKey"><span id="%24mGrantOperation_GenerateDataKey"><span id="GrantOperation_GenerateDataKey"><span class="annot"><span class="annottext">$bGrantOperation_GenerateDataKey :: GrantOperation
+$mGrantOperation_GenerateDataKey :: forall r. GrantOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.GrantOperation.html#%24bGrantOperation_GenerateDataKey"><span class="hs-identifier hs-var hs-var hs-var">GrantOperation_GenerateDataKey</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-type">GrantOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GenerateDataKey&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_GenerateDataKeyPair"><span class="hs-identifier hs-type">GrantOperation_GenerateDataKeyPair</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-type">GrantOperation</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantOperation_GenerateDataKeyPair"><span id="%24mGrantOperation_GenerateDataKeyPair"><span id="GrantOperation_GenerateDataKeyPair"><span class="annot"><span class="annottext">$bGrantOperation_GenerateDataKeyPair :: GrantOperation
+$mGrantOperation_GenerateDataKeyPair :: forall r. GrantOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.GrantOperation.html#%24bGrantOperation_GenerateDataKeyPair"><span class="hs-identifier hs-var hs-var hs-var">GrantOperation_GenerateDataKeyPair</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-type">GrantOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GenerateDataKeyPair&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_GenerateDataKeyPairWithoutPlaintext"><span class="hs-identifier hs-type">GrantOperation_GenerateDataKeyPairWithoutPlaintext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-type">GrantOperation</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantOperation_GenerateDataKeyPairWithoutPlaintext"><span id="%24mGrantOperation_GenerateDataKeyPairWithoutPlaintext"><span id="GrantOperation_GenerateDataKeyPairWithoutPlaintext"><span class="annot"><span class="annottext">$bGrantOperation_GenerateDataKeyPairWithoutPlaintext :: GrantOperation
+$mGrantOperation_GenerateDataKeyPairWithoutPlaintext :: forall r. GrantOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.GrantOperation.html#%24bGrantOperation_GenerateDataKeyPairWithoutPlaintext"><span class="hs-identifier hs-var hs-var hs-var">GrantOperation_GenerateDataKeyPairWithoutPlaintext</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-type">GrantOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GenerateDataKeyPairWithoutPlaintext&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_GenerateDataKeyWithoutPlaintext"><span class="hs-identifier hs-type">GrantOperation_GenerateDataKeyWithoutPlaintext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-type">GrantOperation</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantOperation_GenerateDataKeyWithoutPlaintext"><span id="%24mGrantOperation_GenerateDataKeyWithoutPlaintext"><span id="GrantOperation_GenerateDataKeyWithoutPlaintext"><span class="annot"><span class="annottext">$bGrantOperation_GenerateDataKeyWithoutPlaintext :: GrantOperation
+$mGrantOperation_GenerateDataKeyWithoutPlaintext :: forall r. GrantOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.GrantOperation.html#%24bGrantOperation_GenerateDataKeyWithoutPlaintext"><span class="hs-identifier hs-var hs-var hs-var">GrantOperation_GenerateDataKeyWithoutPlaintext</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-type">GrantOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GenerateDataKeyWithoutPlaintext&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_GetPublicKey"><span class="hs-identifier hs-type">GrantOperation_GetPublicKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-type">GrantOperation</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantOperation_GetPublicKey"><span id="%24mGrantOperation_GetPublicKey"><span id="GrantOperation_GetPublicKey"><span class="annot"><span class="annottext">$bGrantOperation_GetPublicKey :: GrantOperation
+$mGrantOperation_GetPublicKey :: forall r. GrantOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.GrantOperation.html#%24bGrantOperation_GetPublicKey"><span class="hs-identifier hs-var hs-var hs-var">GrantOperation_GetPublicKey</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-type">GrantOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GetPublicKey&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_ReEncryptFrom"><span class="hs-identifier hs-type">GrantOperation_ReEncryptFrom</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-type">GrantOperation</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantOperation_ReEncryptFrom"><span id="%24mGrantOperation_ReEncryptFrom"><span id="GrantOperation_ReEncryptFrom"><span class="annot"><span class="annottext">$bGrantOperation_ReEncryptFrom :: GrantOperation
+$mGrantOperation_ReEncryptFrom :: forall r. GrantOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.GrantOperation.html#%24bGrantOperation_ReEncryptFrom"><span class="hs-identifier hs-var hs-var hs-var">GrantOperation_ReEncryptFrom</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-type">GrantOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ReEncryptFrom&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_ReEncryptTo"><span class="hs-identifier hs-type">GrantOperation_ReEncryptTo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-type">GrantOperation</span></a></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantOperation_ReEncryptTo"><span id="%24mGrantOperation_ReEncryptTo"><span id="GrantOperation_ReEncryptTo"><span class="annot"><span class="annottext">$bGrantOperation_ReEncryptTo :: GrantOperation
+$mGrantOperation_ReEncryptTo :: forall r. GrantOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.GrantOperation.html#%24bGrantOperation_ReEncryptTo"><span class="hs-identifier hs-var hs-var hs-var">GrantOperation_ReEncryptTo</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-type">GrantOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ReEncryptTo&quot;</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_RetireGrant"><span class="hs-identifier hs-type">GrantOperation_RetireGrant</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-type">GrantOperation</span></a></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantOperation_RetireGrant"><span id="%24mGrantOperation_RetireGrant"><span id="GrantOperation_RetireGrant"><span class="annot"><span class="annottext">$bGrantOperation_RetireGrant :: GrantOperation
+$mGrantOperation_RetireGrant :: forall r. GrantOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.GrantOperation.html#%24bGrantOperation_RetireGrant"><span class="hs-identifier hs-var hs-var hs-var">GrantOperation_RetireGrant</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-type">GrantOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RetireGrant&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_Sign"><span class="hs-identifier hs-type">GrantOperation_Sign</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-type">GrantOperation</span></a></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantOperation_Sign"><span id="%24mGrantOperation_Sign"><span id="GrantOperation_Sign"><span class="annot"><span class="annottext">$bGrantOperation_Sign :: GrantOperation
+$mGrantOperation_Sign :: forall r. GrantOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.GrantOperation.html#%24bGrantOperation_Sign"><span class="hs-identifier hs-var hs-var hs-var">GrantOperation_Sign</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-type">GrantOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Sign&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_Verify"><span class="hs-identifier hs-type">GrantOperation_Verify</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-type">GrantOperation</span></a></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantOperation_Verify"><span id="%24mGrantOperation_Verify"><span id="GrantOperation_Verify"><span class="annot"><span class="annottext">$bGrantOperation_Verify :: GrantOperation
+$mGrantOperation_Verify :: forall r. GrantOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.GrantOperation.html#%24bGrantOperation_Verify"><span class="hs-identifier hs-var hs-var hs-var">GrantOperation_Verify</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-type">GrantOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Verify&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_CreateGrant"><span class="hs-pragma hs-type">GrantOperation_CreateGrant</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_Decrypt"><span class="hs-pragma hs-type">GrantOperation_Decrypt</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_DescribeKey"><span class="hs-pragma hs-type">GrantOperation_DescribeKey</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_Encrypt"><span class="hs-pragma hs-type">GrantOperation_Encrypt</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_GenerateDataKey"><span class="hs-pragma hs-type">GrantOperation_GenerateDataKey</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_GenerateDataKeyPair"><span class="hs-pragma hs-type">GrantOperation_GenerateDataKeyPair</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_GenerateDataKeyPairWithoutPlaintext"><span class="hs-pragma hs-type">GrantOperation_GenerateDataKeyPairWithoutPlaintext</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_GenerateDataKeyWithoutPlaintext"><span class="hs-pragma hs-type">GrantOperation_GenerateDataKeyWithoutPlaintext</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_GetPublicKey"><span class="hs-pragma hs-type">GrantOperation_GetPublicKey</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_ReEncryptFrom"><span class="hs-pragma hs-type">GrantOperation_ReEncryptFrom</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_ReEncryptTo"><span class="hs-pragma hs-type">GrantOperation_ReEncryptTo</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_RetireGrant"><span class="hs-pragma hs-type">GrantOperation_RetireGrant</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_Sign"><span class="hs-pragma hs-type">GrantOperation_Sign</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation_Verify"><span class="hs-pragma hs-type">GrantOperation_Verify</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-pragma hs-type">GrantOperation'</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-131"></span></pre></body></html>

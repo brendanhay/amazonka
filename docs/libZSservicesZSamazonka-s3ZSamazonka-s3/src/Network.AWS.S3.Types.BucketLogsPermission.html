@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.S3.Types.BucketLogsPermission</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.Types.BucketLogsPermission</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission"><span class="hs-identifier">BucketLogsPermission</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission_FULL_CONTROL"><span class="hs-identifier">BucketLogsPermission_FULL_CONTROL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission_READ"><span class="hs-identifier">BucketLogsPermission_READ</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission_WRITE"><span class="hs-identifier">BucketLogsPermission_WRITE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679537987"><span id="local-6989586621679537988"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BucketLogsPermission"><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission"><span class="hs-identifier hs-var">BucketLogsPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BucketLogsPermission%27"><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission%27"><span class="hs-identifier hs-var">BucketLogsPermission'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBucketLogsPermission"><span class="annot"><span class="annottext">BucketLogsPermission -&gt; Text
+</span><a href="Network.AWS.S3.Types.BucketLogsPermission.html#fromBucketLogsPermission"><span class="hs-identifier hs-var hs-var">fromBucketLogsPermission</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679537979"><span id="local-6989586621679537981"><span id="local-6989586621679537983"><span class="annot"><span class="annottext">Int -&gt; BucketLogsPermission -&gt; ShowS
+[BucketLogsPermission] -&gt; ShowS
+BucketLogsPermission -&gt; String
+(Int -&gt; BucketLogsPermission -&gt; ShowS)
+-&gt; (BucketLogsPermission -&gt; String)
+-&gt; ([BucketLogsPermission] -&gt; ShowS)
+-&gt; Show BucketLogsPermission
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BucketLogsPermission] -&gt; ShowS
+$cshowList :: [BucketLogsPermission] -&gt; ShowS
+show :: BucketLogsPermission -&gt; String
+$cshow :: BucketLogsPermission -&gt; String
+showsPrec :: Int -&gt; BucketLogsPermission -&gt; ShowS
+$cshowsPrec :: Int -&gt; BucketLogsPermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679537970"><span id="local-6989586621679537972"><span id="local-6989586621679537974"><span id="local-6989586621679537976"><span class="annot"><span class="annottext">ReadPrec [BucketLogsPermission]
+ReadPrec BucketLogsPermission
+Int -&gt; ReadS BucketLogsPermission
+ReadS [BucketLogsPermission]
+(Int -&gt; ReadS BucketLogsPermission)
+-&gt; ReadS [BucketLogsPermission]
+-&gt; ReadPrec BucketLogsPermission
+-&gt; ReadPrec [BucketLogsPermission]
+-&gt; Read BucketLogsPermission
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BucketLogsPermission]
+$creadListPrec :: ReadPrec [BucketLogsPermission]
+readPrec :: ReadPrec BucketLogsPermission
+$creadPrec :: ReadPrec BucketLogsPermission
+readList :: ReadS [BucketLogsPermission]
+$creadList :: ReadS [BucketLogsPermission]
+readsPrec :: Int -&gt; ReadS BucketLogsPermission
+$creadsPrec :: Int -&gt; ReadS BucketLogsPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679537965"><span id="local-6989586621679537967"><span class="annot"><span class="annottext">BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool
+(BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool)
+-&gt; (BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool)
+-&gt; Eq BucketLogsPermission
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool
+$c/= :: BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool
+== :: BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool
+$c== :: BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679537949"><span id="local-6989586621679537951"><span id="local-6989586621679537953"><span id="local-6989586621679537955"><span id="local-6989586621679537957"><span id="local-6989586621679537959"><span id="local-6989586621679537961"><span class="annot"><span class="annottext">Eq BucketLogsPermission
+Eq BucketLogsPermission
+-&gt; (BucketLogsPermission -&gt; BucketLogsPermission -&gt; Ordering)
+-&gt; (BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool)
+-&gt; (BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool)
+-&gt; (BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool)
+-&gt; (BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool)
+-&gt; (BucketLogsPermission
+    -&gt; BucketLogsPermission -&gt; BucketLogsPermission)
+-&gt; (BucketLogsPermission
+    -&gt; BucketLogsPermission -&gt; BucketLogsPermission)
+-&gt; Ord BucketLogsPermission
+BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool
+BucketLogsPermission -&gt; BucketLogsPermission -&gt; Ordering
+BucketLogsPermission
+-&gt; BucketLogsPermission -&gt; BucketLogsPermission
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: BucketLogsPermission
+-&gt; BucketLogsPermission -&gt; BucketLogsPermission
+$cmin :: BucketLogsPermission
+-&gt; BucketLogsPermission -&gt; BucketLogsPermission
+max :: BucketLogsPermission
+-&gt; BucketLogsPermission -&gt; BucketLogsPermission
+$cmax :: BucketLogsPermission
+-&gt; BucketLogsPermission -&gt; BucketLogsPermission
+&gt;= :: BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool
+$c&gt;= :: BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool
+&gt; :: BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool
+$c&gt; :: BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool
+&lt;= :: BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool
+$c&lt;= :: BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool
+&lt; :: BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool
+$c&lt; :: BucketLogsPermission -&gt; BucketLogsPermission -&gt; Bool
+compare :: BucketLogsPermission -&gt; BucketLogsPermission -&gt; Ordering
+$ccompare :: BucketLogsPermission -&gt; BucketLogsPermission -&gt; Ordering
+$cp1Ord :: Eq BucketLogsPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. BucketLogsPermission -&gt; Rep BucketLogsPermission x)
+-&gt; (forall x. Rep BucketLogsPermission x -&gt; BucketLogsPermission)
+-&gt; Generic BucketLogsPermission
+forall x. Rep BucketLogsPermission x -&gt; BucketLogsPermission
+forall x. BucketLogsPermission -&gt; Rep BucketLogsPermission x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BucketLogsPermission x -&gt; BucketLogsPermission
+$cfrom :: forall x. BucketLogsPermission -&gt; Rep BucketLogsPermission x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679537941"><span id="local-6989586621679537943"><span class="annot"><span class="annottext">Int -&gt; BucketLogsPermission -&gt; Int
+BucketLogsPermission -&gt; Int
+(Int -&gt; BucketLogsPermission -&gt; Int)
+-&gt; (BucketLogsPermission -&gt; Int) -&gt; Hashable BucketLogsPermission
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: BucketLogsPermission -&gt; Int
+$chash :: BucketLogsPermission -&gt; Int
+hashWithSalt :: Int -&gt; BucketLogsPermission -&gt; Int
+$chashWithSalt :: Int -&gt; BucketLogsPermission -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679537938"><span class="annot"><span class="annottext">BucketLogsPermission -&gt; ()
+(BucketLogsPermission -&gt; ()) -&gt; NFData BucketLogsPermission
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: BucketLogsPermission -&gt; ()
+$crnf :: BucketLogsPermission -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679537935"><span class="annot"><span class="annottext">Text -&gt; Either String BucketLogsPermission
+(Text -&gt; Either String BucketLogsPermission)
+-&gt; FromText BucketLogsPermission
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String BucketLogsPermission
+$cfromText :: Text -&gt; Either String BucketLogsPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679537932"><span class="annot"><span class="annottext">BucketLogsPermission -&gt; Text
+(BucketLogsPermission -&gt; Text) -&gt; ToText BucketLogsPermission
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: BucketLogsPermission -&gt; Text
+$ctoText :: BucketLogsPermission -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679537929"><span class="annot"><span class="annottext">BucketLogsPermission -&gt; ByteString
+(BucketLogsPermission -&gt; ByteString)
+-&gt; ToByteString BucketLogsPermission
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: BucketLogsPermission -&gt; ByteString
+$ctoBS :: BucketLogsPermission -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679537926"><span class="annot"><span class="annottext">BucketLogsPermission -&gt; ByteStringBuilder
+(BucketLogsPermission -&gt; ByteStringBuilder)
+-&gt; ToLog BucketLogsPermission
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: BucketLogsPermission -&gt; ByteStringBuilder
+$cbuild :: BucketLogsPermission -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679537923"><span class="annot"><span class="annottext">HeaderName -&gt; BucketLogsPermission -&gt; [Header]
+(HeaderName -&gt; BucketLogsPermission -&gt; [Header])
+-&gt; ToHeader BucketLogsPermission
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; BucketLogsPermission -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; BucketLogsPermission -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679537920"><span class="annot"><span class="annottext">BucketLogsPermission -&gt; QueryString
+(BucketLogsPermission -&gt; QueryString)
+-&gt; ToQuery BucketLogsPermission
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: BucketLogsPermission -&gt; QueryString
+$ctoQuery :: BucketLogsPermission -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679537915"><span id="local-6989586621679537917"><span class="annot"><span class="annottext">Value -&gt; Parser [BucketLogsPermission]
+Value -&gt; Parser BucketLogsPermission
+(Value -&gt; Parser BucketLogsPermission)
+-&gt; (Value -&gt; Parser [BucketLogsPermission])
+-&gt; FromJSON BucketLogsPermission
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [BucketLogsPermission]
+$cparseJSONList :: Value -&gt; Parser [BucketLogsPermission]
+parseJSON :: Value -&gt; Parser BucketLogsPermission
+$cparseJSON :: Value -&gt; Parser BucketLogsPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679537910"><span id="local-6989586621679537912"><span class="annot"><span class="annottext">FromJSONKeyFunction [BucketLogsPermission]
+FromJSONKeyFunction BucketLogsPermission
+FromJSONKeyFunction BucketLogsPermission
+-&gt; FromJSONKeyFunction [BucketLogsPermission]
+-&gt; FromJSONKey BucketLogsPermission
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [BucketLogsPermission]
+$cfromJSONKeyList :: FromJSONKeyFunction [BucketLogsPermission]
+fromJSONKey :: FromJSONKeyFunction BucketLogsPermission
+$cfromJSONKey :: FromJSONKeyFunction BucketLogsPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679537901"><span id="local-6989586621679537903"><span id="local-6989586621679537905"><span id="local-6989586621679537907"><span class="annot"><span class="annottext">[BucketLogsPermission] -&gt; Encoding
+[BucketLogsPermission] -&gt; Value
+BucketLogsPermission -&gt; Encoding
+BucketLogsPermission -&gt; Value
+(BucketLogsPermission -&gt; Value)
+-&gt; (BucketLogsPermission -&gt; Encoding)
+-&gt; ([BucketLogsPermission] -&gt; Value)
+-&gt; ([BucketLogsPermission] -&gt; Encoding)
+-&gt; ToJSON BucketLogsPermission
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [BucketLogsPermission] -&gt; Encoding
+$ctoEncodingList :: [BucketLogsPermission] -&gt; Encoding
+toJSONList :: [BucketLogsPermission] -&gt; Value
+$ctoJSONList :: [BucketLogsPermission] -&gt; Value
+toEncoding :: BucketLogsPermission -&gt; Encoding
+$ctoEncoding :: BucketLogsPermission -&gt; Encoding
+toJSON :: BucketLogsPermission -&gt; Value
+$ctoJSON :: BucketLogsPermission -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679537896"><span id="local-6989586621679537898"><span class="annot"><span class="annottext">ToJSONKeyFunction [BucketLogsPermission]
+ToJSONKeyFunction BucketLogsPermission
+ToJSONKeyFunction BucketLogsPermission
+-&gt; ToJSONKeyFunction [BucketLogsPermission]
+-&gt; ToJSONKey BucketLogsPermission
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [BucketLogsPermission]
+$ctoJSONKeyList :: ToJSONKeyFunction [BucketLogsPermission]
+toJSONKey :: ToJSONKeyFunction BucketLogsPermission
+$ctoJSONKey :: ToJSONKeyFunction BucketLogsPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679537893"><span class="annot"><span class="annottext">[Node] -&gt; Either String BucketLogsPermission
+([Node] -&gt; Either String BucketLogsPermission)
+-&gt; FromXML BucketLogsPermission
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String BucketLogsPermission
+$cparseXML :: [Node] -&gt; Either String BucketLogsPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679537890"><span class="annot"><span class="annottext">BucketLogsPermission -&gt; XML
+(BucketLogsPermission -&gt; XML) -&gt; ToXML BucketLogsPermission
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: BucketLogsPermission -&gt; XML
+$ctoXML :: BucketLogsPermission -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission_FULL_CONTROL"><span class="hs-identifier hs-type">BucketLogsPermission_FULL_CONTROL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission"><span class="hs-identifier hs-type">BucketLogsPermission</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBucketLogsPermission_FULL_CONTROL"><span id="%24mBucketLogsPermission_FULL_CONTROL"><span id="BucketLogsPermission_FULL_CONTROL"><span class="annot"><span class="annottext">$bBucketLogsPermission_FULL_CONTROL :: BucketLogsPermission
+$mBucketLogsPermission_FULL_CONTROL :: forall r. BucketLogsPermission -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.S3.Types.BucketLogsPermission.html#%24bBucketLogsPermission_FULL_CONTROL"><span class="hs-identifier hs-var hs-var hs-var">BucketLogsPermission_FULL_CONTROL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission%27"><span class="hs-identifier hs-type">BucketLogsPermission'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FULL_CONTROL&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission_READ"><span class="hs-identifier hs-type">BucketLogsPermission_READ</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission"><span class="hs-identifier hs-type">BucketLogsPermission</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBucketLogsPermission_READ"><span id="%24mBucketLogsPermission_READ"><span id="BucketLogsPermission_READ"><span class="annot"><span class="annottext">$bBucketLogsPermission_READ :: BucketLogsPermission
+$mBucketLogsPermission_READ :: forall r. BucketLogsPermission -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.S3.Types.BucketLogsPermission.html#%24bBucketLogsPermission_READ"><span class="hs-identifier hs-var hs-var hs-var">BucketLogsPermission_READ</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission%27"><span class="hs-identifier hs-type">BucketLogsPermission'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;READ&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission_WRITE"><span class="hs-identifier hs-type">BucketLogsPermission_WRITE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission"><span class="hs-identifier hs-type">BucketLogsPermission</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBucketLogsPermission_WRITE"><span id="%24mBucketLogsPermission_WRITE"><span id="BucketLogsPermission_WRITE"><span class="annot"><span class="annottext">$bBucketLogsPermission_WRITE :: BucketLogsPermission
+$mBucketLogsPermission_WRITE :: forall r. BucketLogsPermission -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.S3.Types.BucketLogsPermission.html#%24bBucketLogsPermission_WRITE"><span class="hs-identifier hs-var hs-var hs-var">BucketLogsPermission_WRITE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission%27"><span class="hs-identifier hs-type">BucketLogsPermission'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WRITE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission_FULL_CONTROL"><span class="hs-pragma hs-type">BucketLogsPermission_FULL_CONTROL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission_READ"><span class="hs-pragma hs-type">BucketLogsPermission_READ</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission_WRITE"><span class="hs-pragma hs-type">BucketLogsPermission_WRITE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.BucketLogsPermission.html#BucketLogsPermission%27"><span class="hs-pragma hs-type">BucketLogsPermission'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

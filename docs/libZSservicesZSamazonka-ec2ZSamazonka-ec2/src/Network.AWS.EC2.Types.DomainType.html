@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.DomainType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.DomainType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType"><span class="hs-identifier">DomainType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType_Standard"><span class="hs-identifier">DomainType_Standard</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType_Vpc"><span class="hs-identifier">DomainType_Vpc</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681067575"><span id="local-6989586621681067576"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DomainType"><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType"><span class="hs-identifier hs-var">DomainType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainType%27"><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType%27"><span class="hs-identifier hs-var">DomainType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDomainType"><span class="annot"><span class="annottext">DomainType -&gt; Text
+</span><a href="Network.AWS.EC2.Types.DomainType.html#fromDomainType"><span class="hs-identifier hs-var hs-var">fromDomainType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681067567"><span id="local-6989586621681067569"><span id="local-6989586621681067571"><span class="annot"><span class="annottext">Int -&gt; DomainType -&gt; ShowS
+[DomainType] -&gt; ShowS
+DomainType -&gt; String
+(Int -&gt; DomainType -&gt; ShowS)
+-&gt; (DomainType -&gt; String)
+-&gt; ([DomainType] -&gt; ShowS)
+-&gt; Show DomainType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DomainType] -&gt; ShowS
+$cshowList :: [DomainType] -&gt; ShowS
+show :: DomainType -&gt; String
+$cshow :: DomainType -&gt; String
+showsPrec :: Int -&gt; DomainType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DomainType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681067558"><span id="local-6989586621681067560"><span id="local-6989586621681067562"><span id="local-6989586621681067564"><span class="annot"><span class="annottext">ReadPrec [DomainType]
+ReadPrec DomainType
+Int -&gt; ReadS DomainType
+ReadS [DomainType]
+(Int -&gt; ReadS DomainType)
+-&gt; ReadS [DomainType]
+-&gt; ReadPrec DomainType
+-&gt; ReadPrec [DomainType]
+-&gt; Read DomainType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DomainType]
+$creadListPrec :: ReadPrec [DomainType]
+readPrec :: ReadPrec DomainType
+$creadPrec :: ReadPrec DomainType
+readList :: ReadS [DomainType]
+$creadList :: ReadS [DomainType]
+readsPrec :: Int -&gt; ReadS DomainType
+$creadsPrec :: Int -&gt; ReadS DomainType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681067553"><span id="local-6989586621681067555"><span class="annot"><span class="annottext">DomainType -&gt; DomainType -&gt; Bool
+(DomainType -&gt; DomainType -&gt; Bool)
+-&gt; (DomainType -&gt; DomainType -&gt; Bool) -&gt; Eq DomainType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DomainType -&gt; DomainType -&gt; Bool
+$c/= :: DomainType -&gt; DomainType -&gt; Bool
+== :: DomainType -&gt; DomainType -&gt; Bool
+$c== :: DomainType -&gt; DomainType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681067537"><span id="local-6989586621681067539"><span id="local-6989586621681067541"><span id="local-6989586621681067543"><span id="local-6989586621681067545"><span id="local-6989586621681067547"><span id="local-6989586621681067549"><span class="annot"><span class="annottext">Eq DomainType
+Eq DomainType
+-&gt; (DomainType -&gt; DomainType -&gt; Ordering)
+-&gt; (DomainType -&gt; DomainType -&gt; Bool)
+-&gt; (DomainType -&gt; DomainType -&gt; Bool)
+-&gt; (DomainType -&gt; DomainType -&gt; Bool)
+-&gt; (DomainType -&gt; DomainType -&gt; Bool)
+-&gt; (DomainType -&gt; DomainType -&gt; DomainType)
+-&gt; (DomainType -&gt; DomainType -&gt; DomainType)
+-&gt; Ord DomainType
+DomainType -&gt; DomainType -&gt; Bool
+DomainType -&gt; DomainType -&gt; Ordering
+DomainType -&gt; DomainType -&gt; DomainType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DomainType -&gt; DomainType -&gt; DomainType
+$cmin :: DomainType -&gt; DomainType -&gt; DomainType
+max :: DomainType -&gt; DomainType -&gt; DomainType
+$cmax :: DomainType -&gt; DomainType -&gt; DomainType
+&gt;= :: DomainType -&gt; DomainType -&gt; Bool
+$c&gt;= :: DomainType -&gt; DomainType -&gt; Bool
+&gt; :: DomainType -&gt; DomainType -&gt; Bool
+$c&gt; :: DomainType -&gt; DomainType -&gt; Bool
+&lt;= :: DomainType -&gt; DomainType -&gt; Bool
+$c&lt;= :: DomainType -&gt; DomainType -&gt; Bool
+&lt; :: DomainType -&gt; DomainType -&gt; Bool
+$c&lt; :: DomainType -&gt; DomainType -&gt; Bool
+compare :: DomainType -&gt; DomainType -&gt; Ordering
+$ccompare :: DomainType -&gt; DomainType -&gt; Ordering
+$cp1Ord :: Eq DomainType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DomainType -&gt; Rep DomainType x)
+-&gt; (forall x. Rep DomainType x -&gt; DomainType) -&gt; Generic DomainType
+forall x. Rep DomainType x -&gt; DomainType
+forall x. DomainType -&gt; Rep DomainType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DomainType x -&gt; DomainType
+$cfrom :: forall x. DomainType -&gt; Rep DomainType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681067529"><span id="local-6989586621681067531"><span class="annot"><span class="annottext">Int -&gt; DomainType -&gt; Int
+DomainType -&gt; Int
+(Int -&gt; DomainType -&gt; Int)
+-&gt; (DomainType -&gt; Int) -&gt; Hashable DomainType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DomainType -&gt; Int
+$chash :: DomainType -&gt; Int
+hashWithSalt :: Int -&gt; DomainType -&gt; Int
+$chashWithSalt :: Int -&gt; DomainType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681067526"><span class="annot"><span class="annottext">DomainType -&gt; ()
+(DomainType -&gt; ()) -&gt; NFData DomainType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DomainType -&gt; ()
+$crnf :: DomainType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681067523"><span class="annot"><span class="annottext">Text -&gt; Either String DomainType
+(Text -&gt; Either String DomainType) -&gt; FromText DomainType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DomainType
+$cfromText :: Text -&gt; Either String DomainType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681067520"><span class="annot"><span class="annottext">DomainType -&gt; Text
+(DomainType -&gt; Text) -&gt; ToText DomainType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DomainType -&gt; Text
+$ctoText :: DomainType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681067517"><span class="annot"><span class="annottext">DomainType -&gt; ByteString
+(DomainType -&gt; ByteString) -&gt; ToByteString DomainType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DomainType -&gt; ByteString
+$ctoBS :: DomainType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681067514"><span class="annot"><span class="annottext">DomainType -&gt; ByteStringBuilder
+(DomainType -&gt; ByteStringBuilder) -&gt; ToLog DomainType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DomainType -&gt; ByteStringBuilder
+$cbuild :: DomainType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681067511"><span class="annot"><span class="annottext">HeaderName -&gt; DomainType -&gt; [Header]
+(HeaderName -&gt; DomainType -&gt; [Header]) -&gt; ToHeader DomainType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DomainType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DomainType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681067508"><span class="annot"><span class="annottext">DomainType -&gt; QueryString
+(DomainType -&gt; QueryString) -&gt; ToQuery DomainType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DomainType -&gt; QueryString
+$ctoQuery :: DomainType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681067503"><span id="local-6989586621681067505"><span class="annot"><span class="annottext">Value -&gt; Parser [DomainType]
+Value -&gt; Parser DomainType
+(Value -&gt; Parser DomainType)
+-&gt; (Value -&gt; Parser [DomainType]) -&gt; FromJSON DomainType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DomainType]
+$cparseJSONList :: Value -&gt; Parser [DomainType]
+parseJSON :: Value -&gt; Parser DomainType
+$cparseJSON :: Value -&gt; Parser DomainType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681067498"><span id="local-6989586621681067500"><span class="annot"><span class="annottext">FromJSONKeyFunction [DomainType]
+FromJSONKeyFunction DomainType
+FromJSONKeyFunction DomainType
+-&gt; FromJSONKeyFunction [DomainType] -&gt; FromJSONKey DomainType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DomainType]
+$cfromJSONKeyList :: FromJSONKeyFunction [DomainType]
+fromJSONKey :: FromJSONKeyFunction DomainType
+$cfromJSONKey :: FromJSONKeyFunction DomainType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681067489"><span id="local-6989586621681067491"><span id="local-6989586621681067493"><span id="local-6989586621681067495"><span class="annot"><span class="annottext">[DomainType] -&gt; Encoding
+[DomainType] -&gt; Value
+DomainType -&gt; Encoding
+DomainType -&gt; Value
+(DomainType -&gt; Value)
+-&gt; (DomainType -&gt; Encoding)
+-&gt; ([DomainType] -&gt; Value)
+-&gt; ([DomainType] -&gt; Encoding)
+-&gt; ToJSON DomainType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DomainType] -&gt; Encoding
+$ctoEncodingList :: [DomainType] -&gt; Encoding
+toJSONList :: [DomainType] -&gt; Value
+$ctoJSONList :: [DomainType] -&gt; Value
+toEncoding :: DomainType -&gt; Encoding
+$ctoEncoding :: DomainType -&gt; Encoding
+toJSON :: DomainType -&gt; Value
+$ctoJSON :: DomainType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681067484"><span id="local-6989586621681067486"><span class="annot"><span class="annottext">ToJSONKeyFunction [DomainType]
+ToJSONKeyFunction DomainType
+ToJSONKeyFunction DomainType
+-&gt; ToJSONKeyFunction [DomainType] -&gt; ToJSONKey DomainType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DomainType]
+$ctoJSONKeyList :: ToJSONKeyFunction [DomainType]
+toJSONKey :: ToJSONKeyFunction DomainType
+$ctoJSONKey :: ToJSONKeyFunction DomainType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681067481"><span class="annot"><span class="annottext">[Node] -&gt; Either String DomainType
+([Node] -&gt; Either String DomainType) -&gt; FromXML DomainType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DomainType
+$cparseXML :: [Node] -&gt; Either String DomainType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681067478"><span class="annot"><span class="annottext">DomainType -&gt; XML
+(DomainType -&gt; XML) -&gt; ToXML DomainType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DomainType -&gt; XML
+$ctoXML :: DomainType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType_Standard"><span class="hs-identifier hs-type">DomainType_Standard</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType"><span class="hs-identifier hs-type">DomainType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDomainType_Standard"><span id="%24mDomainType_Standard"><span id="DomainType_Standard"><span class="annot"><span class="annottext">$bDomainType_Standard :: DomainType
+$mDomainType_Standard :: forall r. DomainType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.DomainType.html#%24bDomainType_Standard"><span class="hs-identifier hs-var hs-var hs-var">DomainType_Standard</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType%27"><span class="hs-identifier hs-type">DomainType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;standard&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType_Vpc"><span class="hs-identifier hs-type">DomainType_Vpc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType"><span class="hs-identifier hs-type">DomainType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDomainType_Vpc"><span id="%24mDomainType_Vpc"><span id="DomainType_Vpc"><span class="annot"><span class="annottext">$bDomainType_Vpc :: DomainType
+$mDomainType_Vpc :: forall r. DomainType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.DomainType.html#%24bDomainType_Vpc"><span class="hs-identifier hs-var hs-var hs-var">DomainType_Vpc</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType%27"><span class="hs-identifier hs-type">DomainType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;vpc&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType_Standard"><span class="hs-pragma hs-type">DomainType_Standard</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType_Vpc"><span class="hs-pragma hs-type">DomainType_Vpc</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType%27"><span class="hs-pragma hs-type">DomainType'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

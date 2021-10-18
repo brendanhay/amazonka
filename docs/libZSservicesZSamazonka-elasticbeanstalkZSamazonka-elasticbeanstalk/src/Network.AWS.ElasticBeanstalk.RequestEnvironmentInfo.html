@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Initiates a request to compile the specified type of information of the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- deployed environment.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Setting the @InfoType@ to @tail@ compiles the last lines from the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- application server log files of every Amazon EC2 instance in your</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- environment.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Setting the @InfoType@ to @bundle@ compresses the application server log</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- files for every Amazon EC2 instance into a @.zip@ file. Legacy and .NET</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- containers do not support bundle logs.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Use RetrieveEnvironmentInfo to obtain the set of logs.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Related Topics</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   RetrieveEnvironmentInfo</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier">RequestEnvironmentInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#newRequestEnvironmentInfo"><span class="hs-identifier">newRequestEnvironmentInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#requestEnvironmentInfo_environmentId"><span class="hs-identifier">requestEnvironmentInfo_environmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#requestEnvironmentInfo_environmentName"><span class="hs-identifier">requestEnvironmentInfo_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#requestEnvironmentInfo_infoType"><span class="hs-identifier">requestEnvironmentInfo_infoType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfoResponse"><span class="hs-identifier">RequestEnvironmentInfoResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#newRequestEnvironmentInfoResponse"><span class="hs-identifier">newRequestEnvironmentInfoResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.html"><span class="hs-identifier">Network.AWS.ElasticBeanstalk.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | Request to retrieve logs from an environment and store them in your</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Elastic Beanstalk storage bucket.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- /See:/ 'newRequestEnvironmentInfo' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679310253"><span id="local-6989586621679310254"></span></span><span class="hs-keyword">data</span><span> </span><span id="RequestEnvironmentInfo"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier hs-var">RequestEnvironmentInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequestEnvironmentInfo%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo%27"><span class="hs-identifier hs-var">RequestEnvironmentInfo'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the environment of the requested data.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- If no such environment is found, @RequestEnvironmentInfo@ returns an</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @InvalidParameterValue@ error.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentName, or both.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- If you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AenvironmentId%3ARequestEnvironmentInfo%27"><span class="annot"><span class="annottext">RequestEnvironmentInfo -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#%24sel%3AenvironmentId%3ARequestEnvironmentInfo%27"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The name of the environment of the requested data.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- If no such environment is found, @RequestEnvironmentInfo@ returns an</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @InvalidParameterValue@ error.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentId, or both. If</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AenvironmentName%3ARequestEnvironmentInfo%27"><span class="annot"><span class="annottext">RequestEnvironmentInfo -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#%24sel%3AenvironmentName%3ARequestEnvironmentInfo%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The type of information to request.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AinfoType%3ARequestEnvironmentInfo%27"><span class="annot"><span class="annottext">RequestEnvironmentInfo -&gt; EnvironmentInfoType
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#%24sel%3AinfoType%3ARequestEnvironmentInfo%27"><span class="hs-identifier hs-var hs-var">infoType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType.html#EnvironmentInfoType"><span class="hs-identifier hs-type">EnvironmentInfoType</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310245"><span id="local-6989586621679310247"><span class="annot"><span class="annottext">RequestEnvironmentInfo -&gt; RequestEnvironmentInfo -&gt; Bool
+(RequestEnvironmentInfo -&gt; RequestEnvironmentInfo -&gt; Bool)
+-&gt; (RequestEnvironmentInfo -&gt; RequestEnvironmentInfo -&gt; Bool)
+-&gt; Eq RequestEnvironmentInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RequestEnvironmentInfo -&gt; RequestEnvironmentInfo -&gt; Bool
+$c/= :: RequestEnvironmentInfo -&gt; RequestEnvironmentInfo -&gt; Bool
+== :: RequestEnvironmentInfo -&gt; RequestEnvironmentInfo -&gt; Bool
+$c== :: RequestEnvironmentInfo -&gt; RequestEnvironmentInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310236"><span id="local-6989586621679310238"><span id="local-6989586621679310240"><span id="local-6989586621679310242"><span class="annot"><span class="annottext">ReadPrec [RequestEnvironmentInfo]
+ReadPrec RequestEnvironmentInfo
+Int -&gt; ReadS RequestEnvironmentInfo
+ReadS [RequestEnvironmentInfo]
+(Int -&gt; ReadS RequestEnvironmentInfo)
+-&gt; ReadS [RequestEnvironmentInfo]
+-&gt; ReadPrec RequestEnvironmentInfo
+-&gt; ReadPrec [RequestEnvironmentInfo]
+-&gt; Read RequestEnvironmentInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RequestEnvironmentInfo]
+$creadListPrec :: ReadPrec [RequestEnvironmentInfo]
+readPrec :: ReadPrec RequestEnvironmentInfo
+$creadPrec :: ReadPrec RequestEnvironmentInfo
+readList :: ReadS [RequestEnvironmentInfo]
+$creadList :: ReadS [RequestEnvironmentInfo]
+readsPrec :: Int -&gt; ReadS RequestEnvironmentInfo
+$creadsPrec :: Int -&gt; ReadS RequestEnvironmentInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310229"><span id="local-6989586621679310231"><span id="local-6989586621679310233"><span class="annot"><span class="annottext">Int -&gt; RequestEnvironmentInfo -&gt; ShowS
+[RequestEnvironmentInfo] -&gt; ShowS
+RequestEnvironmentInfo -&gt; String
+(Int -&gt; RequestEnvironmentInfo -&gt; ShowS)
+-&gt; (RequestEnvironmentInfo -&gt; String)
+-&gt; ([RequestEnvironmentInfo] -&gt; ShowS)
+-&gt; Show RequestEnvironmentInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RequestEnvironmentInfo] -&gt; ShowS
+$cshowList :: [RequestEnvironmentInfo] -&gt; ShowS
+show :: RequestEnvironmentInfo -&gt; String
+$cshow :: RequestEnvironmentInfo -&gt; String
+showsPrec :: Int -&gt; RequestEnvironmentInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; RequestEnvironmentInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RequestEnvironmentInfo -&gt; Rep RequestEnvironmentInfo x)
+-&gt; (forall x.
+    Rep RequestEnvironmentInfo x -&gt; RequestEnvironmentInfo)
+-&gt; Generic RequestEnvironmentInfo
+forall x. Rep RequestEnvironmentInfo x -&gt; RequestEnvironmentInfo
+forall x. RequestEnvironmentInfo -&gt; Rep RequestEnvironmentInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RequestEnvironmentInfo x -&gt; RequestEnvironmentInfo
+$cfrom :: forall x. RequestEnvironmentInfo -&gt; Rep RequestEnvironmentInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Create a value of 'RequestEnvironmentInfo' with all optional fields omitted.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'environmentId', 'requestEnvironmentInfo_environmentId' - The ID of the environment of the requested data.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- If no such environment is found, @RequestEnvironmentInfo@ returns an</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- @InvalidParameterValue@ error.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentName, or both.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- If you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'environmentName', 'requestEnvironmentInfo_environmentName' - The name of the environment of the requested data.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- If no such environment is found, @RequestEnvironmentInfo@ returns an</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- @InvalidParameterValue@ error.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentId, or both. If</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'infoType', 'requestEnvironmentInfo_infoType' - The type of information to request.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#newRequestEnvironmentInfo"><span class="hs-identifier hs-type">newRequestEnvironmentInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-comment">-- | 'infoType'</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType.html#EnvironmentInfoType"><span class="hs-identifier hs-type">EnvironmentInfoType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier hs-type">RequestEnvironmentInfo</span></a></span><span>
+</span><span id="line-121"></span><span id="newRequestEnvironmentInfo"><span class="annot"><span class="annottext">newRequestEnvironmentInfo :: EnvironmentInfoType -&gt; RequestEnvironmentInfo
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#newRequestEnvironmentInfo"><span class="hs-identifier hs-var hs-var">newRequestEnvironmentInfo</span></a></span></span><span> </span><span id="local-6989586621679310224"><span class="annot"><span class="annottext">EnvironmentInfoType
+</span><a href="#local-6989586621679310224"><span class="hs-identifier hs-var">pInfoType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="annottext">RequestEnvironmentInfo' :: Maybe Text
+-&gt; Maybe Text -&gt; EnvironmentInfoType -&gt; RequestEnvironmentInfo
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo%27"><span class="hs-identifier hs-type">RequestEnvironmentInfo'</span></a></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:environmentId:RequestEnvironmentInfo' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#%24sel%3AenvironmentId%3ARequestEnvironmentInfo%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentName:RequestEnvironmentInfo' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#%24sel%3AenvironmentName%3ARequestEnvironmentInfo%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:infoType:RequestEnvironmentInfo' :: EnvironmentInfoType
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#%24sel%3AinfoType%3ARequestEnvironmentInfo%27"><span class="hs-identifier hs-var">infoType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EnvironmentInfoType
+</span><a href="#local-6989586621679310224"><span class="hs-identifier hs-var">pInfoType_</span></a></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The ID of the environment of the requested data.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- If no such environment is found, @RequestEnvironmentInfo@ returns an</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- @InvalidParameterValue@ error.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentName, or both.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- If you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#requestEnvironmentInfo_environmentId"><span class="hs-identifier hs-type">requestEnvironmentInfo_environmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier hs-type">RequestEnvironmentInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="requestEnvironmentInfo_environmentId"><span class="annot"><span class="annottext">requestEnvironmentInfo_environmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RequestEnvironmentInfo -&gt; f RequestEnvironmentInfo
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#requestEnvironmentInfo_environmentId"><span class="hs-identifier hs-var hs-var">requestEnvironmentInfo_environmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RequestEnvironmentInfo -&gt; Maybe Text)
+-&gt; (RequestEnvironmentInfo -&gt; Maybe Text -&gt; RequestEnvironmentInfo)
+-&gt; Lens
+     RequestEnvironmentInfo
+     RequestEnvironmentInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo%27"><span class="hs-identifier hs-type">RequestEnvironmentInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310221"><span class="annot"><span class="annottext">Maybe Text
+environmentId :: Maybe Text
+$sel:environmentId:RequestEnvironmentInfo' :: RequestEnvironmentInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679310221"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310221"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310220"><span class="annot"><span class="annottext">s :: RequestEnvironmentInfo
+</span><a href="#local-6989586621679310220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo%27"><span class="hs-identifier hs-type">RequestEnvironmentInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310219"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequestEnvironmentInfo
+</span><a href="#local-6989586621679310220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:RequestEnvironmentInfo' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#%24sel%3AenvironmentId%3ARequestEnvironmentInfo%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier hs-type">RequestEnvironmentInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The name of the environment of the requested data.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- If no such environment is found, @RequestEnvironmentInfo@ returns an</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @InvalidParameterValue@ error.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentId, or both. If</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#requestEnvironmentInfo_environmentName"><span class="hs-identifier hs-type">requestEnvironmentInfo_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier hs-type">RequestEnvironmentInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="requestEnvironmentInfo_environmentName"><span class="annot"><span class="annottext">requestEnvironmentInfo_environmentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RequestEnvironmentInfo -&gt; f RequestEnvironmentInfo
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#requestEnvironmentInfo_environmentName"><span class="hs-identifier hs-var hs-var">requestEnvironmentInfo_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RequestEnvironmentInfo -&gt; Maybe Text)
+-&gt; (RequestEnvironmentInfo -&gt; Maybe Text -&gt; RequestEnvironmentInfo)
+-&gt; Lens
+     RequestEnvironmentInfo
+     RequestEnvironmentInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo%27"><span class="hs-identifier hs-type">RequestEnvironmentInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310218"><span class="annot"><span class="annottext">Maybe Text
+environmentName :: Maybe Text
+$sel:environmentName:RequestEnvironmentInfo' :: RequestEnvironmentInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679310218"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310218"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310217"><span class="annot"><span class="annottext">s :: RequestEnvironmentInfo
+</span><a href="#local-6989586621679310217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo%27"><span class="hs-identifier hs-type">RequestEnvironmentInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310216"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequestEnvironmentInfo
+</span><a href="#local-6989586621679310217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:RequestEnvironmentInfo' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#%24sel%3AenvironmentName%3ARequestEnvironmentInfo%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier hs-type">RequestEnvironmentInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The type of information to request.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#requestEnvironmentInfo_infoType"><span class="hs-identifier hs-type">requestEnvironmentInfo_infoType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier hs-type">RequestEnvironmentInfo</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType.html#EnvironmentInfoType"><span class="hs-identifier hs-type">EnvironmentInfoType</span></a></span><span>
+</span><span id="line-153"></span><span id="requestEnvironmentInfo_infoType"><span class="annot"><span class="annottext">requestEnvironmentInfo_infoType :: (EnvironmentInfoType -&gt; f EnvironmentInfoType)
+-&gt; RequestEnvironmentInfo -&gt; f RequestEnvironmentInfo
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#requestEnvironmentInfo_infoType"><span class="hs-identifier hs-var hs-var">requestEnvironmentInfo_infoType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RequestEnvironmentInfo -&gt; EnvironmentInfoType)
+-&gt; (RequestEnvironmentInfo
+    -&gt; EnvironmentInfoType -&gt; RequestEnvironmentInfo)
+-&gt; Lens
+     RequestEnvironmentInfo
+     RequestEnvironmentInfo
+     EnvironmentInfoType
+     EnvironmentInfoType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo%27"><span class="hs-identifier hs-type">RequestEnvironmentInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310215"><span class="annot"><span class="annottext">EnvironmentInfoType
+infoType :: EnvironmentInfoType
+$sel:infoType:RequestEnvironmentInfo' :: RequestEnvironmentInfo -&gt; EnvironmentInfoType
+</span><a href="#local-6989586621679310215"><span class="hs-identifier hs-var hs-var">infoType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentInfoType
+</span><a href="#local-6989586621679310215"><span class="hs-identifier hs-var">infoType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310214"><span class="annot"><span class="annottext">s :: RequestEnvironmentInfo
+</span><a href="#local-6989586621679310214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo%27"><span class="hs-identifier hs-type">RequestEnvironmentInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310213"><span class="annot"><span class="annottext">EnvironmentInfoType
+</span><a href="#local-6989586621679310213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequestEnvironmentInfo
+</span><a href="#local-6989586621679310214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:infoType:RequestEnvironmentInfo' :: EnvironmentInfoType
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#%24sel%3AinfoType%3ARequestEnvironmentInfo%27"><span class="hs-identifier hs-var">infoType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EnvironmentInfoType
+</span><a href="#local-6989586621679310213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier hs-type">RequestEnvironmentInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier hs-type">RequestEnvironmentInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-157"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier hs-type">RequestEnvironmentInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfoResponse"><span class="hs-identifier hs-type">RequestEnvironmentInfoResponse</span></a></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679310209"><span class="annot"><span class="annottext">request :: RequestEnvironmentInfo -&gt; Request RequestEnvironmentInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RequestEnvironmentInfo -&gt; Request RequestEnvironmentInfo
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679310205"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RequestEnvironmentInfo
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RequestEnvironmentInfo)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse RequestEnvironmentInfo
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RequestEnvironmentInfo
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RequestEnvironmentInfo)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse RequestEnvironmentInfo
+RequestEnvironmentInfoResponse
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfoResponse%27"><span class="hs-identifier hs-var">RequestEnvironmentInfoResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310198"><span id="local-6989586621679310200"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier hs-type">RequestEnvironmentInfo</span></a></span></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310195"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier hs-type">RequestEnvironmentInfo</span></a></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier hs-type">RequestEnvironmentInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679310191"><span class="annot"><span class="annottext">toHeaders :: RequestEnvironmentInfo -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; RequestEnvironmentInfo -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier hs-type">RequestEnvironmentInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679310186"><span class="annot"><span class="annottext">toPath :: RequestEnvironmentInfo -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RequestEnvironmentInfo -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo"><span class="hs-identifier hs-type">RequestEnvironmentInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679310182"><span class="annot"><span class="annottext">toQuery :: RequestEnvironmentInfo -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfo%27"><span class="hs-identifier hs-type">RequestEnvironmentInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310178"><span id="local-6989586621679310179"><span id="local-6989586621679310180"><span class="annot"><span class="annottext">Maybe Text
+EnvironmentInfoType
+infoType :: EnvironmentInfoType
+environmentName :: Maybe Text
+environmentId :: Maybe Text
+$sel:infoType:RequestEnvironmentInfo' :: RequestEnvironmentInfo -&gt; EnvironmentInfoType
+$sel:environmentName:RequestEnvironmentInfo' :: RequestEnvironmentInfo -&gt; Maybe Text
+$sel:environmentId:RequestEnvironmentInfo' :: RequestEnvironmentInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679310178"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RequestEnvironmentInfo&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310180"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310179"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InfoType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EnvironmentInfoType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">EnvironmentInfoType
+</span><a href="#local-6989586621679310178"><span class="hs-identifier hs-var">infoType</span></a></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | /See:/ 'newRequestEnvironmentInfoResponse' smart constructor.</span><span>
+</span><span id="line-187"></span><span id="local-6989586621679310175"><span id="local-6989586621679310176"></span></span><span class="hs-keyword">data</span><span> </span><span id="RequestEnvironmentInfoResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfoResponse"><span class="hs-identifier hs-var">RequestEnvironmentInfoResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequestEnvironmentInfoResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfoResponse%27"><span class="hs-identifier hs-var">RequestEnvironmentInfoResponse'</span></a></span></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310171"><span id="local-6989586621679310173"><span class="annot"><span class="annottext">RequestEnvironmentInfoResponse
+-&gt; RequestEnvironmentInfoResponse -&gt; Bool
+(RequestEnvironmentInfoResponse
+ -&gt; RequestEnvironmentInfoResponse -&gt; Bool)
+-&gt; (RequestEnvironmentInfoResponse
+    -&gt; RequestEnvironmentInfoResponse -&gt; Bool)
+-&gt; Eq RequestEnvironmentInfoResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RequestEnvironmentInfoResponse
+-&gt; RequestEnvironmentInfoResponse -&gt; Bool
+$c/= :: RequestEnvironmentInfoResponse
+-&gt; RequestEnvironmentInfoResponse -&gt; Bool
+== :: RequestEnvironmentInfoResponse
+-&gt; RequestEnvironmentInfoResponse -&gt; Bool
+$c== :: RequestEnvironmentInfoResponse
+-&gt; RequestEnvironmentInfoResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310163"><span id="local-6989586621679310165"><span id="local-6989586621679310167"><span id="local-6989586621679310169"><span class="annot"><span class="annottext">ReadPrec [RequestEnvironmentInfoResponse]
+ReadPrec RequestEnvironmentInfoResponse
+Int -&gt; ReadS RequestEnvironmentInfoResponse
+ReadS [RequestEnvironmentInfoResponse]
+(Int -&gt; ReadS RequestEnvironmentInfoResponse)
+-&gt; ReadS [RequestEnvironmentInfoResponse]
+-&gt; ReadPrec RequestEnvironmentInfoResponse
+-&gt; ReadPrec [RequestEnvironmentInfoResponse]
+-&gt; Read RequestEnvironmentInfoResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RequestEnvironmentInfoResponse]
+$creadListPrec :: ReadPrec [RequestEnvironmentInfoResponse]
+readPrec :: ReadPrec RequestEnvironmentInfoResponse
+$creadPrec :: ReadPrec RequestEnvironmentInfoResponse
+readList :: ReadS [RequestEnvironmentInfoResponse]
+$creadList :: ReadS [RequestEnvironmentInfoResponse]
+readsPrec :: Int -&gt; ReadS RequestEnvironmentInfoResponse
+$creadsPrec :: Int -&gt; ReadS RequestEnvironmentInfoResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310157"><span id="local-6989586621679310159"><span id="local-6989586621679310161"><span class="annot"><span class="annottext">Int -&gt; RequestEnvironmentInfoResponse -&gt; ShowS
+[RequestEnvironmentInfoResponse] -&gt; ShowS
+RequestEnvironmentInfoResponse -&gt; String
+(Int -&gt; RequestEnvironmentInfoResponse -&gt; ShowS)
+-&gt; (RequestEnvironmentInfoResponse -&gt; String)
+-&gt; ([RequestEnvironmentInfoResponse] -&gt; ShowS)
+-&gt; Show RequestEnvironmentInfoResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RequestEnvironmentInfoResponse] -&gt; ShowS
+$cshowList :: [RequestEnvironmentInfoResponse] -&gt; ShowS
+show :: RequestEnvironmentInfoResponse -&gt; String
+$cshow :: RequestEnvironmentInfoResponse -&gt; String
+showsPrec :: Int -&gt; RequestEnvironmentInfoResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RequestEnvironmentInfoResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RequestEnvironmentInfoResponse
+ -&gt; Rep RequestEnvironmentInfoResponse x)
+-&gt; (forall x.
+    Rep RequestEnvironmentInfoResponse x
+    -&gt; RequestEnvironmentInfoResponse)
+-&gt; Generic RequestEnvironmentInfoResponse
+forall x.
+Rep RequestEnvironmentInfoResponse x
+-&gt; RequestEnvironmentInfoResponse
+forall x.
+RequestEnvironmentInfoResponse
+-&gt; Rep RequestEnvironmentInfoResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RequestEnvironmentInfoResponse x
+-&gt; RequestEnvironmentInfoResponse
+$cfrom :: forall x.
+RequestEnvironmentInfoResponse
+-&gt; Rep RequestEnvironmentInfoResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Create a value of 'RequestEnvironmentInfoResponse' with all optional fields omitted.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#newRequestEnvironmentInfoResponse"><span class="hs-identifier hs-type">newRequestEnvironmentInfoResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfoResponse"><span class="hs-identifier hs-type">RequestEnvironmentInfoResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newRequestEnvironmentInfoResponse"><span class="annot"><span class="annottext">newRequestEnvironmentInfoResponse :: RequestEnvironmentInfoResponse
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#newRequestEnvironmentInfoResponse"><span class="hs-identifier hs-var hs-var">newRequestEnvironmentInfoResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">RequestEnvironmentInfoResponse
+</span><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfoResponse%27"><span class="hs-identifier hs-var">RequestEnvironmentInfoResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679310153"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo.html#RequestEnvironmentInfoResponse"><span class="hs-identifier hs-type">RequestEnvironmentInfoResponse</span></a></span></span><span>
+</span><span id="line-204"></span></pre></body></html>

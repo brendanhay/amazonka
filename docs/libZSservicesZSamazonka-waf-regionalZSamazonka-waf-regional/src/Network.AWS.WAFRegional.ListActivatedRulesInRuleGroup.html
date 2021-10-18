@@ -1,0 +1,701 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This is __AWS WAF Classic__ documentation. For more information, see</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- in the developer guide.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- With the latest version, AWS WAF has a single set of endpoints for</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- regional and global use.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Returns an array of ActivatedRule objects.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier">ListActivatedRulesInRuleGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#newListActivatedRulesInRuleGroup"><span class="hs-identifier">newListActivatedRulesInRuleGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroup_nextMarker"><span class="hs-identifier">listActivatedRulesInRuleGroup_nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroup_ruleGroupId"><span class="hs-identifier">listActivatedRulesInRuleGroup_ruleGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroup_limit"><span class="hs-identifier">listActivatedRulesInRuleGroup_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse"><span class="hs-identifier">ListActivatedRulesInRuleGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#newListActivatedRulesInRuleGroupResponse"><span class="hs-identifier">newListActivatedRulesInRuleGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroupResponse_nextMarker"><span class="hs-identifier">listActivatedRulesInRuleGroupResponse_nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroupResponse_activatedRules"><span class="hs-identifier">listActivatedRulesInRuleGroupResponse_activatedRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroupResponse_httpStatus"><span class="hs-identifier">listActivatedRulesInRuleGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.html"><span class="hs-identifier">Network.AWS.WAFRegional.Types</span></a></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newListActivatedRulesInRuleGroup' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679317254"><span id="local-6989586621679317255"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListActivatedRulesInRuleGroup"><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-var">ListActivatedRulesInRuleGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListActivatedRulesInRuleGroup%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-var">ListActivatedRulesInRuleGroup'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you specify a value for @Limit@ and you have more @ActivatedRules@</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- than the value of @Limit@, AWS WAF returns a @NextMarker@ value in the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- response that allows you to list another group of @ActivatedRules@. For</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- the second and subsequent @ListActivatedRulesInRuleGroup@ requests,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- specify the value of @NextMarker@ from the previous response to get</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- information about another batch of @ActivatedRules@.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AnextMarker%3AListActivatedRulesInRuleGroup%27"><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroup -&gt; Maybe Text
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3AnextMarker%3AListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The @RuleGroupId@ of the RuleGroup for which you want to get a list of</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- ActivatedRule objects.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AruleGroupId%3AListActivatedRulesInRuleGroup%27"><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroup -&gt; Maybe Text
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3AruleGroupId%3AListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-var hs-var">ruleGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Specifies the number of @ActivatedRules@ that you want AWS WAF to return</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- for this request. If you have more @ActivatedRules@ than the number that</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- you specify for @Limit@, the response includes a @NextMarker@ value that</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- you can use to get another batch of @ActivatedRules@.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Alimit%3AListActivatedRulesInRuleGroup%27"><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroup -&gt; Maybe Natural
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3Alimit%3AListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317246"><span id="local-6989586621679317248"><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroup
+-&gt; ListActivatedRulesInRuleGroup -&gt; Bool
+(ListActivatedRulesInRuleGroup
+ -&gt; ListActivatedRulesInRuleGroup -&gt; Bool)
+-&gt; (ListActivatedRulesInRuleGroup
+    -&gt; ListActivatedRulesInRuleGroup -&gt; Bool)
+-&gt; Eq ListActivatedRulesInRuleGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListActivatedRulesInRuleGroup
+-&gt; ListActivatedRulesInRuleGroup -&gt; Bool
+$c/= :: ListActivatedRulesInRuleGroup
+-&gt; ListActivatedRulesInRuleGroup -&gt; Bool
+== :: ListActivatedRulesInRuleGroup
+-&gt; ListActivatedRulesInRuleGroup -&gt; Bool
+$c== :: ListActivatedRulesInRuleGroup
+-&gt; ListActivatedRulesInRuleGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317237"><span id="local-6989586621679317239"><span id="local-6989586621679317241"><span id="local-6989586621679317243"><span class="annot"><span class="annottext">ReadPrec [ListActivatedRulesInRuleGroup]
+ReadPrec ListActivatedRulesInRuleGroup
+Int -&gt; ReadS ListActivatedRulesInRuleGroup
+ReadS [ListActivatedRulesInRuleGroup]
+(Int -&gt; ReadS ListActivatedRulesInRuleGroup)
+-&gt; ReadS [ListActivatedRulesInRuleGroup]
+-&gt; ReadPrec ListActivatedRulesInRuleGroup
+-&gt; ReadPrec [ListActivatedRulesInRuleGroup]
+-&gt; Read ListActivatedRulesInRuleGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListActivatedRulesInRuleGroup]
+$creadListPrec :: ReadPrec [ListActivatedRulesInRuleGroup]
+readPrec :: ReadPrec ListActivatedRulesInRuleGroup
+$creadPrec :: ReadPrec ListActivatedRulesInRuleGroup
+readList :: ReadS [ListActivatedRulesInRuleGroup]
+$creadList :: ReadS [ListActivatedRulesInRuleGroup]
+readsPrec :: Int -&gt; ReadS ListActivatedRulesInRuleGroup
+$creadsPrec :: Int -&gt; ReadS ListActivatedRulesInRuleGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317230"><span id="local-6989586621679317232"><span id="local-6989586621679317234"><span class="annot"><span class="annottext">Int -&gt; ListActivatedRulesInRuleGroup -&gt; ShowS
+[ListActivatedRulesInRuleGroup] -&gt; ShowS
+ListActivatedRulesInRuleGroup -&gt; String
+(Int -&gt; ListActivatedRulesInRuleGroup -&gt; ShowS)
+-&gt; (ListActivatedRulesInRuleGroup -&gt; String)
+-&gt; ([ListActivatedRulesInRuleGroup] -&gt; ShowS)
+-&gt; Show ListActivatedRulesInRuleGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListActivatedRulesInRuleGroup] -&gt; ShowS
+$cshowList :: [ListActivatedRulesInRuleGroup] -&gt; ShowS
+show :: ListActivatedRulesInRuleGroup -&gt; String
+$cshow :: ListActivatedRulesInRuleGroup -&gt; String
+showsPrec :: Int -&gt; ListActivatedRulesInRuleGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListActivatedRulesInRuleGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListActivatedRulesInRuleGroup
+ -&gt; Rep ListActivatedRulesInRuleGroup x)
+-&gt; (forall x.
+    Rep ListActivatedRulesInRuleGroup x
+    -&gt; ListActivatedRulesInRuleGroup)
+-&gt; Generic ListActivatedRulesInRuleGroup
+forall x.
+Rep ListActivatedRulesInRuleGroup x
+-&gt; ListActivatedRulesInRuleGroup
+forall x.
+ListActivatedRulesInRuleGroup
+-&gt; Rep ListActivatedRulesInRuleGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListActivatedRulesInRuleGroup x
+-&gt; ListActivatedRulesInRuleGroup
+$cfrom :: forall x.
+ListActivatedRulesInRuleGroup
+-&gt; Rep ListActivatedRulesInRuleGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Create a value of 'ListActivatedRulesInRuleGroup' with all optional fields omitted.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'nextMarker', 'listActivatedRulesInRuleGroup_nextMarker' - If you specify a value for @Limit@ and you have more @ActivatedRules@</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- than the value of @Limit@, AWS WAF returns a @NextMarker@ value in the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- response that allows you to list another group of @ActivatedRules@. For</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- the second and subsequent @ListActivatedRulesInRuleGroup@ requests,</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- specify the value of @NextMarker@ from the previous response to get</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- information about another batch of @ActivatedRules@.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'ruleGroupId', 'listActivatedRulesInRuleGroup_ruleGroupId' - The @RuleGroupId@ of the RuleGroup for which you want to get a list of</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- ActivatedRule objects.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'limit', 'listActivatedRulesInRuleGroup_limit' - Specifies the number of @ActivatedRules@ that you want AWS WAF to return</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- for this request. If you have more @ActivatedRules@ than the number that</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- you specify for @Limit@, the response includes a @NextMarker@ value that</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- you can use to get another batch of @ActivatedRules@.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#newListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">newListActivatedRulesInRuleGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup</span></a></span><span>
+</span><span id="line-105"></span><span id="newListActivatedRulesInRuleGroup"><span class="annot"><span class="annottext">newListActivatedRulesInRuleGroup :: ListActivatedRulesInRuleGroup
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#newListActivatedRulesInRuleGroup"><span class="hs-identifier hs-var hs-var">newListActivatedRulesInRuleGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroup' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; ListActivatedRulesInRuleGroup
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup'</span></a></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextMarker:ListActivatedRulesInRuleGroup' :: Maybe Text
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3AnextMarker%3AListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleGroupId:ListActivatedRulesInRuleGroup' :: Maybe Text
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3AruleGroupId%3AListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-var">ruleGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:ListActivatedRulesInRuleGroup' :: Maybe Natural
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3Alimit%3AListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | If you specify a value for @Limit@ and you have more @ActivatedRules@</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- than the value of @Limit@, AWS WAF returns a @NextMarker@ value in the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- response that allows you to list another group of @ActivatedRules@. For</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- the second and subsequent @ListActivatedRulesInRuleGroup@ requests,</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- specify the value of @NextMarker@ from the previous response to get</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- information about another batch of @ActivatedRules@.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroup_nextMarker"><span class="hs-identifier hs-type">listActivatedRulesInRuleGroup_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="listActivatedRulesInRuleGroup_nextMarker"><span class="annot"><span class="annottext">listActivatedRulesInRuleGroup_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListActivatedRulesInRuleGroup -&gt; f ListActivatedRulesInRuleGroup
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroup_nextMarker"><span class="hs-identifier hs-var hs-var">listActivatedRulesInRuleGroup_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListActivatedRulesInRuleGroup -&gt; Maybe Text)
+-&gt; (ListActivatedRulesInRuleGroup
+    -&gt; Maybe Text -&gt; ListActivatedRulesInRuleGroup)
+-&gt; Lens
+     ListActivatedRulesInRuleGroup
+     ListActivatedRulesInRuleGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317223"><span class="annot"><span class="annottext">Maybe Text
+nextMarker :: Maybe Text
+$sel:nextMarker:ListActivatedRulesInRuleGroup' :: ListActivatedRulesInRuleGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679317223"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317223"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317222"><span class="annot"><span class="annottext">s :: ListActivatedRulesInRuleGroup
+</span><a href="#local-6989586621679317222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317221"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroup
+</span><a href="#local-6989586621679317222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListActivatedRulesInRuleGroup' :: Maybe Text
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3AnextMarker%3AListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The @RuleGroupId@ of the RuleGroup for which you want to get a list of</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- ActivatedRule objects.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroup_ruleGroupId"><span class="hs-identifier hs-type">listActivatedRulesInRuleGroup_ruleGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="listActivatedRulesInRuleGroup_ruleGroupId"><span class="annot"><span class="annottext">listActivatedRulesInRuleGroup_ruleGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListActivatedRulesInRuleGroup -&gt; f ListActivatedRulesInRuleGroup
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroup_ruleGroupId"><span class="hs-identifier hs-var hs-var">listActivatedRulesInRuleGroup_ruleGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListActivatedRulesInRuleGroup -&gt; Maybe Text)
+-&gt; (ListActivatedRulesInRuleGroup
+    -&gt; Maybe Text -&gt; ListActivatedRulesInRuleGroup)
+-&gt; Lens
+     ListActivatedRulesInRuleGroup
+     ListActivatedRulesInRuleGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317220"><span class="annot"><span class="annottext">Maybe Text
+ruleGroupId :: Maybe Text
+$sel:ruleGroupId:ListActivatedRulesInRuleGroup' :: ListActivatedRulesInRuleGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679317220"><span class="hs-identifier hs-var hs-var">ruleGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317220"><span class="hs-identifier hs-var">ruleGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317219"><span class="annot"><span class="annottext">s :: ListActivatedRulesInRuleGroup
+</span><a href="#local-6989586621679317219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317218"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroup
+</span><a href="#local-6989586621679317219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleGroupId:ListActivatedRulesInRuleGroup' :: Maybe Text
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3AruleGroupId%3AListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-var">ruleGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Specifies the number of @ActivatedRules@ that you want AWS WAF to return</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- for this request. If you have more @ActivatedRules@ than the number that</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- you specify for @Limit@, the response includes a @NextMarker@ value that</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- you can use to get another batch of @ActivatedRules@.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroup_limit"><span class="hs-identifier hs-type">listActivatedRulesInRuleGroup_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="listActivatedRulesInRuleGroup_limit"><span class="annot"><span class="annottext">listActivatedRulesInRuleGroup_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListActivatedRulesInRuleGroup -&gt; f ListActivatedRulesInRuleGroup
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroup_limit"><span class="hs-identifier hs-var hs-var">listActivatedRulesInRuleGroup_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListActivatedRulesInRuleGroup -&gt; Maybe Natural)
+-&gt; (ListActivatedRulesInRuleGroup
+    -&gt; Maybe Natural -&gt; ListActivatedRulesInRuleGroup)
+-&gt; Lens
+     ListActivatedRulesInRuleGroup
+     ListActivatedRulesInRuleGroup
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317217"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:ListActivatedRulesInRuleGroup' :: ListActivatedRulesInRuleGroup -&gt; Maybe Natural
+</span><a href="#local-6989586621679317217"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679317217"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317216"><span class="annot"><span class="annottext">s :: ListActivatedRulesInRuleGroup
+</span><a href="#local-6989586621679317216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317215"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679317215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroup
+</span><a href="#local-6989586621679317216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListActivatedRulesInRuleGroup' :: Maybe Natural
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3Alimit%3AListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679317215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-139"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679317211"><span class="annot"><span class="annottext">request :: ListActivatedRulesInRuleGroup
+-&gt; Request ListActivatedRulesInRuleGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListActivatedRulesInRuleGroup
+-&gt; Request ListActivatedRulesInRuleGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WAFRegional.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679317207"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListActivatedRulesInRuleGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListActivatedRulesInRuleGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListActivatedRulesInRuleGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListActivatedRulesInRuleGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListActivatedRulesInRuleGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317204"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317204"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317203"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679317203"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317202"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317202"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ActivatedRule]
+-&gt; Int
+-&gt; ListActivatedRulesInRuleGroupResponse
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-var">ListActivatedRulesInRuleGroupResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ActivatedRule]
+ -&gt; Int
+ -&gt; ListActivatedRulesInRuleGroupResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ActivatedRule]
+      -&gt; Int -&gt; ListActivatedRulesInRuleGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ActivatedRule]
+   -&gt; Int -&gt; ListActivatedRulesInRuleGroupResponse)
+-&gt; Either String (Maybe [ActivatedRule])
+-&gt; Either String (Int -&gt; ListActivatedRulesInRuleGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ActivatedRule]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActivatedRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ActivatedRule]))
+-&gt; Maybe [ActivatedRule] -&gt; Either String (Maybe [ActivatedRule])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ActivatedRule]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListActivatedRulesInRuleGroupResponse)
+-&gt; Either String Int
+-&gt; Either String ListActivatedRulesInRuleGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317204"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679317193"><span id="local-6989586621679317195"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317190"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup</span></a></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679317186"><span class="annot"><span class="annottext">toHeaders :: ListActivatedRulesInRuleGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListActivatedRulesInRuleGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSWAF_Regional_20161128.ListActivatedRulesInRuleGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-164"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-168"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317176"><span id="local-6989586621679317178"><span id="local-6989586621679317180"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679317174"><span class="annot"><span class="annottext">toJSON :: ListActivatedRulesInRuleGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup%27"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317170"><span id="local-6989586621679317171"><span id="local-6989586621679317172"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+limit :: Maybe Natural
+ruleGroupId :: Maybe Text
+nextMarker :: Maybe Text
+$sel:limit:ListActivatedRulesInRuleGroup' :: ListActivatedRulesInRuleGroup -&gt; Maybe Natural
+$sel:ruleGroupId:ListActivatedRulesInRuleGroup' :: ListActivatedRulesInRuleGroup -&gt; Maybe Text
+$sel:nextMarker:ListActivatedRulesInRuleGroup' :: ListActivatedRulesInRuleGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679317170"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317172"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317171"><span class="hs-identifier hs-var">ruleGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679317170"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><span id="line-179"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679317164"><span class="annot"><span class="annottext">toPath :: ListActivatedRulesInRuleGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListActivatedRulesInRuleGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroup"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679317160"><span class="annot"><span class="annottext">toQuery :: ListActivatedRulesInRuleGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListActivatedRulesInRuleGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | /See:/ 'newListActivatedRulesInRuleGroupResponse' smart constructor.</span><span>
+</span><span id="line-189"></span><span id="local-6989586621679317157"><span id="local-6989586621679317158"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListActivatedRulesInRuleGroupResponse"><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse"><span class="hs-identifier hs-var">ListActivatedRulesInRuleGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListActivatedRulesInRuleGroupResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-var">ListActivatedRulesInRuleGroupResponse'</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you have more @ActivatedRules@ than the number that you specified for</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- @Limit@ in the request, the response includes a @NextMarker@ value. To</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- list more @ActivatedRules@, submit another</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- @ListActivatedRulesInRuleGroup@ request, and specify the @NextMarker@</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- value from the response in the @NextMarker@ value in the next request.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AnextMarker%3AListActivatedRulesInRuleGroupResponse%27"><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroupResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3AnextMarker%3AListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | An array of @ActivatedRules@ objects.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AactivatedRules%3AListActivatedRulesInRuleGroupResponse%27"><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroupResponse -&gt; Maybe [ActivatedRule]
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3AactivatedRules%3AListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-var hs-var">activatedRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.ActivatedRule.html#ActivatedRule"><span class="hs-identifier hs-type">ActivatedRule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListActivatedRulesInRuleGroupResponse%27"><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroupResponse -&gt; Int
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3AhttpStatus%3AListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317150"><span id="local-6989586621679317152"><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroupResponse
+-&gt; ListActivatedRulesInRuleGroupResponse -&gt; Bool
+(ListActivatedRulesInRuleGroupResponse
+ -&gt; ListActivatedRulesInRuleGroupResponse -&gt; Bool)
+-&gt; (ListActivatedRulesInRuleGroupResponse
+    -&gt; ListActivatedRulesInRuleGroupResponse -&gt; Bool)
+-&gt; Eq ListActivatedRulesInRuleGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListActivatedRulesInRuleGroupResponse
+-&gt; ListActivatedRulesInRuleGroupResponse -&gt; Bool
+$c/= :: ListActivatedRulesInRuleGroupResponse
+-&gt; ListActivatedRulesInRuleGroupResponse -&gt; Bool
+== :: ListActivatedRulesInRuleGroupResponse
+-&gt; ListActivatedRulesInRuleGroupResponse -&gt; Bool
+$c== :: ListActivatedRulesInRuleGroupResponse
+-&gt; ListActivatedRulesInRuleGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317142"><span id="local-6989586621679317144"><span id="local-6989586621679317146"><span id="local-6989586621679317148"><span class="annot"><span class="annottext">ReadPrec [ListActivatedRulesInRuleGroupResponse]
+ReadPrec ListActivatedRulesInRuleGroupResponse
+Int -&gt; ReadS ListActivatedRulesInRuleGroupResponse
+ReadS [ListActivatedRulesInRuleGroupResponse]
+(Int -&gt; ReadS ListActivatedRulesInRuleGroupResponse)
+-&gt; ReadS [ListActivatedRulesInRuleGroupResponse]
+-&gt; ReadPrec ListActivatedRulesInRuleGroupResponse
+-&gt; ReadPrec [ListActivatedRulesInRuleGroupResponse]
+-&gt; Read ListActivatedRulesInRuleGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListActivatedRulesInRuleGroupResponse]
+$creadListPrec :: ReadPrec [ListActivatedRulesInRuleGroupResponse]
+readPrec :: ReadPrec ListActivatedRulesInRuleGroupResponse
+$creadPrec :: ReadPrec ListActivatedRulesInRuleGroupResponse
+readList :: ReadS [ListActivatedRulesInRuleGroupResponse]
+$creadList :: ReadS [ListActivatedRulesInRuleGroupResponse]
+readsPrec :: Int -&gt; ReadS ListActivatedRulesInRuleGroupResponse
+$creadsPrec :: Int -&gt; ReadS ListActivatedRulesInRuleGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317136"><span id="local-6989586621679317138"><span id="local-6989586621679317140"><span class="annot"><span class="annottext">Int -&gt; ListActivatedRulesInRuleGroupResponse -&gt; ShowS
+[ListActivatedRulesInRuleGroupResponse] -&gt; ShowS
+ListActivatedRulesInRuleGroupResponse -&gt; String
+(Int -&gt; ListActivatedRulesInRuleGroupResponse -&gt; ShowS)
+-&gt; (ListActivatedRulesInRuleGroupResponse -&gt; String)
+-&gt; ([ListActivatedRulesInRuleGroupResponse] -&gt; ShowS)
+-&gt; Show ListActivatedRulesInRuleGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListActivatedRulesInRuleGroupResponse] -&gt; ShowS
+$cshowList :: [ListActivatedRulesInRuleGroupResponse] -&gt; ShowS
+show :: ListActivatedRulesInRuleGroupResponse -&gt; String
+$cshow :: ListActivatedRulesInRuleGroupResponse -&gt; String
+showsPrec :: Int -&gt; ListActivatedRulesInRuleGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListActivatedRulesInRuleGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListActivatedRulesInRuleGroupResponse
+ -&gt; Rep ListActivatedRulesInRuleGroupResponse x)
+-&gt; (forall x.
+    Rep ListActivatedRulesInRuleGroupResponse x
+    -&gt; ListActivatedRulesInRuleGroupResponse)
+-&gt; Generic ListActivatedRulesInRuleGroupResponse
+forall x.
+Rep ListActivatedRulesInRuleGroupResponse x
+-&gt; ListActivatedRulesInRuleGroupResponse
+forall x.
+ListActivatedRulesInRuleGroupResponse
+-&gt; Rep ListActivatedRulesInRuleGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListActivatedRulesInRuleGroupResponse x
+-&gt; ListActivatedRulesInRuleGroupResponse
+$cfrom :: forall x.
+ListActivatedRulesInRuleGroupResponse
+-&gt; Rep ListActivatedRulesInRuleGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Create a value of 'ListActivatedRulesInRuleGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'nextMarker', 'listActivatedRulesInRuleGroupResponse_nextMarker' - If you have more @ActivatedRules@ than the number that you specified for</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- @Limit@ in the request, the response includes a @NextMarker@ value. To</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- list more @ActivatedRules@, submit another</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- @ListActivatedRulesInRuleGroup@ request, and specify the @NextMarker@</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- value from the response in the @NextMarker@ value in the next request.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'activatedRules', 'listActivatedRulesInRuleGroupResponse_activatedRules' - An array of @ActivatedRules@ objects.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'httpStatus', 'listActivatedRulesInRuleGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#newListActivatedRulesInRuleGroupResponse"><span class="hs-identifier hs-type">newListActivatedRulesInRuleGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse</span></a></span><span>
+</span><span id="line-224"></span><span id="newListActivatedRulesInRuleGroupResponse"><span class="annot"><span class="annottext">newListActivatedRulesInRuleGroupResponse :: Int -&gt; ListActivatedRulesInRuleGroupResponse
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#newListActivatedRulesInRuleGroupResponse"><span class="hs-identifier hs-var hs-var">newListActivatedRulesInRuleGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679317133"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317133"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroupResponse' :: Maybe Text
+-&gt; Maybe [ActivatedRule]
+-&gt; Int
+-&gt; ListActivatedRulesInRuleGroupResponse
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextMarker:ListActivatedRulesInRuleGroupResponse' :: Maybe Text
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3AnextMarker%3AListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:activatedRules:ListActivatedRulesInRuleGroupResponse' :: Maybe [ActivatedRule]
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3AactivatedRules%3AListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-var">activatedRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ActivatedRule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListActivatedRulesInRuleGroupResponse' :: Int
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3AhttpStatus%3AListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317133"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | If you have more @ActivatedRules@ than the number that you specified for</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- @Limit@ in the request, the response includes a @NextMarker@ value. To</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- list more @ActivatedRules@, submit another</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- @ListActivatedRulesInRuleGroup@ request, and specify the @NextMarker@</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- value from the response in the @NextMarker@ value in the next request.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroupResponse_nextMarker"><span class="hs-identifier hs-type">listActivatedRulesInRuleGroupResponse_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="listActivatedRulesInRuleGroupResponse_nextMarker"><span class="annot"><span class="annottext">listActivatedRulesInRuleGroupResponse_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListActivatedRulesInRuleGroupResponse
+-&gt; f ListActivatedRulesInRuleGroupResponse
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroupResponse_nextMarker"><span class="hs-identifier hs-var hs-var">listActivatedRulesInRuleGroupResponse_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListActivatedRulesInRuleGroupResponse -&gt; Maybe Text)
+-&gt; (ListActivatedRulesInRuleGroupResponse
+    -&gt; Maybe Text -&gt; ListActivatedRulesInRuleGroupResponse)
+-&gt; Lens
+     ListActivatedRulesInRuleGroupResponse
+     ListActivatedRulesInRuleGroupResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317132"><span class="annot"><span class="annottext">Maybe Text
+nextMarker :: Maybe Text
+$sel:nextMarker:ListActivatedRulesInRuleGroupResponse' :: ListActivatedRulesInRuleGroupResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679317132"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317132"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317131"><span class="annot"><span class="annottext">s :: ListActivatedRulesInRuleGroupResponse
+</span><a href="#local-6989586621679317131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317130"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroupResponse
+</span><a href="#local-6989586621679317131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListActivatedRulesInRuleGroupResponse' :: Maybe Text
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3AnextMarker%3AListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | An array of @ActivatedRules@ objects.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroupResponse_activatedRules"><span class="hs-identifier hs-type">listActivatedRulesInRuleGroupResponse_activatedRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.ActivatedRule.html#ActivatedRule"><span class="hs-identifier hs-type">ActivatedRule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="listActivatedRulesInRuleGroupResponse_activatedRules"><span class="annot"><span class="annottext">listActivatedRulesInRuleGroupResponse_activatedRules :: (Maybe [ActivatedRule] -&gt; f (Maybe [ActivatedRule]))
+-&gt; ListActivatedRulesInRuleGroupResponse
+-&gt; f ListActivatedRulesInRuleGroupResponse
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroupResponse_activatedRules"><span class="hs-identifier hs-var hs-var">listActivatedRulesInRuleGroupResponse_activatedRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListActivatedRulesInRuleGroupResponse -&gt; Maybe [ActivatedRule])
+-&gt; (ListActivatedRulesInRuleGroupResponse
+    -&gt; Maybe [ActivatedRule] -&gt; ListActivatedRulesInRuleGroupResponse)
+-&gt; Lens
+     ListActivatedRulesInRuleGroupResponse
+     ListActivatedRulesInRuleGroupResponse
+     (Maybe [ActivatedRule])
+     (Maybe [ActivatedRule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317129"><span class="annot"><span class="annottext">Maybe [ActivatedRule]
+activatedRules :: Maybe [ActivatedRule]
+$sel:activatedRules:ListActivatedRulesInRuleGroupResponse' :: ListActivatedRulesInRuleGroupResponse -&gt; Maybe [ActivatedRule]
+</span><a href="#local-6989586621679317129"><span class="hs-identifier hs-var hs-var">activatedRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ActivatedRule]
+</span><a href="#local-6989586621679317129"><span class="hs-identifier hs-var">activatedRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317128"><span class="annot"><span class="annottext">s :: ListActivatedRulesInRuleGroupResponse
+</span><a href="#local-6989586621679317128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317127"><span class="annot"><span class="annottext">Maybe [ActivatedRule]
+</span><a href="#local-6989586621679317127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroupResponse
+</span><a href="#local-6989586621679317128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activatedRules:ListActivatedRulesInRuleGroupResponse' :: Maybe [ActivatedRule]
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3AactivatedRules%3AListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-var">activatedRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ActivatedRule]
+</span><a href="#local-6989586621679317127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ActivatedRule] -&gt; f (Maybe [ActivatedRule]))
+ -&gt; ListActivatedRulesInRuleGroupResponse
+ -&gt; f ListActivatedRulesInRuleGroupResponse)
+-&gt; ((Maybe [ActivatedRule] -&gt; f (Maybe [ActivatedRule]))
+    -&gt; Maybe [ActivatedRule] -&gt; f (Maybe [ActivatedRule]))
+-&gt; (Maybe [ActivatedRule] -&gt; f (Maybe [ActivatedRule]))
+-&gt; ListActivatedRulesInRuleGroupResponse
+-&gt; f ListActivatedRulesInRuleGroupResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ActivatedRule] [ActivatedRule] [ActivatedRule] [ActivatedRule]
+-&gt; Iso
+     (Maybe [ActivatedRule])
+     (Maybe [ActivatedRule])
+     (Maybe [ActivatedRule])
+     (Maybe [ActivatedRule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ActivatedRule] [ActivatedRule] [ActivatedRule] [ActivatedRule]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroupResponse_httpStatus"><span class="hs-identifier hs-type">listActivatedRulesInRuleGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-246"></span><span id="listActivatedRulesInRuleGroupResponse_httpStatus"><span class="annot"><span class="annottext">listActivatedRulesInRuleGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListActivatedRulesInRuleGroupResponse
+-&gt; f ListActivatedRulesInRuleGroupResponse
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#listActivatedRulesInRuleGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listActivatedRulesInRuleGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListActivatedRulesInRuleGroupResponse -&gt; Int)
+-&gt; (ListActivatedRulesInRuleGroupResponse
+    -&gt; Int -&gt; ListActivatedRulesInRuleGroupResponse)
+-&gt; Lens
+     ListActivatedRulesInRuleGroupResponse
+     ListActivatedRulesInRuleGroupResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317123"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListActivatedRulesInRuleGroupResponse' :: ListActivatedRulesInRuleGroupResponse -&gt; Int
+</span><a href="#local-6989586621679317123"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317123"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317122"><span class="annot"><span class="annottext">s :: ListActivatedRulesInRuleGroupResponse
+</span><a href="#local-6989586621679317122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317121"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActivatedRulesInRuleGroupResponse
+</span><a href="#local-6989586621679317122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListActivatedRulesInRuleGroupResponse' :: Int
+</span><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#%24sel%3AhttpStatus%3AListActivatedRulesInRuleGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679317119"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup.html#ListActivatedRulesInRuleGroupResponse"><span class="hs-identifier hs-type">ListActivatedRulesInRuleGroupResponse</span></a></span></span><span>
+</span><span id="line-251"></span></pre></body></html>

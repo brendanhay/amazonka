@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.MaintenanceWindowFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.MaintenanceWindowFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Filter used in the request. Supported filter keys depend on the API</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- operation that includes the filter. API operations that use</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @MaintenanceWindowFilter&gt;@ include the following:</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- -   DescribeMaintenanceWindowExecutions</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   DescribeMaintenanceWindowExecutionTaskInvocations</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- -   DescribeMaintenanceWindowExecutionTasks</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   DescribeMaintenanceWindows</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   DescribeMaintenanceWindowTargets</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- -   DescribeMaintenanceWindowTasks</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- /See:/ 'newMaintenanceWindowFilter' smart constructor.</span><span>
+</span><span id="line-43"></span><span id="local-6989586621679797501"><span id="local-6989586621679797502"></span></span><span class="hs-keyword">data</span><span> </span><span id="MaintenanceWindowFilter"><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter"><span class="hs-identifier hs-var">MaintenanceWindowFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MaintenanceWindowFilter%27"><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter%27"><span class="hs-identifier hs-var">MaintenanceWindowFilter'</span></a></span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the filter.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Akey%3AMaintenanceWindowFilter%27"><span class="annot"><span class="annottext">MaintenanceWindowFilter -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#%24sel%3Akey%3AMaintenanceWindowFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The filter values.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Avalues%3AMaintenanceWindowFilter%27"><span class="annot"><span class="annottext">MaintenanceWindowFilter -&gt; Maybe [Text]
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#%24sel%3Avalues%3AMaintenanceWindowFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797494"><span id="local-6989586621679797496"><span class="annot"><span class="annottext">MaintenanceWindowFilter -&gt; MaintenanceWindowFilter -&gt; Bool
+(MaintenanceWindowFilter -&gt; MaintenanceWindowFilter -&gt; Bool)
+-&gt; (MaintenanceWindowFilter -&gt; MaintenanceWindowFilter -&gt; Bool)
+-&gt; Eq MaintenanceWindowFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MaintenanceWindowFilter -&gt; MaintenanceWindowFilter -&gt; Bool
+$c/= :: MaintenanceWindowFilter -&gt; MaintenanceWindowFilter -&gt; Bool
+== :: MaintenanceWindowFilter -&gt; MaintenanceWindowFilter -&gt; Bool
+$c== :: MaintenanceWindowFilter -&gt; MaintenanceWindowFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797485"><span id="local-6989586621679797487"><span id="local-6989586621679797489"><span id="local-6989586621679797491"><span class="annot"><span class="annottext">ReadPrec [MaintenanceWindowFilter]
+ReadPrec MaintenanceWindowFilter
+Int -&gt; ReadS MaintenanceWindowFilter
+ReadS [MaintenanceWindowFilter]
+(Int -&gt; ReadS MaintenanceWindowFilter)
+-&gt; ReadS [MaintenanceWindowFilter]
+-&gt; ReadPrec MaintenanceWindowFilter
+-&gt; ReadPrec [MaintenanceWindowFilter]
+-&gt; Read MaintenanceWindowFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MaintenanceWindowFilter]
+$creadListPrec :: ReadPrec [MaintenanceWindowFilter]
+readPrec :: ReadPrec MaintenanceWindowFilter
+$creadPrec :: ReadPrec MaintenanceWindowFilter
+readList :: ReadS [MaintenanceWindowFilter]
+$creadList :: ReadS [MaintenanceWindowFilter]
+readsPrec :: Int -&gt; ReadS MaintenanceWindowFilter
+$creadsPrec :: Int -&gt; ReadS MaintenanceWindowFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797478"><span id="local-6989586621679797480"><span id="local-6989586621679797482"><span class="annot"><span class="annottext">Int -&gt; MaintenanceWindowFilter -&gt; ShowS
+[MaintenanceWindowFilter] -&gt; ShowS
+MaintenanceWindowFilter -&gt; String
+(Int -&gt; MaintenanceWindowFilter -&gt; ShowS)
+-&gt; (MaintenanceWindowFilter -&gt; String)
+-&gt; ([MaintenanceWindowFilter] -&gt; ShowS)
+-&gt; Show MaintenanceWindowFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MaintenanceWindowFilter] -&gt; ShowS
+$cshowList :: [MaintenanceWindowFilter] -&gt; ShowS
+show :: MaintenanceWindowFilter -&gt; String
+$cshow :: MaintenanceWindowFilter -&gt; String
+showsPrec :: Int -&gt; MaintenanceWindowFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; MaintenanceWindowFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ MaintenanceWindowFilter -&gt; Rep MaintenanceWindowFilter x)
+-&gt; (forall x.
+    Rep MaintenanceWindowFilter x -&gt; MaintenanceWindowFilter)
+-&gt; Generic MaintenanceWindowFilter
+forall x. Rep MaintenanceWindowFilter x -&gt; MaintenanceWindowFilter
+forall x. MaintenanceWindowFilter -&gt; Rep MaintenanceWindowFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MaintenanceWindowFilter x -&gt; MaintenanceWindowFilter
+$cfrom :: forall x. MaintenanceWindowFilter -&gt; Rep MaintenanceWindowFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'MaintenanceWindowFilter' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'key', 'maintenanceWindowFilter_key' - The name of the filter.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'values', 'maintenanceWindowFilter_values' - The filter values.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#newMaintenanceWindowFilter"><span class="hs-identifier hs-type">newMaintenanceWindowFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter"><span class="hs-identifier hs-type">MaintenanceWindowFilter</span></a></span><span>
+</span><span id="line-64"></span><span id="newMaintenanceWindowFilter"><span class="annot"><span class="annottext">newMaintenanceWindowFilter :: MaintenanceWindowFilter
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#newMaintenanceWindowFilter"><span class="hs-identifier hs-var hs-var">newMaintenanceWindowFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">MaintenanceWindowFilter' :: Maybe Text -&gt; Maybe [Text] -&gt; MaintenanceWindowFilter
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter%27"><span class="hs-identifier hs-type">MaintenanceWindowFilter'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:MaintenanceWindowFilter' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#%24sel%3Akey%3AMaintenanceWindowFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:MaintenanceWindowFilter' :: Maybe [Text]
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#%24sel%3Avalues%3AMaintenanceWindowFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The name of the filter.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#maintenanceWindowFilter_key"><span class="hs-identifier hs-type">maintenanceWindowFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter"><span class="hs-identifier hs-type">MaintenanceWindowFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="maintenanceWindowFilter_key"><span class="annot"><span class="annottext">maintenanceWindowFilter_key :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowFilter -&gt; f MaintenanceWindowFilter
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#maintenanceWindowFilter_key"><span class="hs-identifier hs-var hs-var">maintenanceWindowFilter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowFilter -&gt; Maybe Text)
+-&gt; (MaintenanceWindowFilter
+    -&gt; Maybe Text -&gt; MaintenanceWindowFilter)
+-&gt; Lens
+     MaintenanceWindowFilter
+     MaintenanceWindowFilter
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter%27"><span class="hs-identifier hs-type">MaintenanceWindowFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797469"><span class="annot"><span class="annottext">Maybe Text
+key :: Maybe Text
+$sel:key:MaintenanceWindowFilter' :: MaintenanceWindowFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679797469"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679797469"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797468"><span class="annot"><span class="annottext">s :: MaintenanceWindowFilter
+</span><a href="#local-6989586621679797468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter%27"><span class="hs-identifier hs-type">MaintenanceWindowFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797467"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679797467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowFilter
+</span><a href="#local-6989586621679797468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:MaintenanceWindowFilter' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#%24sel%3Akey%3AMaintenanceWindowFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679797467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter"><span class="hs-identifier hs-type">MaintenanceWindowFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The filter values.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#maintenanceWindowFilter_values"><span class="hs-identifier hs-type">maintenanceWindowFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter"><span class="hs-identifier hs-type">MaintenanceWindowFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="maintenanceWindowFilter_values"><span class="annot"><span class="annottext">maintenanceWindowFilter_values :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; MaintenanceWindowFilter -&gt; f MaintenanceWindowFilter
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#maintenanceWindowFilter_values"><span class="hs-identifier hs-var hs-var">maintenanceWindowFilter_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowFilter -&gt; Maybe [Text])
+-&gt; (MaintenanceWindowFilter
+    -&gt; Maybe [Text] -&gt; MaintenanceWindowFilter)
+-&gt; Lens
+     MaintenanceWindowFilter
+     MaintenanceWindowFilter
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter%27"><span class="hs-identifier hs-type">MaintenanceWindowFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797465"><span class="annot"><span class="annottext">Maybe [Text]
+values :: Maybe [Text]
+$sel:values:MaintenanceWindowFilter' :: MaintenanceWindowFilter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679797465"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679797465"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797464"><span class="annot"><span class="annottext">s :: MaintenanceWindowFilter
+</span><a href="#local-6989586621679797464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter%27"><span class="hs-identifier hs-type">MaintenanceWindowFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797463"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679797463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowFilter
+</span><a href="#local-6989586621679797464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:MaintenanceWindowFilter' :: Maybe [Text]
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#%24sel%3Avalues%3AMaintenanceWindowFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679797463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter"><span class="hs-identifier hs-type">MaintenanceWindowFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; MaintenanceWindowFilter -&gt; f MaintenanceWindowFilter)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; MaintenanceWindowFilter
+-&gt; f MaintenanceWindowFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797456"><span id="local-6989586621679797458"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter"><span class="hs-identifier hs-type">MaintenanceWindowFilter</span></a></span></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter"><span class="hs-identifier hs-type">MaintenanceWindowFilter</span></a></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797445"><span id="local-6989586621679797447"><span id="local-6989586621679797449"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter"><span class="hs-identifier hs-type">MaintenanceWindowFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679797443"><span class="annot"><span class="annottext">toJSON :: MaintenanceWindowFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter%27"><span class="hs-identifier hs-type">MaintenanceWindowFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797440"><span id="local-6989586621679797441"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe Text
+values :: Maybe [Text]
+key :: Maybe Text
+$sel:values:MaintenanceWindowFilter' :: MaintenanceWindowFilter -&gt; Maybe [Text]
+$sel:key:MaintenanceWindowFilter' :: MaintenanceWindowFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679797440"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-86"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679797441"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679797440"><span class="hs-identifier hs-var">values</span></a></span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span></pre></body></html>

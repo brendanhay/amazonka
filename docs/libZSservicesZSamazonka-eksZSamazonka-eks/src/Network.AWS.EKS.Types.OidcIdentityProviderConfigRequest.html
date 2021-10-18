@@ -1,0 +1,617 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | An object representing an OpenID Connect (OIDC) configuration. Before</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- associating an OIDC identity provider to your cluster, review the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- considerations in</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/authenticate-oidc-identity-provider.html Authenticating users for your cluster from an OpenID Connect identity provider&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newOidcIdentityProviderConfigRequest' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679268216"><span id="local-6989586621679268217"></span></span><span class="hs-keyword">data</span><span> </span><span id="OidcIdentityProviderConfigRequest"><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-var">OidcIdentityProviderConfigRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OidcIdentityProviderConfigRequest%27"><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">OidcIdentityProviderConfigRequest'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The prefix that is prepended to group claims to prevent clashes with</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- existing names (such as @system:@ groups). For example, the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- value@ oidc:@ will create group names like @oidc:engineering@ and</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @oidc:infra@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AgroupsPrefix%3AOidcIdentityProviderConfigRequest%27"><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AgroupsPrefix%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var hs-var">groupsPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The JWT claim that the provider uses to return your groups.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AgroupsClaim%3AOidcIdentityProviderConfigRequest%27"><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AgroupsClaim%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var hs-var">groupsClaim</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The key value pairs that describe required claims in the identity token.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- If set, each claim is verified to be present in the token with a</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- matching value. For the maximum number of claims that you can require,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- see</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html Amazon EKS service quotas&gt;</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3ArequiredClaims%3AOidcIdentityProviderConfigRequest%27"><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3ArequiredClaims%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var hs-var">requiredClaims</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The JSON Web Token (JWT) claim to use as the username. The default is</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @sub@, which is expected to be a unique identifier of the end user. You</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- can choose other claims, such as @email@ or @name@, depending on the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- OpenID identity provider. Claims other than @email@ are prefixed with</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- the issuer URL to prevent naming clashes with other plug-ins.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AusernameClaim%3AOidcIdentityProviderConfigRequest%27"><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AusernameClaim%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var hs-var">usernameClaim</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The prefix that is prepended to username claims to prevent clashes with</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- existing names. If you do not provide this field, and @username@ is a</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- value other than @email@, the prefix defaults to @issuerurl#@. You can</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- use the value @-@ to disable all prefixing.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AusernamePrefix%3AOidcIdentityProviderConfigRequest%27"><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AusernamePrefix%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var hs-var">usernamePrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the OIDC provider configuration.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AidentityProviderConfigName%3AOidcIdentityProviderConfigRequest%27"><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest -&gt; Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AidentityProviderConfigName%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var hs-var">identityProviderConfigName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The URL of the OpenID identity provider that allows the API server to</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- discover public signing keys for verifying tokens. The URL must begin</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- with @https:\/\/@ and should correspond to the @iss@ claim in the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- provider\'s OIDC ID tokens. Per the OIDC standard, path components are</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- allowed but query parameters are not. Typically the URL consists of only</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- a hostname, like @https:\/\/server.example.org@ or</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @https:\/\/example.com@. This URL should point to the level below</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @.well-known\/openid-configuration@ and must be publicly accessible over</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- the internet.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AissuerUrl%3AOidcIdentityProviderConfigRequest%27"><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest -&gt; Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AissuerUrl%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var hs-var">issuerUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | This is also known as /audience/. The ID for the client application that</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- makes authentication requests to the OpenID identity provider.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AclientId%3AOidcIdentityProviderConfigRequest%27"><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest -&gt; Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AclientId%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268203"><span id="local-6989586621679268205"><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest
+-&gt; OidcIdentityProviderConfigRequest -&gt; Bool
+(OidcIdentityProviderConfigRequest
+ -&gt; OidcIdentityProviderConfigRequest -&gt; Bool)
+-&gt; (OidcIdentityProviderConfigRequest
+    -&gt; OidcIdentityProviderConfigRequest -&gt; Bool)
+-&gt; Eq OidcIdentityProviderConfigRequest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OidcIdentityProviderConfigRequest
+-&gt; OidcIdentityProviderConfigRequest -&gt; Bool
+$c/= :: OidcIdentityProviderConfigRequest
+-&gt; OidcIdentityProviderConfigRequest -&gt; Bool
+== :: OidcIdentityProviderConfigRequest
+-&gt; OidcIdentityProviderConfigRequest -&gt; Bool
+$c== :: OidcIdentityProviderConfigRequest
+-&gt; OidcIdentityProviderConfigRequest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268194"><span id="local-6989586621679268196"><span id="local-6989586621679268198"><span id="local-6989586621679268200"><span class="annot"><span class="annottext">ReadPrec [OidcIdentityProviderConfigRequest]
+ReadPrec OidcIdentityProviderConfigRequest
+Int -&gt; ReadS OidcIdentityProviderConfigRequest
+ReadS [OidcIdentityProviderConfigRequest]
+(Int -&gt; ReadS OidcIdentityProviderConfigRequest)
+-&gt; ReadS [OidcIdentityProviderConfigRequest]
+-&gt; ReadPrec OidcIdentityProviderConfigRequest
+-&gt; ReadPrec [OidcIdentityProviderConfigRequest]
+-&gt; Read OidcIdentityProviderConfigRequest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OidcIdentityProviderConfigRequest]
+$creadListPrec :: ReadPrec [OidcIdentityProviderConfigRequest]
+readPrec :: ReadPrec OidcIdentityProviderConfigRequest
+$creadPrec :: ReadPrec OidcIdentityProviderConfigRequest
+readList :: ReadS [OidcIdentityProviderConfigRequest]
+$creadList :: ReadS [OidcIdentityProviderConfigRequest]
+readsPrec :: Int -&gt; ReadS OidcIdentityProviderConfigRequest
+$creadsPrec :: Int -&gt; ReadS OidcIdentityProviderConfigRequest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268187"><span id="local-6989586621679268189"><span id="local-6989586621679268191"><span class="annot"><span class="annottext">Int -&gt; OidcIdentityProviderConfigRequest -&gt; ShowS
+[OidcIdentityProviderConfigRequest] -&gt; ShowS
+OidcIdentityProviderConfigRequest -&gt; String
+(Int -&gt; OidcIdentityProviderConfigRequest -&gt; ShowS)
+-&gt; (OidcIdentityProviderConfigRequest -&gt; String)
+-&gt; ([OidcIdentityProviderConfigRequest] -&gt; ShowS)
+-&gt; Show OidcIdentityProviderConfigRequest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OidcIdentityProviderConfigRequest] -&gt; ShowS
+$cshowList :: [OidcIdentityProviderConfigRequest] -&gt; ShowS
+show :: OidcIdentityProviderConfigRequest -&gt; String
+$cshow :: OidcIdentityProviderConfigRequest -&gt; String
+showsPrec :: Int -&gt; OidcIdentityProviderConfigRequest -&gt; ShowS
+$cshowsPrec :: Int -&gt; OidcIdentityProviderConfigRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ OidcIdentityProviderConfigRequest
+ -&gt; Rep OidcIdentityProviderConfigRequest x)
+-&gt; (forall x.
+    Rep OidcIdentityProviderConfigRequest x
+    -&gt; OidcIdentityProviderConfigRequest)
+-&gt; Generic OidcIdentityProviderConfigRequest
+forall x.
+Rep OidcIdentityProviderConfigRequest x
+-&gt; OidcIdentityProviderConfigRequest
+forall x.
+OidcIdentityProviderConfigRequest
+-&gt; Rep OidcIdentityProviderConfigRequest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep OidcIdentityProviderConfigRequest x
+-&gt; OidcIdentityProviderConfigRequest
+$cfrom :: forall x.
+OidcIdentityProviderConfigRequest
+-&gt; Rep OidcIdentityProviderConfigRequest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'OidcIdentityProviderConfigRequest' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'groupsPrefix', 'oidcIdentityProviderConfigRequest_groupsPrefix' - The prefix that is prepended to group claims to prevent clashes with</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- existing names (such as @system:@ groups). For example, the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- value@ oidc:@ will create group names like @oidc:engineering@ and</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- @oidc:infra@.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'groupsClaim', 'oidcIdentityProviderConfigRequest_groupsClaim' - The JWT claim that the provider uses to return your groups.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'requiredClaims', 'oidcIdentityProviderConfigRequest_requiredClaims' - The key value pairs that describe required claims in the identity token.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- If set, each claim is verified to be present in the token with a</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- matching value. For the maximum number of claims that you can require,</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html Amazon EKS service quotas&gt;</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'usernameClaim', 'oidcIdentityProviderConfigRequest_usernameClaim' - The JSON Web Token (JWT) claim to use as the username. The default is</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- @sub@, which is expected to be a unique identifier of the end user. You</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- can choose other claims, such as @email@ or @name@, depending on the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- OpenID identity provider. Claims other than @email@ are prefixed with</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- the issuer URL to prevent naming clashes with other plug-ins.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'usernamePrefix', 'oidcIdentityProviderConfigRequest_usernamePrefix' - The prefix that is prepended to username claims to prevent clashes with</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- existing names. If you do not provide this field, and @username@ is a</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- value other than @email@, the prefix defaults to @issuerurl#@. You can</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- use the value @-@ to disable all prefixing.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'identityProviderConfigName', 'oidcIdentityProviderConfigRequest_identityProviderConfigName' - The name of the OIDC provider configuration.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'issuerUrl', 'oidcIdentityProviderConfigRequest_issuerUrl' - The URL of the OpenID identity provider that allows the API server to</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- discover public signing keys for verifying tokens. The URL must begin</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- with @https:\/\/@ and should correspond to the @iss@ claim in the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- provider\'s OIDC ID tokens. Per the OIDC standard, path components are</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- allowed but query parameters are not. Typically the URL consists of only</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- a hostname, like @https:\/\/server.example.org@ or</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @https:\/\/example.com@. This URL should point to the level below</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- @.well-known\/openid-configuration@ and must be publicly accessible over</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- the internet.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'clientId', 'oidcIdentityProviderConfigRequest_clientId' - This is also known as /audience/. The ID for the client application that</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- makes authentication requests to the OpenID identity provider.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#newOidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">newOidcIdentityProviderConfigRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-comment">-- | 'identityProviderConfigName'</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-comment">-- | 'issuerUrl'</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-comment">-- | 'clientId'</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span>
+</span><span id="line-132"></span><span id="newOidcIdentityProviderConfigRequest"><span class="annot"><span class="annottext">newOidcIdentityProviderConfigRequest :: Text -&gt; Text -&gt; Text -&gt; OidcIdentityProviderConfigRequest
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#newOidcIdentityProviderConfigRequest"><span class="hs-identifier hs-var hs-var">newOidcIdentityProviderConfigRequest</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679268181"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268181"><span class="hs-identifier hs-var">pIdentityProviderConfigName_</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679268180"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268180"><span class="hs-identifier hs-var">pIssuerUrl_</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679268179"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268179"><span class="hs-identifier hs-var">pClientId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; OidcIdentityProviderConfigRequest
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupsPrefix:OidcIdentityProviderConfigRequest' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AgroupsPrefix%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">groupsPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:groupsClaim:OidcIdentityProviderConfigRequest' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AgroupsClaim%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">groupsClaim</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:requiredClaims:OidcIdentityProviderConfigRequest' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3ArequiredClaims%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">requiredClaims</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:usernameClaim:OidcIdentityProviderConfigRequest' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AusernameClaim%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">usernameClaim</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:usernamePrefix:OidcIdentityProviderConfigRequest' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AusernamePrefix%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">usernamePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityProviderConfigName:OidcIdentityProviderConfigRequest' :: Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AidentityProviderConfigName%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">identityProviderConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268181"><span class="hs-identifier hs-var">pIdentityProviderConfigName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:issuerUrl:OidcIdentityProviderConfigRequest' :: Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AissuerUrl%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">issuerUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268180"><span class="hs-identifier hs-var">pIssuerUrl_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientId:OidcIdentityProviderConfigRequest' :: Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AclientId%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268179"><span class="hs-identifier hs-var">pClientId_</span></a></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The prefix that is prepended to group claims to prevent clashes with</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- existing names (such as @system:@ groups). For example, the</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- value@ oidc:@ will create group names like @oidc:engineering@ and</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- @oidc:infra@.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_groupsPrefix"><span class="hs-identifier hs-type">oidcIdentityProviderConfigRequest_groupsPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="oidcIdentityProviderConfigRequest_groupsPrefix"><span class="annot"><span class="annottext">oidcIdentityProviderConfigRequest_groupsPrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OidcIdentityProviderConfigRequest
+-&gt; f OidcIdentityProviderConfigRequest
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_groupsPrefix"><span class="hs-identifier hs-var hs-var">oidcIdentityProviderConfigRequest_groupsPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OidcIdentityProviderConfigRequest -&gt; Maybe Text)
+-&gt; (OidcIdentityProviderConfigRequest
+    -&gt; Maybe Text -&gt; OidcIdentityProviderConfigRequest)
+-&gt; Lens
+     OidcIdentityProviderConfigRequest
+     OidcIdentityProviderConfigRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268175"><span class="annot"><span class="annottext">Maybe Text
+groupsPrefix :: Maybe Text
+$sel:groupsPrefix:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679268175"><span class="hs-identifier hs-var hs-var">groupsPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268175"><span class="hs-identifier hs-var">groupsPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268174"><span class="annot"><span class="annottext">s :: OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268173"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupsPrefix:OidcIdentityProviderConfigRequest' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AgroupsPrefix%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">groupsPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The JWT claim that the provider uses to return your groups.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_groupsClaim"><span class="hs-identifier hs-type">oidcIdentityProviderConfigRequest_groupsClaim</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="oidcIdentityProviderConfigRequest_groupsClaim"><span class="annot"><span class="annottext">oidcIdentityProviderConfigRequest_groupsClaim :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OidcIdentityProviderConfigRequest
+-&gt; f OidcIdentityProviderConfigRequest
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_groupsClaim"><span class="hs-identifier hs-var hs-var">oidcIdentityProviderConfigRequest_groupsClaim</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OidcIdentityProviderConfigRequest -&gt; Maybe Text)
+-&gt; (OidcIdentityProviderConfigRequest
+    -&gt; Maybe Text -&gt; OidcIdentityProviderConfigRequest)
+-&gt; Lens
+     OidcIdentityProviderConfigRequest
+     OidcIdentityProviderConfigRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268171"><span class="annot"><span class="annottext">Maybe Text
+groupsClaim :: Maybe Text
+$sel:groupsClaim:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679268171"><span class="hs-identifier hs-var hs-var">groupsClaim</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268171"><span class="hs-identifier hs-var">groupsClaim</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268170"><span class="annot"><span class="annottext">s :: OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268169"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupsClaim:OidcIdentityProviderConfigRequest' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AgroupsClaim%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">groupsClaim</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The key value pairs that describe required claims in the identity token.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- If set, each claim is verified to be present in the token with a</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- matching value. For the maximum number of claims that you can require,</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html Amazon EKS service quotas&gt;</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_requiredClaims"><span class="hs-identifier hs-type">oidcIdentityProviderConfigRequest_requiredClaims</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="oidcIdentityProviderConfigRequest_requiredClaims"><span class="annot"><span class="annottext">oidcIdentityProviderConfigRequest_requiredClaims :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; OidcIdentityProviderConfigRequest
+-&gt; f OidcIdentityProviderConfigRequest
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_requiredClaims"><span class="hs-identifier hs-var hs-var">oidcIdentityProviderConfigRequest_requiredClaims</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OidcIdentityProviderConfigRequest -&gt; Maybe (HashMap Text Text))
+-&gt; (OidcIdentityProviderConfigRequest
+    -&gt; Maybe (HashMap Text Text) -&gt; OidcIdentityProviderConfigRequest)
+-&gt; Lens
+     OidcIdentityProviderConfigRequest
+     OidcIdentityProviderConfigRequest
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268167"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+requiredClaims :: Maybe (HashMap Text Text)
+$sel:requiredClaims:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679268167"><span class="hs-identifier hs-var hs-var">requiredClaims</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679268167"><span class="hs-identifier hs-var">requiredClaims</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268166"><span class="annot"><span class="annottext">s :: OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268165"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679268165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requiredClaims:OidcIdentityProviderConfigRequest' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3ArequiredClaims%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">requiredClaims</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679268165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; OidcIdentityProviderConfigRequest
+ -&gt; f OidcIdentityProviderConfigRequest)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; OidcIdentityProviderConfigRequest
+-&gt; f OidcIdentityProviderConfigRequest
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The JSON Web Token (JWT) claim to use as the username. The default is</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- @sub@, which is expected to be a unique identifier of the end user. You</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- can choose other claims, such as @email@ or @name@, depending on the</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- OpenID identity provider. Claims other than @email@ are prefixed with</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- the issuer URL to prevent naming clashes with other plug-ins.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_usernameClaim"><span class="hs-identifier hs-type">oidcIdentityProviderConfigRequest_usernameClaim</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="oidcIdentityProviderConfigRequest_usernameClaim"><span class="annot"><span class="annottext">oidcIdentityProviderConfigRequest_usernameClaim :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OidcIdentityProviderConfigRequest
+-&gt; f OidcIdentityProviderConfigRequest
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_usernameClaim"><span class="hs-identifier hs-var hs-var">oidcIdentityProviderConfigRequest_usernameClaim</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OidcIdentityProviderConfigRequest -&gt; Maybe Text)
+-&gt; (OidcIdentityProviderConfigRequest
+    -&gt; Maybe Text -&gt; OidcIdentityProviderConfigRequest)
+-&gt; Lens
+     OidcIdentityProviderConfigRequest
+     OidcIdentityProviderConfigRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268160"><span class="annot"><span class="annottext">Maybe Text
+usernameClaim :: Maybe Text
+$sel:usernameClaim:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679268160"><span class="hs-identifier hs-var hs-var">usernameClaim</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268160"><span class="hs-identifier hs-var">usernameClaim</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268159"><span class="annot"><span class="annottext">s :: OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268158"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usernameClaim:OidcIdentityProviderConfigRequest' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AusernameClaim%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">usernameClaim</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The prefix that is prepended to username claims to prevent clashes with</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- existing names. If you do not provide this field, and @username@ is a</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- value other than @email@, the prefix defaults to @issuerurl#@. You can</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- use the value @-@ to disable all prefixing.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_usernamePrefix"><span class="hs-identifier hs-type">oidcIdentityProviderConfigRequest_usernamePrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="oidcIdentityProviderConfigRequest_usernamePrefix"><span class="annot"><span class="annottext">oidcIdentityProviderConfigRequest_usernamePrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OidcIdentityProviderConfigRequest
+-&gt; f OidcIdentityProviderConfigRequest
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_usernamePrefix"><span class="hs-identifier hs-var hs-var">oidcIdentityProviderConfigRequest_usernamePrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OidcIdentityProviderConfigRequest -&gt; Maybe Text)
+-&gt; (OidcIdentityProviderConfigRequest
+    -&gt; Maybe Text -&gt; OidcIdentityProviderConfigRequest)
+-&gt; Lens
+     OidcIdentityProviderConfigRequest
+     OidcIdentityProviderConfigRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268156"><span class="annot"><span class="annottext">Maybe Text
+usernamePrefix :: Maybe Text
+$sel:usernamePrefix:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679268156"><span class="hs-identifier hs-var hs-var">usernamePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268156"><span class="hs-identifier hs-var">usernamePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268155"><span class="annot"><span class="annottext">s :: OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268154"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usernamePrefix:OidcIdentityProviderConfigRequest' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AusernamePrefix%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">usernamePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The name of the OIDC provider configuration.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_identityProviderConfigName"><span class="hs-identifier hs-type">oidcIdentityProviderConfigRequest_identityProviderConfigName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-186"></span><span id="oidcIdentityProviderConfigRequest_identityProviderConfigName"><span class="annot"><span class="annottext">oidcIdentityProviderConfigRequest_identityProviderConfigName :: (Text -&gt; f Text)
+-&gt; OidcIdentityProviderConfigRequest
+-&gt; f OidcIdentityProviderConfigRequest
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_identityProviderConfigName"><span class="hs-identifier hs-var hs-var">oidcIdentityProviderConfigRequest_identityProviderConfigName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OidcIdentityProviderConfigRequest -&gt; Text)
+-&gt; (OidcIdentityProviderConfigRequest
+    -&gt; Text -&gt; OidcIdentityProviderConfigRequest)
+-&gt; Lens
+     OidcIdentityProviderConfigRequest
+     OidcIdentityProviderConfigRequest
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268152"><span class="annot"><span class="annottext">Text
+identityProviderConfigName :: Text
+$sel:identityProviderConfigName:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Text
+</span><a href="#local-6989586621679268152"><span class="hs-identifier hs-var hs-var">identityProviderConfigName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268152"><span class="hs-identifier hs-var">identityProviderConfigName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268151"><span class="annot"><span class="annottext">s :: OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268150"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityProviderConfigName:OidcIdentityProviderConfigRequest' :: Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AidentityProviderConfigName%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">identityProviderConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The URL of the OpenID identity provider that allows the API server to</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- discover public signing keys for verifying tokens. The URL must begin</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- with @https:\/\/@ and should correspond to the @iss@ claim in the</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- provider\'s OIDC ID tokens. Per the OIDC standard, path components are</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- allowed but query parameters are not. Typically the URL consists of only</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- a hostname, like @https:\/\/server.example.org@ or</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- @https:\/\/example.com@. This URL should point to the level below</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- @.well-known\/openid-configuration@ and must be publicly accessible over</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- the internet.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_issuerUrl"><span class="hs-identifier hs-type">oidcIdentityProviderConfigRequest_issuerUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-198"></span><span id="oidcIdentityProviderConfigRequest_issuerUrl"><span class="annot"><span class="annottext">oidcIdentityProviderConfigRequest_issuerUrl :: (Text -&gt; f Text)
+-&gt; OidcIdentityProviderConfigRequest
+-&gt; f OidcIdentityProviderConfigRequest
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_issuerUrl"><span class="hs-identifier hs-var hs-var">oidcIdentityProviderConfigRequest_issuerUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OidcIdentityProviderConfigRequest -&gt; Text)
+-&gt; (OidcIdentityProviderConfigRequest
+    -&gt; Text -&gt; OidcIdentityProviderConfigRequest)
+-&gt; Lens
+     OidcIdentityProviderConfigRequest
+     OidcIdentityProviderConfigRequest
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268148"><span class="annot"><span class="annottext">Text
+issuerUrl :: Text
+$sel:issuerUrl:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Text
+</span><a href="#local-6989586621679268148"><span class="hs-identifier hs-var hs-var">issuerUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268148"><span class="hs-identifier hs-var">issuerUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268147"><span class="annot"><span class="annottext">s :: OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268146"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issuerUrl:OidcIdentityProviderConfigRequest' :: Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AissuerUrl%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">issuerUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | This is also known as /audience/. The ID for the client application that</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- makes authentication requests to the OpenID identity provider.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_clientId"><span class="hs-identifier hs-type">oidcIdentityProviderConfigRequest_clientId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-203"></span><span id="oidcIdentityProviderConfigRequest_clientId"><span class="annot"><span class="annottext">oidcIdentityProviderConfigRequest_clientId :: (Text -&gt; f Text)
+-&gt; OidcIdentityProviderConfigRequest
+-&gt; f OidcIdentityProviderConfigRequest
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#oidcIdentityProviderConfigRequest_clientId"><span class="hs-identifier hs-var hs-var">oidcIdentityProviderConfigRequest_clientId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OidcIdentityProviderConfigRequest -&gt; Text)
+-&gt; (OidcIdentityProviderConfigRequest
+    -&gt; Text -&gt; OidcIdentityProviderConfigRequest)
+-&gt; Lens
+     OidcIdentityProviderConfigRequest
+     OidcIdentityProviderConfigRequest
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268144"><span class="annot"><span class="annottext">Text
+clientId :: Text
+$sel:clientId:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Text
+</span><a href="#local-6989586621679268144"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268144"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268143"><span class="annot"><span class="annottext">s :: OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268142"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcIdentityProviderConfigRequest
+</span><a href="#local-6989586621679268143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:OidcIdentityProviderConfigRequest' :: Text
+</span><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#%24sel%3AclientId%3AOidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679268138"><span id="local-6989586621679268140"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span></span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679268135"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679268127"><span id="local-6989586621679268129"><span id="local-6989586621679268131"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest</span></a></span></span></span></span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679268125"><span class="annot"><span class="annottext">toJSON :: OidcIdentityProviderConfigRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest.html#OidcIdentityProviderConfigRequest%27"><span class="hs-identifier hs-type">OidcIdentityProviderConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268116"><span id="local-6989586621679268117"><span id="local-6989586621679268118"><span id="local-6989586621679268119"><span id="local-6989586621679268120"><span id="local-6989586621679268121"><span id="local-6989586621679268122"><span id="local-6989586621679268123"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Text
+clientId :: Text
+issuerUrl :: Text
+identityProviderConfigName :: Text
+usernamePrefix :: Maybe Text
+usernameClaim :: Maybe Text
+requiredClaims :: Maybe (HashMap Text Text)
+groupsClaim :: Maybe Text
+groupsPrefix :: Maybe Text
+$sel:clientId:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Text
+$sel:issuerUrl:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Text
+$sel:identityProviderConfigName:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Text
+$sel:usernamePrefix:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Maybe Text
+$sel:usernameClaim:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Maybe Text
+$sel:requiredClaims:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Maybe (HashMap Text Text)
+$sel:groupsClaim:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Maybe Text
+$sel:groupsPrefix:OidcIdentityProviderConfigRequest' :: OidcIdentityProviderConfigRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679268116"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;groupsPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268123"><span class="hs-identifier hs-var">groupsPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;groupsClaim&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268122"><span class="hs-identifier hs-var">groupsClaim</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;requiredClaims&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679268121"><span class="hs-identifier hs-var">requiredClaims</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;usernameClaim&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268120"><span class="hs-identifier hs-var">usernameClaim</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;usernamePrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268119"><span class="hs-identifier hs-var">usernamePrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-228"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;identityProviderConfigName&quot;</span></span><span>
+</span><span id="line-229"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268118"><span class="hs-identifier hs-var">identityProviderConfigName</span></a></span><span>
+</span><span id="line-230"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;issuerUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268117"><span class="hs-identifier hs-var">issuerUrl</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268116"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-234"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span></pre></body></html>

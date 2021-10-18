@@ -1,0 +1,686 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Connect.ListSecurityKeys</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This API is in preview release for Amazon Connect and is subject to</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- change.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Returns a paginated list of all security keys associated with the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Connect.ListSecurityKeys</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier">ListSecurityKeys</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#newListSecurityKeys"><span class="hs-identifier">newListSecurityKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeys_nextToken"><span class="hs-identifier">listSecurityKeys_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeys_maxResults"><span class="hs-identifier">listSecurityKeys_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeys_instanceId"><span class="hs-identifier">listSecurityKeys_instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse"><span class="hs-identifier">ListSecurityKeysResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#newListSecurityKeysResponse"><span class="hs-identifier">newListSecurityKeysResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeysResponse_nextToken"><span class="hs-identifier">listSecurityKeysResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeysResponse_securityKeys"><span class="hs-identifier">listSecurityKeysResponse_securityKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeysResponse_httpStatus"><span class="hs-identifier">listSecurityKeysResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.html"><span class="hs-identifier">Network.AWS.Connect.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListSecurityKeys' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679412355"><span id="local-6989586621679412356"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSecurityKeys"><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-var">ListSecurityKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSecurityKeys%27"><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys%27"><span class="hs-identifier hs-var">ListSecurityKeys'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results. Use the value returned in the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- previous response in the next request to retrieve the next set of</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3AListSecurityKeys%27"><span class="annot"><span class="annottext">ListSecurityKeys -&gt; Maybe Text
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AnextToken%3AListSecurityKeys%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return per page.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxResults%3AListSecurityKeys%27"><span class="annot"><span class="annottext">ListSecurityKeys -&gt; Maybe Natural
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AmaxResults%3AListSecurityKeys%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AinstanceId%3AListSecurityKeys%27"><span class="annot"><span class="annottext">ListSecurityKeys -&gt; Text
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AinstanceId%3AListSecurityKeys%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412347"><span id="local-6989586621679412349"><span class="annot"><span class="annottext">ListSecurityKeys -&gt; ListSecurityKeys -&gt; Bool
+(ListSecurityKeys -&gt; ListSecurityKeys -&gt; Bool)
+-&gt; (ListSecurityKeys -&gt; ListSecurityKeys -&gt; Bool)
+-&gt; Eq ListSecurityKeys
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListSecurityKeys -&gt; ListSecurityKeys -&gt; Bool
+$c/= :: ListSecurityKeys -&gt; ListSecurityKeys -&gt; Bool
+== :: ListSecurityKeys -&gt; ListSecurityKeys -&gt; Bool
+$c== :: ListSecurityKeys -&gt; ListSecurityKeys -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412338"><span id="local-6989586621679412340"><span id="local-6989586621679412342"><span id="local-6989586621679412344"><span class="annot"><span class="annottext">ReadPrec [ListSecurityKeys]
+ReadPrec ListSecurityKeys
+Int -&gt; ReadS ListSecurityKeys
+ReadS [ListSecurityKeys]
+(Int -&gt; ReadS ListSecurityKeys)
+-&gt; ReadS [ListSecurityKeys]
+-&gt; ReadPrec ListSecurityKeys
+-&gt; ReadPrec [ListSecurityKeys]
+-&gt; Read ListSecurityKeys
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListSecurityKeys]
+$creadListPrec :: ReadPrec [ListSecurityKeys]
+readPrec :: ReadPrec ListSecurityKeys
+$creadPrec :: ReadPrec ListSecurityKeys
+readList :: ReadS [ListSecurityKeys]
+$creadList :: ReadS [ListSecurityKeys]
+readsPrec :: Int -&gt; ReadS ListSecurityKeys
+$creadsPrec :: Int -&gt; ReadS ListSecurityKeys
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412331"><span id="local-6989586621679412333"><span id="local-6989586621679412335"><span class="annot"><span class="annottext">Int -&gt; ListSecurityKeys -&gt; ShowS
+[ListSecurityKeys] -&gt; ShowS
+ListSecurityKeys -&gt; String
+(Int -&gt; ListSecurityKeys -&gt; ShowS)
+-&gt; (ListSecurityKeys -&gt; String)
+-&gt; ([ListSecurityKeys] -&gt; ShowS)
+-&gt; Show ListSecurityKeys
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListSecurityKeys] -&gt; ShowS
+$cshowList :: [ListSecurityKeys] -&gt; ShowS
+show :: ListSecurityKeys -&gt; String
+$cshow :: ListSecurityKeys -&gt; String
+showsPrec :: Int -&gt; ListSecurityKeys -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListSecurityKeys -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListSecurityKeys -&gt; Rep ListSecurityKeys x)
+-&gt; (forall x. Rep ListSecurityKeys x -&gt; ListSecurityKeys)
+-&gt; Generic ListSecurityKeys
+forall x. Rep ListSecurityKeys x -&gt; ListSecurityKeys
+forall x. ListSecurityKeys -&gt; Rep ListSecurityKeys x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListSecurityKeys x -&gt; ListSecurityKeys
+$cfrom :: forall x. ListSecurityKeys -&gt; Rep ListSecurityKeys x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'ListSecurityKeys' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'nextToken', 'listSecurityKeys_nextToken' - The token for the next set of results. Use the value returned in the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- previous response in the next request to retrieve the next set of</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'maxResults', 'listSecurityKeys_maxResults' - The maximum number of results to return per page.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'instanceId', 'listSecurityKeys_instanceId' - The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#newListSecurityKeys"><span class="hs-identifier hs-type">newListSecurityKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'instanceId'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-type">ListSecurityKeys</span></a></span><span>
+</span><span id="line-92"></span><span id="newListSecurityKeys"><span class="annot"><span class="annottext">newListSecurityKeys :: Text -&gt; ListSecurityKeys
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#newListSecurityKeys"><span class="hs-identifier hs-var hs-var">newListSecurityKeys</span></a></span></span><span> </span><span id="local-6989586621679412326"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412326"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">ListSecurityKeys' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListSecurityKeys
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys%27"><span class="hs-identifier hs-type">ListSecurityKeys'</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListSecurityKeys' :: Maybe Text
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AnextToken%3AListSecurityKeys%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListSecurityKeys' :: Maybe Natural
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AmaxResults%3AListSecurityKeys%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:ListSecurityKeys' :: Text
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AinstanceId%3AListSecurityKeys%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412326"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The token for the next set of results. Use the value returned in the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- previous response in the next request to retrieve the next set of</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeys_nextToken"><span class="hs-identifier hs-type">listSecurityKeys_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-type">ListSecurityKeys</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="listSecurityKeys_nextToken"><span class="annot"><span class="annottext">listSecurityKeys_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListSecurityKeys -&gt; f ListSecurityKeys
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeys_nextToken"><span class="hs-identifier hs-var hs-var">listSecurityKeys_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSecurityKeys -&gt; Maybe Text)
+-&gt; (ListSecurityKeys -&gt; Maybe Text -&gt; ListSecurityKeys)
+-&gt; Lens ListSecurityKeys ListSecurityKeys (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys%27"><span class="hs-identifier hs-type">ListSecurityKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412324"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListSecurityKeys' :: ListSecurityKeys -&gt; Maybe Text
+</span><a href="#local-6989586621679412324"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412324"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412323"><span class="annot"><span class="annottext">s :: ListSecurityKeys
+</span><a href="#local-6989586621679412323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys%27"><span class="hs-identifier hs-type">ListSecurityKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412322"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityKeys
+</span><a href="#local-6989586621679412323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSecurityKeys' :: Maybe Text
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AnextToken%3AListSecurityKeys%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-type">ListSecurityKeys</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The maximum number of results to return per page.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeys_maxResults"><span class="hs-identifier hs-type">listSecurityKeys_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-type">ListSecurityKeys</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="listSecurityKeys_maxResults"><span class="annot"><span class="annottext">listSecurityKeys_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListSecurityKeys -&gt; f ListSecurityKeys
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeys_maxResults"><span class="hs-identifier hs-var hs-var">listSecurityKeys_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSecurityKeys -&gt; Maybe Natural)
+-&gt; (ListSecurityKeys -&gt; Maybe Natural -&gt; ListSecurityKeys)
+-&gt; Lens
+     ListSecurityKeys ListSecurityKeys (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys%27"><span class="hs-identifier hs-type">ListSecurityKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412321"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListSecurityKeys' :: ListSecurityKeys -&gt; Maybe Natural
+</span><a href="#local-6989586621679412321"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679412321"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412320"><span class="annot"><span class="annottext">s :: ListSecurityKeys
+</span><a href="#local-6989586621679412320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys%27"><span class="hs-identifier hs-type">ListSecurityKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412319"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679412319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityKeys
+</span><a href="#local-6989586621679412320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListSecurityKeys' :: Maybe Natural
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AmaxResults%3AListSecurityKeys%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679412319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-type">ListSecurityKeys</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeys_instanceId"><span class="hs-identifier hs-type">listSecurityKeys_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-type">ListSecurityKeys</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="listSecurityKeys_instanceId"><span class="annot"><span class="annottext">listSecurityKeys_instanceId :: (Text -&gt; f Text) -&gt; ListSecurityKeys -&gt; f ListSecurityKeys
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeys_instanceId"><span class="hs-identifier hs-var hs-var">listSecurityKeys_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSecurityKeys -&gt; Text)
+-&gt; (ListSecurityKeys -&gt; Text -&gt; ListSecurityKeys)
+-&gt; Lens ListSecurityKeys ListSecurityKeys Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys%27"><span class="hs-identifier hs-type">ListSecurityKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412318"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:ListSecurityKeys' :: ListSecurityKeys -&gt; Text
+</span><a href="#local-6989586621679412318"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412318"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412317"><span class="annot"><span class="annottext">s :: ListSecurityKeys
+</span><a href="#local-6989586621679412317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys%27"><span class="hs-identifier hs-type">ListSecurityKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412316"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityKeys
+</span><a href="#local-6989586621679412317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ListSecurityKeys' :: Text
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AinstanceId%3AListSecurityKeys%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-type">ListSecurityKeys</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-type">ListSecurityKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679412312"><span class="annot"><span class="annottext">page :: ListSecurityKeys
+-&gt; AWSResponse ListSecurityKeys -&gt; Maybe ListSecurityKeys
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679412310"><span class="annot"><span class="annottext">ListSecurityKeys
+</span><a href="#local-6989586621679412310"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679412309"><span class="annot"><span class="annottext">AWSResponse ListSecurityKeys
+</span><a href="#local-6989586621679412309"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-117"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSecurityKeys
+ListSecurityKeysResponse
+</span><a href="#local-6989586621679412309"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">ListSecurityKeysResponse
+-&gt; Getting (First Text) ListSecurityKeysResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListSecurityKeysResponse
+-&gt; Const (First Text) ListSecurityKeysResponse
+Lens' ListSecurityKeysResponse (Maybe Text)
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeysResponse_nextToken"><span class="hs-identifier hs-var">listSecurityKeysResponse_nextToken</span></a></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListSecurityKeysResponse
+ -&gt; Const (First Text) ListSecurityKeysResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListSecurityKeysResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-120"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListSecurityKeys
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityKey] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSecurityKeys
+ListSecurityKeysResponse
+</span><a href="#local-6989586621679412309"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">ListSecurityKeysResponse
+-&gt; Getting
+     (First [SecurityKey]) ListSecurityKeysResponse [SecurityKey]
+-&gt; Maybe [SecurityKey]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [SecurityKey]
+ -&gt; Const (First [SecurityKey]) (Maybe [SecurityKey]))
+-&gt; ListSecurityKeysResponse
+-&gt; Const (First [SecurityKey]) ListSecurityKeysResponse
+Lens' ListSecurityKeysResponse (Maybe [SecurityKey])
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeysResponse_securityKeys"><span class="hs-identifier hs-var">listSecurityKeysResponse_securityKeys</span></a></span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [SecurityKey]
+  -&gt; Const (First [SecurityKey]) (Maybe [SecurityKey]))
+ -&gt; ListSecurityKeysResponse
+ -&gt; Const (First [SecurityKey]) ListSecurityKeysResponse)
+-&gt; (([SecurityKey] -&gt; Const (First [SecurityKey]) [SecurityKey])
+    -&gt; Maybe [SecurityKey]
+    -&gt; Const (First [SecurityKey]) (Maybe [SecurityKey]))
+-&gt; Getting
+     (First [SecurityKey]) ListSecurityKeysResponse [SecurityKey]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([SecurityKey] -&gt; Const (First [SecurityKey]) [SecurityKey])
+-&gt; Maybe [SecurityKey]
+-&gt; Const (First [SecurityKey]) (Maybe [SecurityKey])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-126"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListSecurityKeys
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">ListSecurityKeys -&gt; Maybe ListSecurityKeys
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListSecurityKeys -&gt; Maybe ListSecurityKeys)
+-&gt; ListSecurityKeys -&gt; Maybe ListSecurityKeys
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ListSecurityKeys
+</span><a href="#local-6989586621679412310"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">ListSecurityKeys
+-&gt; (ListSecurityKeys -&gt; ListSecurityKeys) -&gt; ListSecurityKeys
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListSecurityKeys -&gt; Identity ListSecurityKeys
+Lens ListSecurityKeys ListSecurityKeys (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeys_nextToken"><span class="hs-identifier hs-var">listSecurityKeys_nextToken</span></a></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListSecurityKeys -&gt; Identity ListSecurityKeys)
+-&gt; Maybe Text -&gt; ListSecurityKeys -&gt; ListSecurityKeys
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSecurityKeys
+ListSecurityKeysResponse
+</span><a href="#local-6989586621679412309"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">ListSecurityKeysResponse
+-&gt; Getting (First Text) ListSecurityKeysResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListSecurityKeysResponse
+-&gt; Const (First Text) ListSecurityKeysResponse
+Lens' ListSecurityKeysResponse (Maybe Text)
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeysResponse_nextToken"><span class="hs-identifier hs-var">listSecurityKeysResponse_nextToken</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListSecurityKeysResponse
+ -&gt; Const (First Text) ListSecurityKeysResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListSecurityKeysResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-type">ListSecurityKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-138"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-type">ListSecurityKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse"><span class="hs-identifier hs-type">ListSecurityKeysResponse</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679412299"><span class="annot"><span class="annottext">request :: ListSecurityKeys -&gt; Request ListSecurityKeys
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListSecurityKeys -&gt; Request ListSecurityKeys
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679412295"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListSecurityKeys
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListSecurityKeys)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListSecurityKeys))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListSecurityKeys
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListSecurityKeys)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679412292"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412292"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679412291"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679412291"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679412290"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679412290"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [SecurityKey] -&gt; Int -&gt; ListSecurityKeysResponse
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse%27"><span class="hs-identifier hs-var">ListSecurityKeysResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [SecurityKey] -&gt; Int -&gt; ListSecurityKeysResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [SecurityKey] -&gt; Int -&gt; ListSecurityKeysResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679412290"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [SecurityKey] -&gt; Int -&gt; ListSecurityKeysResponse)
+-&gt; Either String (Maybe [SecurityKey])
+-&gt; Either String (Int -&gt; ListSecurityKeysResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679412290"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SecurityKey]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecurityKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SecurityKey]))
+-&gt; Maybe [SecurityKey] -&gt; Either String (Maybe [SecurityKey])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityKey]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListSecurityKeysResponse)
+-&gt; Either String Int -&gt; Either String ListSecurityKeysResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412292"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412281"><span id="local-6989586621679412283"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-type">ListSecurityKeys</span></a></span></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412278"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-type">ListSecurityKeys</span></a></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-type">ListSecurityKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679412274"><span class="annot"><span class="annottext">toHeaders :: ListSecurityKeys -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListSecurityKeys -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-161"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-type">ListSecurityKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679412268"><span class="annot"><span class="annottext">toPath :: ListSecurityKeys -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys%27"><span class="hs-identifier hs-type">ListSecurityKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412264"><span id="local-6989586621679412265"><span id="local-6989586621679412266"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+instanceId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:instanceId:ListSecurityKeys' :: ListSecurityKeys -&gt; Text
+$sel:maxResults:ListSecurityKeys' :: ListSecurityKeys -&gt; Maybe Natural
+$sel:nextToken:ListSecurityKeys' :: ListSecurityKeys -&gt; Maybe Text
+</span><a href="#local-6989586621679412264"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/instance/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412264"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/security-keys&quot;</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys"><span class="hs-identifier hs-type">ListSecurityKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679412260"><span class="annot"><span class="annottext">toQuery :: ListSecurityKeys -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeys%27"><span class="hs-identifier hs-type">ListSecurityKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412256"><span id="local-6989586621679412257"><span id="local-6989586621679412258"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+instanceId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:instanceId:ListSecurityKeys' :: ListSecurityKeys -&gt; Text
+$sel:maxResults:ListSecurityKeys' :: ListSecurityKeys -&gt; Maybe Natural
+$sel:nextToken:ListSecurityKeys' :: ListSecurityKeys -&gt; Maybe Text
+</span><a href="#local-6989586621679412256"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412258"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679412257"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | /See:/ 'newListSecurityKeysResponse' smart constructor.</span><span>
+</span><span id="line-181"></span><span id="local-6989586621679412253"><span id="local-6989586621679412254"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSecurityKeysResponse"><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse"><span class="hs-identifier hs-var">ListSecurityKeysResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSecurityKeysResponse%27"><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse%27"><span class="hs-identifier hs-var">ListSecurityKeysResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AnextToken%3AListSecurityKeysResponse%27"><span class="annot"><span class="annottext">ListSecurityKeysResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AnextToken%3AListSecurityKeysResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The security keys.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AsecurityKeys%3AListSecurityKeysResponse%27"><span class="annot"><span class="annottext">ListSecurityKeysResponse -&gt; Maybe [SecurityKey]
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AsecurityKeys%3AListSecurityKeysResponse%27"><span class="hs-identifier hs-var hs-var">securityKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.SecurityKey.html#SecurityKey"><span class="hs-identifier hs-type">SecurityKey</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListSecurityKeysResponse%27"><span class="annot"><span class="annottext">ListSecurityKeysResponse -&gt; Int
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AhttpStatus%3AListSecurityKeysResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412246"><span id="local-6989586621679412248"><span class="annot"><span class="annottext">ListSecurityKeysResponse -&gt; ListSecurityKeysResponse -&gt; Bool
+(ListSecurityKeysResponse -&gt; ListSecurityKeysResponse -&gt; Bool)
+-&gt; (ListSecurityKeysResponse -&gt; ListSecurityKeysResponse -&gt; Bool)
+-&gt; Eq ListSecurityKeysResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListSecurityKeysResponse -&gt; ListSecurityKeysResponse -&gt; Bool
+$c/= :: ListSecurityKeysResponse -&gt; ListSecurityKeysResponse -&gt; Bool
+== :: ListSecurityKeysResponse -&gt; ListSecurityKeysResponse -&gt; Bool
+$c== :: ListSecurityKeysResponse -&gt; ListSecurityKeysResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412238"><span id="local-6989586621679412240"><span id="local-6989586621679412242"><span id="local-6989586621679412244"><span class="annot"><span class="annottext">ReadPrec [ListSecurityKeysResponse]
+ReadPrec ListSecurityKeysResponse
+Int -&gt; ReadS ListSecurityKeysResponse
+ReadS [ListSecurityKeysResponse]
+(Int -&gt; ReadS ListSecurityKeysResponse)
+-&gt; ReadS [ListSecurityKeysResponse]
+-&gt; ReadPrec ListSecurityKeysResponse
+-&gt; ReadPrec [ListSecurityKeysResponse]
+-&gt; Read ListSecurityKeysResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListSecurityKeysResponse]
+$creadListPrec :: ReadPrec [ListSecurityKeysResponse]
+readPrec :: ReadPrec ListSecurityKeysResponse
+$creadPrec :: ReadPrec ListSecurityKeysResponse
+readList :: ReadS [ListSecurityKeysResponse]
+$creadList :: ReadS [ListSecurityKeysResponse]
+readsPrec :: Int -&gt; ReadS ListSecurityKeysResponse
+$creadsPrec :: Int -&gt; ReadS ListSecurityKeysResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412232"><span id="local-6989586621679412234"><span id="local-6989586621679412236"><span class="annot"><span class="annottext">Int -&gt; ListSecurityKeysResponse -&gt; ShowS
+[ListSecurityKeysResponse] -&gt; ShowS
+ListSecurityKeysResponse -&gt; String
+(Int -&gt; ListSecurityKeysResponse -&gt; ShowS)
+-&gt; (ListSecurityKeysResponse -&gt; String)
+-&gt; ([ListSecurityKeysResponse] -&gt; ShowS)
+-&gt; Show ListSecurityKeysResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListSecurityKeysResponse] -&gt; ShowS
+$cshowList :: [ListSecurityKeysResponse] -&gt; ShowS
+show :: ListSecurityKeysResponse -&gt; String
+$cshow :: ListSecurityKeysResponse -&gt; String
+showsPrec :: Int -&gt; ListSecurityKeysResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListSecurityKeysResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListSecurityKeysResponse -&gt; Rep ListSecurityKeysResponse x)
+-&gt; (forall x.
+    Rep ListSecurityKeysResponse x -&gt; ListSecurityKeysResponse)
+-&gt; Generic ListSecurityKeysResponse
+forall x.
+Rep ListSecurityKeysResponse x -&gt; ListSecurityKeysResponse
+forall x.
+ListSecurityKeysResponse -&gt; Rep ListSecurityKeysResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListSecurityKeysResponse x -&gt; ListSecurityKeysResponse
+$cfrom :: forall x.
+ListSecurityKeysResponse -&gt; Rep ListSecurityKeysResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Create a value of 'ListSecurityKeysResponse' with all optional fields omitted.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'nextToken', 'listSecurityKeysResponse_nextToken' - If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'securityKeys', 'listSecurityKeysResponse_securityKeys' - The security keys.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'httpStatus', 'listSecurityKeysResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#newListSecurityKeysResponse"><span class="hs-identifier hs-type">newListSecurityKeysResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse"><span class="hs-identifier hs-type">ListSecurityKeysResponse</span></a></span><span>
+</span><span id="line-210"></span><span id="newListSecurityKeysResponse"><span class="annot"><span class="annottext">newListSecurityKeysResponse :: Int -&gt; ListSecurityKeysResponse
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#newListSecurityKeysResponse"><span class="hs-identifier hs-var hs-var">newListSecurityKeysResponse</span></a></span></span><span> </span><span id="local-6989586621679412229"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412229"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><span class="annottext">ListSecurityKeysResponse' :: Maybe Text
+-&gt; Maybe [SecurityKey] -&gt; Int -&gt; ListSecurityKeysResponse
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse%27"><span class="hs-identifier hs-type">ListSecurityKeysResponse'</span></a></span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListSecurityKeysResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AnextToken%3AListSecurityKeysResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityKeys:ListSecurityKeysResponse' :: Maybe [SecurityKey]
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AsecurityKeys%3AListSecurityKeysResponse%27"><span class="hs-identifier hs-var">securityKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityKey]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListSecurityKeysResponse' :: Int
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AhttpStatus%3AListSecurityKeysResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412229"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeysResponse_nextToken"><span class="hs-identifier hs-type">listSecurityKeysResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse"><span class="hs-identifier hs-type">ListSecurityKeysResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="listSecurityKeysResponse_nextToken"><span class="annot"><span class="annottext">listSecurityKeysResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListSecurityKeysResponse -&gt; f ListSecurityKeysResponse
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeysResponse_nextToken"><span class="hs-identifier hs-var hs-var">listSecurityKeysResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSecurityKeysResponse -&gt; Maybe Text)
+-&gt; (ListSecurityKeysResponse
+    -&gt; Maybe Text -&gt; ListSecurityKeysResponse)
+-&gt; Lens' ListSecurityKeysResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse%27"><span class="hs-identifier hs-type">ListSecurityKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412228"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListSecurityKeysResponse' :: ListSecurityKeysResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679412228"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412228"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412227"><span class="annot"><span class="annottext">s :: ListSecurityKeysResponse
+</span><a href="#local-6989586621679412227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse%27"><span class="hs-identifier hs-type">ListSecurityKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412226"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityKeysResponse
+</span><a href="#local-6989586621679412227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSecurityKeysResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AnextToken%3AListSecurityKeysResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse"><span class="hs-identifier hs-type">ListSecurityKeysResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The security keys.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeysResponse_securityKeys"><span class="hs-identifier hs-type">listSecurityKeysResponse_securityKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse"><span class="hs-identifier hs-type">ListSecurityKeysResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.SecurityKey.html#SecurityKey"><span class="hs-identifier hs-type">SecurityKey</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="listSecurityKeysResponse_securityKeys"><span class="annot"><span class="annottext">listSecurityKeysResponse_securityKeys :: (Maybe [SecurityKey] -&gt; f (Maybe [SecurityKey]))
+-&gt; ListSecurityKeysResponse -&gt; f ListSecurityKeysResponse
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeysResponse_securityKeys"><span class="hs-identifier hs-var hs-var">listSecurityKeysResponse_securityKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSecurityKeysResponse -&gt; Maybe [SecurityKey])
+-&gt; (ListSecurityKeysResponse
+    -&gt; Maybe [SecurityKey] -&gt; ListSecurityKeysResponse)
+-&gt; Lens' ListSecurityKeysResponse (Maybe [SecurityKey])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse%27"><span class="hs-identifier hs-type">ListSecurityKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412225"><span class="annot"><span class="annottext">Maybe [SecurityKey]
+securityKeys :: Maybe [SecurityKey]
+$sel:securityKeys:ListSecurityKeysResponse' :: ListSecurityKeysResponse -&gt; Maybe [SecurityKey]
+</span><a href="#local-6989586621679412225"><span class="hs-identifier hs-var hs-var">securityKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityKey]
+</span><a href="#local-6989586621679412225"><span class="hs-identifier hs-var">securityKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412224"><span class="annot"><span class="annottext">s :: ListSecurityKeysResponse
+</span><a href="#local-6989586621679412224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse%27"><span class="hs-identifier hs-type">ListSecurityKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412223"><span class="annot"><span class="annottext">Maybe [SecurityKey]
+</span><a href="#local-6989586621679412223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityKeysResponse
+</span><a href="#local-6989586621679412224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityKeys:ListSecurityKeysResponse' :: Maybe [SecurityKey]
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AsecurityKeys%3AListSecurityKeysResponse%27"><span class="hs-identifier hs-var">securityKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityKey]
+</span><a href="#local-6989586621679412223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse"><span class="hs-identifier hs-type">ListSecurityKeysResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SecurityKey] -&gt; f (Maybe [SecurityKey]))
+ -&gt; ListSecurityKeysResponse -&gt; f ListSecurityKeysResponse)
+-&gt; ((Maybe [SecurityKey] -&gt; f (Maybe [SecurityKey]))
+    -&gt; Maybe [SecurityKey] -&gt; f (Maybe [SecurityKey]))
+-&gt; (Maybe [SecurityKey] -&gt; f (Maybe [SecurityKey]))
+-&gt; ListSecurityKeysResponse
+-&gt; f ListSecurityKeysResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SecurityKey] [SecurityKey] [SecurityKey] [SecurityKey]
+-&gt; Iso
+     (Maybe [SecurityKey])
+     (Maybe [SecurityKey])
+     (Maybe [SecurityKey])
+     (Maybe [SecurityKey])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SecurityKey] [SecurityKey] [SecurityKey] [SecurityKey]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeysResponse_httpStatus"><span class="hs-identifier hs-type">listSecurityKeysResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse"><span class="hs-identifier hs-type">ListSecurityKeysResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-229"></span><span id="listSecurityKeysResponse_httpStatus"><span class="annot"><span class="annottext">listSecurityKeysResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListSecurityKeysResponse -&gt; f ListSecurityKeysResponse
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#listSecurityKeysResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listSecurityKeysResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSecurityKeysResponse -&gt; Int)
+-&gt; (ListSecurityKeysResponse -&gt; Int -&gt; ListSecurityKeysResponse)
+-&gt; Lens ListSecurityKeysResponse ListSecurityKeysResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse%27"><span class="hs-identifier hs-type">ListSecurityKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412220"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListSecurityKeysResponse' :: ListSecurityKeysResponse -&gt; Int
+</span><a href="#local-6989586621679412220"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412220"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412219"><span class="annot"><span class="annottext">s :: ListSecurityKeysResponse
+</span><a href="#local-6989586621679412219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse%27"><span class="hs-identifier hs-type">ListSecurityKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412218"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityKeysResponse
+</span><a href="#local-6989586621679412219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSecurityKeysResponse' :: Int
+</span><a href="Network.AWS.Connect.ListSecurityKeys.html#%24sel%3AhttpStatus%3AListSecurityKeysResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse"><span class="hs-identifier hs-type">ListSecurityKeysResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412216"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListSecurityKeys.html#ListSecurityKeysResponse"><span class="hs-identifier hs-type">ListSecurityKeysResponse</span></a></span></span><span>
+</span><span id="line-232"></span></pre></body></html>

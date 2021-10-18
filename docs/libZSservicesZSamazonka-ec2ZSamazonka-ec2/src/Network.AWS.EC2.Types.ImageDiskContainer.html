@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.ImageDiskContainer</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.ImageDiskContainer</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html"><span class="hs-identifier">Network.AWS.EC2.Types.UserBucket</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the disk container object for an import image task.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newImageDiskContainer' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621681142207"><span id="local-6989586621681142208"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImageDiskContainer"><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-var">ImageDiskContainer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageDiskContainer%27"><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer%27"><span class="hs-identifier hs-var">ImageDiskContainer'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The format of the disk image being imported.</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Valid values: @OVA@ | @VHD@ | @VHDX@ | @VMDK@ | @RAW@</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aformat%3AImageDiskContainer%27"><span class="annot"><span class="annottext">ImageDiskContainer -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3Aformat%3AImageDiskContainer%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The block device mapping for the disk.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdeviceName%3AImageDiskContainer%27"><span class="annot"><span class="annottext">ImageDiskContainer -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3AdeviceName%3AImageDiskContainer%27"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The S3 bucket for the disk image.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AuserBucket%3AImageDiskContainer%27"><span class="annot"><span class="annottext">ImageDiskContainer -&gt; Maybe UserBucket
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3AuserBucket%3AImageDiskContainer%27"><span class="hs-identifier hs-var hs-var">userBucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ID of the EBS snapshot to be used for importing the snapshot.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AsnapshotId%3AImageDiskContainer%27"><span class="annot"><span class="annottext">ImageDiskContainer -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3AsnapshotId%3AImageDiskContainer%27"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The description of the disk image.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Adescription%3AImageDiskContainer%27"><span class="annot"><span class="annottext">ImageDiskContainer -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3Adescription%3AImageDiskContainer%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The URL to the Amazon S3-based disk image being imported. The URL can</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- either be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..)</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aurl%3AImageDiskContainer%27"><span class="annot"><span class="annottext">ImageDiskContainer -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3Aurl%3AImageDiskContainer%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681142196"><span id="local-6989586621681142198"><span class="annot"><span class="annottext">ImageDiskContainer -&gt; ImageDiskContainer -&gt; Bool
+(ImageDiskContainer -&gt; ImageDiskContainer -&gt; Bool)
+-&gt; (ImageDiskContainer -&gt; ImageDiskContainer -&gt; Bool)
+-&gt; Eq ImageDiskContainer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImageDiskContainer -&gt; ImageDiskContainer -&gt; Bool
+$c/= :: ImageDiskContainer -&gt; ImageDiskContainer -&gt; Bool
+== :: ImageDiskContainer -&gt; ImageDiskContainer -&gt; Bool
+$c== :: ImageDiskContainer -&gt; ImageDiskContainer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681142187"><span id="local-6989586621681142189"><span id="local-6989586621681142191"><span id="local-6989586621681142193"><span class="annot"><span class="annottext">ReadPrec [ImageDiskContainer]
+ReadPrec ImageDiskContainer
+Int -&gt; ReadS ImageDiskContainer
+ReadS [ImageDiskContainer]
+(Int -&gt; ReadS ImageDiskContainer)
+-&gt; ReadS [ImageDiskContainer]
+-&gt; ReadPrec ImageDiskContainer
+-&gt; ReadPrec [ImageDiskContainer]
+-&gt; Read ImageDiskContainer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImageDiskContainer]
+$creadListPrec :: ReadPrec [ImageDiskContainer]
+readPrec :: ReadPrec ImageDiskContainer
+$creadPrec :: ReadPrec ImageDiskContainer
+readList :: ReadS [ImageDiskContainer]
+$creadList :: ReadS [ImageDiskContainer]
+readsPrec :: Int -&gt; ReadS ImageDiskContainer
+$creadsPrec :: Int -&gt; ReadS ImageDiskContainer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681142180"><span id="local-6989586621681142182"><span id="local-6989586621681142184"><span class="annot"><span class="annottext">Int -&gt; ImageDiskContainer -&gt; ShowS
+[ImageDiskContainer] -&gt; ShowS
+ImageDiskContainer -&gt; String
+(Int -&gt; ImageDiskContainer -&gt; ShowS)
+-&gt; (ImageDiskContainer -&gt; String)
+-&gt; ([ImageDiskContainer] -&gt; ShowS)
+-&gt; Show ImageDiskContainer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImageDiskContainer] -&gt; ShowS
+$cshowList :: [ImageDiskContainer] -&gt; ShowS
+show :: ImageDiskContainer -&gt; String
+$cshow :: ImageDiskContainer -&gt; String
+showsPrec :: Int -&gt; ImageDiskContainer -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImageDiskContainer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ImageDiskContainer -&gt; Rep ImageDiskContainer x)
+-&gt; (forall x. Rep ImageDiskContainer x -&gt; ImageDiskContainer)
+-&gt; Generic ImageDiskContainer
+forall x. Rep ImageDiskContainer x -&gt; ImageDiskContainer
+forall x. ImageDiskContainer -&gt; Rep ImageDiskContainer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ImageDiskContainer x -&gt; ImageDiskContainer
+$cfrom :: forall x. ImageDiskContainer -&gt; Rep ImageDiskContainer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'ImageDiskContainer' with all optional fields omitted.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'format', 'imageDiskContainer_format' - The format of the disk image being imported.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Valid values: @OVA@ | @VHD@ | @VHDX@ | @VMDK@ | @RAW@</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'deviceName', 'imageDiskContainer_deviceName' - The block device mapping for the disk.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'userBucket', 'imageDiskContainer_userBucket' - The S3 bucket for the disk image.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'snapshotId', 'imageDiskContainer_snapshotId' - The ID of the EBS snapshot to be used for importing the snapshot.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'description', 'imageDiskContainer_description' - The description of the disk image.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'url', 'imageDiskContainer_url' - The URL to the Amazon S3-based disk image being imported. The URL can</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- either be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..)</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#newImageDiskContainer"><span class="hs-identifier hs-type">newImageDiskContainer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span><span>
+</span><span id="line-74"></span><span id="newImageDiskContainer"><span class="annot"><span class="annottext">newImageDiskContainer :: ImageDiskContainer
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#newImageDiskContainer"><span class="hs-identifier hs-var hs-var">newImageDiskContainer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">ImageDiskContainer' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe UserBucket
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ImageDiskContainer
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer%27"><span class="hs-identifier hs-type">ImageDiskContainer'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:format:ImageDiskContainer' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3Aformat%3AImageDiskContainer%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceName:ImageDiskContainer' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3AdeviceName%3AImageDiskContainer%27"><span class="hs-identifier hs-var">deviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:userBucket:ImageDiskContainer' :: Maybe UserBucket
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3AuserBucket%3AImageDiskContainer%27"><span class="hs-identifier hs-var">userBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserBucket
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotId:ImageDiskContainer' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3AsnapshotId%3AImageDiskContainer%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ImageDiskContainer' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3Adescription%3AImageDiskContainer%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:ImageDiskContainer' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3Aurl%3AImageDiskContainer%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The format of the disk image being imported.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Valid values: @OVA@ | @VHD@ | @VHDX@ | @VMDK@ | @RAW@</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#imageDiskContainer_format"><span class="hs-identifier hs-type">imageDiskContainer_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="imageDiskContainer_format"><span class="annot"><span class="annottext">imageDiskContainer_format :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImageDiskContainer -&gt; f ImageDiskContainer
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#imageDiskContainer_format"><span class="hs-identifier hs-var hs-var">imageDiskContainer_format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageDiskContainer -&gt; Maybe Text)
+-&gt; (ImageDiskContainer -&gt; Maybe Text -&gt; ImageDiskContainer)
+-&gt; Lens
+     ImageDiskContainer ImageDiskContainer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer%27"><span class="hs-identifier hs-type">ImageDiskContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681142171"><span class="annot"><span class="annottext">Maybe Text
+format :: Maybe Text
+$sel:format:ImageDiskContainer' :: ImageDiskContainer -&gt; Maybe Text
+</span><a href="#local-6989586621681142171"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142171"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681142170"><span class="annot"><span class="annottext">s :: ImageDiskContainer
+</span><a href="#local-6989586621681142170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer%27"><span class="hs-identifier hs-type">ImageDiskContainer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681142169"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageDiskContainer
+</span><a href="#local-6989586621681142170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:ImageDiskContainer' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3Aformat%3AImageDiskContainer%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The block device mapping for the disk.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#imageDiskContainer_deviceName"><span class="hs-identifier hs-type">imageDiskContainer_deviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="imageDiskContainer_deviceName"><span class="annot"><span class="annottext">imageDiskContainer_deviceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImageDiskContainer -&gt; f ImageDiskContainer
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#imageDiskContainer_deviceName"><span class="hs-identifier hs-var hs-var">imageDiskContainer_deviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageDiskContainer -&gt; Maybe Text)
+-&gt; (ImageDiskContainer -&gt; Maybe Text -&gt; ImageDiskContainer)
+-&gt; Lens
+     ImageDiskContainer ImageDiskContainer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer%27"><span class="hs-identifier hs-type">ImageDiskContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681142167"><span class="annot"><span class="annottext">Maybe Text
+deviceName :: Maybe Text
+$sel:deviceName:ImageDiskContainer' :: ImageDiskContainer -&gt; Maybe Text
+</span><a href="#local-6989586621681142167"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142167"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681142166"><span class="annot"><span class="annottext">s :: ImageDiskContainer
+</span><a href="#local-6989586621681142166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer%27"><span class="hs-identifier hs-type">ImageDiskContainer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681142165"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageDiskContainer
+</span><a href="#local-6989586621681142166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:ImageDiskContainer' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3AdeviceName%3AImageDiskContainer%27"><span class="hs-identifier hs-var">deviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The S3 bucket for the disk image.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#imageDiskContainer_userBucket"><span class="hs-identifier hs-type">imageDiskContainer_userBucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="imageDiskContainer_userBucket"><span class="annot"><span class="annottext">imageDiskContainer_userBucket :: (Maybe UserBucket -&gt; f (Maybe UserBucket))
+-&gt; ImageDiskContainer -&gt; f ImageDiskContainer
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#imageDiskContainer_userBucket"><span class="hs-identifier hs-var hs-var">imageDiskContainer_userBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageDiskContainer -&gt; Maybe UserBucket)
+-&gt; (ImageDiskContainer -&gt; Maybe UserBucket -&gt; ImageDiskContainer)
+-&gt; Lens
+     ImageDiskContainer
+     ImageDiskContainer
+     (Maybe UserBucket)
+     (Maybe UserBucket)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer%27"><span class="hs-identifier hs-type">ImageDiskContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681142163"><span class="annot"><span class="annottext">Maybe UserBucket
+userBucket :: Maybe UserBucket
+$sel:userBucket:ImageDiskContainer' :: ImageDiskContainer -&gt; Maybe UserBucket
+</span><a href="#local-6989586621681142163"><span class="hs-identifier hs-var hs-var">userBucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserBucket
+</span><a href="#local-6989586621681142163"><span class="hs-identifier hs-var">userBucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681142162"><span class="annot"><span class="annottext">s :: ImageDiskContainer
+</span><a href="#local-6989586621681142162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer%27"><span class="hs-identifier hs-type">ImageDiskContainer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681142161"><span class="annot"><span class="annottext">Maybe UserBucket
+</span><a href="#local-6989586621681142161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageDiskContainer
+</span><a href="#local-6989586621681142162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userBucket:ImageDiskContainer' :: Maybe UserBucket
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3AuserBucket%3AImageDiskContainer%27"><span class="hs-identifier hs-var">userBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserBucket
+</span><a href="#local-6989586621681142161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The ID of the EBS snapshot to be used for importing the snapshot.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#imageDiskContainer_snapshotId"><span class="hs-identifier hs-type">imageDiskContainer_snapshotId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="imageDiskContainer_snapshotId"><span class="annot"><span class="annottext">imageDiskContainer_snapshotId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImageDiskContainer -&gt; f ImageDiskContainer
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#imageDiskContainer_snapshotId"><span class="hs-identifier hs-var hs-var">imageDiskContainer_snapshotId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageDiskContainer -&gt; Maybe Text)
+-&gt; (ImageDiskContainer -&gt; Maybe Text -&gt; ImageDiskContainer)
+-&gt; Lens
+     ImageDiskContainer ImageDiskContainer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer%27"><span class="hs-identifier hs-type">ImageDiskContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681142159"><span class="annot"><span class="annottext">Maybe Text
+snapshotId :: Maybe Text
+$sel:snapshotId:ImageDiskContainer' :: ImageDiskContainer -&gt; Maybe Text
+</span><a href="#local-6989586621681142159"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142159"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681142158"><span class="annot"><span class="annottext">s :: ImageDiskContainer
+</span><a href="#local-6989586621681142158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer%27"><span class="hs-identifier hs-type">ImageDiskContainer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681142157"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageDiskContainer
+</span><a href="#local-6989586621681142158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:ImageDiskContainer' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3AsnapshotId%3AImageDiskContainer%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The description of the disk image.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#imageDiskContainer_description"><span class="hs-identifier hs-type">imageDiskContainer_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="imageDiskContainer_description"><span class="annot"><span class="annottext">imageDiskContainer_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImageDiskContainer -&gt; f ImageDiskContainer
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#imageDiskContainer_description"><span class="hs-identifier hs-var hs-var">imageDiskContainer_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageDiskContainer -&gt; Maybe Text)
+-&gt; (ImageDiskContainer -&gt; Maybe Text -&gt; ImageDiskContainer)
+-&gt; Lens
+     ImageDiskContainer ImageDiskContainer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer%27"><span class="hs-identifier hs-type">ImageDiskContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681142155"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ImageDiskContainer' :: ImageDiskContainer -&gt; Maybe Text
+</span><a href="#local-6989586621681142155"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142155"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681142154"><span class="annot"><span class="annottext">s :: ImageDiskContainer
+</span><a href="#local-6989586621681142154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer%27"><span class="hs-identifier hs-type">ImageDiskContainer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681142153"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageDiskContainer
+</span><a href="#local-6989586621681142154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ImageDiskContainer' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3Adescription%3AImageDiskContainer%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The URL to the Amazon S3-based disk image being imported. The URL can</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- either be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..)</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#imageDiskContainer_url"><span class="hs-identifier hs-type">imageDiskContainer_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="imageDiskContainer_url"><span class="annot"><span class="annottext">imageDiskContainer_url :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImageDiskContainer -&gt; f ImageDiskContainer
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#imageDiskContainer_url"><span class="hs-identifier hs-var hs-var">imageDiskContainer_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageDiskContainer -&gt; Maybe Text)
+-&gt; (ImageDiskContainer -&gt; Maybe Text -&gt; ImageDiskContainer)
+-&gt; Lens
+     ImageDiskContainer ImageDiskContainer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer%27"><span class="hs-identifier hs-type">ImageDiskContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681142151"><span class="annot"><span class="annottext">Maybe Text
+url :: Maybe Text
+$sel:url:ImageDiskContainer' :: ImageDiskContainer -&gt; Maybe Text
+</span><a href="#local-6989586621681142151"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142151"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681142150"><span class="annot"><span class="annottext">s :: ImageDiskContainer
+</span><a href="#local-6989586621681142150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer%27"><span class="hs-identifier hs-type">ImageDiskContainer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681142149"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageDiskContainer
+</span><a href="#local-6989586621681142150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:ImageDiskContainer' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#%24sel%3Aurl%3AImageDiskContainer%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681142145"><span id="local-6989586621681142147"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681142142"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer"><span class="hs-identifier hs-type">ImageDiskContainer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621681142138"><span class="annot"><span class="annottext">toQuery :: ImageDiskContainer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImageDiskContainer.html#ImageDiskContainer%27"><span class="hs-identifier hs-type">ImageDiskContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681142131"><span id="local-6989586621681142132"><span id="local-6989586621681142133"><span id="local-6989586621681142134"><span id="local-6989586621681142135"><span id="local-6989586621681142136"><span class="annot"><span class="annottext">Maybe Text
+Maybe UserBucket
+url :: Maybe Text
+description :: Maybe Text
+snapshotId :: Maybe Text
+userBucket :: Maybe UserBucket
+deviceName :: Maybe Text
+format :: Maybe Text
+$sel:url:ImageDiskContainer' :: ImageDiskContainer -&gt; Maybe Text
+$sel:description:ImageDiskContainer' :: ImageDiskContainer -&gt; Maybe Text
+$sel:snapshotId:ImageDiskContainer' :: ImageDiskContainer -&gt; Maybe Text
+$sel:userBucket:ImageDiskContainer' :: ImageDiskContainer -&gt; Maybe UserBucket
+$sel:deviceName:ImageDiskContainer' :: ImageDiskContainer -&gt; Maybe Text
+$sel:format:ImageDiskContainer' :: ImageDiskContainer -&gt; Maybe Text
+</span><a href="#local-6989586621681142131"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Format&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142136"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeviceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142135"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;UserBucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe UserBucket -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe UserBucket
+</span><a href="#local-6989586621681142134"><span class="hs-identifier hs-var">userBucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SnapshotId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142133"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142132"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Url&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142131"><span class="hs-identifier hs-var">url</span></a></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span></pre></body></html>

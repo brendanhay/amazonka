@@ -1,0 +1,1100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about the overall health of the specified</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- environment. The __DescribeEnvironmentHealth__ operation is only</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- available with AWS Elastic Beanstalk Enhanced Health.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier">DescribeEnvironmentHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#newDescribeEnvironmentHealth"><span class="hs-identifier">newDescribeEnvironmentHealth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealth_environmentId"><span class="hs-identifier">describeEnvironmentHealth_environmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealth_environmentName"><span class="hs-identifier">describeEnvironmentHealth_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealth_attributeNames"><span class="hs-identifier">describeEnvironmentHealth_attributeNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier">DescribeEnvironmentHealthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#newDescribeEnvironmentHealthResponse"><span class="hs-identifier">newDescribeEnvironmentHealthResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_status"><span class="hs-identifier">describeEnvironmentHealthResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_refreshedAt"><span class="hs-identifier">describeEnvironmentHealthResponse_refreshedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_color"><span class="hs-identifier">describeEnvironmentHealthResponse_color</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_causes"><span class="hs-identifier">describeEnvironmentHealthResponse_causes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_environmentName"><span class="hs-identifier">describeEnvironmentHealthResponse_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_instancesHealth"><span class="hs-identifier">describeEnvironmentHealthResponse_instancesHealth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_healthStatus"><span class="hs-identifier">describeEnvironmentHealthResponse_healthStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_applicationMetrics"><span class="hs-identifier">describeEnvironmentHealthResponse_applicationMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_httpStatus"><span class="hs-identifier">describeEnvironmentHealthResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.html"><span class="hs-identifier">Network.AWS.ElasticBeanstalk.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | See the example below to learn how to create a request body.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- /See:/ 'newDescribeEnvironmentHealth' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679313449"><span id="local-6989586621679313450"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEnvironmentHealth"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier hs-var">DescribeEnvironmentHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEnvironmentHealth%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth%27"><span class="hs-identifier hs-var">DescribeEnvironmentHealth'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the environment by ID.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- You must specify either this or an EnvironmentName, or both.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AenvironmentId%3ADescribeEnvironmentHealth%27"><span class="annot"><span class="annottext">DescribeEnvironmentHealth -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AenvironmentId%3ADescribeEnvironmentHealth%27"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Specify the environment by name.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- You must specify either this or an EnvironmentName, or both.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AenvironmentName%3ADescribeEnvironmentHealth%27"><span class="annot"><span class="annottext">DescribeEnvironmentHealth -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AenvironmentName%3ADescribeEnvironmentHealth%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Specify the response elements to return. To retrieve all attributes, set</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- to @All@. If no attribute names are specified, returns the name of the</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- environment.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AattributeNames%3ADescribeEnvironmentHealth%27"><span class="annot"><span class="annottext">DescribeEnvironmentHealth -&gt; Maybe [EnvironmentHealthAttribute]
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AattributeNames%3ADescribeEnvironmentHealth%27"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthAttribute.html#EnvironmentHealthAttribute"><span class="hs-identifier hs-type">EnvironmentHealthAttribute</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313441"><span id="local-6989586621679313443"><span class="annot"><span class="annottext">DescribeEnvironmentHealth -&gt; DescribeEnvironmentHealth -&gt; Bool
+(DescribeEnvironmentHealth -&gt; DescribeEnvironmentHealth -&gt; Bool)
+-&gt; (DescribeEnvironmentHealth -&gt; DescribeEnvironmentHealth -&gt; Bool)
+-&gt; Eq DescribeEnvironmentHealth
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEnvironmentHealth -&gt; DescribeEnvironmentHealth -&gt; Bool
+$c/= :: DescribeEnvironmentHealth -&gt; DescribeEnvironmentHealth -&gt; Bool
+== :: DescribeEnvironmentHealth -&gt; DescribeEnvironmentHealth -&gt; Bool
+$c== :: DescribeEnvironmentHealth -&gt; DescribeEnvironmentHealth -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313432"><span id="local-6989586621679313434"><span id="local-6989586621679313436"><span id="local-6989586621679313438"><span class="annot"><span class="annottext">ReadPrec [DescribeEnvironmentHealth]
+ReadPrec DescribeEnvironmentHealth
+Int -&gt; ReadS DescribeEnvironmentHealth
+ReadS [DescribeEnvironmentHealth]
+(Int -&gt; ReadS DescribeEnvironmentHealth)
+-&gt; ReadS [DescribeEnvironmentHealth]
+-&gt; ReadPrec DescribeEnvironmentHealth
+-&gt; ReadPrec [DescribeEnvironmentHealth]
+-&gt; Read DescribeEnvironmentHealth
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEnvironmentHealth]
+$creadListPrec :: ReadPrec [DescribeEnvironmentHealth]
+readPrec :: ReadPrec DescribeEnvironmentHealth
+$creadPrec :: ReadPrec DescribeEnvironmentHealth
+readList :: ReadS [DescribeEnvironmentHealth]
+$creadList :: ReadS [DescribeEnvironmentHealth]
+readsPrec :: Int -&gt; ReadS DescribeEnvironmentHealth
+$creadsPrec :: Int -&gt; ReadS DescribeEnvironmentHealth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313425"><span id="local-6989586621679313427"><span id="local-6989586621679313429"><span class="annot"><span class="annottext">Int -&gt; DescribeEnvironmentHealth -&gt; ShowS
+[DescribeEnvironmentHealth] -&gt; ShowS
+DescribeEnvironmentHealth -&gt; String
+(Int -&gt; DescribeEnvironmentHealth -&gt; ShowS)
+-&gt; (DescribeEnvironmentHealth -&gt; String)
+-&gt; ([DescribeEnvironmentHealth] -&gt; ShowS)
+-&gt; Show DescribeEnvironmentHealth
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEnvironmentHealth] -&gt; ShowS
+$cshowList :: [DescribeEnvironmentHealth] -&gt; ShowS
+show :: DescribeEnvironmentHealth -&gt; String
+$cshow :: DescribeEnvironmentHealth -&gt; String
+showsPrec :: Int -&gt; DescribeEnvironmentHealth -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEnvironmentHealth -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeEnvironmentHealth -&gt; Rep DescribeEnvironmentHealth x)
+-&gt; (forall x.
+    Rep DescribeEnvironmentHealth x -&gt; DescribeEnvironmentHealth)
+-&gt; Generic DescribeEnvironmentHealth
+forall x.
+Rep DescribeEnvironmentHealth x -&gt; DescribeEnvironmentHealth
+forall x.
+DescribeEnvironmentHealth -&gt; Rep DescribeEnvironmentHealth x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeEnvironmentHealth x -&gt; DescribeEnvironmentHealth
+$cfrom :: forall x.
+DescribeEnvironmentHealth -&gt; Rep DescribeEnvironmentHealth x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'DescribeEnvironmentHealth' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'environmentId', 'describeEnvironmentHealth_environmentId' - Specify the environment by ID.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- You must specify either this or an EnvironmentName, or both.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'environmentName', 'describeEnvironmentHealth_environmentName' - Specify the environment by name.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- You must specify either this or an EnvironmentName, or both.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'attributeNames', 'describeEnvironmentHealth_attributeNames' - Specify the response elements to return. To retrieve all attributes, set</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- to @All@. If no attribute names are specified, returns the name of the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- environment.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#newDescribeEnvironmentHealth"><span class="hs-identifier hs-type">newDescribeEnvironmentHealth</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier hs-type">DescribeEnvironmentHealth</span></a></span><span>
+</span><span id="line-100"></span><span id="newDescribeEnvironmentHealth"><span class="annot"><span class="annottext">newDescribeEnvironmentHealth :: DescribeEnvironmentHealth
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#newDescribeEnvironmentHealth"><span class="hs-identifier hs-var hs-var">newDescribeEnvironmentHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">DescribeEnvironmentHealth' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [EnvironmentHealthAttribute]
+-&gt; DescribeEnvironmentHealth
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealth'</span></a></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:environmentId:DescribeEnvironmentHealth' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AenvironmentId%3ADescribeEnvironmentHealth%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentName:DescribeEnvironmentHealth' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AenvironmentName%3ADescribeEnvironmentHealth%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeNames:DescribeEnvironmentHealth' :: Maybe [EnvironmentHealthAttribute]
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AattributeNames%3ADescribeEnvironmentHealth%27"><span class="hs-identifier hs-var">attributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentHealthAttribute]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | Specify the environment by ID.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- You must specify either this or an EnvironmentName, or both.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealth_environmentId"><span class="hs-identifier hs-type">describeEnvironmentHealth_environmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier hs-type">DescribeEnvironmentHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="describeEnvironmentHealth_environmentId"><span class="annot"><span class="annottext">describeEnvironmentHealth_environmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEnvironmentHealth -&gt; f DescribeEnvironmentHealth
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealth_environmentId"><span class="hs-identifier hs-var hs-var">describeEnvironmentHealth_environmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentHealth -&gt; Maybe Text)
+-&gt; (DescribeEnvironmentHealth
+    -&gt; Maybe Text -&gt; DescribeEnvironmentHealth)
+-&gt; Lens
+     DescribeEnvironmentHealth
+     DescribeEnvironmentHealth
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313418"><span class="annot"><span class="annottext">Maybe Text
+environmentId :: Maybe Text
+$sel:environmentId:DescribeEnvironmentHealth' :: DescribeEnvironmentHealth -&gt; Maybe Text
+</span><a href="#local-6989586621679313418"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313418"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313417"><span class="annot"><span class="annottext">s :: DescribeEnvironmentHealth
+</span><a href="#local-6989586621679313417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313416"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentHealth
+</span><a href="#local-6989586621679313417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:DescribeEnvironmentHealth' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AenvironmentId%3ADescribeEnvironmentHealth%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier hs-type">DescribeEnvironmentHealth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Specify the environment by name.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- You must specify either this or an EnvironmentName, or both.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealth_environmentName"><span class="hs-identifier hs-type">describeEnvironmentHealth_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier hs-type">DescribeEnvironmentHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="describeEnvironmentHealth_environmentName"><span class="annot"><span class="annottext">describeEnvironmentHealth_environmentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEnvironmentHealth -&gt; f DescribeEnvironmentHealth
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealth_environmentName"><span class="hs-identifier hs-var hs-var">describeEnvironmentHealth_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentHealth -&gt; Maybe Text)
+-&gt; (DescribeEnvironmentHealth
+    -&gt; Maybe Text -&gt; DescribeEnvironmentHealth)
+-&gt; Lens
+     DescribeEnvironmentHealth
+     DescribeEnvironmentHealth
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313415"><span class="annot"><span class="annottext">Maybe Text
+environmentName :: Maybe Text
+$sel:environmentName:DescribeEnvironmentHealth' :: DescribeEnvironmentHealth -&gt; Maybe Text
+</span><a href="#local-6989586621679313415"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313415"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313414"><span class="annot"><span class="annottext">s :: DescribeEnvironmentHealth
+</span><a href="#local-6989586621679313414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313413"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentHealth
+</span><a href="#local-6989586621679313414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:DescribeEnvironmentHealth' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AenvironmentName%3ADescribeEnvironmentHealth%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier hs-type">DescribeEnvironmentHealth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Specify the response elements to return. To retrieve all attributes, set</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- to @All@. If no attribute names are specified, returns the name of the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- environment.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealth_attributeNames"><span class="hs-identifier hs-type">describeEnvironmentHealth_attributeNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier hs-type">DescribeEnvironmentHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthAttribute.html#EnvironmentHealthAttribute"><span class="hs-identifier hs-type">EnvironmentHealthAttribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="describeEnvironmentHealth_attributeNames"><span class="annot"><span class="annottext">describeEnvironmentHealth_attributeNames :: (Maybe [EnvironmentHealthAttribute]
+ -&gt; f (Maybe [EnvironmentHealthAttribute]))
+-&gt; DescribeEnvironmentHealth -&gt; f DescribeEnvironmentHealth
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealth_attributeNames"><span class="hs-identifier hs-var hs-var">describeEnvironmentHealth_attributeNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentHealth -&gt; Maybe [EnvironmentHealthAttribute])
+-&gt; (DescribeEnvironmentHealth
+    -&gt; Maybe [EnvironmentHealthAttribute] -&gt; DescribeEnvironmentHealth)
+-&gt; Lens
+     DescribeEnvironmentHealth
+     DescribeEnvironmentHealth
+     (Maybe [EnvironmentHealthAttribute])
+     (Maybe [EnvironmentHealthAttribute])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313412"><span class="annot"><span class="annottext">Maybe [EnvironmentHealthAttribute]
+attributeNames :: Maybe [EnvironmentHealthAttribute]
+$sel:attributeNames:DescribeEnvironmentHealth' :: DescribeEnvironmentHealth -&gt; Maybe [EnvironmentHealthAttribute]
+</span><a href="#local-6989586621679313412"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentHealthAttribute]
+</span><a href="#local-6989586621679313412"><span class="hs-identifier hs-var">attributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313411"><span class="annot"><span class="annottext">s :: DescribeEnvironmentHealth
+</span><a href="#local-6989586621679313411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313410"><span class="annot"><span class="annottext">Maybe [EnvironmentHealthAttribute]
+</span><a href="#local-6989586621679313410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentHealth
+</span><a href="#local-6989586621679313411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeNames:DescribeEnvironmentHealth' :: Maybe [EnvironmentHealthAttribute]
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AattributeNames%3ADescribeEnvironmentHealth%27"><span class="hs-identifier hs-var">attributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentHealthAttribute]
+</span><a href="#local-6989586621679313410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier hs-type">DescribeEnvironmentHealth</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EnvironmentHealthAttribute]
+  -&gt; f (Maybe [EnvironmentHealthAttribute]))
+ -&gt; DescribeEnvironmentHealth -&gt; f DescribeEnvironmentHealth)
+-&gt; ((Maybe [EnvironmentHealthAttribute]
+     -&gt; f (Maybe [EnvironmentHealthAttribute]))
+    -&gt; Maybe [EnvironmentHealthAttribute]
+    -&gt; f (Maybe [EnvironmentHealthAttribute]))
+-&gt; (Maybe [EnvironmentHealthAttribute]
+    -&gt; f (Maybe [EnvironmentHealthAttribute]))
+-&gt; DescribeEnvironmentHealth
+-&gt; f DescribeEnvironmentHealth
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EnvironmentHealthAttribute]
+  [EnvironmentHealthAttribute]
+  [EnvironmentHealthAttribute]
+  [EnvironmentHealthAttribute]
+-&gt; Iso
+     (Maybe [EnvironmentHealthAttribute])
+     (Maybe [EnvironmentHealthAttribute])
+     (Maybe [EnvironmentHealthAttribute])
+     (Maybe [EnvironmentHealthAttribute])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EnvironmentHealthAttribute]
+  [EnvironmentHealthAttribute]
+  [EnvironmentHealthAttribute]
+  [EnvironmentHealthAttribute]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier hs-type">DescribeEnvironmentHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier hs-type">DescribeEnvironmentHealth</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679313403"><span class="annot"><span class="annottext">request :: DescribeEnvironmentHealth -&gt; Request DescribeEnvironmentHealth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeEnvironmentHealth -&gt; Request DescribeEnvironmentHealth
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679313399"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeEnvironmentHealth
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeEnvironmentHealth)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribeEnvironmentHealth))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeEnvironmentHealth
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeEnvironmentHealth)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribeEnvironmentHealthResult&quot;</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313396"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313396"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313395"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313395"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313394"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679313394"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe EnvironmentHealth
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe InstanceHealthSummary
+-&gt; Maybe Text
+-&gt; Maybe ApplicationMetrics
+-&gt; Int
+-&gt; DescribeEnvironmentHealthResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">DescribeEnvironmentHealthResponse'</span></a></span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EnvironmentHealth
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe InstanceHealthSummary
+ -&gt; Maybe Text
+ -&gt; Maybe ApplicationMetrics
+ -&gt; Int
+ -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Either String (Maybe EnvironmentHealth)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe InstanceHealthSummary
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationMetrics
+      -&gt; Int
+      -&gt; DescribeEnvironmentHealthResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679313394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EnvironmentHealth)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe InstanceHealthSummary
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationMetrics
+   -&gt; Int
+   -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe InstanceHealthSummary
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationMetrics
+      -&gt; Int
+      -&gt; DescribeEnvironmentHealthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679313394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RefreshedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe InstanceHealthSummary
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationMetrics
+   -&gt; Int
+   -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe InstanceHealthSummary
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationMetrics
+      -&gt; Int
+      -&gt; DescribeEnvironmentHealthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679313394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Color&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe InstanceHealthSummary
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationMetrics
+   -&gt; Int
+   -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe InstanceHealthSummary
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationMetrics
+      -&gt; Int
+      -&gt; DescribeEnvironmentHealthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679313394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Causes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe InstanceHealthSummary
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationMetrics
+   -&gt; Int
+   -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe InstanceHealthSummary
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationMetrics
+      -&gt; Int
+      -&gt; DescribeEnvironmentHealthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679313394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnvironmentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe InstanceHealthSummary
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationMetrics
+   -&gt; Int
+   -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Either String (Maybe InstanceHealthSummary)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ApplicationMetrics
+      -&gt; Int
+      -&gt; DescribeEnvironmentHealthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679313394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstanceHealthSummary)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstancesHealth&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ApplicationMetrics
+   -&gt; Int
+   -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ApplicationMetrics
+      -&gt; Int -&gt; DescribeEnvironmentHealthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679313394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HealthStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ApplicationMetrics
+   -&gt; Int -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Either String (Maybe ApplicationMetrics)
+-&gt; Either String (Int -&gt; DescribeEnvironmentHealthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679313394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ApplicationMetrics)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationMetrics&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeEnvironmentHealthResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313396"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313383"><span id="local-6989586621679313385"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier hs-type">DescribeEnvironmentHealth</span></a></span></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier hs-type">DescribeEnvironmentHealth</span></a></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier hs-type">DescribeEnvironmentHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679313376"><span class="annot"><span class="annottext">toHeaders :: DescribeEnvironmentHealth -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeEnvironmentHealth -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier hs-type">DescribeEnvironmentHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679313371"><span class="annot"><span class="annottext">toPath :: DescribeEnvironmentHealth -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEnvironmentHealth -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth"><span class="hs-identifier hs-type">DescribeEnvironmentHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679313367"><span class="annot"><span class="annottext">toQuery :: DescribeEnvironmentHealth -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealth%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313363"><span id="local-6989586621679313364"><span id="local-6989586621679313365"><span class="annot"><span class="annottext">Maybe [EnvironmentHealthAttribute]
+Maybe Text
+attributeNames :: Maybe [EnvironmentHealthAttribute]
+environmentName :: Maybe Text
+environmentId :: Maybe Text
+$sel:attributeNames:DescribeEnvironmentHealth' :: DescribeEnvironmentHealth -&gt; Maybe [EnvironmentHealthAttribute]
+$sel:environmentName:DescribeEnvironmentHealth' :: DescribeEnvironmentHealth -&gt; Maybe Text
+$sel:environmentId:DescribeEnvironmentHealth' :: DescribeEnvironmentHealth -&gt; Maybe Text
+</span><a href="#local-6989586621679313363"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeEnvironmentHealth&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313365"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313364"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AttributeNames&quot;</span></span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [EnvironmentHealthAttribute] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-171"></span><span>                </span><span class="annot"><span class="annottext">([EnvironmentHealthAttribute] -&gt; QueryString)
+-&gt; Maybe [EnvironmentHealthAttribute] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentHealthAttribute]
+</span><a href="#local-6989586621679313363"><span class="hs-identifier hs-var">attributeNames</span></a></span><span>
+</span><span id="line-172"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | Health details for an AWS Elastic Beanstalk environment.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- /See:/ 'newDescribeEnvironmentHealthResponse' smart constructor.</span><span>
+</span><span id="line-178"></span><span id="local-6989586621679313359"><span id="local-6989586621679313360"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEnvironmentHealthResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-var">DescribeEnvironmentHealthResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEnvironmentHealthResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">DescribeEnvironmentHealthResponse'</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The environment\'s operational status. @Ready@, @Launching@, @Updating@,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- @Terminating@, or @Terminated@.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3Astatus%3ADescribeEnvironmentHealthResponse%27"><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse -&gt; Maybe EnvironmentHealth
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3Astatus%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentHealth.html#EnvironmentHealth"><span class="hs-identifier hs-type">EnvironmentHealth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The date and time that the health information was retrieved.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3ArefreshedAt%3ADescribeEnvironmentHealthResponse%27"><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse -&gt; Maybe ISO8601
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3ArefreshedAt%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var hs-var">refreshedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color&gt;</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- of the environment.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3Acolor%3ADescribeEnvironmentHealthResponse%27"><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3Acolor%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var hs-var">color</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | Descriptions of the data that contributed to the environment\'s current</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- health status.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3Acauses%3ADescribeEnvironmentHealthResponse%27"><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3Acauses%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var hs-var">causes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The environment\'s name.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AenvironmentName%3ADescribeEnvironmentHealthResponse%27"><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AenvironmentName%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | Summary health information for the instances in the environment.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AinstancesHealth%3ADescribeEnvironmentHealthResponse%27"><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse -&gt; Maybe InstanceHealthSummary
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AinstancesHealth%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var hs-var">instancesHealth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.InstanceHealthSummary.html#InstanceHealthSummary"><span class="hs-identifier hs-type">InstanceHealthSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status&gt;</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- of the environment. For example, @Ok@.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3AhealthStatus%3ADescribeEnvironmentHealthResponse%27"><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AhealthStatus%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var hs-var">healthStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- | Application request metrics for the environment.</span><span>
+</span><span id="line-200"></span><span>    </span><span id="%24sel%3AapplicationMetrics%3ADescribeEnvironmentHealthResponse%27"><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse -&gt; Maybe ApplicationMetrics
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AapplicationMetrics%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var hs-var">applicationMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-202"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEnvironmentHealthResponse%27"><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse -&gt; Int
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AhttpStatus%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313346"><span id="local-6989586621679313348"><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse
+-&gt; DescribeEnvironmentHealthResponse -&gt; Bool
+(DescribeEnvironmentHealthResponse
+ -&gt; DescribeEnvironmentHealthResponse -&gt; Bool)
+-&gt; (DescribeEnvironmentHealthResponse
+    -&gt; DescribeEnvironmentHealthResponse -&gt; Bool)
+-&gt; Eq DescribeEnvironmentHealthResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEnvironmentHealthResponse
+-&gt; DescribeEnvironmentHealthResponse -&gt; Bool
+$c/= :: DescribeEnvironmentHealthResponse
+-&gt; DescribeEnvironmentHealthResponse -&gt; Bool
+== :: DescribeEnvironmentHealthResponse
+-&gt; DescribeEnvironmentHealthResponse -&gt; Bool
+$c== :: DescribeEnvironmentHealthResponse
+-&gt; DescribeEnvironmentHealthResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313338"><span id="local-6989586621679313340"><span id="local-6989586621679313342"><span id="local-6989586621679313344"><span class="annot"><span class="annottext">ReadPrec [DescribeEnvironmentHealthResponse]
+ReadPrec DescribeEnvironmentHealthResponse
+Int -&gt; ReadS DescribeEnvironmentHealthResponse
+ReadS [DescribeEnvironmentHealthResponse]
+(Int -&gt; ReadS DescribeEnvironmentHealthResponse)
+-&gt; ReadS [DescribeEnvironmentHealthResponse]
+-&gt; ReadPrec DescribeEnvironmentHealthResponse
+-&gt; ReadPrec [DescribeEnvironmentHealthResponse]
+-&gt; Read DescribeEnvironmentHealthResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEnvironmentHealthResponse]
+$creadListPrec :: ReadPrec [DescribeEnvironmentHealthResponse]
+readPrec :: ReadPrec DescribeEnvironmentHealthResponse
+$creadPrec :: ReadPrec DescribeEnvironmentHealthResponse
+readList :: ReadS [DescribeEnvironmentHealthResponse]
+$creadList :: ReadS [DescribeEnvironmentHealthResponse]
+readsPrec :: Int -&gt; ReadS DescribeEnvironmentHealthResponse
+$creadsPrec :: Int -&gt; ReadS DescribeEnvironmentHealthResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313332"><span id="local-6989586621679313334"><span id="local-6989586621679313336"><span class="annot"><span class="annottext">Int -&gt; DescribeEnvironmentHealthResponse -&gt; ShowS
+[DescribeEnvironmentHealthResponse] -&gt; ShowS
+DescribeEnvironmentHealthResponse -&gt; String
+(Int -&gt; DescribeEnvironmentHealthResponse -&gt; ShowS)
+-&gt; (DescribeEnvironmentHealthResponse -&gt; String)
+-&gt; ([DescribeEnvironmentHealthResponse] -&gt; ShowS)
+-&gt; Show DescribeEnvironmentHealthResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEnvironmentHealthResponse] -&gt; ShowS
+$cshowList :: [DescribeEnvironmentHealthResponse] -&gt; ShowS
+show :: DescribeEnvironmentHealthResponse -&gt; String
+$cshow :: DescribeEnvironmentHealthResponse -&gt; String
+showsPrec :: Int -&gt; DescribeEnvironmentHealthResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEnvironmentHealthResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeEnvironmentHealthResponse
+ -&gt; Rep DescribeEnvironmentHealthResponse x)
+-&gt; (forall x.
+    Rep DescribeEnvironmentHealthResponse x
+    -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Generic DescribeEnvironmentHealthResponse
+forall x.
+Rep DescribeEnvironmentHealthResponse x
+-&gt; DescribeEnvironmentHealthResponse
+forall x.
+DescribeEnvironmentHealthResponse
+-&gt; Rep DescribeEnvironmentHealthResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeEnvironmentHealthResponse x
+-&gt; DescribeEnvironmentHealthResponse
+$cfrom :: forall x.
+DescribeEnvironmentHealthResponse
+-&gt; Rep DescribeEnvironmentHealthResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- Create a value of 'DescribeEnvironmentHealthResponse' with all optional fields omitted.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'status', 'describeEnvironmentHealthResponse_status' - The environment\'s operational status. @Ready@, @Launching@, @Updating@,</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- @Terminating@, or @Terminated@.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'refreshedAt', 'describeEnvironmentHealthResponse_refreshedAt' - The date and time that the health information was retrieved.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'color', 'describeEnvironmentHealthResponse_color' - The</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color&gt;</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- of the environment.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'causes', 'describeEnvironmentHealthResponse_causes' - Descriptions of the data that contributed to the environment\'s current</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- health status.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'environmentName', 'describeEnvironmentHealthResponse_environmentName' - The environment\'s name.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'instancesHealth', 'describeEnvironmentHealthResponse_instancesHealth' - Summary health information for the instances in the environment.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'healthStatus', 'describeEnvironmentHealthResponse_healthStatus' - The</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status&gt;</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- of the environment. For example, @Ok@.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'applicationMetrics', 'describeEnvironmentHealthResponse_applicationMetrics' - Application request metrics for the environment.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'httpStatus', 'describeEnvironmentHealthResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#newDescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">newDescribeEnvironmentHealthResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span>
+</span><span id="line-241"></span><span id="newDescribeEnvironmentHealthResponse"><span class="annot"><span class="annottext">newDescribeEnvironmentHealthResponse :: Int -&gt; DescribeEnvironmentHealthResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#newDescribeEnvironmentHealthResponse"><span class="hs-identifier hs-var hs-var">newDescribeEnvironmentHealthResponse</span></a></span></span><span> </span><span id="local-6989586621679313329"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313329"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse' :: Maybe EnvironmentHealth
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe InstanceHealthSummary
+-&gt; Maybe Text
+-&gt; Maybe ApplicationMetrics
+-&gt; Int
+-&gt; DescribeEnvironmentHealthResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:DescribeEnvironmentHealthResponse' :: Maybe EnvironmentHealth
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3Astatus%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">Maybe EnvironmentHealth
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:refreshedAt:DescribeEnvironmentHealthResponse' :: Maybe ISO8601
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3ArefreshedAt%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">refreshedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:color:DescribeEnvironmentHealthResponse' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3Acolor%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">color</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:causes:DescribeEnvironmentHealthResponse' :: Maybe [Text]
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3Acauses%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">causes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentName:DescribeEnvironmentHealthResponse' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AenvironmentName%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:instancesHealth:DescribeEnvironmentHealthResponse' :: Maybe InstanceHealthSummary
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AinstancesHealth%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">instancesHealth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceHealthSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:healthStatus:DescribeEnvironmentHealthResponse' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AhealthStatus%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">healthStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationMetrics:DescribeEnvironmentHealthResponse' :: Maybe ApplicationMetrics
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AapplicationMetrics%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">applicationMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationMetrics
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEnvironmentHealthResponse' :: Int
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AhttpStatus%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313329"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The environment\'s operational status. @Ready@, @Launching@, @Updating@,</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- @Terminating@, or @Terminated@.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_status"><span class="hs-identifier hs-type">describeEnvironmentHealthResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentHealth.html#EnvironmentHealth"><span class="hs-identifier hs-type">EnvironmentHealth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="describeEnvironmentHealthResponse_status"><span class="annot"><span class="annottext">describeEnvironmentHealthResponse_status :: (Maybe EnvironmentHealth -&gt; f (Maybe EnvironmentHealth))
+-&gt; DescribeEnvironmentHealthResponse
+-&gt; f DescribeEnvironmentHealthResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_status"><span class="hs-identifier hs-var hs-var">describeEnvironmentHealthResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentHealthResponse -&gt; Maybe EnvironmentHealth)
+-&gt; (DescribeEnvironmentHealthResponse
+    -&gt; Maybe EnvironmentHealth -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Lens
+     DescribeEnvironmentHealthResponse
+     DescribeEnvironmentHealthResponse
+     (Maybe EnvironmentHealth)
+     (Maybe EnvironmentHealth)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313328"><span class="annot"><span class="annottext">Maybe EnvironmentHealth
+status :: Maybe EnvironmentHealth
+$sel:status:DescribeEnvironmentHealthResponse' :: DescribeEnvironmentHealthResponse -&gt; Maybe EnvironmentHealth
+</span><a href="#local-6989586621679313328"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentHealth
+</span><a href="#local-6989586621679313328"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313327"><span class="annot"><span class="annottext">s :: DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313326"><span class="annot"><span class="annottext">Maybe EnvironmentHealth
+</span><a href="#local-6989586621679313326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DescribeEnvironmentHealthResponse' :: Maybe EnvironmentHealth
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3Astatus%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentHealth
+</span><a href="#local-6989586621679313326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The date and time that the health information was retrieved.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_refreshedAt"><span class="hs-identifier hs-type">describeEnvironmentHealthResponse_refreshedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="describeEnvironmentHealthResponse_refreshedAt"><span class="annot"><span class="annottext">describeEnvironmentHealthResponse_refreshedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeEnvironmentHealthResponse
+-&gt; f DescribeEnvironmentHealthResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_refreshedAt"><span class="hs-identifier hs-var hs-var">describeEnvironmentHealthResponse_refreshedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentHealthResponse -&gt; Maybe ISO8601)
+-&gt; (DescribeEnvironmentHealthResponse
+    -&gt; Maybe ISO8601 -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Lens
+     DescribeEnvironmentHealthResponse
+     DescribeEnvironmentHealthResponse
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313325"><span class="annot"><span class="annottext">Maybe ISO8601
+refreshedAt :: Maybe ISO8601
+$sel:refreshedAt:DescribeEnvironmentHealthResponse' :: DescribeEnvironmentHealthResponse -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679313325"><span class="hs-identifier hs-var hs-var">refreshedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679313325"><span class="hs-identifier hs-var">refreshedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313324"><span class="annot"><span class="annottext">s :: DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313323"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679313323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:refreshedAt:DescribeEnvironmentHealthResponse' :: Maybe ISO8601
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3ArefreshedAt%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">refreshedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679313323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; DescribeEnvironmentHealthResponse
+ -&gt; f DescribeEnvironmentHealthResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeEnvironmentHealthResponse
+-&gt; f DescribeEnvironmentHealthResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color&gt;</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- of the environment.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_color"><span class="hs-identifier hs-type">describeEnvironmentHealthResponse_color</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="describeEnvironmentHealthResponse_color"><span class="annot"><span class="annottext">describeEnvironmentHealthResponse_color :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEnvironmentHealthResponse
+-&gt; f DescribeEnvironmentHealthResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_color"><span class="hs-identifier hs-var hs-var">describeEnvironmentHealthResponse_color</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentHealthResponse -&gt; Maybe Text)
+-&gt; (DescribeEnvironmentHealthResponse
+    -&gt; Maybe Text -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Lens
+     DescribeEnvironmentHealthResponse
+     DescribeEnvironmentHealthResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313321"><span class="annot"><span class="annottext">Maybe Text
+color :: Maybe Text
+$sel:color:DescribeEnvironmentHealthResponse' :: DescribeEnvironmentHealthResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313321"><span class="hs-identifier hs-var hs-var">color</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313321"><span class="hs-identifier hs-var">color</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313320"><span class="annot"><span class="annottext">s :: DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313319"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:color:DescribeEnvironmentHealthResponse' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3Acolor%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">color</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | Descriptions of the data that contributed to the environment\'s current</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- health status.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_causes"><span class="hs-identifier hs-type">describeEnvironmentHealthResponse_causes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span id="describeEnvironmentHealthResponse_causes"><span class="annot"><span class="annottext">describeEnvironmentHealthResponse_causes :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeEnvironmentHealthResponse
+-&gt; f DescribeEnvironmentHealthResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_causes"><span class="hs-identifier hs-var hs-var">describeEnvironmentHealthResponse_causes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentHealthResponse -&gt; Maybe [Text])
+-&gt; (DescribeEnvironmentHealthResponse
+    -&gt; Maybe [Text] -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Lens
+     DescribeEnvironmentHealthResponse
+     DescribeEnvironmentHealthResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313318"><span class="annot"><span class="annottext">Maybe [Text]
+causes :: Maybe [Text]
+$sel:causes:DescribeEnvironmentHealthResponse' :: DescribeEnvironmentHealthResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679313318"><span class="hs-identifier hs-var hs-var">causes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679313318"><span class="hs-identifier hs-var">causes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313317"><span class="annot"><span class="annottext">s :: DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313316"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679313316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:causes:DescribeEnvironmentHealthResponse' :: Maybe [Text]
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3Acauses%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">causes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679313316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeEnvironmentHealthResponse
+ -&gt; f DescribeEnvironmentHealthResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeEnvironmentHealthResponse
+-&gt; f DescribeEnvironmentHealthResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | The environment\'s name.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_environmentName"><span class="hs-identifier hs-type">describeEnvironmentHealthResponse_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span id="describeEnvironmentHealthResponse_environmentName"><span class="annot"><span class="annottext">describeEnvironmentHealthResponse_environmentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEnvironmentHealthResponse
+-&gt; f DescribeEnvironmentHealthResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_environmentName"><span class="hs-identifier hs-var hs-var">describeEnvironmentHealthResponse_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentHealthResponse -&gt; Maybe Text)
+-&gt; (DescribeEnvironmentHealthResponse
+    -&gt; Maybe Text -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Lens
+     DescribeEnvironmentHealthResponse
+     DescribeEnvironmentHealthResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313315"><span class="annot"><span class="annottext">Maybe Text
+environmentName :: Maybe Text
+$sel:environmentName:DescribeEnvironmentHealthResponse' :: DescribeEnvironmentHealthResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313315"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313315"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313314"><span class="annot"><span class="annottext">s :: DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313313"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:DescribeEnvironmentHealthResponse' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AenvironmentName%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | Summary health information for the instances in the environment.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_instancesHealth"><span class="hs-identifier hs-type">describeEnvironmentHealthResponse_instancesHealth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.InstanceHealthSummary.html#InstanceHealthSummary"><span class="hs-identifier hs-type">InstanceHealthSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="describeEnvironmentHealthResponse_instancesHealth"><span class="annot"><span class="annottext">describeEnvironmentHealthResponse_instancesHealth :: (Maybe InstanceHealthSummary -&gt; f (Maybe InstanceHealthSummary))
+-&gt; DescribeEnvironmentHealthResponse
+-&gt; f DescribeEnvironmentHealthResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_instancesHealth"><span class="hs-identifier hs-var hs-var">describeEnvironmentHealthResponse_instancesHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentHealthResponse -&gt; Maybe InstanceHealthSummary)
+-&gt; (DescribeEnvironmentHealthResponse
+    -&gt; Maybe InstanceHealthSummary
+    -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Lens
+     DescribeEnvironmentHealthResponse
+     DescribeEnvironmentHealthResponse
+     (Maybe InstanceHealthSummary)
+     (Maybe InstanceHealthSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313312"><span class="annot"><span class="annottext">Maybe InstanceHealthSummary
+instancesHealth :: Maybe InstanceHealthSummary
+$sel:instancesHealth:DescribeEnvironmentHealthResponse' :: DescribeEnvironmentHealthResponse -&gt; Maybe InstanceHealthSummary
+</span><a href="#local-6989586621679313312"><span class="hs-identifier hs-var hs-var">instancesHealth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceHealthSummary
+</span><a href="#local-6989586621679313312"><span class="hs-identifier hs-var">instancesHealth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313311"><span class="annot"><span class="annottext">s :: DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313310"><span class="annot"><span class="annottext">Maybe InstanceHealthSummary
+</span><a href="#local-6989586621679313310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instancesHealth:DescribeEnvironmentHealthResponse' :: Maybe InstanceHealthSummary
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AinstancesHealth%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">instancesHealth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceHealthSummary
+</span><a href="#local-6989586621679313310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status&gt;</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- of the environment. For example, @Ok@.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_healthStatus"><span class="hs-identifier hs-type">describeEnvironmentHealthResponse_healthStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="describeEnvironmentHealthResponse_healthStatus"><span class="annot"><span class="annottext">describeEnvironmentHealthResponse_healthStatus :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEnvironmentHealthResponse
+-&gt; f DescribeEnvironmentHealthResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_healthStatus"><span class="hs-identifier hs-var hs-var">describeEnvironmentHealthResponse_healthStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentHealthResponse -&gt; Maybe Text)
+-&gt; (DescribeEnvironmentHealthResponse
+    -&gt; Maybe Text -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Lens
+     DescribeEnvironmentHealthResponse
+     DescribeEnvironmentHealthResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313309"><span class="annot"><span class="annottext">Maybe Text
+healthStatus :: Maybe Text
+$sel:healthStatus:DescribeEnvironmentHealthResponse' :: DescribeEnvironmentHealthResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313309"><span class="hs-identifier hs-var hs-var">healthStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313309"><span class="hs-identifier hs-var">healthStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313308"><span class="annot"><span class="annottext">s :: DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313307"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthStatus:DescribeEnvironmentHealthResponse' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AhealthStatus%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">healthStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | Application request metrics for the environment.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_applicationMetrics"><span class="hs-identifier hs-type">describeEnvironmentHealthResponse_applicationMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="describeEnvironmentHealthResponse_applicationMetrics"><span class="annot"><span class="annottext">describeEnvironmentHealthResponse_applicationMetrics :: (Maybe ApplicationMetrics -&gt; f (Maybe ApplicationMetrics))
+-&gt; DescribeEnvironmentHealthResponse
+-&gt; f DescribeEnvironmentHealthResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_applicationMetrics"><span class="hs-identifier hs-var hs-var">describeEnvironmentHealthResponse_applicationMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentHealthResponse -&gt; Maybe ApplicationMetrics)
+-&gt; (DescribeEnvironmentHealthResponse
+    -&gt; Maybe ApplicationMetrics -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Lens
+     DescribeEnvironmentHealthResponse
+     DescribeEnvironmentHealthResponse
+     (Maybe ApplicationMetrics)
+     (Maybe ApplicationMetrics)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313306"><span class="annot"><span class="annottext">Maybe ApplicationMetrics
+applicationMetrics :: Maybe ApplicationMetrics
+$sel:applicationMetrics:DescribeEnvironmentHealthResponse' :: DescribeEnvironmentHealthResponse -&gt; Maybe ApplicationMetrics
+</span><a href="#local-6989586621679313306"><span class="hs-identifier hs-var hs-var">applicationMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationMetrics
+</span><a href="#local-6989586621679313306"><span class="hs-identifier hs-var">applicationMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313305"><span class="annot"><span class="annottext">s :: DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313304"><span class="annot"><span class="annottext">Maybe ApplicationMetrics
+</span><a href="#local-6989586621679313304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationMetrics:DescribeEnvironmentHealthResponse' :: Maybe ApplicationMetrics
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AapplicationMetrics%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">applicationMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationMetrics
+</span><a href="#local-6989586621679313304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_httpStatus"><span class="hs-identifier hs-type">describeEnvironmentHealthResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-295"></span><span id="describeEnvironmentHealthResponse_httpStatus"><span class="annot"><span class="annottext">describeEnvironmentHealthResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeEnvironmentHealthResponse
+-&gt; f DescribeEnvironmentHealthResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#describeEnvironmentHealthResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeEnvironmentHealthResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentHealthResponse -&gt; Int)
+-&gt; (DescribeEnvironmentHealthResponse
+    -&gt; Int -&gt; DescribeEnvironmentHealthResponse)
+-&gt; Lens
+     DescribeEnvironmentHealthResponse
+     DescribeEnvironmentHealthResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313303"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeEnvironmentHealthResponse' :: DescribeEnvironmentHealthResponse -&gt; Int
+</span><a href="#local-6989586621679313303"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313303"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313302"><span class="annot"><span class="annottext">s :: DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313301"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentHealthResponse
+</span><a href="#local-6989586621679313302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEnvironmentHealthResponse' :: Int
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#%24sel%3AhttpStatus%3ADescribeEnvironmentHealthResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-298"></span><span>  </span><span id="local-6989586621679313299"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-299"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth.html#DescribeEnvironmentHealthResponse"><span class="hs-identifier hs-type">DescribeEnvironmentHealthResponse</span></a></span></span><span>
+</span><span id="line-300"></span></pre></body></html>

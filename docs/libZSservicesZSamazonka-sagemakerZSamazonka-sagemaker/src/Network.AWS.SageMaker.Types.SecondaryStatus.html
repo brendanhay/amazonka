@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.SecondaryStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.SecondaryStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier">SecondaryStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Completed"><span class="hs-identifier">SecondaryStatus_Completed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Downloading"><span class="hs-identifier">SecondaryStatus_Downloading</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_DownloadingTrainingImage"><span class="hs-identifier">SecondaryStatus_DownloadingTrainingImage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Failed"><span class="hs-identifier">SecondaryStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Interrupted"><span class="hs-identifier">SecondaryStatus_Interrupted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_LaunchingMLInstances"><span class="hs-identifier">SecondaryStatus_LaunchingMLInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_MaxRuntimeExceeded"><span class="hs-identifier">SecondaryStatus_MaxRuntimeExceeded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_MaxWaitTimeExceeded"><span class="hs-identifier">SecondaryStatus_MaxWaitTimeExceeded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_PreparingTrainingStack"><span class="hs-identifier">SecondaryStatus_PreparingTrainingStack</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Restarting"><span class="hs-identifier">SecondaryStatus_Restarting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Starting"><span class="hs-identifier">SecondaryStatus_Starting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Stopped"><span class="hs-identifier">SecondaryStatus_Stopped</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Stopping"><span class="hs-identifier">SecondaryStatus_Stopping</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Training"><span class="hs-identifier">SecondaryStatus_Training</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Updating"><span class="hs-identifier">SecondaryStatus_Updating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Uploading"><span class="hs-identifier">SecondaryStatus_Uploading</span></a></span><span>
+</span><span id="line-39"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span id="local-6989586621680340220"><span id="local-6989586621680340221"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SecondaryStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-var">SecondaryStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecondaryStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-var">SecondaryStatus'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSecondaryStatus"><span class="annot"><span class="annottext">SecondaryStatus -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#fromSecondaryStatus"><span class="hs-identifier hs-var hs-var">fromSecondaryStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680340212"><span id="local-6989586621680340214"><span id="local-6989586621680340216"><span class="annot"><span class="annottext">Int -&gt; SecondaryStatus -&gt; ShowS
+[SecondaryStatus] -&gt; ShowS
+SecondaryStatus -&gt; String
+(Int -&gt; SecondaryStatus -&gt; ShowS)
+-&gt; (SecondaryStatus -&gt; String)
+-&gt; ([SecondaryStatus] -&gt; ShowS)
+-&gt; Show SecondaryStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SecondaryStatus] -&gt; ShowS
+$cshowList :: [SecondaryStatus] -&gt; ShowS
+show :: SecondaryStatus -&gt; String
+$cshow :: SecondaryStatus -&gt; String
+showsPrec :: Int -&gt; SecondaryStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; SecondaryStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680340203"><span id="local-6989586621680340205"><span id="local-6989586621680340207"><span id="local-6989586621680340209"><span class="annot"><span class="annottext">ReadPrec [SecondaryStatus]
+ReadPrec SecondaryStatus
+Int -&gt; ReadS SecondaryStatus
+ReadS [SecondaryStatus]
+(Int -&gt; ReadS SecondaryStatus)
+-&gt; ReadS [SecondaryStatus]
+-&gt; ReadPrec SecondaryStatus
+-&gt; ReadPrec [SecondaryStatus]
+-&gt; Read SecondaryStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SecondaryStatus]
+$creadListPrec :: ReadPrec [SecondaryStatus]
+readPrec :: ReadPrec SecondaryStatus
+$creadPrec :: ReadPrec SecondaryStatus
+readList :: ReadS [SecondaryStatus]
+$creadList :: ReadS [SecondaryStatus]
+readsPrec :: Int -&gt; ReadS SecondaryStatus
+$creadsPrec :: Int -&gt; ReadS SecondaryStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680340198"><span id="local-6989586621680340200"><span class="annot"><span class="annottext">SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
+(SecondaryStatus -&gt; SecondaryStatus -&gt; Bool)
+-&gt; (SecondaryStatus -&gt; SecondaryStatus -&gt; Bool)
+-&gt; Eq SecondaryStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
+$c/= :: SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
+== :: SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
+$c== :: SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680340182"><span id="local-6989586621680340184"><span id="local-6989586621680340186"><span id="local-6989586621680340188"><span id="local-6989586621680340190"><span id="local-6989586621680340192"><span id="local-6989586621680340194"><span class="annot"><span class="annottext">Eq SecondaryStatus
+Eq SecondaryStatus
+-&gt; (SecondaryStatus -&gt; SecondaryStatus -&gt; Ordering)
+-&gt; (SecondaryStatus -&gt; SecondaryStatus -&gt; Bool)
+-&gt; (SecondaryStatus -&gt; SecondaryStatus -&gt; Bool)
+-&gt; (SecondaryStatus -&gt; SecondaryStatus -&gt; Bool)
+-&gt; (SecondaryStatus -&gt; SecondaryStatus -&gt; Bool)
+-&gt; (SecondaryStatus -&gt; SecondaryStatus -&gt; SecondaryStatus)
+-&gt; (SecondaryStatus -&gt; SecondaryStatus -&gt; SecondaryStatus)
+-&gt; Ord SecondaryStatus
+SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
+SecondaryStatus -&gt; SecondaryStatus -&gt; Ordering
+SecondaryStatus -&gt; SecondaryStatus -&gt; SecondaryStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SecondaryStatus -&gt; SecondaryStatus -&gt; SecondaryStatus
+$cmin :: SecondaryStatus -&gt; SecondaryStatus -&gt; SecondaryStatus
+max :: SecondaryStatus -&gt; SecondaryStatus -&gt; SecondaryStatus
+$cmax :: SecondaryStatus -&gt; SecondaryStatus -&gt; SecondaryStatus
+&gt;= :: SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
+$c&gt;= :: SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
+&gt; :: SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
+$c&gt; :: SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
+&lt;= :: SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
+$c&lt;= :: SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
+&lt; :: SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
+$c&lt; :: SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
+compare :: SecondaryStatus -&gt; SecondaryStatus -&gt; Ordering
+$ccompare :: SecondaryStatus -&gt; SecondaryStatus -&gt; Ordering
+$cp1Ord :: Eq SecondaryStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SecondaryStatus -&gt; Rep SecondaryStatus x)
+-&gt; (forall x. Rep SecondaryStatus x -&gt; SecondaryStatus)
+-&gt; Generic SecondaryStatus
+forall x. Rep SecondaryStatus x -&gt; SecondaryStatus
+forall x. SecondaryStatus -&gt; Rep SecondaryStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SecondaryStatus x -&gt; SecondaryStatus
+$cfrom :: forall x. SecondaryStatus -&gt; Rep SecondaryStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680340174"><span id="local-6989586621680340176"><span class="annot"><span class="annottext">Int -&gt; SecondaryStatus -&gt; Int
+SecondaryStatus -&gt; Int
+(Int -&gt; SecondaryStatus -&gt; Int)
+-&gt; (SecondaryStatus -&gt; Int) -&gt; Hashable SecondaryStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SecondaryStatus -&gt; Int
+$chash :: SecondaryStatus -&gt; Int
+hashWithSalt :: Int -&gt; SecondaryStatus -&gt; Int
+$chashWithSalt :: Int -&gt; SecondaryStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680340171"><span class="annot"><span class="annottext">SecondaryStatus -&gt; ()
+(SecondaryStatus -&gt; ()) -&gt; NFData SecondaryStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SecondaryStatus -&gt; ()
+$crnf :: SecondaryStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680340168"><span class="annot"><span class="annottext">Text -&gt; Either String SecondaryStatus
+(Text -&gt; Either String SecondaryStatus) -&gt; FromText SecondaryStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SecondaryStatus
+$cfromText :: Text -&gt; Either String SecondaryStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680340165"><span class="annot"><span class="annottext">SecondaryStatus -&gt; Text
+(SecondaryStatus -&gt; Text) -&gt; ToText SecondaryStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SecondaryStatus -&gt; Text
+$ctoText :: SecondaryStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680340162"><span class="annot"><span class="annottext">SecondaryStatus -&gt; ByteString
+(SecondaryStatus -&gt; ByteString) -&gt; ToByteString SecondaryStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SecondaryStatus -&gt; ByteString
+$ctoBS :: SecondaryStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680340159"><span class="annot"><span class="annottext">SecondaryStatus -&gt; ByteStringBuilder
+(SecondaryStatus -&gt; ByteStringBuilder) -&gt; ToLog SecondaryStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SecondaryStatus -&gt; ByteStringBuilder
+$cbuild :: SecondaryStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680340156"><span class="annot"><span class="annottext">HeaderName -&gt; SecondaryStatus -&gt; [Header]
+(HeaderName -&gt; SecondaryStatus -&gt; [Header])
+-&gt; ToHeader SecondaryStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SecondaryStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SecondaryStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680340153"><span class="annot"><span class="annottext">SecondaryStatus -&gt; QueryString
+(SecondaryStatus -&gt; QueryString) -&gt; ToQuery SecondaryStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SecondaryStatus -&gt; QueryString
+$ctoQuery :: SecondaryStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680340148"><span id="local-6989586621680340150"><span class="annot"><span class="annottext">Value -&gt; Parser [SecondaryStatus]
+Value -&gt; Parser SecondaryStatus
+(Value -&gt; Parser SecondaryStatus)
+-&gt; (Value -&gt; Parser [SecondaryStatus]) -&gt; FromJSON SecondaryStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SecondaryStatus]
+$cparseJSONList :: Value -&gt; Parser [SecondaryStatus]
+parseJSON :: Value -&gt; Parser SecondaryStatus
+$cparseJSON :: Value -&gt; Parser SecondaryStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680340143"><span id="local-6989586621680340145"><span class="annot"><span class="annottext">FromJSONKeyFunction [SecondaryStatus]
+FromJSONKeyFunction SecondaryStatus
+FromJSONKeyFunction SecondaryStatus
+-&gt; FromJSONKeyFunction [SecondaryStatus]
+-&gt; FromJSONKey SecondaryStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SecondaryStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [SecondaryStatus]
+fromJSONKey :: FromJSONKeyFunction SecondaryStatus
+$cfromJSONKey :: FromJSONKeyFunction SecondaryStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680340134"><span id="local-6989586621680340136"><span id="local-6989586621680340138"><span id="local-6989586621680340140"><span class="annot"><span class="annottext">[SecondaryStatus] -&gt; Encoding
+[SecondaryStatus] -&gt; Value
+SecondaryStatus -&gt; Encoding
+SecondaryStatus -&gt; Value
+(SecondaryStatus -&gt; Value)
+-&gt; (SecondaryStatus -&gt; Encoding)
+-&gt; ([SecondaryStatus] -&gt; Value)
+-&gt; ([SecondaryStatus] -&gt; Encoding)
+-&gt; ToJSON SecondaryStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SecondaryStatus] -&gt; Encoding
+$ctoEncodingList :: [SecondaryStatus] -&gt; Encoding
+toJSONList :: [SecondaryStatus] -&gt; Value
+$ctoJSONList :: [SecondaryStatus] -&gt; Value
+toEncoding :: SecondaryStatus -&gt; Encoding
+$ctoEncoding :: SecondaryStatus -&gt; Encoding
+toJSON :: SecondaryStatus -&gt; Value
+$ctoJSON :: SecondaryStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680340129"><span id="local-6989586621680340131"><span class="annot"><span class="annottext">ToJSONKeyFunction [SecondaryStatus]
+ToJSONKeyFunction SecondaryStatus
+ToJSONKeyFunction SecondaryStatus
+-&gt; ToJSONKeyFunction [SecondaryStatus] -&gt; ToJSONKey SecondaryStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SecondaryStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [SecondaryStatus]
+toJSONKey :: ToJSONKeyFunction SecondaryStatus
+$ctoJSONKey :: ToJSONKeyFunction SecondaryStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621680340126"><span class="annot"><span class="annottext">[Node] -&gt; Either String SecondaryStatus
+([Node] -&gt; Either String SecondaryStatus)
+-&gt; FromXML SecondaryStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SecondaryStatus
+$cparseXML :: [Node] -&gt; Either String SecondaryStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621680340123"><span class="annot"><span class="annottext">SecondaryStatus -&gt; XML
+(SecondaryStatus -&gt; XML) -&gt; ToXML SecondaryStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SecondaryStatus -&gt; XML
+$ctoXML :: SecondaryStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Completed"><span class="hs-identifier hs-type">SecondaryStatus_Completed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_Completed"><span id="%24mSecondaryStatus_Completed"><span id="SecondaryStatus_Completed"><span class="annot"><span class="annottext">$bSecondaryStatus_Completed :: SecondaryStatus
+$mSecondaryStatus_Completed :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_Completed"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_Completed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Completed&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Downloading"><span class="hs-identifier hs-type">SecondaryStatus_Downloading</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_Downloading"><span id="%24mSecondaryStatus_Downloading"><span id="SecondaryStatus_Downloading"><span class="annot"><span class="annottext">$bSecondaryStatus_Downloading :: SecondaryStatus
+$mSecondaryStatus_Downloading :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_Downloading"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_Downloading</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Downloading&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_DownloadingTrainingImage"><span class="hs-identifier hs-type">SecondaryStatus_DownloadingTrainingImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_DownloadingTrainingImage"><span id="%24mSecondaryStatus_DownloadingTrainingImage"><span id="SecondaryStatus_DownloadingTrainingImage"><span class="annot"><span class="annottext">$bSecondaryStatus_DownloadingTrainingImage :: SecondaryStatus
+$mSecondaryStatus_DownloadingTrainingImage :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_DownloadingTrainingImage"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_DownloadingTrainingImage</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DownloadingTrainingImage&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Failed"><span class="hs-identifier hs-type">SecondaryStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_Failed"><span id="%24mSecondaryStatus_Failed"><span id="SecondaryStatus_Failed"><span class="annot"><span class="annottext">$bSecondaryStatus_Failed :: SecondaryStatus
+$mSecondaryStatus_Failed :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Interrupted"><span class="hs-identifier hs-type">SecondaryStatus_Interrupted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_Interrupted"><span id="%24mSecondaryStatus_Interrupted"><span id="SecondaryStatus_Interrupted"><span class="annot"><span class="annottext">$bSecondaryStatus_Interrupted :: SecondaryStatus
+$mSecondaryStatus_Interrupted :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_Interrupted"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_Interrupted</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Interrupted&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_LaunchingMLInstances"><span class="hs-identifier hs-type">SecondaryStatus_LaunchingMLInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_LaunchingMLInstances"><span id="%24mSecondaryStatus_LaunchingMLInstances"><span id="SecondaryStatus_LaunchingMLInstances"><span class="annot"><span class="annottext">$bSecondaryStatus_LaunchingMLInstances :: SecondaryStatus
+$mSecondaryStatus_LaunchingMLInstances :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_LaunchingMLInstances"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_LaunchingMLInstances</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LaunchingMLInstances&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_MaxRuntimeExceeded"><span class="hs-identifier hs-type">SecondaryStatus_MaxRuntimeExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_MaxRuntimeExceeded"><span id="%24mSecondaryStatus_MaxRuntimeExceeded"><span id="SecondaryStatus_MaxRuntimeExceeded"><span class="annot"><span class="annottext">$bSecondaryStatus_MaxRuntimeExceeded :: SecondaryStatus
+$mSecondaryStatus_MaxRuntimeExceeded :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_MaxRuntimeExceeded"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_MaxRuntimeExceeded</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MaxRuntimeExceeded&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_MaxWaitTimeExceeded"><span class="hs-identifier hs-type">SecondaryStatus_MaxWaitTimeExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_MaxWaitTimeExceeded"><span id="%24mSecondaryStatus_MaxWaitTimeExceeded"><span id="SecondaryStatus_MaxWaitTimeExceeded"><span class="annot"><span class="annottext">$bSecondaryStatus_MaxWaitTimeExceeded :: SecondaryStatus
+$mSecondaryStatus_MaxWaitTimeExceeded :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_MaxWaitTimeExceeded"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_MaxWaitTimeExceeded</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MaxWaitTimeExceeded&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_PreparingTrainingStack"><span class="hs-identifier hs-type">SecondaryStatus_PreparingTrainingStack</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_PreparingTrainingStack"><span id="%24mSecondaryStatus_PreparingTrainingStack"><span id="SecondaryStatus_PreparingTrainingStack"><span class="annot"><span class="annottext">$bSecondaryStatus_PreparingTrainingStack :: SecondaryStatus
+$mSecondaryStatus_PreparingTrainingStack :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_PreparingTrainingStack"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_PreparingTrainingStack</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PreparingTrainingStack&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Restarting"><span class="hs-identifier hs-type">SecondaryStatus_Restarting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_Restarting"><span id="%24mSecondaryStatus_Restarting"><span id="SecondaryStatus_Restarting"><span class="annot"><span class="annottext">$bSecondaryStatus_Restarting :: SecondaryStatus
+$mSecondaryStatus_Restarting :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_Restarting"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_Restarting</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Restarting&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Starting"><span class="hs-identifier hs-type">SecondaryStatus_Starting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_Starting"><span id="%24mSecondaryStatus_Starting"><span id="SecondaryStatus_Starting"><span class="annot"><span class="annottext">$bSecondaryStatus_Starting :: SecondaryStatus
+$mSecondaryStatus_Starting :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_Starting"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_Starting</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Starting&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Stopped"><span class="hs-identifier hs-type">SecondaryStatus_Stopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_Stopped"><span id="%24mSecondaryStatus_Stopped"><span id="SecondaryStatus_Stopped"><span class="annot"><span class="annottext">$bSecondaryStatus_Stopped :: SecondaryStatus
+$mSecondaryStatus_Stopped :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_Stopped"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_Stopped</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Stopped&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Stopping"><span class="hs-identifier hs-type">SecondaryStatus_Stopping</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_Stopping"><span id="%24mSecondaryStatus_Stopping"><span id="SecondaryStatus_Stopping"><span class="annot"><span class="annottext">$bSecondaryStatus_Stopping :: SecondaryStatus
+$mSecondaryStatus_Stopping :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_Stopping"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_Stopping</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Stopping&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Training"><span class="hs-identifier hs-type">SecondaryStatus_Training</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_Training"><span id="%24mSecondaryStatus_Training"><span id="SecondaryStatus_Training"><span class="annot"><span class="annottext">$bSecondaryStatus_Training :: SecondaryStatus
+$mSecondaryStatus_Training :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_Training"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_Training</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Training&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Updating"><span class="hs-identifier hs-type">SecondaryStatus_Updating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_Updating"><span id="%24mSecondaryStatus_Updating"><span id="SecondaryStatus_Updating"><span class="annot"><span class="annottext">$bSecondaryStatus_Updating :: SecondaryStatus
+$mSecondaryStatus_Updating :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_Updating"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_Updating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Updating&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Uploading"><span class="hs-identifier hs-type">SecondaryStatus_Uploading</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-type">SecondaryStatus</span></a></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecondaryStatus_Uploading"><span id="%24mSecondaryStatus_Uploading"><span id="SecondaryStatus_Uploading"><span class="annot"><span class="annottext">$bSecondaryStatus_Uploading :: SecondaryStatus
+$mSecondaryStatus_Uploading :: forall r. SecondaryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#%24bSecondaryStatus_Uploading"><span class="hs-identifier hs-var hs-var hs-var">SecondaryStatus_Uploading</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-type">SecondaryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Uploading&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Completed"><span class="hs-pragma hs-type">SecondaryStatus_Completed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Downloading"><span class="hs-pragma hs-type">SecondaryStatus_Downloading</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_DownloadingTrainingImage"><span class="hs-pragma hs-type">SecondaryStatus_DownloadingTrainingImage</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Failed"><span class="hs-pragma hs-type">SecondaryStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Interrupted"><span class="hs-pragma hs-type">SecondaryStatus_Interrupted</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_LaunchingMLInstances"><span class="hs-pragma hs-type">SecondaryStatus_LaunchingMLInstances</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_MaxRuntimeExceeded"><span class="hs-pragma hs-type">SecondaryStatus_MaxRuntimeExceeded</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_MaxWaitTimeExceeded"><span class="hs-pragma hs-type">SecondaryStatus_MaxWaitTimeExceeded</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_PreparingTrainingStack"><span class="hs-pragma hs-type">SecondaryStatus_PreparingTrainingStack</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Restarting"><span class="hs-pragma hs-type">SecondaryStatus_Restarting</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Starting"><span class="hs-pragma hs-type">SecondaryStatus_Starting</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Stopped"><span class="hs-pragma hs-type">SecondaryStatus_Stopped</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Stopping"><span class="hs-pragma hs-type">SecondaryStatus_Stopping</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Training"><span class="hs-pragma hs-type">SecondaryStatus_Training</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Updating"><span class="hs-pragma hs-type">SecondaryStatus_Updating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus_Uploading"><span class="hs-pragma hs-type">SecondaryStatus_Uploading</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-pragma hs-type">SecondaryStatus'</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-141"></span></pre></body></html>

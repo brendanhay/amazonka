@@ -1,0 +1,849 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AlexaBusiness.SearchSkillGroups</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Searches skill groups and lists the ones that meet a set of filter and</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- sort criteria.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AlexaBusiness.SearchSkillGroups</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier">SearchSkillGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#newSearchSkillGroups"><span class="hs-identifier">newSearchSkillGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroups_nextToken"><span class="hs-identifier">searchSkillGroups_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroups_sortCriteria"><span class="hs-identifier">searchSkillGroups_sortCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroups_maxResults"><span class="hs-identifier">searchSkillGroups_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroups_filters"><span class="hs-identifier">searchSkillGroups_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse"><span class="hs-identifier">SearchSkillGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#newSearchSkillGroupsResponse"><span class="hs-identifier">newSearchSkillGroupsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroupsResponse_nextToken"><span class="hs-identifier">searchSkillGroupsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroupsResponse_totalCount"><span class="hs-identifier">searchSkillGroupsResponse_totalCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroupsResponse_skillGroups"><span class="hs-identifier">searchSkillGroupsResponse_skillGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroupsResponse_httpStatus"><span class="hs-identifier">searchSkillGroupsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.html"><span class="hs-identifier">Network.AWS.AlexaBusiness.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newSearchSkillGroups' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679377129"><span id="local-6989586621679377130"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchSkillGroups"><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-var">SearchSkillGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchSkillGroups%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups%27"><span class="hs-identifier hs-var">SearchSkillGroups'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional token returned from a prior request. Use this token for</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the response includes only results beyond the token, up to the value</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- specified by @MaxResults@. Required.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchSkillGroups%27"><span class="annot"><span class="annottext">SearchSkillGroups -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AnextToken%3ASearchSkillGroups%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The sort order to use in listing the specified set of skill groups. The</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- supported sort key is SkillGroupName.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AsortCriteria%3ASearchSkillGroups%27"><span class="annot"><span class="annottext">SearchSkillGroups -&gt; Maybe [Sort]
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AsortCriteria%3ASearchSkillGroups%27"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to include in the response. If more</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- results exist than the specified @MaxResults@ value, a token is included</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AmaxResults%3ASearchSkillGroups%27"><span class="annot"><span class="annottext">SearchSkillGroups -&gt; Maybe Natural
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AmaxResults%3ASearchSkillGroups%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The filters to use to list a specified set of skill groups. The</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- supported filter key is SkillGroupName.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Afilters%3ASearchSkillGroups%27"><span class="annot"><span class="annottext">SearchSkillGroups -&gt; Maybe [Filter]
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3Afilters%3ASearchSkillGroups%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377120"><span id="local-6989586621679377122"><span class="annot"><span class="annottext">SearchSkillGroups -&gt; SearchSkillGroups -&gt; Bool
+(SearchSkillGroups -&gt; SearchSkillGroups -&gt; Bool)
+-&gt; (SearchSkillGroups -&gt; SearchSkillGroups -&gt; Bool)
+-&gt; Eq SearchSkillGroups
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchSkillGroups -&gt; SearchSkillGroups -&gt; Bool
+$c/= :: SearchSkillGroups -&gt; SearchSkillGroups -&gt; Bool
+== :: SearchSkillGroups -&gt; SearchSkillGroups -&gt; Bool
+$c== :: SearchSkillGroups -&gt; SearchSkillGroups -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377111"><span id="local-6989586621679377113"><span id="local-6989586621679377115"><span id="local-6989586621679377117"><span class="annot"><span class="annottext">ReadPrec [SearchSkillGroups]
+ReadPrec SearchSkillGroups
+Int -&gt; ReadS SearchSkillGroups
+ReadS [SearchSkillGroups]
+(Int -&gt; ReadS SearchSkillGroups)
+-&gt; ReadS [SearchSkillGroups]
+-&gt; ReadPrec SearchSkillGroups
+-&gt; ReadPrec [SearchSkillGroups]
+-&gt; Read SearchSkillGroups
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchSkillGroups]
+$creadListPrec :: ReadPrec [SearchSkillGroups]
+readPrec :: ReadPrec SearchSkillGroups
+$creadPrec :: ReadPrec SearchSkillGroups
+readList :: ReadS [SearchSkillGroups]
+$creadList :: ReadS [SearchSkillGroups]
+readsPrec :: Int -&gt; ReadS SearchSkillGroups
+$creadsPrec :: Int -&gt; ReadS SearchSkillGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377104"><span id="local-6989586621679377106"><span id="local-6989586621679377108"><span class="annot"><span class="annottext">Int -&gt; SearchSkillGroups -&gt; ShowS
+[SearchSkillGroups] -&gt; ShowS
+SearchSkillGroups -&gt; String
+(Int -&gt; SearchSkillGroups -&gt; ShowS)
+-&gt; (SearchSkillGroups -&gt; String)
+-&gt; ([SearchSkillGroups] -&gt; ShowS)
+-&gt; Show SearchSkillGroups
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchSkillGroups] -&gt; ShowS
+$cshowList :: [SearchSkillGroups] -&gt; ShowS
+show :: SearchSkillGroups -&gt; String
+$cshow :: SearchSkillGroups -&gt; String
+showsPrec :: Int -&gt; SearchSkillGroups -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchSkillGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SearchSkillGroups -&gt; Rep SearchSkillGroups x)
+-&gt; (forall x. Rep SearchSkillGroups x -&gt; SearchSkillGroups)
+-&gt; Generic SearchSkillGroups
+forall x. Rep SearchSkillGroups x -&gt; SearchSkillGroups
+forall x. SearchSkillGroups -&gt; Rep SearchSkillGroups x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SearchSkillGroups x -&gt; SearchSkillGroups
+$cfrom :: forall x. SearchSkillGroups -&gt; Rep SearchSkillGroups x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'SearchSkillGroups' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'nextToken', 'searchSkillGroups_nextToken' - An optional token returned from a prior request. Use this token for</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- the response includes only results beyond the token, up to the value</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- specified by @MaxResults@. Required.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'sortCriteria', 'searchSkillGroups_sortCriteria' - The sort order to use in listing the specified set of skill groups. The</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- supported sort key is SkillGroupName.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'maxResults', 'searchSkillGroups_maxResults' - The maximum number of results to include in the response. If more</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- results exist than the specified @MaxResults@ value, a token is included</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'filters', 'searchSkillGroups_filters' - The filters to use to list a specified set of skill groups. The</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- supported filter key is SkillGroupName.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#newSearchSkillGroups"><span class="hs-identifier hs-type">newSearchSkillGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span><span>
+</span><span id="line-101"></span><span id="newSearchSkillGroups"><span class="annot"><span class="annottext">newSearchSkillGroups :: SearchSkillGroups
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#newSearchSkillGroups"><span class="hs-identifier hs-var hs-var">newSearchSkillGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">SearchSkillGroups' :: Maybe Text
+-&gt; Maybe [Sort]
+-&gt; Maybe Natural
+-&gt; Maybe [Filter]
+-&gt; SearchSkillGroups
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups%27"><span class="hs-identifier hs-type">SearchSkillGroups'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:SearchSkillGroups' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AnextToken%3ASearchSkillGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortCriteria:SearchSkillGroups' :: Maybe [Sort]
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AsortCriteria%3ASearchSkillGroups%27"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Sort]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:SearchSkillGroups' :: Maybe Natural
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AmaxResults%3ASearchSkillGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:SearchSkillGroups' :: Maybe [Filter]
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3Afilters%3ASearchSkillGroups%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | An optional token returned from a prior request. Use this token for</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- the response includes only results beyond the token, up to the value</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- specified by @MaxResults@. Required.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroups_nextToken"><span class="hs-identifier hs-type">searchSkillGroups_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="searchSkillGroups_nextToken"><span class="annot"><span class="annottext">searchSkillGroups_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchSkillGroups -&gt; f SearchSkillGroups
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroups_nextToken"><span class="hs-identifier hs-var hs-var">searchSkillGroups_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchSkillGroups -&gt; Maybe Text)
+-&gt; (SearchSkillGroups -&gt; Maybe Text -&gt; SearchSkillGroups)
+-&gt; Lens
+     SearchSkillGroups SearchSkillGroups (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups%27"><span class="hs-identifier hs-type">SearchSkillGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377098"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchSkillGroups' :: SearchSkillGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679377098"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377098"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377097"><span class="annot"><span class="annottext">s :: SearchSkillGroups
+</span><a href="#local-6989586621679377097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups%27"><span class="hs-identifier hs-type">SearchSkillGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377096"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchSkillGroups
+</span><a href="#local-6989586621679377097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchSkillGroups' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AnextToken%3ASearchSkillGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The sort order to use in listing the specified set of skill groups. The</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- supported sort key is SkillGroupName.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroups_sortCriteria"><span class="hs-identifier hs-type">searchSkillGroups_sortCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="searchSkillGroups_sortCriteria"><span class="annot"><span class="annottext">searchSkillGroups_sortCriteria :: (Maybe [Sort] -&gt; f (Maybe [Sort]))
+-&gt; SearchSkillGroups -&gt; f SearchSkillGroups
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroups_sortCriteria"><span class="hs-identifier hs-var hs-var">searchSkillGroups_sortCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchSkillGroups -&gt; Maybe [Sort])
+-&gt; (SearchSkillGroups -&gt; Maybe [Sort] -&gt; SearchSkillGroups)
+-&gt; Lens
+     SearchSkillGroups SearchSkillGroups (Maybe [Sort]) (Maybe [Sort])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups%27"><span class="hs-identifier hs-type">SearchSkillGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377095"><span class="annot"><span class="annottext">Maybe [Sort]
+sortCriteria :: Maybe [Sort]
+$sel:sortCriteria:SearchSkillGroups' :: SearchSkillGroups -&gt; Maybe [Sort]
+</span><a href="#local-6989586621679377095"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Sort]
+</span><a href="#local-6989586621679377095"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377094"><span class="annot"><span class="annottext">s :: SearchSkillGroups
+</span><a href="#local-6989586621679377094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups%27"><span class="hs-identifier hs-type">SearchSkillGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377093"><span class="annot"><span class="annottext">Maybe [Sort]
+</span><a href="#local-6989586621679377093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchSkillGroups
+</span><a href="#local-6989586621679377094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortCriteria:SearchSkillGroups' :: Maybe [Sort]
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AsortCriteria%3ASearchSkillGroups%27"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Sort]
+</span><a href="#local-6989586621679377093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Sort] -&gt; f (Maybe [Sort]))
+ -&gt; SearchSkillGroups -&gt; f SearchSkillGroups)
+-&gt; ((Maybe [Sort] -&gt; f (Maybe [Sort]))
+    -&gt; Maybe [Sort] -&gt; f (Maybe [Sort]))
+-&gt; (Maybe [Sort] -&gt; f (Maybe [Sort]))
+-&gt; SearchSkillGroups
+-&gt; f SearchSkillGroups
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Sort] [Sort] [Sort] [Sort]
+-&gt; Iso (Maybe [Sort]) (Maybe [Sort]) (Maybe [Sort]) (Maybe [Sort])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Sort] [Sort] [Sort] [Sort]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The maximum number of results to include in the response. If more</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- results exist than the specified @MaxResults@ value, a token is included</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroups_maxResults"><span class="hs-identifier hs-type">searchSkillGroups_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="searchSkillGroups_maxResults"><span class="annot"><span class="annottext">searchSkillGroups_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SearchSkillGroups -&gt; f SearchSkillGroups
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroups_maxResults"><span class="hs-identifier hs-var hs-var">searchSkillGroups_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchSkillGroups -&gt; Maybe Natural)
+-&gt; (SearchSkillGroups -&gt; Maybe Natural -&gt; SearchSkillGroups)
+-&gt; Lens
+     SearchSkillGroups SearchSkillGroups (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups%27"><span class="hs-identifier hs-type">SearchSkillGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377089"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:SearchSkillGroups' :: SearchSkillGroups -&gt; Maybe Natural
+</span><a href="#local-6989586621679377089"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679377089"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377088"><span class="annot"><span class="annottext">s :: SearchSkillGroups
+</span><a href="#local-6989586621679377088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups%27"><span class="hs-identifier hs-type">SearchSkillGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377087"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679377087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchSkillGroups
+</span><a href="#local-6989586621679377088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchSkillGroups' :: Maybe Natural
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AmaxResults%3ASearchSkillGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679377087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The filters to use to list a specified set of skill groups. The</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- supported filter key is SkillGroupName.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroups_filters"><span class="hs-identifier hs-type">searchSkillGroups_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="searchSkillGroups_filters"><span class="annot"><span class="annottext">searchSkillGroups_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; SearchSkillGroups -&gt; f SearchSkillGroups
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroups_filters"><span class="hs-identifier hs-var hs-var">searchSkillGroups_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchSkillGroups -&gt; Maybe [Filter])
+-&gt; (SearchSkillGroups -&gt; Maybe [Filter] -&gt; SearchSkillGroups)
+-&gt; Lens
+     SearchSkillGroups
+     SearchSkillGroups
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups%27"><span class="hs-identifier hs-type">SearchSkillGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377086"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:SearchSkillGroups' :: SearchSkillGroups -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679377086"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679377086"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377085"><span class="annot"><span class="annottext">s :: SearchSkillGroups
+</span><a href="#local-6989586621679377085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups%27"><span class="hs-identifier hs-type">SearchSkillGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377084"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679377084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchSkillGroups
+</span><a href="#local-6989586621679377085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:SearchSkillGroups' :: Maybe [Filter]
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3Afilters%3ASearchSkillGroups%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679377084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; SearchSkillGroups -&gt; f SearchSkillGroups)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; SearchSkillGroups
+-&gt; f SearchSkillGroups
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679377080"><span class="annot"><span class="annottext">page :: SearchSkillGroups
+-&gt; AWSResponse SearchSkillGroups -&gt; Maybe SearchSkillGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679377078"><span class="annot"><span class="annottext">SearchSkillGroups
+</span><a href="#local-6989586621679377078"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679377077"><span class="annot"><span class="annottext">AWSResponse SearchSkillGroups
+</span><a href="#local-6989586621679377077"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-135"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchSkillGroups
+SearchSkillGroupsResponse
+</span><a href="#local-6989586621679377077"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">SearchSkillGroupsResponse
+-&gt; Getting (First Text) SearchSkillGroupsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; SearchSkillGroupsResponse
+-&gt; Const (First Text) SearchSkillGroupsResponse
+Lens' SearchSkillGroupsResponse (Maybe Text)
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroupsResponse_nextToken"><span class="hs-identifier hs-var">searchSkillGroupsResponse_nextToken</span></a></span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; SearchSkillGroupsResponse
+ -&gt; Const (First Text) SearchSkillGroupsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) SearchSkillGroupsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-138"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">Maybe SearchSkillGroups
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [SkillGroupData] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-141"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchSkillGroups
+SearchSkillGroupsResponse
+</span><a href="#local-6989586621679377077"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">SearchSkillGroupsResponse
+-&gt; Getting
+     (First [SkillGroupData]) SearchSkillGroupsResponse [SkillGroupData]
+-&gt; Maybe [SkillGroupData]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [SkillGroupData]
+ -&gt; Const (First [SkillGroupData]) (Maybe [SkillGroupData]))
+-&gt; SearchSkillGroupsResponse
+-&gt; Const (First [SkillGroupData]) SearchSkillGroupsResponse
+Lens' SearchSkillGroupsResponse (Maybe [SkillGroupData])
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroupsResponse_skillGroups"><span class="hs-identifier hs-var">searchSkillGroupsResponse_skillGroups</span></a></span><span>
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [SkillGroupData]
+  -&gt; Const (First [SkillGroupData]) (Maybe [SkillGroupData]))
+ -&gt; SearchSkillGroupsResponse
+ -&gt; Const (First [SkillGroupData]) SearchSkillGroupsResponse)
+-&gt; (([SkillGroupData]
+     -&gt; Const (First [SkillGroupData]) [SkillGroupData])
+    -&gt; Maybe [SkillGroupData]
+    -&gt; Const (First [SkillGroupData]) (Maybe [SkillGroupData]))
+-&gt; Getting
+     (First [SkillGroupData]) SearchSkillGroupsResponse [SkillGroupData]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([SkillGroupData]
+ -&gt; Const (First [SkillGroupData]) [SkillGroupData])
+-&gt; Maybe [SkillGroupData]
+-&gt; Const (First [SkillGroupData]) (Maybe [SkillGroupData])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-144"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">Maybe SearchSkillGroups
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">SearchSkillGroups -&gt; Maybe SearchSkillGroups
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(SearchSkillGroups -&gt; Maybe SearchSkillGroups)
+-&gt; SearchSkillGroups -&gt; Maybe SearchSkillGroups
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">SearchSkillGroups
+</span><a href="#local-6989586621679377078"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">SearchSkillGroups
+-&gt; (SearchSkillGroups -&gt; SearchSkillGroups) -&gt; SearchSkillGroups
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; SearchSkillGroups -&gt; Identity SearchSkillGroups
+Lens SearchSkillGroups SearchSkillGroups (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroups_nextToken"><span class="hs-identifier hs-var">searchSkillGroups_nextToken</span></a></span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; SearchSkillGroups -&gt; Identity SearchSkillGroups)
+-&gt; Maybe Text -&gt; SearchSkillGroups -&gt; SearchSkillGroups
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchSkillGroups
+SearchSkillGroupsResponse
+</span><a href="#local-6989586621679377077"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">SearchSkillGroupsResponse
+-&gt; Getting (First Text) SearchSkillGroupsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; SearchSkillGroupsResponse
+-&gt; Const (First Text) SearchSkillGroupsResponse
+Lens' SearchSkillGroupsResponse (Maybe Text)
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroupsResponse_nextToken"><span class="hs-identifier hs-var">searchSkillGroupsResponse_nextToken</span></a></span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; SearchSkillGroupsResponse
+ -&gt; Const (First Text) SearchSkillGroupsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) SearchSkillGroupsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-156"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse"><span class="hs-identifier hs-type">SearchSkillGroupsResponse</span></a></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679377068"><span class="annot"><span class="annottext">request :: SearchSkillGroups -&gt; Request SearchSkillGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SearchSkillGroups -&gt; Request SearchSkillGroups
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679377064"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SearchSkillGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SearchSkillGroups)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse SearchSkillGroups))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SearchSkillGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SearchSkillGroups)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377061"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377061"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679377060"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679377060"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679377059"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377059"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe [SkillGroupData]
+-&gt; Int
+-&gt; SearchSkillGroupsResponse
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse%27"><span class="hs-identifier hs-var">SearchSkillGroupsResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe [SkillGroupData]
+ -&gt; Int
+ -&gt; SearchSkillGroupsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe [SkillGroupData] -&gt; Int -&gt; SearchSkillGroupsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe [SkillGroupData] -&gt; Int -&gt; SearchSkillGroupsResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String (Maybe [SkillGroupData] -&gt; Int -&gt; SearchSkillGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TotalCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [SkillGroupData] -&gt; Int -&gt; SearchSkillGroupsResponse)
+-&gt; Either String (Maybe [SkillGroupData])
+-&gt; Either String (Int -&gt; SearchSkillGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SkillGroupData]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SkillGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SkillGroupData]))
+-&gt; Maybe [SkillGroupData] -&gt; Either String (Maybe [SkillGroupData])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SkillGroupData]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; SearchSkillGroupsResponse)
+-&gt; Either String Int -&gt; Either String SearchSkillGroupsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377061"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377050"><span id="local-6989586621679377052"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377047"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679377043"><span class="annot"><span class="annottext">toHeaders :: SearchSkillGroups -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SearchSkillGroups -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AlexaForBusiness.SearchSkillGroups&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-179"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-180"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-183"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-184"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377033"><span id="local-6989586621679377035"><span id="local-6989586621679377037"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679377031"><span class="annot"><span class="annottext">toJSON :: SearchSkillGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups%27"><span class="hs-identifier hs-type">SearchSkillGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377026"><span id="local-6989586621679377027"><span id="local-6989586621679377028"><span id="local-6989586621679377029"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Filter]
+Maybe [Sort]
+Maybe Text
+filters :: Maybe [Filter]
+maxResults :: Maybe Natural
+sortCriteria :: Maybe [Sort]
+nextToken :: Maybe Text
+$sel:filters:SearchSkillGroups' :: SearchSkillGroups -&gt; Maybe [Filter]
+$sel:maxResults:SearchSkillGroups' :: SearchSkillGroups -&gt; Maybe Natural
+$sel:sortCriteria:SearchSkillGroups' :: SearchSkillGroups -&gt; Maybe [Sort]
+$sel:nextToken:SearchSkillGroups' :: SearchSkillGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679377026"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377029"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortCriteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Sort] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Sort] -&gt; Pair) -&gt; Maybe [Sort] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Sort]
+</span><a href="#local-6989586621679377028"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679377027"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Filter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; Pair) -&gt; Maybe [Filter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679377026"><span class="hs-identifier hs-var">filters</span></a></span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679377020"><span class="annot"><span class="annottext">toPath :: SearchSkillGroups -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SearchSkillGroups -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroups"><span class="hs-identifier hs-type">SearchSkillGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679377016"><span class="annot"><span class="annottext">toQuery :: SearchSkillGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SearchSkillGroups -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | /See:/ 'newSearchSkillGroupsResponse' smart constructor.</span><span>
+</span><span id="line-206"></span><span id="local-6989586621679377013"><span id="local-6989586621679377014"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchSkillGroupsResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse"><span class="hs-identifier hs-var">SearchSkillGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchSkillGroupsResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse%27"><span class="hs-identifier hs-var">SearchSkillGroupsResponse'</span></a></span></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token returned to indicate that there is more data available.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchSkillGroupsResponse%27"><span class="annot"><span class="annottext">SearchSkillGroupsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AnextToken%3ASearchSkillGroupsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- | The total number of skill groups returned.</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3AtotalCount%3ASearchSkillGroupsResponse%27"><span class="annot"><span class="annottext">SearchSkillGroupsResponse -&gt; Maybe Int
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AtotalCount%3ASearchSkillGroupsResponse%27"><span class="hs-identifier hs-var hs-var">totalCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- | The skill groups that meet the filter criteria, in sort order.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AskillGroups%3ASearchSkillGroupsResponse%27"><span class="annot"><span class="annottext">SearchSkillGroupsResponse -&gt; Maybe [SkillGroupData]
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AskillGroups%3ASearchSkillGroupsResponse%27"><span class="hs-identifier hs-var hs-var">skillGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.SkillGroupData.html#SkillGroupData"><span class="hs-identifier hs-type">SkillGroupData</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASearchSkillGroupsResponse%27"><span class="annot"><span class="annottext">SearchSkillGroupsResponse -&gt; Int
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AhttpStatus%3ASearchSkillGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377005"><span id="local-6989586621679377007"><span class="annot"><span class="annottext">SearchSkillGroupsResponse -&gt; SearchSkillGroupsResponse -&gt; Bool
+(SearchSkillGroupsResponse -&gt; SearchSkillGroupsResponse -&gt; Bool)
+-&gt; (SearchSkillGroupsResponse -&gt; SearchSkillGroupsResponse -&gt; Bool)
+-&gt; Eq SearchSkillGroupsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchSkillGroupsResponse -&gt; SearchSkillGroupsResponse -&gt; Bool
+$c/= :: SearchSkillGroupsResponse -&gt; SearchSkillGroupsResponse -&gt; Bool
+== :: SearchSkillGroupsResponse -&gt; SearchSkillGroupsResponse -&gt; Bool
+$c== :: SearchSkillGroupsResponse -&gt; SearchSkillGroupsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376997"><span id="local-6989586621679376999"><span id="local-6989586621679377001"><span id="local-6989586621679377003"><span class="annot"><span class="annottext">ReadPrec [SearchSkillGroupsResponse]
+ReadPrec SearchSkillGroupsResponse
+Int -&gt; ReadS SearchSkillGroupsResponse
+ReadS [SearchSkillGroupsResponse]
+(Int -&gt; ReadS SearchSkillGroupsResponse)
+-&gt; ReadS [SearchSkillGroupsResponse]
+-&gt; ReadPrec SearchSkillGroupsResponse
+-&gt; ReadPrec [SearchSkillGroupsResponse]
+-&gt; Read SearchSkillGroupsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchSkillGroupsResponse]
+$creadListPrec :: ReadPrec [SearchSkillGroupsResponse]
+readPrec :: ReadPrec SearchSkillGroupsResponse
+$creadPrec :: ReadPrec SearchSkillGroupsResponse
+readList :: ReadS [SearchSkillGroupsResponse]
+$creadList :: ReadS [SearchSkillGroupsResponse]
+readsPrec :: Int -&gt; ReadS SearchSkillGroupsResponse
+$creadsPrec :: Int -&gt; ReadS SearchSkillGroupsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376991"><span id="local-6989586621679376993"><span id="local-6989586621679376995"><span class="annot"><span class="annottext">Int -&gt; SearchSkillGroupsResponse -&gt; ShowS
+[SearchSkillGroupsResponse] -&gt; ShowS
+SearchSkillGroupsResponse -&gt; String
+(Int -&gt; SearchSkillGroupsResponse -&gt; ShowS)
+-&gt; (SearchSkillGroupsResponse -&gt; String)
+-&gt; ([SearchSkillGroupsResponse] -&gt; ShowS)
+-&gt; Show SearchSkillGroupsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchSkillGroupsResponse] -&gt; ShowS
+$cshowList :: [SearchSkillGroupsResponse] -&gt; ShowS
+show :: SearchSkillGroupsResponse -&gt; String
+$cshow :: SearchSkillGroupsResponse -&gt; String
+showsPrec :: Int -&gt; SearchSkillGroupsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchSkillGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SearchSkillGroupsResponse -&gt; Rep SearchSkillGroupsResponse x)
+-&gt; (forall x.
+    Rep SearchSkillGroupsResponse x -&gt; SearchSkillGroupsResponse)
+-&gt; Generic SearchSkillGroupsResponse
+forall x.
+Rep SearchSkillGroupsResponse x -&gt; SearchSkillGroupsResponse
+forall x.
+SearchSkillGroupsResponse -&gt; Rep SearchSkillGroupsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SearchSkillGroupsResponse x -&gt; SearchSkillGroupsResponse
+$cfrom :: forall x.
+SearchSkillGroupsResponse -&gt; Rep SearchSkillGroupsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Create a value of 'SearchSkillGroupsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'nextToken', 'searchSkillGroupsResponse_nextToken' - The token returned to indicate that there is more data available.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'totalCount', 'searchSkillGroupsResponse_totalCount' - The total number of skill groups returned.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'skillGroups', 'searchSkillGroupsResponse_skillGroups' - The skill groups that meet the filter criteria, in sort order.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'httpStatus', 'searchSkillGroupsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#newSearchSkillGroupsResponse"><span class="hs-identifier hs-type">newSearchSkillGroupsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-235"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-236"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse"><span class="hs-identifier hs-type">SearchSkillGroupsResponse</span></a></span><span>
+</span><span id="line-237"></span><span id="newSearchSkillGroupsResponse"><span class="annot"><span class="annottext">newSearchSkillGroupsResponse :: Int -&gt; SearchSkillGroupsResponse
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#newSearchSkillGroupsResponse"><span class="hs-identifier hs-var hs-var">newSearchSkillGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679376988"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679376988"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><span class="annottext">SearchSkillGroupsResponse' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe [SkillGroupData]
+-&gt; Int
+-&gt; SearchSkillGroupsResponse
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse%27"><span class="hs-identifier hs-type">SearchSkillGroupsResponse'</span></a></span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:SearchSkillGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AnextToken%3ASearchSkillGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalCount:SearchSkillGroupsResponse' :: Maybe Int
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AtotalCount%3ASearchSkillGroupsResponse%27"><span class="hs-identifier hs-var">totalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:skillGroups:SearchSkillGroupsResponse' :: Maybe [SkillGroupData]
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AskillGroups%3ASearchSkillGroupsResponse%27"><span class="hs-identifier hs-var">skillGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SkillGroupData]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SearchSkillGroupsResponse' :: Int
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AhttpStatus%3ASearchSkillGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679376988"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The token returned to indicate that there is more data available.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroupsResponse_nextToken"><span class="hs-identifier hs-type">searchSkillGroupsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse"><span class="hs-identifier hs-type">SearchSkillGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="searchSkillGroupsResponse_nextToken"><span class="annot"><span class="annottext">searchSkillGroupsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchSkillGroupsResponse -&gt; f SearchSkillGroupsResponse
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroupsResponse_nextToken"><span class="hs-identifier hs-var hs-var">searchSkillGroupsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchSkillGroupsResponse -&gt; Maybe Text)
+-&gt; (SearchSkillGroupsResponse
+    -&gt; Maybe Text -&gt; SearchSkillGroupsResponse)
+-&gt; Lens' SearchSkillGroupsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse%27"><span class="hs-identifier hs-type">SearchSkillGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376987"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchSkillGroupsResponse' :: SearchSkillGroupsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679376987"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376987"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376986"><span class="annot"><span class="annottext">s :: SearchSkillGroupsResponse
+</span><a href="#local-6989586621679376986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse%27"><span class="hs-identifier hs-type">SearchSkillGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376985"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchSkillGroupsResponse
+</span><a href="#local-6989586621679376986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchSkillGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AnextToken%3ASearchSkillGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse"><span class="hs-identifier hs-type">SearchSkillGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The total number of skill groups returned.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroupsResponse_totalCount"><span class="hs-identifier hs-type">searchSkillGroupsResponse_totalCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse"><span class="hs-identifier hs-type">SearchSkillGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="searchSkillGroupsResponse_totalCount"><span class="annot"><span class="annottext">searchSkillGroupsResponse_totalCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SearchSkillGroupsResponse -&gt; f SearchSkillGroupsResponse
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroupsResponse_totalCount"><span class="hs-identifier hs-var hs-var">searchSkillGroupsResponse_totalCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchSkillGroupsResponse -&gt; Maybe Int)
+-&gt; (SearchSkillGroupsResponse
+    -&gt; Maybe Int -&gt; SearchSkillGroupsResponse)
+-&gt; Lens
+     SearchSkillGroupsResponse
+     SearchSkillGroupsResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse%27"><span class="hs-identifier hs-type">SearchSkillGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376984"><span class="annot"><span class="annottext">Maybe Int
+totalCount :: Maybe Int
+$sel:totalCount:SearchSkillGroupsResponse' :: SearchSkillGroupsResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679376984"><span class="hs-identifier hs-var hs-var">totalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679376984"><span class="hs-identifier hs-var">totalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376983"><span class="annot"><span class="annottext">s :: SearchSkillGroupsResponse
+</span><a href="#local-6989586621679376983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse%27"><span class="hs-identifier hs-type">SearchSkillGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376982"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679376982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchSkillGroupsResponse
+</span><a href="#local-6989586621679376983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalCount:SearchSkillGroupsResponse' :: Maybe Int
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AtotalCount%3ASearchSkillGroupsResponse%27"><span class="hs-identifier hs-var">totalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679376982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse"><span class="hs-identifier hs-type">SearchSkillGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The skill groups that meet the filter criteria, in sort order.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroupsResponse_skillGroups"><span class="hs-identifier hs-type">searchSkillGroupsResponse_skillGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse"><span class="hs-identifier hs-type">SearchSkillGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.SkillGroupData.html#SkillGroupData"><span class="hs-identifier hs-type">SkillGroupData</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="searchSkillGroupsResponse_skillGroups"><span class="annot"><span class="annottext">searchSkillGroupsResponse_skillGroups :: (Maybe [SkillGroupData] -&gt; f (Maybe [SkillGroupData]))
+-&gt; SearchSkillGroupsResponse -&gt; f SearchSkillGroupsResponse
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroupsResponse_skillGroups"><span class="hs-identifier hs-var hs-var">searchSkillGroupsResponse_skillGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchSkillGroupsResponse -&gt; Maybe [SkillGroupData])
+-&gt; (SearchSkillGroupsResponse
+    -&gt; Maybe [SkillGroupData] -&gt; SearchSkillGroupsResponse)
+-&gt; Lens' SearchSkillGroupsResponse (Maybe [SkillGroupData])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse%27"><span class="hs-identifier hs-type">SearchSkillGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376981"><span class="annot"><span class="annottext">Maybe [SkillGroupData]
+skillGroups :: Maybe [SkillGroupData]
+$sel:skillGroups:SearchSkillGroupsResponse' :: SearchSkillGroupsResponse -&gt; Maybe [SkillGroupData]
+</span><a href="#local-6989586621679376981"><span class="hs-identifier hs-var hs-var">skillGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SkillGroupData]
+</span><a href="#local-6989586621679376981"><span class="hs-identifier hs-var">skillGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376980"><span class="annot"><span class="annottext">s :: SearchSkillGroupsResponse
+</span><a href="#local-6989586621679376980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse%27"><span class="hs-identifier hs-type">SearchSkillGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376979"><span class="annot"><span class="annottext">Maybe [SkillGroupData]
+</span><a href="#local-6989586621679376979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchSkillGroupsResponse
+</span><a href="#local-6989586621679376980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skillGroups:SearchSkillGroupsResponse' :: Maybe [SkillGroupData]
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AskillGroups%3ASearchSkillGroupsResponse%27"><span class="hs-identifier hs-var">skillGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SkillGroupData]
+</span><a href="#local-6989586621679376979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse"><span class="hs-identifier hs-type">SearchSkillGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SkillGroupData] -&gt; f (Maybe [SkillGroupData]))
+ -&gt; SearchSkillGroupsResponse -&gt; f SearchSkillGroupsResponse)
+-&gt; ((Maybe [SkillGroupData] -&gt; f (Maybe [SkillGroupData]))
+    -&gt; Maybe [SkillGroupData] -&gt; f (Maybe [SkillGroupData]))
+-&gt; (Maybe [SkillGroupData] -&gt; f (Maybe [SkillGroupData]))
+-&gt; SearchSkillGroupsResponse
+-&gt; f SearchSkillGroupsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SkillGroupData] [SkillGroupData] [SkillGroupData] [SkillGroupData]
+-&gt; Iso
+     (Maybe [SkillGroupData])
+     (Maybe [SkillGroupData])
+     (Maybe [SkillGroupData])
+     (Maybe [SkillGroupData])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SkillGroupData] [SkillGroupData] [SkillGroupData] [SkillGroupData]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroupsResponse_httpStatus"><span class="hs-identifier hs-type">searchSkillGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse"><span class="hs-identifier hs-type">SearchSkillGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-260"></span><span id="searchSkillGroupsResponse_httpStatus"><span class="annot"><span class="annottext">searchSkillGroupsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; SearchSkillGroupsResponse -&gt; f SearchSkillGroupsResponse
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#searchSkillGroupsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">searchSkillGroupsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchSkillGroupsResponse -&gt; Int)
+-&gt; (SearchSkillGroupsResponse -&gt; Int -&gt; SearchSkillGroupsResponse)
+-&gt; Lens SearchSkillGroupsResponse SearchSkillGroupsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse%27"><span class="hs-identifier hs-type">SearchSkillGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376978"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SearchSkillGroupsResponse' :: SearchSkillGroupsResponse -&gt; Int
+</span><a href="#local-6989586621679376978"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679376978"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376977"><span class="annot"><span class="annottext">s :: SearchSkillGroupsResponse
+</span><a href="#local-6989586621679376977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse%27"><span class="hs-identifier hs-type">SearchSkillGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376976"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679376976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchSkillGroupsResponse
+</span><a href="#local-6989586621679376977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchSkillGroupsResponse' :: Int
+</span><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#%24sel%3AhttpStatus%3ASearchSkillGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679376976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse"><span class="hs-identifier hs-type">SearchSkillGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376974"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchSkillGroups.html#SearchSkillGroupsResponse"><span class="hs-identifier hs-type">SearchSkillGroupsResponse</span></a></span></span><span>
+</span><span id="line-263"></span></pre></body></html>

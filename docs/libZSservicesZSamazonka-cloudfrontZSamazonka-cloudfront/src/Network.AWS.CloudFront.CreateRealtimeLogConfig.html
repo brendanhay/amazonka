@@ -1,0 +1,614 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.CreateRealtimeLogConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a real-time log configuration.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- After you create a real-time log configuration, you can attach it to one</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- or more cache behaviors to send real-time log data to the specified</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Amazon Kinesis data stream.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- For more information about real-time log configurations, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html Real-time logs&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.CreateRealtimeLogConfig</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier">CreateRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#newCreateRealtimeLogConfig"><span class="hs-identifier">newCreateRealtimeLogConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfig_endPoints"><span class="hs-identifier">createRealtimeLogConfig_endPoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfig_fields"><span class="hs-identifier">createRealtimeLogConfig_fields</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfig_name"><span class="hs-identifier">createRealtimeLogConfig_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfig_samplingRate"><span class="hs-identifier">createRealtimeLogConfig_samplingRate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse"><span class="hs-identifier">CreateRealtimeLogConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#newCreateRealtimeLogConfigResponse"><span class="hs-identifier">newCreateRealtimeLogConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfigResponse_realtimeLogConfig"><span class="hs-identifier">createRealtimeLogConfigResponse_realtimeLogConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfigResponse_httpStatus"><span class="hs-identifier">createRealtimeLogConfigResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.html"><span class="hs-identifier">Network.AWS.CloudFront.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newCreateRealtimeLogConfig' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679419991"><span id="local-6989586621679419992"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRealtimeLogConfig"><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-var">CreateRealtimeLogConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRealtimeLogConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig%27"><span class="hs-identifier hs-var">CreateRealtimeLogConfig'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains information about the Amazon Kinesis data stream where you are</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- sending real-time log data.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AendPoints%3ACreateRealtimeLogConfig%27"><span class="annot"><span class="annottext">CreateRealtimeLogConfig -&gt; [EndPoint]
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3AendPoints%3ACreateRealtimeLogConfig%27"><span class="hs-identifier hs-var hs-var">endPoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | A list of fields to include in each real-time log record.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- For more information about fields, see</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields&gt;</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Afields%3ACreateRealtimeLogConfig%27"><span class="annot"><span class="annottext">CreateRealtimeLogConfig -&gt; [Text]
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3Afields%3ACreateRealtimeLogConfig%27"><span class="hs-identifier hs-var hs-var">fields</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | A unique name to identify this real-time log configuration.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Aname%3ACreateRealtimeLogConfig%27"><span class="annot"><span class="annottext">CreateRealtimeLogConfig -&gt; Text
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3Aname%3ACreateRealtimeLogConfig%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The sampling rate for this real-time log configuration. The sampling</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- rate determines the percentage of viewer requests that are represented</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- in the real-time log data. You must provide an integer between 1 and</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- 100, inclusive.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AsamplingRate%3ACreateRealtimeLogConfig%27"><span class="annot"><span class="annottext">CreateRealtimeLogConfig -&gt; Integer
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3AsamplingRate%3ACreateRealtimeLogConfig%27"><span class="hs-identifier hs-var hs-var">samplingRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679419982"><span id="local-6989586621679419984"><span class="annot"><span class="annottext">CreateRealtimeLogConfig -&gt; CreateRealtimeLogConfig -&gt; Bool
+(CreateRealtimeLogConfig -&gt; CreateRealtimeLogConfig -&gt; Bool)
+-&gt; (CreateRealtimeLogConfig -&gt; CreateRealtimeLogConfig -&gt; Bool)
+-&gt; Eq CreateRealtimeLogConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRealtimeLogConfig -&gt; CreateRealtimeLogConfig -&gt; Bool
+$c/= :: CreateRealtimeLogConfig -&gt; CreateRealtimeLogConfig -&gt; Bool
+== :: CreateRealtimeLogConfig -&gt; CreateRealtimeLogConfig -&gt; Bool
+$c== :: CreateRealtimeLogConfig -&gt; CreateRealtimeLogConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419973"><span id="local-6989586621679419975"><span id="local-6989586621679419977"><span id="local-6989586621679419979"><span class="annot"><span class="annottext">ReadPrec [CreateRealtimeLogConfig]
+ReadPrec CreateRealtimeLogConfig
+Int -&gt; ReadS CreateRealtimeLogConfig
+ReadS [CreateRealtimeLogConfig]
+(Int -&gt; ReadS CreateRealtimeLogConfig)
+-&gt; ReadS [CreateRealtimeLogConfig]
+-&gt; ReadPrec CreateRealtimeLogConfig
+-&gt; ReadPrec [CreateRealtimeLogConfig]
+-&gt; Read CreateRealtimeLogConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRealtimeLogConfig]
+$creadListPrec :: ReadPrec [CreateRealtimeLogConfig]
+readPrec :: ReadPrec CreateRealtimeLogConfig
+$creadPrec :: ReadPrec CreateRealtimeLogConfig
+readList :: ReadS [CreateRealtimeLogConfig]
+$creadList :: ReadS [CreateRealtimeLogConfig]
+readsPrec :: Int -&gt; ReadS CreateRealtimeLogConfig
+$creadsPrec :: Int -&gt; ReadS CreateRealtimeLogConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419966"><span id="local-6989586621679419968"><span id="local-6989586621679419970"><span class="annot"><span class="annottext">Int -&gt; CreateRealtimeLogConfig -&gt; ShowS
+[CreateRealtimeLogConfig] -&gt; ShowS
+CreateRealtimeLogConfig -&gt; String
+(Int -&gt; CreateRealtimeLogConfig -&gt; ShowS)
+-&gt; (CreateRealtimeLogConfig -&gt; String)
+-&gt; ([CreateRealtimeLogConfig] -&gt; ShowS)
+-&gt; Show CreateRealtimeLogConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRealtimeLogConfig] -&gt; ShowS
+$cshowList :: [CreateRealtimeLogConfig] -&gt; ShowS
+show :: CreateRealtimeLogConfig -&gt; String
+$cshow :: CreateRealtimeLogConfig -&gt; String
+showsPrec :: Int -&gt; CreateRealtimeLogConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRealtimeLogConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateRealtimeLogConfig -&gt; Rep CreateRealtimeLogConfig x)
+-&gt; (forall x.
+    Rep CreateRealtimeLogConfig x -&gt; CreateRealtimeLogConfig)
+-&gt; Generic CreateRealtimeLogConfig
+forall x. Rep CreateRealtimeLogConfig x -&gt; CreateRealtimeLogConfig
+forall x. CreateRealtimeLogConfig -&gt; Rep CreateRealtimeLogConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateRealtimeLogConfig x -&gt; CreateRealtimeLogConfig
+$cfrom :: forall x. CreateRealtimeLogConfig -&gt; Rep CreateRealtimeLogConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Create a value of 'CreateRealtimeLogConfig' with all optional fields omitted.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'endPoints', 'createRealtimeLogConfig_endPoints' - Contains information about the Amazon Kinesis data stream where you are</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- sending real-time log data.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'fields', 'createRealtimeLogConfig_fields' - A list of fields to include in each real-time log record.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- For more information about fields, see</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields&gt;</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'name', 'createRealtimeLogConfig_name' - A unique name to identify this real-time log configuration.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'samplingRate', 'createRealtimeLogConfig_samplingRate' - The sampling rate for this real-time log configuration. The sampling</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- rate determines the percentage of viewer requests that are represented</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- in the real-time log data. You must provide an integer between 1 and</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 100, inclusive.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#newCreateRealtimeLogConfig"><span class="hs-identifier hs-type">newCreateRealtimeLogConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'samplingRate'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span>
+</span><span id="line-110"></span><span id="newCreateRealtimeLogConfig"><span class="annot"><span class="annottext">newCreateRealtimeLogConfig :: Text -&gt; Integer -&gt; CreateRealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#newCreateRealtimeLogConfig"><span class="hs-identifier hs-var hs-var">newCreateRealtimeLogConfig</span></a></span></span><span> </span><span id="local-6989586621679419961"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419961"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679419960"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679419960"><span class="hs-identifier hs-var">pSamplingRate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="annottext">CreateRealtimeLogConfig' :: [EndPoint] -&gt; [Text] -&gt; Text -&gt; Integer -&gt; CreateRealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig%27"><span class="hs-identifier hs-type">CreateRealtimeLogConfig'</span></a></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endPoints:CreateRealtimeLogConfig' :: [EndPoint]
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3AendPoints%3ACreateRealtimeLogConfig%27"><span class="hs-identifier hs-var">endPoints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">[EndPoint]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:fields:CreateRealtimeLogConfig' :: [Text]
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3Afields%3ACreateRealtimeLogConfig%27"><span class="hs-identifier hs-var">fields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateRealtimeLogConfig' :: Text
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3Aname%3ACreateRealtimeLogConfig%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419961"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:samplingRate:CreateRealtimeLogConfig' :: Integer
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3AsamplingRate%3ACreateRealtimeLogConfig%27"><span class="hs-identifier hs-var">samplingRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679419960"><span class="hs-identifier hs-var">pSamplingRate_</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Contains information about the Amazon Kinesis data stream where you are</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- sending real-time log data.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfig_endPoints"><span class="hs-identifier hs-type">createRealtimeLogConfig_endPoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span id="createRealtimeLogConfig_endPoints"><span class="annot"><span class="annottext">createRealtimeLogConfig_endPoints :: ([EndPoint] -&gt; f [EndPoint])
+-&gt; CreateRealtimeLogConfig -&gt; f CreateRealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfig_endPoints"><span class="hs-identifier hs-var hs-var">createRealtimeLogConfig_endPoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRealtimeLogConfig -&gt; [EndPoint])
+-&gt; (CreateRealtimeLogConfig
+    -&gt; [EndPoint] -&gt; CreateRealtimeLogConfig)
+-&gt; Lens
+     CreateRealtimeLogConfig
+     CreateRealtimeLogConfig
+     [EndPoint]
+     [EndPoint]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig%27"><span class="hs-identifier hs-type">CreateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419957"><span class="annot"><span class="annottext">[EndPoint]
+endPoints :: [EndPoint]
+$sel:endPoints:CreateRealtimeLogConfig' :: CreateRealtimeLogConfig -&gt; [EndPoint]
+</span><a href="#local-6989586621679419957"><span class="hs-identifier hs-var hs-var">endPoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EndPoint]
+</span><a href="#local-6989586621679419957"><span class="hs-identifier hs-var">endPoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419956"><span class="annot"><span class="annottext">s :: CreateRealtimeLogConfig
+</span><a href="#local-6989586621679419956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig%27"><span class="hs-identifier hs-type">CreateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419955"><span class="annot"><span class="annottext">[EndPoint]
+</span><a href="#local-6989586621679419955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRealtimeLogConfig
+</span><a href="#local-6989586621679419956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endPoints:CreateRealtimeLogConfig' :: [EndPoint]
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3AendPoints%3ACreateRealtimeLogConfig%27"><span class="hs-identifier hs-var">endPoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EndPoint]
+</span><a href="#local-6989586621679419955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EndPoint] -&gt; f [EndPoint])
+ -&gt; CreateRealtimeLogConfig -&gt; f CreateRealtimeLogConfig)
+-&gt; (([EndPoint] -&gt; f [EndPoint]) -&gt; [EndPoint] -&gt; f [EndPoint])
+-&gt; ([EndPoint] -&gt; f [EndPoint])
+-&gt; CreateRealtimeLogConfig
+-&gt; f CreateRealtimeLogConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([EndPoint] -&gt; f [EndPoint]) -&gt; [EndPoint] -&gt; f [EndPoint]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | A list of fields to include in each real-time log record.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- For more information about fields, see</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields&gt;</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfig_fields"><span class="hs-identifier hs-type">createRealtimeLogConfig_fields</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span id="createRealtimeLogConfig_fields"><span class="annot"><span class="annottext">createRealtimeLogConfig_fields :: ([Text] -&gt; f [Text])
+-&gt; CreateRealtimeLogConfig -&gt; f CreateRealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfig_fields"><span class="hs-identifier hs-var hs-var">createRealtimeLogConfig_fields</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRealtimeLogConfig -&gt; [Text])
+-&gt; (CreateRealtimeLogConfig -&gt; [Text] -&gt; CreateRealtimeLogConfig)
+-&gt; Lens
+     CreateRealtimeLogConfig CreateRealtimeLogConfig [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig%27"><span class="hs-identifier hs-type">CreateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419952"><span class="annot"><span class="annottext">[Text]
+fields :: [Text]
+$sel:fields:CreateRealtimeLogConfig' :: CreateRealtimeLogConfig -&gt; [Text]
+</span><a href="#local-6989586621679419952"><span class="hs-identifier hs-var hs-var">fields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679419952"><span class="hs-identifier hs-var">fields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419951"><span class="annot"><span class="annottext">s :: CreateRealtimeLogConfig
+</span><a href="#local-6989586621679419951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig%27"><span class="hs-identifier hs-type">CreateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419950"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679419950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRealtimeLogConfig
+</span><a href="#local-6989586621679419951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fields:CreateRealtimeLogConfig' :: [Text]
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3Afields%3ACreateRealtimeLogConfig%27"><span class="hs-identifier hs-var">fields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679419950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; CreateRealtimeLogConfig -&gt; f CreateRealtimeLogConfig)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; CreateRealtimeLogConfig
+-&gt; f CreateRealtimeLogConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | A unique name to identify this real-time log configuration.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfig_name"><span class="hs-identifier hs-type">createRealtimeLogConfig_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-134"></span><span id="createRealtimeLogConfig_name"><span class="annot"><span class="annottext">createRealtimeLogConfig_name :: (Text -&gt; f Text)
+-&gt; CreateRealtimeLogConfig -&gt; f CreateRealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfig_name"><span class="hs-identifier hs-var hs-var">createRealtimeLogConfig_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRealtimeLogConfig -&gt; Text)
+-&gt; (CreateRealtimeLogConfig -&gt; Text -&gt; CreateRealtimeLogConfig)
+-&gt; Lens CreateRealtimeLogConfig CreateRealtimeLogConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig%27"><span class="hs-identifier hs-type">CreateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419949"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateRealtimeLogConfig' :: CreateRealtimeLogConfig -&gt; Text
+</span><a href="#local-6989586621679419949"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419949"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419948"><span class="annot"><span class="annottext">s :: CreateRealtimeLogConfig
+</span><a href="#local-6989586621679419948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig%27"><span class="hs-identifier hs-type">CreateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419947"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRealtimeLogConfig
+</span><a href="#local-6989586621679419948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateRealtimeLogConfig' :: Text
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3Aname%3ACreateRealtimeLogConfig%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The sampling rate for this real-time log configuration. The sampling</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- rate determines the percentage of viewer requests that are represented</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- in the real-time log data. You must provide an integer between 1 and</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 100, inclusive.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfig_samplingRate"><span class="hs-identifier hs-type">createRealtimeLogConfig_samplingRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-141"></span><span id="createRealtimeLogConfig_samplingRate"><span class="annot"><span class="annottext">createRealtimeLogConfig_samplingRate :: (Integer -&gt; f Integer)
+-&gt; CreateRealtimeLogConfig -&gt; f CreateRealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfig_samplingRate"><span class="hs-identifier hs-var hs-var">createRealtimeLogConfig_samplingRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRealtimeLogConfig -&gt; Integer)
+-&gt; (CreateRealtimeLogConfig -&gt; Integer -&gt; CreateRealtimeLogConfig)
+-&gt; Lens
+     CreateRealtimeLogConfig CreateRealtimeLogConfig Integer Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig%27"><span class="hs-identifier hs-type">CreateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419946"><span class="annot"><span class="annottext">Integer
+samplingRate :: Integer
+$sel:samplingRate:CreateRealtimeLogConfig' :: CreateRealtimeLogConfig -&gt; Integer
+</span><a href="#local-6989586621679419946"><span class="hs-identifier hs-var hs-var">samplingRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679419946"><span class="hs-identifier hs-var">samplingRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419945"><span class="annot"><span class="annottext">s :: CreateRealtimeLogConfig
+</span><a href="#local-6989586621679419945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig%27"><span class="hs-identifier hs-type">CreateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419944"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679419944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRealtimeLogConfig
+</span><a href="#local-6989586621679419945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:samplingRate:CreateRealtimeLogConfig' :: Integer
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3AsamplingRate%3ACreateRealtimeLogConfig%27"><span class="hs-identifier hs-var">samplingRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679419944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-145"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">CreateRealtimeLogConfigResponse</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679419940"><span class="annot"><span class="annottext">request :: CreateRealtimeLogConfig -&gt; Request CreateRealtimeLogConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateRealtimeLogConfig -&gt; Request CreateRealtimeLogConfig
+forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postXML</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679419936"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateRealtimeLogConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateRealtimeLogConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse CreateRealtimeLogConfig))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateRealtimeLogConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateRealtimeLogConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679419933"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419933"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679419932"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679419932"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679419931"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679419931"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Maybe RealtimeLogConfig -&gt; Int -&gt; CreateRealtimeLogConfigResponse
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">CreateRealtimeLogConfigResponse'</span></a></span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RealtimeLogConfig -&gt; Int -&gt; CreateRealtimeLogConfigResponse)
+-&gt; Either String (Maybe RealtimeLogConfig)
+-&gt; Either String (Int -&gt; CreateRealtimeLogConfigResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679419931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe RealtimeLogConfig)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RealtimeLogConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateRealtimeLogConfigResponse)
+-&gt; Either String Int
+-&gt; Either String CreateRealtimeLogConfigResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419933"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419923"><span id="local-6989586621679419925"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679419916"><span class="annot"><span class="annottext">toElement :: CreateRealtimeLogConfig -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; CreateRealtimeLogConfig -&gt; Element
+forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
+</span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;{http://cloudfront.amazonaws.com/doc/2020-05-31/}CreateRealtimeLogConfigRequest&quot;</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679419911"><span class="annot"><span class="annottext">toHeaders :: CreateRealtimeLogConfig -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRealtimeLogConfig -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679419906"><span class="annot"><span class="annottext">toPath :: CreateRealtimeLogConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; CreateRealtimeLogConfig -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-05-31/realtime-log-config&quot;</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679419902"><span class="annot"><span class="annottext">toQuery :: CreateRealtimeLogConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateRealtimeLogConfig -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig"><span class="hs-identifier hs-type">CreateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679419898"><span class="annot"><span class="annottext">toXML :: CreateRealtimeLogConfig -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfig%27"><span class="hs-identifier hs-type">CreateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419893"><span id="local-6989586621679419894"><span id="local-6989586621679419895"><span id="local-6989586621679419896"><span class="annot"><span class="annottext">Integer
+[Text]
+[EndPoint]
+Text
+samplingRate :: Integer
+name :: Text
+fields :: [Text]
+endPoints :: [EndPoint]
+$sel:samplingRate:CreateRealtimeLogConfig' :: CreateRealtimeLogConfig -&gt; Integer
+$sel:name:CreateRealtimeLogConfig' :: CreateRealtimeLogConfig -&gt; Text
+$sel:fields:CreateRealtimeLogConfig' :: CreateRealtimeLogConfig -&gt; [Text]
+$sel:endPoints:CreateRealtimeLogConfig' :: CreateRealtimeLogConfig -&gt; [EndPoint]
+</span><a href="#local-6989586621679419893"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;EndPoints&quot;</span></span><span>
+</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; [EndPoint] -&gt; XML
+forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[EndPoint]
+</span><a href="#local-6989586621679419896"><span class="hs-identifier hs-var">endPoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Fields&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; [Text] -&gt; XML
+forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Field&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679419895"><span class="hs-identifier hs-var">fields</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419894"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;SamplingRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Integer -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679419893"><span class="hs-identifier hs-var">samplingRate</span></a></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | /See:/ 'newCreateRealtimeLogConfigResponse' smart constructor.</span><span>
+</span><span id="line-186"></span><span id="local-6989586621679419889"><span id="local-6989586621679419890"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRealtimeLogConfigResponse"><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse"><span class="hs-identifier hs-var">CreateRealtimeLogConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRealtimeLogConfigResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">CreateRealtimeLogConfigResponse'</span></a></span></span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A real-time log configuration.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3ArealtimeLogConfig%3ACreateRealtimeLogConfigResponse%27"><span class="annot"><span class="annottext">CreateRealtimeLogConfigResponse -&gt; Maybe RealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3ArealtimeLogConfig%3ACreateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var hs-var">realtimeLogConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeLogConfig.html#RealtimeLogConfig"><span class="hs-identifier hs-type">RealtimeLogConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateRealtimeLogConfigResponse%27"><span class="annot"><span class="annottext">CreateRealtimeLogConfigResponse -&gt; Int
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3AhttpStatus%3ACreateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679419883"><span id="local-6989586621679419885"><span class="annot"><span class="annottext">CreateRealtimeLogConfigResponse
+-&gt; CreateRealtimeLogConfigResponse -&gt; Bool
+(CreateRealtimeLogConfigResponse
+ -&gt; CreateRealtimeLogConfigResponse -&gt; Bool)
+-&gt; (CreateRealtimeLogConfigResponse
+    -&gt; CreateRealtimeLogConfigResponse -&gt; Bool)
+-&gt; Eq CreateRealtimeLogConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRealtimeLogConfigResponse
+-&gt; CreateRealtimeLogConfigResponse -&gt; Bool
+$c/= :: CreateRealtimeLogConfigResponse
+-&gt; CreateRealtimeLogConfigResponse -&gt; Bool
+== :: CreateRealtimeLogConfigResponse
+-&gt; CreateRealtimeLogConfigResponse -&gt; Bool
+$c== :: CreateRealtimeLogConfigResponse
+-&gt; CreateRealtimeLogConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419875"><span id="local-6989586621679419877"><span id="local-6989586621679419879"><span id="local-6989586621679419881"><span class="annot"><span class="annottext">ReadPrec [CreateRealtimeLogConfigResponse]
+ReadPrec CreateRealtimeLogConfigResponse
+Int -&gt; ReadS CreateRealtimeLogConfigResponse
+ReadS [CreateRealtimeLogConfigResponse]
+(Int -&gt; ReadS CreateRealtimeLogConfigResponse)
+-&gt; ReadS [CreateRealtimeLogConfigResponse]
+-&gt; ReadPrec CreateRealtimeLogConfigResponse
+-&gt; ReadPrec [CreateRealtimeLogConfigResponse]
+-&gt; Read CreateRealtimeLogConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRealtimeLogConfigResponse]
+$creadListPrec :: ReadPrec [CreateRealtimeLogConfigResponse]
+readPrec :: ReadPrec CreateRealtimeLogConfigResponse
+$creadPrec :: ReadPrec CreateRealtimeLogConfigResponse
+readList :: ReadS [CreateRealtimeLogConfigResponse]
+$creadList :: ReadS [CreateRealtimeLogConfigResponse]
+readsPrec :: Int -&gt; ReadS CreateRealtimeLogConfigResponse
+$creadsPrec :: Int -&gt; ReadS CreateRealtimeLogConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419869"><span id="local-6989586621679419871"><span id="local-6989586621679419873"><span class="annot"><span class="annottext">Int -&gt; CreateRealtimeLogConfigResponse -&gt; ShowS
+[CreateRealtimeLogConfigResponse] -&gt; ShowS
+CreateRealtimeLogConfigResponse -&gt; String
+(Int -&gt; CreateRealtimeLogConfigResponse -&gt; ShowS)
+-&gt; (CreateRealtimeLogConfigResponse -&gt; String)
+-&gt; ([CreateRealtimeLogConfigResponse] -&gt; ShowS)
+-&gt; Show CreateRealtimeLogConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRealtimeLogConfigResponse] -&gt; ShowS
+$cshowList :: [CreateRealtimeLogConfigResponse] -&gt; ShowS
+show :: CreateRealtimeLogConfigResponse -&gt; String
+$cshow :: CreateRealtimeLogConfigResponse -&gt; String
+showsPrec :: Int -&gt; CreateRealtimeLogConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRealtimeLogConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateRealtimeLogConfigResponse
+ -&gt; Rep CreateRealtimeLogConfigResponse x)
+-&gt; (forall x.
+    Rep CreateRealtimeLogConfigResponse x
+    -&gt; CreateRealtimeLogConfigResponse)
+-&gt; Generic CreateRealtimeLogConfigResponse
+forall x.
+Rep CreateRealtimeLogConfigResponse x
+-&gt; CreateRealtimeLogConfigResponse
+forall x.
+CreateRealtimeLogConfigResponse
+-&gt; Rep CreateRealtimeLogConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateRealtimeLogConfigResponse x
+-&gt; CreateRealtimeLogConfigResponse
+$cfrom :: forall x.
+CreateRealtimeLogConfigResponse
+-&gt; Rep CreateRealtimeLogConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Create a value of 'CreateRealtimeLogConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'realtimeLogConfig', 'createRealtimeLogConfigResponse_realtimeLogConfig' - A real-time log configuration.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'httpStatus', 'createRealtimeLogConfigResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#newCreateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">newCreateRealtimeLogConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">CreateRealtimeLogConfigResponse</span></a></span><span>
+</span><span id="line-209"></span><span id="newCreateRealtimeLogConfigResponse"><span class="annot"><span class="annottext">newCreateRealtimeLogConfigResponse :: Int -&gt; CreateRealtimeLogConfigResponse
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#newCreateRealtimeLogConfigResponse"><span class="hs-identifier hs-var hs-var">newCreateRealtimeLogConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679419866"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419866"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">CreateRealtimeLogConfigResponse' :: Maybe RealtimeLogConfig -&gt; Int -&gt; CreateRealtimeLogConfigResponse
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">CreateRealtimeLogConfigResponse'</span></a></span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:realtimeLogConfig:CreateRealtimeLogConfigResponse' :: Maybe RealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3ArealtimeLogConfig%3ACreateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">realtimeLogConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">Maybe RealtimeLogConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRealtimeLogConfigResponse' :: Int
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3AhttpStatus%3ACreateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419866"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | A real-time log configuration.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfigResponse_realtimeLogConfig"><span class="hs-identifier hs-type">createRealtimeLogConfigResponse_realtimeLogConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">CreateRealtimeLogConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeLogConfig.html#RealtimeLogConfig"><span class="hs-identifier hs-type">RealtimeLogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="createRealtimeLogConfigResponse_realtimeLogConfig"><span class="annot"><span class="annottext">createRealtimeLogConfigResponse_realtimeLogConfig :: (Maybe RealtimeLogConfig -&gt; f (Maybe RealtimeLogConfig))
+-&gt; CreateRealtimeLogConfigResponse
+-&gt; f CreateRealtimeLogConfigResponse
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfigResponse_realtimeLogConfig"><span class="hs-identifier hs-var hs-var">createRealtimeLogConfigResponse_realtimeLogConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRealtimeLogConfigResponse -&gt; Maybe RealtimeLogConfig)
+-&gt; (CreateRealtimeLogConfigResponse
+    -&gt; Maybe RealtimeLogConfig -&gt; CreateRealtimeLogConfigResponse)
+-&gt; Lens
+     CreateRealtimeLogConfigResponse
+     CreateRealtimeLogConfigResponse
+     (Maybe RealtimeLogConfig)
+     (Maybe RealtimeLogConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">CreateRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419865"><span class="annot"><span class="annottext">Maybe RealtimeLogConfig
+realtimeLogConfig :: Maybe RealtimeLogConfig
+$sel:realtimeLogConfig:CreateRealtimeLogConfigResponse' :: CreateRealtimeLogConfigResponse -&gt; Maybe RealtimeLogConfig
+</span><a href="#local-6989586621679419865"><span class="hs-identifier hs-var hs-var">realtimeLogConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeLogConfig
+</span><a href="#local-6989586621679419865"><span class="hs-identifier hs-var">realtimeLogConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419864"><span class="annot"><span class="annottext">s :: CreateRealtimeLogConfigResponse
+</span><a href="#local-6989586621679419864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">CreateRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419863"><span class="annot"><span class="annottext">Maybe RealtimeLogConfig
+</span><a href="#local-6989586621679419863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRealtimeLogConfigResponse
+</span><a href="#local-6989586621679419864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:realtimeLogConfig:CreateRealtimeLogConfigResponse' :: Maybe RealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3ArealtimeLogConfig%3ACreateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">realtimeLogConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeLogConfig
+</span><a href="#local-6989586621679419863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">CreateRealtimeLogConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfigResponse_httpStatus"><span class="hs-identifier hs-type">createRealtimeLogConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">CreateRealtimeLogConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-222"></span><span id="createRealtimeLogConfigResponse_httpStatus"><span class="annot"><span class="annottext">createRealtimeLogConfigResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateRealtimeLogConfigResponse
+-&gt; f CreateRealtimeLogConfigResponse
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#createRealtimeLogConfigResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createRealtimeLogConfigResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRealtimeLogConfigResponse -&gt; Int)
+-&gt; (CreateRealtimeLogConfigResponse
+    -&gt; Int -&gt; CreateRealtimeLogConfigResponse)
+-&gt; Lens
+     CreateRealtimeLogConfigResponse
+     CreateRealtimeLogConfigResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">CreateRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419862"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateRealtimeLogConfigResponse' :: CreateRealtimeLogConfigResponse -&gt; Int
+</span><a href="#local-6989586621679419862"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419862"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419861"><span class="annot"><span class="annottext">s :: CreateRealtimeLogConfigResponse
+</span><a href="#local-6989586621679419861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">CreateRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419860"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRealtimeLogConfigResponse
+</span><a href="#local-6989586621679419861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRealtimeLogConfigResponse' :: Int
+</span><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#%24sel%3AhttpStatus%3ACreateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">CreateRealtimeLogConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679419858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateRealtimeLogConfig.html#CreateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">CreateRealtimeLogConfigResponse</span></a></span></span><span>
+</span><span id="line-227"></span></pre></body></html>

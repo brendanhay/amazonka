@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.HlsAudioTrackType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.HlsAudioTrackType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType"><span class="hs-identifier">HlsAudioTrackType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT"><span class="hs-identifier">HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"><span class="hs-identifier">HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT"><span class="hs-identifier">HlsAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType_AUDIO_ONLY_VARIANT_STREAM"><span class="hs-identifier">HlsAudioTrackType_AUDIO_ONLY_VARIANT_STREAM</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Four types of audio-only tracks are supported: Audio-Only Variant Stream</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- The client can play back this audio-only stream instead of video in</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- manifest. Alternate Audio, Auto Select, Default Alternate rendition that</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- the client should try to play back by default. Represented as an</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Alternate Audio, Auto Select, Not Default Alternate rendition that the</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- client may try to play back by default. Represented as an EXT-X-MEDIA in</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Auto Select Alternate rendition that the client will not try to play</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- back by default. Represented as an EXT-X-MEDIA in the HLS manifest with</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- DEFAULT=NO, AUTOSELECT=NO</span><span>
+</span><span id="line-46"></span><span id="local-6989586621679970953"><span id="local-6989586621679970954"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsAudioTrackType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType"><span class="hs-identifier hs-var">HlsAudioTrackType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsAudioTrackType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType%27"><span class="hs-identifier hs-var">HlsAudioTrackType'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsAudioTrackType"><span class="annot"><span class="annottext">HlsAudioTrackType -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#fromHlsAudioTrackType"><span class="hs-identifier hs-var hs-var">fromHlsAudioTrackType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679970945"><span id="local-6989586621679970947"><span id="local-6989586621679970949"><span class="annot"><span class="annottext">Int -&gt; HlsAudioTrackType -&gt; ShowS
+[HlsAudioTrackType] -&gt; ShowS
+HlsAudioTrackType -&gt; String
+(Int -&gt; HlsAudioTrackType -&gt; ShowS)
+-&gt; (HlsAudioTrackType -&gt; String)
+-&gt; ([HlsAudioTrackType] -&gt; ShowS)
+-&gt; Show HlsAudioTrackType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HlsAudioTrackType] -&gt; ShowS
+$cshowList :: [HlsAudioTrackType] -&gt; ShowS
+show :: HlsAudioTrackType -&gt; String
+$cshow :: HlsAudioTrackType -&gt; String
+showsPrec :: Int -&gt; HlsAudioTrackType -&gt; ShowS
+$cshowsPrec :: Int -&gt; HlsAudioTrackType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679970936"><span id="local-6989586621679970938"><span id="local-6989586621679970940"><span id="local-6989586621679970942"><span class="annot"><span class="annottext">ReadPrec [HlsAudioTrackType]
+ReadPrec HlsAudioTrackType
+Int -&gt; ReadS HlsAudioTrackType
+ReadS [HlsAudioTrackType]
+(Int -&gt; ReadS HlsAudioTrackType)
+-&gt; ReadS [HlsAudioTrackType]
+-&gt; ReadPrec HlsAudioTrackType
+-&gt; ReadPrec [HlsAudioTrackType]
+-&gt; Read HlsAudioTrackType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HlsAudioTrackType]
+$creadListPrec :: ReadPrec [HlsAudioTrackType]
+readPrec :: ReadPrec HlsAudioTrackType
+$creadPrec :: ReadPrec HlsAudioTrackType
+readList :: ReadS [HlsAudioTrackType]
+$creadList :: ReadS [HlsAudioTrackType]
+readsPrec :: Int -&gt; ReadS HlsAudioTrackType
+$creadsPrec :: Int -&gt; ReadS HlsAudioTrackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679970931"><span id="local-6989586621679970933"><span class="annot"><span class="annottext">HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool
+(HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool)
+-&gt; (HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool)
+-&gt; Eq HlsAudioTrackType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool
+$c/= :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool
+== :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool
+$c== :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679970915"><span id="local-6989586621679970917"><span id="local-6989586621679970919"><span id="local-6989586621679970921"><span id="local-6989586621679970923"><span id="local-6989586621679970925"><span id="local-6989586621679970927"><span class="annot"><span class="annottext">Eq HlsAudioTrackType
+Eq HlsAudioTrackType
+-&gt; (HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Ordering)
+-&gt; (HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool)
+-&gt; (HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool)
+-&gt; (HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool)
+-&gt; (HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool)
+-&gt; (HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; HlsAudioTrackType)
+-&gt; (HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; HlsAudioTrackType)
+-&gt; Ord HlsAudioTrackType
+HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool
+HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Ordering
+HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; HlsAudioTrackType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; HlsAudioTrackType
+$cmin :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; HlsAudioTrackType
+max :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; HlsAudioTrackType
+$cmax :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; HlsAudioTrackType
+&gt;= :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool
+$c&gt;= :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool
+&gt; :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool
+$c&gt; :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool
+&lt;= :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool
+$c&lt;= :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool
+&lt; :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool
+$c&lt; :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Bool
+compare :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Ordering
+$ccompare :: HlsAudioTrackType -&gt; HlsAudioTrackType -&gt; Ordering
+$cp1Ord :: Eq HlsAudioTrackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HlsAudioTrackType -&gt; Rep HlsAudioTrackType x)
+-&gt; (forall x. Rep HlsAudioTrackType x -&gt; HlsAudioTrackType)
+-&gt; Generic HlsAudioTrackType
+forall x. Rep HlsAudioTrackType x -&gt; HlsAudioTrackType
+forall x. HlsAudioTrackType -&gt; Rep HlsAudioTrackType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HlsAudioTrackType x -&gt; HlsAudioTrackType
+$cfrom :: forall x. HlsAudioTrackType -&gt; Rep HlsAudioTrackType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679970907"><span id="local-6989586621679970909"><span class="annot"><span class="annottext">Int -&gt; HlsAudioTrackType -&gt; Int
+HlsAudioTrackType -&gt; Int
+(Int -&gt; HlsAudioTrackType -&gt; Int)
+-&gt; (HlsAudioTrackType -&gt; Int) -&gt; Hashable HlsAudioTrackType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HlsAudioTrackType -&gt; Int
+$chash :: HlsAudioTrackType -&gt; Int
+hashWithSalt :: Int -&gt; HlsAudioTrackType -&gt; Int
+$chashWithSalt :: Int -&gt; HlsAudioTrackType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679970904"><span class="annot"><span class="annottext">HlsAudioTrackType -&gt; ()
+(HlsAudioTrackType -&gt; ()) -&gt; NFData HlsAudioTrackType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HlsAudioTrackType -&gt; ()
+$crnf :: HlsAudioTrackType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679970901"><span class="annot"><span class="annottext">Text -&gt; Either String HlsAudioTrackType
+(Text -&gt; Either String HlsAudioTrackType)
+-&gt; FromText HlsAudioTrackType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HlsAudioTrackType
+$cfromText :: Text -&gt; Either String HlsAudioTrackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679970898"><span class="annot"><span class="annottext">HlsAudioTrackType -&gt; Text
+(HlsAudioTrackType -&gt; Text) -&gt; ToText HlsAudioTrackType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HlsAudioTrackType -&gt; Text
+$ctoText :: HlsAudioTrackType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679970895"><span class="annot"><span class="annottext">HlsAudioTrackType -&gt; ByteString
+(HlsAudioTrackType -&gt; ByteString) -&gt; ToByteString HlsAudioTrackType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HlsAudioTrackType -&gt; ByteString
+$ctoBS :: HlsAudioTrackType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679970892"><span class="annot"><span class="annottext">HlsAudioTrackType -&gt; ByteStringBuilder
+(HlsAudioTrackType -&gt; ByteStringBuilder) -&gt; ToLog HlsAudioTrackType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HlsAudioTrackType -&gt; ByteStringBuilder
+$cbuild :: HlsAudioTrackType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679970889"><span class="annot"><span class="annottext">HeaderName -&gt; HlsAudioTrackType -&gt; [Header]
+(HeaderName -&gt; HlsAudioTrackType -&gt; [Header])
+-&gt; ToHeader HlsAudioTrackType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HlsAudioTrackType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HlsAudioTrackType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679970886"><span class="annot"><span class="annottext">HlsAudioTrackType -&gt; QueryString
+(HlsAudioTrackType -&gt; QueryString) -&gt; ToQuery HlsAudioTrackType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HlsAudioTrackType -&gt; QueryString
+$ctoQuery :: HlsAudioTrackType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679970881"><span id="local-6989586621679970883"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsAudioTrackType]
+Value -&gt; Parser HlsAudioTrackType
+(Value -&gt; Parser HlsAudioTrackType)
+-&gt; (Value -&gt; Parser [HlsAudioTrackType])
+-&gt; FromJSON HlsAudioTrackType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HlsAudioTrackType]
+$cparseJSONList :: Value -&gt; Parser [HlsAudioTrackType]
+parseJSON :: Value -&gt; Parser HlsAudioTrackType
+$cparseJSON :: Value -&gt; Parser HlsAudioTrackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679970876"><span id="local-6989586621679970878"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsAudioTrackType]
+FromJSONKeyFunction HlsAudioTrackType
+FromJSONKeyFunction HlsAudioTrackType
+-&gt; FromJSONKeyFunction [HlsAudioTrackType]
+-&gt; FromJSONKey HlsAudioTrackType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HlsAudioTrackType]
+$cfromJSONKeyList :: FromJSONKeyFunction [HlsAudioTrackType]
+fromJSONKey :: FromJSONKeyFunction HlsAudioTrackType
+$cfromJSONKey :: FromJSONKeyFunction HlsAudioTrackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679970867"><span id="local-6989586621679970869"><span id="local-6989586621679970871"><span id="local-6989586621679970873"><span class="annot"><span class="annottext">[HlsAudioTrackType] -&gt; Encoding
+[HlsAudioTrackType] -&gt; Value
+HlsAudioTrackType -&gt; Encoding
+HlsAudioTrackType -&gt; Value
+(HlsAudioTrackType -&gt; Value)
+-&gt; (HlsAudioTrackType -&gt; Encoding)
+-&gt; ([HlsAudioTrackType] -&gt; Value)
+-&gt; ([HlsAudioTrackType] -&gt; Encoding)
+-&gt; ToJSON HlsAudioTrackType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HlsAudioTrackType] -&gt; Encoding
+$ctoEncodingList :: [HlsAudioTrackType] -&gt; Encoding
+toJSONList :: [HlsAudioTrackType] -&gt; Value
+$ctoJSONList :: [HlsAudioTrackType] -&gt; Value
+toEncoding :: HlsAudioTrackType -&gt; Encoding
+$ctoEncoding :: HlsAudioTrackType -&gt; Encoding
+toJSON :: HlsAudioTrackType -&gt; Value
+$ctoJSON :: HlsAudioTrackType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679970862"><span id="local-6989586621679970864"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsAudioTrackType]
+ToJSONKeyFunction HlsAudioTrackType
+ToJSONKeyFunction HlsAudioTrackType
+-&gt; ToJSONKeyFunction [HlsAudioTrackType]
+-&gt; ToJSONKey HlsAudioTrackType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HlsAudioTrackType]
+$ctoJSONKeyList :: ToJSONKeyFunction [HlsAudioTrackType]
+toJSONKey :: ToJSONKeyFunction HlsAudioTrackType
+$ctoJSONKey :: ToJSONKeyFunction HlsAudioTrackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679970859"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsAudioTrackType
+([Node] -&gt; Either String HlsAudioTrackType)
+-&gt; FromXML HlsAudioTrackType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HlsAudioTrackType
+$cparseXML :: [Node] -&gt; Either String HlsAudioTrackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679970856"><span class="annot"><span class="annottext">HlsAudioTrackType -&gt; XML
+(HlsAudioTrackType -&gt; XML) -&gt; ToXML HlsAudioTrackType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HlsAudioTrackType -&gt; XML
+$ctoXML :: HlsAudioTrackType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT"><span class="hs-identifier hs-type">HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType"><span class="hs-identifier hs-type">HlsAudioTrackType</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT"><span id="%24mHlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT"><span id="HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT"><span class="annot"><span class="annottext">$bHlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT :: HlsAudioTrackType
+$mHlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT :: forall r. HlsAudioTrackType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#%24bHlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT"><span class="hs-identifier hs-var hs-var hs-var">HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType%27"><span class="hs-identifier hs-type">HlsAudioTrackType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALTERNATE_AUDIO_AUTO_SELECT&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"><span class="hs-identifier hs-type">HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType"><span class="hs-identifier hs-type">HlsAudioTrackType</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"><span id="%24mHlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"><span id="HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"><span class="annot"><span class="annottext">$bHlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT :: HlsAudioTrackType
+$mHlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT :: forall r. HlsAudioTrackType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#%24bHlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"><span class="hs-identifier hs-var hs-var hs-var">HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType%27"><span class="hs-identifier hs-type">HlsAudioTrackType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT"><span class="hs-identifier hs-type">HlsAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType"><span class="hs-identifier hs-type">HlsAudioTrackType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT"><span id="%24mHlsAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT"><span id="HlsAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT"><span class="annot"><span class="annottext">$bHlsAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT :: HlsAudioTrackType
+$mHlsAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT :: forall r. HlsAudioTrackType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#%24bHlsAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT"><span class="hs-identifier hs-var hs-var hs-var">HlsAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType%27"><span class="hs-identifier hs-type">HlsAudioTrackType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALTERNATE_AUDIO_NOT_AUTO_SELECT&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType_AUDIO_ONLY_VARIANT_STREAM"><span class="hs-identifier hs-type">HlsAudioTrackType_AUDIO_ONLY_VARIANT_STREAM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType"><span class="hs-identifier hs-type">HlsAudioTrackType</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsAudioTrackType_AUDIO_ONLY_VARIANT_STREAM"><span id="%24mHlsAudioTrackType_AUDIO_ONLY_VARIANT_STREAM"><span id="HlsAudioTrackType_AUDIO_ONLY_VARIANT_STREAM"><span class="annot"><span class="annottext">$bHlsAudioTrackType_AUDIO_ONLY_VARIANT_STREAM :: HlsAudioTrackType
+$mHlsAudioTrackType_AUDIO_ONLY_VARIANT_STREAM :: forall r. HlsAudioTrackType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#%24bHlsAudioTrackType_AUDIO_ONLY_VARIANT_STREAM"><span class="hs-identifier hs-var hs-var hs-var">HlsAudioTrackType_AUDIO_ONLY_VARIANT_STREAM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType%27"><span class="hs-identifier hs-type">HlsAudioTrackType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUDIO_ONLY_VARIANT_STREAM&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT"><span class="hs-pragma hs-type">HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"><span class="hs-pragma hs-type">HlsAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT"><span class="hs-pragma hs-type">HlsAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType_AUDIO_ONLY_VARIANT_STREAM"><span class="hs-pragma hs-type">HlsAudioTrackType_AUDIO_ONLY_VARIANT_STREAM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioTrackType.html#HlsAudioTrackType%27"><span class="hs-pragma hs-type">HlsAudioTrackType'</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-93"></span></pre></body></html>

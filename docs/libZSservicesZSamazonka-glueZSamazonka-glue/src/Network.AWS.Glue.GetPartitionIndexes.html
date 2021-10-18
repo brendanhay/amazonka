@@ -1,0 +1,787 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.GetPartitionIndexes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the partition indexes associated with a table.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.GetPartitionIndexes</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier">GetPartitionIndexes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#newGetPartitionIndexes"><span class="hs-identifier">newGetPartitionIndexes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexes_nextToken"><span class="hs-identifier">getPartitionIndexes_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexes_catalogId"><span class="hs-identifier">getPartitionIndexes_catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexes_databaseName"><span class="hs-identifier">getPartitionIndexes_databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexes_tableName"><span class="hs-identifier">getPartitionIndexes_tableName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse"><span class="hs-identifier">GetPartitionIndexesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#newGetPartitionIndexesResponse"><span class="hs-identifier">newGetPartitionIndexesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexesResponse_nextToken"><span class="hs-identifier">getPartitionIndexesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexesResponse_partitionIndexDescriptorList"><span class="hs-identifier">getPartitionIndexesResponse_partitionIndexDescriptorList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexesResponse_httpStatus"><span class="hs-identifier">getPartitionIndexesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.html"><span class="hs-identifier">Network.AWS.Glue.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newGetPartitionIndexes' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679723494"><span id="local-6989586621679723495"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPartitionIndexes"><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-var">GetPartitionIndexes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPartitionIndexes%27"><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes%27"><span class="hs-identifier hs-var">GetPartitionIndexes'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, included if this is a continuation call.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AGetPartitionIndexes%27"><span class="annot"><span class="annottext">GetPartitionIndexes -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AnextToken%3AGetPartitionIndexes%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The catalog ID where the table resides.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AcatalogId%3AGetPartitionIndexes%27"><span class="annot"><span class="annottext">GetPartitionIndexes -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AcatalogId%3AGetPartitionIndexes%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Specifies the name of a database from which you want to retrieve</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- partition indexes.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AdatabaseName%3AGetPartitionIndexes%27"><span class="annot"><span class="annottext">GetPartitionIndexes -&gt; Text
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AdatabaseName%3AGetPartitionIndexes%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Specifies the name of a table for which you want to retrieve the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- partition indexes.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AtableName%3AGetPartitionIndexes%27"><span class="annot"><span class="annottext">GetPartitionIndexes -&gt; Text
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AtableName%3AGetPartitionIndexes%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679723485"><span id="local-6989586621679723487"><span class="annot"><span class="annottext">GetPartitionIndexes -&gt; GetPartitionIndexes -&gt; Bool
+(GetPartitionIndexes -&gt; GetPartitionIndexes -&gt; Bool)
+-&gt; (GetPartitionIndexes -&gt; GetPartitionIndexes -&gt; Bool)
+-&gt; Eq GetPartitionIndexes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPartitionIndexes -&gt; GetPartitionIndexes -&gt; Bool
+$c/= :: GetPartitionIndexes -&gt; GetPartitionIndexes -&gt; Bool
+== :: GetPartitionIndexes -&gt; GetPartitionIndexes -&gt; Bool
+$c== :: GetPartitionIndexes -&gt; GetPartitionIndexes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679723476"><span id="local-6989586621679723478"><span id="local-6989586621679723480"><span id="local-6989586621679723482"><span class="annot"><span class="annottext">ReadPrec [GetPartitionIndexes]
+ReadPrec GetPartitionIndexes
+Int -&gt; ReadS GetPartitionIndexes
+ReadS [GetPartitionIndexes]
+(Int -&gt; ReadS GetPartitionIndexes)
+-&gt; ReadS [GetPartitionIndexes]
+-&gt; ReadPrec GetPartitionIndexes
+-&gt; ReadPrec [GetPartitionIndexes]
+-&gt; Read GetPartitionIndexes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPartitionIndexes]
+$creadListPrec :: ReadPrec [GetPartitionIndexes]
+readPrec :: ReadPrec GetPartitionIndexes
+$creadPrec :: ReadPrec GetPartitionIndexes
+readList :: ReadS [GetPartitionIndexes]
+$creadList :: ReadS [GetPartitionIndexes]
+readsPrec :: Int -&gt; ReadS GetPartitionIndexes
+$creadsPrec :: Int -&gt; ReadS GetPartitionIndexes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679723469"><span id="local-6989586621679723471"><span id="local-6989586621679723473"><span class="annot"><span class="annottext">Int -&gt; GetPartitionIndexes -&gt; ShowS
+[GetPartitionIndexes] -&gt; ShowS
+GetPartitionIndexes -&gt; String
+(Int -&gt; GetPartitionIndexes -&gt; ShowS)
+-&gt; (GetPartitionIndexes -&gt; String)
+-&gt; ([GetPartitionIndexes] -&gt; ShowS)
+-&gt; Show GetPartitionIndexes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPartitionIndexes] -&gt; ShowS
+$cshowList :: [GetPartitionIndexes] -&gt; ShowS
+show :: GetPartitionIndexes -&gt; String
+$cshow :: GetPartitionIndexes -&gt; String
+showsPrec :: Int -&gt; GetPartitionIndexes -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPartitionIndexes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetPartitionIndexes -&gt; Rep GetPartitionIndexes x)
+-&gt; (forall x. Rep GetPartitionIndexes x -&gt; GetPartitionIndexes)
+-&gt; Generic GetPartitionIndexes
+forall x. Rep GetPartitionIndexes x -&gt; GetPartitionIndexes
+forall x. GetPartitionIndexes -&gt; Rep GetPartitionIndexes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetPartitionIndexes x -&gt; GetPartitionIndexes
+$cfrom :: forall x. GetPartitionIndexes -&gt; Rep GetPartitionIndexes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'GetPartitionIndexes' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'nextToken', 'getPartitionIndexes_nextToken' - A continuation token, included if this is a continuation call.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'catalogId', 'getPartitionIndexes_catalogId' - The catalog ID where the table resides.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'databaseName', 'getPartitionIndexes_databaseName' - Specifies the name of a database from which you want to retrieve</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- partition indexes.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'tableName', 'getPartitionIndexes_tableName' - Specifies the name of a table for which you want to retrieve the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- partition indexes.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#newGetPartitionIndexes"><span class="hs-identifier hs-type">newGetPartitionIndexes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'databaseName'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'tableName'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span><span>
+</span><span id="line-93"></span><span id="newGetPartitionIndexes"><span class="annot"><span class="annottext">newGetPartitionIndexes :: Text -&gt; Text -&gt; GetPartitionIndexes
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#newGetPartitionIndexes"><span class="hs-identifier hs-var hs-var">newGetPartitionIndexes</span></a></span></span><span> </span><span id="local-6989586621679723464"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679723464"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679723463"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679723463"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">GetPartitionIndexes' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; GetPartitionIndexes
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes%27"><span class="hs-identifier hs-type">GetPartitionIndexes'</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetPartitionIndexes' :: Maybe Text
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AnextToken%3AGetPartitionIndexes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:catalogId:GetPartitionIndexes' :: Maybe Text
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AcatalogId%3AGetPartitionIndexes%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:GetPartitionIndexes' :: Text
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AdatabaseName%3AGetPartitionIndexes%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679723464"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:GetPartitionIndexes' :: Text
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AtableName%3AGetPartitionIndexes%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679723463"><span class="hs-identifier hs-var">pTableName_</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | A continuation token, included if this is a continuation call.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexes_nextToken"><span class="hs-identifier hs-type">getPartitionIndexes_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="getPartitionIndexes_nextToken"><span class="annot"><span class="annottext">getPartitionIndexes_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPartitionIndexes -&gt; f GetPartitionIndexes
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexes_nextToken"><span class="hs-identifier hs-var hs-var">getPartitionIndexes_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPartitionIndexes -&gt; Maybe Text)
+-&gt; (GetPartitionIndexes -&gt; Maybe Text -&gt; GetPartitionIndexes)
+-&gt; Lens
+     GetPartitionIndexes GetPartitionIndexes (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes%27"><span class="hs-identifier hs-type">GetPartitionIndexes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723461"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetPartitionIndexes' :: GetPartitionIndexes -&gt; Maybe Text
+</span><a href="#local-6989586621679723461"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723461"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679723460"><span class="annot"><span class="annottext">s :: GetPartitionIndexes
+</span><a href="#local-6989586621679723460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes%27"><span class="hs-identifier hs-type">GetPartitionIndexes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679723459"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitionIndexes
+</span><a href="#local-6989586621679723460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetPartitionIndexes' :: Maybe Text
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AnextToken%3AGetPartitionIndexes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The catalog ID where the table resides.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexes_catalogId"><span class="hs-identifier hs-type">getPartitionIndexes_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="getPartitionIndexes_catalogId"><span class="annot"><span class="annottext">getPartitionIndexes_catalogId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPartitionIndexes -&gt; f GetPartitionIndexes
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexes_catalogId"><span class="hs-identifier hs-var hs-var">getPartitionIndexes_catalogId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPartitionIndexes -&gt; Maybe Text)
+-&gt; (GetPartitionIndexes -&gt; Maybe Text -&gt; GetPartitionIndexes)
+-&gt; Lens
+     GetPartitionIndexes GetPartitionIndexes (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes%27"><span class="hs-identifier hs-type">GetPartitionIndexes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723458"><span class="annot"><span class="annottext">Maybe Text
+catalogId :: Maybe Text
+$sel:catalogId:GetPartitionIndexes' :: GetPartitionIndexes -&gt; Maybe Text
+</span><a href="#local-6989586621679723458"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723458"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679723457"><span class="annot"><span class="annottext">s :: GetPartitionIndexes
+</span><a href="#local-6989586621679723457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes%27"><span class="hs-identifier hs-type">GetPartitionIndexes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679723456"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitionIndexes
+</span><a href="#local-6989586621679723457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:GetPartitionIndexes' :: Maybe Text
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AcatalogId%3AGetPartitionIndexes%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Specifies the name of a database from which you want to retrieve</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- partition indexes.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexes_databaseName"><span class="hs-identifier hs-type">getPartitionIndexes_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="getPartitionIndexes_databaseName"><span class="annot"><span class="annottext">getPartitionIndexes_databaseName :: (Text -&gt; f Text) -&gt; GetPartitionIndexes -&gt; f GetPartitionIndexes
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexes_databaseName"><span class="hs-identifier hs-var hs-var">getPartitionIndexes_databaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPartitionIndexes -&gt; Text)
+-&gt; (GetPartitionIndexes -&gt; Text -&gt; GetPartitionIndexes)
+-&gt; Lens GetPartitionIndexes GetPartitionIndexes Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes%27"><span class="hs-identifier hs-type">GetPartitionIndexes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723455"><span class="annot"><span class="annottext">Text
+databaseName :: Text
+$sel:databaseName:GetPartitionIndexes' :: GetPartitionIndexes -&gt; Text
+</span><a href="#local-6989586621679723455"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679723455"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679723454"><span class="annot"><span class="annottext">s :: GetPartitionIndexes
+</span><a href="#local-6989586621679723454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes%27"><span class="hs-identifier hs-type">GetPartitionIndexes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679723453"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679723453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitionIndexes
+</span><a href="#local-6989586621679723454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:GetPartitionIndexes' :: Text
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AdatabaseName%3AGetPartitionIndexes%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679723453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Specifies the name of a table for which you want to retrieve the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- partition indexes.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexes_tableName"><span class="hs-identifier hs-type">getPartitionIndexes_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="getPartitionIndexes_tableName"><span class="annot"><span class="annottext">getPartitionIndexes_tableName :: (Text -&gt; f Text) -&gt; GetPartitionIndexes -&gt; f GetPartitionIndexes
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexes_tableName"><span class="hs-identifier hs-var hs-var">getPartitionIndexes_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPartitionIndexes -&gt; Text)
+-&gt; (GetPartitionIndexes -&gt; Text -&gt; GetPartitionIndexes)
+-&gt; Lens GetPartitionIndexes GetPartitionIndexes Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes%27"><span class="hs-identifier hs-type">GetPartitionIndexes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723452"><span class="annot"><span class="annottext">Text
+tableName :: Text
+$sel:tableName:GetPartitionIndexes' :: GetPartitionIndexes -&gt; Text
+</span><a href="#local-6989586621679723452"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679723452"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679723451"><span class="annot"><span class="annottext">s :: GetPartitionIndexes
+</span><a href="#local-6989586621679723451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes%27"><span class="hs-identifier hs-type">GetPartitionIndexes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679723450"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679723450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitionIndexes
+</span><a href="#local-6989586621679723451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:GetPartitionIndexes' :: Text
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AtableName%3AGetPartitionIndexes%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679723450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679723446"><span class="annot"><span class="annottext">page :: GetPartitionIndexes
+-&gt; AWSResponse GetPartitionIndexes -&gt; Maybe GetPartitionIndexes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679723444"><span class="annot"><span class="annottext">GetPartitionIndexes
+</span><a href="#local-6989586621679723444"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679723443"><span class="annot"><span class="annottext">AWSResponse GetPartitionIndexes
+</span><a href="#local-6989586621679723443"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-122"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetPartitionIndexes
+GetPartitionIndexesResponse
+</span><a href="#local-6989586621679723443"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">GetPartitionIndexesResponse
+-&gt; Getting (First Text) GetPartitionIndexesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetPartitionIndexesResponse
+-&gt; Const (First Text) GetPartitionIndexesResponse
+Lens' GetPartitionIndexesResponse (Maybe Text)
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexesResponse_nextToken"><span class="hs-identifier hs-var">getPartitionIndexesResponse_nextToken</span></a></span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetPartitionIndexesResponse
+ -&gt; Const (First Text) GetPartitionIndexesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetPartitionIndexesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-125"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetPartitionIndexes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [PartitionIndexDescriptor] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-128"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetPartitionIndexes
+GetPartitionIndexesResponse
+</span><a href="#local-6989586621679723443"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">GetPartitionIndexesResponse
+-&gt; Getting
+     (First [PartitionIndexDescriptor])
+     GetPartitionIndexesResponse
+     [PartitionIndexDescriptor]
+-&gt; Maybe [PartitionIndexDescriptor]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [PartitionIndexDescriptor]
+ -&gt; Const
+      (First [PartitionIndexDescriptor])
+      (Maybe [PartitionIndexDescriptor]))
+-&gt; GetPartitionIndexesResponse
+-&gt; Const
+     (First [PartitionIndexDescriptor]) GetPartitionIndexesResponse
+Lens'
+  GetPartitionIndexesResponse (Maybe [PartitionIndexDescriptor])
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexesResponse_partitionIndexDescriptorList"><span class="hs-identifier hs-var">getPartitionIndexesResponse_partitionIndexDescriptorList</span></a></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [PartitionIndexDescriptor]
+  -&gt; Const
+       (First [PartitionIndexDescriptor])
+       (Maybe [PartitionIndexDescriptor]))
+ -&gt; GetPartitionIndexesResponse
+ -&gt; Const
+      (First [PartitionIndexDescriptor]) GetPartitionIndexesResponse)
+-&gt; (([PartitionIndexDescriptor]
+     -&gt; Const
+          (First [PartitionIndexDescriptor]) [PartitionIndexDescriptor])
+    -&gt; Maybe [PartitionIndexDescriptor]
+    -&gt; Const
+         (First [PartitionIndexDescriptor])
+         (Maybe [PartitionIndexDescriptor]))
+-&gt; Getting
+     (First [PartitionIndexDescriptor])
+     GetPartitionIndexesResponse
+     [PartitionIndexDescriptor]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PartitionIndexDescriptor]
+ -&gt; Const
+      (First [PartitionIndexDescriptor]) [PartitionIndexDescriptor])
+-&gt; Maybe [PartitionIndexDescriptor]
+-&gt; Const
+     (First [PartitionIndexDescriptor])
+     (Maybe [PartitionIndexDescriptor])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-131"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetPartitionIndexes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">GetPartitionIndexes -&gt; Maybe GetPartitionIndexes
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(GetPartitionIndexes -&gt; Maybe GetPartitionIndexes)
+-&gt; GetPartitionIndexes -&gt; Maybe GetPartitionIndexes
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">GetPartitionIndexes
+</span><a href="#local-6989586621679723444"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">GetPartitionIndexes
+-&gt; (GetPartitionIndexes -&gt; GetPartitionIndexes)
+-&gt; GetPartitionIndexes
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; GetPartitionIndexes -&gt; Identity GetPartitionIndexes
+Lens
+  GetPartitionIndexes GetPartitionIndexes (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexes_nextToken"><span class="hs-identifier hs-var">getPartitionIndexes_nextToken</span></a></span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; GetPartitionIndexes -&gt; Identity GetPartitionIndexes)
+-&gt; Maybe Text -&gt; GetPartitionIndexes -&gt; GetPartitionIndexes
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetPartitionIndexes
+GetPartitionIndexesResponse
+</span><a href="#local-6989586621679723443"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">GetPartitionIndexesResponse
+-&gt; Getting (First Text) GetPartitionIndexesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetPartitionIndexesResponse
+-&gt; Const (First Text) GetPartitionIndexesResponse
+Lens' GetPartitionIndexesResponse (Maybe Text)
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexesResponse_nextToken"><span class="hs-identifier hs-var">getPartitionIndexesResponse_nextToken</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetPartitionIndexesResponse
+ -&gt; Const (First Text) GetPartitionIndexesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetPartitionIndexesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-143"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse"><span class="hs-identifier hs-type">GetPartitionIndexesResponse</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679723433"><span class="annot"><span class="annottext">request :: GetPartitionIndexes -&gt; Request GetPartitionIndexes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetPartitionIndexes -&gt; Request GetPartitionIndexes
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679723429"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetPartitionIndexes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetPartitionIndexes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetPartitionIndexes))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetPartitionIndexes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetPartitionIndexes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679723426"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679723426"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679723425"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679723425"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679723424"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679723424"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [PartitionIndexDescriptor]
+-&gt; Int
+-&gt; GetPartitionIndexesResponse
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse%27"><span class="hs-identifier hs-var">GetPartitionIndexesResponse'</span></a></span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [PartitionIndexDescriptor]
+ -&gt; Int
+ -&gt; GetPartitionIndexesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [PartitionIndexDescriptor]
+      -&gt; Int -&gt; GetPartitionIndexesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679723424"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [PartitionIndexDescriptor]
+   -&gt; Int -&gt; GetPartitionIndexesResponse)
+-&gt; Either String (Maybe [PartitionIndexDescriptor])
+-&gt; Either String (Int -&gt; GetPartitionIndexesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679723424"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [PartitionIndexDescriptor]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PartitionIndexDescriptorList&quot;</span></span><span>
+</span><span id="line-152"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PartitionIndexDescriptor]))
+-&gt; Maybe [PartitionIndexDescriptor]
+-&gt; Either String (Maybe [PartitionIndexDescriptor])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PartitionIndexDescriptor]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetPartitionIndexesResponse)
+-&gt; Either String Int -&gt; Either String GetPartitionIndexesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679723426"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679723415"><span id="local-6989586621679723417"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679723412"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679723408"><span class="annot"><span class="annottext">toHeaders :: GetPartitionIndexes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetPartitionIndexes -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSGlue.GetPartitionIndexes&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-168"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-172"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679723398"><span id="local-6989586621679723400"><span id="local-6989586621679723402"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679723396"><span class="annot"><span class="annottext">toJSON :: GetPartitionIndexes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes%27"><span class="hs-identifier hs-type">GetPartitionIndexes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723391"><span id="local-6989586621679723392"><span id="local-6989586621679723393"><span id="local-6989586621679723394"><span class="annot"><span class="annottext">Maybe Text
+Text
+tableName :: Text
+databaseName :: Text
+catalogId :: Maybe Text
+nextToken :: Maybe Text
+$sel:tableName:GetPartitionIndexes' :: GetPartitionIndexes -&gt; Text
+$sel:databaseName:GetPartitionIndexes' :: GetPartitionIndexes -&gt; Text
+$sel:catalogId:GetPartitionIndexes' :: GetPartitionIndexes -&gt; Maybe Text
+$sel:nextToken:GetPartitionIndexes' :: GetPartitionIndexes -&gt; Maybe Text
+</span><a href="#local-6989586621679723391"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723394"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723393"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679723392"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679723391"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679723385"><span class="annot"><span class="annottext">toPath :: GetPartitionIndexes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetPartitionIndexes -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexes"><span class="hs-identifier hs-type">GetPartitionIndexes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679723381"><span class="annot"><span class="annottext">toQuery :: GetPartitionIndexes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetPartitionIndexes -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | /See:/ 'newGetPartitionIndexesResponse' smart constructor.</span><span>
+</span><span id="line-194"></span><span id="local-6989586621679723378"><span id="local-6989586621679723379"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPartitionIndexesResponse"><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse"><span class="hs-identifier hs-var">GetPartitionIndexesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPartitionIndexesResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse%27"><span class="hs-identifier hs-var">GetPartitionIndexesResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, present if the current list segment is not the</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- last.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AnextToken%3AGetPartitionIndexesResponse%27"><span class="annot"><span class="annottext">GetPartitionIndexesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AnextToken%3AGetPartitionIndexesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | A list of index descriptors.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3ApartitionIndexDescriptorList%3AGetPartitionIndexesResponse%27"><span class="annot"><span class="annottext">GetPartitionIndexesResponse -&gt; Maybe [PartitionIndexDescriptor]
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3ApartitionIndexDescriptorList%3AGetPartitionIndexesResponse%27"><span class="hs-identifier hs-var hs-var">partitionIndexDescriptorList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetPartitionIndexesResponse%27"><span class="annot"><span class="annottext">GetPartitionIndexesResponse -&gt; Int
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AhttpStatus%3AGetPartitionIndexesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679723371"><span id="local-6989586621679723373"><span class="annot"><span class="annottext">GetPartitionIndexesResponse -&gt; GetPartitionIndexesResponse -&gt; Bool
+(GetPartitionIndexesResponse
+ -&gt; GetPartitionIndexesResponse -&gt; Bool)
+-&gt; (GetPartitionIndexesResponse
+    -&gt; GetPartitionIndexesResponse -&gt; Bool)
+-&gt; Eq GetPartitionIndexesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPartitionIndexesResponse -&gt; GetPartitionIndexesResponse -&gt; Bool
+$c/= :: GetPartitionIndexesResponse -&gt; GetPartitionIndexesResponse -&gt; Bool
+== :: GetPartitionIndexesResponse -&gt; GetPartitionIndexesResponse -&gt; Bool
+$c== :: GetPartitionIndexesResponse -&gt; GetPartitionIndexesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679723363"><span id="local-6989586621679723365"><span id="local-6989586621679723367"><span id="local-6989586621679723369"><span class="annot"><span class="annottext">ReadPrec [GetPartitionIndexesResponse]
+ReadPrec GetPartitionIndexesResponse
+Int -&gt; ReadS GetPartitionIndexesResponse
+ReadS [GetPartitionIndexesResponse]
+(Int -&gt; ReadS GetPartitionIndexesResponse)
+-&gt; ReadS [GetPartitionIndexesResponse]
+-&gt; ReadPrec GetPartitionIndexesResponse
+-&gt; ReadPrec [GetPartitionIndexesResponse]
+-&gt; Read GetPartitionIndexesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPartitionIndexesResponse]
+$creadListPrec :: ReadPrec [GetPartitionIndexesResponse]
+readPrec :: ReadPrec GetPartitionIndexesResponse
+$creadPrec :: ReadPrec GetPartitionIndexesResponse
+readList :: ReadS [GetPartitionIndexesResponse]
+$creadList :: ReadS [GetPartitionIndexesResponse]
+readsPrec :: Int -&gt; ReadS GetPartitionIndexesResponse
+$creadsPrec :: Int -&gt; ReadS GetPartitionIndexesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679723357"><span id="local-6989586621679723359"><span id="local-6989586621679723361"><span class="annot"><span class="annottext">Int -&gt; GetPartitionIndexesResponse -&gt; ShowS
+[GetPartitionIndexesResponse] -&gt; ShowS
+GetPartitionIndexesResponse -&gt; String
+(Int -&gt; GetPartitionIndexesResponse -&gt; ShowS)
+-&gt; (GetPartitionIndexesResponse -&gt; String)
+-&gt; ([GetPartitionIndexesResponse] -&gt; ShowS)
+-&gt; Show GetPartitionIndexesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPartitionIndexesResponse] -&gt; ShowS
+$cshowList :: [GetPartitionIndexesResponse] -&gt; ShowS
+show :: GetPartitionIndexesResponse -&gt; String
+$cshow :: GetPartitionIndexesResponse -&gt; String
+showsPrec :: Int -&gt; GetPartitionIndexesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPartitionIndexesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetPartitionIndexesResponse -&gt; Rep GetPartitionIndexesResponse x)
+-&gt; (forall x.
+    Rep GetPartitionIndexesResponse x -&gt; GetPartitionIndexesResponse)
+-&gt; Generic GetPartitionIndexesResponse
+forall x.
+Rep GetPartitionIndexesResponse x -&gt; GetPartitionIndexesResponse
+forall x.
+GetPartitionIndexesResponse -&gt; Rep GetPartitionIndexesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetPartitionIndexesResponse x -&gt; GetPartitionIndexesResponse
+$cfrom :: forall x.
+GetPartitionIndexesResponse -&gt; Rep GetPartitionIndexesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Create a value of 'GetPartitionIndexesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'nextToken', 'getPartitionIndexesResponse_nextToken' - A continuation token, present if the current list segment is not the</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- last.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'partitionIndexDescriptorList', 'getPartitionIndexesResponse_partitionIndexDescriptorList' - A list of index descriptors.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'httpStatus', 'getPartitionIndexesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#newGetPartitionIndexesResponse"><span class="hs-identifier hs-type">newGetPartitionIndexesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse"><span class="hs-identifier hs-type">GetPartitionIndexesResponse</span></a></span><span>
+</span><span id="line-223"></span><span id="newGetPartitionIndexesResponse"><span class="annot"><span class="annottext">newGetPartitionIndexesResponse :: Int -&gt; GetPartitionIndexesResponse
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#newGetPartitionIndexesResponse"><span class="hs-identifier hs-var hs-var">newGetPartitionIndexesResponse</span></a></span></span><span> </span><span id="local-6989586621679723354"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679723354"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="annottext">GetPartitionIndexesResponse' :: Maybe Text
+-&gt; Maybe [PartitionIndexDescriptor]
+-&gt; Int
+-&gt; GetPartitionIndexesResponse
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse%27"><span class="hs-identifier hs-type">GetPartitionIndexesResponse'</span></a></span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetPartitionIndexesResponse' :: Maybe Text
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AnextToken%3AGetPartitionIndexesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:partitionIndexDescriptorList:GetPartitionIndexesResponse' :: Maybe [PartitionIndexDescriptor]
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3ApartitionIndexDescriptorList%3AGetPartitionIndexesResponse%27"><span class="hs-identifier hs-var">partitionIndexDescriptorList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PartitionIndexDescriptor]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetPartitionIndexesResponse' :: Int
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AhttpStatus%3AGetPartitionIndexesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679723354"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | A continuation token, present if the current list segment is not the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- last.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexesResponse_nextToken"><span class="hs-identifier hs-type">getPartitionIndexesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse"><span class="hs-identifier hs-type">GetPartitionIndexesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="getPartitionIndexesResponse_nextToken"><span class="annot"><span class="annottext">getPartitionIndexesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPartitionIndexesResponse -&gt; f GetPartitionIndexesResponse
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexesResponse_nextToken"><span class="hs-identifier hs-var hs-var">getPartitionIndexesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPartitionIndexesResponse -&gt; Maybe Text)
+-&gt; (GetPartitionIndexesResponse
+    -&gt; Maybe Text -&gt; GetPartitionIndexesResponse)
+-&gt; Lens' GetPartitionIndexesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse%27"><span class="hs-identifier hs-type">GetPartitionIndexesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723353"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetPartitionIndexesResponse' :: GetPartitionIndexesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679723353"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723353"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679723352"><span class="annot"><span class="annottext">s :: GetPartitionIndexesResponse
+</span><a href="#local-6989586621679723352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse%27"><span class="hs-identifier hs-type">GetPartitionIndexesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679723351"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitionIndexesResponse
+</span><a href="#local-6989586621679723352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetPartitionIndexesResponse' :: Maybe Text
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AnextToken%3AGetPartitionIndexesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse"><span class="hs-identifier hs-type">GetPartitionIndexesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | A list of index descriptors.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexesResponse_partitionIndexDescriptorList"><span class="hs-identifier hs-type">getPartitionIndexesResponse_partitionIndexDescriptorList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse"><span class="hs-identifier hs-type">GetPartitionIndexesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="getPartitionIndexesResponse_partitionIndexDescriptorList"><span class="annot"><span class="annottext">getPartitionIndexesResponse_partitionIndexDescriptorList :: (Maybe [PartitionIndexDescriptor]
+ -&gt; f (Maybe [PartitionIndexDescriptor]))
+-&gt; GetPartitionIndexesResponse -&gt; f GetPartitionIndexesResponse
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexesResponse_partitionIndexDescriptorList"><span class="hs-identifier hs-var hs-var">getPartitionIndexesResponse_partitionIndexDescriptorList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPartitionIndexesResponse -&gt; Maybe [PartitionIndexDescriptor])
+-&gt; (GetPartitionIndexesResponse
+    -&gt; Maybe [PartitionIndexDescriptor] -&gt; GetPartitionIndexesResponse)
+-&gt; Lens'
+     GetPartitionIndexesResponse (Maybe [PartitionIndexDescriptor])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse%27"><span class="hs-identifier hs-type">GetPartitionIndexesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723350"><span class="annot"><span class="annottext">Maybe [PartitionIndexDescriptor]
+partitionIndexDescriptorList :: Maybe [PartitionIndexDescriptor]
+$sel:partitionIndexDescriptorList:GetPartitionIndexesResponse' :: GetPartitionIndexesResponse -&gt; Maybe [PartitionIndexDescriptor]
+</span><a href="#local-6989586621679723350"><span class="hs-identifier hs-var hs-var">partitionIndexDescriptorList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PartitionIndexDescriptor]
+</span><a href="#local-6989586621679723350"><span class="hs-identifier hs-var">partitionIndexDescriptorList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679723349"><span class="annot"><span class="annottext">s :: GetPartitionIndexesResponse
+</span><a href="#local-6989586621679723349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse%27"><span class="hs-identifier hs-type">GetPartitionIndexesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679723348"><span class="annot"><span class="annottext">Maybe [PartitionIndexDescriptor]
+</span><a href="#local-6989586621679723348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitionIndexesResponse
+</span><a href="#local-6989586621679723349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionIndexDescriptorList:GetPartitionIndexesResponse' :: Maybe [PartitionIndexDescriptor]
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3ApartitionIndexDescriptorList%3AGetPartitionIndexesResponse%27"><span class="hs-identifier hs-var">partitionIndexDescriptorList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PartitionIndexDescriptor]
+</span><a href="#local-6989586621679723348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse"><span class="hs-identifier hs-type">GetPartitionIndexesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PartitionIndexDescriptor]
+  -&gt; f (Maybe [PartitionIndexDescriptor]))
+ -&gt; GetPartitionIndexesResponse -&gt; f GetPartitionIndexesResponse)
+-&gt; ((Maybe [PartitionIndexDescriptor]
+     -&gt; f (Maybe [PartitionIndexDescriptor]))
+    -&gt; Maybe [PartitionIndexDescriptor]
+    -&gt; f (Maybe [PartitionIndexDescriptor]))
+-&gt; (Maybe [PartitionIndexDescriptor]
+    -&gt; f (Maybe [PartitionIndexDescriptor]))
+-&gt; GetPartitionIndexesResponse
+-&gt; f GetPartitionIndexesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PartitionIndexDescriptor]
+  [PartitionIndexDescriptor]
+  [PartitionIndexDescriptor]
+  [PartitionIndexDescriptor]
+-&gt; Iso
+     (Maybe [PartitionIndexDescriptor])
+     (Maybe [PartitionIndexDescriptor])
+     (Maybe [PartitionIndexDescriptor])
+     (Maybe [PartitionIndexDescriptor])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PartitionIndexDescriptor]
+  [PartitionIndexDescriptor]
+  [PartitionIndexDescriptor]
+  [PartitionIndexDescriptor]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexesResponse_httpStatus"><span class="hs-identifier hs-type">getPartitionIndexesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse"><span class="hs-identifier hs-type">GetPartitionIndexesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-242"></span><span id="getPartitionIndexesResponse_httpStatus"><span class="annot"><span class="annottext">getPartitionIndexesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetPartitionIndexesResponse -&gt; f GetPartitionIndexesResponse
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#getPartitionIndexesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getPartitionIndexesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPartitionIndexesResponse -&gt; Int)
+-&gt; (GetPartitionIndexesResponse
+    -&gt; Int -&gt; GetPartitionIndexesResponse)
+-&gt; Lens
+     GetPartitionIndexesResponse GetPartitionIndexesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse%27"><span class="hs-identifier hs-type">GetPartitionIndexesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723345"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetPartitionIndexesResponse' :: GetPartitionIndexesResponse -&gt; Int
+</span><a href="#local-6989586621679723345"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679723345"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679723344"><span class="annot"><span class="annottext">s :: GetPartitionIndexesResponse
+</span><a href="#local-6989586621679723344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse%27"><span class="hs-identifier hs-type">GetPartitionIndexesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679723343"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679723343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitionIndexesResponse
+</span><a href="#local-6989586621679723344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPartitionIndexesResponse' :: Int
+</span><a href="Network.AWS.Glue.GetPartitionIndexes.html#%24sel%3AhttpStatus%3AGetPartitionIndexesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679723343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse"><span class="hs-identifier hs-type">GetPartitionIndexesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679723341"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitionIndexes.html#GetPartitionIndexesResponse"><span class="hs-identifier hs-type">GetPartitionIndexesResponse</span></a></span></span><span>
+</span><span id="line-245"></span></pre></body></html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute"><span class="hs-identifier">GroupByAttribute</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute_REGION"><span class="hs-identifier">GroupByAttribute_REGION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute_RESOURCE_TYPE"><span class="hs-identifier">GroupByAttribute_RESOURCE_TYPE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute_TARGET_ID"><span class="hs-identifier">GroupByAttribute_TARGET_ID</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679156213"><span id="local-6989586621679156214"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GroupByAttribute"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute"><span class="hs-identifier hs-var">GroupByAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupByAttribute%27"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute%27"><span class="hs-identifier hs-var">GroupByAttribute'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGroupByAttribute"><span class="annot"><span class="annottext">GroupByAttribute -&gt; Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#fromGroupByAttribute"><span class="hs-identifier hs-var hs-var">fromGroupByAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679156205"><span id="local-6989586621679156207"><span id="local-6989586621679156209"><span class="annot"><span class="annottext">Int -&gt; GroupByAttribute -&gt; ShowS
+[GroupByAttribute] -&gt; ShowS
+GroupByAttribute -&gt; String
+(Int -&gt; GroupByAttribute -&gt; ShowS)
+-&gt; (GroupByAttribute -&gt; String)
+-&gt; ([GroupByAttribute] -&gt; ShowS)
+-&gt; Show GroupByAttribute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GroupByAttribute] -&gt; ShowS
+$cshowList :: [GroupByAttribute] -&gt; ShowS
+show :: GroupByAttribute -&gt; String
+$cshow :: GroupByAttribute -&gt; String
+showsPrec :: Int -&gt; GroupByAttribute -&gt; ShowS
+$cshowsPrec :: Int -&gt; GroupByAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679156196"><span id="local-6989586621679156198"><span id="local-6989586621679156200"><span id="local-6989586621679156202"><span class="annot"><span class="annottext">ReadPrec [GroupByAttribute]
+ReadPrec GroupByAttribute
+Int -&gt; ReadS GroupByAttribute
+ReadS [GroupByAttribute]
+(Int -&gt; ReadS GroupByAttribute)
+-&gt; ReadS [GroupByAttribute]
+-&gt; ReadPrec GroupByAttribute
+-&gt; ReadPrec [GroupByAttribute]
+-&gt; Read GroupByAttribute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GroupByAttribute]
+$creadListPrec :: ReadPrec [GroupByAttribute]
+readPrec :: ReadPrec GroupByAttribute
+$creadPrec :: ReadPrec GroupByAttribute
+readList :: ReadS [GroupByAttribute]
+$creadList :: ReadS [GroupByAttribute]
+readsPrec :: Int -&gt; ReadS GroupByAttribute
+$creadsPrec :: Int -&gt; ReadS GroupByAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679156191"><span id="local-6989586621679156193"><span class="annot"><span class="annottext">GroupByAttribute -&gt; GroupByAttribute -&gt; Bool
+(GroupByAttribute -&gt; GroupByAttribute -&gt; Bool)
+-&gt; (GroupByAttribute -&gt; GroupByAttribute -&gt; Bool)
+-&gt; Eq GroupByAttribute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GroupByAttribute -&gt; GroupByAttribute -&gt; Bool
+$c/= :: GroupByAttribute -&gt; GroupByAttribute -&gt; Bool
+== :: GroupByAttribute -&gt; GroupByAttribute -&gt; Bool
+$c== :: GroupByAttribute -&gt; GroupByAttribute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679156175"><span id="local-6989586621679156177"><span id="local-6989586621679156179"><span id="local-6989586621679156181"><span id="local-6989586621679156183"><span id="local-6989586621679156185"><span id="local-6989586621679156187"><span class="annot"><span class="annottext">Eq GroupByAttribute
+Eq GroupByAttribute
+-&gt; (GroupByAttribute -&gt; GroupByAttribute -&gt; Ordering)
+-&gt; (GroupByAttribute -&gt; GroupByAttribute -&gt; Bool)
+-&gt; (GroupByAttribute -&gt; GroupByAttribute -&gt; Bool)
+-&gt; (GroupByAttribute -&gt; GroupByAttribute -&gt; Bool)
+-&gt; (GroupByAttribute -&gt; GroupByAttribute -&gt; Bool)
+-&gt; (GroupByAttribute -&gt; GroupByAttribute -&gt; GroupByAttribute)
+-&gt; (GroupByAttribute -&gt; GroupByAttribute -&gt; GroupByAttribute)
+-&gt; Ord GroupByAttribute
+GroupByAttribute -&gt; GroupByAttribute -&gt; Bool
+GroupByAttribute -&gt; GroupByAttribute -&gt; Ordering
+GroupByAttribute -&gt; GroupByAttribute -&gt; GroupByAttribute
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: GroupByAttribute -&gt; GroupByAttribute -&gt; GroupByAttribute
+$cmin :: GroupByAttribute -&gt; GroupByAttribute -&gt; GroupByAttribute
+max :: GroupByAttribute -&gt; GroupByAttribute -&gt; GroupByAttribute
+$cmax :: GroupByAttribute -&gt; GroupByAttribute -&gt; GroupByAttribute
+&gt;= :: GroupByAttribute -&gt; GroupByAttribute -&gt; Bool
+$c&gt;= :: GroupByAttribute -&gt; GroupByAttribute -&gt; Bool
+&gt; :: GroupByAttribute -&gt; GroupByAttribute -&gt; Bool
+$c&gt; :: GroupByAttribute -&gt; GroupByAttribute -&gt; Bool
+&lt;= :: GroupByAttribute -&gt; GroupByAttribute -&gt; Bool
+$c&lt;= :: GroupByAttribute -&gt; GroupByAttribute -&gt; Bool
+&lt; :: GroupByAttribute -&gt; GroupByAttribute -&gt; Bool
+$c&lt; :: GroupByAttribute -&gt; GroupByAttribute -&gt; Bool
+compare :: GroupByAttribute -&gt; GroupByAttribute -&gt; Ordering
+$ccompare :: GroupByAttribute -&gt; GroupByAttribute -&gt; Ordering
+$cp1Ord :: Eq GroupByAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. GroupByAttribute -&gt; Rep GroupByAttribute x)
+-&gt; (forall x. Rep GroupByAttribute x -&gt; GroupByAttribute)
+-&gt; Generic GroupByAttribute
+forall x. Rep GroupByAttribute x -&gt; GroupByAttribute
+forall x. GroupByAttribute -&gt; Rep GroupByAttribute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GroupByAttribute x -&gt; GroupByAttribute
+$cfrom :: forall x. GroupByAttribute -&gt; Rep GroupByAttribute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679156167"><span id="local-6989586621679156169"><span class="annot"><span class="annottext">Int -&gt; GroupByAttribute -&gt; Int
+GroupByAttribute -&gt; Int
+(Int -&gt; GroupByAttribute -&gt; Int)
+-&gt; (GroupByAttribute -&gt; Int) -&gt; Hashable GroupByAttribute
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: GroupByAttribute -&gt; Int
+$chash :: GroupByAttribute -&gt; Int
+hashWithSalt :: Int -&gt; GroupByAttribute -&gt; Int
+$chashWithSalt :: Int -&gt; GroupByAttribute -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679156164"><span class="annot"><span class="annottext">GroupByAttribute -&gt; ()
+(GroupByAttribute -&gt; ()) -&gt; NFData GroupByAttribute
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: GroupByAttribute -&gt; ()
+$crnf :: GroupByAttribute -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679156161"><span class="annot"><span class="annottext">Text -&gt; Either String GroupByAttribute
+(Text -&gt; Either String GroupByAttribute)
+-&gt; FromText GroupByAttribute
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String GroupByAttribute
+$cfromText :: Text -&gt; Either String GroupByAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679156158"><span class="annot"><span class="annottext">GroupByAttribute -&gt; Text
+(GroupByAttribute -&gt; Text) -&gt; ToText GroupByAttribute
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: GroupByAttribute -&gt; Text
+$ctoText :: GroupByAttribute -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679156155"><span class="annot"><span class="annottext">GroupByAttribute -&gt; ByteString
+(GroupByAttribute -&gt; ByteString) -&gt; ToByteString GroupByAttribute
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: GroupByAttribute -&gt; ByteString
+$ctoBS :: GroupByAttribute -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679156152"><span class="annot"><span class="annottext">GroupByAttribute -&gt; ByteStringBuilder
+(GroupByAttribute -&gt; ByteStringBuilder) -&gt; ToLog GroupByAttribute
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: GroupByAttribute -&gt; ByteStringBuilder
+$cbuild :: GroupByAttribute -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679156149"><span class="annot"><span class="annottext">HeaderName -&gt; GroupByAttribute -&gt; [Header]
+(HeaderName -&gt; GroupByAttribute -&gt; [Header])
+-&gt; ToHeader GroupByAttribute
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; GroupByAttribute -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; GroupByAttribute -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679156146"><span class="annot"><span class="annottext">GroupByAttribute -&gt; QueryString
+(GroupByAttribute -&gt; QueryString) -&gt; ToQuery GroupByAttribute
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: GroupByAttribute -&gt; QueryString
+$ctoQuery :: GroupByAttribute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679156141"><span id="local-6989586621679156143"><span class="annot"><span class="annottext">Value -&gt; Parser [GroupByAttribute]
+Value -&gt; Parser GroupByAttribute
+(Value -&gt; Parser GroupByAttribute)
+-&gt; (Value -&gt; Parser [GroupByAttribute])
+-&gt; FromJSON GroupByAttribute
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [GroupByAttribute]
+$cparseJSONList :: Value -&gt; Parser [GroupByAttribute]
+parseJSON :: Value -&gt; Parser GroupByAttribute
+$cparseJSON :: Value -&gt; Parser GroupByAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679156136"><span id="local-6989586621679156138"><span class="annot"><span class="annottext">FromJSONKeyFunction [GroupByAttribute]
+FromJSONKeyFunction GroupByAttribute
+FromJSONKeyFunction GroupByAttribute
+-&gt; FromJSONKeyFunction [GroupByAttribute]
+-&gt; FromJSONKey GroupByAttribute
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [GroupByAttribute]
+$cfromJSONKeyList :: FromJSONKeyFunction [GroupByAttribute]
+fromJSONKey :: FromJSONKeyFunction GroupByAttribute
+$cfromJSONKey :: FromJSONKeyFunction GroupByAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679156127"><span id="local-6989586621679156129"><span id="local-6989586621679156131"><span id="local-6989586621679156133"><span class="annot"><span class="annottext">[GroupByAttribute] -&gt; Encoding
+[GroupByAttribute] -&gt; Value
+GroupByAttribute -&gt; Encoding
+GroupByAttribute -&gt; Value
+(GroupByAttribute -&gt; Value)
+-&gt; (GroupByAttribute -&gt; Encoding)
+-&gt; ([GroupByAttribute] -&gt; Value)
+-&gt; ([GroupByAttribute] -&gt; Encoding)
+-&gt; ToJSON GroupByAttribute
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [GroupByAttribute] -&gt; Encoding
+$ctoEncodingList :: [GroupByAttribute] -&gt; Encoding
+toJSONList :: [GroupByAttribute] -&gt; Value
+$ctoJSONList :: [GroupByAttribute] -&gt; Value
+toEncoding :: GroupByAttribute -&gt; Encoding
+$ctoEncoding :: GroupByAttribute -&gt; Encoding
+toJSON :: GroupByAttribute -&gt; Value
+$ctoJSON :: GroupByAttribute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679156122"><span id="local-6989586621679156124"><span class="annot"><span class="annottext">ToJSONKeyFunction [GroupByAttribute]
+ToJSONKeyFunction GroupByAttribute
+ToJSONKeyFunction GroupByAttribute
+-&gt; ToJSONKeyFunction [GroupByAttribute]
+-&gt; ToJSONKey GroupByAttribute
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [GroupByAttribute]
+$ctoJSONKeyList :: ToJSONKeyFunction [GroupByAttribute]
+toJSONKey :: ToJSONKeyFunction GroupByAttribute
+$ctoJSONKey :: ToJSONKeyFunction GroupByAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679156119"><span class="annot"><span class="annottext">[Node] -&gt; Either String GroupByAttribute
+([Node] -&gt; Either String GroupByAttribute)
+-&gt; FromXML GroupByAttribute
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String GroupByAttribute
+$cparseXML :: [Node] -&gt; Either String GroupByAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679156116"><span class="annot"><span class="annottext">GroupByAttribute -&gt; XML
+(GroupByAttribute -&gt; XML) -&gt; ToXML GroupByAttribute
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: GroupByAttribute -&gt; XML
+$ctoXML :: GroupByAttribute -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute_REGION"><span class="hs-identifier hs-type">GroupByAttribute_REGION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute"><span class="hs-identifier hs-type">GroupByAttribute</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGroupByAttribute_REGION"><span id="%24mGroupByAttribute_REGION"><span id="GroupByAttribute_REGION"><span class="annot"><span class="annottext">$bGroupByAttribute_REGION :: GroupByAttribute
+$mGroupByAttribute_REGION :: forall r. GroupByAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#%24bGroupByAttribute_REGION"><span class="hs-identifier hs-var hs-var hs-var">GroupByAttribute_REGION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute%27"><span class="hs-identifier hs-type">GroupByAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REGION&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute_RESOURCE_TYPE"><span class="hs-identifier hs-type">GroupByAttribute_RESOURCE_TYPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute"><span class="hs-identifier hs-type">GroupByAttribute</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGroupByAttribute_RESOURCE_TYPE"><span id="%24mGroupByAttribute_RESOURCE_TYPE"><span id="GroupByAttribute_RESOURCE_TYPE"><span class="annot"><span class="annottext">$bGroupByAttribute_RESOURCE_TYPE :: GroupByAttribute
+$mGroupByAttribute_RESOURCE_TYPE :: forall r. GroupByAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#%24bGroupByAttribute_RESOURCE_TYPE"><span class="hs-identifier hs-var hs-var hs-var">GroupByAttribute_RESOURCE_TYPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute%27"><span class="hs-identifier hs-type">GroupByAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RESOURCE_TYPE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute_TARGET_ID"><span class="hs-identifier hs-type">GroupByAttribute_TARGET_ID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute"><span class="hs-identifier hs-type">GroupByAttribute</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGroupByAttribute_TARGET_ID"><span id="%24mGroupByAttribute_TARGET_ID"><span id="GroupByAttribute_TARGET_ID"><span class="annot"><span class="annottext">$bGroupByAttribute_TARGET_ID :: GroupByAttribute
+$mGroupByAttribute_TARGET_ID :: forall r. GroupByAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#%24bGroupByAttribute_TARGET_ID"><span class="hs-identifier hs-var hs-var hs-var">GroupByAttribute_TARGET_ID</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute%27"><span class="hs-identifier hs-type">GroupByAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TARGET_ID&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute_REGION"><span class="hs-pragma hs-type">GroupByAttribute_REGION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute_RESOURCE_TYPE"><span class="hs-pragma hs-type">GroupByAttribute_RESOURCE_TYPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute_TARGET_ID"><span class="hs-pragma hs-type">GroupByAttribute_TARGET_ID</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute%27"><span class="hs-pragma hs-type">GroupByAttribute'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.S3.Types.CSVInput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.Types.CSVInput</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html"><span class="hs-identifier">Network.AWS.S3.Types.FileHeaderInfo</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes how an uncompressed comma-separated values (CSV)-formatted</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- input object is formatted.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCSVInput' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679541185"><span id="local-6989586621679541186"></span></span><span class="hs-keyword">data</span><span> </span><span id="CSVInput"><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-var">CSVInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CSVInput%27"><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-var">CSVInput'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies that CSV field values may contain quoted record delimiters and</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- such records should be allowed. Default value is FALSE. Setting this</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- value to TRUE may lower performance.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AallowQuotedRecordDelimiter%3ACSVInput%27"><span class="annot"><span class="annottext">CSVInput -&gt; Maybe Bool
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3AallowQuotedRecordDelimiter%3ACSVInput%27"><span class="hs-identifier hs-var hs-var">allowQuotedRecordDelimiter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A single character used to separate individual records in the input.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Instead of the default value, you can specify an arbitrary delimiter.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ArecordDelimiter%3ACSVInput%27"><span class="annot"><span class="annottext">CSVInput -&gt; Maybe Text
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3ArecordDelimiter%3ACSVInput%27"><span class="hs-identifier hs-var hs-var">recordDelimiter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A single character used for escaping when the field delimiter is part of</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- the value. For example, if the value is @a, b@, Amazon S3 wraps this</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- field value in quotation marks, as follows: @\&quot; a , b \&quot;@.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Type: String</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- Default: @\&quot;@</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- Ancestors: @CSV@</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AquoteCharacter%3ACSVInput%27"><span class="annot"><span class="annottext">CSVInput -&gt; Maybe Text
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3AquoteCharacter%3ACSVInput%27"><span class="hs-identifier hs-var hs-var">quoteCharacter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Describes the first line of input. Valid values are:</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   @NONE@: First line is not a header.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   @IGNORE@: First line is a header, but you can\'t use the header</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     values to indicate the column in an expression. You can use column</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     position (such as _1, _2, &#8230;) to indicate the column</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     (@SELECT s._1 FROM OBJECT s@).</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- -   @Use@: First line is a header, and you can use the header value to</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     identify a column in an expression (@SELECT \&quot;name\&quot; FROM OBJECT@).</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AfileHeaderInfo%3ACSVInput%27"><span class="annot"><span class="annottext">CSVInput -&gt; Maybe FileHeaderInfo
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3AfileHeaderInfo%3ACSVInput%27"><span class="hs-identifier hs-var hs-var">fileHeaderInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo"><span class="hs-identifier hs-type">FileHeaderInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A single character used to separate individual fields in a record. You</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- can specify an arbitrary delimiter.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AfieldDelimiter%3ACSVInput%27"><span class="annot"><span class="annottext">CSVInput -&gt; Maybe Text
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3AfieldDelimiter%3ACSVInput%27"><span class="hs-identifier hs-var hs-var">fieldDelimiter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | A single character used to indicate that a row should be ignored when</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- the character is present at the start of that row. You can specify any</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- character to indicate a comment line.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Acomments%3ACSVInput%27"><span class="annot"><span class="annottext">CSVInput -&gt; Maybe Text
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3Acomments%3ACSVInput%27"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | A single character used for escaping the quotation mark character inside</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- an already escaped value. For example, the value \&quot;\&quot;\&quot; a , b \&quot;\&quot;\&quot; is</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- parsed as \&quot; a , b \&quot;.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AquoteEscapeCharacter%3ACSVInput%27"><span class="annot"><span class="annottext">CSVInput -&gt; Maybe Text
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3AquoteEscapeCharacter%3ACSVInput%27"><span class="hs-identifier hs-var hs-var">quoteEscapeCharacter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679541173"><span id="local-6989586621679541175"><span class="annot"><span class="annottext">CSVInput -&gt; CSVInput -&gt; Bool
+(CSVInput -&gt; CSVInput -&gt; Bool)
+-&gt; (CSVInput -&gt; CSVInput -&gt; Bool) -&gt; Eq CSVInput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CSVInput -&gt; CSVInput -&gt; Bool
+$c/= :: CSVInput -&gt; CSVInput -&gt; Bool
+== :: CSVInput -&gt; CSVInput -&gt; Bool
+$c== :: CSVInput -&gt; CSVInput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679541164"><span id="local-6989586621679541166"><span id="local-6989586621679541168"><span id="local-6989586621679541170"><span class="annot"><span class="annottext">ReadPrec [CSVInput]
+ReadPrec CSVInput
+Int -&gt; ReadS CSVInput
+ReadS [CSVInput]
+(Int -&gt; ReadS CSVInput)
+-&gt; ReadS [CSVInput]
+-&gt; ReadPrec CSVInput
+-&gt; ReadPrec [CSVInput]
+-&gt; Read CSVInput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CSVInput]
+$creadListPrec :: ReadPrec [CSVInput]
+readPrec :: ReadPrec CSVInput
+$creadPrec :: ReadPrec CSVInput
+readList :: ReadS [CSVInput]
+$creadList :: ReadS [CSVInput]
+readsPrec :: Int -&gt; ReadS CSVInput
+$creadsPrec :: Int -&gt; ReadS CSVInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679541157"><span id="local-6989586621679541159"><span id="local-6989586621679541161"><span class="annot"><span class="annottext">Int -&gt; CSVInput -&gt; ShowS
+[CSVInput] -&gt; ShowS
+CSVInput -&gt; String
+(Int -&gt; CSVInput -&gt; ShowS)
+-&gt; (CSVInput -&gt; String) -&gt; ([CSVInput] -&gt; ShowS) -&gt; Show CSVInput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CSVInput] -&gt; ShowS
+$cshowList :: [CSVInput] -&gt; ShowS
+show :: CSVInput -&gt; String
+$cshow :: CSVInput -&gt; String
+showsPrec :: Int -&gt; CSVInput -&gt; ShowS
+$cshowsPrec :: Int -&gt; CSVInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CSVInput -&gt; Rep CSVInput x)
+-&gt; (forall x. Rep CSVInput x -&gt; CSVInput) -&gt; Generic CSVInput
+forall x. Rep CSVInput x -&gt; CSVInput
+forall x. CSVInput -&gt; Rep CSVInput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CSVInput x -&gt; CSVInput
+$cfrom :: forall x. CSVInput -&gt; Rep CSVInput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'CSVInput' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'allowQuotedRecordDelimiter', 'cSVInput_allowQuotedRecordDelimiter' - Specifies that CSV field values may contain quoted record delimiters and</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- such records should be allowed. Default value is FALSE. Setting this</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- value to TRUE may lower performance.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'recordDelimiter', 'cSVInput_recordDelimiter' - A single character used to separate individual records in the input.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Instead of the default value, you can specify an arbitrary delimiter.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'quoteCharacter', 'cSVInput_quoteCharacter' - A single character used for escaping when the field delimiter is part of</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- the value. For example, if the value is @a, b@, Amazon S3 wraps this</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- field value in quotation marks, as follows: @\&quot; a , b \&quot;@.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Type: String</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Default: @\&quot;@</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Ancestors: @CSV@</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'fileHeaderInfo', 'cSVInput_fileHeaderInfo' - Describes the first line of input. Valid values are:</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- -   @NONE@: First line is not a header.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -   @IGNORE@: First line is a header, but you can\'t use the header</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--     values to indicate the column in an expression. You can use column</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--     position (such as _1, _2, &#8230;) to indicate the column</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--     (@SELECT s._1 FROM OBJECT s@).</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- -   @Use@: First line is a header, and you can use the header value to</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--     identify a column in an expression (@SELECT \&quot;name\&quot; FROM OBJECT@).</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'fieldDelimiter', 'cSVInput_fieldDelimiter' - A single character used to separate individual fields in a record. You</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- can specify an arbitrary delimiter.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'comments', 'cSVInput_comments' - A single character used to indicate that a row should be ignored when</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- the character is present at the start of that row. You can specify any</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- character to indicate a comment line.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'quoteEscapeCharacter', 'cSVInput_quoteEscapeCharacter' - A single character used for escaping the quotation mark character inside</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- an already escaped value. For example, the value \&quot;\&quot;\&quot; a , b \&quot;\&quot;\&quot; is</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- parsed as \&quot; a , b \&quot;.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#newCSVInput"><span class="hs-identifier hs-type">newCSVInput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span>
+</span><span id="line-125"></span><span id="newCSVInput"><span class="annot"><span class="annottext">newCSVInput :: CSVInput
+</span><a href="Network.AWS.S3.Types.CSVInput.html#newCSVInput"><span class="hs-identifier hs-var hs-var">newCSVInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">CSVInput' :: Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe FileHeaderInfo
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; CSVInput
+</span><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:allowQuotedRecordDelimiter:CSVInput' :: Maybe Bool
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3AallowQuotedRecordDelimiter%3ACSVInput%27"><span class="hs-identifier hs-var">allowQuotedRecordDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:recordDelimiter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3ArecordDelimiter%3ACSVInput%27"><span class="hs-identifier hs-var">recordDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:quoteCharacter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3AquoteCharacter%3ACSVInput%27"><span class="hs-identifier hs-var">quoteCharacter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileHeaderInfo:CSVInput' :: Maybe FileHeaderInfo
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3AfileHeaderInfo%3ACSVInput%27"><span class="hs-identifier hs-var">fileHeaderInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileHeaderInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:fieldDelimiter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3AfieldDelimiter%3ACSVInput%27"><span class="hs-identifier hs-var">fieldDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:comments:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3Acomments%3ACSVInput%27"><span class="hs-identifier hs-var">comments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:quoteEscapeCharacter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3AquoteEscapeCharacter%3ACSVInput%27"><span class="hs-identifier hs-var">quoteEscapeCharacter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Specifies that CSV field values may contain quoted record delimiters and</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- such records should be allowed. Default value is FALSE. Setting this</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- value to TRUE may lower performance.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#cSVInput_allowQuotedRecordDelimiter"><span class="hs-identifier hs-type">cSVInput_allowQuotedRecordDelimiter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="cSVInput_allowQuotedRecordDelimiter"><span class="annot"><span class="annottext">cSVInput_allowQuotedRecordDelimiter :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CSVInput -&gt; f CSVInput
+</span><a href="Network.AWS.S3.Types.CSVInput.html#cSVInput_allowQuotedRecordDelimiter"><span class="hs-identifier hs-var hs-var">cSVInput_allowQuotedRecordDelimiter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CSVInput -&gt; Maybe Bool)
+-&gt; (CSVInput -&gt; Maybe Bool -&gt; CSVInput)
+-&gt; Lens CSVInput CSVInput (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679541148"><span class="annot"><span class="annottext">Maybe Bool
+allowQuotedRecordDelimiter :: Maybe Bool
+$sel:allowQuotedRecordDelimiter:CSVInput' :: CSVInput -&gt; Maybe Bool
+</span><a href="#local-6989586621679541148"><span class="hs-identifier hs-var hs-var">allowQuotedRecordDelimiter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679541148"><span class="hs-identifier hs-var">allowQuotedRecordDelimiter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679541147"><span class="annot"><span class="annottext">s :: CSVInput
+</span><a href="#local-6989586621679541147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679541146"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679541146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CSVInput
+</span><a href="#local-6989586621679541147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowQuotedRecordDelimiter:CSVInput' :: Maybe Bool
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3AallowQuotedRecordDelimiter%3ACSVInput%27"><span class="hs-identifier hs-var">allowQuotedRecordDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679541146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | A single character used to separate individual records in the input.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Instead of the default value, you can specify an arbitrary delimiter.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#cSVInput_recordDelimiter"><span class="hs-identifier hs-type">cSVInput_recordDelimiter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="cSVInput_recordDelimiter"><span class="annot"><span class="annottext">cSVInput_recordDelimiter :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CSVInput -&gt; f CSVInput
+</span><a href="Network.AWS.S3.Types.CSVInput.html#cSVInput_recordDelimiter"><span class="hs-identifier hs-var hs-var">cSVInput_recordDelimiter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CSVInput -&gt; Maybe Text)
+-&gt; (CSVInput -&gt; Maybe Text -&gt; CSVInput)
+-&gt; Lens CSVInput CSVInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679541144"><span class="annot"><span class="annottext">Maybe Text
+recordDelimiter :: Maybe Text
+$sel:recordDelimiter:CSVInput' :: CSVInput -&gt; Maybe Text
+</span><a href="#local-6989586621679541144"><span class="hs-identifier hs-var hs-var">recordDelimiter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541144"><span class="hs-identifier hs-var">recordDelimiter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679541143"><span class="annot"><span class="annottext">s :: CSVInput
+</span><a href="#local-6989586621679541143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679541142"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CSVInput
+</span><a href="#local-6989586621679541143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordDelimiter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3ArecordDelimiter%3ACSVInput%27"><span class="hs-identifier hs-var">recordDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | A single character used for escaping when the field delimiter is part of</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- the value. For example, if the value is @a, b@, Amazon S3 wraps this</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- field value in quotation marks, as follows: @\&quot; a , b \&quot;@.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Type: String</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Default: @\&quot;@</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Ancestors: @CSV@</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#cSVInput_quoteCharacter"><span class="hs-identifier hs-type">cSVInput_quoteCharacter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="cSVInput_quoteCharacter"><span class="annot"><span class="annottext">cSVInput_quoteCharacter :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CSVInput -&gt; f CSVInput
+</span><a href="Network.AWS.S3.Types.CSVInput.html#cSVInput_quoteCharacter"><span class="hs-identifier hs-var hs-var">cSVInput_quoteCharacter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CSVInput -&gt; Maybe Text)
+-&gt; (CSVInput -&gt; Maybe Text -&gt; CSVInput)
+-&gt; Lens CSVInput CSVInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679541140"><span class="annot"><span class="annottext">Maybe Text
+quoteCharacter :: Maybe Text
+$sel:quoteCharacter:CSVInput' :: CSVInput -&gt; Maybe Text
+</span><a href="#local-6989586621679541140"><span class="hs-identifier hs-var hs-var">quoteCharacter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541140"><span class="hs-identifier hs-var">quoteCharacter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679541139"><span class="annot"><span class="annottext">s :: CSVInput
+</span><a href="#local-6989586621679541139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679541138"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CSVInput
+</span><a href="#local-6989586621679541139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quoteCharacter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3AquoteCharacter%3ACSVInput%27"><span class="hs-identifier hs-var">quoteCharacter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | Describes the first line of input. Valid values are:</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   @NONE@: First line is not a header.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   @IGNORE@: First line is a header, but you can\'t use the header</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--     values to indicate the column in an expression. You can use column</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     position (such as _1, _2, &#8230;) to indicate the column</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--     (@SELECT s._1 FROM OBJECT s@).</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- -   @Use@: First line is a header, and you can use the header value to</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--     identify a column in an expression (@SELECT \&quot;name\&quot; FROM OBJECT@).</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#cSVInput_fileHeaderInfo"><span class="hs-identifier hs-type">cSVInput_fileHeaderInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo"><span class="hs-identifier hs-type">FileHeaderInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="cSVInput_fileHeaderInfo"><span class="annot"><span class="annottext">cSVInput_fileHeaderInfo :: (Maybe FileHeaderInfo -&gt; f (Maybe FileHeaderInfo))
+-&gt; CSVInput -&gt; f CSVInput
+</span><a href="Network.AWS.S3.Types.CSVInput.html#cSVInput_fileHeaderInfo"><span class="hs-identifier hs-var hs-var">cSVInput_fileHeaderInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CSVInput -&gt; Maybe FileHeaderInfo)
+-&gt; (CSVInput -&gt; Maybe FileHeaderInfo -&gt; CSVInput)
+-&gt; Lens
+     CSVInput CSVInput (Maybe FileHeaderInfo) (Maybe FileHeaderInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679541136"><span class="annot"><span class="annottext">Maybe FileHeaderInfo
+fileHeaderInfo :: Maybe FileHeaderInfo
+$sel:fileHeaderInfo:CSVInput' :: CSVInput -&gt; Maybe FileHeaderInfo
+</span><a href="#local-6989586621679541136"><span class="hs-identifier hs-var hs-var">fileHeaderInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileHeaderInfo
+</span><a href="#local-6989586621679541136"><span class="hs-identifier hs-var">fileHeaderInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679541135"><span class="annot"><span class="annottext">s :: CSVInput
+</span><a href="#local-6989586621679541135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679541134"><span class="annot"><span class="annottext">Maybe FileHeaderInfo
+</span><a href="#local-6989586621679541134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CSVInput
+</span><a href="#local-6989586621679541135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileHeaderInfo:CSVInput' :: Maybe FileHeaderInfo
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3AfileHeaderInfo%3ACSVInput%27"><span class="hs-identifier hs-var">fileHeaderInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileHeaderInfo
+</span><a href="#local-6989586621679541134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | A single character used to separate individual fields in a record. You</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- can specify an arbitrary delimiter.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#cSVInput_fieldDelimiter"><span class="hs-identifier hs-type">cSVInput_fieldDelimiter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="cSVInput_fieldDelimiter"><span class="annot"><span class="annottext">cSVInput_fieldDelimiter :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CSVInput -&gt; f CSVInput
+</span><a href="Network.AWS.S3.Types.CSVInput.html#cSVInput_fieldDelimiter"><span class="hs-identifier hs-var hs-var">cSVInput_fieldDelimiter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CSVInput -&gt; Maybe Text)
+-&gt; (CSVInput -&gt; Maybe Text -&gt; CSVInput)
+-&gt; Lens CSVInput CSVInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679541132"><span class="annot"><span class="annottext">Maybe Text
+fieldDelimiter :: Maybe Text
+$sel:fieldDelimiter:CSVInput' :: CSVInput -&gt; Maybe Text
+</span><a href="#local-6989586621679541132"><span class="hs-identifier hs-var hs-var">fieldDelimiter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541132"><span class="hs-identifier hs-var">fieldDelimiter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679541131"><span class="annot"><span class="annottext">s :: CSVInput
+</span><a href="#local-6989586621679541131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679541130"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CSVInput
+</span><a href="#local-6989586621679541131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldDelimiter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3AfieldDelimiter%3ACSVInput%27"><span class="hs-identifier hs-var">fieldDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | A single character used to indicate that a row should be ignored when</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- the character is present at the start of that row. You can specify any</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- character to indicate a comment line.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#cSVInput_comments"><span class="hs-identifier hs-type">cSVInput_comments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="cSVInput_comments"><span class="annot"><span class="annottext">cSVInput_comments :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CSVInput -&gt; f CSVInput
+</span><a href="Network.AWS.S3.Types.CSVInput.html#cSVInput_comments"><span class="hs-identifier hs-var hs-var">cSVInput_comments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CSVInput -&gt; Maybe Text)
+-&gt; (CSVInput -&gt; Maybe Text -&gt; CSVInput)
+-&gt; Lens CSVInput CSVInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679541128"><span class="annot"><span class="annottext">Maybe Text
+comments :: Maybe Text
+$sel:comments:CSVInput' :: CSVInput -&gt; Maybe Text
+</span><a href="#local-6989586621679541128"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541128"><span class="hs-identifier hs-var">comments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679541127"><span class="annot"><span class="annottext">s :: CSVInput
+</span><a href="#local-6989586621679541127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679541126"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CSVInput
+</span><a href="#local-6989586621679541127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comments:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3Acomments%3ACSVInput%27"><span class="hs-identifier hs-var">comments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | A single character used for escaping the quotation mark character inside</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- an already escaped value. For example, the value \&quot;\&quot;\&quot; a , b \&quot;\&quot;\&quot; is</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- parsed as \&quot; a , b \&quot;.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#cSVInput_quoteEscapeCharacter"><span class="hs-identifier hs-type">cSVInput_quoteEscapeCharacter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="cSVInput_quoteEscapeCharacter"><span class="annot"><span class="annottext">cSVInput_quoteEscapeCharacter :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CSVInput -&gt; f CSVInput
+</span><a href="Network.AWS.S3.Types.CSVInput.html#cSVInput_quoteEscapeCharacter"><span class="hs-identifier hs-var hs-var">cSVInput_quoteEscapeCharacter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CSVInput -&gt; Maybe Text)
+-&gt; (CSVInput -&gt; Maybe Text -&gt; CSVInput)
+-&gt; Lens CSVInput CSVInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679541124"><span class="annot"><span class="annottext">Maybe Text
+quoteEscapeCharacter :: Maybe Text
+$sel:quoteEscapeCharacter:CSVInput' :: CSVInput -&gt; Maybe Text
+</span><a href="#local-6989586621679541124"><span class="hs-identifier hs-var hs-var">quoteEscapeCharacter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541124"><span class="hs-identifier hs-var">quoteEscapeCharacter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679541123"><span class="annot"><span class="annottext">s :: CSVInput
+</span><a href="#local-6989586621679541123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679541122"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CSVInput
+</span><a href="#local-6989586621679541123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quoteEscapeCharacter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.CSVInput.html#%24sel%3AquoteEscapeCharacter%3ACSVInput%27"><span class="hs-identifier hs-var">quoteEscapeCharacter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679541118"><span id="local-6989586621679541120"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span></span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679541115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679541111"><span class="annot"><span class="annottext">toXML :: CSVInput -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679541103"><span id="local-6989586621679541104"><span id="local-6989586621679541105"><span id="local-6989586621679541106"><span id="local-6989586621679541107"><span id="local-6989586621679541108"><span id="local-6989586621679541109"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Maybe FileHeaderInfo
+quoteEscapeCharacter :: Maybe Text
+comments :: Maybe Text
+fieldDelimiter :: Maybe Text
+fileHeaderInfo :: Maybe FileHeaderInfo
+quoteCharacter :: Maybe Text
+recordDelimiter :: Maybe Text
+allowQuotedRecordDelimiter :: Maybe Bool
+$sel:quoteEscapeCharacter:CSVInput' :: CSVInput -&gt; Maybe Text
+$sel:comments:CSVInput' :: CSVInput -&gt; Maybe Text
+$sel:fieldDelimiter:CSVInput' :: CSVInput -&gt; Maybe Text
+$sel:fileHeaderInfo:CSVInput' :: CSVInput -&gt; Maybe FileHeaderInfo
+$sel:quoteCharacter:CSVInput' :: CSVInput -&gt; Maybe Text
+$sel:recordDelimiter:CSVInput' :: CSVInput -&gt; Maybe Text
+$sel:allowQuotedRecordDelimiter:CSVInput' :: CSVInput -&gt; Maybe Bool
+</span><a href="#local-6989586621679541103"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;AllowQuotedRecordDelimiter&quot;</span></span><span>
+</span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe Bool -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679541109"><span class="hs-identifier hs-var">allowQuotedRecordDelimiter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;RecordDelimiter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541108"><span class="hs-identifier hs-var">recordDelimiter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;QuoteCharacter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541107"><span class="hs-identifier hs-var">quoteCharacter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;FileHeaderInfo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe FileHeaderInfo -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe FileHeaderInfo
+</span><a href="#local-6989586621679541106"><span class="hs-identifier hs-var">fileHeaderInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;FieldDelimiter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541105"><span class="hs-identifier hs-var">fieldDelimiter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Comments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541104"><span class="hs-identifier hs-var">comments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;QuoteEscapeCharacter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679541103"><span class="hs-identifier hs-var">quoteEscapeCharacter</span></a></span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-207"></span></pre></body></html>

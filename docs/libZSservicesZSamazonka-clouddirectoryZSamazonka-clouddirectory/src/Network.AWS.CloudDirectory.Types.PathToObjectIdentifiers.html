@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Returns the path to the @ObjectIdentifiers@ that is associated with the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- directory.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPathToObjectIdentifiers' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679326632"><span id="local-6989586621679326633"></span></span><span class="hs-keyword">data</span><span> </span><span id="PathToObjectIdentifiers"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers"><span class="hs-identifier hs-var">PathToObjectIdentifiers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PathToObjectIdentifiers%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers%27"><span class="hs-identifier hs-var">PathToObjectIdentifiers'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Lists @ObjectIdentifiers@ starting from directory root to the object in</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AobjectIdentifiers%3APathToObjectIdentifiers%27"><span class="annot"><span class="annottext">PathToObjectIdentifiers -&gt; Maybe [Text]
+</span><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#%24sel%3AobjectIdentifiers%3APathToObjectIdentifiers%27"><span class="hs-identifier hs-var hs-var">objectIdentifiers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The path that is used to identify the object starting from directory</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- root.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Apath%3APathToObjectIdentifiers%27"><span class="annot"><span class="annottext">PathToObjectIdentifiers -&gt; Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#%24sel%3Apath%3APathToObjectIdentifiers%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326625"><span id="local-6989586621679326627"><span class="annot"><span class="annottext">PathToObjectIdentifiers -&gt; PathToObjectIdentifiers -&gt; Bool
+(PathToObjectIdentifiers -&gt; PathToObjectIdentifiers -&gt; Bool)
+-&gt; (PathToObjectIdentifiers -&gt; PathToObjectIdentifiers -&gt; Bool)
+-&gt; Eq PathToObjectIdentifiers
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PathToObjectIdentifiers -&gt; PathToObjectIdentifiers -&gt; Bool
+$c/= :: PathToObjectIdentifiers -&gt; PathToObjectIdentifiers -&gt; Bool
+== :: PathToObjectIdentifiers -&gt; PathToObjectIdentifiers -&gt; Bool
+$c== :: PathToObjectIdentifiers -&gt; PathToObjectIdentifiers -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326616"><span id="local-6989586621679326618"><span id="local-6989586621679326620"><span id="local-6989586621679326622"><span class="annot"><span class="annottext">ReadPrec [PathToObjectIdentifiers]
+ReadPrec PathToObjectIdentifiers
+Int -&gt; ReadS PathToObjectIdentifiers
+ReadS [PathToObjectIdentifiers]
+(Int -&gt; ReadS PathToObjectIdentifiers)
+-&gt; ReadS [PathToObjectIdentifiers]
+-&gt; ReadPrec PathToObjectIdentifiers
+-&gt; ReadPrec [PathToObjectIdentifiers]
+-&gt; Read PathToObjectIdentifiers
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PathToObjectIdentifiers]
+$creadListPrec :: ReadPrec [PathToObjectIdentifiers]
+readPrec :: ReadPrec PathToObjectIdentifiers
+$creadPrec :: ReadPrec PathToObjectIdentifiers
+readList :: ReadS [PathToObjectIdentifiers]
+$creadList :: ReadS [PathToObjectIdentifiers]
+readsPrec :: Int -&gt; ReadS PathToObjectIdentifiers
+$creadsPrec :: Int -&gt; ReadS PathToObjectIdentifiers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326609"><span id="local-6989586621679326611"><span id="local-6989586621679326613"><span class="annot"><span class="annottext">Int -&gt; PathToObjectIdentifiers -&gt; ShowS
+[PathToObjectIdentifiers] -&gt; ShowS
+PathToObjectIdentifiers -&gt; String
+(Int -&gt; PathToObjectIdentifiers -&gt; ShowS)
+-&gt; (PathToObjectIdentifiers -&gt; String)
+-&gt; ([PathToObjectIdentifiers] -&gt; ShowS)
+-&gt; Show PathToObjectIdentifiers
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PathToObjectIdentifiers] -&gt; ShowS
+$cshowList :: [PathToObjectIdentifiers] -&gt; ShowS
+show :: PathToObjectIdentifiers -&gt; String
+$cshow :: PathToObjectIdentifiers -&gt; String
+showsPrec :: Int -&gt; PathToObjectIdentifiers -&gt; ShowS
+$cshowsPrec :: Int -&gt; PathToObjectIdentifiers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PathToObjectIdentifiers -&gt; Rep PathToObjectIdentifiers x)
+-&gt; (forall x.
+    Rep PathToObjectIdentifiers x -&gt; PathToObjectIdentifiers)
+-&gt; Generic PathToObjectIdentifiers
+forall x. Rep PathToObjectIdentifiers x -&gt; PathToObjectIdentifiers
+forall x. PathToObjectIdentifiers -&gt; Rep PathToObjectIdentifiers x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PathToObjectIdentifiers x -&gt; PathToObjectIdentifiers
+$cfrom :: forall x. PathToObjectIdentifiers -&gt; Rep PathToObjectIdentifiers x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'PathToObjectIdentifiers' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'objectIdentifiers', 'pathToObjectIdentifiers_objectIdentifiers' - Lists @ObjectIdentifiers@ starting from directory root to the object in</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'path', 'pathToObjectIdentifiers_path' - The path that is used to identify the object starting from directory</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- root.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#newPathToObjectIdentifiers"><span class="hs-identifier hs-type">newPathToObjectIdentifiers</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers"><span class="hs-identifier hs-type">PathToObjectIdentifiers</span></a></span><span>
+</span><span id="line-55"></span><span id="newPathToObjectIdentifiers"><span class="annot"><span class="annottext">newPathToObjectIdentifiers :: PathToObjectIdentifiers
+</span><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#newPathToObjectIdentifiers"><span class="hs-identifier hs-var hs-var">newPathToObjectIdentifiers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">PathToObjectIdentifiers' :: Maybe [Text] -&gt; Maybe Text -&gt; PathToObjectIdentifiers
+</span><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers%27"><span class="hs-identifier hs-type">PathToObjectIdentifiers'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:objectIdentifiers:PathToObjectIdentifiers' :: Maybe [Text]
+</span><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#%24sel%3AobjectIdentifiers%3APathToObjectIdentifiers%27"><span class="hs-identifier hs-var">objectIdentifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:path:PathToObjectIdentifiers' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#%24sel%3Apath%3APathToObjectIdentifiers%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | Lists @ObjectIdentifiers@ starting from directory root to the object in</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#pathToObjectIdentifiers_objectIdentifiers"><span class="hs-identifier hs-type">pathToObjectIdentifiers_objectIdentifiers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers"><span class="hs-identifier hs-type">PathToObjectIdentifiers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="pathToObjectIdentifiers_objectIdentifiers"><span class="annot"><span class="annottext">pathToObjectIdentifiers_objectIdentifiers :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PathToObjectIdentifiers -&gt; f PathToObjectIdentifiers
+</span><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#pathToObjectIdentifiers_objectIdentifiers"><span class="hs-identifier hs-var hs-var">pathToObjectIdentifiers_objectIdentifiers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PathToObjectIdentifiers -&gt; Maybe [Text])
+-&gt; (PathToObjectIdentifiers
+    -&gt; Maybe [Text] -&gt; PathToObjectIdentifiers)
+-&gt; Lens
+     PathToObjectIdentifiers
+     PathToObjectIdentifiers
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers%27"><span class="hs-identifier hs-type">PathToObjectIdentifiers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326600"><span class="annot"><span class="annottext">Maybe [Text]
+objectIdentifiers :: Maybe [Text]
+$sel:objectIdentifiers:PathToObjectIdentifiers' :: PathToObjectIdentifiers -&gt; Maybe [Text]
+</span><a href="#local-6989586621679326600"><span class="hs-identifier hs-var hs-var">objectIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679326600"><span class="hs-identifier hs-var">objectIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326599"><span class="annot"><span class="annottext">s :: PathToObjectIdentifiers
+</span><a href="#local-6989586621679326599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers%27"><span class="hs-identifier hs-type">PathToObjectIdentifiers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326598"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679326598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PathToObjectIdentifiers
+</span><a href="#local-6989586621679326599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectIdentifiers:PathToObjectIdentifiers' :: Maybe [Text]
+</span><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#%24sel%3AobjectIdentifiers%3APathToObjectIdentifiers%27"><span class="hs-identifier hs-var">objectIdentifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679326598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers"><span class="hs-identifier hs-type">PathToObjectIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; PathToObjectIdentifiers -&gt; f PathToObjectIdentifiers)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PathToObjectIdentifiers
+-&gt; f PathToObjectIdentifiers
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The path that is used to identify the object starting from directory</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- root.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#pathToObjectIdentifiers_path"><span class="hs-identifier hs-type">pathToObjectIdentifiers_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers"><span class="hs-identifier hs-type">PathToObjectIdentifiers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="pathToObjectIdentifiers_path"><span class="annot"><span class="annottext">pathToObjectIdentifiers_path :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PathToObjectIdentifiers -&gt; f PathToObjectIdentifiers
+</span><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#pathToObjectIdentifiers_path"><span class="hs-identifier hs-var hs-var">pathToObjectIdentifiers_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PathToObjectIdentifiers -&gt; Maybe Text)
+-&gt; (PathToObjectIdentifiers
+    -&gt; Maybe Text -&gt; PathToObjectIdentifiers)
+-&gt; Lens
+     PathToObjectIdentifiers
+     PathToObjectIdentifiers
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers%27"><span class="hs-identifier hs-type">PathToObjectIdentifiers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326593"><span class="annot"><span class="annottext">Maybe Text
+path :: Maybe Text
+$sel:path:PathToObjectIdentifiers' :: PathToObjectIdentifiers -&gt; Maybe Text
+</span><a href="#local-6989586621679326593"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326593"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326592"><span class="annot"><span class="annottext">s :: PathToObjectIdentifiers
+</span><a href="#local-6989586621679326592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers%27"><span class="hs-identifier hs-type">PathToObjectIdentifiers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326591"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PathToObjectIdentifiers
+</span><a href="#local-6989586621679326592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:PathToObjectIdentifiers' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#%24sel%3Apath%3APathToObjectIdentifiers%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers"><span class="hs-identifier hs-type">PathToObjectIdentifiers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326588"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers"><span class="hs-identifier hs-type">PathToObjectIdentifiers</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679326586"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PathToObjectIdentifiers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PathToObjectIdentifiers)
+-&gt; Value
+-&gt; Parser PathToObjectIdentifiers
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PathToObjectIdentifiers&quot;</span></span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326583"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326583"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; PathToObjectIdentifiers
+</span><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers%27"><span class="hs-identifier hs-var">PathToObjectIdentifiers'</span></a></span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; PathToObjectIdentifiers)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe Text -&gt; PathToObjectIdentifiers)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ObjectIdentifiers&quot;</span></span><span>
+</span><span id="line-79"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-80"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PathToObjectIdentifiers)
+-&gt; Parser (Maybe Text) -&gt; Parser PathToObjectIdentifiers
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Path&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326576"><span id="local-6989586621679326578"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers"><span class="hs-identifier hs-type">PathToObjectIdentifiers</span></a></span></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326573"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers"><span class="hs-identifier hs-type">PathToObjectIdentifiers</span></a></span></span><span>
+</span><span id="line-87"></span></pre></body></html>

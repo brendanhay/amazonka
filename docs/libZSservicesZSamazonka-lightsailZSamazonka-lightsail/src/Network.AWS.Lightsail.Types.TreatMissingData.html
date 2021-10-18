@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Lightsail.Types.TreatMissingData</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lightsail.Types.TreatMissingData</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData"><span class="hs-identifier">TreatMissingData</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData_Breaching"><span class="hs-identifier">TreatMissingData_Breaching</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData_Ignore"><span class="hs-identifier">TreatMissingData_Ignore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData_Missing"><span class="hs-identifier">TreatMissingData_Missing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData_NotBreaching"><span class="hs-identifier">TreatMissingData_NotBreaching</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679626339"><span id="local-6989586621679626340"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TreatMissingData"><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData"><span class="hs-identifier hs-var">TreatMissingData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TreatMissingData%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData%27"><span class="hs-identifier hs-var">TreatMissingData'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTreatMissingData"><span class="annot"><span class="annottext">TreatMissingData -&gt; Text
+</span><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#fromTreatMissingData"><span class="hs-identifier hs-var hs-var">fromTreatMissingData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679626331"><span id="local-6989586621679626333"><span id="local-6989586621679626335"><span class="annot"><span class="annottext">Int -&gt; TreatMissingData -&gt; ShowS
+[TreatMissingData] -&gt; ShowS
+TreatMissingData -&gt; String
+(Int -&gt; TreatMissingData -&gt; ShowS)
+-&gt; (TreatMissingData -&gt; String)
+-&gt; ([TreatMissingData] -&gt; ShowS)
+-&gt; Show TreatMissingData
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TreatMissingData] -&gt; ShowS
+$cshowList :: [TreatMissingData] -&gt; ShowS
+show :: TreatMissingData -&gt; String
+$cshow :: TreatMissingData -&gt; String
+showsPrec :: Int -&gt; TreatMissingData -&gt; ShowS
+$cshowsPrec :: Int -&gt; TreatMissingData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679626322"><span id="local-6989586621679626324"><span id="local-6989586621679626326"><span id="local-6989586621679626328"><span class="annot"><span class="annottext">ReadPrec [TreatMissingData]
+ReadPrec TreatMissingData
+Int -&gt; ReadS TreatMissingData
+ReadS [TreatMissingData]
+(Int -&gt; ReadS TreatMissingData)
+-&gt; ReadS [TreatMissingData]
+-&gt; ReadPrec TreatMissingData
+-&gt; ReadPrec [TreatMissingData]
+-&gt; Read TreatMissingData
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TreatMissingData]
+$creadListPrec :: ReadPrec [TreatMissingData]
+readPrec :: ReadPrec TreatMissingData
+$creadPrec :: ReadPrec TreatMissingData
+readList :: ReadS [TreatMissingData]
+$creadList :: ReadS [TreatMissingData]
+readsPrec :: Int -&gt; ReadS TreatMissingData
+$creadsPrec :: Int -&gt; ReadS TreatMissingData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679626317"><span id="local-6989586621679626319"><span class="annot"><span class="annottext">TreatMissingData -&gt; TreatMissingData -&gt; Bool
+(TreatMissingData -&gt; TreatMissingData -&gt; Bool)
+-&gt; (TreatMissingData -&gt; TreatMissingData -&gt; Bool)
+-&gt; Eq TreatMissingData
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TreatMissingData -&gt; TreatMissingData -&gt; Bool
+$c/= :: TreatMissingData -&gt; TreatMissingData -&gt; Bool
+== :: TreatMissingData -&gt; TreatMissingData -&gt; Bool
+$c== :: TreatMissingData -&gt; TreatMissingData -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679626301"><span id="local-6989586621679626303"><span id="local-6989586621679626305"><span id="local-6989586621679626307"><span id="local-6989586621679626309"><span id="local-6989586621679626311"><span id="local-6989586621679626313"><span class="annot"><span class="annottext">Eq TreatMissingData
+Eq TreatMissingData
+-&gt; (TreatMissingData -&gt; TreatMissingData -&gt; Ordering)
+-&gt; (TreatMissingData -&gt; TreatMissingData -&gt; Bool)
+-&gt; (TreatMissingData -&gt; TreatMissingData -&gt; Bool)
+-&gt; (TreatMissingData -&gt; TreatMissingData -&gt; Bool)
+-&gt; (TreatMissingData -&gt; TreatMissingData -&gt; Bool)
+-&gt; (TreatMissingData -&gt; TreatMissingData -&gt; TreatMissingData)
+-&gt; (TreatMissingData -&gt; TreatMissingData -&gt; TreatMissingData)
+-&gt; Ord TreatMissingData
+TreatMissingData -&gt; TreatMissingData -&gt; Bool
+TreatMissingData -&gt; TreatMissingData -&gt; Ordering
+TreatMissingData -&gt; TreatMissingData -&gt; TreatMissingData
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TreatMissingData -&gt; TreatMissingData -&gt; TreatMissingData
+$cmin :: TreatMissingData -&gt; TreatMissingData -&gt; TreatMissingData
+max :: TreatMissingData -&gt; TreatMissingData -&gt; TreatMissingData
+$cmax :: TreatMissingData -&gt; TreatMissingData -&gt; TreatMissingData
+&gt;= :: TreatMissingData -&gt; TreatMissingData -&gt; Bool
+$c&gt;= :: TreatMissingData -&gt; TreatMissingData -&gt; Bool
+&gt; :: TreatMissingData -&gt; TreatMissingData -&gt; Bool
+$c&gt; :: TreatMissingData -&gt; TreatMissingData -&gt; Bool
+&lt;= :: TreatMissingData -&gt; TreatMissingData -&gt; Bool
+$c&lt;= :: TreatMissingData -&gt; TreatMissingData -&gt; Bool
+&lt; :: TreatMissingData -&gt; TreatMissingData -&gt; Bool
+$c&lt; :: TreatMissingData -&gt; TreatMissingData -&gt; Bool
+compare :: TreatMissingData -&gt; TreatMissingData -&gt; Ordering
+$ccompare :: TreatMissingData -&gt; TreatMissingData -&gt; Ordering
+$cp1Ord :: Eq TreatMissingData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TreatMissingData -&gt; Rep TreatMissingData x)
+-&gt; (forall x. Rep TreatMissingData x -&gt; TreatMissingData)
+-&gt; Generic TreatMissingData
+forall x. Rep TreatMissingData x -&gt; TreatMissingData
+forall x. TreatMissingData -&gt; Rep TreatMissingData x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TreatMissingData x -&gt; TreatMissingData
+$cfrom :: forall x. TreatMissingData -&gt; Rep TreatMissingData x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679626293"><span id="local-6989586621679626295"><span class="annot"><span class="annottext">Int -&gt; TreatMissingData -&gt; Int
+TreatMissingData -&gt; Int
+(Int -&gt; TreatMissingData -&gt; Int)
+-&gt; (TreatMissingData -&gt; Int) -&gt; Hashable TreatMissingData
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TreatMissingData -&gt; Int
+$chash :: TreatMissingData -&gt; Int
+hashWithSalt :: Int -&gt; TreatMissingData -&gt; Int
+$chashWithSalt :: Int -&gt; TreatMissingData -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679626290"><span class="annot"><span class="annottext">TreatMissingData -&gt; ()
+(TreatMissingData -&gt; ()) -&gt; NFData TreatMissingData
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TreatMissingData -&gt; ()
+$crnf :: TreatMissingData -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679626287"><span class="annot"><span class="annottext">Text -&gt; Either String TreatMissingData
+(Text -&gt; Either String TreatMissingData)
+-&gt; FromText TreatMissingData
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TreatMissingData
+$cfromText :: Text -&gt; Either String TreatMissingData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679626284"><span class="annot"><span class="annottext">TreatMissingData -&gt; Text
+(TreatMissingData -&gt; Text) -&gt; ToText TreatMissingData
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TreatMissingData -&gt; Text
+$ctoText :: TreatMissingData -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679626281"><span class="annot"><span class="annottext">TreatMissingData -&gt; ByteString
+(TreatMissingData -&gt; ByteString) -&gt; ToByteString TreatMissingData
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TreatMissingData -&gt; ByteString
+$ctoBS :: TreatMissingData -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679626278"><span class="annot"><span class="annottext">TreatMissingData -&gt; ByteStringBuilder
+(TreatMissingData -&gt; ByteStringBuilder) -&gt; ToLog TreatMissingData
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TreatMissingData -&gt; ByteStringBuilder
+$cbuild :: TreatMissingData -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679626275"><span class="annot"><span class="annottext">HeaderName -&gt; TreatMissingData -&gt; [Header]
+(HeaderName -&gt; TreatMissingData -&gt; [Header])
+-&gt; ToHeader TreatMissingData
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TreatMissingData -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TreatMissingData -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679626272"><span class="annot"><span class="annottext">TreatMissingData -&gt; QueryString
+(TreatMissingData -&gt; QueryString) -&gt; ToQuery TreatMissingData
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TreatMissingData -&gt; QueryString
+$ctoQuery :: TreatMissingData -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679626267"><span id="local-6989586621679626269"><span class="annot"><span class="annottext">Value -&gt; Parser [TreatMissingData]
+Value -&gt; Parser TreatMissingData
+(Value -&gt; Parser TreatMissingData)
+-&gt; (Value -&gt; Parser [TreatMissingData])
+-&gt; FromJSON TreatMissingData
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TreatMissingData]
+$cparseJSONList :: Value -&gt; Parser [TreatMissingData]
+parseJSON :: Value -&gt; Parser TreatMissingData
+$cparseJSON :: Value -&gt; Parser TreatMissingData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679626262"><span id="local-6989586621679626264"><span class="annot"><span class="annottext">FromJSONKeyFunction [TreatMissingData]
+FromJSONKeyFunction TreatMissingData
+FromJSONKeyFunction TreatMissingData
+-&gt; FromJSONKeyFunction [TreatMissingData]
+-&gt; FromJSONKey TreatMissingData
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TreatMissingData]
+$cfromJSONKeyList :: FromJSONKeyFunction [TreatMissingData]
+fromJSONKey :: FromJSONKeyFunction TreatMissingData
+$cfromJSONKey :: FromJSONKeyFunction TreatMissingData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679626253"><span id="local-6989586621679626255"><span id="local-6989586621679626257"><span id="local-6989586621679626259"><span class="annot"><span class="annottext">[TreatMissingData] -&gt; Encoding
+[TreatMissingData] -&gt; Value
+TreatMissingData -&gt; Encoding
+TreatMissingData -&gt; Value
+(TreatMissingData -&gt; Value)
+-&gt; (TreatMissingData -&gt; Encoding)
+-&gt; ([TreatMissingData] -&gt; Value)
+-&gt; ([TreatMissingData] -&gt; Encoding)
+-&gt; ToJSON TreatMissingData
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TreatMissingData] -&gt; Encoding
+$ctoEncodingList :: [TreatMissingData] -&gt; Encoding
+toJSONList :: [TreatMissingData] -&gt; Value
+$ctoJSONList :: [TreatMissingData] -&gt; Value
+toEncoding :: TreatMissingData -&gt; Encoding
+$ctoEncoding :: TreatMissingData -&gt; Encoding
+toJSON :: TreatMissingData -&gt; Value
+$ctoJSON :: TreatMissingData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679626248"><span id="local-6989586621679626250"><span class="annot"><span class="annottext">ToJSONKeyFunction [TreatMissingData]
+ToJSONKeyFunction TreatMissingData
+ToJSONKeyFunction TreatMissingData
+-&gt; ToJSONKeyFunction [TreatMissingData]
+-&gt; ToJSONKey TreatMissingData
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TreatMissingData]
+$ctoJSONKeyList :: ToJSONKeyFunction [TreatMissingData]
+toJSONKey :: ToJSONKeyFunction TreatMissingData
+$ctoJSONKey :: ToJSONKeyFunction TreatMissingData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679626245"><span class="annot"><span class="annottext">[Node] -&gt; Either String TreatMissingData
+([Node] -&gt; Either String TreatMissingData)
+-&gt; FromXML TreatMissingData
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TreatMissingData
+$cparseXML :: [Node] -&gt; Either String TreatMissingData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679626242"><span class="annot"><span class="annottext">TreatMissingData -&gt; XML
+(TreatMissingData -&gt; XML) -&gt; ToXML TreatMissingData
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TreatMissingData -&gt; XML
+$ctoXML :: TreatMissingData -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData_Breaching"><span class="hs-identifier hs-type">TreatMissingData_Breaching</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData"><span class="hs-identifier hs-type">TreatMissingData</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTreatMissingData_Breaching"><span id="%24mTreatMissingData_Breaching"><span id="TreatMissingData_Breaching"><span class="annot"><span class="annottext">$bTreatMissingData_Breaching :: TreatMissingData
+$mTreatMissingData_Breaching :: forall r. TreatMissingData -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#%24bTreatMissingData_Breaching"><span class="hs-identifier hs-var hs-var hs-var">TreatMissingData_Breaching</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData%27"><span class="hs-identifier hs-type">TreatMissingData'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;breaching&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData_Ignore"><span class="hs-identifier hs-type">TreatMissingData_Ignore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData"><span class="hs-identifier hs-type">TreatMissingData</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTreatMissingData_Ignore"><span id="%24mTreatMissingData_Ignore"><span id="TreatMissingData_Ignore"><span class="annot"><span class="annottext">$bTreatMissingData_Ignore :: TreatMissingData
+$mTreatMissingData_Ignore :: forall r. TreatMissingData -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#%24bTreatMissingData_Ignore"><span class="hs-identifier hs-var hs-var hs-var">TreatMissingData_Ignore</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData%27"><span class="hs-identifier hs-type">TreatMissingData'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ignore&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData_Missing"><span class="hs-identifier hs-type">TreatMissingData_Missing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData"><span class="hs-identifier hs-type">TreatMissingData</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTreatMissingData_Missing"><span id="%24mTreatMissingData_Missing"><span id="TreatMissingData_Missing"><span class="annot"><span class="annottext">$bTreatMissingData_Missing :: TreatMissingData
+$mTreatMissingData_Missing :: forall r. TreatMissingData -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#%24bTreatMissingData_Missing"><span class="hs-identifier hs-var hs-var hs-var">TreatMissingData_Missing</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData%27"><span class="hs-identifier hs-type">TreatMissingData'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;missing&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData_NotBreaching"><span class="hs-identifier hs-type">TreatMissingData_NotBreaching</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData"><span class="hs-identifier hs-type">TreatMissingData</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTreatMissingData_NotBreaching"><span id="%24mTreatMissingData_NotBreaching"><span id="TreatMissingData_NotBreaching"><span class="annot"><span class="annottext">$bTreatMissingData_NotBreaching :: TreatMissingData
+$mTreatMissingData_NotBreaching :: forall r. TreatMissingData -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#%24bTreatMissingData_NotBreaching"><span class="hs-identifier hs-var hs-var hs-var">TreatMissingData_NotBreaching</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData%27"><span class="hs-identifier hs-type">TreatMissingData'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;notBreaching&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData_Breaching"><span class="hs-pragma hs-type">TreatMissingData_Breaching</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData_Ignore"><span class="hs-pragma hs-type">TreatMissingData_Ignore</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData_Missing"><span class="hs-pragma hs-type">TreatMissingData_Missing</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData_NotBreaching"><span class="hs-pragma hs-type">TreatMissingData_NotBreaching</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData%27"><span class="hs-pragma hs-type">TreatMissingData'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

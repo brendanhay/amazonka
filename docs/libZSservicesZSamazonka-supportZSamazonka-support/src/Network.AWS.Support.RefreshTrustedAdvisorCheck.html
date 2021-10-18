@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Support.RefreshTrustedAdvisorCheck</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Refreshes the AWS Trusted Advisor check that you specify using the check</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- ID. You can get the check IDs by calling the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- DescribeTrustedAdvisorChecks operation.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Some checks are refreshed automatically. If you call the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @RefreshTrustedAdvisorCheck@ operation to refresh them, you might see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- the @InvalidParameterValue@ error.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- The response contains a TrustedAdvisorCheckRefreshStatus object.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- -   You must have a Business or Enterprise Support plan to use the AWS</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     Support API.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   If you call the AWS Support API from an account that does not have a</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     Business or Enterprise Support plan, the</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     @SubscriptionRequiredException@ error message appears. For</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     information about changing your support plan, see</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     &lt;http://aws.amazon.com/premiumsupport/ AWS Support&gt;.</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Support.RefreshTrustedAdvisorCheck</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck"><span class="hs-identifier">RefreshTrustedAdvisorCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#newRefreshTrustedAdvisorCheck"><span class="hs-identifier">newRefreshTrustedAdvisorCheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#refreshTrustedAdvisorCheck_checkId"><span class="hs-identifier">refreshTrustedAdvisorCheck_checkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse"><span class="hs-identifier">RefreshTrustedAdvisorCheckResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#newRefreshTrustedAdvisorCheckResponse"><span class="hs-identifier">newRefreshTrustedAdvisorCheckResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#refreshTrustedAdvisorCheckResponse_httpStatus"><span class="hs-identifier">refreshTrustedAdvisorCheckResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#refreshTrustedAdvisorCheckResponse_status"><span class="hs-identifier">refreshTrustedAdvisorCheckResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.html"><span class="hs-identifier">Network.AWS.Support.Types</span></a></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- /See:/ 'newRefreshTrustedAdvisorCheck' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621679172807"><span id="local-6989586621679172808"></span></span><span class="hs-keyword">data</span><span> </span><span id="RefreshTrustedAdvisorCheck"><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck"><span class="hs-identifier hs-var">RefreshTrustedAdvisorCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RefreshTrustedAdvisorCheck%27"><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck%27"><span class="hs-identifier hs-var">RefreshTrustedAdvisorCheck'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the Trusted Advisor check to refresh.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- Specifying the check ID of a check that is automatically refreshed</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- causes an @InvalidParameterValue@ error.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AcheckId%3ARefreshTrustedAdvisorCheck%27"><span class="annot"><span class="annottext">RefreshTrustedAdvisorCheck -&gt; Text
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#%24sel%3AcheckId%3ARefreshTrustedAdvisorCheck%27"><span class="hs-identifier hs-var hs-var">checkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172801"><span id="local-6989586621679172803"><span class="annot"><span class="annottext">RefreshTrustedAdvisorCheck -&gt; RefreshTrustedAdvisorCheck -&gt; Bool
+(RefreshTrustedAdvisorCheck -&gt; RefreshTrustedAdvisorCheck -&gt; Bool)
+-&gt; (RefreshTrustedAdvisorCheck
+    -&gt; RefreshTrustedAdvisorCheck -&gt; Bool)
+-&gt; Eq RefreshTrustedAdvisorCheck
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RefreshTrustedAdvisorCheck -&gt; RefreshTrustedAdvisorCheck -&gt; Bool
+$c/= :: RefreshTrustedAdvisorCheck -&gt; RefreshTrustedAdvisorCheck -&gt; Bool
+== :: RefreshTrustedAdvisorCheck -&gt; RefreshTrustedAdvisorCheck -&gt; Bool
+$c== :: RefreshTrustedAdvisorCheck -&gt; RefreshTrustedAdvisorCheck -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172792"><span id="local-6989586621679172794"><span id="local-6989586621679172796"><span id="local-6989586621679172798"><span class="annot"><span class="annottext">ReadPrec [RefreshTrustedAdvisorCheck]
+ReadPrec RefreshTrustedAdvisorCheck
+Int -&gt; ReadS RefreshTrustedAdvisorCheck
+ReadS [RefreshTrustedAdvisorCheck]
+(Int -&gt; ReadS RefreshTrustedAdvisorCheck)
+-&gt; ReadS [RefreshTrustedAdvisorCheck]
+-&gt; ReadPrec RefreshTrustedAdvisorCheck
+-&gt; ReadPrec [RefreshTrustedAdvisorCheck]
+-&gt; Read RefreshTrustedAdvisorCheck
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RefreshTrustedAdvisorCheck]
+$creadListPrec :: ReadPrec [RefreshTrustedAdvisorCheck]
+readPrec :: ReadPrec RefreshTrustedAdvisorCheck
+$creadPrec :: ReadPrec RefreshTrustedAdvisorCheck
+readList :: ReadS [RefreshTrustedAdvisorCheck]
+$creadList :: ReadS [RefreshTrustedAdvisorCheck]
+readsPrec :: Int -&gt; ReadS RefreshTrustedAdvisorCheck
+$creadsPrec :: Int -&gt; ReadS RefreshTrustedAdvisorCheck
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172785"><span id="local-6989586621679172787"><span id="local-6989586621679172789"><span class="annot"><span class="annottext">Int -&gt; RefreshTrustedAdvisorCheck -&gt; ShowS
+[RefreshTrustedAdvisorCheck] -&gt; ShowS
+RefreshTrustedAdvisorCheck -&gt; String
+(Int -&gt; RefreshTrustedAdvisorCheck -&gt; ShowS)
+-&gt; (RefreshTrustedAdvisorCheck -&gt; String)
+-&gt; ([RefreshTrustedAdvisorCheck] -&gt; ShowS)
+-&gt; Show RefreshTrustedAdvisorCheck
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RefreshTrustedAdvisorCheck] -&gt; ShowS
+$cshowList :: [RefreshTrustedAdvisorCheck] -&gt; ShowS
+show :: RefreshTrustedAdvisorCheck -&gt; String
+$cshow :: RefreshTrustedAdvisorCheck -&gt; String
+showsPrec :: Int -&gt; RefreshTrustedAdvisorCheck -&gt; ShowS
+$cshowsPrec :: Int -&gt; RefreshTrustedAdvisorCheck -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RefreshTrustedAdvisorCheck -&gt; Rep RefreshTrustedAdvisorCheck x)
+-&gt; (forall x.
+    Rep RefreshTrustedAdvisorCheck x -&gt; RefreshTrustedAdvisorCheck)
+-&gt; Generic RefreshTrustedAdvisorCheck
+forall x.
+Rep RefreshTrustedAdvisorCheck x -&gt; RefreshTrustedAdvisorCheck
+forall x.
+RefreshTrustedAdvisorCheck -&gt; Rep RefreshTrustedAdvisorCheck x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RefreshTrustedAdvisorCheck x -&gt; RefreshTrustedAdvisorCheck
+$cfrom :: forall x.
+RefreshTrustedAdvisorCheck -&gt; Rep RefreshTrustedAdvisorCheck x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'RefreshTrustedAdvisorCheck' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'checkId', 'refreshTrustedAdvisorCheck_checkId' - The unique identifier for the Trusted Advisor check to refresh.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Specifying the check ID of a check that is automatically refreshed</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- causes an @InvalidParameterValue@ error.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#newRefreshTrustedAdvisorCheck"><span class="hs-identifier hs-type">newRefreshTrustedAdvisorCheck</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'checkId'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheck</span></a></span><span>
+</span><span id="line-94"></span><span id="newRefreshTrustedAdvisorCheck"><span class="annot"><span class="annottext">newRefreshTrustedAdvisorCheck :: Text -&gt; RefreshTrustedAdvisorCheck
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#newRefreshTrustedAdvisorCheck"><span class="hs-identifier hs-var hs-var">newRefreshTrustedAdvisorCheck</span></a></span></span><span> </span><span id="local-6989586621679172780"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172780"><span class="hs-identifier hs-var">pCheckId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">RefreshTrustedAdvisorCheck' :: Text -&gt; RefreshTrustedAdvisorCheck
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck%27"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkId:RefreshTrustedAdvisorCheck' :: Text
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#%24sel%3AcheckId%3ARefreshTrustedAdvisorCheck%27"><span class="hs-identifier hs-var">checkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172780"><span class="hs-identifier hs-var">pCheckId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The unique identifier for the Trusted Advisor check to refresh.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Specifying the check ID of a check that is automatically refreshed</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- causes an @InvalidParameterValue@ error.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#refreshTrustedAdvisorCheck_checkId"><span class="hs-identifier hs-type">refreshTrustedAdvisorCheck_checkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheck</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span id="refreshTrustedAdvisorCheck_checkId"><span class="annot"><span class="annottext">refreshTrustedAdvisorCheck_checkId :: (Text -&gt; f Text)
+-&gt; RefreshTrustedAdvisorCheck -&gt; f RefreshTrustedAdvisorCheck
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#refreshTrustedAdvisorCheck_checkId"><span class="hs-identifier hs-var hs-var">refreshTrustedAdvisorCheck_checkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RefreshTrustedAdvisorCheck -&gt; Text)
+-&gt; (RefreshTrustedAdvisorCheck
+    -&gt; Text -&gt; RefreshTrustedAdvisorCheck)
+-&gt; Lens
+     RefreshTrustedAdvisorCheck RefreshTrustedAdvisorCheck Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck%27"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172777"><span class="annot"><span class="annottext">Text
+checkId :: Text
+$sel:checkId:RefreshTrustedAdvisorCheck' :: RefreshTrustedAdvisorCheck -&gt; Text
+</span><a href="#local-6989586621679172777"><span class="hs-identifier hs-var hs-var">checkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172777"><span class="hs-identifier hs-var">checkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172776"><span class="annot"><span class="annottext">s :: RefreshTrustedAdvisorCheck
+</span><a href="#local-6989586621679172776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck%27"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172775"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshTrustedAdvisorCheck
+</span><a href="#local-6989586621679172776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkId:RefreshTrustedAdvisorCheck' :: Text
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#%24sel%3AcheckId%3ARefreshTrustedAdvisorCheck%27"><span class="hs-identifier hs-var">checkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheckResponse</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679172771"><span class="annot"><span class="annottext">request :: RefreshTrustedAdvisorCheck -&gt; Request RefreshTrustedAdvisorCheck
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; RefreshTrustedAdvisorCheck -&gt; Request RefreshTrustedAdvisorCheck
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Support.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679172767"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RefreshTrustedAdvisorCheck
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RefreshTrustedAdvisorCheck)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RefreshTrustedAdvisorCheck))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RefreshTrustedAdvisorCheck
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RefreshTrustedAdvisorCheck)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679172764"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172764"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679172763"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679172763"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679172762"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172762"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; TrustedAdvisorCheckRefreshStatus
+-&gt; RefreshTrustedAdvisorCheckResponse
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse%27"><span class="hs-identifier hs-var">RefreshTrustedAdvisorCheckResponse'</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; TrustedAdvisorCheckRefreshStatus
+ -&gt; RefreshTrustedAdvisorCheckResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (TrustedAdvisorCheckRefreshStatus
+      -&gt; RefreshTrustedAdvisorCheckResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172764"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (TrustedAdvisorCheckRefreshStatus
+   -&gt; RefreshTrustedAdvisorCheckResponse)
+-&gt; Either String TrustedAdvisorCheckRefreshStatus
+-&gt; Either String RefreshTrustedAdvisorCheckResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String TrustedAdvisorCheckRefreshStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172754"><span id="local-6989586621679172756"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheck</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172751"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheck</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679172747"><span class="annot"><span class="annottext">toHeaders :: RefreshTrustedAdvisorCheck -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RefreshTrustedAdvisorCheck -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSSupport_20130415.RefreshTrustedAdvisorCheck&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172737"><span id="local-6989586621679172739"><span id="local-6989586621679172741"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheck</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679172735"><span class="annot"><span class="annottext">toJSON :: RefreshTrustedAdvisorCheck -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck%27"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172733"><span class="annot"><span class="annottext">Text
+checkId :: Text
+$sel:checkId:RefreshTrustedAdvisorCheck' :: RefreshTrustedAdvisorCheck -&gt; Text
+</span><a href="#local-6989586621679172733"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;checkId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172733"><span class="hs-identifier hs-var">checkId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679172727"><span class="annot"><span class="annottext">toPath :: RefreshTrustedAdvisorCheck -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RefreshTrustedAdvisorCheck -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheck"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679172723"><span class="annot"><span class="annottext">toQuery :: RefreshTrustedAdvisorCheck -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RefreshTrustedAdvisorCheck -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The current refresh status of a Trusted Advisor check.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- /See:/ 'newRefreshTrustedAdvisorCheckResponse' smart constructor.</span><span>
+</span><span id="line-152"></span><span id="local-6989586621679172720"><span id="local-6989586621679172721"></span></span><span class="hs-keyword">data</span><span> </span><span id="RefreshTrustedAdvisorCheckResponse"><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse"><span class="hs-identifier hs-var">RefreshTrustedAdvisorCheckResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RefreshTrustedAdvisorCheckResponse%27"><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse%27"><span class="hs-identifier hs-var">RefreshTrustedAdvisorCheckResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARefreshTrustedAdvisorCheckResponse%27"><span class="annot"><span class="annottext">RefreshTrustedAdvisorCheckResponse -&gt; Int
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#%24sel%3AhttpStatus%3ARefreshTrustedAdvisorCheckResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The current refresh status for a check, including the amount of time</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- until the check is eligible for refresh.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3Astatus%3ARefreshTrustedAdvisorCheckResponse%27"><span class="annot"><span class="annottext">RefreshTrustedAdvisorCheckResponse
+-&gt; TrustedAdvisorCheckRefreshStatus
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#%24sel%3Astatus%3ARefreshTrustedAdvisorCheckResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus.html#TrustedAdvisorCheckRefreshStatus"><span class="hs-identifier hs-type">TrustedAdvisorCheckRefreshStatus</span></a></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172714"><span id="local-6989586621679172716"><span class="annot"><span class="annottext">RefreshTrustedAdvisorCheckResponse
+-&gt; RefreshTrustedAdvisorCheckResponse -&gt; Bool
+(RefreshTrustedAdvisorCheckResponse
+ -&gt; RefreshTrustedAdvisorCheckResponse -&gt; Bool)
+-&gt; (RefreshTrustedAdvisorCheckResponse
+    -&gt; RefreshTrustedAdvisorCheckResponse -&gt; Bool)
+-&gt; Eq RefreshTrustedAdvisorCheckResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RefreshTrustedAdvisorCheckResponse
+-&gt; RefreshTrustedAdvisorCheckResponse -&gt; Bool
+$c/= :: RefreshTrustedAdvisorCheckResponse
+-&gt; RefreshTrustedAdvisorCheckResponse -&gt; Bool
+== :: RefreshTrustedAdvisorCheckResponse
+-&gt; RefreshTrustedAdvisorCheckResponse -&gt; Bool
+$c== :: RefreshTrustedAdvisorCheckResponse
+-&gt; RefreshTrustedAdvisorCheckResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172706"><span id="local-6989586621679172708"><span id="local-6989586621679172710"><span id="local-6989586621679172712"><span class="annot"><span class="annottext">ReadPrec [RefreshTrustedAdvisorCheckResponse]
+ReadPrec RefreshTrustedAdvisorCheckResponse
+Int -&gt; ReadS RefreshTrustedAdvisorCheckResponse
+ReadS [RefreshTrustedAdvisorCheckResponse]
+(Int -&gt; ReadS RefreshTrustedAdvisorCheckResponse)
+-&gt; ReadS [RefreshTrustedAdvisorCheckResponse]
+-&gt; ReadPrec RefreshTrustedAdvisorCheckResponse
+-&gt; ReadPrec [RefreshTrustedAdvisorCheckResponse]
+-&gt; Read RefreshTrustedAdvisorCheckResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RefreshTrustedAdvisorCheckResponse]
+$creadListPrec :: ReadPrec [RefreshTrustedAdvisorCheckResponse]
+readPrec :: ReadPrec RefreshTrustedAdvisorCheckResponse
+$creadPrec :: ReadPrec RefreshTrustedAdvisorCheckResponse
+readList :: ReadS [RefreshTrustedAdvisorCheckResponse]
+$creadList :: ReadS [RefreshTrustedAdvisorCheckResponse]
+readsPrec :: Int -&gt; ReadS RefreshTrustedAdvisorCheckResponse
+$creadsPrec :: Int -&gt; ReadS RefreshTrustedAdvisorCheckResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172700"><span id="local-6989586621679172702"><span id="local-6989586621679172704"><span class="annot"><span class="annottext">Int -&gt; RefreshTrustedAdvisorCheckResponse -&gt; ShowS
+[RefreshTrustedAdvisorCheckResponse] -&gt; ShowS
+RefreshTrustedAdvisorCheckResponse -&gt; String
+(Int -&gt; RefreshTrustedAdvisorCheckResponse -&gt; ShowS)
+-&gt; (RefreshTrustedAdvisorCheckResponse -&gt; String)
+-&gt; ([RefreshTrustedAdvisorCheckResponse] -&gt; ShowS)
+-&gt; Show RefreshTrustedAdvisorCheckResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RefreshTrustedAdvisorCheckResponse] -&gt; ShowS
+$cshowList :: [RefreshTrustedAdvisorCheckResponse] -&gt; ShowS
+show :: RefreshTrustedAdvisorCheckResponse -&gt; String
+$cshow :: RefreshTrustedAdvisorCheckResponse -&gt; String
+showsPrec :: Int -&gt; RefreshTrustedAdvisorCheckResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RefreshTrustedAdvisorCheckResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RefreshTrustedAdvisorCheckResponse
+ -&gt; Rep RefreshTrustedAdvisorCheckResponse x)
+-&gt; (forall x.
+    Rep RefreshTrustedAdvisorCheckResponse x
+    -&gt; RefreshTrustedAdvisorCheckResponse)
+-&gt; Generic RefreshTrustedAdvisorCheckResponse
+forall x.
+Rep RefreshTrustedAdvisorCheckResponse x
+-&gt; RefreshTrustedAdvisorCheckResponse
+forall x.
+RefreshTrustedAdvisorCheckResponse
+-&gt; Rep RefreshTrustedAdvisorCheckResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RefreshTrustedAdvisorCheckResponse x
+-&gt; RefreshTrustedAdvisorCheckResponse
+$cfrom :: forall x.
+RefreshTrustedAdvisorCheckResponse
+-&gt; Rep RefreshTrustedAdvisorCheckResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Create a value of 'RefreshTrustedAdvisorCheckResponse' with all optional fields omitted.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'httpStatus', 'refreshTrustedAdvisorCheckResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'status', 'refreshTrustedAdvisorCheckResponse_status' - The current refresh status for a check, including the amount of time</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- until the check is eligible for refresh.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#newRefreshTrustedAdvisorCheckResponse"><span class="hs-identifier hs-type">newRefreshTrustedAdvisorCheckResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus.html#TrustedAdvisorCheckRefreshStatus"><span class="hs-identifier hs-type">TrustedAdvisorCheckRefreshStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheckResponse</span></a></span><span>
+</span><span id="line-179"></span><span id="newRefreshTrustedAdvisorCheckResponse"><span class="annot"><span class="annottext">newRefreshTrustedAdvisorCheckResponse :: Int
+-&gt; TrustedAdvisorCheckRefreshStatus
+-&gt; RefreshTrustedAdvisorCheckResponse
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#newRefreshTrustedAdvisorCheckResponse"><span class="hs-identifier hs-var hs-var">newRefreshTrustedAdvisorCheckResponse</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679172697"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172697"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679172696"><span class="annot"><span class="annottext">TrustedAdvisorCheckRefreshStatus
+</span><a href="#local-6989586621679172696"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">RefreshTrustedAdvisorCheckResponse' :: Int
+-&gt; TrustedAdvisorCheckRefreshStatus
+-&gt; RefreshTrustedAdvisorCheckResponse
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse%27"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheckResponse'</span></a></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:RefreshTrustedAdvisorCheckResponse' :: Int
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#%24sel%3AhttpStatus%3ARefreshTrustedAdvisorCheckResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172697"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:RefreshTrustedAdvisorCheckResponse' :: TrustedAdvisorCheckRefreshStatus
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#%24sel%3Astatus%3ARefreshTrustedAdvisorCheckResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrustedAdvisorCheckRefreshStatus
+</span><a href="#local-6989586621679172696"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#refreshTrustedAdvisorCheckResponse_httpStatus"><span class="hs-identifier hs-type">refreshTrustedAdvisorCheckResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheckResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-190"></span><span id="refreshTrustedAdvisorCheckResponse_httpStatus"><span class="annot"><span class="annottext">refreshTrustedAdvisorCheckResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RefreshTrustedAdvisorCheckResponse
+-&gt; f RefreshTrustedAdvisorCheckResponse
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#refreshTrustedAdvisorCheckResponse_httpStatus"><span class="hs-identifier hs-var hs-var">refreshTrustedAdvisorCheckResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RefreshTrustedAdvisorCheckResponse -&gt; Int)
+-&gt; (RefreshTrustedAdvisorCheckResponse
+    -&gt; Int -&gt; RefreshTrustedAdvisorCheckResponse)
+-&gt; Lens
+     RefreshTrustedAdvisorCheckResponse
+     RefreshTrustedAdvisorCheckResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse%27"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172695"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RefreshTrustedAdvisorCheckResponse' :: RefreshTrustedAdvisorCheckResponse -&gt; Int
+</span><a href="#local-6989586621679172695"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172695"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172694"><span class="annot"><span class="annottext">s :: RefreshTrustedAdvisorCheckResponse
+</span><a href="#local-6989586621679172694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse%27"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172693"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshTrustedAdvisorCheckResponse
+</span><a href="#local-6989586621679172694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RefreshTrustedAdvisorCheckResponse' :: Int
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#%24sel%3AhttpStatus%3ARefreshTrustedAdvisorCheckResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheckResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The current refresh status for a check, including the amount of time</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- until the check is eligible for refresh.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#refreshTrustedAdvisorCheckResponse_status"><span class="hs-identifier hs-type">refreshTrustedAdvisorCheckResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheckResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus.html#TrustedAdvisorCheckRefreshStatus"><span class="hs-identifier hs-type">TrustedAdvisorCheckRefreshStatus</span></a></span><span>
+</span><span id="line-195"></span><span id="refreshTrustedAdvisorCheckResponse_status"><span class="annot"><span class="annottext">refreshTrustedAdvisorCheckResponse_status :: (TrustedAdvisorCheckRefreshStatus
+ -&gt; f TrustedAdvisorCheckRefreshStatus)
+-&gt; RefreshTrustedAdvisorCheckResponse
+-&gt; f RefreshTrustedAdvisorCheckResponse
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#refreshTrustedAdvisorCheckResponse_status"><span class="hs-identifier hs-var hs-var">refreshTrustedAdvisorCheckResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RefreshTrustedAdvisorCheckResponse
+ -&gt; TrustedAdvisorCheckRefreshStatus)
+-&gt; (RefreshTrustedAdvisorCheckResponse
+    -&gt; TrustedAdvisorCheckRefreshStatus
+    -&gt; RefreshTrustedAdvisorCheckResponse)
+-&gt; Lens
+     RefreshTrustedAdvisorCheckResponse
+     RefreshTrustedAdvisorCheckResponse
+     TrustedAdvisorCheckRefreshStatus
+     TrustedAdvisorCheckRefreshStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse%27"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172692"><span class="annot"><span class="annottext">TrustedAdvisorCheckRefreshStatus
+status :: TrustedAdvisorCheckRefreshStatus
+$sel:status:RefreshTrustedAdvisorCheckResponse' :: RefreshTrustedAdvisorCheckResponse
+-&gt; TrustedAdvisorCheckRefreshStatus
+</span><a href="#local-6989586621679172692"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrustedAdvisorCheckRefreshStatus
+</span><a href="#local-6989586621679172692"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172691"><span class="annot"><span class="annottext">s :: RefreshTrustedAdvisorCheckResponse
+</span><a href="#local-6989586621679172691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse%27"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172690"><span class="annot"><span class="annottext">TrustedAdvisorCheckRefreshStatus
+</span><a href="#local-6989586621679172690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshTrustedAdvisorCheckResponse
+</span><a href="#local-6989586621679172691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:RefreshTrustedAdvisorCheckResponse' :: TrustedAdvisorCheckRefreshStatus
+</span><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#%24sel%3Astatus%3ARefreshTrustedAdvisorCheckResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrustedAdvisorCheckRefreshStatus
+</span><a href="#local-6989586621679172690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheckResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679172688"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.RefreshTrustedAdvisorCheck.html#RefreshTrustedAdvisorCheckResponse"><span class="hs-identifier hs-type">RefreshTrustedAdvisorCheckResponse</span></a></span></span><span>
+</span><span id="line-200"></span></pre></body></html>

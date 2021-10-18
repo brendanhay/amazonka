@@ -1,0 +1,961 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.ListOfferings</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- List offerings available for purchase.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.ListOfferings</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier">ListOfferings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#newListOfferings"><span class="hs-identifier">newListOfferings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_maximumFramerate"><span class="hs-identifier">listOfferings_maximumFramerate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_nextToken"><span class="hs-identifier">listOfferings_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_videoQuality"><span class="hs-identifier">listOfferings_videoQuality</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_maxResults"><span class="hs-identifier">listOfferings_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_duration"><span class="hs-identifier">listOfferings_duration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_codec"><span class="hs-identifier">listOfferings_codec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_channelConfiguration"><span class="hs-identifier">listOfferings_channelConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_maximumBitrate"><span class="hs-identifier">listOfferings_maximumBitrate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_channelClass"><span class="hs-identifier">listOfferings_channelClass</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_specialFeature"><span class="hs-identifier">listOfferings_specialFeature</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_resourceType"><span class="hs-identifier">listOfferings_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_resolution"><span class="hs-identifier">listOfferings_resolution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier">ListOfferingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#newListOfferingsResponse"><span class="hs-identifier">newListOfferingsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferingsResponse_nextToken"><span class="hs-identifier">listOfferingsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferingsResponse_offerings"><span class="hs-identifier">listOfferingsResponse_offerings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferingsResponse_httpStatus"><span class="hs-identifier">listOfferingsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.html"><span class="hs-identifier">Network.AWS.MediaLive.Types</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Placeholder documentation for ListOfferingsRequest</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- /See:/ 'newListOfferings' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679932775"><span id="local-6989586621679932776"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOfferings"><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-var">ListOfferings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOfferings%27"><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-var">ListOfferings'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Filter by framerate, \'MAX_30_FPS\' or \'MAX_60_FPS\'</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AmaximumFramerate%3AListOfferings%27"><span class="annot"><span class="annottext">ListOfferings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AmaximumFramerate%3AListOfferings%27"><span class="hs-identifier hs-var hs-var">maximumFramerate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AnextToken%3AListOfferings%27"><span class="annot"><span class="annottext">ListOfferings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AnextToken%3AListOfferings%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\'</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AvideoQuality%3AListOfferings%27"><span class="annot"><span class="annottext">ListOfferings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AvideoQuality%3AListOfferings%27"><span class="hs-identifier hs-var hs-var">videoQuality</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxResults%3AListOfferings%27"><span class="annot"><span class="annottext">ListOfferings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AmaxResults%3AListOfferings%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Filter by offering duration, e.g. \'12\'</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Aduration%3AListOfferings%27"><span class="annot"><span class="annottext">ListOfferings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3Aduration%3AListOfferings%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Filter by codec, \'AVC\', \'HEVC\', \'MPEG2\', \'AUDIO\', or \'LINK\'</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Acodec%3AListOfferings%27"><span class="annot"><span class="annottext">ListOfferings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3Acodec%3AListOfferings%27"><span class="hs-identifier hs-var hs-var">codec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Filter to offerings that match the configuration of an existing channel,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- e.g. \'2345678\' (a channel ID)</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AchannelConfiguration%3AListOfferings%27"><span class="annot"><span class="annottext">ListOfferings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AchannelConfiguration%3AListOfferings%27"><span class="hs-identifier hs-var hs-var">channelConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AmaximumBitrate%3AListOfferings%27"><span class="annot"><span class="annottext">ListOfferings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AmaximumBitrate%3AListOfferings%27"><span class="hs-identifier hs-var hs-var">maximumBitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AchannelClass%3AListOfferings%27"><span class="annot"><span class="annottext">ListOfferings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AchannelClass%3AListOfferings%27"><span class="hs-identifier hs-var hs-var">channelClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AspecialFeature%3AListOfferings%27"><span class="annot"><span class="annottext">ListOfferings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AspecialFeature%3AListOfferings%27"><span class="hs-identifier hs-var hs-var">specialFeature</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- \'CHANNEL\'</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AresourceType%3AListOfferings%27"><span class="annot"><span class="annottext">ListOfferings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AresourceType%3AListOfferings%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | Filter by resolution, \'SD\', \'HD\', \'FHD\', or \'UHD\'</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3Aresolution%3AListOfferings%27"><span class="annot"><span class="annottext">ListOfferings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3Aresolution%3AListOfferings%27"><span class="hs-identifier hs-var hs-var">resolution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679932758"><span id="local-6989586621679932760"><span class="annot"><span class="annottext">ListOfferings -&gt; ListOfferings -&gt; Bool
+(ListOfferings -&gt; ListOfferings -&gt; Bool)
+-&gt; (ListOfferings -&gt; ListOfferings -&gt; Bool) -&gt; Eq ListOfferings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListOfferings -&gt; ListOfferings -&gt; Bool
+$c/= :: ListOfferings -&gt; ListOfferings -&gt; Bool
+== :: ListOfferings -&gt; ListOfferings -&gt; Bool
+$c== :: ListOfferings -&gt; ListOfferings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679932749"><span id="local-6989586621679932751"><span id="local-6989586621679932753"><span id="local-6989586621679932755"><span class="annot"><span class="annottext">ReadPrec [ListOfferings]
+ReadPrec ListOfferings
+Int -&gt; ReadS ListOfferings
+ReadS [ListOfferings]
+(Int -&gt; ReadS ListOfferings)
+-&gt; ReadS [ListOfferings]
+-&gt; ReadPrec ListOfferings
+-&gt; ReadPrec [ListOfferings]
+-&gt; Read ListOfferings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListOfferings]
+$creadListPrec :: ReadPrec [ListOfferings]
+readPrec :: ReadPrec ListOfferings
+$creadPrec :: ReadPrec ListOfferings
+readList :: ReadS [ListOfferings]
+$creadList :: ReadS [ListOfferings]
+readsPrec :: Int -&gt; ReadS ListOfferings
+$creadsPrec :: Int -&gt; ReadS ListOfferings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679932742"><span id="local-6989586621679932744"><span id="local-6989586621679932746"><span class="annot"><span class="annottext">Int -&gt; ListOfferings -&gt; ShowS
+[ListOfferings] -&gt; ShowS
+ListOfferings -&gt; String
+(Int -&gt; ListOfferings -&gt; ShowS)
+-&gt; (ListOfferings -&gt; String)
+-&gt; ([ListOfferings] -&gt; ShowS)
+-&gt; Show ListOfferings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListOfferings] -&gt; ShowS
+$cshowList :: [ListOfferings] -&gt; ShowS
+show :: ListOfferings -&gt; String
+$cshow :: ListOfferings -&gt; String
+showsPrec :: Int -&gt; ListOfferings -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListOfferings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListOfferings -&gt; Rep ListOfferings x)
+-&gt; (forall x. Rep ListOfferings x -&gt; ListOfferings)
+-&gt; Generic ListOfferings
+forall x. Rep ListOfferings x -&gt; ListOfferings
+forall x. ListOfferings -&gt; Rep ListOfferings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListOfferings x -&gt; ListOfferings
+$cfrom :: forall x. ListOfferings -&gt; Rep ListOfferings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Create a value of 'ListOfferings' with all optional fields omitted.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'maximumFramerate', 'listOfferings_maximumFramerate' - Filter by framerate, \'MAX_30_FPS\' or \'MAX_60_FPS\'</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'nextToken', 'listOfferings_nextToken' - Undocumented member.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'videoQuality', 'listOfferings_videoQuality' - Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\'</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'maxResults', 'listOfferings_maxResults' - Undocumented member.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'duration', 'listOfferings_duration' - Filter by offering duration, e.g. \'12\'</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'codec', 'listOfferings_codec' - Filter by codec, \'AVC\', \'HEVC\', \'MPEG2\', \'AUDIO\', or \'LINK\'</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'channelConfiguration', 'listOfferings_channelConfiguration' - Filter to offerings that match the configuration of an existing channel,</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- e.g. \'2345678\' (a channel ID)</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'maximumBitrate', 'listOfferings_maximumBitrate' - Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'channelClass', 'listOfferings_channelClass' - Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'specialFeature', 'listOfferings_specialFeature' - Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'resourceType', 'listOfferings_resourceType' - Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- \'CHANNEL\'</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'resolution', 'listOfferings_resolution' - Filter by resolution, \'SD\', \'HD\', \'FHD\', or \'UHD\'</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#newListOfferings"><span class="hs-identifier hs-type">newListOfferings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span>
+</span><span id="line-129"></span><span id="newListOfferings"><span class="annot"><span class="annottext">newListOfferings :: ListOfferings
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#newListOfferings"><span class="hs-identifier hs-var hs-var">newListOfferings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">ListOfferings' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ListOfferings
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maximumFramerate:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AmaximumFramerate%3AListOfferings%27"><span class="hs-identifier hs-var">maximumFramerate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AnextToken%3AListOfferings%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:videoQuality:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AvideoQuality%3AListOfferings%27"><span class="hs-identifier hs-var">videoQuality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListOfferings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AmaxResults%3AListOfferings%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3Aduration%3AListOfferings%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:codec:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3Acodec%3AListOfferings%27"><span class="hs-identifier hs-var">codec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelConfiguration:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AchannelConfiguration%3AListOfferings%27"><span class="hs-identifier hs-var">channelConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:maximumBitrate:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AmaximumBitrate%3AListOfferings%27"><span class="hs-identifier hs-var">maximumBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelClass:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AchannelClass%3AListOfferings%27"><span class="hs-identifier hs-var">channelClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:specialFeature:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AspecialFeature%3AListOfferings%27"><span class="hs-identifier hs-var">specialFeature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AresourceType%3AListOfferings%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:resolution:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3Aresolution%3AListOfferings%27"><span class="hs-identifier hs-var">resolution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Filter by framerate, \'MAX_30_FPS\' or \'MAX_60_FPS\'</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_maximumFramerate"><span class="hs-identifier hs-type">listOfferings_maximumFramerate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="listOfferings_maximumFramerate"><span class="annot"><span class="annottext">listOfferings_maximumFramerate :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListOfferings -&gt; f ListOfferings
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_maximumFramerate"><span class="hs-identifier hs-var hs-var">listOfferings_maximumFramerate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOfferings -&gt; Maybe Text)
+-&gt; (ListOfferings -&gt; Maybe Text -&gt; ListOfferings)
+-&gt; Lens ListOfferings ListOfferings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932736"><span class="annot"><span class="annottext">Maybe Text
+maximumFramerate :: Maybe Text
+$sel:maximumFramerate:ListOfferings' :: ListOfferings -&gt; Maybe Text
+</span><a href="#local-6989586621679932736"><span class="hs-identifier hs-var hs-var">maximumFramerate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932736"><span class="hs-identifier hs-var">maximumFramerate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679932735"><span class="annot"><span class="annottext">s :: ListOfferings
+</span><a href="#local-6989586621679932735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679932734"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679932735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumFramerate:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AmaximumFramerate%3AListOfferings%27"><span class="hs-identifier hs-var">maximumFramerate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_nextToken"><span class="hs-identifier hs-type">listOfferings_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="listOfferings_nextToken"><span class="annot"><span class="annottext">listOfferings_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListOfferings -&gt; f ListOfferings
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_nextToken"><span class="hs-identifier hs-var hs-var">listOfferings_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOfferings -&gt; Maybe Text)
+-&gt; (ListOfferings -&gt; Maybe Text -&gt; ListOfferings)
+-&gt; Lens ListOfferings ListOfferings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932733"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListOfferings' :: ListOfferings -&gt; Maybe Text
+</span><a href="#local-6989586621679932733"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932733"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679932732"><span class="annot"><span class="annottext">s :: ListOfferings
+</span><a href="#local-6989586621679932732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679932731"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679932732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AnextToken%3AListOfferings%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\'</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_videoQuality"><span class="hs-identifier hs-type">listOfferings_videoQuality</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="listOfferings_videoQuality"><span class="annot"><span class="annottext">listOfferings_videoQuality :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListOfferings -&gt; f ListOfferings
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_videoQuality"><span class="hs-identifier hs-var hs-var">listOfferings_videoQuality</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOfferings -&gt; Maybe Text)
+-&gt; (ListOfferings -&gt; Maybe Text -&gt; ListOfferings)
+-&gt; Lens ListOfferings ListOfferings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932730"><span class="annot"><span class="annottext">Maybe Text
+videoQuality :: Maybe Text
+$sel:videoQuality:ListOfferings' :: ListOfferings -&gt; Maybe Text
+</span><a href="#local-6989586621679932730"><span class="hs-identifier hs-var hs-var">videoQuality</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932730"><span class="hs-identifier hs-var">videoQuality</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679932729"><span class="annot"><span class="annottext">s :: ListOfferings
+</span><a href="#local-6989586621679932729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679932728"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679932729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoQuality:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AvideoQuality%3AListOfferings%27"><span class="hs-identifier hs-var">videoQuality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_maxResults"><span class="hs-identifier hs-type">listOfferings_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="listOfferings_maxResults"><span class="annot"><span class="annottext">listOfferings_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListOfferings -&gt; f ListOfferings
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_maxResults"><span class="hs-identifier hs-var hs-var">listOfferings_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOfferings -&gt; Maybe Natural)
+-&gt; (ListOfferings -&gt; Maybe Natural -&gt; ListOfferings)
+-&gt; Lens ListOfferings ListOfferings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932727"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListOfferings' :: ListOfferings -&gt; Maybe Natural
+</span><a href="#local-6989586621679932727"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679932727"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679932726"><span class="annot"><span class="annottext">s :: ListOfferings
+</span><a href="#local-6989586621679932726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679932725"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679932725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679932726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListOfferings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AmaxResults%3AListOfferings%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679932725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Filter by offering duration, e.g. \'12\'</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_duration"><span class="hs-identifier hs-type">listOfferings_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="listOfferings_duration"><span class="annot"><span class="annottext">listOfferings_duration :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListOfferings -&gt; f ListOfferings
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_duration"><span class="hs-identifier hs-var hs-var">listOfferings_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOfferings -&gt; Maybe Text)
+-&gt; (ListOfferings -&gt; Maybe Text -&gt; ListOfferings)
+-&gt; Lens ListOfferings ListOfferings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932724"><span class="annot"><span class="annottext">Maybe Text
+duration :: Maybe Text
+$sel:duration:ListOfferings' :: ListOfferings -&gt; Maybe Text
+</span><a href="#local-6989586621679932724"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932724"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679932723"><span class="annot"><span class="annottext">s :: ListOfferings
+</span><a href="#local-6989586621679932723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679932722"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679932723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3Aduration%3AListOfferings%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | Filter by codec, \'AVC\', \'HEVC\', \'MPEG2\', \'AUDIO\', or \'LINK\'</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_codec"><span class="hs-identifier hs-type">listOfferings_codec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="listOfferings_codec"><span class="annot"><span class="annottext">listOfferings_codec :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListOfferings -&gt; f ListOfferings
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_codec"><span class="hs-identifier hs-var hs-var">listOfferings_codec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOfferings -&gt; Maybe Text)
+-&gt; (ListOfferings -&gt; Maybe Text -&gt; ListOfferings)
+-&gt; Lens ListOfferings ListOfferings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932721"><span class="annot"><span class="annottext">Maybe Text
+codec :: Maybe Text
+$sel:codec:ListOfferings' :: ListOfferings -&gt; Maybe Text
+</span><a href="#local-6989586621679932721"><span class="hs-identifier hs-var hs-var">codec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932721"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679932720"><span class="annot"><span class="annottext">s :: ListOfferings
+</span><a href="#local-6989586621679932720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679932719"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679932720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codec:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3Acodec%3AListOfferings%27"><span class="hs-identifier hs-var">codec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | Filter to offerings that match the configuration of an existing channel,</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- e.g. \'2345678\' (a channel ID)</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_channelConfiguration"><span class="hs-identifier hs-type">listOfferings_channelConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="listOfferings_channelConfiguration"><span class="annot"><span class="annottext">listOfferings_channelConfiguration :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListOfferings -&gt; f ListOfferings
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_channelConfiguration"><span class="hs-identifier hs-var hs-var">listOfferings_channelConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOfferings -&gt; Maybe Text)
+-&gt; (ListOfferings -&gt; Maybe Text -&gt; ListOfferings)
+-&gt; Lens ListOfferings ListOfferings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932718"><span class="annot"><span class="annottext">Maybe Text
+channelConfiguration :: Maybe Text
+$sel:channelConfiguration:ListOfferings' :: ListOfferings -&gt; Maybe Text
+</span><a href="#local-6989586621679932718"><span class="hs-identifier hs-var hs-var">channelConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932718"><span class="hs-identifier hs-var">channelConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679932717"><span class="annot"><span class="annottext">s :: ListOfferings
+</span><a href="#local-6989586621679932717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679932716"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679932717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelConfiguration:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AchannelConfiguration%3AListOfferings%27"><span class="hs-identifier hs-var">channelConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_maximumBitrate"><span class="hs-identifier hs-type">listOfferings_maximumBitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="listOfferings_maximumBitrate"><span class="annot"><span class="annottext">listOfferings_maximumBitrate :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListOfferings -&gt; f ListOfferings
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_maximumBitrate"><span class="hs-identifier hs-var hs-var">listOfferings_maximumBitrate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOfferings -&gt; Maybe Text)
+-&gt; (ListOfferings -&gt; Maybe Text -&gt; ListOfferings)
+-&gt; Lens ListOfferings ListOfferings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932715"><span class="annot"><span class="annottext">Maybe Text
+maximumBitrate :: Maybe Text
+$sel:maximumBitrate:ListOfferings' :: ListOfferings -&gt; Maybe Text
+</span><a href="#local-6989586621679932715"><span class="hs-identifier hs-var hs-var">maximumBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932715"><span class="hs-identifier hs-var">maximumBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679932714"><span class="annot"><span class="annottext">s :: ListOfferings
+</span><a href="#local-6989586621679932714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679932713"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679932714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumBitrate:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AmaximumBitrate%3AListOfferings%27"><span class="hs-identifier hs-var">maximumBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_channelClass"><span class="hs-identifier hs-type">listOfferings_channelClass</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="listOfferings_channelClass"><span class="annot"><span class="annottext">listOfferings_channelClass :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListOfferings -&gt; f ListOfferings
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_channelClass"><span class="hs-identifier hs-var hs-var">listOfferings_channelClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOfferings -&gt; Maybe Text)
+-&gt; (ListOfferings -&gt; Maybe Text -&gt; ListOfferings)
+-&gt; Lens ListOfferings ListOfferings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932712"><span class="annot"><span class="annottext">Maybe Text
+channelClass :: Maybe Text
+$sel:channelClass:ListOfferings' :: ListOfferings -&gt; Maybe Text
+</span><a href="#local-6989586621679932712"><span class="hs-identifier hs-var hs-var">channelClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932712"><span class="hs-identifier hs-var">channelClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679932711"><span class="annot"><span class="annottext">s :: ListOfferings
+</span><a href="#local-6989586621679932711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679932710"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679932711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelClass:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AchannelClass%3AListOfferings%27"><span class="hs-identifier hs-var">channelClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_specialFeature"><span class="hs-identifier hs-type">listOfferings_specialFeature</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="listOfferings_specialFeature"><span class="annot"><span class="annottext">listOfferings_specialFeature :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListOfferings -&gt; f ListOfferings
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_specialFeature"><span class="hs-identifier hs-var hs-var">listOfferings_specialFeature</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOfferings -&gt; Maybe Text)
+-&gt; (ListOfferings -&gt; Maybe Text -&gt; ListOfferings)
+-&gt; Lens ListOfferings ListOfferings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932709"><span class="annot"><span class="annottext">Maybe Text
+specialFeature :: Maybe Text
+$sel:specialFeature:ListOfferings' :: ListOfferings -&gt; Maybe Text
+</span><a href="#local-6989586621679932709"><span class="hs-identifier hs-var hs-var">specialFeature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932709"><span class="hs-identifier hs-var">specialFeature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679932708"><span class="annot"><span class="annottext">s :: ListOfferings
+</span><a href="#local-6989586621679932708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679932707"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679932708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:specialFeature:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AspecialFeature%3AListOfferings%27"><span class="hs-identifier hs-var">specialFeature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- \'CHANNEL\'</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_resourceType"><span class="hs-identifier hs-type">listOfferings_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="listOfferings_resourceType"><span class="annot"><span class="annottext">listOfferings_resourceType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListOfferings -&gt; f ListOfferings
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_resourceType"><span class="hs-identifier hs-var hs-var">listOfferings_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOfferings -&gt; Maybe Text)
+-&gt; (ListOfferings -&gt; Maybe Text -&gt; ListOfferings)
+-&gt; Lens ListOfferings ListOfferings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932706"><span class="annot"><span class="annottext">Maybe Text
+resourceType :: Maybe Text
+$sel:resourceType:ListOfferings' :: ListOfferings -&gt; Maybe Text
+</span><a href="#local-6989586621679932706"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932706"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679932705"><span class="annot"><span class="annottext">s :: ListOfferings
+</span><a href="#local-6989586621679932705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679932704"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679932705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AresourceType%3AListOfferings%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | Filter by resolution, \'SD\', \'HD\', \'FHD\', or \'UHD\'</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_resolution"><span class="hs-identifier hs-type">listOfferings_resolution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="listOfferings_resolution"><span class="annot"><span class="annottext">listOfferings_resolution :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListOfferings -&gt; f ListOfferings
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_resolution"><span class="hs-identifier hs-var hs-var">listOfferings_resolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOfferings -&gt; Maybe Text)
+-&gt; (ListOfferings -&gt; Maybe Text -&gt; ListOfferings)
+-&gt; Lens ListOfferings ListOfferings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932703"><span class="annot"><span class="annottext">Maybe Text
+resolution :: Maybe Text
+$sel:resolution:ListOfferings' :: ListOfferings -&gt; Maybe Text
+</span><a href="#local-6989586621679932703"><span class="hs-identifier hs-var hs-var">resolution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932703"><span class="hs-identifier hs-var">resolution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679932702"><span class="annot"><span class="annottext">s :: ListOfferings
+</span><a href="#local-6989586621679932702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679932701"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679932702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolution:ListOfferings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3Aresolution%3AListOfferings%27"><span class="hs-identifier hs-var">resolution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679932697"><span class="annot"><span class="annottext">page :: ListOfferings -&gt; AWSResponse ListOfferings -&gt; Maybe ListOfferings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679932695"><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679932695"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679932694"><span class="annot"><span class="annottext">AWSResponse ListOfferings
+</span><a href="#local-6989586621679932694"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-198"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOfferings
+ListOfferingsResponse
+</span><a href="#local-6989586621679932694"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">ListOfferingsResponse
+-&gt; Getting (First Text) ListOfferingsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListOfferingsResponse
+-&gt; Const (First Text) ListOfferingsResponse
+Lens' ListOfferingsResponse (Maybe Text)
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferingsResponse_nextToken"><span class="hs-identifier hs-var">listOfferingsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListOfferingsResponse
+ -&gt; Const (First Text) ListOfferingsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListOfferingsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-200"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListOfferings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Offering] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-203"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOfferings
+ListOfferingsResponse
+</span><a href="#local-6989586621679932694"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">ListOfferingsResponse
+-&gt; Getting (First [Offering]) ListOfferingsResponse [Offering]
+-&gt; Maybe [Offering]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Offering] -&gt; Const (First [Offering]) (Maybe [Offering]))
+-&gt; ListOfferingsResponse
+-&gt; Const (First [Offering]) ListOfferingsResponse
+Lens' ListOfferingsResponse (Maybe [Offering])
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferingsResponse_offerings"><span class="hs-identifier hs-var">listOfferingsResponse_offerings</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [Offering] -&gt; Const (First [Offering]) (Maybe [Offering]))
+ -&gt; ListOfferingsResponse
+ -&gt; Const (First [Offering]) ListOfferingsResponse)
+-&gt; (([Offering] -&gt; Const (First [Offering]) [Offering])
+    -&gt; Maybe [Offering] -&gt; Const (First [Offering]) (Maybe [Offering]))
+-&gt; Getting (First [Offering]) ListOfferingsResponse [Offering]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Offering] -&gt; Const (First [Offering]) [Offering])
+-&gt; Maybe [Offering] -&gt; Const (First [Offering]) (Maybe [Offering])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-205"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListOfferings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">ListOfferings -&gt; Maybe ListOfferings
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListOfferings -&gt; Maybe ListOfferings)
+-&gt; ListOfferings -&gt; Maybe ListOfferings
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679932695"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-210"></span><span>          </span><span class="annot"><span class="annottext">ListOfferings -&gt; (ListOfferings -&gt; ListOfferings) -&gt; ListOfferings
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListOfferings -&gt; Identity ListOfferings
+Lens ListOfferings ListOfferings (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferings_nextToken"><span class="hs-identifier hs-var">listOfferings_nextToken</span></a></span><span>
+</span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListOfferings -&gt; Identity ListOfferings)
+-&gt; Maybe Text -&gt; ListOfferings -&gt; ListOfferings
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOfferings
+ListOfferingsResponse
+</span><a href="#local-6989586621679932694"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-212"></span><span>          </span><span class="annot"><span class="annottext">ListOfferingsResponse
+-&gt; Getting (First Text) ListOfferingsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListOfferingsResponse
+-&gt; Const (First Text) ListOfferingsResponse
+Lens' ListOfferingsResponse (Maybe Text)
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferingsResponse_nextToken"><span class="hs-identifier hs-var">listOfferingsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListOfferingsResponse
+ -&gt; Const (First Text) ListOfferingsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListOfferingsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-216"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679932684"><span class="annot"><span class="annottext">request :: ListOfferings -&gt; Request ListOfferings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListOfferings -&gt; Request ListOfferings
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MediaLive.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679932680"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListOfferings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListOfferings)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListOfferings))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListOfferings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListOfferings)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679932677"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679932677"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679932676"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679932676"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679932675"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679932675"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Offering] -&gt; Int -&gt; ListOfferingsResponse
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-var">ListOfferingsResponse'</span></a></span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Offering] -&gt; Int -&gt; ListOfferingsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Offering] -&gt; Int -&gt; ListOfferingsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679932675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Offering] -&gt; Int -&gt; ListOfferingsResponse)
+-&gt; Either String (Maybe [Offering])
+-&gt; Either String (Int -&gt; ListOfferingsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679932675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Offering]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;offerings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Offering]))
+-&gt; Maybe [Offering] -&gt; Either String (Maybe [Offering])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Offering]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListOfferingsResponse)
+-&gt; Either String Int -&gt; Either String ListOfferingsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679932677"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679932666"><span id="local-6989586621679932668"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span></span></span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679932663"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679932659"><span class="annot"><span class="annottext">toHeaders :: ListOfferings -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListOfferings -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-236"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-237"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-238"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-239"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-241"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679932653"><span class="annot"><span class="annottext">toPath :: ListOfferings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListOfferings -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/prod/offerings&quot;</span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679932649"><span class="annot"><span class="annottext">toQuery :: ListOfferings -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932636"><span id="local-6989586621679932637"><span id="local-6989586621679932638"><span id="local-6989586621679932639"><span id="local-6989586621679932640"><span id="local-6989586621679932641"><span id="local-6989586621679932642"><span id="local-6989586621679932643"><span id="local-6989586621679932644"><span id="local-6989586621679932645"><span id="local-6989586621679932646"><span id="local-6989586621679932647"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+resolution :: Maybe Text
+resourceType :: Maybe Text
+specialFeature :: Maybe Text
+channelClass :: Maybe Text
+maximumBitrate :: Maybe Text
+channelConfiguration :: Maybe Text
+codec :: Maybe Text
+duration :: Maybe Text
+maxResults :: Maybe Natural
+videoQuality :: Maybe Text
+nextToken :: Maybe Text
+maximumFramerate :: Maybe Text
+$sel:resolution:ListOfferings' :: ListOfferings -&gt; Maybe Text
+$sel:resourceType:ListOfferings' :: ListOfferings -&gt; Maybe Text
+$sel:specialFeature:ListOfferings' :: ListOfferings -&gt; Maybe Text
+$sel:channelClass:ListOfferings' :: ListOfferings -&gt; Maybe Text
+$sel:maximumBitrate:ListOfferings' :: ListOfferings -&gt; Maybe Text
+$sel:channelConfiguration:ListOfferings' :: ListOfferings -&gt; Maybe Text
+$sel:codec:ListOfferings' :: ListOfferings -&gt; Maybe Text
+$sel:duration:ListOfferings' :: ListOfferings -&gt; Maybe Text
+$sel:maxResults:ListOfferings' :: ListOfferings -&gt; Maybe Natural
+$sel:videoQuality:ListOfferings' :: ListOfferings -&gt; Maybe Text
+$sel:nextToken:ListOfferings' :: ListOfferings -&gt; Maybe Text
+$sel:maximumFramerate:ListOfferings' :: ListOfferings -&gt; Maybe Text
+</span><a href="#local-6989586621679932636"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-249"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maximumFramerate&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932647"><span class="hs-identifier hs-var">maximumFramerate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932646"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;videoQuality&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932645"><span class="hs-identifier hs-var">videoQuality</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679932644"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;duration&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932643"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;codec&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932642"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;channelConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932641"><span class="hs-identifier hs-var">channelConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maximumBitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932640"><span class="hs-identifier hs-var">maximumBitrate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;channelClass&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932639"><span class="hs-identifier hs-var">channelClass</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;specialFeature&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932638"><span class="hs-identifier hs-var">specialFeature</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;resourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932637"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;resolution&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932636"><span class="hs-identifier hs-var">resolution</span></a></span><span>
+</span><span id="line-261"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | Placeholder documentation for ListOfferingsResponse</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- /See:/ 'newListOfferingsResponse' smart constructor.</span><span>
+</span><span id="line-266"></span><span id="local-6989586621679932633"><span id="local-6989586621679932634"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOfferingsResponse"><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-var">ListOfferingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOfferingsResponse%27"><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-var">ListOfferingsResponse'</span></a></span></span><span>
+</span><span id="line-267"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Token to retrieve the next page of results</span><span>
+</span><span id="line-268"></span><span>    </span><span id="%24sel%3AnextToken%3AListOfferingsResponse%27"><span class="annot"><span class="annottext">ListOfferingsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AnextToken%3AListOfferingsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-comment">-- | List of offerings</span><span>
+</span><span id="line-270"></span><span>    </span><span id="%24sel%3Aofferings%3AListOfferingsResponse%27"><span class="annot"><span class="annottext">ListOfferingsResponse -&gt; Maybe [Offering]
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3Aofferings%3AListOfferingsResponse%27"><span class="hs-identifier hs-var hs-var">offerings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Offering.html#Offering"><span class="hs-identifier hs-type">Offering</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-272"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListOfferingsResponse%27"><span class="annot"><span class="annottext">ListOfferingsResponse -&gt; Int
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AhttpStatus%3AListOfferingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-273"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-274"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679932626"><span id="local-6989586621679932628"><span class="annot"><span class="annottext">ListOfferingsResponse -&gt; ListOfferingsResponse -&gt; Bool
+(ListOfferingsResponse -&gt; ListOfferingsResponse -&gt; Bool)
+-&gt; (ListOfferingsResponse -&gt; ListOfferingsResponse -&gt; Bool)
+-&gt; Eq ListOfferingsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListOfferingsResponse -&gt; ListOfferingsResponse -&gt; Bool
+$c/= :: ListOfferingsResponse -&gt; ListOfferingsResponse -&gt; Bool
+== :: ListOfferingsResponse -&gt; ListOfferingsResponse -&gt; Bool
+$c== :: ListOfferingsResponse -&gt; ListOfferingsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679932618"><span id="local-6989586621679932620"><span id="local-6989586621679932622"><span id="local-6989586621679932624"><span class="annot"><span class="annottext">ReadPrec [ListOfferingsResponse]
+ReadPrec ListOfferingsResponse
+Int -&gt; ReadS ListOfferingsResponse
+ReadS [ListOfferingsResponse]
+(Int -&gt; ReadS ListOfferingsResponse)
+-&gt; ReadS [ListOfferingsResponse]
+-&gt; ReadPrec ListOfferingsResponse
+-&gt; ReadPrec [ListOfferingsResponse]
+-&gt; Read ListOfferingsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListOfferingsResponse]
+$creadListPrec :: ReadPrec [ListOfferingsResponse]
+readPrec :: ReadPrec ListOfferingsResponse
+$creadPrec :: ReadPrec ListOfferingsResponse
+readList :: ReadS [ListOfferingsResponse]
+$creadList :: ReadS [ListOfferingsResponse]
+readsPrec :: Int -&gt; ReadS ListOfferingsResponse
+$creadsPrec :: Int -&gt; ReadS ListOfferingsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679932612"><span id="local-6989586621679932614"><span id="local-6989586621679932616"><span class="annot"><span class="annottext">Int -&gt; ListOfferingsResponse -&gt; ShowS
+[ListOfferingsResponse] -&gt; ShowS
+ListOfferingsResponse -&gt; String
+(Int -&gt; ListOfferingsResponse -&gt; ShowS)
+-&gt; (ListOfferingsResponse -&gt; String)
+-&gt; ([ListOfferingsResponse] -&gt; ShowS)
+-&gt; Show ListOfferingsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListOfferingsResponse] -&gt; ShowS
+$cshowList :: [ListOfferingsResponse] -&gt; ShowS
+show :: ListOfferingsResponse -&gt; String
+$cshow :: ListOfferingsResponse -&gt; String
+showsPrec :: Int -&gt; ListOfferingsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListOfferingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListOfferingsResponse -&gt; Rep ListOfferingsResponse x)
+-&gt; (forall x. Rep ListOfferingsResponse x -&gt; ListOfferingsResponse)
+-&gt; Generic ListOfferingsResponse
+forall x. Rep ListOfferingsResponse x -&gt; ListOfferingsResponse
+forall x. ListOfferingsResponse -&gt; Rep ListOfferingsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListOfferingsResponse x -&gt; ListOfferingsResponse
+$cfrom :: forall x. ListOfferingsResponse -&gt; Rep ListOfferingsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- Create a value of 'ListOfferingsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- 'nextToken', 'listOfferingsResponse_nextToken' - Token to retrieve the next page of results</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- 'offerings', 'listOfferingsResponse_offerings' - List of offerings</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- 'httpStatus', 'listOfferingsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#newListOfferingsResponse"><span class="hs-identifier hs-type">newListOfferingsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-290"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-291"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-292"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span>
+</span><span id="line-293"></span><span id="newListOfferingsResponse"><span class="annot"><span class="annottext">newListOfferingsResponse :: Int -&gt; ListOfferingsResponse
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#newListOfferingsResponse"><span class="hs-identifier hs-var hs-var">newListOfferingsResponse</span></a></span></span><span> </span><span id="local-6989586621679932609"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679932609"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-294"></span><span>  </span><span class="annot"><span class="annottext">ListOfferingsResponse' :: Maybe Text -&gt; Maybe [Offering] -&gt; Int -&gt; ListOfferingsResponse
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span>
+</span><span id="line-295"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListOfferingsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AnextToken%3AListOfferingsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">$sel:offerings:ListOfferingsResponse' :: Maybe [Offering]
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3Aofferings%3AListOfferingsResponse%27"><span class="hs-identifier hs-var">offerings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Offering]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListOfferingsResponse' :: Int
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AhttpStatus%3AListOfferingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679932609"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-298"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | Token to retrieve the next page of results</span><span>
+</span><span id="line-301"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferingsResponse_nextToken"><span class="hs-identifier hs-type">listOfferingsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span id="listOfferingsResponse_nextToken"><span class="annot"><span class="annottext">listOfferingsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListOfferingsResponse -&gt; f ListOfferingsResponse
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferingsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listOfferingsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOfferingsResponse -&gt; Maybe Text)
+-&gt; (ListOfferingsResponse -&gt; Maybe Text -&gt; ListOfferingsResponse)
+-&gt; Lens' ListOfferingsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932608"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListOfferingsResponse' :: ListOfferingsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679932608"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932608"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679932607"><span class="annot"><span class="annottext">s :: ListOfferingsResponse
+</span><a href="#local-6989586621679932607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679932606"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferingsResponse
+</span><a href="#local-6989586621679932607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOfferingsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AnextToken%3AListOfferingsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679932606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | List of offerings</span><span>
+</span><span id="line-305"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferingsResponse_offerings"><span class="hs-identifier hs-type">listOfferingsResponse_offerings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Offering.html#Offering"><span class="hs-identifier hs-type">Offering</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span id="listOfferingsResponse_offerings"><span class="annot"><span class="annottext">listOfferingsResponse_offerings :: (Maybe [Offering] -&gt; f (Maybe [Offering]))
+-&gt; ListOfferingsResponse -&gt; f ListOfferingsResponse
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferingsResponse_offerings"><span class="hs-identifier hs-var hs-var">listOfferingsResponse_offerings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOfferingsResponse -&gt; Maybe [Offering])
+-&gt; (ListOfferingsResponse
+    -&gt; Maybe [Offering] -&gt; ListOfferingsResponse)
+-&gt; Lens' ListOfferingsResponse (Maybe [Offering])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932605"><span class="annot"><span class="annottext">Maybe [Offering]
+offerings :: Maybe [Offering]
+$sel:offerings:ListOfferingsResponse' :: ListOfferingsResponse -&gt; Maybe [Offering]
+</span><a href="#local-6989586621679932605"><span class="hs-identifier hs-var hs-var">offerings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Offering]
+</span><a href="#local-6989586621679932605"><span class="hs-identifier hs-var">offerings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679932604"><span class="annot"><span class="annottext">s :: ListOfferingsResponse
+</span><a href="#local-6989586621679932604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679932603"><span class="annot"><span class="annottext">Maybe [Offering]
+</span><a href="#local-6989586621679932603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferingsResponse
+</span><a href="#local-6989586621679932604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offerings:ListOfferingsResponse' :: Maybe [Offering]
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3Aofferings%3AListOfferingsResponse%27"><span class="hs-identifier hs-var">offerings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Offering]
+</span><a href="#local-6989586621679932603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Offering] -&gt; f (Maybe [Offering]))
+ -&gt; ListOfferingsResponse -&gt; f ListOfferingsResponse)
+-&gt; ((Maybe [Offering] -&gt; f (Maybe [Offering]))
+    -&gt; Maybe [Offering] -&gt; f (Maybe [Offering]))
+-&gt; (Maybe [Offering] -&gt; f (Maybe [Offering]))
+-&gt; ListOfferingsResponse
+-&gt; f ListOfferingsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Offering] [Offering] [Offering] [Offering]
+-&gt; Iso
+     (Maybe [Offering])
+     (Maybe [Offering])
+     (Maybe [Offering])
+     (Maybe [Offering])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Offering] [Offering] [Offering] [Offering]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-309"></span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferingsResponse_httpStatus"><span class="hs-identifier hs-type">listOfferingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-310"></span><span id="listOfferingsResponse_httpStatus"><span class="annot"><span class="annottext">listOfferingsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListOfferingsResponse -&gt; f ListOfferingsResponse
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#listOfferingsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listOfferingsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOfferingsResponse -&gt; Int)
+-&gt; (ListOfferingsResponse -&gt; Int -&gt; ListOfferingsResponse)
+-&gt; Lens ListOfferingsResponse ListOfferingsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679932600"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListOfferingsResponse' :: ListOfferingsResponse -&gt; Int
+</span><a href="#local-6989586621679932600"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679932600"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679932599"><span class="annot"><span class="annottext">s :: ListOfferingsResponse
+</span><a href="#local-6989586621679932599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679932598"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679932598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferingsResponse
+</span><a href="#local-6989586621679932599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListOfferingsResponse' :: Int
+</span><a href="Network.AWS.MediaLive.ListOfferings.html#%24sel%3AhttpStatus%3AListOfferingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679932598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679932596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span></span><span>
+</span><span id="line-313"></span></pre></body></html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.Tenancy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.Tenancy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy"><span class="hs-identifier">Tenancy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy_Dedicated"><span class="hs-identifier">Tenancy_Dedicated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy_Default"><span class="hs-identifier">Tenancy_Default</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy_Host"><span class="hs-identifier">Tenancy_Host</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681130860"><span id="local-6989586621681130861"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Tenancy"><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy"><span class="hs-identifier hs-var">Tenancy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tenancy%27"><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy%27"><span class="hs-identifier hs-var">Tenancy'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromTenancy"><span class="annot"><span class="annottext">Tenancy -&gt; Text
+</span><a href="Network.AWS.EC2.Types.Tenancy.html#fromTenancy"><span class="hs-identifier hs-var hs-var">fromTenancy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681130852"><span id="local-6989586621681130854"><span id="local-6989586621681130856"><span class="annot"><span class="annottext">Int -&gt; Tenancy -&gt; ShowS
+[Tenancy] -&gt; ShowS
+Tenancy -&gt; String
+(Int -&gt; Tenancy -&gt; ShowS)
+-&gt; (Tenancy -&gt; String) -&gt; ([Tenancy] -&gt; ShowS) -&gt; Show Tenancy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Tenancy] -&gt; ShowS
+$cshowList :: [Tenancy] -&gt; ShowS
+show :: Tenancy -&gt; String
+$cshow :: Tenancy -&gt; String
+showsPrec :: Int -&gt; Tenancy -&gt; ShowS
+$cshowsPrec :: Int -&gt; Tenancy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621681130843"><span id="local-6989586621681130845"><span id="local-6989586621681130847"><span id="local-6989586621681130849"><span class="annot"><span class="annottext">ReadPrec [Tenancy]
+ReadPrec Tenancy
+Int -&gt; ReadS Tenancy
+ReadS [Tenancy]
+(Int -&gt; ReadS Tenancy)
+-&gt; ReadS [Tenancy]
+-&gt; ReadPrec Tenancy
+-&gt; ReadPrec [Tenancy]
+-&gt; Read Tenancy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Tenancy]
+$creadListPrec :: ReadPrec [Tenancy]
+readPrec :: ReadPrec Tenancy
+$creadPrec :: ReadPrec Tenancy
+readList :: ReadS [Tenancy]
+$creadList :: ReadS [Tenancy]
+readsPrec :: Int -&gt; ReadS Tenancy
+$creadsPrec :: Int -&gt; ReadS Tenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681130838"><span id="local-6989586621681130840"><span class="annot"><span class="annottext">Tenancy -&gt; Tenancy -&gt; Bool
+(Tenancy -&gt; Tenancy -&gt; Bool)
+-&gt; (Tenancy -&gt; Tenancy -&gt; Bool) -&gt; Eq Tenancy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Tenancy -&gt; Tenancy -&gt; Bool
+$c/= :: Tenancy -&gt; Tenancy -&gt; Bool
+== :: Tenancy -&gt; Tenancy -&gt; Bool
+$c== :: Tenancy -&gt; Tenancy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681130822"><span id="local-6989586621681130824"><span id="local-6989586621681130826"><span id="local-6989586621681130828"><span id="local-6989586621681130830"><span id="local-6989586621681130832"><span id="local-6989586621681130834"><span class="annot"><span class="annottext">Eq Tenancy
+Eq Tenancy
+-&gt; (Tenancy -&gt; Tenancy -&gt; Ordering)
+-&gt; (Tenancy -&gt; Tenancy -&gt; Bool)
+-&gt; (Tenancy -&gt; Tenancy -&gt; Bool)
+-&gt; (Tenancy -&gt; Tenancy -&gt; Bool)
+-&gt; (Tenancy -&gt; Tenancy -&gt; Bool)
+-&gt; (Tenancy -&gt; Tenancy -&gt; Tenancy)
+-&gt; (Tenancy -&gt; Tenancy -&gt; Tenancy)
+-&gt; Ord Tenancy
+Tenancy -&gt; Tenancy -&gt; Bool
+Tenancy -&gt; Tenancy -&gt; Ordering
+Tenancy -&gt; Tenancy -&gt; Tenancy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Tenancy -&gt; Tenancy -&gt; Tenancy
+$cmin :: Tenancy -&gt; Tenancy -&gt; Tenancy
+max :: Tenancy -&gt; Tenancy -&gt; Tenancy
+$cmax :: Tenancy -&gt; Tenancy -&gt; Tenancy
+&gt;= :: Tenancy -&gt; Tenancy -&gt; Bool
+$c&gt;= :: Tenancy -&gt; Tenancy -&gt; Bool
+&gt; :: Tenancy -&gt; Tenancy -&gt; Bool
+$c&gt; :: Tenancy -&gt; Tenancy -&gt; Bool
+&lt;= :: Tenancy -&gt; Tenancy -&gt; Bool
+$c&lt;= :: Tenancy -&gt; Tenancy -&gt; Bool
+&lt; :: Tenancy -&gt; Tenancy -&gt; Bool
+$c&lt; :: Tenancy -&gt; Tenancy -&gt; Bool
+compare :: Tenancy -&gt; Tenancy -&gt; Ordering
+$ccompare :: Tenancy -&gt; Tenancy -&gt; Ordering
+$cp1Ord :: Eq Tenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Tenancy -&gt; Rep Tenancy x)
+-&gt; (forall x. Rep Tenancy x -&gt; Tenancy) -&gt; Generic Tenancy
+forall x. Rep Tenancy x -&gt; Tenancy
+forall x. Tenancy -&gt; Rep Tenancy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Tenancy x -&gt; Tenancy
+$cfrom :: forall x. Tenancy -&gt; Rep Tenancy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681130814"><span id="local-6989586621681130816"><span class="annot"><span class="annottext">Int -&gt; Tenancy -&gt; Int
+Tenancy -&gt; Int
+(Int -&gt; Tenancy -&gt; Int) -&gt; (Tenancy -&gt; Int) -&gt; Hashable Tenancy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Tenancy -&gt; Int
+$chash :: Tenancy -&gt; Int
+hashWithSalt :: Int -&gt; Tenancy -&gt; Int
+$chashWithSalt :: Int -&gt; Tenancy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681130811"><span class="annot"><span class="annottext">Tenancy -&gt; ()
+(Tenancy -&gt; ()) -&gt; NFData Tenancy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Tenancy -&gt; ()
+$crnf :: Tenancy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681130808"><span class="annot"><span class="annottext">Text -&gt; Either String Tenancy
+(Text -&gt; Either String Tenancy) -&gt; FromText Tenancy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Tenancy
+$cfromText :: Text -&gt; Either String Tenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681130805"><span class="annot"><span class="annottext">Tenancy -&gt; Text
+(Tenancy -&gt; Text) -&gt; ToText Tenancy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Tenancy -&gt; Text
+$ctoText :: Tenancy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681130802"><span class="annot"><span class="annottext">Tenancy -&gt; ByteString
+(Tenancy -&gt; ByteString) -&gt; ToByteString Tenancy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Tenancy -&gt; ByteString
+$ctoBS :: Tenancy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681130799"><span class="annot"><span class="annottext">Tenancy -&gt; ByteStringBuilder
+(Tenancy -&gt; ByteStringBuilder) -&gt; ToLog Tenancy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Tenancy -&gt; ByteStringBuilder
+$cbuild :: Tenancy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681130796"><span class="annot"><span class="annottext">HeaderName -&gt; Tenancy -&gt; [Header]
+(HeaderName -&gt; Tenancy -&gt; [Header]) -&gt; ToHeader Tenancy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Tenancy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Tenancy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681130793"><span class="annot"><span class="annottext">Tenancy -&gt; QueryString
+(Tenancy -&gt; QueryString) -&gt; ToQuery Tenancy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Tenancy -&gt; QueryString
+$ctoQuery :: Tenancy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681130788"><span id="local-6989586621681130790"><span class="annot"><span class="annottext">Value -&gt; Parser [Tenancy]
+Value -&gt; Parser Tenancy
+(Value -&gt; Parser Tenancy)
+-&gt; (Value -&gt; Parser [Tenancy]) -&gt; FromJSON Tenancy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Tenancy]
+$cparseJSONList :: Value -&gt; Parser [Tenancy]
+parseJSON :: Value -&gt; Parser Tenancy
+$cparseJSON :: Value -&gt; Parser Tenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681130783"><span id="local-6989586621681130785"><span class="annot"><span class="annottext">FromJSONKeyFunction [Tenancy]
+FromJSONKeyFunction Tenancy
+FromJSONKeyFunction Tenancy
+-&gt; FromJSONKeyFunction [Tenancy] -&gt; FromJSONKey Tenancy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Tenancy]
+$cfromJSONKeyList :: FromJSONKeyFunction [Tenancy]
+fromJSONKey :: FromJSONKeyFunction Tenancy
+$cfromJSONKey :: FromJSONKeyFunction Tenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681130774"><span id="local-6989586621681130776"><span id="local-6989586621681130778"><span id="local-6989586621681130780"><span class="annot"><span class="annottext">[Tenancy] -&gt; Encoding
+[Tenancy] -&gt; Value
+Tenancy -&gt; Encoding
+Tenancy -&gt; Value
+(Tenancy -&gt; Value)
+-&gt; (Tenancy -&gt; Encoding)
+-&gt; ([Tenancy] -&gt; Value)
+-&gt; ([Tenancy] -&gt; Encoding)
+-&gt; ToJSON Tenancy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Tenancy] -&gt; Encoding
+$ctoEncodingList :: [Tenancy] -&gt; Encoding
+toJSONList :: [Tenancy] -&gt; Value
+$ctoJSONList :: [Tenancy] -&gt; Value
+toEncoding :: Tenancy -&gt; Encoding
+$ctoEncoding :: Tenancy -&gt; Encoding
+toJSON :: Tenancy -&gt; Value
+$ctoJSON :: Tenancy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681130769"><span id="local-6989586621681130771"><span class="annot"><span class="annottext">ToJSONKeyFunction [Tenancy]
+ToJSONKeyFunction Tenancy
+ToJSONKeyFunction Tenancy
+-&gt; ToJSONKeyFunction [Tenancy] -&gt; ToJSONKey Tenancy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Tenancy]
+$ctoJSONKeyList :: ToJSONKeyFunction [Tenancy]
+toJSONKey :: ToJSONKeyFunction Tenancy
+$ctoJSONKey :: ToJSONKeyFunction Tenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681130766"><span class="annot"><span class="annottext">[Node] -&gt; Either String Tenancy
+([Node] -&gt; Either String Tenancy) -&gt; FromXML Tenancy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Tenancy
+$cparseXML :: [Node] -&gt; Either String Tenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681130763"><span class="annot"><span class="annottext">Tenancy -&gt; XML
+(Tenancy -&gt; XML) -&gt; ToXML Tenancy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Tenancy -&gt; XML
+$ctoXML :: Tenancy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy_Dedicated"><span class="hs-identifier hs-type">Tenancy_Dedicated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy"><span class="hs-identifier hs-type">Tenancy</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTenancy_Dedicated"><span id="%24mTenancy_Dedicated"><span id="Tenancy_Dedicated"><span class="annot"><span class="annottext">$bTenancy_Dedicated :: Tenancy
+$mTenancy_Dedicated :: forall r. Tenancy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.Tenancy.html#%24bTenancy_Dedicated"><span class="hs-identifier hs-var hs-var hs-var">Tenancy_Dedicated</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy%27"><span class="hs-identifier hs-type">Tenancy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;dedicated&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy_Default"><span class="hs-identifier hs-type">Tenancy_Default</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy"><span class="hs-identifier hs-type">Tenancy</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTenancy_Default"><span id="%24mTenancy_Default"><span id="Tenancy_Default"><span class="annot"><span class="annottext">$bTenancy_Default :: Tenancy
+$mTenancy_Default :: forall r. Tenancy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.Tenancy.html#%24bTenancy_Default"><span class="hs-identifier hs-var hs-var hs-var">Tenancy_Default</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy%27"><span class="hs-identifier hs-type">Tenancy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;default&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy_Host"><span class="hs-identifier hs-type">Tenancy_Host</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy"><span class="hs-identifier hs-type">Tenancy</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTenancy_Host"><span id="%24mTenancy_Host"><span id="Tenancy_Host"><span class="annot"><span class="annottext">$bTenancy_Host :: Tenancy
+$mTenancy_Host :: forall r. Tenancy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.Tenancy.html#%24bTenancy_Host"><span class="hs-identifier hs-var hs-var hs-var">Tenancy_Host</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy%27"><span class="hs-identifier hs-type">Tenancy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;host&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy_Dedicated"><span class="hs-pragma hs-type">Tenancy_Dedicated</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy_Default"><span class="hs-pragma hs-type">Tenancy_Default</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy_Host"><span class="hs-pragma hs-type">Tenancy_Host</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy%27"><span class="hs-pragma hs-type">Tenancy'</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-74"></span></pre></body></html>

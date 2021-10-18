@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ECS.Types.TaskStopCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECS.Types.TaskStopCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode"><span class="hs-identifier">TaskStopCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode_EssentialContainerExited"><span class="hs-identifier">TaskStopCode_EssentialContainerExited</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode_TaskFailedToStart"><span class="hs-identifier">TaskStopCode_TaskFailedToStart</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode_UserInitiated"><span class="hs-identifier">TaskStopCode_UserInitiated</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679463829"><span id="local-6989586621679463830"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaskStopCode"><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode"><span class="hs-identifier hs-var">TaskStopCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskStopCode%27"><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode%27"><span class="hs-identifier hs-var">TaskStopCode'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTaskStopCode"><span class="annot"><span class="annottext">TaskStopCode -&gt; Text
+</span><a href="Network.AWS.ECS.Types.TaskStopCode.html#fromTaskStopCode"><span class="hs-identifier hs-var hs-var">fromTaskStopCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679463821"><span id="local-6989586621679463823"><span id="local-6989586621679463825"><span class="annot"><span class="annottext">Int -&gt; TaskStopCode -&gt; ShowS
+[TaskStopCode] -&gt; ShowS
+TaskStopCode -&gt; String
+(Int -&gt; TaskStopCode -&gt; ShowS)
+-&gt; (TaskStopCode -&gt; String)
+-&gt; ([TaskStopCode] -&gt; ShowS)
+-&gt; Show TaskStopCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TaskStopCode] -&gt; ShowS
+$cshowList :: [TaskStopCode] -&gt; ShowS
+show :: TaskStopCode -&gt; String
+$cshow :: TaskStopCode -&gt; String
+showsPrec :: Int -&gt; TaskStopCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; TaskStopCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679463812"><span id="local-6989586621679463814"><span id="local-6989586621679463816"><span id="local-6989586621679463818"><span class="annot"><span class="annottext">ReadPrec [TaskStopCode]
+ReadPrec TaskStopCode
+Int -&gt; ReadS TaskStopCode
+ReadS [TaskStopCode]
+(Int -&gt; ReadS TaskStopCode)
+-&gt; ReadS [TaskStopCode]
+-&gt; ReadPrec TaskStopCode
+-&gt; ReadPrec [TaskStopCode]
+-&gt; Read TaskStopCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TaskStopCode]
+$creadListPrec :: ReadPrec [TaskStopCode]
+readPrec :: ReadPrec TaskStopCode
+$creadPrec :: ReadPrec TaskStopCode
+readList :: ReadS [TaskStopCode]
+$creadList :: ReadS [TaskStopCode]
+readsPrec :: Int -&gt; ReadS TaskStopCode
+$creadsPrec :: Int -&gt; ReadS TaskStopCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679463807"><span id="local-6989586621679463809"><span class="annot"><span class="annottext">TaskStopCode -&gt; TaskStopCode -&gt; Bool
+(TaskStopCode -&gt; TaskStopCode -&gt; Bool)
+-&gt; (TaskStopCode -&gt; TaskStopCode -&gt; Bool) -&gt; Eq TaskStopCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TaskStopCode -&gt; TaskStopCode -&gt; Bool
+$c/= :: TaskStopCode -&gt; TaskStopCode -&gt; Bool
+== :: TaskStopCode -&gt; TaskStopCode -&gt; Bool
+$c== :: TaskStopCode -&gt; TaskStopCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679463791"><span id="local-6989586621679463793"><span id="local-6989586621679463795"><span id="local-6989586621679463797"><span id="local-6989586621679463799"><span id="local-6989586621679463801"><span id="local-6989586621679463803"><span class="annot"><span class="annottext">Eq TaskStopCode
+Eq TaskStopCode
+-&gt; (TaskStopCode -&gt; TaskStopCode -&gt; Ordering)
+-&gt; (TaskStopCode -&gt; TaskStopCode -&gt; Bool)
+-&gt; (TaskStopCode -&gt; TaskStopCode -&gt; Bool)
+-&gt; (TaskStopCode -&gt; TaskStopCode -&gt; Bool)
+-&gt; (TaskStopCode -&gt; TaskStopCode -&gt; Bool)
+-&gt; (TaskStopCode -&gt; TaskStopCode -&gt; TaskStopCode)
+-&gt; (TaskStopCode -&gt; TaskStopCode -&gt; TaskStopCode)
+-&gt; Ord TaskStopCode
+TaskStopCode -&gt; TaskStopCode -&gt; Bool
+TaskStopCode -&gt; TaskStopCode -&gt; Ordering
+TaskStopCode -&gt; TaskStopCode -&gt; TaskStopCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TaskStopCode -&gt; TaskStopCode -&gt; TaskStopCode
+$cmin :: TaskStopCode -&gt; TaskStopCode -&gt; TaskStopCode
+max :: TaskStopCode -&gt; TaskStopCode -&gt; TaskStopCode
+$cmax :: TaskStopCode -&gt; TaskStopCode -&gt; TaskStopCode
+&gt;= :: TaskStopCode -&gt; TaskStopCode -&gt; Bool
+$c&gt;= :: TaskStopCode -&gt; TaskStopCode -&gt; Bool
+&gt; :: TaskStopCode -&gt; TaskStopCode -&gt; Bool
+$c&gt; :: TaskStopCode -&gt; TaskStopCode -&gt; Bool
+&lt;= :: TaskStopCode -&gt; TaskStopCode -&gt; Bool
+$c&lt;= :: TaskStopCode -&gt; TaskStopCode -&gt; Bool
+&lt; :: TaskStopCode -&gt; TaskStopCode -&gt; Bool
+$c&lt; :: TaskStopCode -&gt; TaskStopCode -&gt; Bool
+compare :: TaskStopCode -&gt; TaskStopCode -&gt; Ordering
+$ccompare :: TaskStopCode -&gt; TaskStopCode -&gt; Ordering
+$cp1Ord :: Eq TaskStopCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TaskStopCode -&gt; Rep TaskStopCode x)
+-&gt; (forall x. Rep TaskStopCode x -&gt; TaskStopCode)
+-&gt; Generic TaskStopCode
+forall x. Rep TaskStopCode x -&gt; TaskStopCode
+forall x. TaskStopCode -&gt; Rep TaskStopCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TaskStopCode x -&gt; TaskStopCode
+$cfrom :: forall x. TaskStopCode -&gt; Rep TaskStopCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679463783"><span id="local-6989586621679463785"><span class="annot"><span class="annottext">Int -&gt; TaskStopCode -&gt; Int
+TaskStopCode -&gt; Int
+(Int -&gt; TaskStopCode -&gt; Int)
+-&gt; (TaskStopCode -&gt; Int) -&gt; Hashable TaskStopCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TaskStopCode -&gt; Int
+$chash :: TaskStopCode -&gt; Int
+hashWithSalt :: Int -&gt; TaskStopCode -&gt; Int
+$chashWithSalt :: Int -&gt; TaskStopCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679463780"><span class="annot"><span class="annottext">TaskStopCode -&gt; ()
+(TaskStopCode -&gt; ()) -&gt; NFData TaskStopCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TaskStopCode -&gt; ()
+$crnf :: TaskStopCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679463777"><span class="annot"><span class="annottext">Text -&gt; Either String TaskStopCode
+(Text -&gt; Either String TaskStopCode) -&gt; FromText TaskStopCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TaskStopCode
+$cfromText :: Text -&gt; Either String TaskStopCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679463774"><span class="annot"><span class="annottext">TaskStopCode -&gt; Text
+(TaskStopCode -&gt; Text) -&gt; ToText TaskStopCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TaskStopCode -&gt; Text
+$ctoText :: TaskStopCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679463771"><span class="annot"><span class="annottext">TaskStopCode -&gt; ByteString
+(TaskStopCode -&gt; ByteString) -&gt; ToByteString TaskStopCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TaskStopCode -&gt; ByteString
+$ctoBS :: TaskStopCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679463768"><span class="annot"><span class="annottext">TaskStopCode -&gt; ByteStringBuilder
+(TaskStopCode -&gt; ByteStringBuilder) -&gt; ToLog TaskStopCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TaskStopCode -&gt; ByteStringBuilder
+$cbuild :: TaskStopCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679463765"><span class="annot"><span class="annottext">HeaderName -&gt; TaskStopCode -&gt; [Header]
+(HeaderName -&gt; TaskStopCode -&gt; [Header]) -&gt; ToHeader TaskStopCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TaskStopCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TaskStopCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679463762"><span class="annot"><span class="annottext">TaskStopCode -&gt; QueryString
+(TaskStopCode -&gt; QueryString) -&gt; ToQuery TaskStopCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TaskStopCode -&gt; QueryString
+$ctoQuery :: TaskStopCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679463757"><span id="local-6989586621679463759"><span class="annot"><span class="annottext">Value -&gt; Parser [TaskStopCode]
+Value -&gt; Parser TaskStopCode
+(Value -&gt; Parser TaskStopCode)
+-&gt; (Value -&gt; Parser [TaskStopCode]) -&gt; FromJSON TaskStopCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TaskStopCode]
+$cparseJSONList :: Value -&gt; Parser [TaskStopCode]
+parseJSON :: Value -&gt; Parser TaskStopCode
+$cparseJSON :: Value -&gt; Parser TaskStopCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679463752"><span id="local-6989586621679463754"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaskStopCode]
+FromJSONKeyFunction TaskStopCode
+FromJSONKeyFunction TaskStopCode
+-&gt; FromJSONKeyFunction [TaskStopCode] -&gt; FromJSONKey TaskStopCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TaskStopCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [TaskStopCode]
+fromJSONKey :: FromJSONKeyFunction TaskStopCode
+$cfromJSONKey :: FromJSONKeyFunction TaskStopCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679463743"><span id="local-6989586621679463745"><span id="local-6989586621679463747"><span id="local-6989586621679463749"><span class="annot"><span class="annottext">[TaskStopCode] -&gt; Encoding
+[TaskStopCode] -&gt; Value
+TaskStopCode -&gt; Encoding
+TaskStopCode -&gt; Value
+(TaskStopCode -&gt; Value)
+-&gt; (TaskStopCode -&gt; Encoding)
+-&gt; ([TaskStopCode] -&gt; Value)
+-&gt; ([TaskStopCode] -&gt; Encoding)
+-&gt; ToJSON TaskStopCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TaskStopCode] -&gt; Encoding
+$ctoEncodingList :: [TaskStopCode] -&gt; Encoding
+toJSONList :: [TaskStopCode] -&gt; Value
+$ctoJSONList :: [TaskStopCode] -&gt; Value
+toEncoding :: TaskStopCode -&gt; Encoding
+$ctoEncoding :: TaskStopCode -&gt; Encoding
+toJSON :: TaskStopCode -&gt; Value
+$ctoJSON :: TaskStopCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679463738"><span id="local-6989586621679463740"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaskStopCode]
+ToJSONKeyFunction TaskStopCode
+ToJSONKeyFunction TaskStopCode
+-&gt; ToJSONKeyFunction [TaskStopCode] -&gt; ToJSONKey TaskStopCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TaskStopCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [TaskStopCode]
+toJSONKey :: ToJSONKeyFunction TaskStopCode
+$ctoJSONKey :: ToJSONKeyFunction TaskStopCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679463735"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaskStopCode
+([Node] -&gt; Either String TaskStopCode) -&gt; FromXML TaskStopCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TaskStopCode
+$cparseXML :: [Node] -&gt; Either String TaskStopCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679463732"><span class="annot"><span class="annottext">TaskStopCode -&gt; XML
+(TaskStopCode -&gt; XML) -&gt; ToXML TaskStopCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TaskStopCode -&gt; XML
+$ctoXML :: TaskStopCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode_EssentialContainerExited"><span class="hs-identifier hs-type">TaskStopCode_EssentialContainerExited</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode"><span class="hs-identifier hs-type">TaskStopCode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskStopCode_EssentialContainerExited"><span id="%24mTaskStopCode_EssentialContainerExited"><span id="TaskStopCode_EssentialContainerExited"><span class="annot"><span class="annottext">$bTaskStopCode_EssentialContainerExited :: TaskStopCode
+$mTaskStopCode_EssentialContainerExited :: forall r. TaskStopCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECS.Types.TaskStopCode.html#%24bTaskStopCode_EssentialContainerExited"><span class="hs-identifier hs-var hs-var hs-var">TaskStopCode_EssentialContainerExited</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode%27"><span class="hs-identifier hs-type">TaskStopCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EssentialContainerExited&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode_TaskFailedToStart"><span class="hs-identifier hs-type">TaskStopCode_TaskFailedToStart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode"><span class="hs-identifier hs-type">TaskStopCode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskStopCode_TaskFailedToStart"><span id="%24mTaskStopCode_TaskFailedToStart"><span id="TaskStopCode_TaskFailedToStart"><span class="annot"><span class="annottext">$bTaskStopCode_TaskFailedToStart :: TaskStopCode
+$mTaskStopCode_TaskFailedToStart :: forall r. TaskStopCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECS.Types.TaskStopCode.html#%24bTaskStopCode_TaskFailedToStart"><span class="hs-identifier hs-var hs-var hs-var">TaskStopCode_TaskFailedToStart</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode%27"><span class="hs-identifier hs-type">TaskStopCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TaskFailedToStart&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode_UserInitiated"><span class="hs-identifier hs-type">TaskStopCode_UserInitiated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode"><span class="hs-identifier hs-type">TaskStopCode</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskStopCode_UserInitiated"><span id="%24mTaskStopCode_UserInitiated"><span id="TaskStopCode_UserInitiated"><span class="annot"><span class="annottext">$bTaskStopCode_UserInitiated :: TaskStopCode
+$mTaskStopCode_UserInitiated :: forall r. TaskStopCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECS.Types.TaskStopCode.html#%24bTaskStopCode_UserInitiated"><span class="hs-identifier hs-var hs-var hs-var">TaskStopCode_UserInitiated</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode%27"><span class="hs-identifier hs-type">TaskStopCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UserInitiated&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode_EssentialContainerExited"><span class="hs-pragma hs-type">TaskStopCode_EssentialContainerExited</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode_TaskFailedToStart"><span class="hs-pragma hs-type">TaskStopCode_TaskFailedToStart</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode_UserInitiated"><span class="hs-pragma hs-type">TaskStopCode_UserInitiated</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskStopCode.html#TaskStopCode%27"><span class="hs-pragma hs-type">TaskStopCode'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

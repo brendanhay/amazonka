@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.GetOpsMetadata</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- View operational metadata related to an application in Application</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Manager.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.GetOpsMetadata</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier">GetOpsMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#newGetOpsMetadata"><span class="hs-identifier">newGetOpsMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadata_nextToken"><span class="hs-identifier">getOpsMetadata_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadata_maxResults"><span class="hs-identifier">getOpsMetadata_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadata_opsMetadataArn"><span class="hs-identifier">getOpsMetadata_opsMetadataArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse"><span class="hs-identifier">GetOpsMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#newGetOpsMetadataResponse"><span class="hs-identifier">newGetOpsMetadataResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadataResponse_resourceId"><span class="hs-identifier">getOpsMetadataResponse_resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadataResponse_nextToken"><span class="hs-identifier">getOpsMetadataResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadataResponse_metadata"><span class="hs-identifier">getOpsMetadataResponse_metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadataResponse_httpStatus"><span class="hs-identifier">getOpsMetadataResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newGetOpsMetadata' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679834261"><span id="local-6989586621679834262"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOpsMetadata"><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-var">GetOpsMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOpsMetadata%27"><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata%27"><span class="hs-identifier hs-var">GetOpsMetadata'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AGetOpsMetadata%27"><span class="annot"><span class="annottext">GetOpsMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AnextToken%3AGetOpsMetadata%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetOpsMetadata%27"><span class="annot"><span class="annottext">GetOpsMetadata -&gt; Maybe Natural
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AmaxResults%3AGetOpsMetadata%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an OpsMetadata Object to view.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AopsMetadataArn%3AGetOpsMetadata%27"><span class="annot"><span class="annottext">GetOpsMetadata -&gt; Text
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AopsMetadataArn%3AGetOpsMetadata%27"><span class="hs-identifier hs-var hs-var">opsMetadataArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679834253"><span id="local-6989586621679834255"><span class="annot"><span class="annottext">GetOpsMetadata -&gt; GetOpsMetadata -&gt; Bool
+(GetOpsMetadata -&gt; GetOpsMetadata -&gt; Bool)
+-&gt; (GetOpsMetadata -&gt; GetOpsMetadata -&gt; Bool) -&gt; Eq GetOpsMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetOpsMetadata -&gt; GetOpsMetadata -&gt; Bool
+$c/= :: GetOpsMetadata -&gt; GetOpsMetadata -&gt; Bool
+== :: GetOpsMetadata -&gt; GetOpsMetadata -&gt; Bool
+$c== :: GetOpsMetadata -&gt; GetOpsMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679834244"><span id="local-6989586621679834246"><span id="local-6989586621679834248"><span id="local-6989586621679834250"><span class="annot"><span class="annottext">ReadPrec [GetOpsMetadata]
+ReadPrec GetOpsMetadata
+Int -&gt; ReadS GetOpsMetadata
+ReadS [GetOpsMetadata]
+(Int -&gt; ReadS GetOpsMetadata)
+-&gt; ReadS [GetOpsMetadata]
+-&gt; ReadPrec GetOpsMetadata
+-&gt; ReadPrec [GetOpsMetadata]
+-&gt; Read GetOpsMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetOpsMetadata]
+$creadListPrec :: ReadPrec [GetOpsMetadata]
+readPrec :: ReadPrec GetOpsMetadata
+$creadPrec :: ReadPrec GetOpsMetadata
+readList :: ReadS [GetOpsMetadata]
+$creadList :: ReadS [GetOpsMetadata]
+readsPrec :: Int -&gt; ReadS GetOpsMetadata
+$creadsPrec :: Int -&gt; ReadS GetOpsMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679834237"><span id="local-6989586621679834239"><span id="local-6989586621679834241"><span class="annot"><span class="annottext">Int -&gt; GetOpsMetadata -&gt; ShowS
+[GetOpsMetadata] -&gt; ShowS
+GetOpsMetadata -&gt; String
+(Int -&gt; GetOpsMetadata -&gt; ShowS)
+-&gt; (GetOpsMetadata -&gt; String)
+-&gt; ([GetOpsMetadata] -&gt; ShowS)
+-&gt; Show GetOpsMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetOpsMetadata] -&gt; ShowS
+$cshowList :: [GetOpsMetadata] -&gt; ShowS
+show :: GetOpsMetadata -&gt; String
+$cshow :: GetOpsMetadata -&gt; String
+showsPrec :: Int -&gt; GetOpsMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetOpsMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetOpsMetadata -&gt; Rep GetOpsMetadata x)
+-&gt; (forall x. Rep GetOpsMetadata x -&gt; GetOpsMetadata)
+-&gt; Generic GetOpsMetadata
+forall x. Rep GetOpsMetadata x -&gt; GetOpsMetadata
+forall x. GetOpsMetadata -&gt; Rep GetOpsMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetOpsMetadata x -&gt; GetOpsMetadata
+$cfrom :: forall x. GetOpsMetadata -&gt; Rep GetOpsMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'GetOpsMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'nextToken', 'getOpsMetadata_nextToken' - A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'maxResults', 'getOpsMetadata_maxResults' - The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'opsMetadataArn', 'getOpsMetadata_opsMetadataArn' - The Amazon Resource Name (ARN) of an OpsMetadata Object to view.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#newGetOpsMetadata"><span class="hs-identifier hs-type">newGetOpsMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'opsMetadataArn'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-type">GetOpsMetadata</span></a></span><span>
+</span><span id="line-88"></span><span id="newGetOpsMetadata"><span class="annot"><span class="annottext">newGetOpsMetadata :: Text -&gt; GetOpsMetadata
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#newGetOpsMetadata"><span class="hs-identifier hs-var hs-var">newGetOpsMetadata</span></a></span></span><span> </span><span id="local-6989586621679834232"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679834232"><span class="hs-identifier hs-var">pOpsMetadataArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">GetOpsMetadata' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; GetOpsMetadata
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata%27"><span class="hs-identifier hs-type">GetOpsMetadata'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetOpsMetadata' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AnextToken%3AGetOpsMetadata%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetOpsMetadata' :: Maybe Natural
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AmaxResults%3AGetOpsMetadata%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:opsMetadataArn:GetOpsMetadata' :: Text
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AopsMetadataArn%3AGetOpsMetadata%27"><span class="hs-identifier hs-var">opsMetadataArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679834232"><span class="hs-identifier hs-var">pOpsMetadataArn_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadata_nextToken"><span class="hs-identifier hs-type">getOpsMetadata_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-type">GetOpsMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="getOpsMetadata_nextToken"><span class="annot"><span class="annottext">getOpsMetadata_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetOpsMetadata -&gt; f GetOpsMetadata
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadata_nextToken"><span class="hs-identifier hs-var hs-var">getOpsMetadata_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsMetadata -&gt; Maybe Text)
+-&gt; (GetOpsMetadata -&gt; Maybe Text -&gt; GetOpsMetadata)
+-&gt; Lens GetOpsMetadata GetOpsMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata%27"><span class="hs-identifier hs-type">GetOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834229"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetOpsMetadata' :: GetOpsMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679834229"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679834229"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834228"><span class="annot"><span class="annottext">s :: GetOpsMetadata
+</span><a href="#local-6989586621679834228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata%27"><span class="hs-identifier hs-type">GetOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834227"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679834227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsMetadata
+</span><a href="#local-6989586621679834228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetOpsMetadata' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AnextToken%3AGetOpsMetadata%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679834227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-type">GetOpsMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadata_maxResults"><span class="hs-identifier hs-type">getOpsMetadata_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-type">GetOpsMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="getOpsMetadata_maxResults"><span class="annot"><span class="annottext">getOpsMetadata_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetOpsMetadata -&gt; f GetOpsMetadata
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadata_maxResults"><span class="hs-identifier hs-var hs-var">getOpsMetadata_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsMetadata -&gt; Maybe Natural)
+-&gt; (GetOpsMetadata -&gt; Maybe Natural -&gt; GetOpsMetadata)
+-&gt; Lens
+     GetOpsMetadata GetOpsMetadata (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata%27"><span class="hs-identifier hs-type">GetOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834226"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetOpsMetadata' :: GetOpsMetadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679834226"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679834226"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834225"><span class="annot"><span class="annottext">s :: GetOpsMetadata
+</span><a href="#local-6989586621679834225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata%27"><span class="hs-identifier hs-type">GetOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834224"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679834224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsMetadata
+</span><a href="#local-6989586621679834225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetOpsMetadata' :: Maybe Natural
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AmaxResults%3AGetOpsMetadata%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679834224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-type">GetOpsMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an OpsMetadata Object to view.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadata_opsMetadataArn"><span class="hs-identifier hs-type">getOpsMetadata_opsMetadataArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-type">GetOpsMetadata</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="getOpsMetadata_opsMetadataArn"><span class="annot"><span class="annottext">getOpsMetadata_opsMetadataArn :: (Text -&gt; f Text) -&gt; GetOpsMetadata -&gt; f GetOpsMetadata
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadata_opsMetadataArn"><span class="hs-identifier hs-var hs-var">getOpsMetadata_opsMetadataArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsMetadata -&gt; Text)
+-&gt; (GetOpsMetadata -&gt; Text -&gt; GetOpsMetadata)
+-&gt; Lens GetOpsMetadata GetOpsMetadata Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata%27"><span class="hs-identifier hs-type">GetOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834223"><span class="annot"><span class="annottext">Text
+opsMetadataArn :: Text
+$sel:opsMetadataArn:GetOpsMetadata' :: GetOpsMetadata -&gt; Text
+</span><a href="#local-6989586621679834223"><span class="hs-identifier hs-var hs-var">opsMetadataArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679834223"><span class="hs-identifier hs-var">opsMetadataArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834222"><span class="annot"><span class="annottext">s :: GetOpsMetadata
+</span><a href="#local-6989586621679834222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata%27"><span class="hs-identifier hs-type">GetOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834221"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679834221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsMetadata
+</span><a href="#local-6989586621679834222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:opsMetadataArn:GetOpsMetadata' :: Text
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AopsMetadataArn%3AGetOpsMetadata%27"><span class="hs-identifier hs-var">opsMetadataArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679834221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-type">GetOpsMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-type">GetOpsMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-type">GetOpsMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse"><span class="hs-identifier hs-type">GetOpsMetadataResponse</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679834217"><span class="annot"><span class="annottext">request :: GetOpsMetadata -&gt; Request GetOpsMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetOpsMetadata -&gt; Request GetOpsMetadata
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679834213"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetOpsMetadata
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetOpsMetadata)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetOpsMetadata))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetOpsMetadata
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetOpsMetadata)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679834210"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679834210"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679834209"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679834209"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679834208"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679834208"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text MetadataValue)
+-&gt; Int
+-&gt; GetOpsMetadataResponse
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse%27"><span class="hs-identifier hs-var">GetOpsMetadataResponse'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text MetadataValue)
+ -&gt; Int
+ -&gt; GetOpsMetadataResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text MetadataValue)
+      -&gt; Int
+      -&gt; GetOpsMetadataResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679834208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text MetadataValue)
+   -&gt; Int
+   -&gt; GetOpsMetadataResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text MetadataValue)
+      -&gt; Int -&gt; GetOpsMetadataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679834208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text MetadataValue)
+   -&gt; Int -&gt; GetOpsMetadataResponse)
+-&gt; Either String (Maybe (HashMap Text MetadataValue))
+-&gt; Either String (Int -&gt; GetOpsMetadataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679834208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe (HashMap Text MetadataValue)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Metadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text MetadataValue)))
+-&gt; Maybe (HashMap Text MetadataValue)
+-&gt; Either String (Maybe (HashMap Text MetadataValue))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetadataValue)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetOpsMetadataResponse)
+-&gt; Either String Int -&gt; Either String GetOpsMetadataResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679834210"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679834199"><span id="local-6989586621679834201"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-type">GetOpsMetadata</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679834196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-type">GetOpsMetadata</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-type">GetOpsMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679834192"><span class="annot"><span class="annottext">toHeaders :: GetOpsMetadata -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetOpsMetadata -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonSSM.GetOpsMetadata&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-138"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679834182"><span id="local-6989586621679834184"><span id="local-6989586621679834186"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-type">GetOpsMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679834180"><span class="annot"><span class="annottext">toJSON :: GetOpsMetadata -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata%27"><span class="hs-identifier hs-type">GetOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834176"><span id="local-6989586621679834177"><span id="local-6989586621679834178"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+opsMetadataArn :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:opsMetadataArn:GetOpsMetadata' :: GetOpsMetadata -&gt; Text
+$sel:maxResults:GetOpsMetadata' :: GetOpsMetadata -&gt; Maybe Natural
+$sel:nextToken:GetOpsMetadata' :: GetOpsMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679834176"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679834178"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679834177"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-149"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OpsMetadataArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679834176"><span class="hs-identifier hs-var">opsMetadataArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-type">GetOpsMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679834170"><span class="annot"><span class="annottext">toPath :: GetOpsMetadata -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetOpsMetadata -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadata"><span class="hs-identifier hs-type">GetOpsMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679834166"><span class="annot"><span class="annottext">toQuery :: GetOpsMetadata -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetOpsMetadata -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newGetOpsMetadataResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679834163"><span id="local-6989586621679834164"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOpsMetadataResponse"><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse"><span class="hs-identifier hs-var">GetOpsMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOpsMetadataResponse%27"><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse%27"><span class="hs-identifier hs-var">GetOpsMetadataResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource ID of the Application Manager application.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AresourceId%3AGetOpsMetadataResponse%27"><span class="annot"><span class="annottext">GetOpsMetadataResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AresourceId%3AGetOpsMetadataResponse%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AnextToken%3AGetOpsMetadataResponse%27"><span class="annot"><span class="annottext">GetOpsMetadataResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AnextToken%3AGetOpsMetadataResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | OpsMetadata for an Application Manager application.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3Ametadata%3AGetOpsMetadataResponse%27"><span class="annot"><span class="annottext">GetOpsMetadataResponse -&gt; Maybe (HashMap Text MetadataValue)
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3Ametadata%3AGetOpsMetadataResponse%27"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MetadataValue.html#MetadataValue"><span class="hs-identifier hs-type">MetadataValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetOpsMetadataResponse%27"><span class="annot"><span class="annottext">GetOpsMetadataResponse -&gt; Int
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AhttpStatus%3AGetOpsMetadataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679834155"><span id="local-6989586621679834157"><span class="annot"><span class="annottext">GetOpsMetadataResponse -&gt; GetOpsMetadataResponse -&gt; Bool
+(GetOpsMetadataResponse -&gt; GetOpsMetadataResponse -&gt; Bool)
+-&gt; (GetOpsMetadataResponse -&gt; GetOpsMetadataResponse -&gt; Bool)
+-&gt; Eq GetOpsMetadataResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetOpsMetadataResponse -&gt; GetOpsMetadataResponse -&gt; Bool
+$c/= :: GetOpsMetadataResponse -&gt; GetOpsMetadataResponse -&gt; Bool
+== :: GetOpsMetadataResponse -&gt; GetOpsMetadataResponse -&gt; Bool
+$c== :: GetOpsMetadataResponse -&gt; GetOpsMetadataResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679834147"><span id="local-6989586621679834149"><span id="local-6989586621679834151"><span id="local-6989586621679834153"><span class="annot"><span class="annottext">ReadPrec [GetOpsMetadataResponse]
+ReadPrec GetOpsMetadataResponse
+Int -&gt; ReadS GetOpsMetadataResponse
+ReadS [GetOpsMetadataResponse]
+(Int -&gt; ReadS GetOpsMetadataResponse)
+-&gt; ReadS [GetOpsMetadataResponse]
+-&gt; ReadPrec GetOpsMetadataResponse
+-&gt; ReadPrec [GetOpsMetadataResponse]
+-&gt; Read GetOpsMetadataResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetOpsMetadataResponse]
+$creadListPrec :: ReadPrec [GetOpsMetadataResponse]
+readPrec :: ReadPrec GetOpsMetadataResponse
+$creadPrec :: ReadPrec GetOpsMetadataResponse
+readList :: ReadS [GetOpsMetadataResponse]
+$creadList :: ReadS [GetOpsMetadataResponse]
+readsPrec :: Int -&gt; ReadS GetOpsMetadataResponse
+$creadsPrec :: Int -&gt; ReadS GetOpsMetadataResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679834141"><span id="local-6989586621679834143"><span id="local-6989586621679834145"><span class="annot"><span class="annottext">Int -&gt; GetOpsMetadataResponse -&gt; ShowS
+[GetOpsMetadataResponse] -&gt; ShowS
+GetOpsMetadataResponse -&gt; String
+(Int -&gt; GetOpsMetadataResponse -&gt; ShowS)
+-&gt; (GetOpsMetadataResponse -&gt; String)
+-&gt; ([GetOpsMetadataResponse] -&gt; ShowS)
+-&gt; Show GetOpsMetadataResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetOpsMetadataResponse] -&gt; ShowS
+$cshowList :: [GetOpsMetadataResponse] -&gt; ShowS
+show :: GetOpsMetadataResponse -&gt; String
+$cshow :: GetOpsMetadataResponse -&gt; String
+showsPrec :: Int -&gt; GetOpsMetadataResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetOpsMetadataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetOpsMetadataResponse -&gt; Rep GetOpsMetadataResponse x)
+-&gt; (forall x.
+    Rep GetOpsMetadataResponse x -&gt; GetOpsMetadataResponse)
+-&gt; Generic GetOpsMetadataResponse
+forall x. Rep GetOpsMetadataResponse x -&gt; GetOpsMetadataResponse
+forall x. GetOpsMetadataResponse -&gt; Rep GetOpsMetadataResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetOpsMetadataResponse x -&gt; GetOpsMetadataResponse
+$cfrom :: forall x. GetOpsMetadataResponse -&gt; Rep GetOpsMetadataResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Create a value of 'GetOpsMetadataResponse' with all optional fields omitted.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'resourceId', 'getOpsMetadataResponse_resourceId' - The resource ID of the Application Manager application.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'nextToken', 'getOpsMetadataResponse_nextToken' - The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'metadata', 'getOpsMetadataResponse_metadata' - OpsMetadata for an Application Manager application.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'httpStatus', 'getOpsMetadataResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#newGetOpsMetadataResponse"><span class="hs-identifier hs-type">newGetOpsMetadataResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse"><span class="hs-identifier hs-type">GetOpsMetadataResponse</span></a></span><span>
+</span><span id="line-193"></span><span id="newGetOpsMetadataResponse"><span class="annot"><span class="annottext">newGetOpsMetadataResponse :: Int -&gt; GetOpsMetadataResponse
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#newGetOpsMetadataResponse"><span class="hs-identifier hs-var hs-var">newGetOpsMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679834138"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679834138"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">GetOpsMetadataResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text MetadataValue)
+-&gt; Int
+-&gt; GetOpsMetadataResponse
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse%27"><span class="hs-identifier hs-type">GetOpsMetadataResponse'</span></a></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceId:GetOpsMetadataResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AresourceId%3AGetOpsMetadataResponse%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetOpsMetadataResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AnextToken%3AGetOpsMetadataResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:metadata:GetOpsMetadataResponse' :: Maybe (HashMap Text MetadataValue)
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3Ametadata%3AGetOpsMetadataResponse%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetadataValue)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetOpsMetadataResponse' :: Int
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AhttpStatus%3AGetOpsMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679834138"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The resource ID of the Application Manager application.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadataResponse_resourceId"><span class="hs-identifier hs-type">getOpsMetadataResponse_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse"><span class="hs-identifier hs-type">GetOpsMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="getOpsMetadataResponse_resourceId"><span class="annot"><span class="annottext">getOpsMetadataResponse_resourceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetOpsMetadataResponse -&gt; f GetOpsMetadataResponse
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadataResponse_resourceId"><span class="hs-identifier hs-var hs-var">getOpsMetadataResponse_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsMetadataResponse -&gt; Maybe Text)
+-&gt; (GetOpsMetadataResponse -&gt; Maybe Text -&gt; GetOpsMetadataResponse)
+-&gt; Lens
+     GetOpsMetadataResponse
+     GetOpsMetadataResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse%27"><span class="hs-identifier hs-type">GetOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834137"><span class="annot"><span class="annottext">Maybe Text
+resourceId :: Maybe Text
+$sel:resourceId:GetOpsMetadataResponse' :: GetOpsMetadataResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679834137"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679834137"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834136"><span class="annot"><span class="annottext">s :: GetOpsMetadataResponse
+</span><a href="#local-6989586621679834136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse%27"><span class="hs-identifier hs-type">GetOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834135"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679834135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsMetadataResponse
+</span><a href="#local-6989586621679834136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:GetOpsMetadataResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AresourceId%3AGetOpsMetadataResponse%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679834135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse"><span class="hs-identifier hs-type">GetOpsMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadataResponse_nextToken"><span class="hs-identifier hs-type">getOpsMetadataResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse"><span class="hs-identifier hs-type">GetOpsMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="getOpsMetadataResponse_nextToken"><span class="annot"><span class="annottext">getOpsMetadataResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetOpsMetadataResponse -&gt; f GetOpsMetadataResponse
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadataResponse_nextToken"><span class="hs-identifier hs-var hs-var">getOpsMetadataResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsMetadataResponse -&gt; Maybe Text)
+-&gt; (GetOpsMetadataResponse -&gt; Maybe Text -&gt; GetOpsMetadataResponse)
+-&gt; Lens
+     GetOpsMetadataResponse
+     GetOpsMetadataResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse%27"><span class="hs-identifier hs-type">GetOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834134"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetOpsMetadataResponse' :: GetOpsMetadataResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679834134"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679834134"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834133"><span class="annot"><span class="annottext">s :: GetOpsMetadataResponse
+</span><a href="#local-6989586621679834133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse%27"><span class="hs-identifier hs-type">GetOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834132"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679834132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsMetadataResponse
+</span><a href="#local-6989586621679834133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetOpsMetadataResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AnextToken%3AGetOpsMetadataResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679834132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse"><span class="hs-identifier hs-type">GetOpsMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | OpsMetadata for an Application Manager application.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadataResponse_metadata"><span class="hs-identifier hs-type">getOpsMetadataResponse_metadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse"><span class="hs-identifier hs-type">GetOpsMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MetadataValue.html#MetadataValue"><span class="hs-identifier hs-type">MetadataValue</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="getOpsMetadataResponse_metadata"><span class="annot"><span class="annottext">getOpsMetadataResponse_metadata :: (Maybe (HashMap Text MetadataValue)
+ -&gt; f (Maybe (HashMap Text MetadataValue)))
+-&gt; GetOpsMetadataResponse -&gt; f GetOpsMetadataResponse
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadataResponse_metadata"><span class="hs-identifier hs-var hs-var">getOpsMetadataResponse_metadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsMetadataResponse -&gt; Maybe (HashMap Text MetadataValue))
+-&gt; (GetOpsMetadataResponse
+    -&gt; Maybe (HashMap Text MetadataValue) -&gt; GetOpsMetadataResponse)
+-&gt; Lens
+     GetOpsMetadataResponse
+     GetOpsMetadataResponse
+     (Maybe (HashMap Text MetadataValue))
+     (Maybe (HashMap Text MetadataValue))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse%27"><span class="hs-identifier hs-type">GetOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834131"><span class="annot"><span class="annottext">Maybe (HashMap Text MetadataValue)
+metadata :: Maybe (HashMap Text MetadataValue)
+$sel:metadata:GetOpsMetadataResponse' :: GetOpsMetadataResponse -&gt; Maybe (HashMap Text MetadataValue)
+</span><a href="#local-6989586621679834131"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetadataValue)
+</span><a href="#local-6989586621679834131"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834130"><span class="annot"><span class="annottext">s :: GetOpsMetadataResponse
+</span><a href="#local-6989586621679834130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse%27"><span class="hs-identifier hs-type">GetOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834129"><span class="annot"><span class="annottext">Maybe (HashMap Text MetadataValue)
+</span><a href="#local-6989586621679834129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsMetadataResponse
+</span><a href="#local-6989586621679834130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata:GetOpsMetadataResponse' :: Maybe (HashMap Text MetadataValue)
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3Ametadata%3AGetOpsMetadataResponse%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetadataValue)
+</span><a href="#local-6989586621679834129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse"><span class="hs-identifier hs-type">GetOpsMetadataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MetadataValue)
+  -&gt; f (Maybe (HashMap Text MetadataValue)))
+ -&gt; GetOpsMetadataResponse -&gt; f GetOpsMetadataResponse)
+-&gt; ((Maybe (HashMap Text MetadataValue)
+     -&gt; f (Maybe (HashMap Text MetadataValue)))
+    -&gt; Maybe (HashMap Text MetadataValue)
+    -&gt; f (Maybe (HashMap Text MetadataValue)))
+-&gt; (Maybe (HashMap Text MetadataValue)
+    -&gt; f (Maybe (HashMap Text MetadataValue)))
+-&gt; GetOpsMetadataResponse
+-&gt; f GetOpsMetadataResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text MetadataValue)
+  (HashMap Text MetadataValue)
+  (HashMap Text MetadataValue)
+  (HashMap Text MetadataValue)
+-&gt; Iso
+     (Maybe (HashMap Text MetadataValue))
+     (Maybe (HashMap Text MetadataValue))
+     (Maybe (HashMap Text MetadataValue))
+     (Maybe (HashMap Text MetadataValue))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text MetadataValue)
+  (HashMap Text MetadataValue)
+  (HashMap Text MetadataValue)
+  (HashMap Text MetadataValue)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadataResponse_httpStatus"><span class="hs-identifier hs-type">getOpsMetadataResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse"><span class="hs-identifier hs-type">GetOpsMetadataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span id="getOpsMetadataResponse_httpStatus"><span class="annot"><span class="annottext">getOpsMetadataResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetOpsMetadataResponse -&gt; f GetOpsMetadataResponse
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#getOpsMetadataResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getOpsMetadataResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsMetadataResponse -&gt; Int)
+-&gt; (GetOpsMetadataResponse -&gt; Int -&gt; GetOpsMetadataResponse)
+-&gt; Lens GetOpsMetadataResponse GetOpsMetadataResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse%27"><span class="hs-identifier hs-type">GetOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834125"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetOpsMetadataResponse' :: GetOpsMetadataResponse -&gt; Int
+</span><a href="#local-6989586621679834125"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679834125"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834124"><span class="annot"><span class="annottext">s :: GetOpsMetadataResponse
+</span><a href="#local-6989586621679834124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse%27"><span class="hs-identifier hs-type">GetOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834123"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679834123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsMetadataResponse
+</span><a href="#local-6989586621679834124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetOpsMetadataResponse' :: Int
+</span><a href="Network.AWS.SSM.GetOpsMetadata.html#%24sel%3AhttpStatus%3AGetOpsMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679834123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse"><span class="hs-identifier hs-type">GetOpsMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679834121"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsMetadata.html#GetOpsMetadataResponse"><span class="hs-identifier hs-type">GetOpsMetadataResponse</span></a></span></span><span>
+</span><span id="line-220"></span></pre></body></html>

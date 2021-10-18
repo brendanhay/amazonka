@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Redshift.DeleteHsmConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified Amazon Redshift HSM configuration.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Redshift.DeleteHsmConfiguration</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration"><span class="hs-identifier">DeleteHsmConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#newDeleteHsmConfiguration"><span class="hs-identifier">newDeleteHsmConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#deleteHsmConfiguration_hsmConfigurationIdentifier"><span class="hs-identifier">deleteHsmConfiguration_hsmConfigurationIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfigurationResponse"><span class="hs-identifier">DeleteHsmConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#newDeleteHsmConfigurationResponse"><span class="hs-identifier">newDeleteHsmConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.html"><span class="hs-identifier">Network.AWS.Redshift.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- /See:/ 'newDeleteHsmConfiguration' smart constructor.</span><span>
+</span><span id="line-48"></span><span id="local-6989586621679522292"><span id="local-6989586621679522293"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteHsmConfiguration"><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration"><span class="hs-identifier hs-var">DeleteHsmConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteHsmConfiguration%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration%27"><span class="hs-identifier hs-var">DeleteHsmConfiguration'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the Amazon Redshift HSM configuration to be deleted.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AhsmConfigurationIdentifier%3ADeleteHsmConfiguration%27"><span class="annot"><span class="annottext">DeleteHsmConfiguration -&gt; Text
+</span><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#%24sel%3AhsmConfigurationIdentifier%3ADeleteHsmConfiguration%27"><span class="hs-identifier hs-var hs-var">hsmConfigurationIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679522286"><span id="local-6989586621679522288"><span class="annot"><span class="annottext">DeleteHsmConfiguration -&gt; DeleteHsmConfiguration -&gt; Bool
+(DeleteHsmConfiguration -&gt; DeleteHsmConfiguration -&gt; Bool)
+-&gt; (DeleteHsmConfiguration -&gt; DeleteHsmConfiguration -&gt; Bool)
+-&gt; Eq DeleteHsmConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteHsmConfiguration -&gt; DeleteHsmConfiguration -&gt; Bool
+$c/= :: DeleteHsmConfiguration -&gt; DeleteHsmConfiguration -&gt; Bool
+== :: DeleteHsmConfiguration -&gt; DeleteHsmConfiguration -&gt; Bool
+$c== :: DeleteHsmConfiguration -&gt; DeleteHsmConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522277"><span id="local-6989586621679522279"><span id="local-6989586621679522281"><span id="local-6989586621679522283"><span class="annot"><span class="annottext">ReadPrec [DeleteHsmConfiguration]
+ReadPrec DeleteHsmConfiguration
+Int -&gt; ReadS DeleteHsmConfiguration
+ReadS [DeleteHsmConfiguration]
+(Int -&gt; ReadS DeleteHsmConfiguration)
+-&gt; ReadS [DeleteHsmConfiguration]
+-&gt; ReadPrec DeleteHsmConfiguration
+-&gt; ReadPrec [DeleteHsmConfiguration]
+-&gt; Read DeleteHsmConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteHsmConfiguration]
+$creadListPrec :: ReadPrec [DeleteHsmConfiguration]
+readPrec :: ReadPrec DeleteHsmConfiguration
+$creadPrec :: ReadPrec DeleteHsmConfiguration
+readList :: ReadS [DeleteHsmConfiguration]
+$creadList :: ReadS [DeleteHsmConfiguration]
+readsPrec :: Int -&gt; ReadS DeleteHsmConfiguration
+$creadsPrec :: Int -&gt; ReadS DeleteHsmConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522270"><span id="local-6989586621679522272"><span id="local-6989586621679522274"><span class="annot"><span class="annottext">Int -&gt; DeleteHsmConfiguration -&gt; ShowS
+[DeleteHsmConfiguration] -&gt; ShowS
+DeleteHsmConfiguration -&gt; String
+(Int -&gt; DeleteHsmConfiguration -&gt; ShowS)
+-&gt; (DeleteHsmConfiguration -&gt; String)
+-&gt; ([DeleteHsmConfiguration] -&gt; ShowS)
+-&gt; Show DeleteHsmConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteHsmConfiguration] -&gt; ShowS
+$cshowList :: [DeleteHsmConfiguration] -&gt; ShowS
+show :: DeleteHsmConfiguration -&gt; String
+$cshow :: DeleteHsmConfiguration -&gt; String
+showsPrec :: Int -&gt; DeleteHsmConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteHsmConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteHsmConfiguration -&gt; Rep DeleteHsmConfiguration x)
+-&gt; (forall x.
+    Rep DeleteHsmConfiguration x -&gt; DeleteHsmConfiguration)
+-&gt; Generic DeleteHsmConfiguration
+forall x. Rep DeleteHsmConfiguration x -&gt; DeleteHsmConfiguration
+forall x. DeleteHsmConfiguration -&gt; Rep DeleteHsmConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteHsmConfiguration x -&gt; DeleteHsmConfiguration
+$cfrom :: forall x. DeleteHsmConfiguration -&gt; Rep DeleteHsmConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'DeleteHsmConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'hsmConfigurationIdentifier', 'deleteHsmConfiguration_hsmConfigurationIdentifier' - The identifier of the Amazon Redshift HSM configuration to be deleted.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#newDeleteHsmConfiguration"><span class="hs-identifier hs-type">newDeleteHsmConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-comment">-- | 'hsmConfigurationIdentifier'</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration"><span class="hs-identifier hs-type">DeleteHsmConfiguration</span></a></span><span>
+</span><span id="line-67"></span><span id="newDeleteHsmConfiguration"><span class="annot"><span class="annottext">newDeleteHsmConfiguration :: Text -&gt; DeleteHsmConfiguration
+</span><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#newDeleteHsmConfiguration"><span class="hs-identifier hs-var hs-var">newDeleteHsmConfiguration</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679522265"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679522265"><span class="hs-identifier hs-var">pHsmConfigurationIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">DeleteHsmConfiguration' :: Text -&gt; DeleteHsmConfiguration
+</span><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration%27"><span class="hs-identifier hs-type">DeleteHsmConfiguration'</span></a></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hsmConfigurationIdentifier:DeleteHsmConfiguration' :: Text
+</span><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#%24sel%3AhsmConfigurationIdentifier%3ADeleteHsmConfiguration%27"><span class="hs-identifier hs-var">hsmConfigurationIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679522265"><span class="hs-identifier hs-var">pHsmConfigurationIdentifier_</span></a></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The identifier of the Amazon Redshift HSM configuration to be deleted.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#deleteHsmConfiguration_hsmConfigurationIdentifier"><span class="hs-identifier hs-type">deleteHsmConfiguration_hsmConfigurationIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration"><span class="hs-identifier hs-type">DeleteHsmConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="deleteHsmConfiguration_hsmConfigurationIdentifier"><span class="annot"><span class="annottext">deleteHsmConfiguration_hsmConfigurationIdentifier :: (Text -&gt; f Text)
+-&gt; DeleteHsmConfiguration -&gt; f DeleteHsmConfiguration
+</span><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#deleteHsmConfiguration_hsmConfigurationIdentifier"><span class="hs-identifier hs-var hs-var">deleteHsmConfiguration_hsmConfigurationIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteHsmConfiguration -&gt; Text)
+-&gt; (DeleteHsmConfiguration -&gt; Text -&gt; DeleteHsmConfiguration)
+-&gt; Lens DeleteHsmConfiguration DeleteHsmConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration%27"><span class="hs-identifier hs-type">DeleteHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679522262"><span class="annot"><span class="annottext">Text
+hsmConfigurationIdentifier :: Text
+$sel:hsmConfigurationIdentifier:DeleteHsmConfiguration' :: DeleteHsmConfiguration -&gt; Text
+</span><a href="#local-6989586621679522262"><span class="hs-identifier hs-var hs-var">hsmConfigurationIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679522262"><span class="hs-identifier hs-var">hsmConfigurationIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679522261"><span class="annot"><span class="annottext">s :: DeleteHsmConfiguration
+</span><a href="#local-6989586621679522261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration%27"><span class="hs-identifier hs-type">DeleteHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679522260"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679522260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteHsmConfiguration
+</span><a href="#local-6989586621679522261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmConfigurationIdentifier:DeleteHsmConfiguration' :: Text
+</span><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#%24sel%3AhsmConfigurationIdentifier%3ADeleteHsmConfiguration%27"><span class="hs-identifier hs-var">hsmConfigurationIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679522260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration"><span class="hs-identifier hs-type">DeleteHsmConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration"><span class="hs-identifier hs-type">DeleteHsmConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration"><span class="hs-identifier hs-type">DeleteHsmConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfigurationResponse"><span class="hs-identifier hs-type">DeleteHsmConfigurationResponse</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679522256"><span class="annot"><span class="annottext">request :: DeleteHsmConfiguration -&gt; Request DeleteHsmConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteHsmConfiguration -&gt; Request DeleteHsmConfiguration
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679522252"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteHsmConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteHsmConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteHsmConfiguration
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteHsmConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteHsmConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DeleteHsmConfiguration
+DeleteHsmConfigurationResponse
+</span><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfigurationResponse%27"><span class="hs-identifier hs-var">DeleteHsmConfigurationResponse'</span></a></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679522245"><span id="local-6989586621679522247"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration"><span class="hs-identifier hs-type">DeleteHsmConfiguration</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679522242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration"><span class="hs-identifier hs-type">DeleteHsmConfiguration</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration"><span class="hs-identifier hs-type">DeleteHsmConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679522238"><span class="annot"><span class="annottext">toHeaders :: DeleteHsmConfiguration -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteHsmConfiguration -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration"><span class="hs-identifier hs-type">DeleteHsmConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679522233"><span class="annot"><span class="annottext">toPath :: DeleteHsmConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteHsmConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration"><span class="hs-identifier hs-type">DeleteHsmConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679522229"><span class="annot"><span class="annottext">toQuery :: DeleteHsmConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfiguration%27"><span class="hs-identifier hs-type">DeleteHsmConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679522227"><span class="annot"><span class="annottext">Text
+hsmConfigurationIdentifier :: Text
+$sel:hsmConfigurationIdentifier:DeleteHsmConfiguration' :: DeleteHsmConfiguration -&gt; Text
+</span><a href="#local-6989586621679522227"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteHsmConfiguration&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2012-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;HsmConfigurationIdentifier&quot;</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679522227"><span class="hs-identifier hs-var">hsmConfigurationIdentifier</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | /See:/ 'newDeleteHsmConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-109"></span><span id="local-6989586621679522224"><span id="local-6989586621679522225"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteHsmConfigurationResponse"><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfigurationResponse"><span class="hs-identifier hs-var">DeleteHsmConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteHsmConfigurationResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfigurationResponse%27"><span class="hs-identifier hs-var">DeleteHsmConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679522220"><span id="local-6989586621679522222"><span class="annot"><span class="annottext">DeleteHsmConfigurationResponse
+-&gt; DeleteHsmConfigurationResponse -&gt; Bool
+(DeleteHsmConfigurationResponse
+ -&gt; DeleteHsmConfigurationResponse -&gt; Bool)
+-&gt; (DeleteHsmConfigurationResponse
+    -&gt; DeleteHsmConfigurationResponse -&gt; Bool)
+-&gt; Eq DeleteHsmConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteHsmConfigurationResponse
+-&gt; DeleteHsmConfigurationResponse -&gt; Bool
+$c/= :: DeleteHsmConfigurationResponse
+-&gt; DeleteHsmConfigurationResponse -&gt; Bool
+== :: DeleteHsmConfigurationResponse
+-&gt; DeleteHsmConfigurationResponse -&gt; Bool
+$c== :: DeleteHsmConfigurationResponse
+-&gt; DeleteHsmConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522212"><span id="local-6989586621679522214"><span id="local-6989586621679522216"><span id="local-6989586621679522218"><span class="annot"><span class="annottext">ReadPrec [DeleteHsmConfigurationResponse]
+ReadPrec DeleteHsmConfigurationResponse
+Int -&gt; ReadS DeleteHsmConfigurationResponse
+ReadS [DeleteHsmConfigurationResponse]
+(Int -&gt; ReadS DeleteHsmConfigurationResponse)
+-&gt; ReadS [DeleteHsmConfigurationResponse]
+-&gt; ReadPrec DeleteHsmConfigurationResponse
+-&gt; ReadPrec [DeleteHsmConfigurationResponse]
+-&gt; Read DeleteHsmConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteHsmConfigurationResponse]
+$creadListPrec :: ReadPrec [DeleteHsmConfigurationResponse]
+readPrec :: ReadPrec DeleteHsmConfigurationResponse
+$creadPrec :: ReadPrec DeleteHsmConfigurationResponse
+readList :: ReadS [DeleteHsmConfigurationResponse]
+$creadList :: ReadS [DeleteHsmConfigurationResponse]
+readsPrec :: Int -&gt; ReadS DeleteHsmConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS DeleteHsmConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522206"><span id="local-6989586621679522208"><span id="local-6989586621679522210"><span class="annot"><span class="annottext">Int -&gt; DeleteHsmConfigurationResponse -&gt; ShowS
+[DeleteHsmConfigurationResponse] -&gt; ShowS
+DeleteHsmConfigurationResponse -&gt; String
+(Int -&gt; DeleteHsmConfigurationResponse -&gt; ShowS)
+-&gt; (DeleteHsmConfigurationResponse -&gt; String)
+-&gt; ([DeleteHsmConfigurationResponse] -&gt; ShowS)
+-&gt; Show DeleteHsmConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteHsmConfigurationResponse] -&gt; ShowS
+$cshowList :: [DeleteHsmConfigurationResponse] -&gt; ShowS
+show :: DeleteHsmConfigurationResponse -&gt; String
+$cshow :: DeleteHsmConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; DeleteHsmConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteHsmConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteHsmConfigurationResponse
+ -&gt; Rep DeleteHsmConfigurationResponse x)
+-&gt; (forall x.
+    Rep DeleteHsmConfigurationResponse x
+    -&gt; DeleteHsmConfigurationResponse)
+-&gt; Generic DeleteHsmConfigurationResponse
+forall x.
+Rep DeleteHsmConfigurationResponse x
+-&gt; DeleteHsmConfigurationResponse
+forall x.
+DeleteHsmConfigurationResponse
+-&gt; Rep DeleteHsmConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteHsmConfigurationResponse x
+-&gt; DeleteHsmConfigurationResponse
+$cfrom :: forall x.
+DeleteHsmConfigurationResponse
+-&gt; Rep DeleteHsmConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Create a value of 'DeleteHsmConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#newDeleteHsmConfigurationResponse"><span class="hs-identifier hs-type">newDeleteHsmConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfigurationResponse"><span class="hs-identifier hs-type">DeleteHsmConfigurationResponse</span></a></span><span>
+</span><span id="line-120"></span><span id="newDeleteHsmConfigurationResponse"><span class="annot"><span class="annottext">newDeleteHsmConfigurationResponse :: DeleteHsmConfigurationResponse
+</span><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#newDeleteHsmConfigurationResponse"><span class="hs-identifier hs-var hs-var">newDeleteHsmConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="annottext">DeleteHsmConfigurationResponse
+</span><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfigurationResponse%27"><span class="hs-identifier hs-var">DeleteHsmConfigurationResponse'</span></a></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679522202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DeleteHsmConfiguration.html#DeleteHsmConfigurationResponse"><span class="hs-identifier hs-type">DeleteHsmConfigurationResponse</span></a></span></span><span>
+</span><span id="line-126"></span></pre></body></html>

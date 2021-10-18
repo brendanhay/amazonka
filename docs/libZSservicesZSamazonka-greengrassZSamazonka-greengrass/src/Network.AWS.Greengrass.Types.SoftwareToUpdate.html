@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Greengrass.Types.SoftwareToUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Greengrass.Types.SoftwareToUpdate</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate"><span class="hs-identifier">SoftwareToUpdate</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate_Core"><span class="hs-identifier">SoftwareToUpdate_Core</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate_Ota_agent"><span class="hs-identifier">SoftwareToUpdate_Ota_agent</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The piece of software on the Greengrass core that will be updated.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679346841"><span id="local-6989586621679346842"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SoftwareToUpdate"><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate"><span class="hs-identifier hs-var">SoftwareToUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SoftwareToUpdate%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate%27"><span class="hs-identifier hs-var">SoftwareToUpdate'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSoftwareToUpdate"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; Text
+</span><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#fromSoftwareToUpdate"><span class="hs-identifier hs-var hs-var">fromSoftwareToUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679346833"><span id="local-6989586621679346835"><span id="local-6989586621679346837"><span class="annot"><span class="annottext">Int -&gt; SoftwareToUpdate -&gt; ShowS
+[SoftwareToUpdate] -&gt; ShowS
+SoftwareToUpdate -&gt; String
+(Int -&gt; SoftwareToUpdate -&gt; ShowS)
+-&gt; (SoftwareToUpdate -&gt; String)
+-&gt; ([SoftwareToUpdate] -&gt; ShowS)
+-&gt; Show SoftwareToUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SoftwareToUpdate] -&gt; ShowS
+$cshowList :: [SoftwareToUpdate] -&gt; ShowS
+show :: SoftwareToUpdate -&gt; String
+$cshow :: SoftwareToUpdate -&gt; String
+showsPrec :: Int -&gt; SoftwareToUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; SoftwareToUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679346824"><span id="local-6989586621679346826"><span id="local-6989586621679346828"><span id="local-6989586621679346830"><span class="annot"><span class="annottext">ReadPrec [SoftwareToUpdate]
+ReadPrec SoftwareToUpdate
+Int -&gt; ReadS SoftwareToUpdate
+ReadS [SoftwareToUpdate]
+(Int -&gt; ReadS SoftwareToUpdate)
+-&gt; ReadS [SoftwareToUpdate]
+-&gt; ReadPrec SoftwareToUpdate
+-&gt; ReadPrec [SoftwareToUpdate]
+-&gt; Read SoftwareToUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SoftwareToUpdate]
+$creadListPrec :: ReadPrec [SoftwareToUpdate]
+readPrec :: ReadPrec SoftwareToUpdate
+$creadPrec :: ReadPrec SoftwareToUpdate
+readList :: ReadS [SoftwareToUpdate]
+$creadList :: ReadS [SoftwareToUpdate]
+readsPrec :: Int -&gt; ReadS SoftwareToUpdate
+$creadsPrec :: Int -&gt; ReadS SoftwareToUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679346819"><span id="local-6989586621679346821"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
+(SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool)
+-&gt; (SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool)
+-&gt; Eq SoftwareToUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
+$c/= :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
+== :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
+$c== :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679346803"><span id="local-6989586621679346805"><span id="local-6989586621679346807"><span id="local-6989586621679346809"><span id="local-6989586621679346811"><span id="local-6989586621679346813"><span id="local-6989586621679346815"><span class="annot"><span class="annottext">Eq SoftwareToUpdate
+Eq SoftwareToUpdate
+-&gt; (SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Ordering)
+-&gt; (SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool)
+-&gt; (SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool)
+-&gt; (SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool)
+-&gt; (SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool)
+-&gt; (SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; SoftwareToUpdate)
+-&gt; (SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; SoftwareToUpdate)
+-&gt; Ord SoftwareToUpdate
+SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
+SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Ordering
+SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; SoftwareToUpdate
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; SoftwareToUpdate
+$cmin :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; SoftwareToUpdate
+max :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; SoftwareToUpdate
+$cmax :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; SoftwareToUpdate
+&gt;= :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
+$c&gt;= :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
+&gt; :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
+$c&gt; :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
+&lt;= :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
+$c&lt;= :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
+&lt; :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
+$c&lt; :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
+compare :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Ordering
+$ccompare :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Ordering
+$cp1Ord :: Eq SoftwareToUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SoftwareToUpdate -&gt; Rep SoftwareToUpdate x)
+-&gt; (forall x. Rep SoftwareToUpdate x -&gt; SoftwareToUpdate)
+-&gt; Generic SoftwareToUpdate
+forall x. Rep SoftwareToUpdate x -&gt; SoftwareToUpdate
+forall x. SoftwareToUpdate -&gt; Rep SoftwareToUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SoftwareToUpdate x -&gt; SoftwareToUpdate
+$cfrom :: forall x. SoftwareToUpdate -&gt; Rep SoftwareToUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679346795"><span id="local-6989586621679346797"><span class="annot"><span class="annottext">Int -&gt; SoftwareToUpdate -&gt; Int
+SoftwareToUpdate -&gt; Int
+(Int -&gt; SoftwareToUpdate -&gt; Int)
+-&gt; (SoftwareToUpdate -&gt; Int) -&gt; Hashable SoftwareToUpdate
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SoftwareToUpdate -&gt; Int
+$chash :: SoftwareToUpdate -&gt; Int
+hashWithSalt :: Int -&gt; SoftwareToUpdate -&gt; Int
+$chashWithSalt :: Int -&gt; SoftwareToUpdate -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679346792"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; ()
+(SoftwareToUpdate -&gt; ()) -&gt; NFData SoftwareToUpdate
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SoftwareToUpdate -&gt; ()
+$crnf :: SoftwareToUpdate -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679346789"><span class="annot"><span class="annottext">Text -&gt; Either String SoftwareToUpdate
+(Text -&gt; Either String SoftwareToUpdate)
+-&gt; FromText SoftwareToUpdate
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SoftwareToUpdate
+$cfromText :: Text -&gt; Either String SoftwareToUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679346786"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; Text
+(SoftwareToUpdate -&gt; Text) -&gt; ToText SoftwareToUpdate
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SoftwareToUpdate -&gt; Text
+$ctoText :: SoftwareToUpdate -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679346783"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; ByteString
+(SoftwareToUpdate -&gt; ByteString) -&gt; ToByteString SoftwareToUpdate
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SoftwareToUpdate -&gt; ByteString
+$ctoBS :: SoftwareToUpdate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679346780"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; ByteStringBuilder
+(SoftwareToUpdate -&gt; ByteStringBuilder) -&gt; ToLog SoftwareToUpdate
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SoftwareToUpdate -&gt; ByteStringBuilder
+$cbuild :: SoftwareToUpdate -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679346777"><span class="annot"><span class="annottext">HeaderName -&gt; SoftwareToUpdate -&gt; [Header]
+(HeaderName -&gt; SoftwareToUpdate -&gt; [Header])
+-&gt; ToHeader SoftwareToUpdate
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SoftwareToUpdate -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SoftwareToUpdate -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679346774"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; QueryString
+(SoftwareToUpdate -&gt; QueryString) -&gt; ToQuery SoftwareToUpdate
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SoftwareToUpdate -&gt; QueryString
+$ctoQuery :: SoftwareToUpdate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679346769"><span id="local-6989586621679346771"><span class="annot"><span class="annottext">Value -&gt; Parser [SoftwareToUpdate]
+Value -&gt; Parser SoftwareToUpdate
+(Value -&gt; Parser SoftwareToUpdate)
+-&gt; (Value -&gt; Parser [SoftwareToUpdate])
+-&gt; FromJSON SoftwareToUpdate
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SoftwareToUpdate]
+$cparseJSONList :: Value -&gt; Parser [SoftwareToUpdate]
+parseJSON :: Value -&gt; Parser SoftwareToUpdate
+$cparseJSON :: Value -&gt; Parser SoftwareToUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679346764"><span id="local-6989586621679346766"><span class="annot"><span class="annottext">FromJSONKeyFunction [SoftwareToUpdate]
+FromJSONKeyFunction SoftwareToUpdate
+FromJSONKeyFunction SoftwareToUpdate
+-&gt; FromJSONKeyFunction [SoftwareToUpdate]
+-&gt; FromJSONKey SoftwareToUpdate
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SoftwareToUpdate]
+$cfromJSONKeyList :: FromJSONKeyFunction [SoftwareToUpdate]
+fromJSONKey :: FromJSONKeyFunction SoftwareToUpdate
+$cfromJSONKey :: FromJSONKeyFunction SoftwareToUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679346755"><span id="local-6989586621679346757"><span id="local-6989586621679346759"><span id="local-6989586621679346761"><span class="annot"><span class="annottext">[SoftwareToUpdate] -&gt; Encoding
+[SoftwareToUpdate] -&gt; Value
+SoftwareToUpdate -&gt; Encoding
+SoftwareToUpdate -&gt; Value
+(SoftwareToUpdate -&gt; Value)
+-&gt; (SoftwareToUpdate -&gt; Encoding)
+-&gt; ([SoftwareToUpdate] -&gt; Value)
+-&gt; ([SoftwareToUpdate] -&gt; Encoding)
+-&gt; ToJSON SoftwareToUpdate
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SoftwareToUpdate] -&gt; Encoding
+$ctoEncodingList :: [SoftwareToUpdate] -&gt; Encoding
+toJSONList :: [SoftwareToUpdate] -&gt; Value
+$ctoJSONList :: [SoftwareToUpdate] -&gt; Value
+toEncoding :: SoftwareToUpdate -&gt; Encoding
+$ctoEncoding :: SoftwareToUpdate -&gt; Encoding
+toJSON :: SoftwareToUpdate -&gt; Value
+$ctoJSON :: SoftwareToUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679346750"><span id="local-6989586621679346752"><span class="annot"><span class="annottext">ToJSONKeyFunction [SoftwareToUpdate]
+ToJSONKeyFunction SoftwareToUpdate
+ToJSONKeyFunction SoftwareToUpdate
+-&gt; ToJSONKeyFunction [SoftwareToUpdate]
+-&gt; ToJSONKey SoftwareToUpdate
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SoftwareToUpdate]
+$ctoJSONKeyList :: ToJSONKeyFunction [SoftwareToUpdate]
+toJSONKey :: ToJSONKeyFunction SoftwareToUpdate
+$ctoJSONKey :: ToJSONKeyFunction SoftwareToUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679346747"><span class="annot"><span class="annottext">[Node] -&gt; Either String SoftwareToUpdate
+([Node] -&gt; Either String SoftwareToUpdate)
+-&gt; FromXML SoftwareToUpdate
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SoftwareToUpdate
+$cparseXML :: [Node] -&gt; Either String SoftwareToUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679346744"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; XML
+(SoftwareToUpdate -&gt; XML) -&gt; ToXML SoftwareToUpdate
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SoftwareToUpdate -&gt; XML
+$ctoXML :: SoftwareToUpdate -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate_Core"><span class="hs-identifier hs-type">SoftwareToUpdate_Core</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate"><span class="hs-identifier hs-type">SoftwareToUpdate</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSoftwareToUpdate_Core"><span id="%24mSoftwareToUpdate_Core"><span id="SoftwareToUpdate_Core"><span class="annot"><span class="annottext">$bSoftwareToUpdate_Core :: SoftwareToUpdate
+$mSoftwareToUpdate_Core :: forall r. SoftwareToUpdate -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#%24bSoftwareToUpdate_Core"><span class="hs-identifier hs-var hs-var hs-var">SoftwareToUpdate_Core</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate%27"><span class="hs-identifier hs-type">SoftwareToUpdate'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;core&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate_Ota_agent"><span class="hs-identifier hs-type">SoftwareToUpdate_Ota_agent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate"><span class="hs-identifier hs-type">SoftwareToUpdate</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSoftwareToUpdate_Ota_agent"><span id="%24mSoftwareToUpdate_Ota_agent"><span id="SoftwareToUpdate_Ota_agent"><span class="annot"><span class="annottext">$bSoftwareToUpdate_Ota_agent :: SoftwareToUpdate
+$mSoftwareToUpdate_Ota_agent :: forall r. SoftwareToUpdate -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#%24bSoftwareToUpdate_Ota_agent"><span class="hs-identifier hs-var hs-var hs-var">SoftwareToUpdate_Ota_agent</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate%27"><span class="hs-identifier hs-type">SoftwareToUpdate'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ota_agent&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate_Core"><span class="hs-pragma hs-type">SoftwareToUpdate_Core</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate_Ota_agent"><span class="hs-pragma hs-type">SoftwareToUpdate_Ota_agent</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate%27"><span class="hs-pragma hs-type">SoftwareToUpdate'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

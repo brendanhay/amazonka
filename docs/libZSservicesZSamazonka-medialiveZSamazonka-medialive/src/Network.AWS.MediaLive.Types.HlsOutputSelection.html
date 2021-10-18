@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.HlsOutputSelection</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.HlsOutputSelection</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection"><span class="hs-identifier">HlsOutputSelection</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection_MANIFESTS_AND_SEGMENTS"><span class="hs-identifier">HlsOutputSelection_MANIFESTS_AND_SEGMENTS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection_SEGMENTS_ONLY"><span class="hs-identifier">HlsOutputSelection_SEGMENTS_ONLY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection_VARIANT_MANIFESTS_AND_SEGMENTS"><span class="hs-identifier">HlsOutputSelection_VARIANT_MANIFESTS_AND_SEGMENTS</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Hls Output Selection</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679881584"><span id="local-6989586621679881585"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsOutputSelection"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection"><span class="hs-identifier hs-var">HlsOutputSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsOutputSelection%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection%27"><span class="hs-identifier hs-var">HlsOutputSelection'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsOutputSelection"><span class="annot"><span class="annottext">HlsOutputSelection -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#fromHlsOutputSelection"><span class="hs-identifier hs-var hs-var">fromHlsOutputSelection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679881576"><span id="local-6989586621679881578"><span id="local-6989586621679881580"><span class="annot"><span class="annottext">Int -&gt; HlsOutputSelection -&gt; ShowS
+[HlsOutputSelection] -&gt; ShowS
+HlsOutputSelection -&gt; String
+(Int -&gt; HlsOutputSelection -&gt; ShowS)
+-&gt; (HlsOutputSelection -&gt; String)
+-&gt; ([HlsOutputSelection] -&gt; ShowS)
+-&gt; Show HlsOutputSelection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HlsOutputSelection] -&gt; ShowS
+$cshowList :: [HlsOutputSelection] -&gt; ShowS
+show :: HlsOutputSelection -&gt; String
+$cshow :: HlsOutputSelection -&gt; String
+showsPrec :: Int -&gt; HlsOutputSelection -&gt; ShowS
+$cshowsPrec :: Int -&gt; HlsOutputSelection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679881567"><span id="local-6989586621679881569"><span id="local-6989586621679881571"><span id="local-6989586621679881573"><span class="annot"><span class="annottext">ReadPrec [HlsOutputSelection]
+ReadPrec HlsOutputSelection
+Int -&gt; ReadS HlsOutputSelection
+ReadS [HlsOutputSelection]
+(Int -&gt; ReadS HlsOutputSelection)
+-&gt; ReadS [HlsOutputSelection]
+-&gt; ReadPrec HlsOutputSelection
+-&gt; ReadPrec [HlsOutputSelection]
+-&gt; Read HlsOutputSelection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HlsOutputSelection]
+$creadListPrec :: ReadPrec [HlsOutputSelection]
+readPrec :: ReadPrec HlsOutputSelection
+$creadPrec :: ReadPrec HlsOutputSelection
+readList :: ReadS [HlsOutputSelection]
+$creadList :: ReadS [HlsOutputSelection]
+readsPrec :: Int -&gt; ReadS HlsOutputSelection
+$creadsPrec :: Int -&gt; ReadS HlsOutputSelection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679881562"><span id="local-6989586621679881564"><span class="annot"><span class="annottext">HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool
+(HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool)
+-&gt; (HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool)
+-&gt; Eq HlsOutputSelection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool
+$c/= :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool
+== :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool
+$c== :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679881546"><span id="local-6989586621679881548"><span id="local-6989586621679881550"><span id="local-6989586621679881552"><span id="local-6989586621679881554"><span id="local-6989586621679881556"><span id="local-6989586621679881558"><span class="annot"><span class="annottext">Eq HlsOutputSelection
+Eq HlsOutputSelection
+-&gt; (HlsOutputSelection -&gt; HlsOutputSelection -&gt; Ordering)
+-&gt; (HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool)
+-&gt; (HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool)
+-&gt; (HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool)
+-&gt; (HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool)
+-&gt; (HlsOutputSelection -&gt; HlsOutputSelection -&gt; HlsOutputSelection)
+-&gt; (HlsOutputSelection -&gt; HlsOutputSelection -&gt; HlsOutputSelection)
+-&gt; Ord HlsOutputSelection
+HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool
+HlsOutputSelection -&gt; HlsOutputSelection -&gt; Ordering
+HlsOutputSelection -&gt; HlsOutputSelection -&gt; HlsOutputSelection
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; HlsOutputSelection
+$cmin :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; HlsOutputSelection
+max :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; HlsOutputSelection
+$cmax :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; HlsOutputSelection
+&gt;= :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool
+$c&gt;= :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool
+&gt; :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool
+$c&gt; :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool
+&lt;= :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool
+$c&lt;= :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool
+&lt; :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool
+$c&lt; :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; Bool
+compare :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; Ordering
+$ccompare :: HlsOutputSelection -&gt; HlsOutputSelection -&gt; Ordering
+$cp1Ord :: Eq HlsOutputSelection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HlsOutputSelection -&gt; Rep HlsOutputSelection x)
+-&gt; (forall x. Rep HlsOutputSelection x -&gt; HlsOutputSelection)
+-&gt; Generic HlsOutputSelection
+forall x. Rep HlsOutputSelection x -&gt; HlsOutputSelection
+forall x. HlsOutputSelection -&gt; Rep HlsOutputSelection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HlsOutputSelection x -&gt; HlsOutputSelection
+$cfrom :: forall x. HlsOutputSelection -&gt; Rep HlsOutputSelection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679881538"><span id="local-6989586621679881540"><span class="annot"><span class="annottext">Int -&gt; HlsOutputSelection -&gt; Int
+HlsOutputSelection -&gt; Int
+(Int -&gt; HlsOutputSelection -&gt; Int)
+-&gt; (HlsOutputSelection -&gt; Int) -&gt; Hashable HlsOutputSelection
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HlsOutputSelection -&gt; Int
+$chash :: HlsOutputSelection -&gt; Int
+hashWithSalt :: Int -&gt; HlsOutputSelection -&gt; Int
+$chashWithSalt :: Int -&gt; HlsOutputSelection -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679881535"><span class="annot"><span class="annottext">HlsOutputSelection -&gt; ()
+(HlsOutputSelection -&gt; ()) -&gt; NFData HlsOutputSelection
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HlsOutputSelection -&gt; ()
+$crnf :: HlsOutputSelection -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679881532"><span class="annot"><span class="annottext">Text -&gt; Either String HlsOutputSelection
+(Text -&gt; Either String HlsOutputSelection)
+-&gt; FromText HlsOutputSelection
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HlsOutputSelection
+$cfromText :: Text -&gt; Either String HlsOutputSelection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679881529"><span class="annot"><span class="annottext">HlsOutputSelection -&gt; Text
+(HlsOutputSelection -&gt; Text) -&gt; ToText HlsOutputSelection
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HlsOutputSelection -&gt; Text
+$ctoText :: HlsOutputSelection -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679881526"><span class="annot"><span class="annottext">HlsOutputSelection -&gt; ByteString
+(HlsOutputSelection -&gt; ByteString)
+-&gt; ToByteString HlsOutputSelection
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HlsOutputSelection -&gt; ByteString
+$ctoBS :: HlsOutputSelection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679881523"><span class="annot"><span class="annottext">HlsOutputSelection -&gt; ByteStringBuilder
+(HlsOutputSelection -&gt; ByteStringBuilder)
+-&gt; ToLog HlsOutputSelection
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HlsOutputSelection -&gt; ByteStringBuilder
+$cbuild :: HlsOutputSelection -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679881520"><span class="annot"><span class="annottext">HeaderName -&gt; HlsOutputSelection -&gt; [Header]
+(HeaderName -&gt; HlsOutputSelection -&gt; [Header])
+-&gt; ToHeader HlsOutputSelection
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HlsOutputSelection -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HlsOutputSelection -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679881517"><span class="annot"><span class="annottext">HlsOutputSelection -&gt; QueryString
+(HlsOutputSelection -&gt; QueryString) -&gt; ToQuery HlsOutputSelection
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HlsOutputSelection -&gt; QueryString
+$ctoQuery :: HlsOutputSelection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679881512"><span id="local-6989586621679881514"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsOutputSelection]
+Value -&gt; Parser HlsOutputSelection
+(Value -&gt; Parser HlsOutputSelection)
+-&gt; (Value -&gt; Parser [HlsOutputSelection])
+-&gt; FromJSON HlsOutputSelection
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HlsOutputSelection]
+$cparseJSONList :: Value -&gt; Parser [HlsOutputSelection]
+parseJSON :: Value -&gt; Parser HlsOutputSelection
+$cparseJSON :: Value -&gt; Parser HlsOutputSelection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679881507"><span id="local-6989586621679881509"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsOutputSelection]
+FromJSONKeyFunction HlsOutputSelection
+FromJSONKeyFunction HlsOutputSelection
+-&gt; FromJSONKeyFunction [HlsOutputSelection]
+-&gt; FromJSONKey HlsOutputSelection
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HlsOutputSelection]
+$cfromJSONKeyList :: FromJSONKeyFunction [HlsOutputSelection]
+fromJSONKey :: FromJSONKeyFunction HlsOutputSelection
+$cfromJSONKey :: FromJSONKeyFunction HlsOutputSelection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679881498"><span id="local-6989586621679881500"><span id="local-6989586621679881502"><span id="local-6989586621679881504"><span class="annot"><span class="annottext">[HlsOutputSelection] -&gt; Encoding
+[HlsOutputSelection] -&gt; Value
+HlsOutputSelection -&gt; Encoding
+HlsOutputSelection -&gt; Value
+(HlsOutputSelection -&gt; Value)
+-&gt; (HlsOutputSelection -&gt; Encoding)
+-&gt; ([HlsOutputSelection] -&gt; Value)
+-&gt; ([HlsOutputSelection] -&gt; Encoding)
+-&gt; ToJSON HlsOutputSelection
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HlsOutputSelection] -&gt; Encoding
+$ctoEncodingList :: [HlsOutputSelection] -&gt; Encoding
+toJSONList :: [HlsOutputSelection] -&gt; Value
+$ctoJSONList :: [HlsOutputSelection] -&gt; Value
+toEncoding :: HlsOutputSelection -&gt; Encoding
+$ctoEncoding :: HlsOutputSelection -&gt; Encoding
+toJSON :: HlsOutputSelection -&gt; Value
+$ctoJSON :: HlsOutputSelection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679881493"><span id="local-6989586621679881495"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsOutputSelection]
+ToJSONKeyFunction HlsOutputSelection
+ToJSONKeyFunction HlsOutputSelection
+-&gt; ToJSONKeyFunction [HlsOutputSelection]
+-&gt; ToJSONKey HlsOutputSelection
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HlsOutputSelection]
+$ctoJSONKeyList :: ToJSONKeyFunction [HlsOutputSelection]
+toJSONKey :: ToJSONKeyFunction HlsOutputSelection
+$ctoJSONKey :: ToJSONKeyFunction HlsOutputSelection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679881490"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsOutputSelection
+([Node] -&gt; Either String HlsOutputSelection)
+-&gt; FromXML HlsOutputSelection
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HlsOutputSelection
+$cparseXML :: [Node] -&gt; Either String HlsOutputSelection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679881487"><span class="annot"><span class="annottext">HlsOutputSelection -&gt; XML
+(HlsOutputSelection -&gt; XML) -&gt; ToXML HlsOutputSelection
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HlsOutputSelection -&gt; XML
+$ctoXML :: HlsOutputSelection -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection_MANIFESTS_AND_SEGMENTS"><span class="hs-identifier hs-type">HlsOutputSelection_MANIFESTS_AND_SEGMENTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection"><span class="hs-identifier hs-type">HlsOutputSelection</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsOutputSelection_MANIFESTS_AND_SEGMENTS"><span id="%24mHlsOutputSelection_MANIFESTS_AND_SEGMENTS"><span id="HlsOutputSelection_MANIFESTS_AND_SEGMENTS"><span class="annot"><span class="annottext">$bHlsOutputSelection_MANIFESTS_AND_SEGMENTS :: HlsOutputSelection
+$mHlsOutputSelection_MANIFESTS_AND_SEGMENTS :: forall r. HlsOutputSelection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#%24bHlsOutputSelection_MANIFESTS_AND_SEGMENTS"><span class="hs-identifier hs-var hs-var hs-var">HlsOutputSelection_MANIFESTS_AND_SEGMENTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection%27"><span class="hs-identifier hs-type">HlsOutputSelection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MANIFESTS_AND_SEGMENTS&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection_SEGMENTS_ONLY"><span class="hs-identifier hs-type">HlsOutputSelection_SEGMENTS_ONLY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection"><span class="hs-identifier hs-type">HlsOutputSelection</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsOutputSelection_SEGMENTS_ONLY"><span id="%24mHlsOutputSelection_SEGMENTS_ONLY"><span id="HlsOutputSelection_SEGMENTS_ONLY"><span class="annot"><span class="annottext">$bHlsOutputSelection_SEGMENTS_ONLY :: HlsOutputSelection
+$mHlsOutputSelection_SEGMENTS_ONLY :: forall r. HlsOutputSelection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#%24bHlsOutputSelection_SEGMENTS_ONLY"><span class="hs-identifier hs-var hs-var hs-var">HlsOutputSelection_SEGMENTS_ONLY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection%27"><span class="hs-identifier hs-type">HlsOutputSelection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SEGMENTS_ONLY&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection_VARIANT_MANIFESTS_AND_SEGMENTS"><span class="hs-identifier hs-type">HlsOutputSelection_VARIANT_MANIFESTS_AND_SEGMENTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection"><span class="hs-identifier hs-type">HlsOutputSelection</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsOutputSelection_VARIANT_MANIFESTS_AND_SEGMENTS"><span id="%24mHlsOutputSelection_VARIANT_MANIFESTS_AND_SEGMENTS"><span id="HlsOutputSelection_VARIANT_MANIFESTS_AND_SEGMENTS"><span class="annot"><span class="annottext">$bHlsOutputSelection_VARIANT_MANIFESTS_AND_SEGMENTS :: HlsOutputSelection
+$mHlsOutputSelection_VARIANT_MANIFESTS_AND_SEGMENTS :: forall r. HlsOutputSelection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#%24bHlsOutputSelection_VARIANT_MANIFESTS_AND_SEGMENTS"><span class="hs-identifier hs-var hs-var hs-var">HlsOutputSelection_VARIANT_MANIFESTS_AND_SEGMENTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection%27"><span class="hs-identifier hs-type">HlsOutputSelection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VARIANT_MANIFESTS_AND_SEGMENTS&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection_MANIFESTS_AND_SEGMENTS"><span class="hs-pragma hs-type">HlsOutputSelection_MANIFESTS_AND_SEGMENTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection_SEGMENTS_ONLY"><span class="hs-pragma hs-type">HlsOutputSelection_SEGMENTS_ONLY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection_VARIANT_MANIFESTS_AND_SEGMENTS"><span class="hs-pragma hs-type">HlsOutputSelection_VARIANT_MANIFESTS_AND_SEGMENTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSelection.html#HlsOutputSelection%27"><span class="hs-pragma hs-type">HlsOutputSelection'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

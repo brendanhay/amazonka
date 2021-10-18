@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Enable portfolio sharing feature through AWS Organizations. This API</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- will allow Service Catalog to receive updates on your organization in</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- order to sync your shares with the current structure. This API can only</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- be called by the management account in the organization.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- By calling this API Service Catalog will make a call to</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- organizations:EnableAWSServiceAccess on your behalf so that your shares</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- can be in sync with any changes in your AWS Organizations structure.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Note that a delegated administrator is not authorized to invoke</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @EnableAWSOrganizationsAccess@.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccess"><span class="hs-identifier">EnableAWSOrganizationsAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#newEnableAWSOrganizationsAccess"><span class="hs-identifier">newEnableAWSOrganizationsAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccessResponse"><span class="hs-identifier">EnableAWSOrganizationsAccessResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#newEnableAWSOrganizationsAccessResponse"><span class="hs-identifier">newEnableAWSOrganizationsAccessResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#enableAWSOrganizationsAccessResponse_httpStatus"><span class="hs-identifier">enableAWSOrganizationsAccessResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.html"><span class="hs-identifier">Network.AWS.ServiceCatalog.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newEnableAWSOrganizationsAccess' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679418480"><span id="local-6989586621679418481"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableAWSOrganizationsAccess"><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccess"><span class="hs-identifier hs-var">EnableAWSOrganizationsAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableAWSOrganizationsAccess%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccess%27"><span class="hs-identifier hs-var">EnableAWSOrganizationsAccess'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418475"><span id="local-6989586621679418477"><span class="annot"><span class="annottext">EnableAWSOrganizationsAccess
+-&gt; EnableAWSOrganizationsAccess -&gt; Bool
+(EnableAWSOrganizationsAccess
+ -&gt; EnableAWSOrganizationsAccess -&gt; Bool)
+-&gt; (EnableAWSOrganizationsAccess
+    -&gt; EnableAWSOrganizationsAccess -&gt; Bool)
+-&gt; Eq EnableAWSOrganizationsAccess
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnableAWSOrganizationsAccess
+-&gt; EnableAWSOrganizationsAccess -&gt; Bool
+$c/= :: EnableAWSOrganizationsAccess
+-&gt; EnableAWSOrganizationsAccess -&gt; Bool
+== :: EnableAWSOrganizationsAccess
+-&gt; EnableAWSOrganizationsAccess -&gt; Bool
+$c== :: EnableAWSOrganizationsAccess
+-&gt; EnableAWSOrganizationsAccess -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418466"><span id="local-6989586621679418468"><span id="local-6989586621679418470"><span id="local-6989586621679418472"><span class="annot"><span class="annottext">ReadPrec [EnableAWSOrganizationsAccess]
+ReadPrec EnableAWSOrganizationsAccess
+Int -&gt; ReadS EnableAWSOrganizationsAccess
+ReadS [EnableAWSOrganizationsAccess]
+(Int -&gt; ReadS EnableAWSOrganizationsAccess)
+-&gt; ReadS [EnableAWSOrganizationsAccess]
+-&gt; ReadPrec EnableAWSOrganizationsAccess
+-&gt; ReadPrec [EnableAWSOrganizationsAccess]
+-&gt; Read EnableAWSOrganizationsAccess
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EnableAWSOrganizationsAccess]
+$creadListPrec :: ReadPrec [EnableAWSOrganizationsAccess]
+readPrec :: ReadPrec EnableAWSOrganizationsAccess
+$creadPrec :: ReadPrec EnableAWSOrganizationsAccess
+readList :: ReadS [EnableAWSOrganizationsAccess]
+$creadList :: ReadS [EnableAWSOrganizationsAccess]
+readsPrec :: Int -&gt; ReadS EnableAWSOrganizationsAccess
+$creadsPrec :: Int -&gt; ReadS EnableAWSOrganizationsAccess
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418459"><span id="local-6989586621679418461"><span id="local-6989586621679418463"><span class="annot"><span class="annottext">Int -&gt; EnableAWSOrganizationsAccess -&gt; ShowS
+[EnableAWSOrganizationsAccess] -&gt; ShowS
+EnableAWSOrganizationsAccess -&gt; String
+(Int -&gt; EnableAWSOrganizationsAccess -&gt; ShowS)
+-&gt; (EnableAWSOrganizationsAccess -&gt; String)
+-&gt; ([EnableAWSOrganizationsAccess] -&gt; ShowS)
+-&gt; Show EnableAWSOrganizationsAccess
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnableAWSOrganizationsAccess] -&gt; ShowS
+$cshowList :: [EnableAWSOrganizationsAccess] -&gt; ShowS
+show :: EnableAWSOrganizationsAccess -&gt; String
+$cshow :: EnableAWSOrganizationsAccess -&gt; String
+showsPrec :: Int -&gt; EnableAWSOrganizationsAccess -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnableAWSOrganizationsAccess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ EnableAWSOrganizationsAccess -&gt; Rep EnableAWSOrganizationsAccess x)
+-&gt; (forall x.
+    Rep EnableAWSOrganizationsAccess x -&gt; EnableAWSOrganizationsAccess)
+-&gt; Generic EnableAWSOrganizationsAccess
+forall x.
+Rep EnableAWSOrganizationsAccess x -&gt; EnableAWSOrganizationsAccess
+forall x.
+EnableAWSOrganizationsAccess -&gt; Rep EnableAWSOrganizationsAccess x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep EnableAWSOrganizationsAccess x -&gt; EnableAWSOrganizationsAccess
+$cfrom :: forall x.
+EnableAWSOrganizationsAccess -&gt; Rep EnableAWSOrganizationsAccess x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'EnableAWSOrganizationsAccess' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#newEnableAWSOrganizationsAccess"><span class="hs-identifier hs-type">newEnableAWSOrganizationsAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccess"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccess</span></a></span><span>
+</span><span id="line-67"></span><span id="newEnableAWSOrganizationsAccess"><span class="annot"><span class="annottext">newEnableAWSOrganizationsAccess :: EnableAWSOrganizationsAccess
+</span><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#newEnableAWSOrganizationsAccess"><span class="hs-identifier hs-var hs-var">newEnableAWSOrganizationsAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">EnableAWSOrganizationsAccess
+</span><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccess%27"><span class="hs-identifier hs-var">EnableAWSOrganizationsAccess'</span></a></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccess"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-72"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccess"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccessResponse"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccessResponse</span></a></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679418451"><span class="annot"><span class="annottext">request :: EnableAWSOrganizationsAccess
+-&gt; Request EnableAWSOrganizationsAccess
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; EnableAWSOrganizationsAccess
+-&gt; Request EnableAWSOrganizationsAccess
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ServiceCatalog.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679418447"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy EnableAWSOrganizationsAccess
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse EnableAWSOrganizationsAccess)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse EnableAWSOrganizationsAccess))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy EnableAWSOrganizationsAccess
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse EnableAWSOrganizationsAccess)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679418444"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418444"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679418443"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679418443"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679418442"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679418442"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; EnableAWSOrganizationsAccessResponse
+</span><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccessResponse%27"><span class="hs-identifier hs-var">EnableAWSOrganizationsAccessResponse'</span></a></span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; EnableAWSOrganizationsAccessResponse)
+-&gt; Either String Int
+-&gt; Either String EnableAWSOrganizationsAccessResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418444"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679418435"><span id="local-6989586621679418437"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccess"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccess</span></a></span></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccess"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccess</span></a></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccess"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679418428"><span class="annot"><span class="annottext">toHeaders :: EnableAWSOrganizationsAccess -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; EnableAWSOrganizationsAccess -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-92"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-93"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWS242ServiceCatalogService.EnableAWSOrganizationsAccess&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-95"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-99"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418418"><span id="local-6989586621679418420"><span id="local-6989586621679418422"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccess"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccess</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679418416"><span class="annot"><span class="annottext">toJSON :: EnableAWSOrganizationsAccess -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; EnableAWSOrganizationsAccess -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccess"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679418411"><span class="annot"><span class="annottext">toPath :: EnableAWSOrganizationsAccess -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EnableAWSOrganizationsAccess -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccess"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679418407"><span class="annot"><span class="annottext">toQuery :: EnableAWSOrganizationsAccess -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; EnableAWSOrganizationsAccess -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | /See:/ 'newEnableAWSOrganizationsAccessResponse' smart constructor.</span><span>
+</span><span id="line-113"></span><span id="local-6989586621679418404"><span id="local-6989586621679418405"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableAWSOrganizationsAccessResponse"><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccessResponse"><span class="hs-identifier hs-var">EnableAWSOrganizationsAccessResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableAWSOrganizationsAccessResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccessResponse%27"><span class="hs-identifier hs-var">EnableAWSOrganizationsAccessResponse'</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AhttpStatus%3AEnableAWSOrganizationsAccessResponse%27"><span class="annot"><span class="annottext">EnableAWSOrganizationsAccessResponse -&gt; Int
+</span><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#%24sel%3AhttpStatus%3AEnableAWSOrganizationsAccessResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418399"><span id="local-6989586621679418401"><span class="annot"><span class="annottext">EnableAWSOrganizationsAccessResponse
+-&gt; EnableAWSOrganizationsAccessResponse -&gt; Bool
+(EnableAWSOrganizationsAccessResponse
+ -&gt; EnableAWSOrganizationsAccessResponse -&gt; Bool)
+-&gt; (EnableAWSOrganizationsAccessResponse
+    -&gt; EnableAWSOrganizationsAccessResponse -&gt; Bool)
+-&gt; Eq EnableAWSOrganizationsAccessResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnableAWSOrganizationsAccessResponse
+-&gt; EnableAWSOrganizationsAccessResponse -&gt; Bool
+$c/= :: EnableAWSOrganizationsAccessResponse
+-&gt; EnableAWSOrganizationsAccessResponse -&gt; Bool
+== :: EnableAWSOrganizationsAccessResponse
+-&gt; EnableAWSOrganizationsAccessResponse -&gt; Bool
+$c== :: EnableAWSOrganizationsAccessResponse
+-&gt; EnableAWSOrganizationsAccessResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418391"><span id="local-6989586621679418393"><span id="local-6989586621679418395"><span id="local-6989586621679418397"><span class="annot"><span class="annottext">ReadPrec [EnableAWSOrganizationsAccessResponse]
+ReadPrec EnableAWSOrganizationsAccessResponse
+Int -&gt; ReadS EnableAWSOrganizationsAccessResponse
+ReadS [EnableAWSOrganizationsAccessResponse]
+(Int -&gt; ReadS EnableAWSOrganizationsAccessResponse)
+-&gt; ReadS [EnableAWSOrganizationsAccessResponse]
+-&gt; ReadPrec EnableAWSOrganizationsAccessResponse
+-&gt; ReadPrec [EnableAWSOrganizationsAccessResponse]
+-&gt; Read EnableAWSOrganizationsAccessResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EnableAWSOrganizationsAccessResponse]
+$creadListPrec :: ReadPrec [EnableAWSOrganizationsAccessResponse]
+readPrec :: ReadPrec EnableAWSOrganizationsAccessResponse
+$creadPrec :: ReadPrec EnableAWSOrganizationsAccessResponse
+readList :: ReadS [EnableAWSOrganizationsAccessResponse]
+$creadList :: ReadS [EnableAWSOrganizationsAccessResponse]
+readsPrec :: Int -&gt; ReadS EnableAWSOrganizationsAccessResponse
+$creadsPrec :: Int -&gt; ReadS EnableAWSOrganizationsAccessResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418385"><span id="local-6989586621679418387"><span id="local-6989586621679418389"><span class="annot"><span class="annottext">Int -&gt; EnableAWSOrganizationsAccessResponse -&gt; ShowS
+[EnableAWSOrganizationsAccessResponse] -&gt; ShowS
+EnableAWSOrganizationsAccessResponse -&gt; String
+(Int -&gt; EnableAWSOrganizationsAccessResponse -&gt; ShowS)
+-&gt; (EnableAWSOrganizationsAccessResponse -&gt; String)
+-&gt; ([EnableAWSOrganizationsAccessResponse] -&gt; ShowS)
+-&gt; Show EnableAWSOrganizationsAccessResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnableAWSOrganizationsAccessResponse] -&gt; ShowS
+$cshowList :: [EnableAWSOrganizationsAccessResponse] -&gt; ShowS
+show :: EnableAWSOrganizationsAccessResponse -&gt; String
+$cshow :: EnableAWSOrganizationsAccessResponse -&gt; String
+showsPrec :: Int -&gt; EnableAWSOrganizationsAccessResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnableAWSOrganizationsAccessResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ EnableAWSOrganizationsAccessResponse
+ -&gt; Rep EnableAWSOrganizationsAccessResponse x)
+-&gt; (forall x.
+    Rep EnableAWSOrganizationsAccessResponse x
+    -&gt; EnableAWSOrganizationsAccessResponse)
+-&gt; Generic EnableAWSOrganizationsAccessResponse
+forall x.
+Rep EnableAWSOrganizationsAccessResponse x
+-&gt; EnableAWSOrganizationsAccessResponse
+forall x.
+EnableAWSOrganizationsAccessResponse
+-&gt; Rep EnableAWSOrganizationsAccessResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep EnableAWSOrganizationsAccessResponse x
+-&gt; EnableAWSOrganizationsAccessResponse
+$cfrom :: forall x.
+EnableAWSOrganizationsAccessResponse
+-&gt; Rep EnableAWSOrganizationsAccessResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Create a value of 'EnableAWSOrganizationsAccessResponse' with all optional fields omitted.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'httpStatus', 'enableAWSOrganizationsAccessResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#newEnableAWSOrganizationsAccessResponse"><span class="hs-identifier hs-type">newEnableAWSOrganizationsAccessResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccessResponse"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccessResponse</span></a></span><span>
+</span><span id="line-132"></span><span id="newEnableAWSOrganizationsAccessResponse"><span class="annot"><span class="annottext">newEnableAWSOrganizationsAccessResponse :: Int -&gt; EnableAWSOrganizationsAccessResponse
+</span><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#newEnableAWSOrganizationsAccessResponse"><span class="hs-identifier hs-var hs-var">newEnableAWSOrganizationsAccessResponse</span></a></span></span><span> </span><span id="local-6989586621679418382"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418382"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">EnableAWSOrganizationsAccessResponse' :: Int -&gt; EnableAWSOrganizationsAccessResponse
+</span><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccessResponse%27"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccessResponse'</span></a></span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:EnableAWSOrganizationsAccessResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#%24sel%3AhttpStatus%3AEnableAWSOrganizationsAccessResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418382"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#enableAWSOrganizationsAccessResponse_httpStatus"><span class="hs-identifier hs-type">enableAWSOrganizationsAccessResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccessResponse"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccessResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-140"></span><span id="enableAWSOrganizationsAccessResponse_httpStatus"><span class="annot"><span class="annottext">enableAWSOrganizationsAccessResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; EnableAWSOrganizationsAccessResponse
+-&gt; f EnableAWSOrganizationsAccessResponse
+</span><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#enableAWSOrganizationsAccessResponse_httpStatus"><span class="hs-identifier hs-var hs-var">enableAWSOrganizationsAccessResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableAWSOrganizationsAccessResponse -&gt; Int)
+-&gt; (EnableAWSOrganizationsAccessResponse
+    -&gt; Int -&gt; EnableAWSOrganizationsAccessResponse)
+-&gt; Lens
+     EnableAWSOrganizationsAccessResponse
+     EnableAWSOrganizationsAccessResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccessResponse%27"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418379"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:EnableAWSOrganizationsAccessResponse' :: EnableAWSOrganizationsAccessResponse -&gt; Int
+</span><a href="#local-6989586621679418379"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418379"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418378"><span class="annot"><span class="annottext">s :: EnableAWSOrganizationsAccessResponse
+</span><a href="#local-6989586621679418378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccessResponse%27"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418377"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableAWSOrganizationsAccessResponse
+</span><a href="#local-6989586621679418378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EnableAWSOrganizationsAccessResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#%24sel%3AhttpStatus%3AEnableAWSOrganizationsAccessResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccessResponse"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccessResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679418375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess.html#EnableAWSOrganizationsAccessResponse"><span class="hs-identifier hs-type">EnableAWSOrganizationsAccessResponse</span></a></span></span><span>
+</span><span id="line-145"></span></pre></body></html>

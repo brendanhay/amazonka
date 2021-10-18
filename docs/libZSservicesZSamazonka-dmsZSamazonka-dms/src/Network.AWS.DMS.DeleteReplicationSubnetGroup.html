@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DMS.DeleteReplicationSubnetGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a subnet group.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DMS.DeleteReplicationSubnetGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup"><span class="hs-identifier">DeleteReplicationSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#newDeleteReplicationSubnetGroup"><span class="hs-identifier">newDeleteReplicationSubnetGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#deleteReplicationSubnetGroup_replicationSubnetGroupIdentifier"><span class="hs-identifier">deleteReplicationSubnetGroup_replicationSubnetGroupIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroupResponse"><span class="hs-identifier">DeleteReplicationSubnetGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#newDeleteReplicationSubnetGroupResponse"><span class="hs-identifier">newDeleteReplicationSubnetGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#deleteReplicationSubnetGroupResponse_httpStatus"><span class="hs-identifier">deleteReplicationSubnetGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.html"><span class="hs-identifier">Network.AWS.DMS.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- /See:/ 'newDeleteReplicationSubnetGroup' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679453516"><span id="local-6989586621679453517"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReplicationSubnetGroup"><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup"><span class="hs-identifier hs-var">DeleteReplicationSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReplicationSubnetGroup%27"><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup%27"><span class="hs-identifier hs-var">DeleteReplicationSubnetGroup'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The subnet group name of the replication instance.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AreplicationSubnetGroupIdentifier%3ADeleteReplicationSubnetGroup%27"><span class="annot"><span class="annottext">DeleteReplicationSubnetGroup -&gt; Text
+</span><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#%24sel%3AreplicationSubnetGroupIdentifier%3ADeleteReplicationSubnetGroup%27"><span class="hs-identifier hs-var hs-var">replicationSubnetGroupIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453510"><span id="local-6989586621679453512"><span class="annot"><span class="annottext">DeleteReplicationSubnetGroup
+-&gt; DeleteReplicationSubnetGroup -&gt; Bool
+(DeleteReplicationSubnetGroup
+ -&gt; DeleteReplicationSubnetGroup -&gt; Bool)
+-&gt; (DeleteReplicationSubnetGroup
+    -&gt; DeleteReplicationSubnetGroup -&gt; Bool)
+-&gt; Eq DeleteReplicationSubnetGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteReplicationSubnetGroup
+-&gt; DeleteReplicationSubnetGroup -&gt; Bool
+$c/= :: DeleteReplicationSubnetGroup
+-&gt; DeleteReplicationSubnetGroup -&gt; Bool
+== :: DeleteReplicationSubnetGroup
+-&gt; DeleteReplicationSubnetGroup -&gt; Bool
+$c== :: DeleteReplicationSubnetGroup
+-&gt; DeleteReplicationSubnetGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453501"><span id="local-6989586621679453503"><span id="local-6989586621679453505"><span id="local-6989586621679453507"><span class="annot"><span class="annottext">ReadPrec [DeleteReplicationSubnetGroup]
+ReadPrec DeleteReplicationSubnetGroup
+Int -&gt; ReadS DeleteReplicationSubnetGroup
+ReadS [DeleteReplicationSubnetGroup]
+(Int -&gt; ReadS DeleteReplicationSubnetGroup)
+-&gt; ReadS [DeleteReplicationSubnetGroup]
+-&gt; ReadPrec DeleteReplicationSubnetGroup
+-&gt; ReadPrec [DeleteReplicationSubnetGroup]
+-&gt; Read DeleteReplicationSubnetGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteReplicationSubnetGroup]
+$creadListPrec :: ReadPrec [DeleteReplicationSubnetGroup]
+readPrec :: ReadPrec DeleteReplicationSubnetGroup
+$creadPrec :: ReadPrec DeleteReplicationSubnetGroup
+readList :: ReadS [DeleteReplicationSubnetGroup]
+$creadList :: ReadS [DeleteReplicationSubnetGroup]
+readsPrec :: Int -&gt; ReadS DeleteReplicationSubnetGroup
+$creadsPrec :: Int -&gt; ReadS DeleteReplicationSubnetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453494"><span id="local-6989586621679453496"><span id="local-6989586621679453498"><span class="annot"><span class="annottext">Int -&gt; DeleteReplicationSubnetGroup -&gt; ShowS
+[DeleteReplicationSubnetGroup] -&gt; ShowS
+DeleteReplicationSubnetGroup -&gt; String
+(Int -&gt; DeleteReplicationSubnetGroup -&gt; ShowS)
+-&gt; (DeleteReplicationSubnetGroup -&gt; String)
+-&gt; ([DeleteReplicationSubnetGroup] -&gt; ShowS)
+-&gt; Show DeleteReplicationSubnetGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteReplicationSubnetGroup] -&gt; ShowS
+$cshowList :: [DeleteReplicationSubnetGroup] -&gt; ShowS
+show :: DeleteReplicationSubnetGroup -&gt; String
+$cshow :: DeleteReplicationSubnetGroup -&gt; String
+showsPrec :: Int -&gt; DeleteReplicationSubnetGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteReplicationSubnetGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteReplicationSubnetGroup -&gt; Rep DeleteReplicationSubnetGroup x)
+-&gt; (forall x.
+    Rep DeleteReplicationSubnetGroup x -&gt; DeleteReplicationSubnetGroup)
+-&gt; Generic DeleteReplicationSubnetGroup
+forall x.
+Rep DeleteReplicationSubnetGroup x -&gt; DeleteReplicationSubnetGroup
+forall x.
+DeleteReplicationSubnetGroup -&gt; Rep DeleteReplicationSubnetGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteReplicationSubnetGroup x -&gt; DeleteReplicationSubnetGroup
+$cfrom :: forall x.
+DeleteReplicationSubnetGroup -&gt; Rep DeleteReplicationSubnetGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DeleteReplicationSubnetGroup' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'replicationSubnetGroupIdentifier', 'deleteReplicationSubnetGroup_replicationSubnetGroupIdentifier' - The subnet group name of the replication instance.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#newDeleteReplicationSubnetGroup"><span class="hs-identifier hs-type">newDeleteReplicationSubnetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'replicationSubnetGroupIdentifier'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroup</span></a></span><span>
+</span><span id="line-70"></span><span id="newDeleteReplicationSubnetGroup"><span class="annot"><span class="annottext">newDeleteReplicationSubnetGroup :: Text -&gt; DeleteReplicationSubnetGroup
+</span><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#newDeleteReplicationSubnetGroup"><span class="hs-identifier hs-var hs-var">newDeleteReplicationSubnetGroup</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679453489"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453489"><span class="hs-identifier hs-var">pReplicationSubnetGroupIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">DeleteReplicationSubnetGroup' :: Text -&gt; DeleteReplicationSubnetGroup
+</span><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup%27"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroup'</span></a></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicationSubnetGroupIdentifier:DeleteReplicationSubnetGroup' :: Text
+</span><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#%24sel%3AreplicationSubnetGroupIdentifier%3ADeleteReplicationSubnetGroup%27"><span class="hs-identifier hs-var">replicationSubnetGroupIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453489"><span class="hs-identifier hs-var">pReplicationSubnetGroupIdentifier_</span></a></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The subnet group name of the replication instance.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#deleteReplicationSubnetGroup_replicationSubnetGroupIdentifier"><span class="hs-identifier hs-type">deleteReplicationSubnetGroup_replicationSubnetGroupIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span id="deleteReplicationSubnetGroup_replicationSubnetGroupIdentifier"><span class="annot"><span class="annottext">deleteReplicationSubnetGroup_replicationSubnetGroupIdentifier :: (Text -&gt; f Text)
+-&gt; DeleteReplicationSubnetGroup -&gt; f DeleteReplicationSubnetGroup
+</span><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#deleteReplicationSubnetGroup_replicationSubnetGroupIdentifier"><span class="hs-identifier hs-var hs-var">deleteReplicationSubnetGroup_replicationSubnetGroupIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteReplicationSubnetGroup -&gt; Text)
+-&gt; (DeleteReplicationSubnetGroup
+    -&gt; Text -&gt; DeleteReplicationSubnetGroup)
+-&gt; Lens
+     DeleteReplicationSubnetGroup DeleteReplicationSubnetGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup%27"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453486"><span class="annot"><span class="annottext">Text
+replicationSubnetGroupIdentifier :: Text
+$sel:replicationSubnetGroupIdentifier:DeleteReplicationSubnetGroup' :: DeleteReplicationSubnetGroup -&gt; Text
+</span><a href="#local-6989586621679453486"><span class="hs-identifier hs-var hs-var">replicationSubnetGroupIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453486"><span class="hs-identifier hs-var">replicationSubnetGroupIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453485"><span class="annot"><span class="annottext">s :: DeleteReplicationSubnetGroup
+</span><a href="#local-6989586621679453485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup%27"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453484"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReplicationSubnetGroup
+</span><a href="#local-6989586621679453485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationSubnetGroupIdentifier:DeleteReplicationSubnetGroup' :: Text
+</span><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#%24sel%3AreplicationSubnetGroupIdentifier%3ADeleteReplicationSubnetGroup%27"><span class="hs-identifier hs-var">replicationSubnetGroupIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroupResponse</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679453480"><span class="annot"><span class="annottext">request :: DeleteReplicationSubnetGroup
+-&gt; Request DeleteReplicationSubnetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteReplicationSubnetGroup
+-&gt; Request DeleteReplicationSubnetGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679453476"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteReplicationSubnetGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteReplicationSubnetGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteReplicationSubnetGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteReplicationSubnetGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteReplicationSubnetGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679453473"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453473"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679453472"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679453472"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679453471"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679453471"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteReplicationSubnetGroupResponse
+</span><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroupResponse%27"><span class="hs-identifier hs-var">DeleteReplicationSubnetGroupResponse'</span></a></span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteReplicationSubnetGroupResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteReplicationSubnetGroupResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453473"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679453464"><span id="local-6989586621679453466"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroup</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453461"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroup</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679453457"><span class="annot"><span class="annottext">toHeaders :: DeleteReplicationSubnetGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteReplicationSubnetGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonDMSv20160101.DeleteReplicationSubnetGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-106"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453447"><span id="local-6989586621679453449"><span id="local-6989586621679453451"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679453445"><span class="annot"><span class="annottext">toJSON :: DeleteReplicationSubnetGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup%27"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453443"><span class="annot"><span class="annottext">Text
+replicationSubnetGroupIdentifier :: Text
+$sel:replicationSubnetGroupIdentifier:DeleteReplicationSubnetGroup' :: DeleteReplicationSubnetGroup -&gt; Text
+</span><a href="#local-6989586621679453443"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationSubnetGroupIdentifier&quot;</span></span><span>
+</span><span id="line-120"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453443"><span class="hs-identifier hs-var">replicationSubnetGroupIdentifier</span></a></span><span>
+</span><span id="line-121"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679453437"><span class="annot"><span class="annottext">toPath :: DeleteReplicationSubnetGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteReplicationSubnetGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroup"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679453433"><span class="annot"><span class="annottext">toQuery :: DeleteReplicationSubnetGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteReplicationSubnetGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- /See:/ 'newDeleteReplicationSubnetGroupResponse' smart constructor.</span><span>
+</span><span id="line-134"></span><span id="local-6989586621679453430"><span id="local-6989586621679453431"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReplicationSubnetGroupResponse"><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroupResponse"><span class="hs-identifier hs-var">DeleteReplicationSubnetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReplicationSubnetGroupResponse%27"><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroupResponse%27"><span class="hs-identifier hs-var">DeleteReplicationSubnetGroupResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteReplicationSubnetGroupResponse%27"><span class="annot"><span class="annottext">DeleteReplicationSubnetGroupResponse -&gt; Int
+</span><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#%24sel%3AhttpStatus%3ADeleteReplicationSubnetGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453425"><span id="local-6989586621679453427"><span class="annot"><span class="annottext">DeleteReplicationSubnetGroupResponse
+-&gt; DeleteReplicationSubnetGroupResponse -&gt; Bool
+(DeleteReplicationSubnetGroupResponse
+ -&gt; DeleteReplicationSubnetGroupResponse -&gt; Bool)
+-&gt; (DeleteReplicationSubnetGroupResponse
+    -&gt; DeleteReplicationSubnetGroupResponse -&gt; Bool)
+-&gt; Eq DeleteReplicationSubnetGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteReplicationSubnetGroupResponse
+-&gt; DeleteReplicationSubnetGroupResponse -&gt; Bool
+$c/= :: DeleteReplicationSubnetGroupResponse
+-&gt; DeleteReplicationSubnetGroupResponse -&gt; Bool
+== :: DeleteReplicationSubnetGroupResponse
+-&gt; DeleteReplicationSubnetGroupResponse -&gt; Bool
+$c== :: DeleteReplicationSubnetGroupResponse
+-&gt; DeleteReplicationSubnetGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453417"><span id="local-6989586621679453419"><span id="local-6989586621679453421"><span id="local-6989586621679453423"><span class="annot"><span class="annottext">ReadPrec [DeleteReplicationSubnetGroupResponse]
+ReadPrec DeleteReplicationSubnetGroupResponse
+Int -&gt; ReadS DeleteReplicationSubnetGroupResponse
+ReadS [DeleteReplicationSubnetGroupResponse]
+(Int -&gt; ReadS DeleteReplicationSubnetGroupResponse)
+-&gt; ReadS [DeleteReplicationSubnetGroupResponse]
+-&gt; ReadPrec DeleteReplicationSubnetGroupResponse
+-&gt; ReadPrec [DeleteReplicationSubnetGroupResponse]
+-&gt; Read DeleteReplicationSubnetGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteReplicationSubnetGroupResponse]
+$creadListPrec :: ReadPrec [DeleteReplicationSubnetGroupResponse]
+readPrec :: ReadPrec DeleteReplicationSubnetGroupResponse
+$creadPrec :: ReadPrec DeleteReplicationSubnetGroupResponse
+readList :: ReadS [DeleteReplicationSubnetGroupResponse]
+$creadList :: ReadS [DeleteReplicationSubnetGroupResponse]
+readsPrec :: Int -&gt; ReadS DeleteReplicationSubnetGroupResponse
+$creadsPrec :: Int -&gt; ReadS DeleteReplicationSubnetGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453411"><span id="local-6989586621679453413"><span id="local-6989586621679453415"><span class="annot"><span class="annottext">Int -&gt; DeleteReplicationSubnetGroupResponse -&gt; ShowS
+[DeleteReplicationSubnetGroupResponse] -&gt; ShowS
+DeleteReplicationSubnetGroupResponse -&gt; String
+(Int -&gt; DeleteReplicationSubnetGroupResponse -&gt; ShowS)
+-&gt; (DeleteReplicationSubnetGroupResponse -&gt; String)
+-&gt; ([DeleteReplicationSubnetGroupResponse] -&gt; ShowS)
+-&gt; Show DeleteReplicationSubnetGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteReplicationSubnetGroupResponse] -&gt; ShowS
+$cshowList :: [DeleteReplicationSubnetGroupResponse] -&gt; ShowS
+show :: DeleteReplicationSubnetGroupResponse -&gt; String
+$cshow :: DeleteReplicationSubnetGroupResponse -&gt; String
+showsPrec :: Int -&gt; DeleteReplicationSubnetGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteReplicationSubnetGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteReplicationSubnetGroupResponse
+ -&gt; Rep DeleteReplicationSubnetGroupResponse x)
+-&gt; (forall x.
+    Rep DeleteReplicationSubnetGroupResponse x
+    -&gt; DeleteReplicationSubnetGroupResponse)
+-&gt; Generic DeleteReplicationSubnetGroupResponse
+forall x.
+Rep DeleteReplicationSubnetGroupResponse x
+-&gt; DeleteReplicationSubnetGroupResponse
+forall x.
+DeleteReplicationSubnetGroupResponse
+-&gt; Rep DeleteReplicationSubnetGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteReplicationSubnetGroupResponse x
+-&gt; DeleteReplicationSubnetGroupResponse
+$cfrom :: forall x.
+DeleteReplicationSubnetGroupResponse
+-&gt; Rep DeleteReplicationSubnetGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Create a value of 'DeleteReplicationSubnetGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'httpStatus', 'deleteReplicationSubnetGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#newDeleteReplicationSubnetGroupResponse"><span class="hs-identifier hs-type">newDeleteReplicationSubnetGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroupResponse</span></a></span><span>
+</span><span id="line-153"></span><span id="newDeleteReplicationSubnetGroupResponse"><span class="annot"><span class="annottext">newDeleteReplicationSubnetGroupResponse :: Int -&gt; DeleteReplicationSubnetGroupResponse
+</span><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#newDeleteReplicationSubnetGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteReplicationSubnetGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679453408"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453408"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">DeleteReplicationSubnetGroupResponse' :: Int -&gt; DeleteReplicationSubnetGroupResponse
+</span><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroupResponse%27"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroupResponse'</span></a></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReplicationSubnetGroupResponse' :: Int
+</span><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#%24sel%3AhttpStatus%3ADeleteReplicationSubnetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453408"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#deleteReplicationSubnetGroupResponse_httpStatus"><span class="hs-identifier hs-type">deleteReplicationSubnetGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-161"></span><span id="deleteReplicationSubnetGroupResponse_httpStatus"><span class="annot"><span class="annottext">deleteReplicationSubnetGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteReplicationSubnetGroupResponse
+-&gt; f DeleteReplicationSubnetGroupResponse
+</span><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#deleteReplicationSubnetGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteReplicationSubnetGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteReplicationSubnetGroupResponse -&gt; Int)
+-&gt; (DeleteReplicationSubnetGroupResponse
+    -&gt; Int -&gt; DeleteReplicationSubnetGroupResponse)
+-&gt; Lens
+     DeleteReplicationSubnetGroupResponse
+     DeleteReplicationSubnetGroupResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroupResponse%27"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453407"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteReplicationSubnetGroupResponse' :: DeleteReplicationSubnetGroupResponse -&gt; Int
+</span><a href="#local-6989586621679453407"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453407"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453406"><span class="annot"><span class="annottext">s :: DeleteReplicationSubnetGroupResponse
+</span><a href="#local-6989586621679453406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroupResponse%27"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453405"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReplicationSubnetGroupResponse
+</span><a href="#local-6989586621679453406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReplicationSubnetGroupResponse' :: Int
+</span><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#%24sel%3AhttpStatus%3ADeleteReplicationSubnetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679453403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationSubnetGroup.html#DeleteReplicationSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteReplicationSubnetGroupResponse</span></a></span></span><span>
+</span><span id="line-166"></span></pre></body></html>

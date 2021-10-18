@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.PatchOperationType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.PatchOperationType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchOperationType.html#PatchOperationType"><span class="hs-identifier">PatchOperationType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchOperationType.html#PatchOperationType_Install"><span class="hs-identifier">PatchOperationType_Install</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchOperationType.html#PatchOperationType_Scan"><span class="hs-identifier">PatchOperationType_Scan</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679807499"><span id="local-6989586621679807500"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PatchOperationType"><span class="annot"><a href="Network.AWS.SSM.Types.PatchOperationType.html#PatchOperationType"><span class="hs-identifier hs-var">PatchOperationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchOperationType%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchOperationType.html#PatchOperationType%27"><span class="hs-identifier hs-var">PatchOperationType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPatchOperationType"><span class="annot"><span class="annottext">PatchOperationType -&gt; Text
+</span><a href="Network.AWS.SSM.Types.PatchOperationType.html#fromPatchOperationType"><span class="hs-identifier hs-var hs-var">fromPatchOperationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679807491"><span id="local-6989586621679807493"><span id="local-6989586621679807495"><span class="annot"><span class="annottext">Int -&gt; PatchOperationType -&gt; ShowS
+[PatchOperationType] -&gt; ShowS
+PatchOperationType -&gt; String
+(Int -&gt; PatchOperationType -&gt; ShowS)
+-&gt; (PatchOperationType -&gt; String)
+-&gt; ([PatchOperationType] -&gt; ShowS)
+-&gt; Show PatchOperationType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PatchOperationType] -&gt; ShowS
+$cshowList :: [PatchOperationType] -&gt; ShowS
+show :: PatchOperationType -&gt; String
+$cshow :: PatchOperationType -&gt; String
+showsPrec :: Int -&gt; PatchOperationType -&gt; ShowS
+$cshowsPrec :: Int -&gt; PatchOperationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679807482"><span id="local-6989586621679807484"><span id="local-6989586621679807486"><span id="local-6989586621679807488"><span class="annot"><span class="annottext">ReadPrec [PatchOperationType]
+ReadPrec PatchOperationType
+Int -&gt; ReadS PatchOperationType
+ReadS [PatchOperationType]
+(Int -&gt; ReadS PatchOperationType)
+-&gt; ReadS [PatchOperationType]
+-&gt; ReadPrec PatchOperationType
+-&gt; ReadPrec [PatchOperationType]
+-&gt; Read PatchOperationType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PatchOperationType]
+$creadListPrec :: ReadPrec [PatchOperationType]
+readPrec :: ReadPrec PatchOperationType
+$creadPrec :: ReadPrec PatchOperationType
+readList :: ReadS [PatchOperationType]
+$creadList :: ReadS [PatchOperationType]
+readsPrec :: Int -&gt; ReadS PatchOperationType
+$creadsPrec :: Int -&gt; ReadS PatchOperationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679807477"><span id="local-6989586621679807479"><span class="annot"><span class="annottext">PatchOperationType -&gt; PatchOperationType -&gt; Bool
+(PatchOperationType -&gt; PatchOperationType -&gt; Bool)
+-&gt; (PatchOperationType -&gt; PatchOperationType -&gt; Bool)
+-&gt; Eq PatchOperationType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PatchOperationType -&gt; PatchOperationType -&gt; Bool
+$c/= :: PatchOperationType -&gt; PatchOperationType -&gt; Bool
+== :: PatchOperationType -&gt; PatchOperationType -&gt; Bool
+$c== :: PatchOperationType -&gt; PatchOperationType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679807461"><span id="local-6989586621679807463"><span id="local-6989586621679807465"><span id="local-6989586621679807467"><span id="local-6989586621679807469"><span id="local-6989586621679807471"><span id="local-6989586621679807473"><span class="annot"><span class="annottext">Eq PatchOperationType
+Eq PatchOperationType
+-&gt; (PatchOperationType -&gt; PatchOperationType -&gt; Ordering)
+-&gt; (PatchOperationType -&gt; PatchOperationType -&gt; Bool)
+-&gt; (PatchOperationType -&gt; PatchOperationType -&gt; Bool)
+-&gt; (PatchOperationType -&gt; PatchOperationType -&gt; Bool)
+-&gt; (PatchOperationType -&gt; PatchOperationType -&gt; Bool)
+-&gt; (PatchOperationType -&gt; PatchOperationType -&gt; PatchOperationType)
+-&gt; (PatchOperationType -&gt; PatchOperationType -&gt; PatchOperationType)
+-&gt; Ord PatchOperationType
+PatchOperationType -&gt; PatchOperationType -&gt; Bool
+PatchOperationType -&gt; PatchOperationType -&gt; Ordering
+PatchOperationType -&gt; PatchOperationType -&gt; PatchOperationType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PatchOperationType -&gt; PatchOperationType -&gt; PatchOperationType
+$cmin :: PatchOperationType -&gt; PatchOperationType -&gt; PatchOperationType
+max :: PatchOperationType -&gt; PatchOperationType -&gt; PatchOperationType
+$cmax :: PatchOperationType -&gt; PatchOperationType -&gt; PatchOperationType
+&gt;= :: PatchOperationType -&gt; PatchOperationType -&gt; Bool
+$c&gt;= :: PatchOperationType -&gt; PatchOperationType -&gt; Bool
+&gt; :: PatchOperationType -&gt; PatchOperationType -&gt; Bool
+$c&gt; :: PatchOperationType -&gt; PatchOperationType -&gt; Bool
+&lt;= :: PatchOperationType -&gt; PatchOperationType -&gt; Bool
+$c&lt;= :: PatchOperationType -&gt; PatchOperationType -&gt; Bool
+&lt; :: PatchOperationType -&gt; PatchOperationType -&gt; Bool
+$c&lt; :: PatchOperationType -&gt; PatchOperationType -&gt; Bool
+compare :: PatchOperationType -&gt; PatchOperationType -&gt; Ordering
+$ccompare :: PatchOperationType -&gt; PatchOperationType -&gt; Ordering
+$cp1Ord :: Eq PatchOperationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PatchOperationType -&gt; Rep PatchOperationType x)
+-&gt; (forall x. Rep PatchOperationType x -&gt; PatchOperationType)
+-&gt; Generic PatchOperationType
+forall x. Rep PatchOperationType x -&gt; PatchOperationType
+forall x. PatchOperationType -&gt; Rep PatchOperationType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PatchOperationType x -&gt; PatchOperationType
+$cfrom :: forall x. PatchOperationType -&gt; Rep PatchOperationType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679807453"><span id="local-6989586621679807455"><span class="annot"><span class="annottext">Int -&gt; PatchOperationType -&gt; Int
+PatchOperationType -&gt; Int
+(Int -&gt; PatchOperationType -&gt; Int)
+-&gt; (PatchOperationType -&gt; Int) -&gt; Hashable PatchOperationType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PatchOperationType -&gt; Int
+$chash :: PatchOperationType -&gt; Int
+hashWithSalt :: Int -&gt; PatchOperationType -&gt; Int
+$chashWithSalt :: Int -&gt; PatchOperationType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679807450"><span class="annot"><span class="annottext">PatchOperationType -&gt; ()
+(PatchOperationType -&gt; ()) -&gt; NFData PatchOperationType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PatchOperationType -&gt; ()
+$crnf :: PatchOperationType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679807447"><span class="annot"><span class="annottext">Text -&gt; Either String PatchOperationType
+(Text -&gt; Either String PatchOperationType)
+-&gt; FromText PatchOperationType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PatchOperationType
+$cfromText :: Text -&gt; Either String PatchOperationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679807444"><span class="annot"><span class="annottext">PatchOperationType -&gt; Text
+(PatchOperationType -&gt; Text) -&gt; ToText PatchOperationType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PatchOperationType -&gt; Text
+$ctoText :: PatchOperationType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679807441"><span class="annot"><span class="annottext">PatchOperationType -&gt; ByteString
+(PatchOperationType -&gt; ByteString)
+-&gt; ToByteString PatchOperationType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PatchOperationType -&gt; ByteString
+$ctoBS :: PatchOperationType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679807438"><span class="annot"><span class="annottext">PatchOperationType -&gt; ByteStringBuilder
+(PatchOperationType -&gt; ByteStringBuilder)
+-&gt; ToLog PatchOperationType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PatchOperationType -&gt; ByteStringBuilder
+$cbuild :: PatchOperationType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679807435"><span class="annot"><span class="annottext">HeaderName -&gt; PatchOperationType -&gt; [Header]
+(HeaderName -&gt; PatchOperationType -&gt; [Header])
+-&gt; ToHeader PatchOperationType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PatchOperationType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PatchOperationType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679807432"><span class="annot"><span class="annottext">PatchOperationType -&gt; QueryString
+(PatchOperationType -&gt; QueryString) -&gt; ToQuery PatchOperationType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PatchOperationType -&gt; QueryString
+$ctoQuery :: PatchOperationType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679807427"><span id="local-6989586621679807429"><span class="annot"><span class="annottext">Value -&gt; Parser [PatchOperationType]
+Value -&gt; Parser PatchOperationType
+(Value -&gt; Parser PatchOperationType)
+-&gt; (Value -&gt; Parser [PatchOperationType])
+-&gt; FromJSON PatchOperationType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PatchOperationType]
+$cparseJSONList :: Value -&gt; Parser [PatchOperationType]
+parseJSON :: Value -&gt; Parser PatchOperationType
+$cparseJSON :: Value -&gt; Parser PatchOperationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679807422"><span id="local-6989586621679807424"><span class="annot"><span class="annottext">FromJSONKeyFunction [PatchOperationType]
+FromJSONKeyFunction PatchOperationType
+FromJSONKeyFunction PatchOperationType
+-&gt; FromJSONKeyFunction [PatchOperationType]
+-&gt; FromJSONKey PatchOperationType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PatchOperationType]
+$cfromJSONKeyList :: FromJSONKeyFunction [PatchOperationType]
+fromJSONKey :: FromJSONKeyFunction PatchOperationType
+$cfromJSONKey :: FromJSONKeyFunction PatchOperationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679807413"><span id="local-6989586621679807415"><span id="local-6989586621679807417"><span id="local-6989586621679807419"><span class="annot"><span class="annottext">[PatchOperationType] -&gt; Encoding
+[PatchOperationType] -&gt; Value
+PatchOperationType -&gt; Encoding
+PatchOperationType -&gt; Value
+(PatchOperationType -&gt; Value)
+-&gt; (PatchOperationType -&gt; Encoding)
+-&gt; ([PatchOperationType] -&gt; Value)
+-&gt; ([PatchOperationType] -&gt; Encoding)
+-&gt; ToJSON PatchOperationType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PatchOperationType] -&gt; Encoding
+$ctoEncodingList :: [PatchOperationType] -&gt; Encoding
+toJSONList :: [PatchOperationType] -&gt; Value
+$ctoJSONList :: [PatchOperationType] -&gt; Value
+toEncoding :: PatchOperationType -&gt; Encoding
+$ctoEncoding :: PatchOperationType -&gt; Encoding
+toJSON :: PatchOperationType -&gt; Value
+$ctoJSON :: PatchOperationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679807408"><span id="local-6989586621679807410"><span class="annot"><span class="annottext">ToJSONKeyFunction [PatchOperationType]
+ToJSONKeyFunction PatchOperationType
+ToJSONKeyFunction PatchOperationType
+-&gt; ToJSONKeyFunction [PatchOperationType]
+-&gt; ToJSONKey PatchOperationType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PatchOperationType]
+$ctoJSONKeyList :: ToJSONKeyFunction [PatchOperationType]
+toJSONKey :: ToJSONKeyFunction PatchOperationType
+$ctoJSONKey :: ToJSONKeyFunction PatchOperationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679807405"><span class="annot"><span class="annottext">[Node] -&gt; Either String PatchOperationType
+([Node] -&gt; Either String PatchOperationType)
+-&gt; FromXML PatchOperationType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PatchOperationType
+$cparseXML :: [Node] -&gt; Either String PatchOperationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679807402"><span class="annot"><span class="annottext">PatchOperationType -&gt; XML
+(PatchOperationType -&gt; XML) -&gt; ToXML PatchOperationType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PatchOperationType -&gt; XML
+$ctoXML :: PatchOperationType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchOperationType.html#PatchOperationType_Install"><span class="hs-identifier hs-type">PatchOperationType_Install</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchOperationType.html#PatchOperationType"><span class="hs-identifier hs-type">PatchOperationType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchOperationType_Install"><span id="%24mPatchOperationType_Install"><span id="PatchOperationType_Install"><span class="annot"><span class="annottext">$bPatchOperationType_Install :: PatchOperationType
+$mPatchOperationType_Install :: forall r. PatchOperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.PatchOperationType.html#%24bPatchOperationType_Install"><span class="hs-identifier hs-var hs-var hs-var">PatchOperationType_Install</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchOperationType.html#PatchOperationType%27"><span class="hs-identifier hs-type">PatchOperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Install&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchOperationType.html#PatchOperationType_Scan"><span class="hs-identifier hs-type">PatchOperationType_Scan</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchOperationType.html#PatchOperationType"><span class="hs-identifier hs-type">PatchOperationType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchOperationType_Scan"><span id="%24mPatchOperationType_Scan"><span id="PatchOperationType_Scan"><span class="annot"><span class="annottext">$bPatchOperationType_Scan :: PatchOperationType
+$mPatchOperationType_Scan :: forall r. PatchOperationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.PatchOperationType.html#%24bPatchOperationType_Scan"><span class="hs-identifier hs-var hs-var hs-var">PatchOperationType_Scan</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchOperationType.html#PatchOperationType%27"><span class="hs-identifier hs-type">PatchOperationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Scan&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchOperationType.html#PatchOperationType_Install"><span class="hs-pragma hs-type">PatchOperationType_Install</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchOperationType.html#PatchOperationType_Scan"><span class="hs-pragma hs-type">PatchOperationType_Scan</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchOperationType.html#PatchOperationType%27"><span class="hs-pragma hs-type">PatchOperationType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

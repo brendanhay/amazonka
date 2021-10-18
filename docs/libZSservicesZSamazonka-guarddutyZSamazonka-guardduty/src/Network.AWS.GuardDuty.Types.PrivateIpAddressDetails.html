@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GuardDuty.Types.PrivateIpAddressDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GuardDuty.Types.PrivateIpAddressDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains other private IP address information of the EC2 instance.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPrivateIpAddressDetails' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679298401"><span id="local-6989586621679298402"></span></span><span class="hs-keyword">data</span><span> </span><span id="PrivateIpAddressDetails"><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails"><span class="hs-identifier hs-var">PrivateIpAddressDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PrivateIpAddressDetails%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails%27"><span class="hs-identifier hs-var">PrivateIpAddressDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The private DNS name of the EC2 instance.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AprivateDnsName%3APrivateIpAddressDetails%27"><span class="annot"><span class="annottext">PrivateIpAddressDetails -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#%24sel%3AprivateDnsName%3APrivateIpAddressDetails%27"><span class="hs-identifier hs-var hs-var">privateDnsName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The private IP address of the EC2 instance.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AprivateIpAddress%3APrivateIpAddressDetails%27"><span class="annot"><span class="annottext">PrivateIpAddressDetails -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#%24sel%3AprivateIpAddress%3APrivateIpAddressDetails%27"><span class="hs-identifier hs-var hs-var">privateIpAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298394"><span id="local-6989586621679298396"><span class="annot"><span class="annottext">PrivateIpAddressDetails -&gt; PrivateIpAddressDetails -&gt; Bool
+(PrivateIpAddressDetails -&gt; PrivateIpAddressDetails -&gt; Bool)
+-&gt; (PrivateIpAddressDetails -&gt; PrivateIpAddressDetails -&gt; Bool)
+-&gt; Eq PrivateIpAddressDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PrivateIpAddressDetails -&gt; PrivateIpAddressDetails -&gt; Bool
+$c/= :: PrivateIpAddressDetails -&gt; PrivateIpAddressDetails -&gt; Bool
+== :: PrivateIpAddressDetails -&gt; PrivateIpAddressDetails -&gt; Bool
+$c== :: PrivateIpAddressDetails -&gt; PrivateIpAddressDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298385"><span id="local-6989586621679298387"><span id="local-6989586621679298389"><span id="local-6989586621679298391"><span class="annot"><span class="annottext">ReadPrec [PrivateIpAddressDetails]
+ReadPrec PrivateIpAddressDetails
+Int -&gt; ReadS PrivateIpAddressDetails
+ReadS [PrivateIpAddressDetails]
+(Int -&gt; ReadS PrivateIpAddressDetails)
+-&gt; ReadS [PrivateIpAddressDetails]
+-&gt; ReadPrec PrivateIpAddressDetails
+-&gt; ReadPrec [PrivateIpAddressDetails]
+-&gt; Read PrivateIpAddressDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PrivateIpAddressDetails]
+$creadListPrec :: ReadPrec [PrivateIpAddressDetails]
+readPrec :: ReadPrec PrivateIpAddressDetails
+$creadPrec :: ReadPrec PrivateIpAddressDetails
+readList :: ReadS [PrivateIpAddressDetails]
+$creadList :: ReadS [PrivateIpAddressDetails]
+readsPrec :: Int -&gt; ReadS PrivateIpAddressDetails
+$creadsPrec :: Int -&gt; ReadS PrivateIpAddressDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298378"><span id="local-6989586621679298380"><span id="local-6989586621679298382"><span class="annot"><span class="annottext">Int -&gt; PrivateIpAddressDetails -&gt; ShowS
+[PrivateIpAddressDetails] -&gt; ShowS
+PrivateIpAddressDetails -&gt; String
+(Int -&gt; PrivateIpAddressDetails -&gt; ShowS)
+-&gt; (PrivateIpAddressDetails -&gt; String)
+-&gt; ([PrivateIpAddressDetails] -&gt; ShowS)
+-&gt; Show PrivateIpAddressDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PrivateIpAddressDetails] -&gt; ShowS
+$cshowList :: [PrivateIpAddressDetails] -&gt; ShowS
+show :: PrivateIpAddressDetails -&gt; String
+$cshow :: PrivateIpAddressDetails -&gt; String
+showsPrec :: Int -&gt; PrivateIpAddressDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; PrivateIpAddressDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PrivateIpAddressDetails -&gt; Rep PrivateIpAddressDetails x)
+-&gt; (forall x.
+    Rep PrivateIpAddressDetails x -&gt; PrivateIpAddressDetails)
+-&gt; Generic PrivateIpAddressDetails
+forall x. Rep PrivateIpAddressDetails x -&gt; PrivateIpAddressDetails
+forall x. PrivateIpAddressDetails -&gt; Rep PrivateIpAddressDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PrivateIpAddressDetails x -&gt; PrivateIpAddressDetails
+$cfrom :: forall x. PrivateIpAddressDetails -&gt; Rep PrivateIpAddressDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'PrivateIpAddressDetails' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'privateDnsName', 'privateIpAddressDetails_privateDnsName' - The private DNS name of the EC2 instance.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'privateIpAddress', 'privateIpAddressDetails_privateIpAddress' - The private IP address of the EC2 instance.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#newPrivateIpAddressDetails"><span class="hs-identifier hs-type">newPrivateIpAddressDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails"><span class="hs-identifier hs-type">PrivateIpAddressDetails</span></a></span><span>
+</span><span id="line-50"></span><span id="newPrivateIpAddressDetails"><span class="annot"><span class="annottext">newPrivateIpAddressDetails :: PrivateIpAddressDetails
+</span><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#newPrivateIpAddressDetails"><span class="hs-identifier hs-var hs-var">newPrivateIpAddressDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">PrivateIpAddressDetails' :: Maybe Text -&gt; Maybe Text -&gt; PrivateIpAddressDetails
+</span><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails%27"><span class="hs-identifier hs-type">PrivateIpAddressDetails'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:privateDnsName:PrivateIpAddressDetails' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#%24sel%3AprivateDnsName%3APrivateIpAddressDetails%27"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:privateIpAddress:PrivateIpAddressDetails' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#%24sel%3AprivateIpAddress%3APrivateIpAddressDetails%27"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The private DNS name of the EC2 instance.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#privateIpAddressDetails_privateDnsName"><span class="hs-identifier hs-type">privateIpAddressDetails_privateDnsName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails"><span class="hs-identifier hs-type">PrivateIpAddressDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="privateIpAddressDetails_privateDnsName"><span class="annot"><span class="annottext">privateIpAddressDetails_privateDnsName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PrivateIpAddressDetails -&gt; f PrivateIpAddressDetails
+</span><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#privateIpAddressDetails_privateDnsName"><span class="hs-identifier hs-var hs-var">privateIpAddressDetails_privateDnsName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PrivateIpAddressDetails -&gt; Maybe Text)
+-&gt; (PrivateIpAddressDetails
+    -&gt; Maybe Text -&gt; PrivateIpAddressDetails)
+-&gt; Lens
+     PrivateIpAddressDetails
+     PrivateIpAddressDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails%27"><span class="hs-identifier hs-type">PrivateIpAddressDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298369"><span class="annot"><span class="annottext">Maybe Text
+privateDnsName :: Maybe Text
+$sel:privateDnsName:PrivateIpAddressDetails' :: PrivateIpAddressDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679298369"><span class="hs-identifier hs-var hs-var">privateDnsName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298369"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298368"><span class="annot"><span class="annottext">s :: PrivateIpAddressDetails
+</span><a href="#local-6989586621679298368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails%27"><span class="hs-identifier hs-type">PrivateIpAddressDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298367"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrivateIpAddressDetails
+</span><a href="#local-6989586621679298368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateDnsName:PrivateIpAddressDetails' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#%24sel%3AprivateDnsName%3APrivateIpAddressDetails%27"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails"><span class="hs-identifier hs-type">PrivateIpAddressDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The private IP address of the EC2 instance.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#privateIpAddressDetails_privateIpAddress"><span class="hs-identifier hs-type">privateIpAddressDetails_privateIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails"><span class="hs-identifier hs-type">PrivateIpAddressDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="privateIpAddressDetails_privateIpAddress"><span class="annot"><span class="annottext">privateIpAddressDetails_privateIpAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PrivateIpAddressDetails -&gt; f PrivateIpAddressDetails
+</span><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#privateIpAddressDetails_privateIpAddress"><span class="hs-identifier hs-var hs-var">privateIpAddressDetails_privateIpAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PrivateIpAddressDetails -&gt; Maybe Text)
+-&gt; (PrivateIpAddressDetails
+    -&gt; Maybe Text -&gt; PrivateIpAddressDetails)
+-&gt; Lens
+     PrivateIpAddressDetails
+     PrivateIpAddressDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails%27"><span class="hs-identifier hs-type">PrivateIpAddressDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298365"><span class="annot"><span class="annottext">Maybe Text
+privateIpAddress :: Maybe Text
+$sel:privateIpAddress:PrivateIpAddressDetails' :: PrivateIpAddressDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679298365"><span class="hs-identifier hs-var hs-var">privateIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298365"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298364"><span class="annot"><span class="annottext">s :: PrivateIpAddressDetails
+</span><a href="#local-6989586621679298364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails%27"><span class="hs-identifier hs-type">PrivateIpAddressDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298363"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrivateIpAddressDetails
+</span><a href="#local-6989586621679298364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateIpAddress:PrivateIpAddressDetails' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#%24sel%3AprivateIpAddress%3APrivateIpAddressDetails%27"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails"><span class="hs-identifier hs-type">PrivateIpAddressDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298360"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails"><span class="hs-identifier hs-type">PrivateIpAddressDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679298358"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PrivateIpAddressDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PrivateIpAddressDetails)
+-&gt; Value
+-&gt; Parser PrivateIpAddressDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PrivateIpAddressDetails&quot;</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298355"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298355"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; PrivateIpAddressDetails
+</span><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails%27"><span class="hs-identifier hs-var">PrivateIpAddressDetails'</span></a></span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; PrivateIpAddressDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; PrivateIpAddressDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;privateDnsName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PrivateIpAddressDetails)
+-&gt; Parser (Maybe Text) -&gt; Parser PrivateIpAddressDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;privateIpAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298349"><span id="local-6989586621679298351"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails"><span class="hs-identifier hs-type">PrivateIpAddressDetails</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails"><span class="hs-identifier hs-type">PrivateIpAddressDetails</span></a></span></span><span>
+</span><span id="line-78"></span></pre></body></html>

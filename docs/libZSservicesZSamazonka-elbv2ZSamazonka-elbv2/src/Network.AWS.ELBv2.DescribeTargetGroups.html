@@ -1,0 +1,844 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ELBv2.DescribeTargetGroups</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the specified target groups or all of your target groups. By</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- default, all target groups are described. Alternatively, you can specify</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- one of the following to filter the results: the ARN of the load</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- balancer, the names of one or more target groups, or the ARNs of one or</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- more target groups.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ELBv2.DescribeTargetGroups</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier">DescribeTargetGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#newDescribeTargetGroups"><span class="hs-identifier">newDescribeTargetGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_loadBalancerArn"><span class="hs-identifier">describeTargetGroups_loadBalancerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_names"><span class="hs-identifier">describeTargetGroups_names</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_pageSize"><span class="hs-identifier">describeTargetGroups_pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_targetGroupArns"><span class="hs-identifier">describeTargetGroups_targetGroupArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_marker"><span class="hs-identifier">describeTargetGroups_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse"><span class="hs-identifier">DescribeTargetGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#newDescribeTargetGroupsResponse"><span class="hs-identifier">newDescribeTargetGroupsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroupsResponse_nextMarker"><span class="hs-identifier">describeTargetGroupsResponse_nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroupsResponse_targetGroups"><span class="hs-identifier">describeTargetGroupsResponse_targetGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroupsResponse_httpStatus"><span class="hs-identifier">describeTargetGroupsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.html"><span class="hs-identifier">Network.AWS.ELBv2.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDescribeTargetGroups' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679256240"><span id="local-6989586621679256241"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTargetGroups"><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-var">DescribeTargetGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTargetGroups%27"><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups%27"><span class="hs-identifier hs-var">DescribeTargetGroups'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the load balancer.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AloadBalancerArn%3ADescribeTargetGroups%27"><span class="annot"><span class="annottext">DescribeTargetGroups -&gt; Maybe Text
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3AloadBalancerArn%3ADescribeTargetGroups%27"><span class="hs-identifier hs-var hs-var">loadBalancerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The names of the target groups.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Anames%3ADescribeTargetGroups%27"><span class="annot"><span class="annottext">DescribeTargetGroups -&gt; Maybe [Text]
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3Anames%3ADescribeTargetGroups%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with this call.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3ApageSize%3ADescribeTargetGroups%27"><span class="annot"><span class="annottext">DescribeTargetGroups -&gt; Maybe Natural
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3ApageSize%3ADescribeTargetGroups%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names (ARN) of the target groups.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AtargetGroupArns%3ADescribeTargetGroups%27"><span class="annot"><span class="annottext">DescribeTargetGroups -&gt; Maybe [Text]
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3AtargetGroupArns%3ADescribeTargetGroups%27"><span class="hs-identifier hs-var hs-var">targetGroupArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The marker for the next set of results. (You received this marker from a</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- previous call.)</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeTargetGroups%27"><span class="annot"><span class="annottext">DescribeTargetGroups -&gt; Maybe Text
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3Amarker%3ADescribeTargetGroups%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256230"><span id="local-6989586621679256232"><span class="annot"><span class="annottext">DescribeTargetGroups -&gt; DescribeTargetGroups -&gt; Bool
+(DescribeTargetGroups -&gt; DescribeTargetGroups -&gt; Bool)
+-&gt; (DescribeTargetGroups -&gt; DescribeTargetGroups -&gt; Bool)
+-&gt; Eq DescribeTargetGroups
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeTargetGroups -&gt; DescribeTargetGroups -&gt; Bool
+$c/= :: DescribeTargetGroups -&gt; DescribeTargetGroups -&gt; Bool
+== :: DescribeTargetGroups -&gt; DescribeTargetGroups -&gt; Bool
+$c== :: DescribeTargetGroups -&gt; DescribeTargetGroups -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256221"><span id="local-6989586621679256223"><span id="local-6989586621679256225"><span id="local-6989586621679256227"><span class="annot"><span class="annottext">ReadPrec [DescribeTargetGroups]
+ReadPrec DescribeTargetGroups
+Int -&gt; ReadS DescribeTargetGroups
+ReadS [DescribeTargetGroups]
+(Int -&gt; ReadS DescribeTargetGroups)
+-&gt; ReadS [DescribeTargetGroups]
+-&gt; ReadPrec DescribeTargetGroups
+-&gt; ReadPrec [DescribeTargetGroups]
+-&gt; Read DescribeTargetGroups
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeTargetGroups]
+$creadListPrec :: ReadPrec [DescribeTargetGroups]
+readPrec :: ReadPrec DescribeTargetGroups
+$creadPrec :: ReadPrec DescribeTargetGroups
+readList :: ReadS [DescribeTargetGroups]
+$creadList :: ReadS [DescribeTargetGroups]
+readsPrec :: Int -&gt; ReadS DescribeTargetGroups
+$creadsPrec :: Int -&gt; ReadS DescribeTargetGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256214"><span id="local-6989586621679256216"><span id="local-6989586621679256218"><span class="annot"><span class="annottext">Int -&gt; DescribeTargetGroups -&gt; ShowS
+[DescribeTargetGroups] -&gt; ShowS
+DescribeTargetGroups -&gt; String
+(Int -&gt; DescribeTargetGroups -&gt; ShowS)
+-&gt; (DescribeTargetGroups -&gt; String)
+-&gt; ([DescribeTargetGroups] -&gt; ShowS)
+-&gt; Show DescribeTargetGroups
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeTargetGroups] -&gt; ShowS
+$cshowList :: [DescribeTargetGroups] -&gt; ShowS
+show :: DescribeTargetGroups -&gt; String
+$cshow :: DescribeTargetGroups -&gt; String
+showsPrec :: Int -&gt; DescribeTargetGroups -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeTargetGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeTargetGroups -&gt; Rep DescribeTargetGroups x)
+-&gt; (forall x. Rep DescribeTargetGroups x -&gt; DescribeTargetGroups)
+-&gt; Generic DescribeTargetGroups
+forall x. Rep DescribeTargetGroups x -&gt; DescribeTargetGroups
+forall x. DescribeTargetGroups -&gt; Rep DescribeTargetGroups x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeTargetGroups x -&gt; DescribeTargetGroups
+$cfrom :: forall x. DescribeTargetGroups -&gt; Rep DescribeTargetGroups x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'DescribeTargetGroups' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'loadBalancerArn', 'describeTargetGroups_loadBalancerArn' - The Amazon Resource Name (ARN) of the load balancer.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'names', 'describeTargetGroups_names' - The names of the target groups.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'pageSize', 'describeTargetGroups_pageSize' - The maximum number of results to return with this call.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'targetGroupArns', 'describeTargetGroups_targetGroupArns' - The Amazon Resource Names (ARN) of the target groups.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'marker', 'describeTargetGroups_marker' - The marker for the next set of results. (You received this marker from a</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- previous call.)</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#newDescribeTargetGroups"><span class="hs-identifier hs-type">newDescribeTargetGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span>
+</span><span id="line-96"></span><span id="newDescribeTargetGroups"><span class="annot"><span class="annottext">newDescribeTargetGroups :: DescribeTargetGroups
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#newDescribeTargetGroups"><span class="hs-identifier hs-var hs-var">newDescribeTargetGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">DescribeTargetGroups' :: Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Natural
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; DescribeTargetGroups
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups%27"><span class="hs-identifier hs-type">DescribeTargetGroups'</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loadBalancerArn:DescribeTargetGroups' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3AloadBalancerArn%3ADescribeTargetGroups%27"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:names:DescribeTargetGroups' :: Maybe [Text]
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3Anames%3ADescribeTargetGroups%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageSize:DescribeTargetGroups' :: Maybe Natural
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3ApageSize%3ADescribeTargetGroups%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetGroupArns:DescribeTargetGroups' :: Maybe [Text]
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3AtargetGroupArns%3ADescribeTargetGroups%27"><span class="hs-identifier hs-var">targetGroupArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeTargetGroups' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3Amarker%3ADescribeTargetGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the load balancer.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_loadBalancerArn"><span class="hs-identifier hs-type">describeTargetGroups_loadBalancerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="describeTargetGroups_loadBalancerArn"><span class="annot"><span class="annottext">describeTargetGroups_loadBalancerArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeTargetGroups -&gt; f DescribeTargetGroups
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_loadBalancerArn"><span class="hs-identifier hs-var hs-var">describeTargetGroups_loadBalancerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTargetGroups -&gt; Maybe Text)
+-&gt; (DescribeTargetGroups -&gt; Maybe Text -&gt; DescribeTargetGroups)
+-&gt; Lens
+     DescribeTargetGroups DescribeTargetGroups (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups%27"><span class="hs-identifier hs-type">DescribeTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256208"><span class="annot"><span class="annottext">Maybe Text
+loadBalancerArn :: Maybe Text
+$sel:loadBalancerArn:DescribeTargetGroups' :: DescribeTargetGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679256208"><span class="hs-identifier hs-var hs-var">loadBalancerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256208"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256207"><span class="annot"><span class="annottext">s :: DescribeTargetGroups
+</span><a href="#local-6989586621679256207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups%27"><span class="hs-identifier hs-type">DescribeTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256206"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTargetGroups
+</span><a href="#local-6989586621679256207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerArn:DescribeTargetGroups' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3AloadBalancerArn%3ADescribeTargetGroups%27"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The names of the target groups.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_names"><span class="hs-identifier hs-type">describeTargetGroups_names</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="describeTargetGroups_names"><span class="annot"><span class="annottext">describeTargetGroups_names :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeTargetGroups -&gt; f DescribeTargetGroups
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_names"><span class="hs-identifier hs-var hs-var">describeTargetGroups_names</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTargetGroups -&gt; Maybe [Text])
+-&gt; (DescribeTargetGroups -&gt; Maybe [Text] -&gt; DescribeTargetGroups)
+-&gt; Lens
+     DescribeTargetGroups
+     DescribeTargetGroups
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups%27"><span class="hs-identifier hs-type">DescribeTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256205"><span class="annot"><span class="annottext">Maybe [Text]
+names :: Maybe [Text]
+$sel:names:DescribeTargetGroups' :: DescribeTargetGroups -&gt; Maybe [Text]
+</span><a href="#local-6989586621679256205"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679256205"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256204"><span class="annot"><span class="annottext">s :: DescribeTargetGroups
+</span><a href="#local-6989586621679256204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups%27"><span class="hs-identifier hs-type">DescribeTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256203"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679256203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTargetGroups
+</span><a href="#local-6989586621679256204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:DescribeTargetGroups' :: Maybe [Text]
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3Anames%3ADescribeTargetGroups%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679256203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeTargetGroups -&gt; f DescribeTargetGroups)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeTargetGroups
+-&gt; f DescribeTargetGroups
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The maximum number of results to return with this call.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_pageSize"><span class="hs-identifier hs-type">describeTargetGroups_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="describeTargetGroups_pageSize"><span class="annot"><span class="annottext">describeTargetGroups_pageSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeTargetGroups -&gt; f DescribeTargetGroups
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_pageSize"><span class="hs-identifier hs-var hs-var">describeTargetGroups_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTargetGroups -&gt; Maybe Natural)
+-&gt; (DescribeTargetGroups -&gt; Maybe Natural -&gt; DescribeTargetGroups)
+-&gt; Lens
+     DescribeTargetGroups
+     DescribeTargetGroups
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups%27"><span class="hs-identifier hs-type">DescribeTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256199"><span class="annot"><span class="annottext">Maybe Natural
+pageSize :: Maybe Natural
+$sel:pageSize:DescribeTargetGroups' :: DescribeTargetGroups -&gt; Maybe Natural
+</span><a href="#local-6989586621679256199"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679256199"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256198"><span class="annot"><span class="annottext">s :: DescribeTargetGroups
+</span><a href="#local-6989586621679256198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups%27"><span class="hs-identifier hs-type">DescribeTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256197"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679256197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTargetGroups
+</span><a href="#local-6989586621679256198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:DescribeTargetGroups' :: Maybe Natural
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3ApageSize%3ADescribeTargetGroups%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679256197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The Amazon Resource Names (ARN) of the target groups.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_targetGroupArns"><span class="hs-identifier hs-type">describeTargetGroups_targetGroupArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="describeTargetGroups_targetGroupArns"><span class="annot"><span class="annottext">describeTargetGroups_targetGroupArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeTargetGroups -&gt; f DescribeTargetGroups
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_targetGroupArns"><span class="hs-identifier hs-var hs-var">describeTargetGroups_targetGroupArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTargetGroups -&gt; Maybe [Text])
+-&gt; (DescribeTargetGroups -&gt; Maybe [Text] -&gt; DescribeTargetGroups)
+-&gt; Lens
+     DescribeTargetGroups
+     DescribeTargetGroups
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups%27"><span class="hs-identifier hs-type">DescribeTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256196"><span class="annot"><span class="annottext">Maybe [Text]
+targetGroupArns :: Maybe [Text]
+$sel:targetGroupArns:DescribeTargetGroups' :: DescribeTargetGroups -&gt; Maybe [Text]
+</span><a href="#local-6989586621679256196"><span class="hs-identifier hs-var hs-var">targetGroupArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679256196"><span class="hs-identifier hs-var">targetGroupArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256195"><span class="annot"><span class="annottext">s :: DescribeTargetGroups
+</span><a href="#local-6989586621679256195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups%27"><span class="hs-identifier hs-type">DescribeTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256194"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679256194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTargetGroups
+</span><a href="#local-6989586621679256195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroupArns:DescribeTargetGroups' :: Maybe [Text]
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3AtargetGroupArns%3ADescribeTargetGroups%27"><span class="hs-identifier hs-var">targetGroupArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679256194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeTargetGroups -&gt; f DescribeTargetGroups)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeTargetGroups
+-&gt; f DescribeTargetGroups
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The marker for the next set of results. (You received this marker from a</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- previous call.)</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_marker"><span class="hs-identifier hs-type">describeTargetGroups_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="describeTargetGroups_marker"><span class="annot"><span class="annottext">describeTargetGroups_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeTargetGroups -&gt; f DescribeTargetGroups
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_marker"><span class="hs-identifier hs-var hs-var">describeTargetGroups_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTargetGroups -&gt; Maybe Text)
+-&gt; (DescribeTargetGroups -&gt; Maybe Text -&gt; DescribeTargetGroups)
+-&gt; Lens
+     DescribeTargetGroups DescribeTargetGroups (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups%27"><span class="hs-identifier hs-type">DescribeTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256193"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeTargetGroups' :: DescribeTargetGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679256193"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256193"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256192"><span class="annot"><span class="annottext">s :: DescribeTargetGroups
+</span><a href="#local-6989586621679256192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups%27"><span class="hs-identifier hs-type">DescribeTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256191"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTargetGroups
+</span><a href="#local-6989586621679256192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeTargetGroups' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3Amarker%3ADescribeTargetGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679256187"><span class="annot"><span class="annottext">page :: DescribeTargetGroups
+-&gt; AWSResponse DescribeTargetGroups -&gt; Maybe DescribeTargetGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679256185"><span class="annot"><span class="annottext">DescribeTargetGroups
+</span><a href="#local-6989586621679256185"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679256184"><span class="annot"><span class="annottext">AWSResponse DescribeTargetGroups
+</span><a href="#local-6989586621679256184"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-130"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeTargetGroups
+DescribeTargetGroupsResponse
+</span><a href="#local-6989586621679256184"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">DescribeTargetGroupsResponse
+-&gt; Getting (First Text) DescribeTargetGroupsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeTargetGroupsResponse
+-&gt; Const (First Text) DescribeTargetGroupsResponse
+Lens' DescribeTargetGroupsResponse (Maybe Text)
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroupsResponse_nextMarker"><span class="hs-identifier hs-var">describeTargetGroupsResponse_nextMarker</span></a></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeTargetGroupsResponse
+ -&gt; Const (First Text) DescribeTargetGroupsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeTargetGroupsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-133"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeTargetGroups
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroup] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-136"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeTargetGroups
+DescribeTargetGroupsResponse
+</span><a href="#local-6989586621679256184"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">DescribeTargetGroupsResponse
+-&gt; Getting
+     (First [TargetGroup]) DescribeTargetGroupsResponse [TargetGroup]
+-&gt; Maybe [TargetGroup]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [TargetGroup]
+ -&gt; Const (First [TargetGroup]) (Maybe [TargetGroup]))
+-&gt; DescribeTargetGroupsResponse
+-&gt; Const (First [TargetGroup]) DescribeTargetGroupsResponse
+Lens' DescribeTargetGroupsResponse (Maybe [TargetGroup])
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroupsResponse_targetGroups"><span class="hs-identifier hs-var">describeTargetGroupsResponse_targetGroups</span></a></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [TargetGroup]
+  -&gt; Const (First [TargetGroup]) (Maybe [TargetGroup]))
+ -&gt; DescribeTargetGroupsResponse
+ -&gt; Const (First [TargetGroup]) DescribeTargetGroupsResponse)
+-&gt; (([TargetGroup] -&gt; Const (First [TargetGroup]) [TargetGroup])
+    -&gt; Maybe [TargetGroup]
+    -&gt; Const (First [TargetGroup]) (Maybe [TargetGroup]))
+-&gt; Getting
+     (First [TargetGroup]) DescribeTargetGroupsResponse [TargetGroup]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([TargetGroup] -&gt; Const (First [TargetGroup]) [TargetGroup])
+-&gt; Maybe [TargetGroup]
+-&gt; Const (First [TargetGroup]) (Maybe [TargetGroup])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-139"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeTargetGroups
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">DescribeTargetGroups -&gt; Maybe DescribeTargetGroups
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeTargetGroups -&gt; Maybe DescribeTargetGroups)
+-&gt; DescribeTargetGroups -&gt; Maybe DescribeTargetGroups
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">DescribeTargetGroups
+</span><a href="#local-6989586621679256185"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">DescribeTargetGroups
+-&gt; (DescribeTargetGroups -&gt; DescribeTargetGroups)
+-&gt; DescribeTargetGroups
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeTargetGroups -&gt; Identity DescribeTargetGroups
+Lens
+  DescribeTargetGroups DescribeTargetGroups (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroups_marker"><span class="hs-identifier hs-var">describeTargetGroups_marker</span></a></span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeTargetGroups -&gt; Identity DescribeTargetGroups)
+-&gt; Maybe Text -&gt; DescribeTargetGroups -&gt; DescribeTargetGroups
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeTargetGroups
+DescribeTargetGroupsResponse
+</span><a href="#local-6989586621679256184"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">DescribeTargetGroupsResponse
+-&gt; Getting (First Text) DescribeTargetGroupsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeTargetGroupsResponse
+-&gt; Const (First Text) DescribeTargetGroupsResponse
+Lens' DescribeTargetGroupsResponse (Maybe Text)
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroupsResponse_nextMarker"><span class="hs-identifier hs-var">describeTargetGroupsResponse_nextMarker</span></a></span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeTargetGroupsResponse
+ -&gt; Const (First Text) DescribeTargetGroupsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeTargetGroupsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-151"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse</span></a></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679256175"><span class="annot"><span class="annottext">request :: DescribeTargetGroups -&gt; Request DescribeTargetGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeTargetGroups -&gt; Request DescribeTargetGroups
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ELBv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679256171"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeTargetGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeTargetGroups)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribeTargetGroups))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeTargetGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeTargetGroups)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribeTargetGroupsResult&quot;</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256168"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256168"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256167"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679256167"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256166"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679256166"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [TargetGroup] -&gt; Int -&gt; DescribeTargetGroupsResponse
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse%27"><span class="hs-identifier hs-var">DescribeTargetGroupsResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [TargetGroup] -&gt; Int -&gt; DescribeTargetGroupsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [TargetGroup] -&gt; Int -&gt; DescribeTargetGroupsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679256166"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [TargetGroup] -&gt; Int -&gt; DescribeTargetGroupsResponse)
+-&gt; Either String (Maybe [TargetGroup])
+-&gt; Either String (Int -&gt; DescribeTargetGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679256166"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-161"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [TargetGroup]))
+-&gt; Either String (Maybe [TargetGroup])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [TargetGroup])
+-&gt; [Node] -&gt; Either String (Maybe [TargetGroup])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [TargetGroup]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeTargetGroupsResponse)
+-&gt; Either String Int -&gt; Either String DescribeTargetGroupsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256168"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256155"><span id="local-6989586621679256157"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256152"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679256148"><span class="annot"><span class="annottext">toHeaders :: DescribeTargetGroups -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeTargetGroups -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679256143"><span class="annot"><span class="annottext">toPath :: DescribeTargetGroups -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeTargetGroups -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups"><span class="hs-identifier hs-type">DescribeTargetGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679256139"><span class="annot"><span class="annottext">toQuery :: DescribeTargetGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroups%27"><span class="hs-identifier hs-type">DescribeTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256133"><span id="local-6989586621679256134"><span id="local-6989586621679256135"><span id="local-6989586621679256136"><span id="local-6989586621679256137"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Text]
+Maybe Text
+marker :: Maybe Text
+targetGroupArns :: Maybe [Text]
+pageSize :: Maybe Natural
+names :: Maybe [Text]
+loadBalancerArn :: Maybe Text
+$sel:marker:DescribeTargetGroups' :: DescribeTargetGroups -&gt; Maybe Text
+$sel:targetGroupArns:DescribeTargetGroups' :: DescribeTargetGroups -&gt; Maybe [Text]
+$sel:pageSize:DescribeTargetGroups' :: DescribeTargetGroups -&gt; Maybe Natural
+$sel:names:DescribeTargetGroups' :: DescribeTargetGroups -&gt; Maybe [Text]
+$sel:loadBalancerArn:DescribeTargetGroups' :: DescribeTargetGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679256133"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeTargetGroups&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2015-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LoadBalancerArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256137"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Names&quot;</span></span><span>
+</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679256136"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679256135"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TargetGroupArns&quot;</span></span><span>
+</span><span id="line-189"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-191"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679256134"><span class="hs-identifier hs-var">targetGroupArns</span></a></span><span>
+</span><span id="line-192"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256133"><span class="hs-identifier hs-var">marker</span></a></span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | /See:/ 'newDescribeTargetGroupsResponse' smart constructor.</span><span>
+</span><span id="line-197"></span><span id="local-6989586621679256129"><span id="local-6989586621679256130"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTargetGroupsResponse"><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse"><span class="hs-identifier hs-var">DescribeTargetGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTargetGroupsResponse%27"><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse%27"><span class="hs-identifier hs-var">DescribeTargetGroupsResponse'</span></a></span></span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If there are additional results, this is the marker for the next set of</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- results. Otherwise, this is null.</span><span>
+</span><span id="line-200"></span><span>    </span><span id="%24sel%3AnextMarker%3ADescribeTargetGroupsResponse%27"><span class="annot"><span class="annottext">DescribeTargetGroupsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3AnextMarker%3ADescribeTargetGroupsResponse%27"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- | Information about the target groups.</span><span>
+</span><span id="line-202"></span><span>    </span><span id="%24sel%3AtargetGroups%3ADescribeTargetGroupsResponse%27"><span class="annot"><span class="annottext">DescribeTargetGroupsResponse -&gt; Maybe [TargetGroup]
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3AtargetGroups%3ADescribeTargetGroupsResponse%27"><span class="hs-identifier hs-var hs-var">targetGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroup.html#TargetGroup"><span class="hs-identifier hs-type">TargetGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeTargetGroupsResponse%27"><span class="annot"><span class="annottext">DescribeTargetGroupsResponse -&gt; Int
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3AhttpStatus%3ADescribeTargetGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256122"><span id="local-6989586621679256124"><span class="annot"><span class="annottext">DescribeTargetGroupsResponse
+-&gt; DescribeTargetGroupsResponse -&gt; Bool
+(DescribeTargetGroupsResponse
+ -&gt; DescribeTargetGroupsResponse -&gt; Bool)
+-&gt; (DescribeTargetGroupsResponse
+    -&gt; DescribeTargetGroupsResponse -&gt; Bool)
+-&gt; Eq DescribeTargetGroupsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeTargetGroupsResponse
+-&gt; DescribeTargetGroupsResponse -&gt; Bool
+$c/= :: DescribeTargetGroupsResponse
+-&gt; DescribeTargetGroupsResponse -&gt; Bool
+== :: DescribeTargetGroupsResponse
+-&gt; DescribeTargetGroupsResponse -&gt; Bool
+$c== :: DescribeTargetGroupsResponse
+-&gt; DescribeTargetGroupsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256114"><span id="local-6989586621679256116"><span id="local-6989586621679256118"><span id="local-6989586621679256120"><span class="annot"><span class="annottext">ReadPrec [DescribeTargetGroupsResponse]
+ReadPrec DescribeTargetGroupsResponse
+Int -&gt; ReadS DescribeTargetGroupsResponse
+ReadS [DescribeTargetGroupsResponse]
+(Int -&gt; ReadS DescribeTargetGroupsResponse)
+-&gt; ReadS [DescribeTargetGroupsResponse]
+-&gt; ReadPrec DescribeTargetGroupsResponse
+-&gt; ReadPrec [DescribeTargetGroupsResponse]
+-&gt; Read DescribeTargetGroupsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeTargetGroupsResponse]
+$creadListPrec :: ReadPrec [DescribeTargetGroupsResponse]
+readPrec :: ReadPrec DescribeTargetGroupsResponse
+$creadPrec :: ReadPrec DescribeTargetGroupsResponse
+readList :: ReadS [DescribeTargetGroupsResponse]
+$creadList :: ReadS [DescribeTargetGroupsResponse]
+readsPrec :: Int -&gt; ReadS DescribeTargetGroupsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeTargetGroupsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256108"><span id="local-6989586621679256110"><span id="local-6989586621679256112"><span class="annot"><span class="annottext">Int -&gt; DescribeTargetGroupsResponse -&gt; ShowS
+[DescribeTargetGroupsResponse] -&gt; ShowS
+DescribeTargetGroupsResponse -&gt; String
+(Int -&gt; DescribeTargetGroupsResponse -&gt; ShowS)
+-&gt; (DescribeTargetGroupsResponse -&gt; String)
+-&gt; ([DescribeTargetGroupsResponse] -&gt; ShowS)
+-&gt; Show DescribeTargetGroupsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeTargetGroupsResponse] -&gt; ShowS
+$cshowList :: [DescribeTargetGroupsResponse] -&gt; ShowS
+show :: DescribeTargetGroupsResponse -&gt; String
+$cshow :: DescribeTargetGroupsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeTargetGroupsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeTargetGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeTargetGroupsResponse -&gt; Rep DescribeTargetGroupsResponse x)
+-&gt; (forall x.
+    Rep DescribeTargetGroupsResponse x -&gt; DescribeTargetGroupsResponse)
+-&gt; Generic DescribeTargetGroupsResponse
+forall x.
+Rep DescribeTargetGroupsResponse x -&gt; DescribeTargetGroupsResponse
+forall x.
+DescribeTargetGroupsResponse -&gt; Rep DescribeTargetGroupsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeTargetGroupsResponse x -&gt; DescribeTargetGroupsResponse
+$cfrom :: forall x.
+DescribeTargetGroupsResponse -&gt; Rep DescribeTargetGroupsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- Create a value of 'DescribeTargetGroupsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'nextMarker', 'describeTargetGroupsResponse_nextMarker' - If there are additional results, this is the marker for the next set of</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- results. Otherwise, this is null.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'targetGroups', 'describeTargetGroupsResponse_targetGroups' - Information about the target groups.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'httpStatus', 'describeTargetGroupsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#newDescribeTargetGroupsResponse"><span class="hs-identifier hs-type">newDescribeTargetGroupsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse</span></a></span><span>
+</span><span id="line-226"></span><span id="newDescribeTargetGroupsResponse"><span class="annot"><span class="annottext">newDescribeTargetGroupsResponse :: Int -&gt; DescribeTargetGroupsResponse
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#newDescribeTargetGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeTargetGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679256105"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256105"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><span class="annottext">DescribeTargetGroupsResponse' :: Maybe Text
+-&gt; Maybe [TargetGroup] -&gt; Int -&gt; DescribeTargetGroupsResponse
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse'</span></a></span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextMarker:DescribeTargetGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3AnextMarker%3ADescribeTargetGroupsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetGroups:DescribeTargetGroupsResponse' :: Maybe [TargetGroup]
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3AtargetGroups%3ADescribeTargetGroupsResponse%27"><span class="hs-identifier hs-var">targetGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroup]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTargetGroupsResponse' :: Int
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3AhttpStatus%3ADescribeTargetGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256105"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | If there are additional results, this is the marker for the next set of</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- results. Otherwise, this is null.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroupsResponse_nextMarker"><span class="hs-identifier hs-type">describeTargetGroupsResponse_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="describeTargetGroupsResponse_nextMarker"><span class="annot"><span class="annottext">describeTargetGroupsResponse_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeTargetGroupsResponse -&gt; f DescribeTargetGroupsResponse
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroupsResponse_nextMarker"><span class="hs-identifier hs-var hs-var">describeTargetGroupsResponse_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTargetGroupsResponse -&gt; Maybe Text)
+-&gt; (DescribeTargetGroupsResponse
+    -&gt; Maybe Text -&gt; DescribeTargetGroupsResponse)
+-&gt; Lens' DescribeTargetGroupsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256104"><span class="annot"><span class="annottext">Maybe Text
+nextMarker :: Maybe Text
+$sel:nextMarker:DescribeTargetGroupsResponse' :: DescribeTargetGroupsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679256104"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256104"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256103"><span class="annot"><span class="annottext">s :: DescribeTargetGroupsResponse
+</span><a href="#local-6989586621679256103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256102"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTargetGroupsResponse
+</span><a href="#local-6989586621679256103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:DescribeTargetGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3AnextMarker%3ADescribeTargetGroupsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | Information about the target groups.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroupsResponse_targetGroups"><span class="hs-identifier hs-type">describeTargetGroupsResponse_targetGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroup.html#TargetGroup"><span class="hs-identifier hs-type">TargetGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="describeTargetGroupsResponse_targetGroups"><span class="annot"><span class="annottext">describeTargetGroupsResponse_targetGroups :: (Maybe [TargetGroup] -&gt; f (Maybe [TargetGroup]))
+-&gt; DescribeTargetGroupsResponse -&gt; f DescribeTargetGroupsResponse
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroupsResponse_targetGroups"><span class="hs-identifier hs-var hs-var">describeTargetGroupsResponse_targetGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTargetGroupsResponse -&gt; Maybe [TargetGroup])
+-&gt; (DescribeTargetGroupsResponse
+    -&gt; Maybe [TargetGroup] -&gt; DescribeTargetGroupsResponse)
+-&gt; Lens' DescribeTargetGroupsResponse (Maybe [TargetGroup])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256101"><span class="annot"><span class="annottext">Maybe [TargetGroup]
+targetGroups :: Maybe [TargetGroup]
+$sel:targetGroups:DescribeTargetGroupsResponse' :: DescribeTargetGroupsResponse -&gt; Maybe [TargetGroup]
+</span><a href="#local-6989586621679256101"><span class="hs-identifier hs-var hs-var">targetGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroup]
+</span><a href="#local-6989586621679256101"><span class="hs-identifier hs-var">targetGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256100"><span class="annot"><span class="annottext">s :: DescribeTargetGroupsResponse
+</span><a href="#local-6989586621679256100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256099"><span class="annot"><span class="annottext">Maybe [TargetGroup]
+</span><a href="#local-6989586621679256099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTargetGroupsResponse
+</span><a href="#local-6989586621679256100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroups:DescribeTargetGroupsResponse' :: Maybe [TargetGroup]
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3AtargetGroups%3ADescribeTargetGroupsResponse%27"><span class="hs-identifier hs-var">targetGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroup]
+</span><a href="#local-6989586621679256099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetGroup] -&gt; f (Maybe [TargetGroup]))
+ -&gt; DescribeTargetGroupsResponse -&gt; f DescribeTargetGroupsResponse)
+-&gt; ((Maybe [TargetGroup] -&gt; f (Maybe [TargetGroup]))
+    -&gt; Maybe [TargetGroup] -&gt; f (Maybe [TargetGroup]))
+-&gt; (Maybe [TargetGroup] -&gt; f (Maybe [TargetGroup]))
+-&gt; DescribeTargetGroupsResponse
+-&gt; f DescribeTargetGroupsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TargetGroup] [TargetGroup] [TargetGroup] [TargetGroup]
+-&gt; Iso
+     (Maybe [TargetGroup])
+     (Maybe [TargetGroup])
+     (Maybe [TargetGroup])
+     (Maybe [TargetGroup])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TargetGroup] [TargetGroup] [TargetGroup] [TargetGroup]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroupsResponse_httpStatus"><span class="hs-identifier hs-type">describeTargetGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-245"></span><span id="describeTargetGroupsResponse_httpStatus"><span class="annot"><span class="annottext">describeTargetGroupsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeTargetGroupsResponse -&gt; f DescribeTargetGroupsResponse
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#describeTargetGroupsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeTargetGroupsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTargetGroupsResponse -&gt; Int)
+-&gt; (DescribeTargetGroupsResponse
+    -&gt; Int -&gt; DescribeTargetGroupsResponse)
+-&gt; Lens
+     DescribeTargetGroupsResponse DescribeTargetGroupsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256098"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeTargetGroupsResponse' :: DescribeTargetGroupsResponse -&gt; Int
+</span><a href="#local-6989586621679256098"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256098"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256097"><span class="annot"><span class="annottext">s :: DescribeTargetGroupsResponse
+</span><a href="#local-6989586621679256097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256096"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTargetGroupsResponse
+</span><a href="#local-6989586621679256097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTargetGroupsResponse' :: Int
+</span><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#%24sel%3AhttpStatus%3ADescribeTargetGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256094"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetGroups.html#DescribeTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeTargetGroupsResponse</span></a></span></span><span>
+</span><span id="line-248"></span></pre></body></html>

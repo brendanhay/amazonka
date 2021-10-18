@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.Types.AuditTaskStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.Types.AuditTaskStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus"><span class="hs-identifier">AuditTaskStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus_CANCELED"><span class="hs-identifier">AuditTaskStatus_CANCELED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus_COMPLETED"><span class="hs-identifier">AuditTaskStatus_COMPLETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus_FAILED"><span class="hs-identifier">AuditTaskStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus_IN_PROGRESS"><span class="hs-identifier">AuditTaskStatus_IN_PROGRESS</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679775647"><span id="local-6989586621679775648"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuditTaskStatus"><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus"><span class="hs-identifier hs-var">AuditTaskStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuditTaskStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus%27"><span class="hs-identifier hs-var">AuditTaskStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuditTaskStatus"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; Text
+</span><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#fromAuditTaskStatus"><span class="hs-identifier hs-var hs-var">fromAuditTaskStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679775639"><span id="local-6989586621679775641"><span id="local-6989586621679775643"><span class="annot"><span class="annottext">Int -&gt; AuditTaskStatus -&gt; ShowS
+[AuditTaskStatus] -&gt; ShowS
+AuditTaskStatus -&gt; String
+(Int -&gt; AuditTaskStatus -&gt; ShowS)
+-&gt; (AuditTaskStatus -&gt; String)
+-&gt; ([AuditTaskStatus] -&gt; ShowS)
+-&gt; Show AuditTaskStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AuditTaskStatus] -&gt; ShowS
+$cshowList :: [AuditTaskStatus] -&gt; ShowS
+show :: AuditTaskStatus -&gt; String
+$cshow :: AuditTaskStatus -&gt; String
+showsPrec :: Int -&gt; AuditTaskStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AuditTaskStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679775630"><span id="local-6989586621679775632"><span id="local-6989586621679775634"><span id="local-6989586621679775636"><span class="annot"><span class="annottext">ReadPrec [AuditTaskStatus]
+ReadPrec AuditTaskStatus
+Int -&gt; ReadS AuditTaskStatus
+ReadS [AuditTaskStatus]
+(Int -&gt; ReadS AuditTaskStatus)
+-&gt; ReadS [AuditTaskStatus]
+-&gt; ReadPrec AuditTaskStatus
+-&gt; ReadPrec [AuditTaskStatus]
+-&gt; Read AuditTaskStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AuditTaskStatus]
+$creadListPrec :: ReadPrec [AuditTaskStatus]
+readPrec :: ReadPrec AuditTaskStatus
+$creadPrec :: ReadPrec AuditTaskStatus
+readList :: ReadS [AuditTaskStatus]
+$creadList :: ReadS [AuditTaskStatus]
+readsPrec :: Int -&gt; ReadS AuditTaskStatus
+$creadsPrec :: Int -&gt; ReadS AuditTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679775625"><span id="local-6989586621679775627"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
+(AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool)
+-&gt; (AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool)
+-&gt; Eq AuditTaskStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
+$c/= :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
+== :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
+$c== :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679775609"><span id="local-6989586621679775611"><span id="local-6989586621679775613"><span id="local-6989586621679775615"><span id="local-6989586621679775617"><span id="local-6989586621679775619"><span id="local-6989586621679775621"><span class="annot"><span class="annottext">Eq AuditTaskStatus
+Eq AuditTaskStatus
+-&gt; (AuditTaskStatus -&gt; AuditTaskStatus -&gt; Ordering)
+-&gt; (AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool)
+-&gt; (AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool)
+-&gt; (AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool)
+-&gt; (AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool)
+-&gt; (AuditTaskStatus -&gt; AuditTaskStatus -&gt; AuditTaskStatus)
+-&gt; (AuditTaskStatus -&gt; AuditTaskStatus -&gt; AuditTaskStatus)
+-&gt; Ord AuditTaskStatus
+AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
+AuditTaskStatus -&gt; AuditTaskStatus -&gt; Ordering
+AuditTaskStatus -&gt; AuditTaskStatus -&gt; AuditTaskStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; AuditTaskStatus
+$cmin :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; AuditTaskStatus
+max :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; AuditTaskStatus
+$cmax :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; AuditTaskStatus
+&gt;= :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
+$c&gt;= :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
+&gt; :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
+$c&gt; :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
+&lt;= :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
+$c&lt;= :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
+&lt; :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
+$c&lt; :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
+compare :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Ordering
+$ccompare :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Ordering
+$cp1Ord :: Eq AuditTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AuditTaskStatus -&gt; Rep AuditTaskStatus x)
+-&gt; (forall x. Rep AuditTaskStatus x -&gt; AuditTaskStatus)
+-&gt; Generic AuditTaskStatus
+forall x. Rep AuditTaskStatus x -&gt; AuditTaskStatus
+forall x. AuditTaskStatus -&gt; Rep AuditTaskStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AuditTaskStatus x -&gt; AuditTaskStatus
+$cfrom :: forall x. AuditTaskStatus -&gt; Rep AuditTaskStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679775601"><span id="local-6989586621679775603"><span class="annot"><span class="annottext">Int -&gt; AuditTaskStatus -&gt; Int
+AuditTaskStatus -&gt; Int
+(Int -&gt; AuditTaskStatus -&gt; Int)
+-&gt; (AuditTaskStatus -&gt; Int) -&gt; Hashable AuditTaskStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AuditTaskStatus -&gt; Int
+$chash :: AuditTaskStatus -&gt; Int
+hashWithSalt :: Int -&gt; AuditTaskStatus -&gt; Int
+$chashWithSalt :: Int -&gt; AuditTaskStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679775598"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; ()
+(AuditTaskStatus -&gt; ()) -&gt; NFData AuditTaskStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AuditTaskStatus -&gt; ()
+$crnf :: AuditTaskStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679775595"><span class="annot"><span class="annottext">Text -&gt; Either String AuditTaskStatus
+(Text -&gt; Either String AuditTaskStatus) -&gt; FromText AuditTaskStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AuditTaskStatus
+$cfromText :: Text -&gt; Either String AuditTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679775592"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; Text
+(AuditTaskStatus -&gt; Text) -&gt; ToText AuditTaskStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AuditTaskStatus -&gt; Text
+$ctoText :: AuditTaskStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679775589"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; ByteString
+(AuditTaskStatus -&gt; ByteString) -&gt; ToByteString AuditTaskStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AuditTaskStatus -&gt; ByteString
+$ctoBS :: AuditTaskStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679775586"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; ByteStringBuilder
+(AuditTaskStatus -&gt; ByteStringBuilder) -&gt; ToLog AuditTaskStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AuditTaskStatus -&gt; ByteStringBuilder
+$cbuild :: AuditTaskStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679775583"><span class="annot"><span class="annottext">HeaderName -&gt; AuditTaskStatus -&gt; [Header]
+(HeaderName -&gt; AuditTaskStatus -&gt; [Header])
+-&gt; ToHeader AuditTaskStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AuditTaskStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AuditTaskStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679775580"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; QueryString
+(AuditTaskStatus -&gt; QueryString) -&gt; ToQuery AuditTaskStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AuditTaskStatus -&gt; QueryString
+$ctoQuery :: AuditTaskStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679775575"><span id="local-6989586621679775577"><span class="annot"><span class="annottext">Value -&gt; Parser [AuditTaskStatus]
+Value -&gt; Parser AuditTaskStatus
+(Value -&gt; Parser AuditTaskStatus)
+-&gt; (Value -&gt; Parser [AuditTaskStatus]) -&gt; FromJSON AuditTaskStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AuditTaskStatus]
+$cparseJSONList :: Value -&gt; Parser [AuditTaskStatus]
+parseJSON :: Value -&gt; Parser AuditTaskStatus
+$cparseJSON :: Value -&gt; Parser AuditTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679775570"><span id="local-6989586621679775572"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuditTaskStatus]
+FromJSONKeyFunction AuditTaskStatus
+FromJSONKeyFunction AuditTaskStatus
+-&gt; FromJSONKeyFunction [AuditTaskStatus]
+-&gt; FromJSONKey AuditTaskStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AuditTaskStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [AuditTaskStatus]
+fromJSONKey :: FromJSONKeyFunction AuditTaskStatus
+$cfromJSONKey :: FromJSONKeyFunction AuditTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679775561"><span id="local-6989586621679775563"><span id="local-6989586621679775565"><span id="local-6989586621679775567"><span class="annot"><span class="annottext">[AuditTaskStatus] -&gt; Encoding
+[AuditTaskStatus] -&gt; Value
+AuditTaskStatus -&gt; Encoding
+AuditTaskStatus -&gt; Value
+(AuditTaskStatus -&gt; Value)
+-&gt; (AuditTaskStatus -&gt; Encoding)
+-&gt; ([AuditTaskStatus] -&gt; Value)
+-&gt; ([AuditTaskStatus] -&gt; Encoding)
+-&gt; ToJSON AuditTaskStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AuditTaskStatus] -&gt; Encoding
+$ctoEncodingList :: [AuditTaskStatus] -&gt; Encoding
+toJSONList :: [AuditTaskStatus] -&gt; Value
+$ctoJSONList :: [AuditTaskStatus] -&gt; Value
+toEncoding :: AuditTaskStatus -&gt; Encoding
+$ctoEncoding :: AuditTaskStatus -&gt; Encoding
+toJSON :: AuditTaskStatus -&gt; Value
+$ctoJSON :: AuditTaskStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679775556"><span id="local-6989586621679775558"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuditTaskStatus]
+ToJSONKeyFunction AuditTaskStatus
+ToJSONKeyFunction AuditTaskStatus
+-&gt; ToJSONKeyFunction [AuditTaskStatus] -&gt; ToJSONKey AuditTaskStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AuditTaskStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [AuditTaskStatus]
+toJSONKey :: ToJSONKeyFunction AuditTaskStatus
+$ctoJSONKey :: ToJSONKeyFunction AuditTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679775553"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuditTaskStatus
+([Node] -&gt; Either String AuditTaskStatus)
+-&gt; FromXML AuditTaskStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AuditTaskStatus
+$cparseXML :: [Node] -&gt; Either String AuditTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679775550"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; XML
+(AuditTaskStatus -&gt; XML) -&gt; ToXML AuditTaskStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AuditTaskStatus -&gt; XML
+$ctoXML :: AuditTaskStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus_CANCELED"><span class="hs-identifier hs-type">AuditTaskStatus_CANCELED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus"><span class="hs-identifier hs-type">AuditTaskStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuditTaskStatus_CANCELED"><span id="%24mAuditTaskStatus_CANCELED"><span id="AuditTaskStatus_CANCELED"><span class="annot"><span class="annottext">$bAuditTaskStatus_CANCELED :: AuditTaskStatus
+$mAuditTaskStatus_CANCELED :: forall r. AuditTaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#%24bAuditTaskStatus_CANCELED"><span class="hs-identifier hs-var hs-var hs-var">AuditTaskStatus_CANCELED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus%27"><span class="hs-identifier hs-type">AuditTaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CANCELED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus_COMPLETED"><span class="hs-identifier hs-type">AuditTaskStatus_COMPLETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus"><span class="hs-identifier hs-type">AuditTaskStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuditTaskStatus_COMPLETED"><span id="%24mAuditTaskStatus_COMPLETED"><span id="AuditTaskStatus_COMPLETED"><span class="annot"><span class="annottext">$bAuditTaskStatus_COMPLETED :: AuditTaskStatus
+$mAuditTaskStatus_COMPLETED :: forall r. AuditTaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#%24bAuditTaskStatus_COMPLETED"><span class="hs-identifier hs-var hs-var hs-var">AuditTaskStatus_COMPLETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus%27"><span class="hs-identifier hs-type">AuditTaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus_FAILED"><span class="hs-identifier hs-type">AuditTaskStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus"><span class="hs-identifier hs-type">AuditTaskStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuditTaskStatus_FAILED"><span id="%24mAuditTaskStatus_FAILED"><span id="AuditTaskStatus_FAILED"><span class="annot"><span class="annottext">$bAuditTaskStatus_FAILED :: AuditTaskStatus
+$mAuditTaskStatus_FAILED :: forall r. AuditTaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#%24bAuditTaskStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">AuditTaskStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus%27"><span class="hs-identifier hs-type">AuditTaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus_IN_PROGRESS"><span class="hs-identifier hs-type">AuditTaskStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus"><span class="hs-identifier hs-type">AuditTaskStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuditTaskStatus_IN_PROGRESS"><span id="%24mAuditTaskStatus_IN_PROGRESS"><span id="AuditTaskStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bAuditTaskStatus_IN_PROGRESS :: AuditTaskStatus
+$mAuditTaskStatus_IN_PROGRESS :: forall r. AuditTaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#%24bAuditTaskStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">AuditTaskStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus%27"><span class="hs-identifier hs-type">AuditTaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus_CANCELED"><span class="hs-pragma hs-type">AuditTaskStatus_CANCELED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus_COMPLETED"><span class="hs-pragma hs-type">AuditTaskStatus_COMPLETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus_FAILED"><span class="hs-pragma hs-type">AuditTaskStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus_IN_PROGRESS"><span class="hs-pragma hs-type">AuditTaskStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus%27"><span class="hs-pragma hs-type">AuditTaskStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

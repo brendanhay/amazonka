@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Connect.Types.IntegrationType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Connect.Types.IntegrationType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType"><span class="hs-identifier">IntegrationType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType_EVENT"><span class="hs-identifier">IntegrationType_EVENT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType_PINPOINT_APP"><span class="hs-identifier">IntegrationType_PINPOINT_APP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType_VOICE_ID"><span class="hs-identifier">IntegrationType_VOICE_ID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType_WISDOM_ASSISTANT"><span class="hs-identifier">IntegrationType_WISDOM_ASSISTANT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType_WISDOM_KNOWLEDGE_BASE"><span class="hs-identifier">IntegrationType_WISDOM_KNOWLEDGE_BASE</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679398976"><span id="local-6989586621679398977"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IntegrationType"><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType"><span class="hs-identifier hs-var">IntegrationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntegrationType%27"><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType%27"><span class="hs-identifier hs-var">IntegrationType'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromIntegrationType"><span class="annot"><span class="annottext">IntegrationType -&gt; Text
+</span><a href="Network.AWS.Connect.Types.IntegrationType.html#fromIntegrationType"><span class="hs-identifier hs-var hs-var">fromIntegrationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398968"><span id="local-6989586621679398970"><span id="local-6989586621679398972"><span class="annot"><span class="annottext">Int -&gt; IntegrationType -&gt; ShowS
+[IntegrationType] -&gt; ShowS
+IntegrationType -&gt; String
+(Int -&gt; IntegrationType -&gt; ShowS)
+-&gt; (IntegrationType -&gt; String)
+-&gt; ([IntegrationType] -&gt; ShowS)
+-&gt; Show IntegrationType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [IntegrationType] -&gt; ShowS
+$cshowList :: [IntegrationType] -&gt; ShowS
+show :: IntegrationType -&gt; String
+$cshow :: IntegrationType -&gt; String
+showsPrec :: Int -&gt; IntegrationType -&gt; ShowS
+$cshowsPrec :: Int -&gt; IntegrationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679398959"><span id="local-6989586621679398961"><span id="local-6989586621679398963"><span id="local-6989586621679398965"><span class="annot"><span class="annottext">ReadPrec [IntegrationType]
+ReadPrec IntegrationType
+Int -&gt; ReadS IntegrationType
+ReadS [IntegrationType]
+(Int -&gt; ReadS IntegrationType)
+-&gt; ReadS [IntegrationType]
+-&gt; ReadPrec IntegrationType
+-&gt; ReadPrec [IntegrationType]
+-&gt; Read IntegrationType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [IntegrationType]
+$creadListPrec :: ReadPrec [IntegrationType]
+readPrec :: ReadPrec IntegrationType
+$creadPrec :: ReadPrec IntegrationType
+readList :: ReadS [IntegrationType]
+$creadList :: ReadS [IntegrationType]
+readsPrec :: Int -&gt; ReadS IntegrationType
+$creadsPrec :: Int -&gt; ReadS IntegrationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679398954"><span id="local-6989586621679398956"><span class="annot"><span class="annottext">IntegrationType -&gt; IntegrationType -&gt; Bool
+(IntegrationType -&gt; IntegrationType -&gt; Bool)
+-&gt; (IntegrationType -&gt; IntegrationType -&gt; Bool)
+-&gt; Eq IntegrationType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: IntegrationType -&gt; IntegrationType -&gt; Bool
+$c/= :: IntegrationType -&gt; IntegrationType -&gt; Bool
+== :: IntegrationType -&gt; IntegrationType -&gt; Bool
+$c== :: IntegrationType -&gt; IntegrationType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679398938"><span id="local-6989586621679398940"><span id="local-6989586621679398942"><span id="local-6989586621679398944"><span id="local-6989586621679398946"><span id="local-6989586621679398948"><span id="local-6989586621679398950"><span class="annot"><span class="annottext">Eq IntegrationType
+Eq IntegrationType
+-&gt; (IntegrationType -&gt; IntegrationType -&gt; Ordering)
+-&gt; (IntegrationType -&gt; IntegrationType -&gt; Bool)
+-&gt; (IntegrationType -&gt; IntegrationType -&gt; Bool)
+-&gt; (IntegrationType -&gt; IntegrationType -&gt; Bool)
+-&gt; (IntegrationType -&gt; IntegrationType -&gt; Bool)
+-&gt; (IntegrationType -&gt; IntegrationType -&gt; IntegrationType)
+-&gt; (IntegrationType -&gt; IntegrationType -&gt; IntegrationType)
+-&gt; Ord IntegrationType
+IntegrationType -&gt; IntegrationType -&gt; Bool
+IntegrationType -&gt; IntegrationType -&gt; Ordering
+IntegrationType -&gt; IntegrationType -&gt; IntegrationType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: IntegrationType -&gt; IntegrationType -&gt; IntegrationType
+$cmin :: IntegrationType -&gt; IntegrationType -&gt; IntegrationType
+max :: IntegrationType -&gt; IntegrationType -&gt; IntegrationType
+$cmax :: IntegrationType -&gt; IntegrationType -&gt; IntegrationType
+&gt;= :: IntegrationType -&gt; IntegrationType -&gt; Bool
+$c&gt;= :: IntegrationType -&gt; IntegrationType -&gt; Bool
+&gt; :: IntegrationType -&gt; IntegrationType -&gt; Bool
+$c&gt; :: IntegrationType -&gt; IntegrationType -&gt; Bool
+&lt;= :: IntegrationType -&gt; IntegrationType -&gt; Bool
+$c&lt;= :: IntegrationType -&gt; IntegrationType -&gt; Bool
+&lt; :: IntegrationType -&gt; IntegrationType -&gt; Bool
+$c&lt; :: IntegrationType -&gt; IntegrationType -&gt; Bool
+compare :: IntegrationType -&gt; IntegrationType -&gt; Ordering
+$ccompare :: IntegrationType -&gt; IntegrationType -&gt; Ordering
+$cp1Ord :: Eq IntegrationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. IntegrationType -&gt; Rep IntegrationType x)
+-&gt; (forall x. Rep IntegrationType x -&gt; IntegrationType)
+-&gt; Generic IntegrationType
+forall x. Rep IntegrationType x -&gt; IntegrationType
+forall x. IntegrationType -&gt; Rep IntegrationType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep IntegrationType x -&gt; IntegrationType
+$cfrom :: forall x. IntegrationType -&gt; Rep IntegrationType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398930"><span id="local-6989586621679398932"><span class="annot"><span class="annottext">Int -&gt; IntegrationType -&gt; Int
+IntegrationType -&gt; Int
+(Int -&gt; IntegrationType -&gt; Int)
+-&gt; (IntegrationType -&gt; Int) -&gt; Hashable IntegrationType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: IntegrationType -&gt; Int
+$chash :: IntegrationType -&gt; Int
+hashWithSalt :: Int -&gt; IntegrationType -&gt; Int
+$chashWithSalt :: Int -&gt; IntegrationType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679398927"><span class="annot"><span class="annottext">IntegrationType -&gt; ()
+(IntegrationType -&gt; ()) -&gt; NFData IntegrationType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: IntegrationType -&gt; ()
+$crnf :: IntegrationType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679398924"><span class="annot"><span class="annottext">Text -&gt; Either String IntegrationType
+(Text -&gt; Either String IntegrationType) -&gt; FromText IntegrationType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String IntegrationType
+$cfromText :: Text -&gt; Either String IntegrationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679398921"><span class="annot"><span class="annottext">IntegrationType -&gt; Text
+(IntegrationType -&gt; Text) -&gt; ToText IntegrationType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: IntegrationType -&gt; Text
+$ctoText :: IntegrationType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679398918"><span class="annot"><span class="annottext">IntegrationType -&gt; ByteString
+(IntegrationType -&gt; ByteString) -&gt; ToByteString IntegrationType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: IntegrationType -&gt; ByteString
+$ctoBS :: IntegrationType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679398915"><span class="annot"><span class="annottext">IntegrationType -&gt; ByteStringBuilder
+(IntegrationType -&gt; ByteStringBuilder) -&gt; ToLog IntegrationType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: IntegrationType -&gt; ByteStringBuilder
+$cbuild :: IntegrationType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679398912"><span class="annot"><span class="annottext">HeaderName -&gt; IntegrationType -&gt; [Header]
+(HeaderName -&gt; IntegrationType -&gt; [Header])
+-&gt; ToHeader IntegrationType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; IntegrationType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; IntegrationType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679398909"><span class="annot"><span class="annottext">IntegrationType -&gt; QueryString
+(IntegrationType -&gt; QueryString) -&gt; ToQuery IntegrationType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: IntegrationType -&gt; QueryString
+$ctoQuery :: IntegrationType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679398904"><span id="local-6989586621679398906"><span class="annot"><span class="annottext">Value -&gt; Parser [IntegrationType]
+Value -&gt; Parser IntegrationType
+(Value -&gt; Parser IntegrationType)
+-&gt; (Value -&gt; Parser [IntegrationType]) -&gt; FromJSON IntegrationType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [IntegrationType]
+$cparseJSONList :: Value -&gt; Parser [IntegrationType]
+parseJSON :: Value -&gt; Parser IntegrationType
+$cparseJSON :: Value -&gt; Parser IntegrationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679398899"><span id="local-6989586621679398901"><span class="annot"><span class="annottext">FromJSONKeyFunction [IntegrationType]
+FromJSONKeyFunction IntegrationType
+FromJSONKeyFunction IntegrationType
+-&gt; FromJSONKeyFunction [IntegrationType]
+-&gt; FromJSONKey IntegrationType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [IntegrationType]
+$cfromJSONKeyList :: FromJSONKeyFunction [IntegrationType]
+fromJSONKey :: FromJSONKeyFunction IntegrationType
+$cfromJSONKey :: FromJSONKeyFunction IntegrationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679398890"><span id="local-6989586621679398892"><span id="local-6989586621679398894"><span id="local-6989586621679398896"><span class="annot"><span class="annottext">[IntegrationType] -&gt; Encoding
+[IntegrationType] -&gt; Value
+IntegrationType -&gt; Encoding
+IntegrationType -&gt; Value
+(IntegrationType -&gt; Value)
+-&gt; (IntegrationType -&gt; Encoding)
+-&gt; ([IntegrationType] -&gt; Value)
+-&gt; ([IntegrationType] -&gt; Encoding)
+-&gt; ToJSON IntegrationType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [IntegrationType] -&gt; Encoding
+$ctoEncodingList :: [IntegrationType] -&gt; Encoding
+toJSONList :: [IntegrationType] -&gt; Value
+$ctoJSONList :: [IntegrationType] -&gt; Value
+toEncoding :: IntegrationType -&gt; Encoding
+$ctoEncoding :: IntegrationType -&gt; Encoding
+toJSON :: IntegrationType -&gt; Value
+$ctoJSON :: IntegrationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679398885"><span id="local-6989586621679398887"><span class="annot"><span class="annottext">ToJSONKeyFunction [IntegrationType]
+ToJSONKeyFunction IntegrationType
+ToJSONKeyFunction IntegrationType
+-&gt; ToJSONKeyFunction [IntegrationType] -&gt; ToJSONKey IntegrationType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [IntegrationType]
+$ctoJSONKeyList :: ToJSONKeyFunction [IntegrationType]
+toJSONKey :: ToJSONKeyFunction IntegrationType
+$ctoJSONKey :: ToJSONKeyFunction IntegrationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679398882"><span class="annot"><span class="annottext">[Node] -&gt; Either String IntegrationType
+([Node] -&gt; Either String IntegrationType)
+-&gt; FromXML IntegrationType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String IntegrationType
+$cparseXML :: [Node] -&gt; Either String IntegrationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679398879"><span class="annot"><span class="annottext">IntegrationType -&gt; XML
+(IntegrationType -&gt; XML) -&gt; ToXML IntegrationType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: IntegrationType -&gt; XML
+$ctoXML :: IntegrationType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType_EVENT"><span class="hs-identifier hs-type">IntegrationType_EVENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType"><span class="hs-identifier hs-type">IntegrationType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bIntegrationType_EVENT"><span id="%24mIntegrationType_EVENT"><span id="IntegrationType_EVENT"><span class="annot"><span class="annottext">$bIntegrationType_EVENT :: IntegrationType
+$mIntegrationType_EVENT :: forall r. IntegrationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.IntegrationType.html#%24bIntegrationType_EVENT"><span class="hs-identifier hs-var hs-var hs-var">IntegrationType_EVENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType%27"><span class="hs-identifier hs-type">IntegrationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EVENT&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType_PINPOINT_APP"><span class="hs-identifier hs-type">IntegrationType_PINPOINT_APP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType"><span class="hs-identifier hs-type">IntegrationType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bIntegrationType_PINPOINT_APP"><span id="%24mIntegrationType_PINPOINT_APP"><span id="IntegrationType_PINPOINT_APP"><span class="annot"><span class="annottext">$bIntegrationType_PINPOINT_APP :: IntegrationType
+$mIntegrationType_PINPOINT_APP :: forall r. IntegrationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.IntegrationType.html#%24bIntegrationType_PINPOINT_APP"><span class="hs-identifier hs-var hs-var hs-var">IntegrationType_PINPOINT_APP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType%27"><span class="hs-identifier hs-type">IntegrationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PINPOINT_APP&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType_VOICE_ID"><span class="hs-identifier hs-type">IntegrationType_VOICE_ID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType"><span class="hs-identifier hs-type">IntegrationType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bIntegrationType_VOICE_ID"><span id="%24mIntegrationType_VOICE_ID"><span id="IntegrationType_VOICE_ID"><span class="annot"><span class="annottext">$bIntegrationType_VOICE_ID :: IntegrationType
+$mIntegrationType_VOICE_ID :: forall r. IntegrationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.IntegrationType.html#%24bIntegrationType_VOICE_ID"><span class="hs-identifier hs-var hs-var hs-var">IntegrationType_VOICE_ID</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType%27"><span class="hs-identifier hs-type">IntegrationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VOICE_ID&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType_WISDOM_ASSISTANT"><span class="hs-identifier hs-type">IntegrationType_WISDOM_ASSISTANT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType"><span class="hs-identifier hs-type">IntegrationType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bIntegrationType_WISDOM_ASSISTANT"><span id="%24mIntegrationType_WISDOM_ASSISTANT"><span id="IntegrationType_WISDOM_ASSISTANT"><span class="annot"><span class="annottext">$bIntegrationType_WISDOM_ASSISTANT :: IntegrationType
+$mIntegrationType_WISDOM_ASSISTANT :: forall r. IntegrationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.IntegrationType.html#%24bIntegrationType_WISDOM_ASSISTANT"><span class="hs-identifier hs-var hs-var hs-var">IntegrationType_WISDOM_ASSISTANT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType%27"><span class="hs-identifier hs-type">IntegrationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WISDOM_ASSISTANT&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType_WISDOM_KNOWLEDGE_BASE"><span class="hs-identifier hs-type">IntegrationType_WISDOM_KNOWLEDGE_BASE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType"><span class="hs-identifier hs-type">IntegrationType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bIntegrationType_WISDOM_KNOWLEDGE_BASE"><span id="%24mIntegrationType_WISDOM_KNOWLEDGE_BASE"><span id="IntegrationType_WISDOM_KNOWLEDGE_BASE"><span class="annot"><span class="annottext">$bIntegrationType_WISDOM_KNOWLEDGE_BASE :: IntegrationType
+$mIntegrationType_WISDOM_KNOWLEDGE_BASE :: forall r. IntegrationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.IntegrationType.html#%24bIntegrationType_WISDOM_KNOWLEDGE_BASE"><span class="hs-identifier hs-var hs-var hs-var">IntegrationType_WISDOM_KNOWLEDGE_BASE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType%27"><span class="hs-identifier hs-type">IntegrationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WISDOM_KNOWLEDGE_BASE&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType_EVENT"><span class="hs-pragma hs-type">IntegrationType_EVENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType_PINPOINT_APP"><span class="hs-pragma hs-type">IntegrationType_PINPOINT_APP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType_VOICE_ID"><span class="hs-pragma hs-type">IntegrationType_VOICE_ID</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType_WISDOM_ASSISTANT"><span class="hs-pragma hs-type">IntegrationType_WISDOM_ASSISTANT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType_WISDOM_KNOWLEDGE_BASE"><span class="hs-pragma hs-type">IntegrationType_WISDOM_KNOWLEDGE_BASE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.IntegrationType.html#IntegrationType%27"><span class="hs-pragma hs-type">IntegrationType'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

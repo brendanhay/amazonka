@@ -1,0 +1,562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DynamoDB.DescribeGlobalTableSettings</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes Region-specific settings for a global table.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation only applies to</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html Version 2017.11.29&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- of global tables.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DynamoDB.DescribeGlobalTableSettings</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings"><span class="hs-identifier">DescribeGlobalTableSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#newDescribeGlobalTableSettings"><span class="hs-identifier">newDescribeGlobalTableSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#describeGlobalTableSettings_globalTableName"><span class="hs-identifier">describeGlobalTableSettings_globalTableName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse"><span class="hs-identifier">DescribeGlobalTableSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#newDescribeGlobalTableSettingsResponse"><span class="hs-identifier">newDescribeGlobalTableSettingsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#describeGlobalTableSettingsResponse_replicaSettings"><span class="hs-identifier">describeGlobalTableSettingsResponse_replicaSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#describeGlobalTableSettingsResponse_globalTableName"><span class="hs-identifier">describeGlobalTableSettingsResponse_globalTableName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#describeGlobalTableSettingsResponse_httpStatus"><span class="hs-identifier">describeGlobalTableSettingsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.html"><span class="hs-identifier">Network.AWS.DynamoDB.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDescribeGlobalTableSettings' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679391751"><span id="local-6989586621679391752"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGlobalTableSettings"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings"><span class="hs-identifier hs-var">DescribeGlobalTableSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGlobalTableSettings%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings%27"><span class="hs-identifier hs-var">DescribeGlobalTableSettings'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the global table to describe.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AglobalTableName%3ADescribeGlobalTableSettings%27"><span class="annot"><span class="annottext">DescribeGlobalTableSettings -&gt; Text
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#%24sel%3AglobalTableName%3ADescribeGlobalTableSettings%27"><span class="hs-identifier hs-var hs-var">globalTableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391745"><span id="local-6989586621679391747"><span class="annot"><span class="annottext">DescribeGlobalTableSettings -&gt; DescribeGlobalTableSettings -&gt; Bool
+(DescribeGlobalTableSettings
+ -&gt; DescribeGlobalTableSettings -&gt; Bool)
+-&gt; (DescribeGlobalTableSettings
+    -&gt; DescribeGlobalTableSettings -&gt; Bool)
+-&gt; Eq DescribeGlobalTableSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeGlobalTableSettings -&gt; DescribeGlobalTableSettings -&gt; Bool
+$c/= :: DescribeGlobalTableSettings -&gt; DescribeGlobalTableSettings -&gt; Bool
+== :: DescribeGlobalTableSettings -&gt; DescribeGlobalTableSettings -&gt; Bool
+$c== :: DescribeGlobalTableSettings -&gt; DescribeGlobalTableSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391736"><span id="local-6989586621679391738"><span id="local-6989586621679391740"><span id="local-6989586621679391742"><span class="annot"><span class="annottext">ReadPrec [DescribeGlobalTableSettings]
+ReadPrec DescribeGlobalTableSettings
+Int -&gt; ReadS DescribeGlobalTableSettings
+ReadS [DescribeGlobalTableSettings]
+(Int -&gt; ReadS DescribeGlobalTableSettings)
+-&gt; ReadS [DescribeGlobalTableSettings]
+-&gt; ReadPrec DescribeGlobalTableSettings
+-&gt; ReadPrec [DescribeGlobalTableSettings]
+-&gt; Read DescribeGlobalTableSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeGlobalTableSettings]
+$creadListPrec :: ReadPrec [DescribeGlobalTableSettings]
+readPrec :: ReadPrec DescribeGlobalTableSettings
+$creadPrec :: ReadPrec DescribeGlobalTableSettings
+readList :: ReadS [DescribeGlobalTableSettings]
+$creadList :: ReadS [DescribeGlobalTableSettings]
+readsPrec :: Int -&gt; ReadS DescribeGlobalTableSettings
+$creadsPrec :: Int -&gt; ReadS DescribeGlobalTableSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391729"><span id="local-6989586621679391731"><span id="local-6989586621679391733"><span class="annot"><span class="annottext">Int -&gt; DescribeGlobalTableSettings -&gt; ShowS
+[DescribeGlobalTableSettings] -&gt; ShowS
+DescribeGlobalTableSettings -&gt; String
+(Int -&gt; DescribeGlobalTableSettings -&gt; ShowS)
+-&gt; (DescribeGlobalTableSettings -&gt; String)
+-&gt; ([DescribeGlobalTableSettings] -&gt; ShowS)
+-&gt; Show DescribeGlobalTableSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeGlobalTableSettings] -&gt; ShowS
+$cshowList :: [DescribeGlobalTableSettings] -&gt; ShowS
+show :: DescribeGlobalTableSettings -&gt; String
+$cshow :: DescribeGlobalTableSettings -&gt; String
+showsPrec :: Int -&gt; DescribeGlobalTableSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeGlobalTableSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeGlobalTableSettings -&gt; Rep DescribeGlobalTableSettings x)
+-&gt; (forall x.
+    Rep DescribeGlobalTableSettings x -&gt; DescribeGlobalTableSettings)
+-&gt; Generic DescribeGlobalTableSettings
+forall x.
+Rep DescribeGlobalTableSettings x -&gt; DescribeGlobalTableSettings
+forall x.
+DescribeGlobalTableSettings -&gt; Rep DescribeGlobalTableSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeGlobalTableSettings x -&gt; DescribeGlobalTableSettings
+$cfrom :: forall x.
+DescribeGlobalTableSettings -&gt; Rep DescribeGlobalTableSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DescribeGlobalTableSettings' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'globalTableName', 'describeGlobalTableSettings_globalTableName' - The name of the global table to describe.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#newDescribeGlobalTableSettings"><span class="hs-identifier hs-type">newDescribeGlobalTableSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'globalTableName'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings"><span class="hs-identifier hs-type">DescribeGlobalTableSettings</span></a></span><span>
+</span><span id="line-74"></span><span id="newDescribeGlobalTableSettings"><span class="annot"><span class="annottext">newDescribeGlobalTableSettings :: Text -&gt; DescribeGlobalTableSettings
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#newDescribeGlobalTableSettings"><span class="hs-identifier hs-var hs-var">newDescribeGlobalTableSettings</span></a></span></span><span> </span><span id="local-6989586621679391724"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391724"><span class="hs-identifier hs-var">pGlobalTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DescribeGlobalTableSettings' :: Text -&gt; DescribeGlobalTableSettings
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings%27"><span class="hs-identifier hs-type">DescribeGlobalTableSettings'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalTableName:DescribeGlobalTableSettings' :: Text
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#%24sel%3AglobalTableName%3ADescribeGlobalTableSettings%27"><span class="hs-identifier hs-var">globalTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391724"><span class="hs-identifier hs-var">pGlobalTableName_</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The name of the global table to describe.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#describeGlobalTableSettings_globalTableName"><span class="hs-identifier hs-type">describeGlobalTableSettings_globalTableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings"><span class="hs-identifier hs-type">DescribeGlobalTableSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="describeGlobalTableSettings_globalTableName"><span class="annot"><span class="annottext">describeGlobalTableSettings_globalTableName :: (Text -&gt; f Text)
+-&gt; DescribeGlobalTableSettings -&gt; f DescribeGlobalTableSettings
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#describeGlobalTableSettings_globalTableName"><span class="hs-identifier hs-var hs-var">describeGlobalTableSettings_globalTableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGlobalTableSettings -&gt; Text)
+-&gt; (DescribeGlobalTableSettings
+    -&gt; Text -&gt; DescribeGlobalTableSettings)
+-&gt; Lens
+     DescribeGlobalTableSettings DescribeGlobalTableSettings Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings%27"><span class="hs-identifier hs-type">DescribeGlobalTableSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391721"><span class="annot"><span class="annottext">Text
+globalTableName :: Text
+$sel:globalTableName:DescribeGlobalTableSettings' :: DescribeGlobalTableSettings -&gt; Text
+</span><a href="#local-6989586621679391721"><span class="hs-identifier hs-var hs-var">globalTableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391721"><span class="hs-identifier hs-var">globalTableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391720"><span class="annot"><span class="annottext">s :: DescribeGlobalTableSettings
+</span><a href="#local-6989586621679391720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings%27"><span class="hs-identifier hs-type">DescribeGlobalTableSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391719"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGlobalTableSettings
+</span><a href="#local-6989586621679391720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalTableName:DescribeGlobalTableSettings' :: Text
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#%24sel%3AglobalTableName%3ADescribeGlobalTableSettings%27"><span class="hs-identifier hs-var">globalTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings"><span class="hs-identifier hs-type">DescribeGlobalTableSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings"><span class="hs-identifier hs-type">DescribeGlobalTableSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings"><span class="hs-identifier hs-type">DescribeGlobalTableSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679391715"><span class="annot"><span class="annottext">request :: DescribeGlobalTableSettings -&gt; Request DescribeGlobalTableSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeGlobalTableSettings
+-&gt; Request DescribeGlobalTableSettings
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679391711"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeGlobalTableSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeGlobalTableSettings)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeGlobalTableSettings))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeGlobalTableSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeGlobalTableSettings)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679391708"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391708"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391707"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679391707"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391706"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391706"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ReplicaSettingsDescription]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeGlobalTableSettingsResponse
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-var">DescribeGlobalTableSettingsResponse'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ReplicaSettingsDescription]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeGlobalTableSettingsResponse)
+-&gt; Either String (Maybe [ReplicaSettingsDescription])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeGlobalTableSettingsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [ReplicaSettingsDescription]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicaSettings&quot;</span></span><span>
+</span><span id="line-94"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ReplicaSettingsDescription]))
+-&gt; Maybe [ReplicaSettingsDescription]
+-&gt; Either String (Maybe [ReplicaSettingsDescription])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaSettingsDescription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-95"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribeGlobalTableSettingsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeGlobalTableSettingsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalTableName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeGlobalTableSettingsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeGlobalTableSettingsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391708"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391697"><span id="local-6989586621679391699"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings"><span class="hs-identifier hs-type">DescribeGlobalTableSettings</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391694"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings"><span class="hs-identifier hs-type">DescribeGlobalTableSettings</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings"><span class="hs-identifier hs-type">DescribeGlobalTableSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679391690"><span class="annot"><span class="annottext">toHeaders :: DescribeGlobalTableSettings -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeGlobalTableSettings -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DynamoDB_20120810.DescribeGlobalTableSettings&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391680"><span id="local-6989586621679391682"><span id="local-6989586621679391684"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings"><span class="hs-identifier hs-type">DescribeGlobalTableSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679391678"><span class="annot"><span class="annottext">toJSON :: DescribeGlobalTableSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings%27"><span class="hs-identifier hs-type">DescribeGlobalTableSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391676"><span class="annot"><span class="annottext">Text
+globalTableName :: Text
+$sel:globalTableName:DescribeGlobalTableSettings' :: DescribeGlobalTableSettings -&gt; Text
+</span><a href="#local-6989586621679391676"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalTableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391676"><span class="hs-identifier hs-var">globalTableName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings"><span class="hs-identifier hs-type">DescribeGlobalTableSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679391670"><span class="annot"><span class="annottext">toPath :: DescribeGlobalTableSettings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeGlobalTableSettings -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettings"><span class="hs-identifier hs-type">DescribeGlobalTableSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679391666"><span class="annot"><span class="annottext">toQuery :: DescribeGlobalTableSettings -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeGlobalTableSettings -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newDescribeGlobalTableSettingsResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621679391663"><span id="local-6989586621679391664"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGlobalTableSettingsResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse"><span class="hs-identifier hs-var">DescribeGlobalTableSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGlobalTableSettingsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-var">DescribeGlobalTableSettingsResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Region-specific settings for the global table.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AreplicaSettings%3ADescribeGlobalTableSettingsResponse%27"><span class="annot"><span class="annottext">DescribeGlobalTableSettingsResponse
+-&gt; Maybe [ReplicaSettingsDescription]
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#%24sel%3AreplicaSettings%3ADescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-var hs-var">replicaSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The name of the global table.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AglobalTableName%3ADescribeGlobalTableSettingsResponse%27"><span class="annot"><span class="annottext">DescribeGlobalTableSettingsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#%24sel%3AglobalTableName%3ADescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-var hs-var">globalTableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeGlobalTableSettingsResponse%27"><span class="annot"><span class="annottext">DescribeGlobalTableSettingsResponse -&gt; Int
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#%24sel%3AhttpStatus%3ADescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391656"><span id="local-6989586621679391658"><span class="annot"><span class="annottext">DescribeGlobalTableSettingsResponse
+-&gt; DescribeGlobalTableSettingsResponse -&gt; Bool
+(DescribeGlobalTableSettingsResponse
+ -&gt; DescribeGlobalTableSettingsResponse -&gt; Bool)
+-&gt; (DescribeGlobalTableSettingsResponse
+    -&gt; DescribeGlobalTableSettingsResponse -&gt; Bool)
+-&gt; Eq DescribeGlobalTableSettingsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeGlobalTableSettingsResponse
+-&gt; DescribeGlobalTableSettingsResponse -&gt; Bool
+$c/= :: DescribeGlobalTableSettingsResponse
+-&gt; DescribeGlobalTableSettingsResponse -&gt; Bool
+== :: DescribeGlobalTableSettingsResponse
+-&gt; DescribeGlobalTableSettingsResponse -&gt; Bool
+$c== :: DescribeGlobalTableSettingsResponse
+-&gt; DescribeGlobalTableSettingsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391648"><span id="local-6989586621679391650"><span id="local-6989586621679391652"><span id="local-6989586621679391654"><span class="annot"><span class="annottext">ReadPrec [DescribeGlobalTableSettingsResponse]
+ReadPrec DescribeGlobalTableSettingsResponse
+Int -&gt; ReadS DescribeGlobalTableSettingsResponse
+ReadS [DescribeGlobalTableSettingsResponse]
+(Int -&gt; ReadS DescribeGlobalTableSettingsResponse)
+-&gt; ReadS [DescribeGlobalTableSettingsResponse]
+-&gt; ReadPrec DescribeGlobalTableSettingsResponse
+-&gt; ReadPrec [DescribeGlobalTableSettingsResponse]
+-&gt; Read DescribeGlobalTableSettingsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeGlobalTableSettingsResponse]
+$creadListPrec :: ReadPrec [DescribeGlobalTableSettingsResponse]
+readPrec :: ReadPrec DescribeGlobalTableSettingsResponse
+$creadPrec :: ReadPrec DescribeGlobalTableSettingsResponse
+readList :: ReadS [DescribeGlobalTableSettingsResponse]
+$creadList :: ReadS [DescribeGlobalTableSettingsResponse]
+readsPrec :: Int -&gt; ReadS DescribeGlobalTableSettingsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeGlobalTableSettingsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391642"><span id="local-6989586621679391644"><span id="local-6989586621679391646"><span class="annot"><span class="annottext">Int -&gt; DescribeGlobalTableSettingsResponse -&gt; ShowS
+[DescribeGlobalTableSettingsResponse] -&gt; ShowS
+DescribeGlobalTableSettingsResponse -&gt; String
+(Int -&gt; DescribeGlobalTableSettingsResponse -&gt; ShowS)
+-&gt; (DescribeGlobalTableSettingsResponse -&gt; String)
+-&gt; ([DescribeGlobalTableSettingsResponse] -&gt; ShowS)
+-&gt; Show DescribeGlobalTableSettingsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeGlobalTableSettingsResponse] -&gt; ShowS
+$cshowList :: [DescribeGlobalTableSettingsResponse] -&gt; ShowS
+show :: DescribeGlobalTableSettingsResponse -&gt; String
+$cshow :: DescribeGlobalTableSettingsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeGlobalTableSettingsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeGlobalTableSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeGlobalTableSettingsResponse
+ -&gt; Rep DescribeGlobalTableSettingsResponse x)
+-&gt; (forall x.
+    Rep DescribeGlobalTableSettingsResponse x
+    -&gt; DescribeGlobalTableSettingsResponse)
+-&gt; Generic DescribeGlobalTableSettingsResponse
+forall x.
+Rep DescribeGlobalTableSettingsResponse x
+-&gt; DescribeGlobalTableSettingsResponse
+forall x.
+DescribeGlobalTableSettingsResponse
+-&gt; Rep DescribeGlobalTableSettingsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeGlobalTableSettingsResponse x
+-&gt; DescribeGlobalTableSettingsResponse
+$cfrom :: forall x.
+DescribeGlobalTableSettingsResponse
+-&gt; Rep DescribeGlobalTableSettingsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Create a value of 'DescribeGlobalTableSettingsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'replicaSettings', 'describeGlobalTableSettingsResponse_replicaSettings' - The Region-specific settings for the global table.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'globalTableName', 'describeGlobalTableSettingsResponse_globalTableName' - The name of the global table.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'httpStatus', 'describeGlobalTableSettingsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#newDescribeGlobalTableSettingsResponse"><span class="hs-identifier hs-type">newDescribeGlobalTableSettingsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse</span></a></span><span>
+</span><span id="line-162"></span><span id="newDescribeGlobalTableSettingsResponse"><span class="annot"><span class="annottext">newDescribeGlobalTableSettingsResponse :: Int -&gt; DescribeGlobalTableSettingsResponse
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#newDescribeGlobalTableSettingsResponse"><span class="hs-identifier hs-var hs-var">newDescribeGlobalTableSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679391639"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391639"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">DescribeGlobalTableSettingsResponse' :: Maybe [ReplicaSettingsDescription]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeGlobalTableSettingsResponse
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicaSettings:DescribeGlobalTableSettingsResponse' :: Maybe [ReplicaSettingsDescription]
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#%24sel%3AreplicaSettings%3ADescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-var">replicaSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ReplicaSettingsDescription]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalTableName:DescribeGlobalTableSettingsResponse' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#%24sel%3AglobalTableName%3ADescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-var">globalTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGlobalTableSettingsResponse' :: Int
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#%24sel%3AhttpStatus%3ADescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391639"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The Region-specific settings for the global table.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#describeGlobalTableSettingsResponse_replicaSettings"><span class="hs-identifier hs-type">describeGlobalTableSettingsResponse_replicaSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="describeGlobalTableSettingsResponse_replicaSettings"><span class="annot"><span class="annottext">describeGlobalTableSettingsResponse_replicaSettings :: (Maybe [ReplicaSettingsDescription]
+ -&gt; f (Maybe [ReplicaSettingsDescription]))
+-&gt; DescribeGlobalTableSettingsResponse
+-&gt; f DescribeGlobalTableSettingsResponse
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#describeGlobalTableSettingsResponse_replicaSettings"><span class="hs-identifier hs-var hs-var">describeGlobalTableSettingsResponse_replicaSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGlobalTableSettingsResponse
+ -&gt; Maybe [ReplicaSettingsDescription])
+-&gt; (DescribeGlobalTableSettingsResponse
+    -&gt; Maybe [ReplicaSettingsDescription]
+    -&gt; DescribeGlobalTableSettingsResponse)
+-&gt; Lens
+     DescribeGlobalTableSettingsResponse
+     DescribeGlobalTableSettingsResponse
+     (Maybe [ReplicaSettingsDescription])
+     (Maybe [ReplicaSettingsDescription])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391638"><span class="annot"><span class="annottext">Maybe [ReplicaSettingsDescription]
+replicaSettings :: Maybe [ReplicaSettingsDescription]
+$sel:replicaSettings:DescribeGlobalTableSettingsResponse' :: DescribeGlobalTableSettingsResponse
+-&gt; Maybe [ReplicaSettingsDescription]
+</span><a href="#local-6989586621679391638"><span class="hs-identifier hs-var hs-var">replicaSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaSettingsDescription]
+</span><a href="#local-6989586621679391638"><span class="hs-identifier hs-var">replicaSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391637"><span class="annot"><span class="annottext">s :: DescribeGlobalTableSettingsResponse
+</span><a href="#local-6989586621679391637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391636"><span class="annot"><span class="annottext">Maybe [ReplicaSettingsDescription]
+</span><a href="#local-6989586621679391636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGlobalTableSettingsResponse
+</span><a href="#local-6989586621679391637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaSettings:DescribeGlobalTableSettingsResponse' :: Maybe [ReplicaSettingsDescription]
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#%24sel%3AreplicaSettings%3ADescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-var">replicaSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaSettingsDescription]
+</span><a href="#local-6989586621679391636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReplicaSettingsDescription]
+  -&gt; f (Maybe [ReplicaSettingsDescription]))
+ -&gt; DescribeGlobalTableSettingsResponse
+ -&gt; f DescribeGlobalTableSettingsResponse)
+-&gt; ((Maybe [ReplicaSettingsDescription]
+     -&gt; f (Maybe [ReplicaSettingsDescription]))
+    -&gt; Maybe [ReplicaSettingsDescription]
+    -&gt; f (Maybe [ReplicaSettingsDescription]))
+-&gt; (Maybe [ReplicaSettingsDescription]
+    -&gt; f (Maybe [ReplicaSettingsDescription]))
+-&gt; DescribeGlobalTableSettingsResponse
+-&gt; f DescribeGlobalTableSettingsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReplicaSettingsDescription]
+  [ReplicaSettingsDescription]
+  [ReplicaSettingsDescription]
+  [ReplicaSettingsDescription]
+-&gt; Iso
+     (Maybe [ReplicaSettingsDescription])
+     (Maybe [ReplicaSettingsDescription])
+     (Maybe [ReplicaSettingsDescription])
+     (Maybe [ReplicaSettingsDescription])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReplicaSettingsDescription]
+  [ReplicaSettingsDescription]
+  [ReplicaSettingsDescription]
+  [ReplicaSettingsDescription]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The name of the global table.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#describeGlobalTableSettingsResponse_globalTableName"><span class="hs-identifier hs-type">describeGlobalTableSettingsResponse_globalTableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="describeGlobalTableSettingsResponse_globalTableName"><span class="annot"><span class="annottext">describeGlobalTableSettingsResponse_globalTableName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeGlobalTableSettingsResponse
+-&gt; f DescribeGlobalTableSettingsResponse
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#describeGlobalTableSettingsResponse_globalTableName"><span class="hs-identifier hs-var hs-var">describeGlobalTableSettingsResponse_globalTableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGlobalTableSettingsResponse -&gt; Maybe Text)
+-&gt; (DescribeGlobalTableSettingsResponse
+    -&gt; Maybe Text -&gt; DescribeGlobalTableSettingsResponse)
+-&gt; Lens
+     DescribeGlobalTableSettingsResponse
+     DescribeGlobalTableSettingsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391632"><span class="annot"><span class="annottext">Maybe Text
+globalTableName :: Maybe Text
+$sel:globalTableName:DescribeGlobalTableSettingsResponse' :: DescribeGlobalTableSettingsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679391632"><span class="hs-identifier hs-var hs-var">globalTableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391632"><span class="hs-identifier hs-var">globalTableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391631"><span class="annot"><span class="annottext">s :: DescribeGlobalTableSettingsResponse
+</span><a href="#local-6989586621679391631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391630"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGlobalTableSettingsResponse
+</span><a href="#local-6989586621679391631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalTableName:DescribeGlobalTableSettingsResponse' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#%24sel%3AglobalTableName%3ADescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-var">globalTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#describeGlobalTableSettingsResponse_httpStatus"><span class="hs-identifier hs-type">describeGlobalTableSettingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-180"></span><span id="describeGlobalTableSettingsResponse_httpStatus"><span class="annot"><span class="annottext">describeGlobalTableSettingsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeGlobalTableSettingsResponse
+-&gt; f DescribeGlobalTableSettingsResponse
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#describeGlobalTableSettingsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeGlobalTableSettingsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGlobalTableSettingsResponse -&gt; Int)
+-&gt; (DescribeGlobalTableSettingsResponse
+    -&gt; Int -&gt; DescribeGlobalTableSettingsResponse)
+-&gt; Lens
+     DescribeGlobalTableSettingsResponse
+     DescribeGlobalTableSettingsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391629"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeGlobalTableSettingsResponse' :: DescribeGlobalTableSettingsResponse -&gt; Int
+</span><a href="#local-6989586621679391629"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391629"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391628"><span class="annot"><span class="annottext">s :: DescribeGlobalTableSettingsResponse
+</span><a href="#local-6989586621679391628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391627"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGlobalTableSettingsResponse
+</span><a href="#local-6989586621679391628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGlobalTableSettingsResponse' :: Int
+</span><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#%24sel%3AhttpStatus%3ADescribeGlobalTableSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679391625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeGlobalTableSettings.html#DescribeGlobalTableSettingsResponse"><span class="hs-identifier hs-type">DescribeGlobalTableSettingsResponse</span></a></span></span><span>
+</span><span id="line-185"></span></pre></body></html>

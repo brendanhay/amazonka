@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ImportExport.Types.Job</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ImportExport.Types.Job</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.JobType.html"><span class="hs-identifier">Network.AWS.ImportExport.Types.JobType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Representation of a job returned by the ListJobs operation.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newJob' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679154281"><span id="local-6989586621679154282"></span></span><span class="hs-keyword">data</span><span> </span><span id="Job"><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job"><span class="hs-identifier hs-var">Job</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Job%27"><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job%27"><span class="hs-identifier hs-var">Job'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AjobType%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; JobType
+</span><a href="Network.AWS.ImportExport.Types.Job.html#%24sel%3AjobType%3AJob%27"><span class="hs-identifier hs-var hs-var">jobType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AjobId%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Text
+</span><a href="Network.AWS.ImportExport.Types.Job.html#%24sel%3AjobId%3AJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AisCanceled%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Bool
+</span><a href="Network.AWS.ImportExport.Types.Job.html#%24sel%3AisCanceled%3AJob%27"><span class="hs-identifier hs-var hs-var">isCanceled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreationDate%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; ISO8601
+</span><a href="Network.AWS.ImportExport.Types.Job.html#%24sel%3AcreationDate%3AJob%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679154272"><span id="local-6989586621679154274"><span class="annot"><span class="annottext">Job -&gt; Job -&gt; Bool
+(Job -&gt; Job -&gt; Bool) -&gt; (Job -&gt; Job -&gt; Bool) -&gt; Eq Job
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Job -&gt; Job -&gt; Bool
+$c/= :: Job -&gt; Job -&gt; Bool
+== :: Job -&gt; Job -&gt; Bool
+$c== :: Job -&gt; Job -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154263"><span id="local-6989586621679154265"><span id="local-6989586621679154267"><span id="local-6989586621679154269"><span class="annot"><span class="annottext">ReadPrec [Job]
+ReadPrec Job
+Int -&gt; ReadS Job
+ReadS [Job]
+(Int -&gt; ReadS Job)
+-&gt; ReadS [Job] -&gt; ReadPrec Job -&gt; ReadPrec [Job] -&gt; Read Job
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Job]
+$creadListPrec :: ReadPrec [Job]
+readPrec :: ReadPrec Job
+$creadPrec :: ReadPrec Job
+readList :: ReadS [Job]
+$creadList :: ReadS [Job]
+readsPrec :: Int -&gt; ReadS Job
+$creadsPrec :: Int -&gt; ReadS Job
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154256"><span id="local-6989586621679154258"><span id="local-6989586621679154260"><span class="annot"><span class="annottext">Int -&gt; Job -&gt; ShowS
+[Job] -&gt; ShowS
+Job -&gt; String
+(Int -&gt; Job -&gt; ShowS)
+-&gt; (Job -&gt; String) -&gt; ([Job] -&gt; ShowS) -&gt; Show Job
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Job] -&gt; ShowS
+$cshowList :: [Job] -&gt; ShowS
+show :: Job -&gt; String
+$cshow :: Job -&gt; String
+showsPrec :: Int -&gt; Job -&gt; ShowS
+$cshowsPrec :: Int -&gt; Job -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Job -&gt; Rep Job x)
+-&gt; (forall x. Rep Job x -&gt; Job) -&gt; Generic Job
+forall x. Rep Job x -&gt; Job
+forall x. Job -&gt; Rep Job x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Job x -&gt; Job
+$cfrom :: forall x. Job -&gt; Rep Job x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'Job' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'jobType', 'job_jobType' - Undocumented member.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'jobId', 'job_jobId' - Undocumented member.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'isCanceled', 'job_isCanceled' - Undocumented member.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'creationDate', 'job_creationDate' - Undocumented member.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#newJob"><span class="hs-identifier hs-type">newJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-comment">-- | 'jobType'</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.ImportExport.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-comment">-- | 'isCanceled'</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-comment">-- | 'creationDate'</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span>
+</span><span id="line-63"></span><span id="newJob"><span class="annot"><span class="annottext">newJob :: JobType -&gt; Text -&gt; Bool -&gt; UTCTime -&gt; Job
+</span><a href="Network.AWS.ImportExport.Types.Job.html#newJob"><span class="hs-identifier hs-var hs-var">newJob</span></a></span></span><span> </span><span id="local-6989586621679154250"><span class="annot"><span class="annottext">JobType
+</span><a href="#local-6989586621679154250"><span class="hs-identifier hs-var">pJobType_</span></a></span></span><span> </span><span id="local-6989586621679154249"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154249"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span id="local-6989586621679154248"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679154248"><span class="hs-identifier hs-var">pIsCanceled_</span></a></span></span><span> </span><span id="local-6989586621679154247"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679154247"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">Job' :: JobType -&gt; Text -&gt; Bool -&gt; ISO8601 -&gt; Job
+</span><a href="Network.AWS.ImportExport.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobType:Job' :: JobType
+</span><a href="Network.AWS.ImportExport.Types.Job.html#%24sel%3AjobType%3AJob%27"><span class="hs-identifier hs-var">jobType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JobType
+</span><a href="#local-6989586621679154250"><span class="hs-identifier hs-var">pJobType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:Job' :: Text
+</span><a href="Network.AWS.ImportExport.Types.Job.html#%24sel%3AjobId%3AJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154249"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:isCanceled:Job' :: Bool
+</span><a href="Network.AWS.ImportExport.Types.Job.html#%24sel%3AisCanceled%3AJob%27"><span class="hs-identifier hs-var">isCanceled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679154248"><span class="hs-identifier hs-var">pIsCanceled_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:Job' :: ISO8601
+</span><a href="Network.AWS.ImportExport.Types.Job.html#%24sel%3AcreationDate%3AJob%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
+-&gt; Tagged ISO8601 (Identity ISO8601)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged ISO8601 (Identity ISO8601))
+-&gt; UTCTime -&gt; ISO8601
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679154247"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#job_jobType"><span class="hs-identifier hs-type">job_jobType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span>
+</span><span id="line-73"></span><span id="job_jobType"><span class="annot"><span class="annottext">job_jobType :: (JobType -&gt; f JobType) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.ImportExport.Types.Job.html#job_jobType"><span class="hs-identifier hs-var hs-var">job_jobType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; JobType)
+-&gt; (Job -&gt; JobType -&gt; Job) -&gt; Lens Job Job JobType JobType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154241"><span class="annot"><span class="annottext">JobType
+jobType :: JobType
+$sel:jobType:Job' :: Job -&gt; JobType
+</span><a href="#local-6989586621679154241"><span class="hs-identifier hs-var hs-var">jobType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobType
+</span><a href="#local-6989586621679154241"><span class="hs-identifier hs-var">jobType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154240"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679154240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154239"><span class="annot"><span class="annottext">JobType
+</span><a href="#local-6989586621679154239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679154240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobType:Job' :: JobType
+</span><a href="Network.AWS.ImportExport.Types.Job.html#%24sel%3AjobType%3AJob%27"><span class="hs-identifier hs-var">jobType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JobType
+</span><a href="#local-6989586621679154239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#job_jobId"><span class="hs-identifier hs-type">job_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="job_jobId"><span class="annot"><span class="annottext">job_jobId :: (Text -&gt; f Text) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.ImportExport.Types.Job.html#job_jobId"><span class="hs-identifier hs-var hs-var">job_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Text) -&gt; (Job -&gt; Text -&gt; Job) -&gt; Lens Job Job Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154237"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:Job' :: Job -&gt; Text
+</span><a href="#local-6989586621679154237"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154237"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154236"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679154236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154235"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679154236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:Job' :: Text
+</span><a href="Network.AWS.ImportExport.Types.Job.html#%24sel%3AjobId%3AJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#job_isCanceled"><span class="hs-identifier hs-type">job_isCanceled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-81"></span><span id="job_isCanceled"><span class="annot"><span class="annottext">job_isCanceled :: (Bool -&gt; f Bool) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.ImportExport.Types.Job.html#job_isCanceled"><span class="hs-identifier hs-var hs-var">job_isCanceled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Bool) -&gt; (Job -&gt; Bool -&gt; Job) -&gt; Lens Job Job Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154233"><span class="annot"><span class="annottext">Bool
+isCanceled :: Bool
+$sel:isCanceled:Job' :: Job -&gt; Bool
+</span><a href="#local-6989586621679154233"><span class="hs-identifier hs-var hs-var">isCanceled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679154233"><span class="hs-identifier hs-var">isCanceled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154232"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679154232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154231"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679154231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679154232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isCanceled:Job' :: Bool
+</span><a href="Network.AWS.ImportExport.Types.Job.html#%24sel%3AisCanceled%3AJob%27"><span class="hs-identifier hs-var">isCanceled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679154231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#job_creationDate"><span class="hs-identifier hs-type">job_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-85"></span><span id="job_creationDate"><span class="annot"><span class="annottext">job_creationDate :: (UTCTime -&gt; f UTCTime) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.ImportExport.Types.Job.html#job_creationDate"><span class="hs-identifier hs-var hs-var">job_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; ISO8601)
+-&gt; (Job -&gt; ISO8601 -&gt; Job) -&gt; Lens Job Job ISO8601 ISO8601
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154229"><span class="annot"><span class="annottext">ISO8601
+creationDate :: ISO8601
+$sel:creationDate:Job' :: Job -&gt; ISO8601
+</span><a href="#local-6989586621679154229"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679154229"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154228"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679154228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154227"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679154227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679154228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:Job' :: ISO8601
+</span><a href="Network.AWS.ImportExport.Types.Job.html#%24sel%3AcreationDate%3AJob%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679154227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; Job -&gt; f Job)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; Job
+-&gt; f Job
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679154223"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Job
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679154221"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154221"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">JobType -&gt; Text -&gt; Bool -&gt; ISO8601 -&gt; Job
+</span><a href="Network.AWS.ImportExport.Types.Job.html#Job%27"><span class="hs-identifier hs-var">Job'</span></a></span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">(JobType -&gt; Text -&gt; Bool -&gt; ISO8601 -&gt; Job)
+-&gt; Either String JobType
+-&gt; Either String (Text -&gt; Bool -&gt; ISO8601 -&gt; Job)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String JobType
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; Bool -&gt; ISO8601 -&gt; Job)
+-&gt; Either String Text -&gt; Either String (Bool -&gt; ISO8601 -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Either String (Bool -&gt; ISO8601 -&gt; Job)
+-&gt; Either String Bool -&gt; Either String (ISO8601 -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsCanceled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">Either String (ISO8601 -&gt; Job)
+-&gt; Either String ISO8601 -&gt; Either String Job
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154215"><span id="local-6989586621679154217"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span><span>
+</span><span id="line-98"></span></pre></body></html>

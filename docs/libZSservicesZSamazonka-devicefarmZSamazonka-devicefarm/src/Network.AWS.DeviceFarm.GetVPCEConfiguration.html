@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DeviceFarm.GetVPCEConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about the configuration settings for your Amazon</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Virtual Private Cloud (VPC) endpoint.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DeviceFarm.GetVPCEConfiguration</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration"><span class="hs-identifier">GetVPCEConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#newGetVPCEConfiguration"><span class="hs-identifier">newGetVPCEConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#getVPCEConfiguration_arn"><span class="hs-identifier">getVPCEConfiguration_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse"><span class="hs-identifier">GetVPCEConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#newGetVPCEConfigurationResponse"><span class="hs-identifier">newGetVPCEConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#getVPCEConfigurationResponse_vpceConfiguration"><span class="hs-identifier">getVPCEConfigurationResponse_vpceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#getVPCEConfigurationResponse_httpStatus"><span class="hs-identifier">getVPCEConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.html"><span class="hs-identifier">Network.AWS.DeviceFarm.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetVPCEConfiguration' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679381309"><span id="local-6989586621679381310"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVPCEConfiguration"><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration"><span class="hs-identifier hs-var">GetVPCEConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVPCEConfiguration%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration%27"><span class="hs-identifier hs-var">GetVPCEConfiguration'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- want to describe.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aarn%3AGetVPCEConfiguration%27"><span class="annot"><span class="annottext">GetVPCEConfiguration -&gt; Text
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#%24sel%3Aarn%3AGetVPCEConfiguration%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381303"><span id="local-6989586621679381305"><span class="annot"><span class="annottext">GetVPCEConfiguration -&gt; GetVPCEConfiguration -&gt; Bool
+(GetVPCEConfiguration -&gt; GetVPCEConfiguration -&gt; Bool)
+-&gt; (GetVPCEConfiguration -&gt; GetVPCEConfiguration -&gt; Bool)
+-&gt; Eq GetVPCEConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetVPCEConfiguration -&gt; GetVPCEConfiguration -&gt; Bool
+$c/= :: GetVPCEConfiguration -&gt; GetVPCEConfiguration -&gt; Bool
+== :: GetVPCEConfiguration -&gt; GetVPCEConfiguration -&gt; Bool
+$c== :: GetVPCEConfiguration -&gt; GetVPCEConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381294"><span id="local-6989586621679381296"><span id="local-6989586621679381298"><span id="local-6989586621679381300"><span class="annot"><span class="annottext">ReadPrec [GetVPCEConfiguration]
+ReadPrec GetVPCEConfiguration
+Int -&gt; ReadS GetVPCEConfiguration
+ReadS [GetVPCEConfiguration]
+(Int -&gt; ReadS GetVPCEConfiguration)
+-&gt; ReadS [GetVPCEConfiguration]
+-&gt; ReadPrec GetVPCEConfiguration
+-&gt; ReadPrec [GetVPCEConfiguration]
+-&gt; Read GetVPCEConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetVPCEConfiguration]
+$creadListPrec :: ReadPrec [GetVPCEConfiguration]
+readPrec :: ReadPrec GetVPCEConfiguration
+$creadPrec :: ReadPrec GetVPCEConfiguration
+readList :: ReadS [GetVPCEConfiguration]
+$creadList :: ReadS [GetVPCEConfiguration]
+readsPrec :: Int -&gt; ReadS GetVPCEConfiguration
+$creadsPrec :: Int -&gt; ReadS GetVPCEConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381287"><span id="local-6989586621679381289"><span id="local-6989586621679381291"><span class="annot"><span class="annottext">Int -&gt; GetVPCEConfiguration -&gt; ShowS
+[GetVPCEConfiguration] -&gt; ShowS
+GetVPCEConfiguration -&gt; String
+(Int -&gt; GetVPCEConfiguration -&gt; ShowS)
+-&gt; (GetVPCEConfiguration -&gt; String)
+-&gt; ([GetVPCEConfiguration] -&gt; ShowS)
+-&gt; Show GetVPCEConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetVPCEConfiguration] -&gt; ShowS
+$cshowList :: [GetVPCEConfiguration] -&gt; ShowS
+show :: GetVPCEConfiguration -&gt; String
+$cshow :: GetVPCEConfiguration -&gt; String
+showsPrec :: Int -&gt; GetVPCEConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetVPCEConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetVPCEConfiguration -&gt; Rep GetVPCEConfiguration x)
+-&gt; (forall x. Rep GetVPCEConfiguration x -&gt; GetVPCEConfiguration)
+-&gt; Generic GetVPCEConfiguration
+forall x. Rep GetVPCEConfiguration x -&gt; GetVPCEConfiguration
+forall x. GetVPCEConfiguration -&gt; Rep GetVPCEConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetVPCEConfiguration x -&gt; GetVPCEConfiguration
+$cfrom :: forall x. GetVPCEConfiguration -&gt; Rep GetVPCEConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'GetVPCEConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'arn', 'getVPCEConfiguration_arn' - The Amazon Resource Name (ARN) of the VPC endpoint configuration you</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- want to describe.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#newGetVPCEConfiguration"><span class="hs-identifier hs-type">newGetVPCEConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration"><span class="hs-identifier hs-type">GetVPCEConfiguration</span></a></span><span>
+</span><span id="line-72"></span><span id="newGetVPCEConfiguration"><span class="annot"><span class="annottext">newGetVPCEConfiguration :: Text -&gt; GetVPCEConfiguration
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#newGetVPCEConfiguration"><span class="hs-identifier hs-var hs-var">newGetVPCEConfiguration</span></a></span></span><span> </span><span id="local-6989586621679381282"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381282"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">GetVPCEConfiguration' :: Text -&gt; GetVPCEConfiguration
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration%27"><span class="hs-identifier hs-type">GetVPCEConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetVPCEConfiguration' :: Text
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#%24sel%3Aarn%3AGetVPCEConfiguration%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381282"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- want to describe.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#getVPCEConfiguration_arn"><span class="hs-identifier hs-type">getVPCEConfiguration_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration"><span class="hs-identifier hs-type">GetVPCEConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="getVPCEConfiguration_arn"><span class="annot"><span class="annottext">getVPCEConfiguration_arn :: (Text -&gt; f Text) -&gt; GetVPCEConfiguration -&gt; f GetVPCEConfiguration
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#getVPCEConfiguration_arn"><span class="hs-identifier hs-var hs-var">getVPCEConfiguration_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVPCEConfiguration -&gt; Text)
+-&gt; (GetVPCEConfiguration -&gt; Text -&gt; GetVPCEConfiguration)
+-&gt; Lens GetVPCEConfiguration GetVPCEConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration%27"><span class="hs-identifier hs-type">GetVPCEConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381279"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:GetVPCEConfiguration' :: GetVPCEConfiguration -&gt; Text
+</span><a href="#local-6989586621679381279"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381279"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381278"><span class="annot"><span class="annottext">s :: GetVPCEConfiguration
+</span><a href="#local-6989586621679381278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration%27"><span class="hs-identifier hs-type">GetVPCEConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381277"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVPCEConfiguration
+</span><a href="#local-6989586621679381278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetVPCEConfiguration' :: Text
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#%24sel%3Aarn%3AGetVPCEConfiguration%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration"><span class="hs-identifier hs-type">GetVPCEConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration"><span class="hs-identifier hs-type">GetVPCEConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration"><span class="hs-identifier hs-type">GetVPCEConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse"><span class="hs-identifier hs-type">GetVPCEConfigurationResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679381273"><span class="annot"><span class="annottext">request :: GetVPCEConfiguration -&gt; Request GetVPCEConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetVPCEConfiguration -&gt; Request GetVPCEConfiguration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679381269"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetVPCEConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetVPCEConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetVPCEConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetVPCEConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetVPCEConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381266"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381266"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679381265"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679381265"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679381264"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381264"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe VPCEConfiguration -&gt; Int -&gt; GetVPCEConfigurationResponse
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse%27"><span class="hs-identifier hs-var">GetVPCEConfigurationResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VPCEConfiguration -&gt; Int -&gt; GetVPCEConfigurationResponse)
+-&gt; Either String (Maybe VPCEConfiguration)
+-&gt; Either String (Int -&gt; GetVPCEConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VPCEConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpceConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetVPCEConfigurationResponse)
+-&gt; Either String Int -&gt; Either String GetVPCEConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381266"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381256"><span id="local-6989586621679381258"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration"><span class="hs-identifier hs-type">GetVPCEConfiguration</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381253"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration"><span class="hs-identifier hs-type">GetVPCEConfiguration</span></a></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration"><span class="hs-identifier hs-type">GetVPCEConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679381249"><span class="annot"><span class="annottext">toHeaders :: GetVPCEConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetVPCEConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeviceFarm_20150623.GetVPCEConfiguration&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-104"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-108"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381239"><span id="local-6989586621679381241"><span id="local-6989586621679381243"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration"><span class="hs-identifier hs-type">GetVPCEConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679381237"><span class="annot"><span class="annottext">toJSON :: GetVPCEConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration%27"><span class="hs-identifier hs-type">GetVPCEConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381235"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:GetVPCEConfiguration' :: GetVPCEConfiguration -&gt; Text
+</span><a href="#local-6989586621679381235"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381235"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration"><span class="hs-identifier hs-type">GetVPCEConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679381229"><span class="annot"><span class="annottext">toPath :: GetVPCEConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetVPCEConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfiguration"><span class="hs-identifier hs-type">GetVPCEConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679381225"><span class="annot"><span class="annottext">toQuery :: GetVPCEConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetVPCEConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newGetVPCEConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-126"></span><span id="local-6989586621679381222"><span id="local-6989586621679381223"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVPCEConfigurationResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse"><span class="hs-identifier hs-var">GetVPCEConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVPCEConfigurationResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse%27"><span class="hs-identifier hs-var">GetVPCEConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that contains information about your VPC endpoint</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AvpceConfiguration%3AGetVPCEConfigurationResponse%27"><span class="annot"><span class="annottext">GetVPCEConfigurationResponse -&gt; Maybe VPCEConfiguration
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#%24sel%3AvpceConfiguration%3AGetVPCEConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">vpceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.VPCEConfiguration.html#VPCEConfiguration"><span class="hs-identifier hs-type">VPCEConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetVPCEConfigurationResponse%27"><span class="annot"><span class="annottext">GetVPCEConfigurationResponse -&gt; Int
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#%24sel%3AhttpStatus%3AGetVPCEConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381216"><span id="local-6989586621679381218"><span class="annot"><span class="annottext">GetVPCEConfigurationResponse
+-&gt; GetVPCEConfigurationResponse -&gt; Bool
+(GetVPCEConfigurationResponse
+ -&gt; GetVPCEConfigurationResponse -&gt; Bool)
+-&gt; (GetVPCEConfigurationResponse
+    -&gt; GetVPCEConfigurationResponse -&gt; Bool)
+-&gt; Eq GetVPCEConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetVPCEConfigurationResponse
+-&gt; GetVPCEConfigurationResponse -&gt; Bool
+$c/= :: GetVPCEConfigurationResponse
+-&gt; GetVPCEConfigurationResponse -&gt; Bool
+== :: GetVPCEConfigurationResponse
+-&gt; GetVPCEConfigurationResponse -&gt; Bool
+$c== :: GetVPCEConfigurationResponse
+-&gt; GetVPCEConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381208"><span id="local-6989586621679381210"><span id="local-6989586621679381212"><span id="local-6989586621679381214"><span class="annot"><span class="annottext">ReadPrec [GetVPCEConfigurationResponse]
+ReadPrec GetVPCEConfigurationResponse
+Int -&gt; ReadS GetVPCEConfigurationResponse
+ReadS [GetVPCEConfigurationResponse]
+(Int -&gt; ReadS GetVPCEConfigurationResponse)
+-&gt; ReadS [GetVPCEConfigurationResponse]
+-&gt; ReadPrec GetVPCEConfigurationResponse
+-&gt; ReadPrec [GetVPCEConfigurationResponse]
+-&gt; Read GetVPCEConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetVPCEConfigurationResponse]
+$creadListPrec :: ReadPrec [GetVPCEConfigurationResponse]
+readPrec :: ReadPrec GetVPCEConfigurationResponse
+$creadPrec :: ReadPrec GetVPCEConfigurationResponse
+readList :: ReadS [GetVPCEConfigurationResponse]
+$creadList :: ReadS [GetVPCEConfigurationResponse]
+readsPrec :: Int -&gt; ReadS GetVPCEConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS GetVPCEConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381202"><span id="local-6989586621679381204"><span id="local-6989586621679381206"><span class="annot"><span class="annottext">Int -&gt; GetVPCEConfigurationResponse -&gt; ShowS
+[GetVPCEConfigurationResponse] -&gt; ShowS
+GetVPCEConfigurationResponse -&gt; String
+(Int -&gt; GetVPCEConfigurationResponse -&gt; ShowS)
+-&gt; (GetVPCEConfigurationResponse -&gt; String)
+-&gt; ([GetVPCEConfigurationResponse] -&gt; ShowS)
+-&gt; Show GetVPCEConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetVPCEConfigurationResponse] -&gt; ShowS
+$cshowList :: [GetVPCEConfigurationResponse] -&gt; ShowS
+show :: GetVPCEConfigurationResponse -&gt; String
+$cshow :: GetVPCEConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; GetVPCEConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetVPCEConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetVPCEConfigurationResponse -&gt; Rep GetVPCEConfigurationResponse x)
+-&gt; (forall x.
+    Rep GetVPCEConfigurationResponse x -&gt; GetVPCEConfigurationResponse)
+-&gt; Generic GetVPCEConfigurationResponse
+forall x.
+Rep GetVPCEConfigurationResponse x -&gt; GetVPCEConfigurationResponse
+forall x.
+GetVPCEConfigurationResponse -&gt; Rep GetVPCEConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetVPCEConfigurationResponse x -&gt; GetVPCEConfigurationResponse
+$cfrom :: forall x.
+GetVPCEConfigurationResponse -&gt; Rep GetVPCEConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Create a value of 'GetVPCEConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'vpceConfiguration', 'getVPCEConfigurationResponse_vpceConfiguration' - An object that contains information about your VPC endpoint</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'httpStatus', 'getVPCEConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#newGetVPCEConfigurationResponse"><span class="hs-identifier hs-type">newGetVPCEConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse"><span class="hs-identifier hs-type">GetVPCEConfigurationResponse</span></a></span><span>
+</span><span id="line-151"></span><span id="newGetVPCEConfigurationResponse"><span class="annot"><span class="annottext">newGetVPCEConfigurationResponse :: Int -&gt; GetVPCEConfigurationResponse
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#newGetVPCEConfigurationResponse"><span class="hs-identifier hs-var hs-var">newGetVPCEConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679381199"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381199"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">GetVPCEConfigurationResponse' :: Maybe VPCEConfiguration -&gt; Int -&gt; GetVPCEConfigurationResponse
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse%27"><span class="hs-identifier hs-type">GetVPCEConfigurationResponse'</span></a></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpceConfiguration:GetVPCEConfigurationResponse' :: Maybe VPCEConfiguration
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#%24sel%3AvpceConfiguration%3AGetVPCEConfigurationResponse%27"><span class="hs-identifier hs-var">vpceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">Maybe VPCEConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetVPCEConfigurationResponse' :: Int
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#%24sel%3AhttpStatus%3AGetVPCEConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381199"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | An object that contains information about your VPC endpoint</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#getVPCEConfigurationResponse_vpceConfiguration"><span class="hs-identifier hs-type">getVPCEConfigurationResponse_vpceConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse"><span class="hs-identifier hs-type">GetVPCEConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.VPCEConfiguration.html#VPCEConfiguration"><span class="hs-identifier hs-type">VPCEConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="getVPCEConfigurationResponse_vpceConfiguration"><span class="annot"><span class="annottext">getVPCEConfigurationResponse_vpceConfiguration :: (Maybe VPCEConfiguration -&gt; f (Maybe VPCEConfiguration))
+-&gt; GetVPCEConfigurationResponse -&gt; f GetVPCEConfigurationResponse
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#getVPCEConfigurationResponse_vpceConfiguration"><span class="hs-identifier hs-var hs-var">getVPCEConfigurationResponse_vpceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVPCEConfigurationResponse -&gt; Maybe VPCEConfiguration)
+-&gt; (GetVPCEConfigurationResponse
+    -&gt; Maybe VPCEConfiguration -&gt; GetVPCEConfigurationResponse)
+-&gt; Lens
+     GetVPCEConfigurationResponse
+     GetVPCEConfigurationResponse
+     (Maybe VPCEConfiguration)
+     (Maybe VPCEConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse%27"><span class="hs-identifier hs-type">GetVPCEConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381198"><span class="annot"><span class="annottext">Maybe VPCEConfiguration
+vpceConfiguration :: Maybe VPCEConfiguration
+$sel:vpceConfiguration:GetVPCEConfigurationResponse' :: GetVPCEConfigurationResponse -&gt; Maybe VPCEConfiguration
+</span><a href="#local-6989586621679381198"><span class="hs-identifier hs-var hs-var">vpceConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VPCEConfiguration
+</span><a href="#local-6989586621679381198"><span class="hs-identifier hs-var">vpceConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381197"><span class="annot"><span class="annottext">s :: GetVPCEConfigurationResponse
+</span><a href="#local-6989586621679381197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse%27"><span class="hs-identifier hs-type">GetVPCEConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381196"><span class="annot"><span class="annottext">Maybe VPCEConfiguration
+</span><a href="#local-6989586621679381196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVPCEConfigurationResponse
+</span><a href="#local-6989586621679381197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpceConfiguration:GetVPCEConfigurationResponse' :: Maybe VPCEConfiguration
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#%24sel%3AvpceConfiguration%3AGetVPCEConfigurationResponse%27"><span class="hs-identifier hs-var">vpceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VPCEConfiguration
+</span><a href="#local-6989586621679381196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse"><span class="hs-identifier hs-type">GetVPCEConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#getVPCEConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">getVPCEConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse"><span class="hs-identifier hs-type">GetVPCEConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span id="getVPCEConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">getVPCEConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetVPCEConfigurationResponse -&gt; f GetVPCEConfigurationResponse
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#getVPCEConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getVPCEConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVPCEConfigurationResponse -&gt; Int)
+-&gt; (GetVPCEConfigurationResponse
+    -&gt; Int -&gt; GetVPCEConfigurationResponse)
+-&gt; Lens
+     GetVPCEConfigurationResponse GetVPCEConfigurationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse%27"><span class="hs-identifier hs-type">GetVPCEConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381195"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetVPCEConfigurationResponse' :: GetVPCEConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679381195"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381195"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381194"><span class="annot"><span class="annottext">s :: GetVPCEConfigurationResponse
+</span><a href="#local-6989586621679381194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse%27"><span class="hs-identifier hs-type">GetVPCEConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381193"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVPCEConfigurationResponse
+</span><a href="#local-6989586621679381194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetVPCEConfigurationResponse' :: Int
+</span><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#%24sel%3AhttpStatus%3AGetVPCEConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse"><span class="hs-identifier hs-type">GetVPCEConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381191"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetVPCEConfiguration.html#GetVPCEConfigurationResponse"><span class="hs-identifier hs-type">GetVPCEConfigurationResponse</span></a></span></span><span>
+</span><span id="line-168"></span></pre></body></html>

@@ -1,0 +1,968 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.DescribeIamInstanceProfileAssociations</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes your IAM instance profile associations.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.DescribeIamInstanceProfileAssociations</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier">DescribeIamInstanceProfileAssociations</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#newDescribeIamInstanceProfileAssociations"><span class="hs-identifier">newDescribeIamInstanceProfileAssociations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociations_nextToken"><span class="hs-identifier">describeIamInstanceProfileAssociations_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociations_maxResults"><span class="hs-identifier">describeIamInstanceProfileAssociations_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociations_associationIds"><span class="hs-identifier">describeIamInstanceProfileAssociations_associationIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociations_filters"><span class="hs-identifier">describeIamInstanceProfileAssociations_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse"><span class="hs-identifier">DescribeIamInstanceProfileAssociationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#newDescribeIamInstanceProfileAssociationsResponse"><span class="hs-identifier">newDescribeIamInstanceProfileAssociationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociationsResponse_nextToken"><span class="hs-identifier">describeIamInstanceProfileAssociationsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations"><span class="hs-identifier">describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociationsResponse_httpStatus"><span class="hs-identifier">describeIamInstanceProfileAssociationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeIamInstanceProfileAssociations' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621681228098"><span id="local-6989586621681228099"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIamInstanceProfileAssociations"><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-var">DescribeIamInstanceProfileAssociations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIamInstanceProfileAssociations%27"><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-var">DescribeIamInstanceProfileAssociations'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to request the next page of results.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeIamInstanceProfileAssociations%27"><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociations -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AnextToken%3ADescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return in a single call. To retrieve</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @NextToken@</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeIamInstanceProfileAssociations%27"><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociations -&gt; Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AmaxResults%3ADescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The IAM instance profile associations.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AassociationIds%3ADescribeIamInstanceProfileAssociations%27"><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociations -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AassociationIds%3ADescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-var hs-var">associationIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The filters.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   @instance-id@ - The ID of the instance.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   @state@ - The state of the association (@associating@ | @associated@</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     | @disassociating@).</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeIamInstanceProfileAssociations%27"><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociations -&gt; Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3Afilters%3ADescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681228089"><span id="local-6989586621681228091"><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociations
+-&gt; DescribeIamInstanceProfileAssociations -&gt; Bool
+(DescribeIamInstanceProfileAssociations
+ -&gt; DescribeIamInstanceProfileAssociations -&gt; Bool)
+-&gt; (DescribeIamInstanceProfileAssociations
+    -&gt; DescribeIamInstanceProfileAssociations -&gt; Bool)
+-&gt; Eq DescribeIamInstanceProfileAssociations
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeIamInstanceProfileAssociations
+-&gt; DescribeIamInstanceProfileAssociations -&gt; Bool
+$c/= :: DescribeIamInstanceProfileAssociations
+-&gt; DescribeIamInstanceProfileAssociations -&gt; Bool
+== :: DescribeIamInstanceProfileAssociations
+-&gt; DescribeIamInstanceProfileAssociations -&gt; Bool
+$c== :: DescribeIamInstanceProfileAssociations
+-&gt; DescribeIamInstanceProfileAssociations -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681228080"><span id="local-6989586621681228082"><span id="local-6989586621681228084"><span id="local-6989586621681228086"><span class="annot"><span class="annottext">ReadPrec [DescribeIamInstanceProfileAssociations]
+ReadPrec DescribeIamInstanceProfileAssociations
+Int -&gt; ReadS DescribeIamInstanceProfileAssociations
+ReadS [DescribeIamInstanceProfileAssociations]
+(Int -&gt; ReadS DescribeIamInstanceProfileAssociations)
+-&gt; ReadS [DescribeIamInstanceProfileAssociations]
+-&gt; ReadPrec DescribeIamInstanceProfileAssociations
+-&gt; ReadPrec [DescribeIamInstanceProfileAssociations]
+-&gt; Read DescribeIamInstanceProfileAssociations
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeIamInstanceProfileAssociations]
+$creadListPrec :: ReadPrec [DescribeIamInstanceProfileAssociations]
+readPrec :: ReadPrec DescribeIamInstanceProfileAssociations
+$creadPrec :: ReadPrec DescribeIamInstanceProfileAssociations
+readList :: ReadS [DescribeIamInstanceProfileAssociations]
+$creadList :: ReadS [DescribeIamInstanceProfileAssociations]
+readsPrec :: Int -&gt; ReadS DescribeIamInstanceProfileAssociations
+$creadsPrec :: Int -&gt; ReadS DescribeIamInstanceProfileAssociations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681228073"><span id="local-6989586621681228075"><span id="local-6989586621681228077"><span class="annot"><span class="annottext">Int -&gt; DescribeIamInstanceProfileAssociations -&gt; ShowS
+[DescribeIamInstanceProfileAssociations] -&gt; ShowS
+DescribeIamInstanceProfileAssociations -&gt; String
+(Int -&gt; DescribeIamInstanceProfileAssociations -&gt; ShowS)
+-&gt; (DescribeIamInstanceProfileAssociations -&gt; String)
+-&gt; ([DescribeIamInstanceProfileAssociations] -&gt; ShowS)
+-&gt; Show DescribeIamInstanceProfileAssociations
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeIamInstanceProfileAssociations] -&gt; ShowS
+$cshowList :: [DescribeIamInstanceProfileAssociations] -&gt; ShowS
+show :: DescribeIamInstanceProfileAssociations -&gt; String
+$cshow :: DescribeIamInstanceProfileAssociations -&gt; String
+showsPrec :: Int -&gt; DescribeIamInstanceProfileAssociations -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeIamInstanceProfileAssociations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeIamInstanceProfileAssociations
+ -&gt; Rep DescribeIamInstanceProfileAssociations x)
+-&gt; (forall x.
+    Rep DescribeIamInstanceProfileAssociations x
+    -&gt; DescribeIamInstanceProfileAssociations)
+-&gt; Generic DescribeIamInstanceProfileAssociations
+forall x.
+Rep DescribeIamInstanceProfileAssociations x
+-&gt; DescribeIamInstanceProfileAssociations
+forall x.
+DescribeIamInstanceProfileAssociations
+-&gt; Rep DescribeIamInstanceProfileAssociations x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeIamInstanceProfileAssociations x
+-&gt; DescribeIamInstanceProfileAssociations
+$cfrom :: forall x.
+DescribeIamInstanceProfileAssociations
+-&gt; Rep DescribeIamInstanceProfileAssociations x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'DescribeIamInstanceProfileAssociations' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'nextToken', 'describeIamInstanceProfileAssociations_nextToken' - The token to request the next page of results.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'maxResults', 'describeIamInstanceProfileAssociations_maxResults' - The maximum number of results to return in a single call. To retrieve</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- the remaining results, make another call with the returned @NextToken@</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'associationIds', 'describeIamInstanceProfileAssociations_associationIds' - The IAM instance profile associations.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'filters', 'describeIamInstanceProfileAssociations_filters' - The filters.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   @instance-id@ - The ID of the instance.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   @state@ - The state of the association (@associating@ | @associated@</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--     | @disassociating@).</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#newDescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">newDescribeIamInstanceProfileAssociations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span><span>
+</span><span id="line-99"></span><span id="newDescribeIamInstanceProfileAssociations"><span class="annot"><span class="annottext">newDescribeIamInstanceProfileAssociations :: DescribeIamInstanceProfileAssociations
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#newDescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-var hs-var">newDescribeIamInstanceProfileAssociations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociations' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe [Text]
+-&gt; Maybe [Filter]
+-&gt; DescribeIamInstanceProfileAssociations
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations'</span></a></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeIamInstanceProfileAssociations' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AnextToken%3ADescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeIamInstanceProfileAssociations' :: Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AmaxResults%3ADescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationIds:DescribeIamInstanceProfileAssociations' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AassociationIds%3ADescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-var">associationIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeIamInstanceProfileAssociations' :: Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3Afilters%3ADescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The token to request the next page of results.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociations_nextToken"><span class="hs-identifier hs-type">describeIamInstanceProfileAssociations_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="describeIamInstanceProfileAssociations_nextToken"><span class="annot"><span class="annottext">describeIamInstanceProfileAssociations_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeIamInstanceProfileAssociations
+-&gt; f DescribeIamInstanceProfileAssociations
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociations_nextToken"><span class="hs-identifier hs-var hs-var">describeIamInstanceProfileAssociations_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIamInstanceProfileAssociations -&gt; Maybe Text)
+-&gt; (DescribeIamInstanceProfileAssociations
+    -&gt; Maybe Text -&gt; DescribeIamInstanceProfileAssociations)
+-&gt; Lens
+     DescribeIamInstanceProfileAssociations
+     DescribeIamInstanceProfileAssociations
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228067"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeIamInstanceProfileAssociations' :: DescribeIamInstanceProfileAssociations -&gt; Maybe Text
+</span><a href="#local-6989586621681228067"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681228067"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228066"><span class="annot"><span class="annottext">s :: DescribeIamInstanceProfileAssociations
+</span><a href="#local-6989586621681228066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228065"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681228065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociations
+</span><a href="#local-6989586621681228066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeIamInstanceProfileAssociations' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AnextToken%3ADescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681228065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The maximum number of results to return in a single call. To retrieve</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- the remaining results, make another call with the returned @NextToken@</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociations_maxResults"><span class="hs-identifier hs-type">describeIamInstanceProfileAssociations_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="describeIamInstanceProfileAssociations_maxResults"><span class="annot"><span class="annottext">describeIamInstanceProfileAssociations_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeIamInstanceProfileAssociations
+-&gt; f DescribeIamInstanceProfileAssociations
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociations_maxResults"><span class="hs-identifier hs-var hs-var">describeIamInstanceProfileAssociations_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIamInstanceProfileAssociations -&gt; Maybe Natural)
+-&gt; (DescribeIamInstanceProfileAssociations
+    -&gt; Maybe Natural -&gt; DescribeIamInstanceProfileAssociations)
+-&gt; Lens
+     DescribeIamInstanceProfileAssociations
+     DescribeIamInstanceProfileAssociations
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228064"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeIamInstanceProfileAssociations' :: DescribeIamInstanceProfileAssociations -&gt; Maybe Natural
+</span><a href="#local-6989586621681228064"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681228064"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228063"><span class="annot"><span class="annottext">s :: DescribeIamInstanceProfileAssociations
+</span><a href="#local-6989586621681228063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228062"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681228062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociations
+</span><a href="#local-6989586621681228063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeIamInstanceProfileAssociations' :: Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AmaxResults%3ADescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681228062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The IAM instance profile associations.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociations_associationIds"><span class="hs-identifier hs-type">describeIamInstanceProfileAssociations_associationIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="describeIamInstanceProfileAssociations_associationIds"><span class="annot"><span class="annottext">describeIamInstanceProfileAssociations_associationIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeIamInstanceProfileAssociations
+-&gt; f DescribeIamInstanceProfileAssociations
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociations_associationIds"><span class="hs-identifier hs-var hs-var">describeIamInstanceProfileAssociations_associationIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIamInstanceProfileAssociations -&gt; Maybe [Text])
+-&gt; (DescribeIamInstanceProfileAssociations
+    -&gt; Maybe [Text] -&gt; DescribeIamInstanceProfileAssociations)
+-&gt; Lens
+     DescribeIamInstanceProfileAssociations
+     DescribeIamInstanceProfileAssociations
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228061"><span class="annot"><span class="annottext">Maybe [Text]
+associationIds :: Maybe [Text]
+$sel:associationIds:DescribeIamInstanceProfileAssociations' :: DescribeIamInstanceProfileAssociations -&gt; Maybe [Text]
+</span><a href="#local-6989586621681228061"><span class="hs-identifier hs-var hs-var">associationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681228061"><span class="hs-identifier hs-var">associationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228060"><span class="annot"><span class="annottext">s :: DescribeIamInstanceProfileAssociations
+</span><a href="#local-6989586621681228060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228059"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681228059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociations
+</span><a href="#local-6989586621681228060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationIds:DescribeIamInstanceProfileAssociations' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AassociationIds%3ADescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-var">associationIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681228059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeIamInstanceProfileAssociations
+ -&gt; f DescribeIamInstanceProfileAssociations)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeIamInstanceProfileAssociations
+-&gt; f DescribeIamInstanceProfileAssociations
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The filters.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   @instance-id@ - The ID of the instance.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   @state@ - The state of the association (@associating@ | @associated@</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     | @disassociating@).</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociations_filters"><span class="hs-identifier hs-type">describeIamInstanceProfileAssociations_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="describeIamInstanceProfileAssociations_filters"><span class="annot"><span class="annottext">describeIamInstanceProfileAssociations_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeIamInstanceProfileAssociations
+-&gt; f DescribeIamInstanceProfileAssociations
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociations_filters"><span class="hs-identifier hs-var hs-var">describeIamInstanceProfileAssociations_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIamInstanceProfileAssociations -&gt; Maybe [Filter])
+-&gt; (DescribeIamInstanceProfileAssociations
+    -&gt; Maybe [Filter] -&gt; DescribeIamInstanceProfileAssociations)
+-&gt; Lens
+     DescribeIamInstanceProfileAssociations
+     DescribeIamInstanceProfileAssociations
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228055"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:DescribeIamInstanceProfileAssociations' :: DescribeIamInstanceProfileAssociations -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681228055"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681228055"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228054"><span class="annot"><span class="annottext">s :: DescribeIamInstanceProfileAssociations
+</span><a href="#local-6989586621681228054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228053"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681228053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociations
+</span><a href="#local-6989586621681228054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeIamInstanceProfileAssociations' :: Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3Afilters%3ADescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681228053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; DescribeIamInstanceProfileAssociations
+ -&gt; f DescribeIamInstanceProfileAssociations)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeIamInstanceProfileAssociations
+-&gt; f DescribeIamInstanceProfileAssociations
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621681228049"><span class="annot"><span class="annottext">page :: DescribeIamInstanceProfileAssociations
+-&gt; AWSResponse DescribeIamInstanceProfileAssociations
+-&gt; Maybe DescribeIamInstanceProfileAssociations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681228047"><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociations
+</span><a href="#local-6989586621681228047"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681228046"><span class="annot"><span class="annottext">AWSResponse DescribeIamInstanceProfileAssociations
+</span><a href="#local-6989586621681228046"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-137"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeIamInstanceProfileAssociations
+DescribeIamInstanceProfileAssociationsResponse
+</span><a href="#local-6989586621681228046"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociationsResponse
+-&gt; Getting
+     (First Text) DescribeIamInstanceProfileAssociationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeIamInstanceProfileAssociationsResponse
+-&gt; Const
+     (First Text) DescribeIamInstanceProfileAssociationsResponse
+Lens' DescribeIamInstanceProfileAssociationsResponse (Maybe Text)
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociationsResponse_nextToken"><span class="hs-identifier hs-var">describeIamInstanceProfileAssociationsResponse_nextToken</span></a></span><span>
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeIamInstanceProfileAssociationsResponse
+ -&gt; Const
+      (First Text) DescribeIamInstanceProfileAssociationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) DescribeIamInstanceProfileAssociationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-140"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeIamInstanceProfileAssociations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [IamInstanceProfileAssociation] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-143"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeIamInstanceProfileAssociations
+DescribeIamInstanceProfileAssociationsResponse
+</span><a href="#local-6989586621681228046"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociationsResponse
+-&gt; Getting
+     (First [IamInstanceProfileAssociation])
+     DescribeIamInstanceProfileAssociationsResponse
+     [IamInstanceProfileAssociation]
+-&gt; Maybe [IamInstanceProfileAssociation]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [IamInstanceProfileAssociation]
+ -&gt; Const
+      (First [IamInstanceProfileAssociation])
+      (Maybe [IamInstanceProfileAssociation]))
+-&gt; DescribeIamInstanceProfileAssociationsResponse
+-&gt; Const
+     (First [IamInstanceProfileAssociation])
+     DescribeIamInstanceProfileAssociationsResponse
+Lens'
+  DescribeIamInstanceProfileAssociationsResponse
+  (Maybe [IamInstanceProfileAssociation])
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations"><span class="hs-identifier hs-var">describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations</span></a></span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [IamInstanceProfileAssociation]
+  -&gt; Const
+       (First [IamInstanceProfileAssociation])
+       (Maybe [IamInstanceProfileAssociation]))
+ -&gt; DescribeIamInstanceProfileAssociationsResponse
+ -&gt; Const
+      (First [IamInstanceProfileAssociation])
+      DescribeIamInstanceProfileAssociationsResponse)
+-&gt; (([IamInstanceProfileAssociation]
+     -&gt; Const
+          (First [IamInstanceProfileAssociation])
+          [IamInstanceProfileAssociation])
+    -&gt; Maybe [IamInstanceProfileAssociation]
+    -&gt; Const
+         (First [IamInstanceProfileAssociation])
+         (Maybe [IamInstanceProfileAssociation]))
+-&gt; Getting
+     (First [IamInstanceProfileAssociation])
+     DescribeIamInstanceProfileAssociationsResponse
+     [IamInstanceProfileAssociation]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([IamInstanceProfileAssociation]
+ -&gt; Const
+      (First [IamInstanceProfileAssociation])
+      [IamInstanceProfileAssociation])
+-&gt; Maybe [IamInstanceProfileAssociation]
+-&gt; Const
+     (First [IamInstanceProfileAssociation])
+     (Maybe [IamInstanceProfileAssociation])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-146"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeIamInstanceProfileAssociations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociations
+-&gt; Maybe DescribeIamInstanceProfileAssociations
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeIamInstanceProfileAssociations
+ -&gt; Maybe DescribeIamInstanceProfileAssociations)
+-&gt; DescribeIamInstanceProfileAssociations
+-&gt; Maybe DescribeIamInstanceProfileAssociations
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociations
+</span><a href="#local-6989586621681228047"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociations
+-&gt; (DescribeIamInstanceProfileAssociations
+    -&gt; DescribeIamInstanceProfileAssociations)
+-&gt; DescribeIamInstanceProfileAssociations
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeIamInstanceProfileAssociations
+-&gt; Identity DescribeIamInstanceProfileAssociations
+Lens
+  DescribeIamInstanceProfileAssociations
+  DescribeIamInstanceProfileAssociations
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociations_nextToken"><span class="hs-identifier hs-var">describeIamInstanceProfileAssociations_nextToken</span></a></span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeIamInstanceProfileAssociations
+ -&gt; Identity DescribeIamInstanceProfileAssociations)
+-&gt; Maybe Text
+-&gt; DescribeIamInstanceProfileAssociations
+-&gt; DescribeIamInstanceProfileAssociations
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeIamInstanceProfileAssociations
+DescribeIamInstanceProfileAssociationsResponse
+</span><a href="#local-6989586621681228046"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociationsResponse
+-&gt; Getting
+     (First Text) DescribeIamInstanceProfileAssociationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeIamInstanceProfileAssociationsResponse
+-&gt; Const
+     (First Text) DescribeIamInstanceProfileAssociationsResponse
+Lens' DescribeIamInstanceProfileAssociationsResponse (Maybe Text)
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociationsResponse_nextToken"><span class="hs-identifier hs-var">describeIamInstanceProfileAssociationsResponse_nextToken</span></a></span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeIamInstanceProfileAssociationsResponse
+ -&gt; Const
+      (First Text) DescribeIamInstanceProfileAssociationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) DescribeIamInstanceProfileAssociationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-161"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621681228037"><span class="annot"><span class="annottext">request :: DescribeIamInstanceProfileAssociations
+-&gt; Request DescribeIamInstanceProfileAssociations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeIamInstanceProfileAssociations
+-&gt; Request DescribeIamInstanceProfileAssociations
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621681228033"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeIamInstanceProfileAssociations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DescribeIamInstanceProfileAssociations)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either
+      String (AWSResponse DescribeIamInstanceProfileAssociations))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeIamInstanceProfileAssociations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DescribeIamInstanceProfileAssociations)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681228030"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681228030"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681228029"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681228029"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681228028"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681228028"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [IamInstanceProfileAssociation]
+-&gt; Int
+-&gt; DescribeIamInstanceProfileAssociationsResponse
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-var">DescribeIamInstanceProfileAssociationsResponse'</span></a></span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [IamInstanceProfileAssociation]
+ -&gt; Int
+ -&gt; DescribeIamInstanceProfileAssociationsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [IamInstanceProfileAssociation]
+      -&gt; Int -&gt; DescribeIamInstanceProfileAssociationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681228028"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [IamInstanceProfileAssociation]
+   -&gt; Int -&gt; DescribeIamInstanceProfileAssociationsResponse)
+-&gt; Either String (Maybe [IamInstanceProfileAssociation])
+-&gt; Either
+     String (Int -&gt; DescribeIamInstanceProfileAssociationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681228028"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iamInstanceProfileAssociationSet&quot;</span></span><span>
+</span><span id="line-171"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-172"></span><span>                              </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe [IamInstanceProfileAssociation]))
+-&gt; Either String (Maybe [IamInstanceProfileAssociation])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [IamInstanceProfileAssociation])
+-&gt; [Node] -&gt; Either String (Maybe [IamInstanceProfileAssociation])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [IamInstanceProfileAssociation]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; DescribeIamInstanceProfileAssociationsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeIamInstanceProfileAssociationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681228030"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621681228017"><span id="local-6989586621681228019"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span></span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621681228014"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621681228010"><span class="annot"><span class="annottext">toHeaders :: DescribeIamInstanceProfileAssociations -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeIamInstanceProfileAssociations -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621681228005"><span class="annot"><span class="annottext">toPath :: DescribeIamInstanceProfileAssociations -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeIamInstanceProfileAssociations -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations</span></a></span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621681228001"><span class="annot"><span class="annottext">toQuery :: DescribeIamInstanceProfileAssociations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociations%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227996"><span id="local-6989586621681227997"><span id="local-6989586621681227998"><span id="local-6989586621681227999"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Text]
+Maybe [Filter]
+Maybe Text
+filters :: Maybe [Filter]
+associationIds :: Maybe [Text]
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:filters:DescribeIamInstanceProfileAssociations' :: DescribeIamInstanceProfileAssociations -&gt; Maybe [Filter]
+$sel:associationIds:DescribeIamInstanceProfileAssociations' :: DescribeIamInstanceProfileAssociations -&gt; Maybe [Text]
+$sel:maxResults:DescribeIamInstanceProfileAssociations' :: DescribeIamInstanceProfileAssociations -&gt; Maybe Natural
+$sel:nextToken:DescribeIamInstanceProfileAssociations' :: DescribeIamInstanceProfileAssociations -&gt; Maybe Text
+</span><a href="#local-6989586621681227996"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeIamInstanceProfileAssociations&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-205"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-206"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-208"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681227999"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681227998"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-212"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AssociationId&quot;</span></span><span>
+</span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681227997"><span class="hs-identifier hs-var">associationIds</span></a></span><span>
+</span><span id="line-214"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-216"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681227996"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | /See:/ 'newDescribeIamInstanceProfileAssociationsResponse' smart constructor.</span><span>
+</span><span id="line-220"></span><span id="local-6989586621681227992"><span id="local-6989586621681227993"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIamInstanceProfileAssociationsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse"><span class="hs-identifier hs-var">DescribeIamInstanceProfileAssociationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIamInstanceProfileAssociationsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-var">DescribeIamInstanceProfileAssociationsResponse'</span></a></span></span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-223"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeIamInstanceProfileAssociationsResponse%27"><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociationsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AnextToken%3ADescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- | Information about the IAM instance profile associations.</span><span>
+</span><span id="line-225"></span><span>    </span><span id="%24sel%3AiamInstanceProfileAssociations%3ADescribeIamInstanceProfileAssociationsResponse%27"><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociationsResponse
+-&gt; Maybe [IamInstanceProfileAssociation]
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AiamInstanceProfileAssociations%3ADescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-var hs-var">iamInstanceProfileAssociations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-227"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeIamInstanceProfileAssociationsResponse%27"><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociationsResponse -&gt; Int
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AhttpStatus%3ADescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681227985"><span id="local-6989586621681227987"><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociationsResponse
+-&gt; DescribeIamInstanceProfileAssociationsResponse -&gt; Bool
+(DescribeIamInstanceProfileAssociationsResponse
+ -&gt; DescribeIamInstanceProfileAssociationsResponse -&gt; Bool)
+-&gt; (DescribeIamInstanceProfileAssociationsResponse
+    -&gt; DescribeIamInstanceProfileAssociationsResponse -&gt; Bool)
+-&gt; Eq DescribeIamInstanceProfileAssociationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeIamInstanceProfileAssociationsResponse
+-&gt; DescribeIamInstanceProfileAssociationsResponse -&gt; Bool
+$c/= :: DescribeIamInstanceProfileAssociationsResponse
+-&gt; DescribeIamInstanceProfileAssociationsResponse -&gt; Bool
+== :: DescribeIamInstanceProfileAssociationsResponse
+-&gt; DescribeIamInstanceProfileAssociationsResponse -&gt; Bool
+$c== :: DescribeIamInstanceProfileAssociationsResponse
+-&gt; DescribeIamInstanceProfileAssociationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681227977"><span id="local-6989586621681227979"><span id="local-6989586621681227981"><span id="local-6989586621681227983"><span class="annot"><span class="annottext">ReadPrec [DescribeIamInstanceProfileAssociationsResponse]
+ReadPrec DescribeIamInstanceProfileAssociationsResponse
+Int -&gt; ReadS DescribeIamInstanceProfileAssociationsResponse
+ReadS [DescribeIamInstanceProfileAssociationsResponse]
+(Int -&gt; ReadS DescribeIamInstanceProfileAssociationsResponse)
+-&gt; ReadS [DescribeIamInstanceProfileAssociationsResponse]
+-&gt; ReadPrec DescribeIamInstanceProfileAssociationsResponse
+-&gt; ReadPrec [DescribeIamInstanceProfileAssociationsResponse]
+-&gt; Read DescribeIamInstanceProfileAssociationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeIamInstanceProfileAssociationsResponse]
+$creadListPrec :: ReadPrec [DescribeIamInstanceProfileAssociationsResponse]
+readPrec :: ReadPrec DescribeIamInstanceProfileAssociationsResponse
+$creadPrec :: ReadPrec DescribeIamInstanceProfileAssociationsResponse
+readList :: ReadS [DescribeIamInstanceProfileAssociationsResponse]
+$creadList :: ReadS [DescribeIamInstanceProfileAssociationsResponse]
+readsPrec :: Int -&gt; ReadS DescribeIamInstanceProfileAssociationsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeIamInstanceProfileAssociationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681227971"><span id="local-6989586621681227973"><span id="local-6989586621681227975"><span class="annot"><span class="annottext">Int -&gt; DescribeIamInstanceProfileAssociationsResponse -&gt; ShowS
+[DescribeIamInstanceProfileAssociationsResponse] -&gt; ShowS
+DescribeIamInstanceProfileAssociationsResponse -&gt; String
+(Int -&gt; DescribeIamInstanceProfileAssociationsResponse -&gt; ShowS)
+-&gt; (DescribeIamInstanceProfileAssociationsResponse -&gt; String)
+-&gt; ([DescribeIamInstanceProfileAssociationsResponse] -&gt; ShowS)
+-&gt; Show DescribeIamInstanceProfileAssociationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeIamInstanceProfileAssociationsResponse] -&gt; ShowS
+$cshowList :: [DescribeIamInstanceProfileAssociationsResponse] -&gt; ShowS
+show :: DescribeIamInstanceProfileAssociationsResponse -&gt; String
+$cshow :: DescribeIamInstanceProfileAssociationsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeIamInstanceProfileAssociationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeIamInstanceProfileAssociationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeIamInstanceProfileAssociationsResponse
+ -&gt; Rep DescribeIamInstanceProfileAssociationsResponse x)
+-&gt; (forall x.
+    Rep DescribeIamInstanceProfileAssociationsResponse x
+    -&gt; DescribeIamInstanceProfileAssociationsResponse)
+-&gt; Generic DescribeIamInstanceProfileAssociationsResponse
+forall x.
+Rep DescribeIamInstanceProfileAssociationsResponse x
+-&gt; DescribeIamInstanceProfileAssociationsResponse
+forall x.
+DescribeIamInstanceProfileAssociationsResponse
+-&gt; Rep DescribeIamInstanceProfileAssociationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeIamInstanceProfileAssociationsResponse x
+-&gt; DescribeIamInstanceProfileAssociationsResponse
+$cfrom :: forall x.
+DescribeIamInstanceProfileAssociationsResponse
+-&gt; Rep DescribeIamInstanceProfileAssociationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- Create a value of 'DescribeIamInstanceProfileAssociationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'nextToken', 'describeIamInstanceProfileAssociationsResponse_nextToken' - The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'iamInstanceProfileAssociations', 'describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations' - Information about the IAM instance profile associations.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'httpStatus', 'describeIamInstanceProfileAssociationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#newDescribeIamInstanceProfileAssociationsResponse"><span class="hs-identifier hs-type">newDescribeIamInstanceProfileAssociationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse</span></a></span><span>
+</span><span id="line-249"></span><span id="newDescribeIamInstanceProfileAssociationsResponse"><span class="annot"><span class="annottext">newDescribeIamInstanceProfileAssociationsResponse :: Int -&gt; DescribeIamInstanceProfileAssociationsResponse
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#newDescribeIamInstanceProfileAssociationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeIamInstanceProfileAssociationsResponse</span></a></span></span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621681227968"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681227968"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociationsResponse' :: Maybe Text
+-&gt; Maybe [IamInstanceProfileAssociation]
+-&gt; Int
+-&gt; DescribeIamInstanceProfileAssociationsResponse
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse'</span></a></span><span>
+</span><span id="line-252"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeIamInstanceProfileAssociationsResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AnextToken%3ADescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">$sel:iamInstanceProfileAssociations:DescribeIamInstanceProfileAssociationsResponse' :: Maybe [IamInstanceProfileAssociation]
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AiamInstanceProfileAssociations%3ADescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-var">iamInstanceProfileAssociations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>          </span><span class="annot"><span class="annottext">Maybe [IamInstanceProfileAssociation]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIamInstanceProfileAssociationsResponse' :: Int
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AhttpStatus%3ADescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681227968"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-257"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociationsResponse_nextToken"><span class="hs-identifier hs-type">describeIamInstanceProfileAssociationsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="describeIamInstanceProfileAssociationsResponse_nextToken"><span class="annot"><span class="annottext">describeIamInstanceProfileAssociationsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeIamInstanceProfileAssociationsResponse
+-&gt; f DescribeIamInstanceProfileAssociationsResponse
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociationsResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeIamInstanceProfileAssociationsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIamInstanceProfileAssociationsResponse -&gt; Maybe Text)
+-&gt; (DescribeIamInstanceProfileAssociationsResponse
+    -&gt; Maybe Text -&gt; DescribeIamInstanceProfileAssociationsResponse)
+-&gt; Lens'
+     DescribeIamInstanceProfileAssociationsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227967"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeIamInstanceProfileAssociationsResponse' :: DescribeIamInstanceProfileAssociationsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681227967"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681227967"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227966"><span class="annot"><span class="annottext">s :: DescribeIamInstanceProfileAssociationsResponse
+</span><a href="#local-6989586621681227966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227965"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681227965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociationsResponse
+</span><a href="#local-6989586621681227966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeIamInstanceProfileAssociationsResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AnextToken%3ADescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681227965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | Information about the IAM instance profile associations.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations"><span class="hs-identifier hs-type">describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span id="describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations"><span class="annot"><span class="annottext">describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations :: (Maybe [IamInstanceProfileAssociation]
+ -&gt; f (Maybe [IamInstanceProfileAssociation]))
+-&gt; DescribeIamInstanceProfileAssociationsResponse
+-&gt; f DescribeIamInstanceProfileAssociationsResponse
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations"><span class="hs-identifier hs-var hs-var">describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIamInstanceProfileAssociationsResponse
+ -&gt; Maybe [IamInstanceProfileAssociation])
+-&gt; (DescribeIamInstanceProfileAssociationsResponse
+    -&gt; Maybe [IamInstanceProfileAssociation]
+    -&gt; DescribeIamInstanceProfileAssociationsResponse)
+-&gt; Lens'
+     DescribeIamInstanceProfileAssociationsResponse
+     (Maybe [IamInstanceProfileAssociation])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227964"><span class="annot"><span class="annottext">Maybe [IamInstanceProfileAssociation]
+iamInstanceProfileAssociations :: Maybe [IamInstanceProfileAssociation]
+$sel:iamInstanceProfileAssociations:DescribeIamInstanceProfileAssociationsResponse' :: DescribeIamInstanceProfileAssociationsResponse
+-&gt; Maybe [IamInstanceProfileAssociation]
+</span><a href="#local-6989586621681227964"><span class="hs-identifier hs-var hs-var">iamInstanceProfileAssociations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IamInstanceProfileAssociation]
+</span><a href="#local-6989586621681227964"><span class="hs-identifier hs-var">iamInstanceProfileAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227963"><span class="annot"><span class="annottext">s :: DescribeIamInstanceProfileAssociationsResponse
+</span><a href="#local-6989586621681227963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227962"><span class="annot"><span class="annottext">Maybe [IamInstanceProfileAssociation]
+</span><a href="#local-6989586621681227962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociationsResponse
+</span><a href="#local-6989586621681227963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamInstanceProfileAssociations:DescribeIamInstanceProfileAssociationsResponse' :: Maybe [IamInstanceProfileAssociation]
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AiamInstanceProfileAssociations%3ADescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-var">iamInstanceProfileAssociations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IamInstanceProfileAssociation]
+</span><a href="#local-6989586621681227962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IamInstanceProfileAssociation]
+  -&gt; f (Maybe [IamInstanceProfileAssociation]))
+ -&gt; DescribeIamInstanceProfileAssociationsResponse
+ -&gt; f DescribeIamInstanceProfileAssociationsResponse)
+-&gt; ((Maybe [IamInstanceProfileAssociation]
+     -&gt; f (Maybe [IamInstanceProfileAssociation]))
+    -&gt; Maybe [IamInstanceProfileAssociation]
+    -&gt; f (Maybe [IamInstanceProfileAssociation]))
+-&gt; (Maybe [IamInstanceProfileAssociation]
+    -&gt; f (Maybe [IamInstanceProfileAssociation]))
+-&gt; DescribeIamInstanceProfileAssociationsResponse
+-&gt; f DescribeIamInstanceProfileAssociationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [IamInstanceProfileAssociation]
+  [IamInstanceProfileAssociation]
+  [IamInstanceProfileAssociation]
+  [IamInstanceProfileAssociation]
+-&gt; Iso
+     (Maybe [IamInstanceProfileAssociation])
+     (Maybe [IamInstanceProfileAssociation])
+     (Maybe [IamInstanceProfileAssociation])
+     (Maybe [IamInstanceProfileAssociation])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [IamInstanceProfileAssociation]
+  [IamInstanceProfileAssociation]
+  [IamInstanceProfileAssociation]
+  [IamInstanceProfileAssociation]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociationsResponse_httpStatus"><span class="hs-identifier hs-type">describeIamInstanceProfileAssociationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-270"></span><span id="describeIamInstanceProfileAssociationsResponse_httpStatus"><span class="annot"><span class="annottext">describeIamInstanceProfileAssociationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeIamInstanceProfileAssociationsResponse
+-&gt; f DescribeIamInstanceProfileAssociationsResponse
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#describeIamInstanceProfileAssociationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeIamInstanceProfileAssociationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIamInstanceProfileAssociationsResponse -&gt; Int)
+-&gt; (DescribeIamInstanceProfileAssociationsResponse
+    -&gt; Int -&gt; DescribeIamInstanceProfileAssociationsResponse)
+-&gt; Lens
+     DescribeIamInstanceProfileAssociationsResponse
+     DescribeIamInstanceProfileAssociationsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227961"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeIamInstanceProfileAssociationsResponse' :: DescribeIamInstanceProfileAssociationsResponse -&gt; Int
+</span><a href="#local-6989586621681227961"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681227961"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227960"><span class="annot"><span class="annottext">s :: DescribeIamInstanceProfileAssociationsResponse
+</span><a href="#local-6989586621681227960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227959"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681227959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIamInstanceProfileAssociationsResponse
+</span><a href="#local-6989586621681227960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIamInstanceProfileAssociationsResponse' :: Int
+</span><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#%24sel%3AhttpStatus%3ADescribeIamInstanceProfileAssociationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681227959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621681227957"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIamInstanceProfileAssociations.html#DescribeIamInstanceProfileAssociationsResponse"><span class="hs-identifier hs-type">DescribeIamInstanceProfileAssociationsResponse</span></a></span></span><span>
+</span><span id="line-275"></span></pre></body></html>

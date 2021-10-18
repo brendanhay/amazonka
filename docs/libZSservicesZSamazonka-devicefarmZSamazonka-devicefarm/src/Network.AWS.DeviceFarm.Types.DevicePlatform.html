@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DeviceFarm.Types.DevicePlatform</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DeviceFarm.Types.DevicePlatform</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform"><span class="hs-identifier">DevicePlatform</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform_ANDROID"><span class="hs-identifier">DevicePlatform_ANDROID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform_IOS"><span class="hs-identifier">DevicePlatform_IOS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679362383"><span id="local-6989586621679362384"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DevicePlatform"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform"><span class="hs-identifier hs-var">DevicePlatform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DevicePlatform%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform%27"><span class="hs-identifier hs-var">DevicePlatform'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDevicePlatform"><span class="annot"><span class="annottext">DevicePlatform -&gt; Text
+</span><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#fromDevicePlatform"><span class="hs-identifier hs-var hs-var">fromDevicePlatform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362375"><span id="local-6989586621679362377"><span id="local-6989586621679362379"><span class="annot"><span class="annottext">Int -&gt; DevicePlatform -&gt; ShowS
+[DevicePlatform] -&gt; ShowS
+DevicePlatform -&gt; String
+(Int -&gt; DevicePlatform -&gt; ShowS)
+-&gt; (DevicePlatform -&gt; String)
+-&gt; ([DevicePlatform] -&gt; ShowS)
+-&gt; Show DevicePlatform
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DevicePlatform] -&gt; ShowS
+$cshowList :: [DevicePlatform] -&gt; ShowS
+show :: DevicePlatform -&gt; String
+$cshow :: DevicePlatform -&gt; String
+showsPrec :: Int -&gt; DevicePlatform -&gt; ShowS
+$cshowsPrec :: Int -&gt; DevicePlatform -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679362366"><span id="local-6989586621679362368"><span id="local-6989586621679362370"><span id="local-6989586621679362372"><span class="annot"><span class="annottext">ReadPrec [DevicePlatform]
+ReadPrec DevicePlatform
+Int -&gt; ReadS DevicePlatform
+ReadS [DevicePlatform]
+(Int -&gt; ReadS DevicePlatform)
+-&gt; ReadS [DevicePlatform]
+-&gt; ReadPrec DevicePlatform
+-&gt; ReadPrec [DevicePlatform]
+-&gt; Read DevicePlatform
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DevicePlatform]
+$creadListPrec :: ReadPrec [DevicePlatform]
+readPrec :: ReadPrec DevicePlatform
+$creadPrec :: ReadPrec DevicePlatform
+readList :: ReadS [DevicePlatform]
+$creadList :: ReadS [DevicePlatform]
+readsPrec :: Int -&gt; ReadS DevicePlatform
+$creadsPrec :: Int -&gt; ReadS DevicePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679362361"><span id="local-6989586621679362363"><span class="annot"><span class="annottext">DevicePlatform -&gt; DevicePlatform -&gt; Bool
+(DevicePlatform -&gt; DevicePlatform -&gt; Bool)
+-&gt; (DevicePlatform -&gt; DevicePlatform -&gt; Bool) -&gt; Eq DevicePlatform
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DevicePlatform -&gt; DevicePlatform -&gt; Bool
+$c/= :: DevicePlatform -&gt; DevicePlatform -&gt; Bool
+== :: DevicePlatform -&gt; DevicePlatform -&gt; Bool
+$c== :: DevicePlatform -&gt; DevicePlatform -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679362345"><span id="local-6989586621679362347"><span id="local-6989586621679362349"><span id="local-6989586621679362351"><span id="local-6989586621679362353"><span id="local-6989586621679362355"><span id="local-6989586621679362357"><span class="annot"><span class="annottext">Eq DevicePlatform
+Eq DevicePlatform
+-&gt; (DevicePlatform -&gt; DevicePlatform -&gt; Ordering)
+-&gt; (DevicePlatform -&gt; DevicePlatform -&gt; Bool)
+-&gt; (DevicePlatform -&gt; DevicePlatform -&gt; Bool)
+-&gt; (DevicePlatform -&gt; DevicePlatform -&gt; Bool)
+-&gt; (DevicePlatform -&gt; DevicePlatform -&gt; Bool)
+-&gt; (DevicePlatform -&gt; DevicePlatform -&gt; DevicePlatform)
+-&gt; (DevicePlatform -&gt; DevicePlatform -&gt; DevicePlatform)
+-&gt; Ord DevicePlatform
+DevicePlatform -&gt; DevicePlatform -&gt; Bool
+DevicePlatform -&gt; DevicePlatform -&gt; Ordering
+DevicePlatform -&gt; DevicePlatform -&gt; DevicePlatform
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DevicePlatform -&gt; DevicePlatform -&gt; DevicePlatform
+$cmin :: DevicePlatform -&gt; DevicePlatform -&gt; DevicePlatform
+max :: DevicePlatform -&gt; DevicePlatform -&gt; DevicePlatform
+$cmax :: DevicePlatform -&gt; DevicePlatform -&gt; DevicePlatform
+&gt;= :: DevicePlatform -&gt; DevicePlatform -&gt; Bool
+$c&gt;= :: DevicePlatform -&gt; DevicePlatform -&gt; Bool
+&gt; :: DevicePlatform -&gt; DevicePlatform -&gt; Bool
+$c&gt; :: DevicePlatform -&gt; DevicePlatform -&gt; Bool
+&lt;= :: DevicePlatform -&gt; DevicePlatform -&gt; Bool
+$c&lt;= :: DevicePlatform -&gt; DevicePlatform -&gt; Bool
+&lt; :: DevicePlatform -&gt; DevicePlatform -&gt; Bool
+$c&lt; :: DevicePlatform -&gt; DevicePlatform -&gt; Bool
+compare :: DevicePlatform -&gt; DevicePlatform -&gt; Ordering
+$ccompare :: DevicePlatform -&gt; DevicePlatform -&gt; Ordering
+$cp1Ord :: Eq DevicePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DevicePlatform -&gt; Rep DevicePlatform x)
+-&gt; (forall x. Rep DevicePlatform x -&gt; DevicePlatform)
+-&gt; Generic DevicePlatform
+forall x. Rep DevicePlatform x -&gt; DevicePlatform
+forall x. DevicePlatform -&gt; Rep DevicePlatform x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DevicePlatform x -&gt; DevicePlatform
+$cfrom :: forall x. DevicePlatform -&gt; Rep DevicePlatform x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362337"><span id="local-6989586621679362339"><span class="annot"><span class="annottext">Int -&gt; DevicePlatform -&gt; Int
+DevicePlatform -&gt; Int
+(Int -&gt; DevicePlatform -&gt; Int)
+-&gt; (DevicePlatform -&gt; Int) -&gt; Hashable DevicePlatform
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DevicePlatform -&gt; Int
+$chash :: DevicePlatform -&gt; Int
+hashWithSalt :: Int -&gt; DevicePlatform -&gt; Int
+$chashWithSalt :: Int -&gt; DevicePlatform -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679362334"><span class="annot"><span class="annottext">DevicePlatform -&gt; ()
+(DevicePlatform -&gt; ()) -&gt; NFData DevicePlatform
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DevicePlatform -&gt; ()
+$crnf :: DevicePlatform -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679362331"><span class="annot"><span class="annottext">Text -&gt; Either String DevicePlatform
+(Text -&gt; Either String DevicePlatform) -&gt; FromText DevicePlatform
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DevicePlatform
+$cfromText :: Text -&gt; Either String DevicePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679362328"><span class="annot"><span class="annottext">DevicePlatform -&gt; Text
+(DevicePlatform -&gt; Text) -&gt; ToText DevicePlatform
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DevicePlatform -&gt; Text
+$ctoText :: DevicePlatform -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679362325"><span class="annot"><span class="annottext">DevicePlatform -&gt; ByteString
+(DevicePlatform -&gt; ByteString) -&gt; ToByteString DevicePlatform
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DevicePlatform -&gt; ByteString
+$ctoBS :: DevicePlatform -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679362322"><span class="annot"><span class="annottext">DevicePlatform -&gt; ByteStringBuilder
+(DevicePlatform -&gt; ByteStringBuilder) -&gt; ToLog DevicePlatform
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DevicePlatform -&gt; ByteStringBuilder
+$cbuild :: DevicePlatform -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679362319"><span class="annot"><span class="annottext">HeaderName -&gt; DevicePlatform -&gt; [Header]
+(HeaderName -&gt; DevicePlatform -&gt; [Header])
+-&gt; ToHeader DevicePlatform
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DevicePlatform -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DevicePlatform -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679362316"><span class="annot"><span class="annottext">DevicePlatform -&gt; QueryString
+(DevicePlatform -&gt; QueryString) -&gt; ToQuery DevicePlatform
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DevicePlatform -&gt; QueryString
+$ctoQuery :: DevicePlatform -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679362311"><span id="local-6989586621679362313"><span class="annot"><span class="annottext">Value -&gt; Parser [DevicePlatform]
+Value -&gt; Parser DevicePlatform
+(Value -&gt; Parser DevicePlatform)
+-&gt; (Value -&gt; Parser [DevicePlatform]) -&gt; FromJSON DevicePlatform
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DevicePlatform]
+$cparseJSONList :: Value -&gt; Parser [DevicePlatform]
+parseJSON :: Value -&gt; Parser DevicePlatform
+$cparseJSON :: Value -&gt; Parser DevicePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679362306"><span id="local-6989586621679362308"><span class="annot"><span class="annottext">FromJSONKeyFunction [DevicePlatform]
+FromJSONKeyFunction DevicePlatform
+FromJSONKeyFunction DevicePlatform
+-&gt; FromJSONKeyFunction [DevicePlatform]
+-&gt; FromJSONKey DevicePlatform
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DevicePlatform]
+$cfromJSONKeyList :: FromJSONKeyFunction [DevicePlatform]
+fromJSONKey :: FromJSONKeyFunction DevicePlatform
+$cfromJSONKey :: FromJSONKeyFunction DevicePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679362297"><span id="local-6989586621679362299"><span id="local-6989586621679362301"><span id="local-6989586621679362303"><span class="annot"><span class="annottext">[DevicePlatform] -&gt; Encoding
+[DevicePlatform] -&gt; Value
+DevicePlatform -&gt; Encoding
+DevicePlatform -&gt; Value
+(DevicePlatform -&gt; Value)
+-&gt; (DevicePlatform -&gt; Encoding)
+-&gt; ([DevicePlatform] -&gt; Value)
+-&gt; ([DevicePlatform] -&gt; Encoding)
+-&gt; ToJSON DevicePlatform
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DevicePlatform] -&gt; Encoding
+$ctoEncodingList :: [DevicePlatform] -&gt; Encoding
+toJSONList :: [DevicePlatform] -&gt; Value
+$ctoJSONList :: [DevicePlatform] -&gt; Value
+toEncoding :: DevicePlatform -&gt; Encoding
+$ctoEncoding :: DevicePlatform -&gt; Encoding
+toJSON :: DevicePlatform -&gt; Value
+$ctoJSON :: DevicePlatform -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679362292"><span id="local-6989586621679362294"><span class="annot"><span class="annottext">ToJSONKeyFunction [DevicePlatform]
+ToJSONKeyFunction DevicePlatform
+ToJSONKeyFunction DevicePlatform
+-&gt; ToJSONKeyFunction [DevicePlatform] -&gt; ToJSONKey DevicePlatform
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DevicePlatform]
+$ctoJSONKeyList :: ToJSONKeyFunction [DevicePlatform]
+toJSONKey :: ToJSONKeyFunction DevicePlatform
+$ctoJSONKey :: ToJSONKeyFunction DevicePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679362289"><span class="annot"><span class="annottext">[Node] -&gt; Either String DevicePlatform
+([Node] -&gt; Either String DevicePlatform) -&gt; FromXML DevicePlatform
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DevicePlatform
+$cparseXML :: [Node] -&gt; Either String DevicePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679362286"><span class="annot"><span class="annottext">DevicePlatform -&gt; XML
+(DevicePlatform -&gt; XML) -&gt; ToXML DevicePlatform
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DevicePlatform -&gt; XML
+$ctoXML :: DevicePlatform -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform_ANDROID"><span class="hs-identifier hs-type">DevicePlatform_ANDROID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform"><span class="hs-identifier hs-type">DevicePlatform</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDevicePlatform_ANDROID"><span id="%24mDevicePlatform_ANDROID"><span id="DevicePlatform_ANDROID"><span class="annot"><span class="annottext">$bDevicePlatform_ANDROID :: DevicePlatform
+$mDevicePlatform_ANDROID :: forall r. DevicePlatform -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#%24bDevicePlatform_ANDROID"><span class="hs-identifier hs-var hs-var hs-var">DevicePlatform_ANDROID</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform%27"><span class="hs-identifier hs-type">DevicePlatform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ANDROID&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform_IOS"><span class="hs-identifier hs-type">DevicePlatform_IOS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform"><span class="hs-identifier hs-type">DevicePlatform</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDevicePlatform_IOS"><span id="%24mDevicePlatform_IOS"><span id="DevicePlatform_IOS"><span class="annot"><span class="annottext">$bDevicePlatform_IOS :: DevicePlatform
+$mDevicePlatform_IOS :: forall r. DevicePlatform -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#%24bDevicePlatform_IOS"><span class="hs-identifier hs-var hs-var hs-var">DevicePlatform_IOS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform%27"><span class="hs-identifier hs-type">DevicePlatform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IOS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform_ANDROID"><span class="hs-pragma hs-type">DevicePlatform_ANDROID</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform_IOS"><span class="hs-pragma hs-type">DevicePlatform_IOS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform%27"><span class="hs-pragma hs-type">DevicePlatform'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

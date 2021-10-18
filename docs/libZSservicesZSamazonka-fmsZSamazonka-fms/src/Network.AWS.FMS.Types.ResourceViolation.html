@@ -1,0 +1,1351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.FMS.Types.ResourceViolation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FMS.Types.ResourceViolation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.AwsEc2InstanceViolation</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2NetworkInterfaceViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.AwsEc2NetworkInterfaceViolation</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsVPCSecurityGroupViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.AwsVPCSecurityGroupViolation</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallInternetTrafficNotInspectedViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.NetworkFirewallInternetTrafficNotInspectedViolation</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallInvalidRouteConfigurationViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.NetworkFirewallInvalidRouteConfigurationViolation</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRTViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRTViolation</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation</span></a></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallMissingFirewallViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.NetworkFirewallMissingFirewallViolation</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallMissingSubnetViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.NetworkFirewallMissingSubnetViolation</span></a></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallPolicyModifiedViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.NetworkFirewallPolicyModifiedViolation</span></a></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation</span></a></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html"><span class="hs-identifier">Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PossibleRemediationActions.html"><span class="hs-identifier">Network.AWS.FMS.Types.PossibleRemediationActions</span></a></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- | Violation detail based on resource type.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- /See:/ 'newResourceViolation' smart constructor.</span><span>
+</span><span id="line-46"></span><span id="local-6989586621679250982"><span id="local-6989586621679250983"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceViolation"><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-var">ResourceViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceViolation%27"><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-var">ResourceViolation'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnetworkFirewallBlackHoleRouteDetectedViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation
+-&gt; Maybe NetworkFirewallBlackHoleRouteDetectedViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallBlackHoleRouteDetectedViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">networkFirewallBlackHoleRouteDetectedViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation.html#NetworkFirewallBlackHoleRouteDetectedViolation"><span class="hs-identifier hs-type">NetworkFirewallBlackHoleRouteDetectedViolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | A list of possible remediation action lists. Each individual possible</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- remediation action is a list of individual remediation actions.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3ApossibleRemediationActions%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation -&gt; Maybe PossibleRemediationActions
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3ApossibleRemediationActions%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">possibleRemediationActions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PossibleRemediationActions.html#PossibleRemediationActions"><span class="hs-identifier hs-type">PossibleRemediationActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Violation detail for a DNS Firewall policy that indicates that the VPC</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- reached the limit for associated DNS Firewall rule groups. Firewall</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Manager tried to associate another rule group with the VPC and failed.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AdnsRuleGroupLimitExceededViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation -&gt; Maybe DnsRuleGroupLimitExceededViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AdnsRuleGroupLimitExceededViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">dnsRuleGroupLimitExceededViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The route configuration is invalid.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnetworkFirewallInvalidRouteConfigurationViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation
+-&gt; Maybe NetworkFirewallInvalidRouteConfigurationViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallInvalidRouteConfigurationViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">networkFirewallInvalidRouteConfigurationViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallInvalidRouteConfigurationViolation.html#NetworkFirewallInvalidRouteConfigurationViolation"><span class="hs-identifier hs-type">NetworkFirewallInvalidRouteConfigurationViolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Violation detail for an Network Firewall policy that indicates that an</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Availability Zone is missing the expected Firewall Manager managed</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- subnet.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnetworkFirewallMissingSubnetViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation -&gt; Maybe NetworkFirewallMissingSubnetViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallMissingSubnetViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">networkFirewallMissingSubnetViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallMissingSubnetViolation.html#NetworkFirewallMissingSubnetViolation"><span class="hs-identifier hs-type">NetworkFirewallMissingSubnetViolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Violation detail for a DNS Firewall policy that indicates that a rule</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- group that Firewall Manager tried to associate with a VPC is already</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- associated with the VPC and can\'t be associated again.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdnsDuplicateRuleGroupViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation -&gt; Maybe DnsDuplicateRuleGroupViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AdnsDuplicateRuleGroupViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">dnsDuplicateRuleGroupViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Violation detail for a network interface.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AawsEc2NetworkInterfaceViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation -&gt; Maybe AwsEc2NetworkInterfaceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AawsEc2NetworkInterfaceViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">awsEc2NetworkInterfaceViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2NetworkInterfaceViolation.html#AwsEc2NetworkInterfaceViolation"><span class="hs-identifier hs-type">AwsEc2NetworkInterfaceViolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Violation detail for the subnet for which internet traffic hasn\'t been</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- inspected.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AnetworkFirewallInternetTrafficNotInspectedViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation
+-&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallInternetTrafficNotInspectedViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">networkFirewallInternetTrafficNotInspectedViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallInternetTrafficNotInspectedViolation.html#NetworkFirewallInternetTrafficNotInspectedViolation"><span class="hs-identifier hs-type">NetworkFirewallInternetTrafficNotInspectedViolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Violation detail for an Network Firewall policy that indicates that a</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- subnet is not associated with the expected Firewall Manager managed</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- route table.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AnetworkFirewallMissingExpectedRTViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation
+-&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallMissingExpectedRTViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">networkFirewallMissingExpectedRTViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRTViolation.html#NetworkFirewallMissingExpectedRTViolation"><span class="hs-identifier hs-type">NetworkFirewallMissingExpectedRTViolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Expected routes are missing from Network Firewall.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AnetworkFirewallMissingExpectedRoutesViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation
+-&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallMissingExpectedRoutesViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">networkFirewallMissingExpectedRoutesViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation.html#NetworkFirewallMissingExpectedRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallMissingExpectedRoutesViolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | Violation detail for an EC2 instance.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AawsEc2InstanceViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation -&gt; Maybe AwsEc2InstanceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AawsEc2InstanceViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">awsEc2InstanceViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation"><span class="hs-identifier hs-type">AwsEc2InstanceViolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | There\'s an unexpected gateway route.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AnetworkFirewallUnexpectedGatewayRoutesViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation
+-&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallUnexpectedGatewayRoutesViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">networkFirewallUnexpectedGatewayRoutesViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | Violation detail for an Network Firewall policy that indicates that a</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- subnet has no Firewall Manager managed firewall in its VPC.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AnetworkFirewallMissingFirewallViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation -&gt; Maybe NetworkFirewallMissingFirewallViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallMissingFirewallViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">networkFirewallMissingFirewallViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallMissingFirewallViolation.html#NetworkFirewallMissingFirewallViolation"><span class="hs-identifier hs-type">NetworkFirewallMissingFirewallViolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | There\'s an unexpected firewall route.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AnetworkFirewallUnexpectedFirewallRoutesViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation
+-&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallUnexpectedFirewallRoutesViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">networkFirewallUnexpectedFirewallRoutesViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation.html#NetworkFirewallUnexpectedFirewallRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedFirewallRoutesViolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Violation detail for security groups.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AawsVPCSecurityGroupViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation -&gt; Maybe AwsVPCSecurityGroupViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AawsVPCSecurityGroupViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">awsVPCSecurityGroupViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsVPCSecurityGroupViolation.html#AwsVPCSecurityGroupViolation"><span class="hs-identifier hs-type">AwsVPCSecurityGroupViolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | Violation detail for an Network Firewall policy that indicates that a</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- firewall policy in an individual account has been modified in a way that</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- makes it noncompliant. For example, the individual account owner might</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- have deleted a rule group, changed the priority of a stateless rule</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- group, or changed a policy default action.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AnetworkFirewallPolicyModifiedViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallPolicyModifiedViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">networkFirewallPolicyModifiedViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallPolicyModifiedViolation.html#NetworkFirewallPolicyModifiedViolation"><span class="hs-identifier hs-type">NetworkFirewallPolicyModifiedViolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | Violation detail for a DNS Firewall policy that indicates that a rule</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- group that Firewall Manager tried to associate with a VPC has the same</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- priority as a rule group that\'s already associated.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AdnsRuleGroupPriorityConflictViolation%3AResourceViolation%27"><span class="annot"><span class="annottext">ResourceViolation -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AdnsRuleGroupPriorityConflictViolation%3AResourceViolation%27"><span class="hs-identifier hs-var hs-var">dnsRuleGroupPriorityConflictViolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250960"><span id="local-6989586621679250962"><span class="annot"><span class="annottext">ResourceViolation -&gt; ResourceViolation -&gt; Bool
+(ResourceViolation -&gt; ResourceViolation -&gt; Bool)
+-&gt; (ResourceViolation -&gt; ResourceViolation -&gt; Bool)
+-&gt; Eq ResourceViolation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceViolation -&gt; ResourceViolation -&gt; Bool
+$c/= :: ResourceViolation -&gt; ResourceViolation -&gt; Bool
+== :: ResourceViolation -&gt; ResourceViolation -&gt; Bool
+$c== :: ResourceViolation -&gt; ResourceViolation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250951"><span id="local-6989586621679250953"><span id="local-6989586621679250955"><span id="local-6989586621679250957"><span class="annot"><span class="annottext">ReadPrec [ResourceViolation]
+ReadPrec ResourceViolation
+Int -&gt; ReadS ResourceViolation
+ReadS [ResourceViolation]
+(Int -&gt; ReadS ResourceViolation)
+-&gt; ReadS [ResourceViolation]
+-&gt; ReadPrec ResourceViolation
+-&gt; ReadPrec [ResourceViolation]
+-&gt; Read ResourceViolation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceViolation]
+$creadListPrec :: ReadPrec [ResourceViolation]
+readPrec :: ReadPrec ResourceViolation
+$creadPrec :: ReadPrec ResourceViolation
+readList :: ReadS [ResourceViolation]
+$creadList :: ReadS [ResourceViolation]
+readsPrec :: Int -&gt; ReadS ResourceViolation
+$creadsPrec :: Int -&gt; ReadS ResourceViolation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250944"><span id="local-6989586621679250946"><span id="local-6989586621679250948"><span class="annot"><span class="annottext">Int -&gt; ResourceViolation -&gt; ShowS
+[ResourceViolation] -&gt; ShowS
+ResourceViolation -&gt; String
+(Int -&gt; ResourceViolation -&gt; ShowS)
+-&gt; (ResourceViolation -&gt; String)
+-&gt; ([ResourceViolation] -&gt; ShowS)
+-&gt; Show ResourceViolation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceViolation] -&gt; ShowS
+$cshowList :: [ResourceViolation] -&gt; ShowS
+show :: ResourceViolation -&gt; String
+$cshow :: ResourceViolation -&gt; String
+showsPrec :: Int -&gt; ResourceViolation -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceViolation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ResourceViolation -&gt; Rep ResourceViolation x)
+-&gt; (forall x. Rep ResourceViolation x -&gt; ResourceViolation)
+-&gt; Generic ResourceViolation
+forall x. Rep ResourceViolation x -&gt; ResourceViolation
+forall x. ResourceViolation -&gt; Rep ResourceViolation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResourceViolation x -&gt; ResourceViolation
+$cfrom :: forall x. ResourceViolation -&gt; Rep ResourceViolation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Create a value of 'ResourceViolation' with all optional fields omitted.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'networkFirewallBlackHoleRouteDetectedViolation', 'resourceViolation_networkFirewallBlackHoleRouteDetectedViolation' - Undocumented member.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'possibleRemediationActions', 'resourceViolation_possibleRemediationActions' - A list of possible remediation action lists. Each individual possible</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- remediation action is a list of individual remediation actions.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'dnsRuleGroupLimitExceededViolation', 'resourceViolation_dnsRuleGroupLimitExceededViolation' - Violation detail for a DNS Firewall policy that indicates that the VPC</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- reached the limit for associated DNS Firewall rule groups. Firewall</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Manager tried to associate another rule group with the VPC and failed.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'networkFirewallInvalidRouteConfigurationViolation', 'resourceViolation_networkFirewallInvalidRouteConfigurationViolation' - The route configuration is invalid.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'networkFirewallMissingSubnetViolation', 'resourceViolation_networkFirewallMissingSubnetViolation' - Violation detail for an Network Firewall policy that indicates that an</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Availability Zone is missing the expected Firewall Manager managed</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- subnet.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'dnsDuplicateRuleGroupViolation', 'resourceViolation_dnsDuplicateRuleGroupViolation' - Violation detail for a DNS Firewall policy that indicates that a rule</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- group that Firewall Manager tried to associate with a VPC is already</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- associated with the VPC and can\'t be associated again.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'awsEc2NetworkInterfaceViolation', 'resourceViolation_awsEc2NetworkInterfaceViolation' - Violation detail for a network interface.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'networkFirewallInternetTrafficNotInspectedViolation', 'resourceViolation_networkFirewallInternetTrafficNotInspectedViolation' - Violation detail for the subnet for which internet traffic hasn\'t been</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- inspected.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'networkFirewallMissingExpectedRTViolation', 'resourceViolation_networkFirewallMissingExpectedRTViolation' - Violation detail for an Network Firewall policy that indicates that a</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- subnet is not associated with the expected Firewall Manager managed</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- route table.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'networkFirewallMissingExpectedRoutesViolation', 'resourceViolation_networkFirewallMissingExpectedRoutesViolation' - Expected routes are missing from Network Firewall.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'awsEc2InstanceViolation', 'resourceViolation_awsEc2InstanceViolation' - Violation detail for an EC2 instance.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'networkFirewallUnexpectedGatewayRoutesViolation', 'resourceViolation_networkFirewallUnexpectedGatewayRoutesViolation' - There\'s an unexpected gateway route.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'networkFirewallMissingFirewallViolation', 'resourceViolation_networkFirewallMissingFirewallViolation' - Violation detail for an Network Firewall policy that indicates that a</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- subnet has no Firewall Manager managed firewall in its VPC.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'networkFirewallUnexpectedFirewallRoutesViolation', 'resourceViolation_networkFirewallUnexpectedFirewallRoutesViolation' - There\'s an unexpected firewall route.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'awsVPCSecurityGroupViolation', 'resourceViolation_awsVPCSecurityGroupViolation' - Violation detail for security groups.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'networkFirewallPolicyModifiedViolation', 'resourceViolation_networkFirewallPolicyModifiedViolation' - Violation detail for an Network Firewall policy that indicates that a</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- firewall policy in an individual account has been modified in a way that</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- makes it noncompliant. For example, the individual account owner might</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- have deleted a rule group, changed the priority of a stateless rule</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- group, or changed a policy default action.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'dnsRuleGroupPriorityConflictViolation', 'resourceViolation_dnsRuleGroupPriorityConflictViolation' - Violation detail for a DNS Firewall policy that indicates that a rule</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- group that Firewall Manager tried to associate with a VPC has the same</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- priority as a rule group that\'s already associated.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#newResourceViolation"><span class="hs-identifier hs-type">newResourceViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span>
+</span><span id="line-160"></span><span id="newResourceViolation"><span class="annot"><span class="annottext">newResourceViolation :: ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#newResourceViolation"><span class="hs-identifier hs-var hs-var">newResourceViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">ResourceViolation' :: Maybe NetworkFirewallBlackHoleRouteDetectedViolation
+-&gt; Maybe PossibleRemediationActions
+-&gt; Maybe DnsRuleGroupLimitExceededViolation
+-&gt; Maybe NetworkFirewallInvalidRouteConfigurationViolation
+-&gt; Maybe NetworkFirewallMissingSubnetViolation
+-&gt; Maybe DnsDuplicateRuleGroupViolation
+-&gt; Maybe AwsEc2NetworkInterfaceViolation
+-&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+-&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+-&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+-&gt; Maybe AwsEc2InstanceViolation
+-&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+-&gt; Maybe NetworkFirewallMissingFirewallViolation
+-&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+-&gt; Maybe AwsVPCSecurityGroupViolation
+-&gt; Maybe NetworkFirewallPolicyModifiedViolation
+-&gt; Maybe DnsRuleGroupPriorityConflictViolation
+-&gt; ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networkFirewallBlackHoleRouteDetectedViolation:ResourceViolation' :: Maybe NetworkFirewallBlackHoleRouteDetectedViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallBlackHoleRouteDetectedViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallBlackHoleRouteDetectedViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">Maybe NetworkFirewallBlackHoleRouteDetectedViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:possibleRemediationActions:ResourceViolation' :: Maybe PossibleRemediationActions
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3ApossibleRemediationActions%3AResourceViolation%27"><span class="hs-identifier hs-var">possibleRemediationActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PossibleRemediationActions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsRuleGroupLimitExceededViolation:ResourceViolation' :: Maybe DnsRuleGroupLimitExceededViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AdnsRuleGroupLimitExceededViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">dnsRuleGroupLimitExceededViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DnsRuleGroupLimitExceededViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkFirewallInvalidRouteConfigurationViolation:ResourceViolation' :: Maybe NetworkFirewallInvalidRouteConfigurationViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallInvalidRouteConfigurationViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallInvalidRouteConfigurationViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">Maybe NetworkFirewallInvalidRouteConfigurationViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkFirewallMissingSubnetViolation:ResourceViolation' :: Maybe NetworkFirewallMissingSubnetViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallMissingSubnetViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallMissingSubnetViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingSubnetViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsDuplicateRuleGroupViolation:ResourceViolation' :: Maybe DnsDuplicateRuleGroupViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AdnsDuplicateRuleGroupViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">dnsDuplicateRuleGroupViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DnsDuplicateRuleGroupViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsEc2NetworkInterfaceViolation:ResourceViolation' :: Maybe AwsEc2NetworkInterfaceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AawsEc2NetworkInterfaceViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">awsEc2NetworkInterfaceViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsEc2NetworkInterfaceViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkFirewallInternetTrafficNotInspectedViolation:ResourceViolation' :: Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallInternetTrafficNotInspectedViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallInternetTrafficNotInspectedViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkFirewallMissingExpectedRTViolation:ResourceViolation' :: Maybe NetworkFirewallMissingExpectedRTViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallMissingExpectedRTViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallMissingExpectedRTViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingExpectedRTViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkFirewallMissingExpectedRoutesViolation:ResourceViolation' :: Maybe NetworkFirewallMissingExpectedRoutesViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallMissingExpectedRoutesViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallMissingExpectedRoutesViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingExpectedRoutesViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsEc2InstanceViolation:ResourceViolation' :: Maybe AwsEc2InstanceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AawsEc2InstanceViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">awsEc2InstanceViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsEc2InstanceViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkFirewallUnexpectedGatewayRoutesViolation:ResourceViolation' :: Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallUnexpectedGatewayRoutesViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkFirewallMissingFirewallViolation:ResourceViolation' :: Maybe NetworkFirewallMissingFirewallViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallMissingFirewallViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallMissingFirewallViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingFirewallViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkFirewallUnexpectedFirewallRoutesViolation:ResourceViolation' :: Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallUnexpectedFirewallRoutesViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallUnexpectedFirewallRoutesViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsVPCSecurityGroupViolation:ResourceViolation' :: Maybe AwsVPCSecurityGroupViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AawsVPCSecurityGroupViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">awsVPCSecurityGroupViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsVPCSecurityGroupViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkFirewallPolicyModifiedViolation:ResourceViolation' :: Maybe NetworkFirewallPolicyModifiedViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallPolicyModifiedViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallPolicyModifiedViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">Maybe NetworkFirewallPolicyModifiedViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsRuleGroupPriorityConflictViolation:ResourceViolation' :: Maybe DnsRuleGroupPriorityConflictViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AdnsRuleGroupPriorityConflictViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">dnsRuleGroupPriorityConflictViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">Maybe DnsRuleGroupPriorityConflictViolation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallBlackHoleRouteDetectedViolation"><span class="hs-identifier hs-type">resourceViolation_networkFirewallBlackHoleRouteDetectedViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation.html#NetworkFirewallBlackHoleRouteDetectedViolation"><span class="hs-identifier hs-type">NetworkFirewallBlackHoleRouteDetectedViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="resourceViolation_networkFirewallBlackHoleRouteDetectedViolation"><span class="annot"><span class="annottext">resourceViolation_networkFirewallBlackHoleRouteDetectedViolation :: (Maybe NetworkFirewallBlackHoleRouteDetectedViolation
+ -&gt; f (Maybe NetworkFirewallBlackHoleRouteDetectedViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallBlackHoleRouteDetectedViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_networkFirewallBlackHoleRouteDetectedViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation
+ -&gt; Maybe NetworkFirewallBlackHoleRouteDetectedViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe NetworkFirewallBlackHoleRouteDetectedViolation
+    -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe NetworkFirewallBlackHoleRouteDetectedViolation)
+     (Maybe NetworkFirewallBlackHoleRouteDetectedViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250935"><span class="annot"><span class="annottext">Maybe NetworkFirewallBlackHoleRouteDetectedViolation
+networkFirewallBlackHoleRouteDetectedViolation :: Maybe NetworkFirewallBlackHoleRouteDetectedViolation
+$sel:networkFirewallBlackHoleRouteDetectedViolation:ResourceViolation' :: ResourceViolation
+-&gt; Maybe NetworkFirewallBlackHoleRouteDetectedViolation
+</span><a href="#local-6989586621679250935"><span class="hs-identifier hs-var hs-var">networkFirewallBlackHoleRouteDetectedViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallBlackHoleRouteDetectedViolation
+</span><a href="#local-6989586621679250935"><span class="hs-identifier hs-var">networkFirewallBlackHoleRouteDetectedViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250934"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250933"><span class="annot"><span class="annottext">Maybe NetworkFirewallBlackHoleRouteDetectedViolation
+</span><a href="#local-6989586621679250933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkFirewallBlackHoleRouteDetectedViolation:ResourceViolation' :: Maybe NetworkFirewallBlackHoleRouteDetectedViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallBlackHoleRouteDetectedViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallBlackHoleRouteDetectedViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallBlackHoleRouteDetectedViolation
+</span><a href="#local-6989586621679250933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | A list of possible remediation action lists. Each individual possible</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- remediation action is a list of individual remediation actions.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_possibleRemediationActions"><span class="hs-identifier hs-type">resourceViolation_possibleRemediationActions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PossibleRemediationActions.html#PossibleRemediationActions"><span class="hs-identifier hs-type">PossibleRemediationActions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="resourceViolation_possibleRemediationActions"><span class="annot"><span class="annottext">resourceViolation_possibleRemediationActions :: (Maybe PossibleRemediationActions
+ -&gt; f (Maybe PossibleRemediationActions))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_possibleRemediationActions"><span class="hs-identifier hs-var hs-var">resourceViolation_possibleRemediationActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation -&gt; Maybe PossibleRemediationActions)
+-&gt; (ResourceViolation
+    -&gt; Maybe PossibleRemediationActions -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe PossibleRemediationActions)
+     (Maybe PossibleRemediationActions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250931"><span class="annot"><span class="annottext">Maybe PossibleRemediationActions
+possibleRemediationActions :: Maybe PossibleRemediationActions
+$sel:possibleRemediationActions:ResourceViolation' :: ResourceViolation -&gt; Maybe PossibleRemediationActions
+</span><a href="#local-6989586621679250931"><span class="hs-identifier hs-var hs-var">possibleRemediationActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PossibleRemediationActions
+</span><a href="#local-6989586621679250931"><span class="hs-identifier hs-var">possibleRemediationActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250930"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250929"><span class="annot"><span class="annottext">Maybe PossibleRemediationActions
+</span><a href="#local-6989586621679250929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:possibleRemediationActions:ResourceViolation' :: Maybe PossibleRemediationActions
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3ApossibleRemediationActions%3AResourceViolation%27"><span class="hs-identifier hs-var">possibleRemediationActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PossibleRemediationActions
+</span><a href="#local-6989586621679250929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | Violation detail for a DNS Firewall policy that indicates that the VPC</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- reached the limit for associated DNS Firewall rule groups. Firewall</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Manager tried to associate another rule group with the VPC and failed.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_dnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">resourceViolation_dnsRuleGroupLimitExceededViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="resourceViolation_dnsRuleGroupLimitExceededViolation"><span class="annot"><span class="annottext">resourceViolation_dnsRuleGroupLimitExceededViolation :: (Maybe DnsRuleGroupLimitExceededViolation
+ -&gt; f (Maybe DnsRuleGroupLimitExceededViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_dnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_dnsRuleGroupLimitExceededViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation -&gt; Maybe DnsRuleGroupLimitExceededViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe DnsRuleGroupLimitExceededViolation -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe DnsRuleGroupLimitExceededViolation)
+     (Maybe DnsRuleGroupLimitExceededViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250927"><span class="annot"><span class="annottext">Maybe DnsRuleGroupLimitExceededViolation
+dnsRuleGroupLimitExceededViolation :: Maybe DnsRuleGroupLimitExceededViolation
+$sel:dnsRuleGroupLimitExceededViolation:ResourceViolation' :: ResourceViolation -&gt; Maybe DnsRuleGroupLimitExceededViolation
+</span><a href="#local-6989586621679250927"><span class="hs-identifier hs-var hs-var">dnsRuleGroupLimitExceededViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DnsRuleGroupLimitExceededViolation
+</span><a href="#local-6989586621679250927"><span class="hs-identifier hs-var">dnsRuleGroupLimitExceededViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250926"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250925"><span class="annot"><span class="annottext">Maybe DnsRuleGroupLimitExceededViolation
+</span><a href="#local-6989586621679250925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsRuleGroupLimitExceededViolation:ResourceViolation' :: Maybe DnsRuleGroupLimitExceededViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AdnsRuleGroupLimitExceededViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">dnsRuleGroupLimitExceededViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DnsRuleGroupLimitExceededViolation
+</span><a href="#local-6989586621679250925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The route configuration is invalid.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallInvalidRouteConfigurationViolation"><span class="hs-identifier hs-type">resourceViolation_networkFirewallInvalidRouteConfigurationViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallInvalidRouteConfigurationViolation.html#NetworkFirewallInvalidRouteConfigurationViolation"><span class="hs-identifier hs-type">NetworkFirewallInvalidRouteConfigurationViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="resourceViolation_networkFirewallInvalidRouteConfigurationViolation"><span class="annot"><span class="annottext">resourceViolation_networkFirewallInvalidRouteConfigurationViolation :: (Maybe NetworkFirewallInvalidRouteConfigurationViolation
+ -&gt; f (Maybe NetworkFirewallInvalidRouteConfigurationViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallInvalidRouteConfigurationViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_networkFirewallInvalidRouteConfigurationViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation
+ -&gt; Maybe NetworkFirewallInvalidRouteConfigurationViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe NetworkFirewallInvalidRouteConfigurationViolation
+    -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe NetworkFirewallInvalidRouteConfigurationViolation)
+     (Maybe NetworkFirewallInvalidRouteConfigurationViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250923"><span class="annot"><span class="annottext">Maybe NetworkFirewallInvalidRouteConfigurationViolation
+networkFirewallInvalidRouteConfigurationViolation :: Maybe NetworkFirewallInvalidRouteConfigurationViolation
+$sel:networkFirewallInvalidRouteConfigurationViolation:ResourceViolation' :: ResourceViolation
+-&gt; Maybe NetworkFirewallInvalidRouteConfigurationViolation
+</span><a href="#local-6989586621679250923"><span class="hs-identifier hs-var hs-var">networkFirewallInvalidRouteConfigurationViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallInvalidRouteConfigurationViolation
+</span><a href="#local-6989586621679250923"><span class="hs-identifier hs-var">networkFirewallInvalidRouteConfigurationViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250922"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250921"><span class="annot"><span class="annottext">Maybe NetworkFirewallInvalidRouteConfigurationViolation
+</span><a href="#local-6989586621679250921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkFirewallInvalidRouteConfigurationViolation:ResourceViolation' :: Maybe NetworkFirewallInvalidRouteConfigurationViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallInvalidRouteConfigurationViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallInvalidRouteConfigurationViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallInvalidRouteConfigurationViolation
+</span><a href="#local-6989586621679250921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | Violation detail for an Network Firewall policy that indicates that an</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- Availability Zone is missing the expected Firewall Manager managed</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- subnet.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallMissingSubnetViolation"><span class="hs-identifier hs-type">resourceViolation_networkFirewallMissingSubnetViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallMissingSubnetViolation.html#NetworkFirewallMissingSubnetViolation"><span class="hs-identifier hs-type">NetworkFirewallMissingSubnetViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="resourceViolation_networkFirewallMissingSubnetViolation"><span class="annot"><span class="annottext">resourceViolation_networkFirewallMissingSubnetViolation :: (Maybe NetworkFirewallMissingSubnetViolation
+ -&gt; f (Maybe NetworkFirewallMissingSubnetViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallMissingSubnetViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_networkFirewallMissingSubnetViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation -&gt; Maybe NetworkFirewallMissingSubnetViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe NetworkFirewallMissingSubnetViolation
+    -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe NetworkFirewallMissingSubnetViolation)
+     (Maybe NetworkFirewallMissingSubnetViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250919"><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingSubnetViolation
+networkFirewallMissingSubnetViolation :: Maybe NetworkFirewallMissingSubnetViolation
+$sel:networkFirewallMissingSubnetViolation:ResourceViolation' :: ResourceViolation -&gt; Maybe NetworkFirewallMissingSubnetViolation
+</span><a href="#local-6989586621679250919"><span class="hs-identifier hs-var hs-var">networkFirewallMissingSubnetViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingSubnetViolation
+</span><a href="#local-6989586621679250919"><span class="hs-identifier hs-var">networkFirewallMissingSubnetViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250918"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250917"><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingSubnetViolation
+</span><a href="#local-6989586621679250917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkFirewallMissingSubnetViolation:ResourceViolation' :: Maybe NetworkFirewallMissingSubnetViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallMissingSubnetViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallMissingSubnetViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingSubnetViolation
+</span><a href="#local-6989586621679250917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | Violation detail for a DNS Firewall policy that indicates that a rule</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- group that Firewall Manager tried to associate with a VPC is already</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- associated with the VPC and can\'t be associated again.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_dnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">resourceViolation_dnsDuplicateRuleGroupViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="resourceViolation_dnsDuplicateRuleGroupViolation"><span class="annot"><span class="annottext">resourceViolation_dnsDuplicateRuleGroupViolation :: (Maybe DnsDuplicateRuleGroupViolation
+ -&gt; f (Maybe DnsDuplicateRuleGroupViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_dnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_dnsDuplicateRuleGroupViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation -&gt; Maybe DnsDuplicateRuleGroupViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe DnsDuplicateRuleGroupViolation -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe DnsDuplicateRuleGroupViolation)
+     (Maybe DnsDuplicateRuleGroupViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250915"><span class="annot"><span class="annottext">Maybe DnsDuplicateRuleGroupViolation
+dnsDuplicateRuleGroupViolation :: Maybe DnsDuplicateRuleGroupViolation
+$sel:dnsDuplicateRuleGroupViolation:ResourceViolation' :: ResourceViolation -&gt; Maybe DnsDuplicateRuleGroupViolation
+</span><a href="#local-6989586621679250915"><span class="hs-identifier hs-var hs-var">dnsDuplicateRuleGroupViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DnsDuplicateRuleGroupViolation
+</span><a href="#local-6989586621679250915"><span class="hs-identifier hs-var">dnsDuplicateRuleGroupViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250914"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250913"><span class="annot"><span class="annottext">Maybe DnsDuplicateRuleGroupViolation
+</span><a href="#local-6989586621679250913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsDuplicateRuleGroupViolation:ResourceViolation' :: Maybe DnsDuplicateRuleGroupViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AdnsDuplicateRuleGroupViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">dnsDuplicateRuleGroupViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DnsDuplicateRuleGroupViolation
+</span><a href="#local-6989586621679250913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | Violation detail for a network interface.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_awsEc2NetworkInterfaceViolation"><span class="hs-identifier hs-type">resourceViolation_awsEc2NetworkInterfaceViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2NetworkInterfaceViolation.html#AwsEc2NetworkInterfaceViolation"><span class="hs-identifier hs-type">AwsEc2NetworkInterfaceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="resourceViolation_awsEc2NetworkInterfaceViolation"><span class="annot"><span class="annottext">resourceViolation_awsEc2NetworkInterfaceViolation :: (Maybe AwsEc2NetworkInterfaceViolation
+ -&gt; f (Maybe AwsEc2NetworkInterfaceViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_awsEc2NetworkInterfaceViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_awsEc2NetworkInterfaceViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation -&gt; Maybe AwsEc2NetworkInterfaceViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe AwsEc2NetworkInterfaceViolation -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe AwsEc2NetworkInterfaceViolation)
+     (Maybe AwsEc2NetworkInterfaceViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250911"><span class="annot"><span class="annottext">Maybe AwsEc2NetworkInterfaceViolation
+awsEc2NetworkInterfaceViolation :: Maybe AwsEc2NetworkInterfaceViolation
+$sel:awsEc2NetworkInterfaceViolation:ResourceViolation' :: ResourceViolation -&gt; Maybe AwsEc2NetworkInterfaceViolation
+</span><a href="#local-6989586621679250911"><span class="hs-identifier hs-var hs-var">awsEc2NetworkInterfaceViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsEc2NetworkInterfaceViolation
+</span><a href="#local-6989586621679250911"><span class="hs-identifier hs-var">awsEc2NetworkInterfaceViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250910"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250909"><span class="annot"><span class="annottext">Maybe AwsEc2NetworkInterfaceViolation
+</span><a href="#local-6989586621679250909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsEc2NetworkInterfaceViolation:ResourceViolation' :: Maybe AwsEc2NetworkInterfaceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AawsEc2NetworkInterfaceViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">awsEc2NetworkInterfaceViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsEc2NetworkInterfaceViolation
+</span><a href="#local-6989586621679250909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | Violation detail for the subnet for which internet traffic hasn\'t been</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- inspected.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallInternetTrafficNotInspectedViolation"><span class="hs-identifier hs-type">resourceViolation_networkFirewallInternetTrafficNotInspectedViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallInternetTrafficNotInspectedViolation.html#NetworkFirewallInternetTrafficNotInspectedViolation"><span class="hs-identifier hs-type">NetworkFirewallInternetTrafficNotInspectedViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="resourceViolation_networkFirewallInternetTrafficNotInspectedViolation"><span class="annot"><span class="annottext">resourceViolation_networkFirewallInternetTrafficNotInspectedViolation :: (Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+ -&gt; f (Maybe NetworkFirewallInternetTrafficNotInspectedViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallInternetTrafficNotInspectedViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_networkFirewallInternetTrafficNotInspectedViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation
+ -&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+    -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe NetworkFirewallInternetTrafficNotInspectedViolation)
+     (Maybe NetworkFirewallInternetTrafficNotInspectedViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250907"><span class="annot"><span class="annottext">Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+networkFirewallInternetTrafficNotInspectedViolation :: Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+$sel:networkFirewallInternetTrafficNotInspectedViolation:ResourceViolation' :: ResourceViolation
+-&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+</span><a href="#local-6989586621679250907"><span class="hs-identifier hs-var hs-var">networkFirewallInternetTrafficNotInspectedViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+</span><a href="#local-6989586621679250907"><span class="hs-identifier hs-var">networkFirewallInternetTrafficNotInspectedViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250906"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250905"><span class="annot"><span class="annottext">Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+</span><a href="#local-6989586621679250905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkFirewallInternetTrafficNotInspectedViolation:ResourceViolation' :: Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallInternetTrafficNotInspectedViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallInternetTrafficNotInspectedViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+</span><a href="#local-6989586621679250905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | Violation detail for an Network Firewall policy that indicates that a</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- subnet is not associated with the expected Firewall Manager managed</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- route table.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallMissingExpectedRTViolation"><span class="hs-identifier hs-type">resourceViolation_networkFirewallMissingExpectedRTViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRTViolation.html#NetworkFirewallMissingExpectedRTViolation"><span class="hs-identifier hs-type">NetworkFirewallMissingExpectedRTViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="resourceViolation_networkFirewallMissingExpectedRTViolation"><span class="annot"><span class="annottext">resourceViolation_networkFirewallMissingExpectedRTViolation :: (Maybe NetworkFirewallMissingExpectedRTViolation
+ -&gt; f (Maybe NetworkFirewallMissingExpectedRTViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallMissingExpectedRTViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_networkFirewallMissingExpectedRTViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation
+ -&gt; Maybe NetworkFirewallMissingExpectedRTViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+    -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe NetworkFirewallMissingExpectedRTViolation)
+     (Maybe NetworkFirewallMissingExpectedRTViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250903"><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingExpectedRTViolation
+networkFirewallMissingExpectedRTViolation :: Maybe NetworkFirewallMissingExpectedRTViolation
+$sel:networkFirewallMissingExpectedRTViolation:ResourceViolation' :: ResourceViolation
+-&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+</span><a href="#local-6989586621679250903"><span class="hs-identifier hs-var hs-var">networkFirewallMissingExpectedRTViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingExpectedRTViolation
+</span><a href="#local-6989586621679250903"><span class="hs-identifier hs-var">networkFirewallMissingExpectedRTViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250902"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250901"><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingExpectedRTViolation
+</span><a href="#local-6989586621679250901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkFirewallMissingExpectedRTViolation:ResourceViolation' :: Maybe NetworkFirewallMissingExpectedRTViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallMissingExpectedRTViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallMissingExpectedRTViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingExpectedRTViolation
+</span><a href="#local-6989586621679250901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | Expected routes are missing from Network Firewall.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallMissingExpectedRoutesViolation"><span class="hs-identifier hs-type">resourceViolation_networkFirewallMissingExpectedRoutesViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation.html#NetworkFirewallMissingExpectedRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallMissingExpectedRoutesViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="resourceViolation_networkFirewallMissingExpectedRoutesViolation"><span class="annot"><span class="annottext">resourceViolation_networkFirewallMissingExpectedRoutesViolation :: (Maybe NetworkFirewallMissingExpectedRoutesViolation
+ -&gt; f (Maybe NetworkFirewallMissingExpectedRoutesViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallMissingExpectedRoutesViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_networkFirewallMissingExpectedRoutesViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation
+ -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+    -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe NetworkFirewallMissingExpectedRoutesViolation)
+     (Maybe NetworkFirewallMissingExpectedRoutesViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250899"><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingExpectedRoutesViolation
+networkFirewallMissingExpectedRoutesViolation :: Maybe NetworkFirewallMissingExpectedRoutesViolation
+$sel:networkFirewallMissingExpectedRoutesViolation:ResourceViolation' :: ResourceViolation
+-&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+</span><a href="#local-6989586621679250899"><span class="hs-identifier hs-var hs-var">networkFirewallMissingExpectedRoutesViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingExpectedRoutesViolation
+</span><a href="#local-6989586621679250899"><span class="hs-identifier hs-var">networkFirewallMissingExpectedRoutesViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250898"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250897"><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingExpectedRoutesViolation
+</span><a href="#local-6989586621679250897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkFirewallMissingExpectedRoutesViolation:ResourceViolation' :: Maybe NetworkFirewallMissingExpectedRoutesViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallMissingExpectedRoutesViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallMissingExpectedRoutesViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingExpectedRoutesViolation
+</span><a href="#local-6989586621679250897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | Violation detail for an EC2 instance.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_awsEc2InstanceViolation"><span class="hs-identifier hs-type">resourceViolation_awsEc2InstanceViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation"><span class="hs-identifier hs-type">AwsEc2InstanceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="resourceViolation_awsEc2InstanceViolation"><span class="annot"><span class="annottext">resourceViolation_awsEc2InstanceViolation :: (Maybe AwsEc2InstanceViolation
+ -&gt; f (Maybe AwsEc2InstanceViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_awsEc2InstanceViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_awsEc2InstanceViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation -&gt; Maybe AwsEc2InstanceViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe AwsEc2InstanceViolation -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe AwsEc2InstanceViolation)
+     (Maybe AwsEc2InstanceViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250895"><span class="annot"><span class="annottext">Maybe AwsEc2InstanceViolation
+awsEc2InstanceViolation :: Maybe AwsEc2InstanceViolation
+$sel:awsEc2InstanceViolation:ResourceViolation' :: ResourceViolation -&gt; Maybe AwsEc2InstanceViolation
+</span><a href="#local-6989586621679250895"><span class="hs-identifier hs-var hs-var">awsEc2InstanceViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsEc2InstanceViolation
+</span><a href="#local-6989586621679250895"><span class="hs-identifier hs-var">awsEc2InstanceViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250894"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250893"><span class="annot"><span class="annottext">Maybe AwsEc2InstanceViolation
+</span><a href="#local-6989586621679250893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsEc2InstanceViolation:ResourceViolation' :: Maybe AwsEc2InstanceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AawsEc2InstanceViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">awsEc2InstanceViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsEc2InstanceViolation
+</span><a href="#local-6989586621679250893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | There\'s an unexpected gateway route.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">resourceViolation_networkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="resourceViolation_networkFirewallUnexpectedGatewayRoutesViolation"><span class="annot"><span class="annottext">resourceViolation_networkFirewallUnexpectedGatewayRoutesViolation :: (Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+ -&gt; f (Maybe NetworkFirewallUnexpectedGatewayRoutesViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_networkFirewallUnexpectedGatewayRoutesViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation
+ -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+    -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe NetworkFirewallUnexpectedGatewayRoutesViolation)
+     (Maybe NetworkFirewallUnexpectedGatewayRoutesViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250891"><span class="annot"><span class="annottext">Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+networkFirewallUnexpectedGatewayRoutesViolation :: Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+$sel:networkFirewallUnexpectedGatewayRoutesViolation:ResourceViolation' :: ResourceViolation
+-&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="#local-6989586621679250891"><span class="hs-identifier hs-var hs-var">networkFirewallUnexpectedGatewayRoutesViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="#local-6989586621679250891"><span class="hs-identifier hs-var">networkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250890"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250889"><span class="annot"><span class="annottext">Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="#local-6989586621679250889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkFirewallUnexpectedGatewayRoutesViolation:ResourceViolation' :: Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallUnexpectedGatewayRoutesViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="#local-6989586621679250889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | Violation detail for an Network Firewall policy that indicates that a</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- subnet has no Firewall Manager managed firewall in its VPC.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallMissingFirewallViolation"><span class="hs-identifier hs-type">resourceViolation_networkFirewallMissingFirewallViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallMissingFirewallViolation.html#NetworkFirewallMissingFirewallViolation"><span class="hs-identifier hs-type">NetworkFirewallMissingFirewallViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="resourceViolation_networkFirewallMissingFirewallViolation"><span class="annot"><span class="annottext">resourceViolation_networkFirewallMissingFirewallViolation :: (Maybe NetworkFirewallMissingFirewallViolation
+ -&gt; f (Maybe NetworkFirewallMissingFirewallViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallMissingFirewallViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_networkFirewallMissingFirewallViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation
+ -&gt; Maybe NetworkFirewallMissingFirewallViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe NetworkFirewallMissingFirewallViolation
+    -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe NetworkFirewallMissingFirewallViolation)
+     (Maybe NetworkFirewallMissingFirewallViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250887"><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingFirewallViolation
+networkFirewallMissingFirewallViolation :: Maybe NetworkFirewallMissingFirewallViolation
+$sel:networkFirewallMissingFirewallViolation:ResourceViolation' :: ResourceViolation -&gt; Maybe NetworkFirewallMissingFirewallViolation
+</span><a href="#local-6989586621679250887"><span class="hs-identifier hs-var hs-var">networkFirewallMissingFirewallViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingFirewallViolation
+</span><a href="#local-6989586621679250887"><span class="hs-identifier hs-var">networkFirewallMissingFirewallViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250886"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250885"><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingFirewallViolation
+</span><a href="#local-6989586621679250885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkFirewallMissingFirewallViolation:ResourceViolation' :: Maybe NetworkFirewallMissingFirewallViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallMissingFirewallViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallMissingFirewallViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallMissingFirewallViolation
+</span><a href="#local-6989586621679250885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | There\'s an unexpected firewall route.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallUnexpectedFirewallRoutesViolation"><span class="hs-identifier hs-type">resourceViolation_networkFirewallUnexpectedFirewallRoutesViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation.html#NetworkFirewallUnexpectedFirewallRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedFirewallRoutesViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="resourceViolation_networkFirewallUnexpectedFirewallRoutesViolation"><span class="annot"><span class="annottext">resourceViolation_networkFirewallUnexpectedFirewallRoutesViolation :: (Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+ -&gt; f (Maybe NetworkFirewallUnexpectedFirewallRoutesViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallUnexpectedFirewallRoutesViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_networkFirewallUnexpectedFirewallRoutesViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation
+ -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+    -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe NetworkFirewallUnexpectedFirewallRoutesViolation)
+     (Maybe NetworkFirewallUnexpectedFirewallRoutesViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250883"><span class="annot"><span class="annottext">Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+networkFirewallUnexpectedFirewallRoutesViolation :: Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+$sel:networkFirewallUnexpectedFirewallRoutesViolation:ResourceViolation' :: ResourceViolation
+-&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+</span><a href="#local-6989586621679250883"><span class="hs-identifier hs-var hs-var">networkFirewallUnexpectedFirewallRoutesViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+</span><a href="#local-6989586621679250883"><span class="hs-identifier hs-var">networkFirewallUnexpectedFirewallRoutesViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250882"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250881"><span class="annot"><span class="annottext">Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+</span><a href="#local-6989586621679250881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkFirewallUnexpectedFirewallRoutesViolation:ResourceViolation' :: Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallUnexpectedFirewallRoutesViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallUnexpectedFirewallRoutesViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+</span><a href="#local-6989586621679250881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | Violation detail for security groups.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_awsVPCSecurityGroupViolation"><span class="hs-identifier hs-type">resourceViolation_awsVPCSecurityGroupViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsVPCSecurityGroupViolation.html#AwsVPCSecurityGroupViolation"><span class="hs-identifier hs-type">AwsVPCSecurityGroupViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="resourceViolation_awsVPCSecurityGroupViolation"><span class="annot"><span class="annottext">resourceViolation_awsVPCSecurityGroupViolation :: (Maybe AwsVPCSecurityGroupViolation
+ -&gt; f (Maybe AwsVPCSecurityGroupViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_awsVPCSecurityGroupViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_awsVPCSecurityGroupViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation -&gt; Maybe AwsVPCSecurityGroupViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe AwsVPCSecurityGroupViolation -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe AwsVPCSecurityGroupViolation)
+     (Maybe AwsVPCSecurityGroupViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250879"><span class="annot"><span class="annottext">Maybe AwsVPCSecurityGroupViolation
+awsVPCSecurityGroupViolation :: Maybe AwsVPCSecurityGroupViolation
+$sel:awsVPCSecurityGroupViolation:ResourceViolation' :: ResourceViolation -&gt; Maybe AwsVPCSecurityGroupViolation
+</span><a href="#local-6989586621679250879"><span class="hs-identifier hs-var hs-var">awsVPCSecurityGroupViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsVPCSecurityGroupViolation
+</span><a href="#local-6989586621679250879"><span class="hs-identifier hs-var">awsVPCSecurityGroupViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250878"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250877"><span class="annot"><span class="annottext">Maybe AwsVPCSecurityGroupViolation
+</span><a href="#local-6989586621679250877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsVPCSecurityGroupViolation:ResourceViolation' :: Maybe AwsVPCSecurityGroupViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AawsVPCSecurityGroupViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">awsVPCSecurityGroupViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsVPCSecurityGroupViolation
+</span><a href="#local-6989586621679250877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | Violation detail for an Network Firewall policy that indicates that a</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- firewall policy in an individual account has been modified in a way that</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- makes it noncompliant. For example, the individual account owner might</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- have deleted a rule group, changed the priority of a stateless rule</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- group, or changed a policy default action.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallPolicyModifiedViolation"><span class="hs-identifier hs-type">resourceViolation_networkFirewallPolicyModifiedViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallPolicyModifiedViolation.html#NetworkFirewallPolicyModifiedViolation"><span class="hs-identifier hs-type">NetworkFirewallPolicyModifiedViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span id="resourceViolation_networkFirewallPolicyModifiedViolation"><span class="annot"><span class="annottext">resourceViolation_networkFirewallPolicyModifiedViolation :: (Maybe NetworkFirewallPolicyModifiedViolation
+ -&gt; f (Maybe NetworkFirewallPolicyModifiedViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_networkFirewallPolicyModifiedViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_networkFirewallPolicyModifiedViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation -&gt; Maybe NetworkFirewallPolicyModifiedViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+    -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe NetworkFirewallPolicyModifiedViolation)
+     (Maybe NetworkFirewallPolicyModifiedViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250875"><span class="annot"><span class="annottext">Maybe NetworkFirewallPolicyModifiedViolation
+networkFirewallPolicyModifiedViolation :: Maybe NetworkFirewallPolicyModifiedViolation
+$sel:networkFirewallPolicyModifiedViolation:ResourceViolation' :: ResourceViolation -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+</span><a href="#local-6989586621679250875"><span class="hs-identifier hs-var hs-var">networkFirewallPolicyModifiedViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallPolicyModifiedViolation
+</span><a href="#local-6989586621679250875"><span class="hs-identifier hs-var">networkFirewallPolicyModifiedViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250874"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250873"><span class="annot"><span class="annottext">Maybe NetworkFirewallPolicyModifiedViolation
+</span><a href="#local-6989586621679250873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkFirewallPolicyModifiedViolation:ResourceViolation' :: Maybe NetworkFirewallPolicyModifiedViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AnetworkFirewallPolicyModifiedViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">networkFirewallPolicyModifiedViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFirewallPolicyModifiedViolation
+</span><a href="#local-6989586621679250873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | Violation detail for a DNS Firewall policy that indicates that a rule</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- group that Firewall Manager tried to associate with a VPC has the same</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- priority as a rule group that\'s already associated.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_dnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">resourceViolation_dnsRuleGroupPriorityConflictViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="resourceViolation_dnsRuleGroupPriorityConflictViolation"><span class="annot"><span class="annottext">resourceViolation_dnsRuleGroupPriorityConflictViolation :: (Maybe DnsRuleGroupPriorityConflictViolation
+ -&gt; f (Maybe DnsRuleGroupPriorityConflictViolation))
+-&gt; ResourceViolation -&gt; f ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#resourceViolation_dnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-var hs-var">resourceViolation_dnsRuleGroupPriorityConflictViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceViolation -&gt; Maybe DnsRuleGroupPriorityConflictViolation)
+-&gt; (ResourceViolation
+    -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+    -&gt; ResourceViolation)
+-&gt; Lens
+     ResourceViolation
+     ResourceViolation
+     (Maybe DnsRuleGroupPriorityConflictViolation)
+     (Maybe DnsRuleGroupPriorityConflictViolation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250871"><span class="annot"><span class="annottext">Maybe DnsRuleGroupPriorityConflictViolation
+dnsRuleGroupPriorityConflictViolation :: Maybe DnsRuleGroupPriorityConflictViolation
+$sel:dnsRuleGroupPriorityConflictViolation:ResourceViolation' :: ResourceViolation -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+</span><a href="#local-6989586621679250871"><span class="hs-identifier hs-var hs-var">dnsRuleGroupPriorityConflictViolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DnsRuleGroupPriorityConflictViolation
+</span><a href="#local-6989586621679250871"><span class="hs-identifier hs-var">dnsRuleGroupPriorityConflictViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250870"><span class="annot"><span class="annottext">s :: ResourceViolation
+</span><a href="#local-6989586621679250870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-type">ResourceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250869"><span class="annot"><span class="annottext">Maybe DnsRuleGroupPriorityConflictViolation
+</span><a href="#local-6989586621679250869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceViolation
+</span><a href="#local-6989586621679250870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsRuleGroupPriorityConflictViolation:ResourceViolation' :: Maybe DnsRuleGroupPriorityConflictViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#%24sel%3AdnsRuleGroupPriorityConflictViolation%3AResourceViolation%27"><span class="hs-identifier hs-var">dnsRuleGroupPriorityConflictViolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DnsRuleGroupPriorityConflictViolation
+</span><a href="#local-6989586621679250869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250866"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-278"></span><span>  </span><span id="local-6989586621679250864"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceViolation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ResourceViolation)
+-&gt; Value
+-&gt; Parser ResourceViolation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-280"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ResourceViolation&quot;</span></span><span>
+</span><span id="line-281"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250861"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-282"></span><span>          </span><span class="annot"><span class="annottext">Maybe NetworkFirewallBlackHoleRouteDetectedViolation
+-&gt; Maybe PossibleRemediationActions
+-&gt; Maybe DnsRuleGroupLimitExceededViolation
+-&gt; Maybe NetworkFirewallInvalidRouteConfigurationViolation
+-&gt; Maybe NetworkFirewallMissingSubnetViolation
+-&gt; Maybe DnsDuplicateRuleGroupViolation
+-&gt; Maybe AwsEc2NetworkInterfaceViolation
+-&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+-&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+-&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+-&gt; Maybe AwsEc2InstanceViolation
+-&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+-&gt; Maybe NetworkFirewallMissingFirewallViolation
+-&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+-&gt; Maybe AwsVPCSecurityGroupViolation
+-&gt; Maybe NetworkFirewallPolicyModifiedViolation
+-&gt; Maybe DnsRuleGroupPriorityConflictViolation
+-&gt; ResourceViolation
+</span><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation%27"><span class="hs-identifier hs-var">ResourceViolation'</span></a></span><span>
+</span><span id="line-283"></span><span>            </span><span class="annot"><span class="annottext">(Maybe NetworkFirewallBlackHoleRouteDetectedViolation
+ -&gt; Maybe PossibleRemediationActions
+ -&gt; Maybe DnsRuleGroupLimitExceededViolation
+ -&gt; Maybe NetworkFirewallInvalidRouteConfigurationViolation
+ -&gt; Maybe NetworkFirewallMissingSubnetViolation
+ -&gt; Maybe DnsDuplicateRuleGroupViolation
+ -&gt; Maybe AwsEc2NetworkInterfaceViolation
+ -&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+ -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+ -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+ -&gt; Maybe AwsEc2InstanceViolation
+ -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+ -&gt; Maybe NetworkFirewallMissingFirewallViolation
+ -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+ -&gt; Maybe AwsVPCSecurityGroupViolation
+ -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+ -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+ -&gt; ResourceViolation)
+-&gt; Parser (Maybe NetworkFirewallBlackHoleRouteDetectedViolation)
+-&gt; Parser
+     (Maybe PossibleRemediationActions
+      -&gt; Maybe DnsRuleGroupLimitExceededViolation
+      -&gt; Maybe NetworkFirewallInvalidRouteConfigurationViolation
+      -&gt; Maybe NetworkFirewallMissingSubnetViolation
+      -&gt; Maybe DnsDuplicateRuleGroupViolation
+      -&gt; Maybe AwsEc2NetworkInterfaceViolation
+      -&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+      -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+      -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+      -&gt; Maybe AwsEc2InstanceViolation
+      -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+      -&gt; Maybe NetworkFirewallMissingFirewallViolation
+      -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+      -&gt; Maybe AwsVPCSecurityGroupViolation
+      -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+      -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+      -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-284"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe NetworkFirewallBlackHoleRouteDetectedViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkFirewallBlackHoleRouteDetectedViolation&quot;</span></span><span>
+</span><span id="line-285"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PossibleRemediationActions
+   -&gt; Maybe DnsRuleGroupLimitExceededViolation
+   -&gt; Maybe NetworkFirewallInvalidRouteConfigurationViolation
+   -&gt; Maybe NetworkFirewallMissingSubnetViolation
+   -&gt; Maybe DnsDuplicateRuleGroupViolation
+   -&gt; Maybe AwsEc2NetworkInterfaceViolation
+   -&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+   -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+   -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+   -&gt; Maybe AwsEc2InstanceViolation
+   -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+   -&gt; Maybe NetworkFirewallMissingFirewallViolation
+   -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+   -&gt; Maybe AwsVPCSecurityGroupViolation
+   -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+   -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+   -&gt; ResourceViolation)
+-&gt; Parser (Maybe PossibleRemediationActions)
+-&gt; Parser
+     (Maybe DnsRuleGroupLimitExceededViolation
+      -&gt; Maybe NetworkFirewallInvalidRouteConfigurationViolation
+      -&gt; Maybe NetworkFirewallMissingSubnetViolation
+      -&gt; Maybe DnsDuplicateRuleGroupViolation
+      -&gt; Maybe AwsEc2NetworkInterfaceViolation
+      -&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+      -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+      -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+      -&gt; Maybe AwsEc2InstanceViolation
+      -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+      -&gt; Maybe NetworkFirewallMissingFirewallViolation
+      -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+      -&gt; Maybe AwsVPCSecurityGroupViolation
+      -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+      -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+      -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PossibleRemediationActions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PossibleRemediationActions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DnsRuleGroupLimitExceededViolation
+   -&gt; Maybe NetworkFirewallInvalidRouteConfigurationViolation
+   -&gt; Maybe NetworkFirewallMissingSubnetViolation
+   -&gt; Maybe DnsDuplicateRuleGroupViolation
+   -&gt; Maybe AwsEc2NetworkInterfaceViolation
+   -&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+   -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+   -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+   -&gt; Maybe AwsEc2InstanceViolation
+   -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+   -&gt; Maybe NetworkFirewallMissingFirewallViolation
+   -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+   -&gt; Maybe AwsVPCSecurityGroupViolation
+   -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+   -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+   -&gt; ResourceViolation)
+-&gt; Parser (Maybe DnsRuleGroupLimitExceededViolation)
+-&gt; Parser
+     (Maybe NetworkFirewallInvalidRouteConfigurationViolation
+      -&gt; Maybe NetworkFirewallMissingSubnetViolation
+      -&gt; Maybe DnsDuplicateRuleGroupViolation
+      -&gt; Maybe AwsEc2NetworkInterfaceViolation
+      -&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+      -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+      -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+      -&gt; Maybe AwsEc2InstanceViolation
+      -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+      -&gt; Maybe NetworkFirewallMissingFirewallViolation
+      -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+      -&gt; Maybe AwsVPCSecurityGroupViolation
+      -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+      -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+      -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DnsRuleGroupLimitExceededViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DnsRuleGroupLimitExceededViolation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NetworkFirewallInvalidRouteConfigurationViolation
+   -&gt; Maybe NetworkFirewallMissingSubnetViolation
+   -&gt; Maybe DnsDuplicateRuleGroupViolation
+   -&gt; Maybe AwsEc2NetworkInterfaceViolation
+   -&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+   -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+   -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+   -&gt; Maybe AwsEc2InstanceViolation
+   -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+   -&gt; Maybe NetworkFirewallMissingFirewallViolation
+   -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+   -&gt; Maybe AwsVPCSecurityGroupViolation
+   -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+   -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+   -&gt; ResourceViolation)
+-&gt; Parser (Maybe NetworkFirewallInvalidRouteConfigurationViolation)
+-&gt; Parser
+     (Maybe NetworkFirewallMissingSubnetViolation
+      -&gt; Maybe DnsDuplicateRuleGroupViolation
+      -&gt; Maybe AwsEc2NetworkInterfaceViolation
+      -&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+      -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+      -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+      -&gt; Maybe AwsEc2InstanceViolation
+      -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+      -&gt; Maybe NetworkFirewallMissingFirewallViolation
+      -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+      -&gt; Maybe AwsVPCSecurityGroupViolation
+      -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+      -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+      -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-289"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe NetworkFirewallInvalidRouteConfigurationViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkFirewallInvalidRouteConfigurationViolation&quot;</span></span><span>
+</span><span id="line-290"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NetworkFirewallMissingSubnetViolation
+   -&gt; Maybe DnsDuplicateRuleGroupViolation
+   -&gt; Maybe AwsEc2NetworkInterfaceViolation
+   -&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+   -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+   -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+   -&gt; Maybe AwsEc2InstanceViolation
+   -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+   -&gt; Maybe NetworkFirewallMissingFirewallViolation
+   -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+   -&gt; Maybe AwsVPCSecurityGroupViolation
+   -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+   -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+   -&gt; ResourceViolation)
+-&gt; Parser (Maybe NetworkFirewallMissingSubnetViolation)
+-&gt; Parser
+     (Maybe DnsDuplicateRuleGroupViolation
+      -&gt; Maybe AwsEc2NetworkInterfaceViolation
+      -&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+      -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+      -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+      -&gt; Maybe AwsEc2InstanceViolation
+      -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+      -&gt; Maybe NetworkFirewallMissingFirewallViolation
+      -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+      -&gt; Maybe AwsVPCSecurityGroupViolation
+      -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+      -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+      -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe NetworkFirewallMissingSubnetViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkFirewallMissingSubnetViolation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DnsDuplicateRuleGroupViolation
+   -&gt; Maybe AwsEc2NetworkInterfaceViolation
+   -&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+   -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+   -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+   -&gt; Maybe AwsEc2InstanceViolation
+   -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+   -&gt; Maybe NetworkFirewallMissingFirewallViolation
+   -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+   -&gt; Maybe AwsVPCSecurityGroupViolation
+   -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+   -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+   -&gt; ResourceViolation)
+-&gt; Parser (Maybe DnsDuplicateRuleGroupViolation)
+-&gt; Parser
+     (Maybe AwsEc2NetworkInterfaceViolation
+      -&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+      -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+      -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+      -&gt; Maybe AwsEc2InstanceViolation
+      -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+      -&gt; Maybe NetworkFirewallMissingFirewallViolation
+      -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+      -&gt; Maybe AwsVPCSecurityGroupViolation
+      -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+      -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+      -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DnsDuplicateRuleGroupViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DnsDuplicateRuleGroupViolation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsEc2NetworkInterfaceViolation
+   -&gt; Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+   -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+   -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+   -&gt; Maybe AwsEc2InstanceViolation
+   -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+   -&gt; Maybe NetworkFirewallMissingFirewallViolation
+   -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+   -&gt; Maybe AwsVPCSecurityGroupViolation
+   -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+   -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+   -&gt; ResourceViolation)
+-&gt; Parser (Maybe AwsEc2NetworkInterfaceViolation)
+-&gt; Parser
+     (Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+      -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+      -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+      -&gt; Maybe AwsEc2InstanceViolation
+      -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+      -&gt; Maybe NetworkFirewallMissingFirewallViolation
+      -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+      -&gt; Maybe AwsVPCSecurityGroupViolation
+      -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+      -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+      -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AwsEc2NetworkInterfaceViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AwsEc2NetworkInterfaceViolation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NetworkFirewallInternetTrafficNotInspectedViolation
+   -&gt; Maybe NetworkFirewallMissingExpectedRTViolation
+   -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+   -&gt; Maybe AwsEc2InstanceViolation
+   -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+   -&gt; Maybe NetworkFirewallMissingFirewallViolation
+   -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+   -&gt; Maybe AwsVPCSecurityGroupViolation
+   -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+   -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+   -&gt; ResourceViolation)
+-&gt; Parser
+     (Maybe NetworkFirewallInternetTrafficNotInspectedViolation)
+-&gt; Parser
+     (Maybe NetworkFirewallMissingExpectedRTViolation
+      -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+      -&gt; Maybe AwsEc2InstanceViolation
+      -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+      -&gt; Maybe NetworkFirewallMissingFirewallViolation
+      -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+      -&gt; Maybe AwsVPCSecurityGroupViolation
+      -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+      -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+      -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-295"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser
+     (Maybe NetworkFirewallInternetTrafficNotInspectedViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkFirewallInternetTrafficNotInspectedViolation&quot;</span></span><span>
+</span><span id="line-296"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NetworkFirewallMissingExpectedRTViolation
+   -&gt; Maybe NetworkFirewallMissingExpectedRoutesViolation
+   -&gt; Maybe AwsEc2InstanceViolation
+   -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+   -&gt; Maybe NetworkFirewallMissingFirewallViolation
+   -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+   -&gt; Maybe AwsVPCSecurityGroupViolation
+   -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+   -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+   -&gt; ResourceViolation)
+-&gt; Parser (Maybe NetworkFirewallMissingExpectedRTViolation)
+-&gt; Parser
+     (Maybe NetworkFirewallMissingExpectedRoutesViolation
+      -&gt; Maybe AwsEc2InstanceViolation
+      -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+      -&gt; Maybe NetworkFirewallMissingFirewallViolation
+      -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+      -&gt; Maybe AwsVPCSecurityGroupViolation
+      -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+      -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+      -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-298"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe NetworkFirewallMissingExpectedRTViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkFirewallMissingExpectedRTViolation&quot;</span></span><span>
+</span><span id="line-299"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NetworkFirewallMissingExpectedRoutesViolation
+   -&gt; Maybe AwsEc2InstanceViolation
+   -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+   -&gt; Maybe NetworkFirewallMissingFirewallViolation
+   -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+   -&gt; Maybe AwsVPCSecurityGroupViolation
+   -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+   -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+   -&gt; ResourceViolation)
+-&gt; Parser (Maybe NetworkFirewallMissingExpectedRoutesViolation)
+-&gt; Parser
+     (Maybe AwsEc2InstanceViolation
+      -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+      -&gt; Maybe NetworkFirewallMissingFirewallViolation
+      -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+      -&gt; Maybe AwsVPCSecurityGroupViolation
+      -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+      -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+      -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-301"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe NetworkFirewallMissingExpectedRoutesViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkFirewallMissingExpectedRoutesViolation&quot;</span></span><span>
+</span><span id="line-302"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsEc2InstanceViolation
+   -&gt; Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+   -&gt; Maybe NetworkFirewallMissingFirewallViolation
+   -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+   -&gt; Maybe AwsVPCSecurityGroupViolation
+   -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+   -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+   -&gt; ResourceViolation)
+-&gt; Parser (Maybe AwsEc2InstanceViolation)
+-&gt; Parser
+     (Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+      -&gt; Maybe NetworkFirewallMissingFirewallViolation
+      -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+      -&gt; Maybe AwsVPCSecurityGroupViolation
+      -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+      -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+      -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AwsEc2InstanceViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AwsEc2InstanceViolation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NetworkFirewallUnexpectedGatewayRoutesViolation
+   -&gt; Maybe NetworkFirewallMissingFirewallViolation
+   -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+   -&gt; Maybe AwsVPCSecurityGroupViolation
+   -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+   -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+   -&gt; ResourceViolation)
+-&gt; Parser (Maybe NetworkFirewallUnexpectedGatewayRoutesViolation)
+-&gt; Parser
+     (Maybe NetworkFirewallMissingFirewallViolation
+      -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+      -&gt; Maybe AwsVPCSecurityGroupViolation
+      -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+      -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+      -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-305"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe NetworkFirewallUnexpectedGatewayRoutesViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkFirewallUnexpectedGatewayRoutesViolation&quot;</span></span><span>
+</span><span id="line-306"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NetworkFirewallMissingFirewallViolation
+   -&gt; Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+   -&gt; Maybe AwsVPCSecurityGroupViolation
+   -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+   -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+   -&gt; ResourceViolation)
+-&gt; Parser (Maybe NetworkFirewallMissingFirewallViolation)
+-&gt; Parser
+     (Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+      -&gt; Maybe AwsVPCSecurityGroupViolation
+      -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+      -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+      -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-308"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe NetworkFirewallMissingFirewallViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkFirewallMissingFirewallViolation&quot;</span></span><span>
+</span><span id="line-309"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NetworkFirewallUnexpectedFirewallRoutesViolation
+   -&gt; Maybe AwsVPCSecurityGroupViolation
+   -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+   -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+   -&gt; ResourceViolation)
+-&gt; Parser (Maybe NetworkFirewallUnexpectedFirewallRoutesViolation)
+-&gt; Parser
+     (Maybe AwsVPCSecurityGroupViolation
+      -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+      -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+      -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-311"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe NetworkFirewallUnexpectedFirewallRoutesViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkFirewallUnexpectedFirewallRoutesViolation&quot;</span></span><span>
+</span><span id="line-312"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsVPCSecurityGroupViolation
+   -&gt; Maybe NetworkFirewallPolicyModifiedViolation
+   -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+   -&gt; ResourceViolation)
+-&gt; Parser (Maybe AwsVPCSecurityGroupViolation)
+-&gt; Parser
+     (Maybe NetworkFirewallPolicyModifiedViolation
+      -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+      -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AwsVPCSecurityGroupViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AwsVPCSecurityGroupViolation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NetworkFirewallPolicyModifiedViolation
+   -&gt; Maybe DnsRuleGroupPriorityConflictViolation
+   -&gt; ResourceViolation)
+-&gt; Parser (Maybe NetworkFirewallPolicyModifiedViolation)
+-&gt; Parser
+     (Maybe DnsRuleGroupPriorityConflictViolation -&gt; ResourceViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe NetworkFirewallPolicyModifiedViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkFirewallPolicyModifiedViolation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DnsRuleGroupPriorityConflictViolation -&gt; ResourceViolation)
+-&gt; Parser (Maybe DnsRuleGroupPriorityConflictViolation)
+-&gt; Parser ResourceViolation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe DnsRuleGroupPriorityConflictViolation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DnsRuleGroupPriorityConflictViolation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250855"><span id="local-6989586621679250857"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span></span></span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250852"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span></span><span>
+</span><span id="line-321"></span></pre></body></html>

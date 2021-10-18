@@ -1,0 +1,873 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeStar.CreateProject</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a project, including project resources. This action creates a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- project based on a submitted project request. A set of source code files</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- and a toolchain template file can be included with the project request.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- If these are not provided, an empty project is created.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeStar.CreateProject</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier">CreateProject</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#newCreateProject"><span class="hs-identifier">newCreateProject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProject_sourceCode"><span class="hs-identifier">createProject_sourceCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProject_tags"><span class="hs-identifier">createProject_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProject_description"><span class="hs-identifier">createProject_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProject_clientRequestToken"><span class="hs-identifier">createProject_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProject_toolchain"><span class="hs-identifier">createProject_toolchain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProject_name"><span class="hs-identifier">createProject_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProject_id"><span class="hs-identifier">createProject_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse"><span class="hs-identifier">CreateProjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#newCreateProjectResponse"><span class="hs-identifier">newCreateProjectResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProjectResponse_clientRequestToken"><span class="hs-identifier">createProjectResponse_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProjectResponse_projectTemplateId"><span class="hs-identifier">createProjectResponse_projectTemplateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProjectResponse_httpStatus"><span class="hs-identifier">createProjectResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProjectResponse_id"><span class="hs-identifier">createProjectResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProjectResponse_arn"><span class="hs-identifier">createProjectResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.html"><span class="hs-identifier">Network.AWS.CodeStar.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newCreateProject' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679177934"><span id="local-6989586621679177935"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProject"><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-var">CreateProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProject%27"><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-var">CreateProject'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the Code objects submitted with the project request. If this</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- parameter is specified, the request must also include the toolchain</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AsourceCode%3ACreateProject%27"><span class="annot"><span class="annottext">CreateProject -&gt; Maybe [Code]
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3AsourceCode%3ACreateProject%27"><span class="hs-identifier hs-var hs-var">sourceCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Code.html#Code"><span class="hs-identifier hs-type">Code</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The tags created for the project.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Atags%3ACreateProject%27"><span class="annot"><span class="annottext">CreateProject -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Atags%3ACreateProject%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The description of the project, if any.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Adescription%3ACreateProject%27"><span class="annot"><span class="annottext">CreateProject -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Adescription%3ACreateProject%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | A user- or system-generated token that identifies the entity that</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- requested project creation. This token can be used to repeat the</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateProject%27"><span class="annot"><span class="annottext">CreateProject -&gt; Maybe Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3AclientRequestToken%3ACreateProject%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The name of the toolchain template file submitted with the project</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- request. If this parameter is specified, the request must also include</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- the sourceCode parameter.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Atoolchain%3ACreateProject%27"><span class="annot"><span class="annottext">CreateProject -&gt; Maybe Toolchain
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Atoolchain%3ACreateProject%27"><span class="hs-identifier hs-var hs-var">toolchain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-type">Toolchain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The display name for the project to be created in AWS CodeStar.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Aname%3ACreateProject%27"><span class="annot"><span class="annottext">CreateProject -&gt; Sensitive Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Aname%3ACreateProject%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The ID of the project to be created in AWS CodeStar.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Aid%3ACreateProject%27"><span class="annot"><span class="annottext">CreateProject -&gt; Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Aid%3ACreateProject%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177922"><span id="local-6989586621679177924"><span class="annot"><span class="annottext">CreateProject -&gt; CreateProject -&gt; Bool
+(CreateProject -&gt; CreateProject -&gt; Bool)
+-&gt; (CreateProject -&gt; CreateProject -&gt; Bool) -&gt; Eq CreateProject
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateProject -&gt; CreateProject -&gt; Bool
+$c/= :: CreateProject -&gt; CreateProject -&gt; Bool
+== :: CreateProject -&gt; CreateProject -&gt; Bool
+$c== :: CreateProject -&gt; CreateProject -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177915"><span id="local-6989586621679177917"><span id="local-6989586621679177919"><span class="annot"><span class="annottext">Int -&gt; CreateProject -&gt; ShowS
+[CreateProject] -&gt; ShowS
+CreateProject -&gt; String
+(Int -&gt; CreateProject -&gt; ShowS)
+-&gt; (CreateProject -&gt; String)
+-&gt; ([CreateProject] -&gt; ShowS)
+-&gt; Show CreateProject
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateProject] -&gt; ShowS
+$cshowList :: [CreateProject] -&gt; ShowS
+show :: CreateProject -&gt; String
+$cshow :: CreateProject -&gt; String
+showsPrec :: Int -&gt; CreateProject -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateProject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateProject -&gt; Rep CreateProject x)
+-&gt; (forall x. Rep CreateProject x -&gt; CreateProject)
+-&gt; Generic CreateProject
+forall x. Rep CreateProject x -&gt; CreateProject
+forall x. CreateProject -&gt; Rep CreateProject x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateProject x -&gt; CreateProject
+$cfrom :: forall x. CreateProject -&gt; Rep CreateProject x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Create a value of 'CreateProject' with all optional fields omitted.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'sourceCode', 'createProject_sourceCode' - A list of the Code objects submitted with the project request. If this</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- parameter is specified, the request must also include the toolchain</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'tags', 'createProject_tags' - The tags created for the project.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'description', 'createProject_description' - The description of the project, if any.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'clientRequestToken', 'createProject_clientRequestToken' - A user- or system-generated token that identifies the entity that</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- requested project creation. This token can be used to repeat the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'toolchain', 'createProject_toolchain' - The name of the toolchain template file submitted with the project</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- request. If this parameter is specified, the request must also include</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the sourceCode parameter.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'name', 'createProject_name' - The display name for the project to be created in AWS CodeStar.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'id', 'createProject_id' - The ID of the project to be created in AWS CodeStar.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#newCreateProject"><span class="hs-identifier hs-type">newCreateProject</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span>
+</span><span id="line-119"></span><span id="newCreateProject"><span class="annot"><span class="annottext">newCreateProject :: Text -&gt; Text -&gt; CreateProject
+</span><a href="Network.AWS.CodeStar.CreateProject.html#newCreateProject"><span class="hs-identifier hs-var hs-var">newCreateProject</span></a></span></span><span> </span><span id="local-6989586621679177910"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177910"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679177909"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177909"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="annottext">CreateProject' :: Maybe [Code]
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe Toolchain
+-&gt; Sensitive Text
+-&gt; Text
+-&gt; CreateProject
+</span><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceCode:CreateProject' :: Maybe [Code]
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3AsourceCode%3ACreateProject%27"><span class="hs-identifier hs-var">sourceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Code]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateProject' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Atags%3ACreateProject%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateProject' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Adescription%3ACreateProject%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateProject' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3AclientRequestToken%3ACreateProject%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:toolchain:CreateProject' :: Maybe Toolchain
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Atoolchain%3ACreateProject%27"><span class="hs-identifier hs-var">toolchain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Toolchain
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateProject' :: Sensitive Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Aname%3ACreateProject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177910"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:CreateProject' :: Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Aid%3ACreateProject%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177909"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | A list of the Code objects submitted with the project request. If this</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- parameter is specified, the request must also include the toolchain</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProject_sourceCode"><span class="hs-identifier hs-type">createProject_sourceCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Code.html#Code"><span class="hs-identifier hs-type">Code</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="createProject_sourceCode"><span class="annot"><span class="annottext">createProject_sourceCode :: (Maybe [Code] -&gt; f (Maybe [Code]))
+-&gt; CreateProject -&gt; f CreateProject
+</span><a href="Network.AWS.CodeStar.CreateProject.html#createProject_sourceCode"><span class="hs-identifier hs-var hs-var">createProject_sourceCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProject -&gt; Maybe [Code])
+-&gt; (CreateProject -&gt; Maybe [Code] -&gt; CreateProject)
+-&gt; Lens CreateProject CreateProject (Maybe [Code]) (Maybe [Code])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177904"><span class="annot"><span class="annottext">Maybe [Code]
+sourceCode :: Maybe [Code]
+$sel:sourceCode:CreateProject' :: CreateProject -&gt; Maybe [Code]
+</span><a href="#local-6989586621679177904"><span class="hs-identifier hs-var hs-var">sourceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Code]
+</span><a href="#local-6989586621679177904"><span class="hs-identifier hs-var">sourceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177903"><span class="annot"><span class="annottext">s :: CreateProject
+</span><a href="#local-6989586621679177903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177902"><span class="annot"><span class="annottext">Maybe [Code]
+</span><a href="#local-6989586621679177902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProject
+</span><a href="#local-6989586621679177903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCode:CreateProject' :: Maybe [Code]
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3AsourceCode%3ACreateProject%27"><span class="hs-identifier hs-var">sourceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Code]
+</span><a href="#local-6989586621679177902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Code] -&gt; f (Maybe [Code]))
+ -&gt; CreateProject -&gt; f CreateProject)
+-&gt; ((Maybe [Code] -&gt; f (Maybe [Code]))
+    -&gt; Maybe [Code] -&gt; f (Maybe [Code]))
+-&gt; (Maybe [Code] -&gt; f (Maybe [Code]))
+-&gt; CreateProject
+-&gt; f CreateProject
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Code] [Code] [Code] [Code]
+-&gt; Iso (Maybe [Code]) (Maybe [Code]) (Maybe [Code]) (Maybe [Code])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Code] [Code] [Code] [Code]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The tags created for the project.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProject_tags"><span class="hs-identifier hs-type">createProject_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="createProject_tags"><span class="annot"><span class="annottext">createProject_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateProject -&gt; f CreateProject
+</span><a href="Network.AWS.CodeStar.CreateProject.html#createProject_tags"><span class="hs-identifier hs-var hs-var">createProject_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProject -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateProject -&gt; Maybe (HashMap Text Text) -&gt; CreateProject)
+-&gt; Lens
+     CreateProject
+     CreateProject
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177898"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateProject' :: CreateProject -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679177898"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679177898"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177897"><span class="annot"><span class="annottext">s :: CreateProject
+</span><a href="#local-6989586621679177897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177896"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679177896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProject
+</span><a href="#local-6989586621679177897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateProject' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Atags%3ACreateProject%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679177896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateProject -&gt; f CreateProject)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateProject
+-&gt; f CreateProject
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The description of the project, if any.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProject_description"><span class="hs-identifier hs-type">createProject_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="createProject_description"><span class="annot"><span class="annottext">createProject_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateProject -&gt; f CreateProject
+</span><a href="Network.AWS.CodeStar.CreateProject.html#createProject_description"><span class="hs-identifier hs-var hs-var">createProject_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProject -&gt; Maybe (Sensitive Text))
+-&gt; (CreateProject -&gt; Maybe (Sensitive Text) -&gt; CreateProject)
+-&gt; Lens
+     CreateProject
+     CreateProject
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177895"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+description :: Maybe (Sensitive Text)
+$sel:description:CreateProject' :: CreateProject -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679177895"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679177895"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177894"><span class="annot"><span class="annottext">s :: CreateProject
+</span><a href="#local-6989586621679177894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177893"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679177893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProject
+</span><a href="#local-6989586621679177894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateProject' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Adescription%3ACreateProject%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679177893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; CreateProject -&gt; f CreateProject)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateProject
+-&gt; f CreateProject
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | A user- or system-generated token that identifies the entity that</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- requested project creation. This token can be used to repeat the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProject_clientRequestToken"><span class="hs-identifier hs-type">createProject_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="createProject_clientRequestToken"><span class="annot"><span class="annottext">createProject_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateProject -&gt; f CreateProject
+</span><a href="Network.AWS.CodeStar.CreateProject.html#createProject_clientRequestToken"><span class="hs-identifier hs-var hs-var">createProject_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProject -&gt; Maybe Text)
+-&gt; (CreateProject -&gt; Maybe Text -&gt; CreateProject)
+-&gt; Lens CreateProject CreateProject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177892"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:CreateProject' :: CreateProject -&gt; Maybe Text
+</span><a href="#local-6989586621679177892"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177892"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177891"><span class="annot"><span class="annottext">s :: CreateProject
+</span><a href="#local-6989586621679177891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177890"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProject
+</span><a href="#local-6989586621679177891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateProject' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3AclientRequestToken%3ACreateProject%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The name of the toolchain template file submitted with the project</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- request. If this parameter is specified, the request must also include</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- the sourceCode parameter.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProject_toolchain"><span class="hs-identifier hs-type">createProject_toolchain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-type">Toolchain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="createProject_toolchain"><span class="annot"><span class="annottext">createProject_toolchain :: (Maybe Toolchain -&gt; f (Maybe Toolchain))
+-&gt; CreateProject -&gt; f CreateProject
+</span><a href="Network.AWS.CodeStar.CreateProject.html#createProject_toolchain"><span class="hs-identifier hs-var hs-var">createProject_toolchain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProject -&gt; Maybe Toolchain)
+-&gt; (CreateProject -&gt; Maybe Toolchain -&gt; CreateProject)
+-&gt; Lens
+     CreateProject CreateProject (Maybe Toolchain) (Maybe Toolchain)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177889"><span class="annot"><span class="annottext">Maybe Toolchain
+toolchain :: Maybe Toolchain
+$sel:toolchain:CreateProject' :: CreateProject -&gt; Maybe Toolchain
+</span><a href="#local-6989586621679177889"><span class="hs-identifier hs-var hs-var">toolchain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Toolchain
+</span><a href="#local-6989586621679177889"><span class="hs-identifier hs-var">toolchain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177888"><span class="annot"><span class="annottext">s :: CreateProject
+</span><a href="#local-6989586621679177888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177887"><span class="annot"><span class="annottext">Maybe Toolchain
+</span><a href="#local-6989586621679177887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProject
+</span><a href="#local-6989586621679177888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:toolchain:CreateProject' :: Maybe Toolchain
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Atoolchain%3ACreateProject%27"><span class="hs-identifier hs-var">toolchain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Toolchain
+</span><a href="#local-6989586621679177887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The display name for the project to be created in AWS CodeStar.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProject_name"><span class="hs-identifier hs-type">createProject_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-158"></span><span id="createProject_name"><span class="annot"><span class="annottext">createProject_name :: (Text -&gt; f Text) -&gt; CreateProject -&gt; f CreateProject
+</span><a href="Network.AWS.CodeStar.CreateProject.html#createProject_name"><span class="hs-identifier hs-var hs-var">createProject_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProject -&gt; Sensitive Text)
+-&gt; (CreateProject -&gt; Sensitive Text -&gt; CreateProject)
+-&gt; Lens
+     CreateProject CreateProject (Sensitive Text) (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177886"><span class="annot"><span class="annottext">Sensitive Text
+name :: Sensitive Text
+$sel:name:CreateProject' :: CreateProject -&gt; Sensitive Text
+</span><a href="#local-6989586621679177886"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679177886"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177885"><span class="annot"><span class="annottext">s :: CreateProject
+</span><a href="#local-6989586621679177885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177884"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679177884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProject
+</span><a href="#local-6989586621679177885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateProject' :: Sensitive Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Aname%3ACreateProject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679177884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; CreateProject -&gt; f CreateProject)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; CreateProject
+-&gt; f CreateProject
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The ID of the project to be created in AWS CodeStar.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProject_id"><span class="hs-identifier hs-type">createProject_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-162"></span><span id="createProject_id"><span class="annot"><span class="annottext">createProject_id :: (Text -&gt; f Text) -&gt; CreateProject -&gt; f CreateProject
+</span><a href="Network.AWS.CodeStar.CreateProject.html#createProject_id"><span class="hs-identifier hs-var hs-var">createProject_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProject -&gt; Text)
+-&gt; (CreateProject -&gt; Text -&gt; CreateProject)
+-&gt; Lens CreateProject CreateProject Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177883"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:CreateProject' :: CreateProject -&gt; Text
+</span><a href="#local-6989586621679177883"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177883"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177882"><span class="annot"><span class="annottext">s :: CreateProject
+</span><a href="#local-6989586621679177882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177881"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProject
+</span><a href="#local-6989586621679177882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CreateProject' :: Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Aid%3ACreateProject%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-166"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679177877"><span class="annot"><span class="annottext">request :: CreateProject -&gt; Request CreateProject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateProject -&gt; Request CreateProject
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeStar.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679177873"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateProject
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateProject)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateProject))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateProject
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateProject)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177870"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177870"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177869"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679177869"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177868"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177868"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Int -&gt; Text -&gt; Text -&gt; CreateProjectResponse
+</span><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-var">CreateProjectResponse'</span></a></span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Int -&gt; Text -&gt; Text -&gt; CreateProjectResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; Text -&gt; Text -&gt; CreateProjectResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientRequestToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; Text -&gt; Text -&gt; CreateProjectResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; Text -&gt; Text -&gt; CreateProjectResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;projectTemplateId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; Text -&gt; Text -&gt; CreateProjectResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; Text -&gt; CreateProjectResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177870"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; CreateProjectResponse)
+-&gt; Either String Text
+-&gt; Either String (Text -&gt; CreateProjectResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateProjectResponse)
+-&gt; Either String Text -&gt; Either String CreateProjectResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177859"><span id="local-6989586621679177861"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span></span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679177852"><span class="annot"><span class="annottext">toHeaders :: CreateProject -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateProject -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-189"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeStar_20170419.CreateProject&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-191"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-195"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177842"><span id="local-6989586621679177844"><span id="local-6989586621679177846"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679177840"><span class="annot"><span class="annottext">toJSON :: CreateProject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177832"><span id="local-6989586621679177833"><span id="local-6989586621679177834"><span id="local-6989586621679177835"><span id="local-6989586621679177836"><span id="local-6989586621679177837"><span id="local-6989586621679177838"><span class="annot"><span class="annottext">Maybe [Code]
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe (Sensitive Text)
+Maybe Toolchain
+Text
+Sensitive Text
+id :: Text
+name :: Sensitive Text
+toolchain :: Maybe Toolchain
+clientRequestToken :: Maybe Text
+description :: Maybe (Sensitive Text)
+tags :: Maybe (HashMap Text Text)
+sourceCode :: Maybe [Code]
+$sel:id:CreateProject' :: CreateProject -&gt; Text
+$sel:name:CreateProject' :: CreateProject -&gt; Sensitive Text
+$sel:toolchain:CreateProject' :: CreateProject -&gt; Maybe Toolchain
+$sel:clientRequestToken:CreateProject' :: CreateProject -&gt; Maybe Text
+$sel:description:CreateProject' :: CreateProject -&gt; Maybe (Sensitive Text)
+$sel:tags:CreateProject' :: CreateProject -&gt; Maybe (HashMap Text Text)
+$sel:sourceCode:CreateProject' :: CreateProject -&gt; Maybe [Code]
+</span><a href="#local-6989586621679177832"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-203"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Code] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Code] -&gt; Pair) -&gt; Maybe [Code] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Code]
+</span><a href="#local-6989586621679177838"><span class="hs-identifier hs-var">sourceCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679177837"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679177836"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177835"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;toolchain&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Toolchain -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Toolchain -&gt; Pair) -&gt; Maybe Toolchain -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Toolchain
+</span><a href="#local-6989586621679177834"><span class="hs-identifier hs-var">toolchain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679177833"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177832"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679177826"><span class="annot"><span class="annottext">toPath :: CreateProject -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateProject -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679177822"><span class="annot"><span class="annottext">toQuery :: CreateProject -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateProject -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | /See:/ 'newCreateProjectResponse' smart constructor.</span><span>
+</span><span id="line-221"></span><span id="local-6989586621679177819"><span id="local-6989586621679177820"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProjectResponse"><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-var">CreateProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProjectResponse%27"><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-var">CreateProjectResponse'</span></a></span></span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A user- or system-generated token that identifies the entity that</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- requested project creation.</span><span>
+</span><span id="line-224"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateProjectResponse%27"><span class="annot"><span class="annottext">CreateProjectResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3AclientRequestToken%3ACreateProjectResponse%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-226"></span><span>    </span><span id="%24sel%3AprojectTemplateId%3ACreateProjectResponse%27"><span class="annot"><span class="annottext">CreateProjectResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3AprojectTemplateId%3ACreateProjectResponse%27"><span class="hs-identifier hs-var hs-var">projectTemplateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-228"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateProjectResponse%27"><span class="annot"><span class="annottext">CreateProjectResponse -&gt; Int
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3AhttpStatus%3ACreateProjectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- | The ID of the project.</span><span>
+</span><span id="line-230"></span><span>    </span><span id="%24sel%3Aid%3ACreateProjectResponse%27"><span class="annot"><span class="annottext">CreateProjectResponse -&gt; Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Aid%3ACreateProjectResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the created project.</span><span>
+</span><span id="line-232"></span><span>    </span><span id="%24sel%3Aarn%3ACreateProjectResponse%27"><span class="annot"><span class="annottext">CreateProjectResponse -&gt; Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Aarn%3ACreateProjectResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177810"><span id="local-6989586621679177812"><span class="annot"><span class="annottext">CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool
+(CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool)
+-&gt; (CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool)
+-&gt; Eq CreateProjectResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool
+$c/= :: CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool
+== :: CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool
+$c== :: CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177802"><span id="local-6989586621679177804"><span id="local-6989586621679177806"><span id="local-6989586621679177808"><span class="annot"><span class="annottext">ReadPrec [CreateProjectResponse]
+ReadPrec CreateProjectResponse
+Int -&gt; ReadS CreateProjectResponse
+ReadS [CreateProjectResponse]
+(Int -&gt; ReadS CreateProjectResponse)
+-&gt; ReadS [CreateProjectResponse]
+-&gt; ReadPrec CreateProjectResponse
+-&gt; ReadPrec [CreateProjectResponse]
+-&gt; Read CreateProjectResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateProjectResponse]
+$creadListPrec :: ReadPrec [CreateProjectResponse]
+readPrec :: ReadPrec CreateProjectResponse
+$creadPrec :: ReadPrec CreateProjectResponse
+readList :: ReadS [CreateProjectResponse]
+$creadList :: ReadS [CreateProjectResponse]
+readsPrec :: Int -&gt; ReadS CreateProjectResponse
+$creadsPrec :: Int -&gt; ReadS CreateProjectResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177795"><span id="local-6989586621679177797"><span id="local-6989586621679177799"><span class="annot"><span class="annottext">Int -&gt; CreateProjectResponse -&gt; ShowS
+[CreateProjectResponse] -&gt; ShowS
+CreateProjectResponse -&gt; String
+(Int -&gt; CreateProjectResponse -&gt; ShowS)
+-&gt; (CreateProjectResponse -&gt; String)
+-&gt; ([CreateProjectResponse] -&gt; ShowS)
+-&gt; Show CreateProjectResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateProjectResponse] -&gt; ShowS
+$cshowList :: [CreateProjectResponse] -&gt; ShowS
+show :: CreateProjectResponse -&gt; String
+$cshow :: CreateProjectResponse -&gt; String
+showsPrec :: Int -&gt; CreateProjectResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateProjectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateProjectResponse -&gt; Rep CreateProjectResponse x)
+-&gt; (forall x. Rep CreateProjectResponse x -&gt; CreateProjectResponse)
+-&gt; Generic CreateProjectResponse
+forall x. Rep CreateProjectResponse x -&gt; CreateProjectResponse
+forall x. CreateProjectResponse -&gt; Rep CreateProjectResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateProjectResponse x -&gt; CreateProjectResponse
+$cfrom :: forall x. CreateProjectResponse -&gt; Rep CreateProjectResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- Create a value of 'CreateProjectResponse' with all optional fields omitted.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'clientRequestToken', 'createProjectResponse_clientRequestToken' - A user- or system-generated token that identifies the entity that</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- requested project creation.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- 'projectTemplateId', 'createProjectResponse_projectTemplateId' - Reserved for future use.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- 'httpStatus', 'createProjectResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- 'id', 'createProjectResponse_id' - The ID of the project.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- 'arn', 'createProjectResponse_arn' - The Amazon Resource Name (ARN) of the created project.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#newCreateProjectResponse"><span class="hs-identifier hs-type">newCreateProjectResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-255"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-256"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-258"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-260"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span>
+</span><span id="line-262"></span><span id="newCreateProjectResponse"><span class="annot"><span class="annottext">newCreateProjectResponse :: Int -&gt; Text -&gt; Text -&gt; CreateProjectResponse
+</span><a href="Network.AWS.CodeStar.CreateProject.html#newCreateProjectResponse"><span class="hs-identifier hs-var hs-var">newCreateProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679177792"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177792"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679177791"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177791"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679177790"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177790"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>  </span><span class="annot"><span class="annottext">CreateProjectResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Int -&gt; Text -&gt; Text -&gt; CreateProjectResponse
+</span><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateProjectResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3AclientRequestToken%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectTemplateId:CreateProjectResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3AprojectTemplateId%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">projectTemplateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProjectResponse' :: Int
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3AhttpStatus%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177792"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:CreateProjectResponse' :: Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Aid%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177791"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:CreateProjectResponse' :: Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Aarn%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177790"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | A user- or system-generated token that identifies the entity that</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- requested project creation.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProjectResponse_clientRequestToken"><span class="hs-identifier hs-type">createProjectResponse_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="createProjectResponse_clientRequestToken"><span class="annot"><span class="annottext">createProjectResponse_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateProjectResponse -&gt; f CreateProjectResponse
+</span><a href="Network.AWS.CodeStar.CreateProject.html#createProjectResponse_clientRequestToken"><span class="hs-identifier hs-var hs-var">createProjectResponse_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProjectResponse -&gt; Maybe Text)
+-&gt; (CreateProjectResponse -&gt; Maybe Text -&gt; CreateProjectResponse)
+-&gt; Lens
+     CreateProjectResponse
+     CreateProjectResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177789"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:CreateProjectResponse' :: CreateProjectResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679177789"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177789"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177788"><span class="annot"><span class="annottext">s :: CreateProjectResponse
+</span><a href="#local-6989586621679177788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177787"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProjectResponse
+</span><a href="#local-6989586621679177788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateProjectResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3AclientRequestToken%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProjectResponse_projectTemplateId"><span class="hs-identifier hs-type">createProjectResponse_projectTemplateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span id="createProjectResponse_projectTemplateId"><span class="annot"><span class="annottext">createProjectResponse_projectTemplateId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateProjectResponse -&gt; f CreateProjectResponse
+</span><a href="Network.AWS.CodeStar.CreateProject.html#createProjectResponse_projectTemplateId"><span class="hs-identifier hs-var hs-var">createProjectResponse_projectTemplateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProjectResponse -&gt; Maybe Text)
+-&gt; (CreateProjectResponse -&gt; Maybe Text -&gt; CreateProjectResponse)
+-&gt; Lens
+     CreateProjectResponse
+     CreateProjectResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177786"><span class="annot"><span class="annottext">Maybe Text
+projectTemplateId :: Maybe Text
+$sel:projectTemplateId:CreateProjectResponse' :: CreateProjectResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679177786"><span class="hs-identifier hs-var hs-var">projectTemplateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177786"><span class="hs-identifier hs-var">projectTemplateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177785"><span class="annot"><span class="annottext">s :: CreateProjectResponse
+</span><a href="#local-6989586621679177785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177784"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProjectResponse
+</span><a href="#local-6989586621679177785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectTemplateId:CreateProjectResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3AprojectTemplateId%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">projectTemplateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProjectResponse_httpStatus"><span class="hs-identifier hs-type">createProjectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-283"></span><span id="createProjectResponse_httpStatus"><span class="annot"><span class="annottext">createProjectResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateProjectResponse -&gt; f CreateProjectResponse
+</span><a href="Network.AWS.CodeStar.CreateProject.html#createProjectResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createProjectResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProjectResponse -&gt; Int)
+-&gt; (CreateProjectResponse -&gt; Int -&gt; CreateProjectResponse)
+-&gt; Lens CreateProjectResponse CreateProjectResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177783"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateProjectResponse' :: CreateProjectResponse -&gt; Int
+</span><a href="#local-6989586621679177783"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177783"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177782"><span class="annot"><span class="annottext">s :: CreateProjectResponse
+</span><a href="#local-6989586621679177782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177781"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProjectResponse
+</span><a href="#local-6989586621679177782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProjectResponse' :: Int
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3AhttpStatus%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The ID of the project.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProjectResponse_id"><span class="hs-identifier hs-type">createProjectResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-287"></span><span id="createProjectResponse_id"><span class="annot"><span class="annottext">createProjectResponse_id :: (Text -&gt; f Text)
+-&gt; CreateProjectResponse -&gt; f CreateProjectResponse
+</span><a href="Network.AWS.CodeStar.CreateProject.html#createProjectResponse_id"><span class="hs-identifier hs-var hs-var">createProjectResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProjectResponse -&gt; Text)
+-&gt; (CreateProjectResponse -&gt; Text -&gt; CreateProjectResponse)
+-&gt; Lens CreateProjectResponse CreateProjectResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177780"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:CreateProjectResponse' :: CreateProjectResponse -&gt; Text
+</span><a href="#local-6989586621679177780"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177780"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177779"><span class="annot"><span class="annottext">s :: CreateProjectResponse
+</span><a href="#local-6989586621679177779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177778"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProjectResponse
+</span><a href="#local-6989586621679177779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CreateProjectResponse' :: Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Aid%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the created project.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#createProjectResponse_arn"><span class="hs-identifier hs-type">createProjectResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-291"></span><span id="createProjectResponse_arn"><span class="annot"><span class="annottext">createProjectResponse_arn :: (Text -&gt; f Text)
+-&gt; CreateProjectResponse -&gt; f CreateProjectResponse
+</span><a href="Network.AWS.CodeStar.CreateProject.html#createProjectResponse_arn"><span class="hs-identifier hs-var hs-var">createProjectResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProjectResponse -&gt; Text)
+-&gt; (CreateProjectResponse -&gt; Text -&gt; CreateProjectResponse)
+-&gt; Lens CreateProjectResponse CreateProjectResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177777"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:CreateProjectResponse' :: CreateProjectResponse -&gt; Text
+</span><a href="#local-6989586621679177777"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177777"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177776"><span class="annot"><span class="annottext">s :: CreateProjectResponse
+</span><a href="#local-6989586621679177776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177775"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProjectResponse
+</span><a href="#local-6989586621679177776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CreateProjectResponse' :: Text
+</span><a href="Network.AWS.CodeStar.CreateProject.html#%24sel%3Aarn%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177773"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span></span><span>
+</span><span id="line-294"></span></pre></body></html>

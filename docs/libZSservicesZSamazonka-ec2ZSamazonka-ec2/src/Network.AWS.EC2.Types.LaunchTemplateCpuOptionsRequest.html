@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The CPU options for the instance. Both the core count and threads per</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- core must be specified in the request.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLaunchTemplateCpuOptionsRequest' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621681088218"><span id="local-6989586621681088219"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateCpuOptionsRequest"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest"><span class="hs-identifier hs-var">LaunchTemplateCpuOptionsRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateCpuOptionsRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest%27"><span class="hs-identifier hs-var">LaunchTemplateCpuOptionsRequest'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of threads per CPU core. To disable multithreading for the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- instance, specify a value of 1. Otherwise, specify the default value of</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- 2.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AthreadsPerCore%3ALaunchTemplateCpuOptionsRequest%27"><span class="annot"><span class="annottext">LaunchTemplateCpuOptionsRequest -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#%24sel%3AthreadsPerCore%3ALaunchTemplateCpuOptionsRequest%27"><span class="hs-identifier hs-var hs-var">threadsPerCore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The number of CPU cores for the instance.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcoreCount%3ALaunchTemplateCpuOptionsRequest%27"><span class="annot"><span class="annottext">LaunchTemplateCpuOptionsRequest -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#%24sel%3AcoreCount%3ALaunchTemplateCpuOptionsRequest%27"><span class="hs-identifier hs-var hs-var">coreCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681088211"><span id="local-6989586621681088213"><span class="annot"><span class="annottext">LaunchTemplateCpuOptionsRequest
+-&gt; LaunchTemplateCpuOptionsRequest -&gt; Bool
+(LaunchTemplateCpuOptionsRequest
+ -&gt; LaunchTemplateCpuOptionsRequest -&gt; Bool)
+-&gt; (LaunchTemplateCpuOptionsRequest
+    -&gt; LaunchTemplateCpuOptionsRequest -&gt; Bool)
+-&gt; Eq LaunchTemplateCpuOptionsRequest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LaunchTemplateCpuOptionsRequest
+-&gt; LaunchTemplateCpuOptionsRequest -&gt; Bool
+$c/= :: LaunchTemplateCpuOptionsRequest
+-&gt; LaunchTemplateCpuOptionsRequest -&gt; Bool
+== :: LaunchTemplateCpuOptionsRequest
+-&gt; LaunchTemplateCpuOptionsRequest -&gt; Bool
+$c== :: LaunchTemplateCpuOptionsRequest
+-&gt; LaunchTemplateCpuOptionsRequest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681088202"><span id="local-6989586621681088204"><span id="local-6989586621681088206"><span id="local-6989586621681088208"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateCpuOptionsRequest]
+ReadPrec LaunchTemplateCpuOptionsRequest
+Int -&gt; ReadS LaunchTemplateCpuOptionsRequest
+ReadS [LaunchTemplateCpuOptionsRequest]
+(Int -&gt; ReadS LaunchTemplateCpuOptionsRequest)
+-&gt; ReadS [LaunchTemplateCpuOptionsRequest]
+-&gt; ReadPrec LaunchTemplateCpuOptionsRequest
+-&gt; ReadPrec [LaunchTemplateCpuOptionsRequest]
+-&gt; Read LaunchTemplateCpuOptionsRequest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LaunchTemplateCpuOptionsRequest]
+$creadListPrec :: ReadPrec [LaunchTemplateCpuOptionsRequest]
+readPrec :: ReadPrec LaunchTemplateCpuOptionsRequest
+$creadPrec :: ReadPrec LaunchTemplateCpuOptionsRequest
+readList :: ReadS [LaunchTemplateCpuOptionsRequest]
+$creadList :: ReadS [LaunchTemplateCpuOptionsRequest]
+readsPrec :: Int -&gt; ReadS LaunchTemplateCpuOptionsRequest
+$creadsPrec :: Int -&gt; ReadS LaunchTemplateCpuOptionsRequest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681088195"><span id="local-6989586621681088197"><span id="local-6989586621681088199"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateCpuOptionsRequest -&gt; ShowS
+[LaunchTemplateCpuOptionsRequest] -&gt; ShowS
+LaunchTemplateCpuOptionsRequest -&gt; String
+(Int -&gt; LaunchTemplateCpuOptionsRequest -&gt; ShowS)
+-&gt; (LaunchTemplateCpuOptionsRequest -&gt; String)
+-&gt; ([LaunchTemplateCpuOptionsRequest] -&gt; ShowS)
+-&gt; Show LaunchTemplateCpuOptionsRequest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LaunchTemplateCpuOptionsRequest] -&gt; ShowS
+$cshowList :: [LaunchTemplateCpuOptionsRequest] -&gt; ShowS
+show :: LaunchTemplateCpuOptionsRequest -&gt; String
+$cshow :: LaunchTemplateCpuOptionsRequest -&gt; String
+showsPrec :: Int -&gt; LaunchTemplateCpuOptionsRequest -&gt; ShowS
+$cshowsPrec :: Int -&gt; LaunchTemplateCpuOptionsRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ LaunchTemplateCpuOptionsRequest
+ -&gt; Rep LaunchTemplateCpuOptionsRequest x)
+-&gt; (forall x.
+    Rep LaunchTemplateCpuOptionsRequest x
+    -&gt; LaunchTemplateCpuOptionsRequest)
+-&gt; Generic LaunchTemplateCpuOptionsRequest
+forall x.
+Rep LaunchTemplateCpuOptionsRequest x
+-&gt; LaunchTemplateCpuOptionsRequest
+forall x.
+LaunchTemplateCpuOptionsRequest
+-&gt; Rep LaunchTemplateCpuOptionsRequest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep LaunchTemplateCpuOptionsRequest x
+-&gt; LaunchTemplateCpuOptionsRequest
+$cfrom :: forall x.
+LaunchTemplateCpuOptionsRequest
+-&gt; Rep LaunchTemplateCpuOptionsRequest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'LaunchTemplateCpuOptionsRequest' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'threadsPerCore', 'launchTemplateCpuOptionsRequest_threadsPerCore' - The number of threads per CPU core. To disable multithreading for the</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- instance, specify a value of 1. Otherwise, specify the default value of</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 2.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'coreCount', 'launchTemplateCpuOptionsRequest_coreCount' - The number of CPU cores for the instance.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#newLaunchTemplateCpuOptionsRequest"><span class="hs-identifier hs-type">newLaunchTemplateCpuOptionsRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest"><span class="hs-identifier hs-type">LaunchTemplateCpuOptionsRequest</span></a></span><span>
+</span><span id="line-56"></span><span id="newLaunchTemplateCpuOptionsRequest"><span class="annot"><span class="annottext">newLaunchTemplateCpuOptionsRequest :: LaunchTemplateCpuOptionsRequest
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#newLaunchTemplateCpuOptionsRequest"><span class="hs-identifier hs-var hs-var">newLaunchTemplateCpuOptionsRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">LaunchTemplateCpuOptionsRequest' :: Maybe Int -&gt; Maybe Int -&gt; LaunchTemplateCpuOptionsRequest
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest%27"><span class="hs-identifier hs-type">LaunchTemplateCpuOptionsRequest'</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:threadsPerCore:LaunchTemplateCpuOptionsRequest' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#%24sel%3AthreadsPerCore%3ALaunchTemplateCpuOptionsRequest%27"><span class="hs-identifier hs-var">threadsPerCore</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:coreCount:LaunchTemplateCpuOptionsRequest' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#%24sel%3AcoreCount%3ALaunchTemplateCpuOptionsRequest%27"><span class="hs-identifier hs-var">coreCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The number of threads per CPU core. To disable multithreading for the</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- instance, specify a value of 1. Otherwise, specify the default value of</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 2.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#launchTemplateCpuOptionsRequest_threadsPerCore"><span class="hs-identifier hs-type">launchTemplateCpuOptionsRequest_threadsPerCore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest"><span class="hs-identifier hs-type">LaunchTemplateCpuOptionsRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="launchTemplateCpuOptionsRequest_threadsPerCore"><span class="annot"><span class="annottext">launchTemplateCpuOptionsRequest_threadsPerCore :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; LaunchTemplateCpuOptionsRequest
+-&gt; f LaunchTemplateCpuOptionsRequest
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#launchTemplateCpuOptionsRequest_threadsPerCore"><span class="hs-identifier hs-var hs-var">launchTemplateCpuOptionsRequest_threadsPerCore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplateCpuOptionsRequest -&gt; Maybe Int)
+-&gt; (LaunchTemplateCpuOptionsRequest
+    -&gt; Maybe Int -&gt; LaunchTemplateCpuOptionsRequest)
+-&gt; Lens
+     LaunchTemplateCpuOptionsRequest
+     LaunchTemplateCpuOptionsRequest
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest%27"><span class="hs-identifier hs-type">LaunchTemplateCpuOptionsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681088186"><span class="annot"><span class="annottext">Maybe Int
+threadsPerCore :: Maybe Int
+$sel:threadsPerCore:LaunchTemplateCpuOptionsRequest' :: LaunchTemplateCpuOptionsRequest -&gt; Maybe Int
+</span><a href="#local-6989586621681088186"><span class="hs-identifier hs-var hs-var">threadsPerCore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681088186"><span class="hs-identifier hs-var">threadsPerCore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681088185"><span class="annot"><span class="annottext">s :: LaunchTemplateCpuOptionsRequest
+</span><a href="#local-6989586621681088185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest%27"><span class="hs-identifier hs-type">LaunchTemplateCpuOptionsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681088184"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681088184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateCpuOptionsRequest
+</span><a href="#local-6989586621681088185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threadsPerCore:LaunchTemplateCpuOptionsRequest' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#%24sel%3AthreadsPerCore%3ALaunchTemplateCpuOptionsRequest%27"><span class="hs-identifier hs-var">threadsPerCore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681088184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest"><span class="hs-identifier hs-type">LaunchTemplateCpuOptionsRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The number of CPU cores for the instance.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#launchTemplateCpuOptionsRequest_coreCount"><span class="hs-identifier hs-type">launchTemplateCpuOptionsRequest_coreCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest"><span class="hs-identifier hs-type">LaunchTemplateCpuOptionsRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="launchTemplateCpuOptionsRequest_coreCount"><span class="annot"><span class="annottext">launchTemplateCpuOptionsRequest_coreCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; LaunchTemplateCpuOptionsRequest
+-&gt; f LaunchTemplateCpuOptionsRequest
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#launchTemplateCpuOptionsRequest_coreCount"><span class="hs-identifier hs-var hs-var">launchTemplateCpuOptionsRequest_coreCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplateCpuOptionsRequest -&gt; Maybe Int)
+-&gt; (LaunchTemplateCpuOptionsRequest
+    -&gt; Maybe Int -&gt; LaunchTemplateCpuOptionsRequest)
+-&gt; Lens
+     LaunchTemplateCpuOptionsRequest
+     LaunchTemplateCpuOptionsRequest
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest%27"><span class="hs-identifier hs-type">LaunchTemplateCpuOptionsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681088182"><span class="annot"><span class="annottext">Maybe Int
+coreCount :: Maybe Int
+$sel:coreCount:LaunchTemplateCpuOptionsRequest' :: LaunchTemplateCpuOptionsRequest -&gt; Maybe Int
+</span><a href="#local-6989586621681088182"><span class="hs-identifier hs-var hs-var">coreCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681088182"><span class="hs-identifier hs-var">coreCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681088181"><span class="annot"><span class="annottext">s :: LaunchTemplateCpuOptionsRequest
+</span><a href="#local-6989586621681088181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest%27"><span class="hs-identifier hs-type">LaunchTemplateCpuOptionsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681088180"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681088180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateCpuOptionsRequest
+</span><a href="#local-6989586621681088181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coreCount:LaunchTemplateCpuOptionsRequest' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#%24sel%3AcoreCount%3ALaunchTemplateCpuOptionsRequest%27"><span class="hs-identifier hs-var">coreCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681088180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest"><span class="hs-identifier hs-type">LaunchTemplateCpuOptionsRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621681088176"><span id="local-6989586621681088178"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest"><span class="hs-identifier hs-type">LaunchTemplateCpuOptionsRequest</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621681088173"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest"><span class="hs-identifier hs-type">LaunchTemplateCpuOptionsRequest</span></a></span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest"><span class="hs-identifier hs-type">LaunchTemplateCpuOptionsRequest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621681088169"><span class="annot"><span class="annottext">toQuery :: LaunchTemplateCpuOptionsRequest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest.html#LaunchTemplateCpuOptionsRequest%27"><span class="hs-identifier hs-type">LaunchTemplateCpuOptionsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681088166"><span id="local-6989586621681088167"><span class="annot"><span class="annottext">Maybe Int
+coreCount :: Maybe Int
+threadsPerCore :: Maybe Int
+$sel:coreCount:LaunchTemplateCpuOptionsRequest' :: LaunchTemplateCpuOptionsRequest -&gt; Maybe Int
+$sel:threadsPerCore:LaunchTemplateCpuOptionsRequest' :: LaunchTemplateCpuOptionsRequest -&gt; Maybe Int
+</span><a href="#local-6989586621681088166"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ThreadsPerCore&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681088167"><span class="hs-identifier hs-var">threadsPerCore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CoreCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681088166"><span class="hs-identifier hs-var">coreCount</span></a></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-87"></span></pre></body></html>

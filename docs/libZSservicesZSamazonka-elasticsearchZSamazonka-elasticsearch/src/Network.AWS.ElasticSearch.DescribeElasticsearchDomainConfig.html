@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Provides cluster configuration information about the specified</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Elasticsearch domain, such as the state, creation date, update version,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- and update date for cluster options.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig"><span class="hs-identifier">DescribeElasticsearchDomainConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#newDescribeElasticsearchDomainConfig"><span class="hs-identifier">newDescribeElasticsearchDomainConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#describeElasticsearchDomainConfig_domainName"><span class="hs-identifier">describeElasticsearchDomainConfig_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse"><span class="hs-identifier">DescribeElasticsearchDomainConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#newDescribeElasticsearchDomainConfigResponse"><span class="hs-identifier">newDescribeElasticsearchDomainConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#describeElasticsearchDomainConfigResponse_httpStatus"><span class="hs-identifier">describeElasticsearchDomainConfigResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#describeElasticsearchDomainConfigResponse_domainConfig"><span class="hs-identifier">describeElasticsearchDomainConfigResponse_domainConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.html"><span class="hs-identifier">Network.AWS.ElasticSearch.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | Container for the parameters to the @DescribeElasticsearchDomainConfig@</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- operation. Specifies the domain name for which you want configuration</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- information.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newDescribeElasticsearchDomainConfig' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679311837"><span id="local-6989586621679311838"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeElasticsearchDomainConfig"><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig"><span class="hs-identifier hs-var">DescribeElasticsearchDomainConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeElasticsearchDomainConfig%27"><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig%27"><span class="hs-identifier hs-var">DescribeElasticsearchDomainConfig'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Elasticsearch domain that you want to get information about.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdomainName%3ADescribeElasticsearchDomainConfig%27"><span class="annot"><span class="annottext">DescribeElasticsearchDomainConfig -&gt; Text
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#%24sel%3AdomainName%3ADescribeElasticsearchDomainConfig%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311831"><span id="local-6989586621679311833"><span class="annot"><span class="annottext">DescribeElasticsearchDomainConfig
+-&gt; DescribeElasticsearchDomainConfig -&gt; Bool
+(DescribeElasticsearchDomainConfig
+ -&gt; DescribeElasticsearchDomainConfig -&gt; Bool)
+-&gt; (DescribeElasticsearchDomainConfig
+    -&gt; DescribeElasticsearchDomainConfig -&gt; Bool)
+-&gt; Eq DescribeElasticsearchDomainConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeElasticsearchDomainConfig
+-&gt; DescribeElasticsearchDomainConfig -&gt; Bool
+$c/= :: DescribeElasticsearchDomainConfig
+-&gt; DescribeElasticsearchDomainConfig -&gt; Bool
+== :: DescribeElasticsearchDomainConfig
+-&gt; DescribeElasticsearchDomainConfig -&gt; Bool
+$c== :: DescribeElasticsearchDomainConfig
+-&gt; DescribeElasticsearchDomainConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311822"><span id="local-6989586621679311824"><span id="local-6989586621679311826"><span id="local-6989586621679311828"><span class="annot"><span class="annottext">ReadPrec [DescribeElasticsearchDomainConfig]
+ReadPrec DescribeElasticsearchDomainConfig
+Int -&gt; ReadS DescribeElasticsearchDomainConfig
+ReadS [DescribeElasticsearchDomainConfig]
+(Int -&gt; ReadS DescribeElasticsearchDomainConfig)
+-&gt; ReadS [DescribeElasticsearchDomainConfig]
+-&gt; ReadPrec DescribeElasticsearchDomainConfig
+-&gt; ReadPrec [DescribeElasticsearchDomainConfig]
+-&gt; Read DescribeElasticsearchDomainConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeElasticsearchDomainConfig]
+$creadListPrec :: ReadPrec [DescribeElasticsearchDomainConfig]
+readPrec :: ReadPrec DescribeElasticsearchDomainConfig
+$creadPrec :: ReadPrec DescribeElasticsearchDomainConfig
+readList :: ReadS [DescribeElasticsearchDomainConfig]
+$creadList :: ReadS [DescribeElasticsearchDomainConfig]
+readsPrec :: Int -&gt; ReadS DescribeElasticsearchDomainConfig
+$creadsPrec :: Int -&gt; ReadS DescribeElasticsearchDomainConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311815"><span id="local-6989586621679311817"><span id="local-6989586621679311819"><span class="annot"><span class="annottext">Int -&gt; DescribeElasticsearchDomainConfig -&gt; ShowS
+[DescribeElasticsearchDomainConfig] -&gt; ShowS
+DescribeElasticsearchDomainConfig -&gt; String
+(Int -&gt; DescribeElasticsearchDomainConfig -&gt; ShowS)
+-&gt; (DescribeElasticsearchDomainConfig -&gt; String)
+-&gt; ([DescribeElasticsearchDomainConfig] -&gt; ShowS)
+-&gt; Show DescribeElasticsearchDomainConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeElasticsearchDomainConfig] -&gt; ShowS
+$cshowList :: [DescribeElasticsearchDomainConfig] -&gt; ShowS
+show :: DescribeElasticsearchDomainConfig -&gt; String
+$cshow :: DescribeElasticsearchDomainConfig -&gt; String
+showsPrec :: Int -&gt; DescribeElasticsearchDomainConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeElasticsearchDomainConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeElasticsearchDomainConfig
+ -&gt; Rep DescribeElasticsearchDomainConfig x)
+-&gt; (forall x.
+    Rep DescribeElasticsearchDomainConfig x
+    -&gt; DescribeElasticsearchDomainConfig)
+-&gt; Generic DescribeElasticsearchDomainConfig
+forall x.
+Rep DescribeElasticsearchDomainConfig x
+-&gt; DescribeElasticsearchDomainConfig
+forall x.
+DescribeElasticsearchDomainConfig
+-&gt; Rep DescribeElasticsearchDomainConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeElasticsearchDomainConfig x
+-&gt; DescribeElasticsearchDomainConfig
+$cfrom :: forall x.
+DescribeElasticsearchDomainConfig
+-&gt; Rep DescribeElasticsearchDomainConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'DescribeElasticsearchDomainConfig' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'domainName', 'describeElasticsearchDomainConfig_domainName' - The Elasticsearch domain that you want to get information about.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#newDescribeElasticsearchDomainConfig"><span class="hs-identifier hs-type">newDescribeElasticsearchDomainConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfig</span></a></span><span>
+</span><span id="line-75"></span><span id="newDescribeElasticsearchDomainConfig"><span class="annot"><span class="annottext">newDescribeElasticsearchDomainConfig :: Text -&gt; DescribeElasticsearchDomainConfig
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#newDescribeElasticsearchDomainConfig"><span class="hs-identifier hs-var hs-var">newDescribeElasticsearchDomainConfig</span></a></span></span><span> </span><span id="local-6989586621679311810"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311810"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DescribeElasticsearchDomainConfig' :: Text -&gt; DescribeElasticsearchDomainConfig
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig%27"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfig'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainName:DescribeElasticsearchDomainConfig' :: Text
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#%24sel%3AdomainName%3ADescribeElasticsearchDomainConfig%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311810"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The Elasticsearch domain that you want to get information about.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#describeElasticsearchDomainConfig_domainName"><span class="hs-identifier hs-type">describeElasticsearchDomainConfig_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="describeElasticsearchDomainConfig_domainName"><span class="annot"><span class="annottext">describeElasticsearchDomainConfig_domainName :: (Text -&gt; f Text)
+-&gt; DescribeElasticsearchDomainConfig
+-&gt; f DescribeElasticsearchDomainConfig
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#describeElasticsearchDomainConfig_domainName"><span class="hs-identifier hs-var hs-var">describeElasticsearchDomainConfig_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeElasticsearchDomainConfig -&gt; Text)
+-&gt; (DescribeElasticsearchDomainConfig
+    -&gt; Text -&gt; DescribeElasticsearchDomainConfig)
+-&gt; Lens
+     DescribeElasticsearchDomainConfig
+     DescribeElasticsearchDomainConfig
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig%27"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311807"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:DescribeElasticsearchDomainConfig' :: DescribeElasticsearchDomainConfig -&gt; Text
+</span><a href="#local-6989586621679311807"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311807"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311806"><span class="annot"><span class="annottext">s :: DescribeElasticsearchDomainConfig
+</span><a href="#local-6989586621679311806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig%27"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311805"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeElasticsearchDomainConfig
+</span><a href="#local-6989586621679311806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DescribeElasticsearchDomainConfig' :: Text
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#%24sel%3AdomainName%3ADescribeElasticsearchDomainConfig%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfig</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfigResponse</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679311801"><span class="annot"><span class="annottext">request :: DescribeElasticsearchDomainConfig
+-&gt; Request DescribeElasticsearchDomainConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeElasticsearchDomainConfig
+-&gt; Request DescribeElasticsearchDomainConfig
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ElasticSearch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679311797"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeElasticsearchDomainConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeElasticsearchDomainConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeElasticsearchDomainConfig))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeElasticsearchDomainConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeElasticsearchDomainConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311794"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311794"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311793"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679311793"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311792"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311792"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; ElasticsearchDomainConfig
+-&gt; DescribeElasticsearchDomainConfigResponse
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse%27"><span class="hs-identifier hs-var">DescribeElasticsearchDomainConfigResponse'</span></a></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; ElasticsearchDomainConfig
+ -&gt; DescribeElasticsearchDomainConfigResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (ElasticsearchDomainConfig
+      -&gt; DescribeElasticsearchDomainConfigResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311794"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (ElasticsearchDomainConfig
+   -&gt; DescribeElasticsearchDomainConfigResponse)
+-&gt; Either String ElasticsearchDomainConfig
+-&gt; Either String DescribeElasticsearchDomainConfigResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ElasticsearchDomainConfig
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679311784"><span id="local-6989586621679311786"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfig</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679311781"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfig</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfig</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679311777"><span class="annot"><span class="annottext">toHeaders :: DescribeElasticsearchDomainConfig -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeElasticsearchDomainConfig -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfig</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679311772"><span class="annot"><span class="annottext">toPath :: DescribeElasticsearchDomainConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig%27"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311770"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:DescribeElasticsearchDomainConfig' :: DescribeElasticsearchDomainConfig -&gt; Text
+</span><a href="#local-6989586621679311770"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2015-01-01/es/domain/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311770"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/config&quot;</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfig"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfig</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679311766"><span class="annot"><span class="annottext">toQuery :: DescribeElasticsearchDomainConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeElasticsearchDomainConfig -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The result of a @DescribeElasticsearchDomainConfig@ request. Contains</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- the configuration information of the requested domain.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- /See:/ 'newDescribeElasticsearchDomainConfigResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679311763"><span id="local-6989586621679311764"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeElasticsearchDomainConfigResponse"><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse"><span class="hs-identifier hs-var">DescribeElasticsearchDomainConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeElasticsearchDomainConfigResponse%27"><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse%27"><span class="hs-identifier hs-var">DescribeElasticsearchDomainConfigResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeElasticsearchDomainConfigResponse%27"><span class="annot"><span class="annottext">DescribeElasticsearchDomainConfigResponse -&gt; Int
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#%24sel%3AhttpStatus%3ADescribeElasticsearchDomainConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The configuration information of the domain requested in the</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- @DescribeElasticsearchDomainConfig@ request.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AdomainConfig%3ADescribeElasticsearchDomainConfigResponse%27"><span class="annot"><span class="annottext">DescribeElasticsearchDomainConfigResponse
+-&gt; ElasticsearchDomainConfig
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#%24sel%3AdomainConfig%3ADescribeElasticsearchDomainConfigResponse%27"><span class="hs-identifier hs-var hs-var">domainConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ElasticsearchDomainConfig.html#ElasticsearchDomainConfig"><span class="hs-identifier hs-type">ElasticsearchDomainConfig</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311757"><span id="local-6989586621679311759"><span class="annot"><span class="annottext">DescribeElasticsearchDomainConfigResponse
+-&gt; DescribeElasticsearchDomainConfigResponse -&gt; Bool
+(DescribeElasticsearchDomainConfigResponse
+ -&gt; DescribeElasticsearchDomainConfigResponse -&gt; Bool)
+-&gt; (DescribeElasticsearchDomainConfigResponse
+    -&gt; DescribeElasticsearchDomainConfigResponse -&gt; Bool)
+-&gt; Eq DescribeElasticsearchDomainConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeElasticsearchDomainConfigResponse
+-&gt; DescribeElasticsearchDomainConfigResponse -&gt; Bool
+$c/= :: DescribeElasticsearchDomainConfigResponse
+-&gt; DescribeElasticsearchDomainConfigResponse -&gt; Bool
+== :: DescribeElasticsearchDomainConfigResponse
+-&gt; DescribeElasticsearchDomainConfigResponse -&gt; Bool
+$c== :: DescribeElasticsearchDomainConfigResponse
+-&gt; DescribeElasticsearchDomainConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311749"><span id="local-6989586621679311751"><span id="local-6989586621679311753"><span id="local-6989586621679311755"><span class="annot"><span class="annottext">ReadPrec [DescribeElasticsearchDomainConfigResponse]
+ReadPrec DescribeElasticsearchDomainConfigResponse
+Int -&gt; ReadS DescribeElasticsearchDomainConfigResponse
+ReadS [DescribeElasticsearchDomainConfigResponse]
+(Int -&gt; ReadS DescribeElasticsearchDomainConfigResponse)
+-&gt; ReadS [DescribeElasticsearchDomainConfigResponse]
+-&gt; ReadPrec DescribeElasticsearchDomainConfigResponse
+-&gt; ReadPrec [DescribeElasticsearchDomainConfigResponse]
+-&gt; Read DescribeElasticsearchDomainConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeElasticsearchDomainConfigResponse]
+$creadListPrec :: ReadPrec [DescribeElasticsearchDomainConfigResponse]
+readPrec :: ReadPrec DescribeElasticsearchDomainConfigResponse
+$creadPrec :: ReadPrec DescribeElasticsearchDomainConfigResponse
+readList :: ReadS [DescribeElasticsearchDomainConfigResponse]
+$creadList :: ReadS [DescribeElasticsearchDomainConfigResponse]
+readsPrec :: Int -&gt; ReadS DescribeElasticsearchDomainConfigResponse
+$creadsPrec :: Int -&gt; ReadS DescribeElasticsearchDomainConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311743"><span id="local-6989586621679311745"><span id="local-6989586621679311747"><span class="annot"><span class="annottext">Int -&gt; DescribeElasticsearchDomainConfigResponse -&gt; ShowS
+[DescribeElasticsearchDomainConfigResponse] -&gt; ShowS
+DescribeElasticsearchDomainConfigResponse -&gt; String
+(Int -&gt; DescribeElasticsearchDomainConfigResponse -&gt; ShowS)
+-&gt; (DescribeElasticsearchDomainConfigResponse -&gt; String)
+-&gt; ([DescribeElasticsearchDomainConfigResponse] -&gt; ShowS)
+-&gt; Show DescribeElasticsearchDomainConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeElasticsearchDomainConfigResponse] -&gt; ShowS
+$cshowList :: [DescribeElasticsearchDomainConfigResponse] -&gt; ShowS
+show :: DescribeElasticsearchDomainConfigResponse -&gt; String
+$cshow :: DescribeElasticsearchDomainConfigResponse -&gt; String
+showsPrec :: Int -&gt; DescribeElasticsearchDomainConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeElasticsearchDomainConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeElasticsearchDomainConfigResponse
+ -&gt; Rep DescribeElasticsearchDomainConfigResponse x)
+-&gt; (forall x.
+    Rep DescribeElasticsearchDomainConfigResponse x
+    -&gt; DescribeElasticsearchDomainConfigResponse)
+-&gt; Generic DescribeElasticsearchDomainConfigResponse
+forall x.
+Rep DescribeElasticsearchDomainConfigResponse x
+-&gt; DescribeElasticsearchDomainConfigResponse
+forall x.
+DescribeElasticsearchDomainConfigResponse
+-&gt; Rep DescribeElasticsearchDomainConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeElasticsearchDomainConfigResponse x
+-&gt; DescribeElasticsearchDomainConfigResponse
+$cfrom :: forall x.
+DescribeElasticsearchDomainConfigResponse
+-&gt; Rep DescribeElasticsearchDomainConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Create a value of 'DescribeElasticsearchDomainConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'httpStatus', 'describeElasticsearchDomainConfigResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'domainConfig', 'describeElasticsearchDomainConfigResponse_domainConfig' - The configuration information of the domain requested in the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- @DescribeElasticsearchDomainConfig@ request.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#newDescribeElasticsearchDomainConfigResponse"><span class="hs-identifier hs-type">newDescribeElasticsearchDomainConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'domainConfig'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ElasticsearchDomainConfig.html#ElasticsearchDomainConfig"><span class="hs-identifier hs-type">ElasticsearchDomainConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfigResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="newDescribeElasticsearchDomainConfigResponse"><span class="annot"><span class="annottext">newDescribeElasticsearchDomainConfigResponse :: Int
+-&gt; ElasticsearchDomainConfig
+-&gt; DescribeElasticsearchDomainConfigResponse
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#newDescribeElasticsearchDomainConfigResponse"><span class="hs-identifier hs-var hs-var">newDescribeElasticsearchDomainConfigResponse</span></a></span></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679311740"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311740"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679311739"><span class="annot"><span class="annottext">ElasticsearchDomainConfig
+</span><a href="#local-6989586621679311739"><span class="hs-identifier hs-var">pDomainConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">DescribeElasticsearchDomainConfigResponse' :: Int
+-&gt; ElasticsearchDomainConfig
+-&gt; DescribeElasticsearchDomainConfigResponse
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse%27"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfigResponse'</span></a></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeElasticsearchDomainConfigResponse' :: Int
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#%24sel%3AhttpStatus%3ADescribeElasticsearchDomainConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311740"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainConfig:DescribeElasticsearchDomainConfigResponse' :: ElasticsearchDomainConfig
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#%24sel%3AdomainConfig%3ADescribeElasticsearchDomainConfigResponse%27"><span class="hs-identifier hs-var">domainConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDomainConfig
+</span><a href="#local-6989586621679311739"><span class="hs-identifier hs-var">pDomainConfig_</span></a></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#describeElasticsearchDomainConfigResponse_httpStatus"><span class="hs-identifier hs-type">describeElasticsearchDomainConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-174"></span><span id="describeElasticsearchDomainConfigResponse_httpStatus"><span class="annot"><span class="annottext">describeElasticsearchDomainConfigResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeElasticsearchDomainConfigResponse
+-&gt; f DescribeElasticsearchDomainConfigResponse
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#describeElasticsearchDomainConfigResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeElasticsearchDomainConfigResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeElasticsearchDomainConfigResponse -&gt; Int)
+-&gt; (DescribeElasticsearchDomainConfigResponse
+    -&gt; Int -&gt; DescribeElasticsearchDomainConfigResponse)
+-&gt; Lens
+     DescribeElasticsearchDomainConfigResponse
+     DescribeElasticsearchDomainConfigResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse%27"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311738"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeElasticsearchDomainConfigResponse' :: DescribeElasticsearchDomainConfigResponse -&gt; Int
+</span><a href="#local-6989586621679311738"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311738"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311737"><span class="annot"><span class="annottext">s :: DescribeElasticsearchDomainConfigResponse
+</span><a href="#local-6989586621679311737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse%27"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311736"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeElasticsearchDomainConfigResponse
+</span><a href="#local-6989586621679311737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeElasticsearchDomainConfigResponse' :: Int
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#%24sel%3AhttpStatus%3ADescribeElasticsearchDomainConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The configuration information of the domain requested in the</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- @DescribeElasticsearchDomainConfig@ request.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#describeElasticsearchDomainConfigResponse_domainConfig"><span class="hs-identifier hs-type">describeElasticsearchDomainConfigResponse_domainConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfigResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ElasticsearchDomainConfig.html#ElasticsearchDomainConfig"><span class="hs-identifier hs-type">ElasticsearchDomainConfig</span></a></span><span>
+</span><span id="line-179"></span><span id="describeElasticsearchDomainConfigResponse_domainConfig"><span class="annot"><span class="annottext">describeElasticsearchDomainConfigResponse_domainConfig :: (ElasticsearchDomainConfig -&gt; f ElasticsearchDomainConfig)
+-&gt; DescribeElasticsearchDomainConfigResponse
+-&gt; f DescribeElasticsearchDomainConfigResponse
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#describeElasticsearchDomainConfigResponse_domainConfig"><span class="hs-identifier hs-var hs-var">describeElasticsearchDomainConfigResponse_domainConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeElasticsearchDomainConfigResponse
+ -&gt; ElasticsearchDomainConfig)
+-&gt; (DescribeElasticsearchDomainConfigResponse
+    -&gt; ElasticsearchDomainConfig
+    -&gt; DescribeElasticsearchDomainConfigResponse)
+-&gt; Lens
+     DescribeElasticsearchDomainConfigResponse
+     DescribeElasticsearchDomainConfigResponse
+     ElasticsearchDomainConfig
+     ElasticsearchDomainConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse%27"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311735"><span class="annot"><span class="annottext">ElasticsearchDomainConfig
+domainConfig :: ElasticsearchDomainConfig
+$sel:domainConfig:DescribeElasticsearchDomainConfigResponse' :: DescribeElasticsearchDomainConfigResponse
+-&gt; ElasticsearchDomainConfig
+</span><a href="#local-6989586621679311735"><span class="hs-identifier hs-var hs-var">domainConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDomainConfig
+</span><a href="#local-6989586621679311735"><span class="hs-identifier hs-var">domainConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311734"><span class="annot"><span class="annottext">s :: DescribeElasticsearchDomainConfigResponse
+</span><a href="#local-6989586621679311734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse%27"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311733"><span class="annot"><span class="annottext">ElasticsearchDomainConfig
+</span><a href="#local-6989586621679311733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeElasticsearchDomainConfigResponse
+</span><a href="#local-6989586621679311734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainConfig:DescribeElasticsearchDomainConfigResponse' :: ElasticsearchDomainConfig
+</span><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#%24sel%3AdomainConfig%3ADescribeElasticsearchDomainConfigResponse%27"><span class="hs-identifier hs-var">domainConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDomainConfig
+</span><a href="#local-6989586621679311733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679311731"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig.html#DescribeElasticsearchDomainConfigResponse"><span class="hs-identifier hs-type">DescribeElasticsearchDomainConfigResponse</span></a></span></span><span>
+</span><span id="line-184"></span></pre></body></html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MachineLearning.UpdateMLModel</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the @MLModelName@ and the @ScoreThreshold@ of an @MLModel@.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You can use the @GetMLModel@ operation to view the contents of the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- updated data element.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MachineLearning.UpdateMLModel</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier">UpdateMLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#newUpdateMLModel"><span class="hs-identifier">newUpdateMLModel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#updateMLModel_scoreThreshold"><span class="hs-identifier">updateMLModel_scoreThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#updateMLModel_mLModelName"><span class="hs-identifier">updateMLModel_mLModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#updateMLModel_mLModelId"><span class="hs-identifier">updateMLModel_mLModelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse"><span class="hs-identifier">UpdateMLModelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#newUpdateMLModelResponse"><span class="hs-identifier">newUpdateMLModelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#updateMLModelResponse_mLModelId"><span class="hs-identifier">updateMLModelResponse_mLModelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#updateMLModelResponse_httpStatus"><span class="hs-identifier">updateMLModelResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.html"><span class="hs-identifier">Network.AWS.MachineLearning.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateMLModel' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679261341"><span id="local-6989586621679261342"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateMLModel"><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-var">UpdateMLModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateMLModel%27"><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel%27"><span class="hs-identifier hs-var">UpdateMLModel'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ScoreThreshold@ used in binary classification @MLModel@ that marks</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- the boundary between a positive prediction and a negative prediction.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Output values greater than or equal to the @ScoreThreshold@ receive a</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- positive result from the @MLModel@, such as @true@. Output values less</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- than the @ScoreThreshold@ receive a negative response from the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @MLModel@, such as @false@.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AscoreThreshold%3AUpdateMLModel%27"><span class="annot"><span class="annottext">UpdateMLModel -&gt; Maybe Double
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#%24sel%3AscoreThreshold%3AUpdateMLModel%27"><span class="hs-identifier hs-var hs-var">scoreThreshold</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A user-supplied name or description of the @MLModel@.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmLModelName%3AUpdateMLModel%27"><span class="annot"><span class="annottext">UpdateMLModel -&gt; Maybe Text
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#%24sel%3AmLModelName%3AUpdateMLModel%27"><span class="hs-identifier hs-var hs-var">mLModelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The ID assigned to the @MLModel@ during creation.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AmLModelId%3AUpdateMLModel%27"><span class="annot"><span class="annottext">UpdateMLModel -&gt; Text
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#%24sel%3AmLModelId%3AUpdateMLModel%27"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261333"><span id="local-6989586621679261335"><span class="annot"><span class="annottext">UpdateMLModel -&gt; UpdateMLModel -&gt; Bool
+(UpdateMLModel -&gt; UpdateMLModel -&gt; Bool)
+-&gt; (UpdateMLModel -&gt; UpdateMLModel -&gt; Bool) -&gt; Eq UpdateMLModel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateMLModel -&gt; UpdateMLModel -&gt; Bool
+$c/= :: UpdateMLModel -&gt; UpdateMLModel -&gt; Bool
+== :: UpdateMLModel -&gt; UpdateMLModel -&gt; Bool
+$c== :: UpdateMLModel -&gt; UpdateMLModel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261324"><span id="local-6989586621679261326"><span id="local-6989586621679261328"><span id="local-6989586621679261330"><span class="annot"><span class="annottext">ReadPrec [UpdateMLModel]
+ReadPrec UpdateMLModel
+Int -&gt; ReadS UpdateMLModel
+ReadS [UpdateMLModel]
+(Int -&gt; ReadS UpdateMLModel)
+-&gt; ReadS [UpdateMLModel]
+-&gt; ReadPrec UpdateMLModel
+-&gt; ReadPrec [UpdateMLModel]
+-&gt; Read UpdateMLModel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateMLModel]
+$creadListPrec :: ReadPrec [UpdateMLModel]
+readPrec :: ReadPrec UpdateMLModel
+$creadPrec :: ReadPrec UpdateMLModel
+readList :: ReadS [UpdateMLModel]
+$creadList :: ReadS [UpdateMLModel]
+readsPrec :: Int -&gt; ReadS UpdateMLModel
+$creadsPrec :: Int -&gt; ReadS UpdateMLModel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261317"><span id="local-6989586621679261319"><span id="local-6989586621679261321"><span class="annot"><span class="annottext">Int -&gt; UpdateMLModel -&gt; ShowS
+[UpdateMLModel] -&gt; ShowS
+UpdateMLModel -&gt; String
+(Int -&gt; UpdateMLModel -&gt; ShowS)
+-&gt; (UpdateMLModel -&gt; String)
+-&gt; ([UpdateMLModel] -&gt; ShowS)
+-&gt; Show UpdateMLModel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateMLModel] -&gt; ShowS
+$cshowList :: [UpdateMLModel] -&gt; ShowS
+show :: UpdateMLModel -&gt; String
+$cshow :: UpdateMLModel -&gt; String
+showsPrec :: Int -&gt; UpdateMLModel -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateMLModel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateMLModel -&gt; Rep UpdateMLModel x)
+-&gt; (forall x. Rep UpdateMLModel x -&gt; UpdateMLModel)
+-&gt; Generic UpdateMLModel
+forall x. Rep UpdateMLModel x -&gt; UpdateMLModel
+forall x. UpdateMLModel -&gt; Rep UpdateMLModel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateMLModel x -&gt; UpdateMLModel
+$cfrom :: forall x. UpdateMLModel -&gt; Rep UpdateMLModel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'UpdateMLModel' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'scoreThreshold', 'updateMLModel_scoreThreshold' - The @ScoreThreshold@ used in binary classification @MLModel@ that marks</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- the boundary between a positive prediction and a negative prediction.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Output values greater than or equal to the @ScoreThreshold@ receive a</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- positive result from the @MLModel@, such as @true@. Output values less</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- than the @ScoreThreshold@ receive a negative response from the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- @MLModel@, such as @false@.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'mLModelName', 'updateMLModel_mLModelName' - A user-supplied name or description of the @MLModel@.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'mLModelId', 'updateMLModel_mLModelId' - The ID assigned to the @MLModel@ during creation.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#newUpdateMLModel"><span class="hs-identifier hs-type">newUpdateMLModel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'mLModelId'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-type">UpdateMLModel</span></a></span><span>
+</span><span id="line-94"></span><span id="newUpdateMLModel"><span class="annot"><span class="annottext">newUpdateMLModel :: Text -&gt; UpdateMLModel
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#newUpdateMLModel"><span class="hs-identifier hs-var hs-var">newUpdateMLModel</span></a></span></span><span> </span><span id="local-6989586621679261312"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261312"><span class="hs-identifier hs-var">pMLModelId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">UpdateMLModel' :: Maybe Double -&gt; Maybe Text -&gt; Text -&gt; UpdateMLModel
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel%27"><span class="hs-identifier hs-type">UpdateMLModel'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scoreThreshold:UpdateMLModel' :: Maybe Double
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#%24sel%3AscoreThreshold%3AUpdateMLModel%27"><span class="hs-identifier hs-var">scoreThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:mLModelName:UpdateMLModel' :: Maybe Text
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#%24sel%3AmLModelName%3AUpdateMLModel%27"><span class="hs-identifier hs-var">mLModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:mLModelId:UpdateMLModel' :: Text
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#%24sel%3AmLModelId%3AUpdateMLModel%27"><span class="hs-identifier hs-var">mLModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261312"><span class="hs-identifier hs-var">pMLModelId_</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The @ScoreThreshold@ used in binary classification @MLModel@ that marks</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the boundary between a positive prediction and a negative prediction.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Output values greater than or equal to the @ScoreThreshold@ receive a</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- positive result from the @MLModel@, such as @true@. Output values less</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- than the @ScoreThreshold@ receive a negative response from the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- @MLModel@, such as @false@.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#updateMLModel_scoreThreshold"><span class="hs-identifier hs-type">updateMLModel_scoreThreshold</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-type">UpdateMLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="updateMLModel_scoreThreshold"><span class="annot"><span class="annottext">updateMLModel_scoreThreshold :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; UpdateMLModel -&gt; f UpdateMLModel
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#updateMLModel_scoreThreshold"><span class="hs-identifier hs-var hs-var">updateMLModel_scoreThreshold</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMLModel -&gt; Maybe Double)
+-&gt; (UpdateMLModel -&gt; Maybe Double -&gt; UpdateMLModel)
+-&gt; Lens UpdateMLModel UpdateMLModel (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel%27"><span class="hs-identifier hs-type">UpdateMLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261309"><span class="annot"><span class="annottext">Maybe Double
+scoreThreshold :: Maybe Double
+$sel:scoreThreshold:UpdateMLModel' :: UpdateMLModel -&gt; Maybe Double
+</span><a href="#local-6989586621679261309"><span class="hs-identifier hs-var hs-var">scoreThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679261309"><span class="hs-identifier hs-var">scoreThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261308"><span class="annot"><span class="annottext">s :: UpdateMLModel
+</span><a href="#local-6989586621679261308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel%27"><span class="hs-identifier hs-type">UpdateMLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261307"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679261307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMLModel
+</span><a href="#local-6989586621679261308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scoreThreshold:UpdateMLModel' :: Maybe Double
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#%24sel%3AscoreThreshold%3AUpdateMLModel%27"><span class="hs-identifier hs-var">scoreThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679261307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-type">UpdateMLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | A user-supplied name or description of the @MLModel@.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#updateMLModel_mLModelName"><span class="hs-identifier hs-type">updateMLModel_mLModelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-type">UpdateMLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="updateMLModel_mLModelName"><span class="annot"><span class="annottext">updateMLModel_mLModelName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateMLModel -&gt; f UpdateMLModel
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#updateMLModel_mLModelName"><span class="hs-identifier hs-var hs-var">updateMLModel_mLModelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMLModel -&gt; Maybe Text)
+-&gt; (UpdateMLModel -&gt; Maybe Text -&gt; UpdateMLModel)
+-&gt; Lens UpdateMLModel UpdateMLModel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel%27"><span class="hs-identifier hs-type">UpdateMLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261306"><span class="annot"><span class="annottext">Maybe Text
+mLModelName :: Maybe Text
+$sel:mLModelName:UpdateMLModel' :: UpdateMLModel -&gt; Maybe Text
+</span><a href="#local-6989586621679261306"><span class="hs-identifier hs-var hs-var">mLModelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261306"><span class="hs-identifier hs-var">mLModelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261305"><span class="annot"><span class="annottext">s :: UpdateMLModel
+</span><a href="#local-6989586621679261305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel%27"><span class="hs-identifier hs-type">UpdateMLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261304"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMLModel
+</span><a href="#local-6989586621679261305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mLModelName:UpdateMLModel' :: Maybe Text
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#%24sel%3AmLModelName%3AUpdateMLModel%27"><span class="hs-identifier hs-var">mLModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-type">UpdateMLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The ID assigned to the @MLModel@ during creation.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#updateMLModel_mLModelId"><span class="hs-identifier hs-type">updateMLModel_mLModelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-type">UpdateMLModel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="updateMLModel_mLModelId"><span class="annot"><span class="annottext">updateMLModel_mLModelId :: (Text -&gt; f Text) -&gt; UpdateMLModel -&gt; f UpdateMLModel
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#updateMLModel_mLModelId"><span class="hs-identifier hs-var hs-var">updateMLModel_mLModelId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMLModel -&gt; Text)
+-&gt; (UpdateMLModel -&gt; Text -&gt; UpdateMLModel)
+-&gt; Lens UpdateMLModel UpdateMLModel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel%27"><span class="hs-identifier hs-type">UpdateMLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261303"><span class="annot"><span class="annottext">Text
+mLModelId :: Text
+$sel:mLModelId:UpdateMLModel' :: UpdateMLModel -&gt; Text
+</span><a href="#local-6989586621679261303"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261303"><span class="hs-identifier hs-var">mLModelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261302"><span class="annot"><span class="annottext">s :: UpdateMLModel
+</span><a href="#local-6989586621679261302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel%27"><span class="hs-identifier hs-type">UpdateMLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261301"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMLModel
+</span><a href="#local-6989586621679261302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mLModelId:UpdateMLModel' :: Text
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#%24sel%3AmLModelId%3AUpdateMLModel%27"><span class="hs-identifier hs-var">mLModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-type">UpdateMLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-type">UpdateMLModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-type">UpdateMLModel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse"><span class="hs-identifier hs-type">UpdateMLModelResponse</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679261297"><span class="annot"><span class="annottext">request :: UpdateMLModel -&gt; Request UpdateMLModel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateMLModel -&gt; Request UpdateMLModel
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MachineLearning.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679261293"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateMLModel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateMLModel)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateMLModel))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateMLModel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateMLModel)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261290"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261290"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679261289"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679261289"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679261288"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679261288"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UpdateMLModelResponse
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse%27"><span class="hs-identifier hs-var">UpdateMLModelResponse'</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UpdateMLModelResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateMLModelResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679261288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MLModelId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateMLModelResponse)
+-&gt; Either String Int -&gt; Either String UpdateMLModelResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261290"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261280"><span id="local-6989586621679261282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-type">UpdateMLModel</span></a></span></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-type">UpdateMLModel</span></a></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-type">UpdateMLModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679261273"><span class="annot"><span class="annottext">toHeaders :: UpdateMLModel -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateMLModel -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonML_20141212.UpdateMLModel&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-147"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261263"><span id="local-6989586621679261265"><span id="local-6989586621679261267"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-type">UpdateMLModel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679261261"><span class="annot"><span class="annottext">toJSON :: UpdateMLModel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel%27"><span class="hs-identifier hs-type">UpdateMLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261257"><span id="local-6989586621679261258"><span id="local-6989586621679261259"><span class="annot"><span class="annottext">Maybe Double
+Maybe Text
+Text
+mLModelId :: Text
+mLModelName :: Maybe Text
+scoreThreshold :: Maybe Double
+$sel:mLModelId:UpdateMLModel' :: UpdateMLModel -&gt; Text
+$sel:mLModelName:UpdateMLModel' :: UpdateMLModel -&gt; Maybe Text
+$sel:scoreThreshold:UpdateMLModel' :: UpdateMLModel -&gt; Maybe Double
+</span><a href="#local-6989586621679261257"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScoreThreshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679261259"><span class="hs-identifier hs-var">scoreThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MLModelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261258"><span class="hs-identifier hs-var">mLModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MLModelId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261257"><span class="hs-identifier hs-var">mLModelId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-type">UpdateMLModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679261251"><span class="annot"><span class="annottext">toPath :: UpdateMLModel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateMLModel -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModel"><span class="hs-identifier hs-type">UpdateMLModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679261247"><span class="annot"><span class="annottext">toQuery :: UpdateMLModel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateMLModel -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | Represents the output of an @UpdateMLModel@ operation.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- You can see the updated content by using the @GetMLModel@ operation.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- /See:/ 'newUpdateMLModelResponse' smart constructor.</span><span>
+</span><span id="line-173"></span><span id="local-6989586621679261244"><span id="local-6989586621679261245"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateMLModelResponse"><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse"><span class="hs-identifier hs-var">UpdateMLModelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateMLModelResponse%27"><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse%27"><span class="hs-identifier hs-var">UpdateMLModelResponse'</span></a></span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID assigned to the @MLModel@ during creation. This value should be</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- identical to the value of the @MLModelID@ in the request.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AmLModelId%3AUpdateMLModelResponse%27"><span class="annot"><span class="annottext">UpdateMLModelResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#%24sel%3AmLModelId%3AUpdateMLModelResponse%27"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateMLModelResponse%27"><span class="annot"><span class="annottext">UpdateMLModelResponse -&gt; Int
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#%24sel%3AhttpStatus%3AUpdateMLModelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261238"><span id="local-6989586621679261240"><span class="annot"><span class="annottext">UpdateMLModelResponse -&gt; UpdateMLModelResponse -&gt; Bool
+(UpdateMLModelResponse -&gt; UpdateMLModelResponse -&gt; Bool)
+-&gt; (UpdateMLModelResponse -&gt; UpdateMLModelResponse -&gt; Bool)
+-&gt; Eq UpdateMLModelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateMLModelResponse -&gt; UpdateMLModelResponse -&gt; Bool
+$c/= :: UpdateMLModelResponse -&gt; UpdateMLModelResponse -&gt; Bool
+== :: UpdateMLModelResponse -&gt; UpdateMLModelResponse -&gt; Bool
+$c== :: UpdateMLModelResponse -&gt; UpdateMLModelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261230"><span id="local-6989586621679261232"><span id="local-6989586621679261234"><span id="local-6989586621679261236"><span class="annot"><span class="annottext">ReadPrec [UpdateMLModelResponse]
+ReadPrec UpdateMLModelResponse
+Int -&gt; ReadS UpdateMLModelResponse
+ReadS [UpdateMLModelResponse]
+(Int -&gt; ReadS UpdateMLModelResponse)
+-&gt; ReadS [UpdateMLModelResponse]
+-&gt; ReadPrec UpdateMLModelResponse
+-&gt; ReadPrec [UpdateMLModelResponse]
+-&gt; Read UpdateMLModelResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateMLModelResponse]
+$creadListPrec :: ReadPrec [UpdateMLModelResponse]
+readPrec :: ReadPrec UpdateMLModelResponse
+$creadPrec :: ReadPrec UpdateMLModelResponse
+readList :: ReadS [UpdateMLModelResponse]
+$creadList :: ReadS [UpdateMLModelResponse]
+readsPrec :: Int -&gt; ReadS UpdateMLModelResponse
+$creadsPrec :: Int -&gt; ReadS UpdateMLModelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261224"><span id="local-6989586621679261226"><span id="local-6989586621679261228"><span class="annot"><span class="annottext">Int -&gt; UpdateMLModelResponse -&gt; ShowS
+[UpdateMLModelResponse] -&gt; ShowS
+UpdateMLModelResponse -&gt; String
+(Int -&gt; UpdateMLModelResponse -&gt; ShowS)
+-&gt; (UpdateMLModelResponse -&gt; String)
+-&gt; ([UpdateMLModelResponse] -&gt; ShowS)
+-&gt; Show UpdateMLModelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateMLModelResponse] -&gt; ShowS
+$cshowList :: [UpdateMLModelResponse] -&gt; ShowS
+show :: UpdateMLModelResponse -&gt; String
+$cshow :: UpdateMLModelResponse -&gt; String
+showsPrec :: Int -&gt; UpdateMLModelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateMLModelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateMLModelResponse -&gt; Rep UpdateMLModelResponse x)
+-&gt; (forall x. Rep UpdateMLModelResponse x -&gt; UpdateMLModelResponse)
+-&gt; Generic UpdateMLModelResponse
+forall x. Rep UpdateMLModelResponse x -&gt; UpdateMLModelResponse
+forall x. UpdateMLModelResponse -&gt; Rep UpdateMLModelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateMLModelResponse x -&gt; UpdateMLModelResponse
+$cfrom :: forall x. UpdateMLModelResponse -&gt; Rep UpdateMLModelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'UpdateMLModelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'mLModelId', 'updateMLModelResponse_mLModelId' - The ID assigned to the @MLModel@ during creation. This value should be</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- identical to the value of the @MLModelID@ in the request.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'updateMLModelResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#newUpdateMLModelResponse"><span class="hs-identifier hs-type">newUpdateMLModelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse"><span class="hs-identifier hs-type">UpdateMLModelResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newUpdateMLModelResponse"><span class="annot"><span class="annottext">newUpdateMLModelResponse :: Int -&gt; UpdateMLModelResponse
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#newUpdateMLModelResponse"><span class="hs-identifier hs-var hs-var">newUpdateMLModelResponse</span></a></span></span><span> </span><span id="local-6989586621679261221"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261221"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">UpdateMLModelResponse' :: Maybe Text -&gt; Int -&gt; UpdateMLModelResponse
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse%27"><span class="hs-identifier hs-type">UpdateMLModelResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mLModelId:UpdateMLModelResponse' :: Maybe Text
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#%24sel%3AmLModelId%3AUpdateMLModelResponse%27"><span class="hs-identifier hs-var">mLModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateMLModelResponse' :: Int
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#%24sel%3AhttpStatus%3AUpdateMLModelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261221"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The ID assigned to the @MLModel@ during creation. This value should be</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- identical to the value of the @MLModelID@ in the request.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#updateMLModelResponse_mLModelId"><span class="hs-identifier hs-type">updateMLModelResponse_mLModelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse"><span class="hs-identifier hs-type">UpdateMLModelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="updateMLModelResponse_mLModelId"><span class="annot"><span class="annottext">updateMLModelResponse_mLModelId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateMLModelResponse -&gt; f UpdateMLModelResponse
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#updateMLModelResponse_mLModelId"><span class="hs-identifier hs-var hs-var">updateMLModelResponse_mLModelId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMLModelResponse -&gt; Maybe Text)
+-&gt; (UpdateMLModelResponse -&gt; Maybe Text -&gt; UpdateMLModelResponse)
+-&gt; Lens
+     UpdateMLModelResponse
+     UpdateMLModelResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse%27"><span class="hs-identifier hs-type">UpdateMLModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261220"><span class="annot"><span class="annottext">Maybe Text
+mLModelId :: Maybe Text
+$sel:mLModelId:UpdateMLModelResponse' :: UpdateMLModelResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679261220"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261220"><span class="hs-identifier hs-var">mLModelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261219"><span class="annot"><span class="annottext">s :: UpdateMLModelResponse
+</span><a href="#local-6989586621679261219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse%27"><span class="hs-identifier hs-type">UpdateMLModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261218"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMLModelResponse
+</span><a href="#local-6989586621679261219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mLModelId:UpdateMLModelResponse' :: Maybe Text
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#%24sel%3AmLModelId%3AUpdateMLModelResponse%27"><span class="hs-identifier hs-var">mLModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse"><span class="hs-identifier hs-type">UpdateMLModelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#updateMLModelResponse_httpStatus"><span class="hs-identifier hs-type">updateMLModelResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse"><span class="hs-identifier hs-type">UpdateMLModelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-211"></span><span id="updateMLModelResponse_httpStatus"><span class="annot"><span class="annottext">updateMLModelResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateMLModelResponse -&gt; f UpdateMLModelResponse
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#updateMLModelResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateMLModelResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMLModelResponse -&gt; Int)
+-&gt; (UpdateMLModelResponse -&gt; Int -&gt; UpdateMLModelResponse)
+-&gt; Lens UpdateMLModelResponse UpdateMLModelResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse%27"><span class="hs-identifier hs-type">UpdateMLModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261217"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateMLModelResponse' :: UpdateMLModelResponse -&gt; Int
+</span><a href="#local-6989586621679261217"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261217"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261216"><span class="annot"><span class="annottext">s :: UpdateMLModelResponse
+</span><a href="#local-6989586621679261216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse%27"><span class="hs-identifier hs-type">UpdateMLModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261215"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMLModelResponse
+</span><a href="#local-6989586621679261216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateMLModelResponse' :: Int
+</span><a href="Network.AWS.MachineLearning.UpdateMLModel.html#%24sel%3AhttpStatus%3AUpdateMLModelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse"><span class="hs-identifier hs-type">UpdateMLModelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261213"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateMLModel.html#UpdateMLModelResponse"><span class="hs-identifier hs-type">UpdateMLModelResponse</span></a></span></span><span>
+</span><span id="line-214"></span></pre></body></html>

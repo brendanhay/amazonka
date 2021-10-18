@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.S3DataDistribution</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.S3DataDistribution</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#S3DataDistribution"><span class="hs-identifier">S3DataDistribution</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#S3DataDistribution_FullyReplicated"><span class="hs-identifier">S3DataDistribution_FullyReplicated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#S3DataDistribution_ShardedByS3Key"><span class="hs-identifier">S3DataDistribution_ShardedByS3Key</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680338417"><span id="local-6989586621680338418"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="S3DataDistribution"><span class="annot"><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#S3DataDistribution"><span class="hs-identifier hs-var">S3DataDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3DataDistribution%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#S3DataDistribution%27"><span class="hs-identifier hs-var">S3DataDistribution'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromS3DataDistribution"><span class="annot"><span class="annottext">S3DataDistribution -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#fromS3DataDistribution"><span class="hs-identifier hs-var hs-var">fromS3DataDistribution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680338409"><span id="local-6989586621680338411"><span id="local-6989586621680338413"><span class="annot"><span class="annottext">Int -&gt; S3DataDistribution -&gt; ShowS
+[S3DataDistribution] -&gt; ShowS
+S3DataDistribution -&gt; String
+(Int -&gt; S3DataDistribution -&gt; ShowS)
+-&gt; (S3DataDistribution -&gt; String)
+-&gt; ([S3DataDistribution] -&gt; ShowS)
+-&gt; Show S3DataDistribution
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [S3DataDistribution] -&gt; ShowS
+$cshowList :: [S3DataDistribution] -&gt; ShowS
+show :: S3DataDistribution -&gt; String
+$cshow :: S3DataDistribution -&gt; String
+showsPrec :: Int -&gt; S3DataDistribution -&gt; ShowS
+$cshowsPrec :: Int -&gt; S3DataDistribution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680338400"><span id="local-6989586621680338402"><span id="local-6989586621680338404"><span id="local-6989586621680338406"><span class="annot"><span class="annottext">ReadPrec [S3DataDistribution]
+ReadPrec S3DataDistribution
+Int -&gt; ReadS S3DataDistribution
+ReadS [S3DataDistribution]
+(Int -&gt; ReadS S3DataDistribution)
+-&gt; ReadS [S3DataDistribution]
+-&gt; ReadPrec S3DataDistribution
+-&gt; ReadPrec [S3DataDistribution]
+-&gt; Read S3DataDistribution
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [S3DataDistribution]
+$creadListPrec :: ReadPrec [S3DataDistribution]
+readPrec :: ReadPrec S3DataDistribution
+$creadPrec :: ReadPrec S3DataDistribution
+readList :: ReadS [S3DataDistribution]
+$creadList :: ReadS [S3DataDistribution]
+readsPrec :: Int -&gt; ReadS S3DataDistribution
+$creadsPrec :: Int -&gt; ReadS S3DataDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680338395"><span id="local-6989586621680338397"><span class="annot"><span class="annottext">S3DataDistribution -&gt; S3DataDistribution -&gt; Bool
+(S3DataDistribution -&gt; S3DataDistribution -&gt; Bool)
+-&gt; (S3DataDistribution -&gt; S3DataDistribution -&gt; Bool)
+-&gt; Eq S3DataDistribution
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: S3DataDistribution -&gt; S3DataDistribution -&gt; Bool
+$c/= :: S3DataDistribution -&gt; S3DataDistribution -&gt; Bool
+== :: S3DataDistribution -&gt; S3DataDistribution -&gt; Bool
+$c== :: S3DataDistribution -&gt; S3DataDistribution -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680338379"><span id="local-6989586621680338381"><span id="local-6989586621680338383"><span id="local-6989586621680338385"><span id="local-6989586621680338387"><span id="local-6989586621680338389"><span id="local-6989586621680338391"><span class="annot"><span class="annottext">Eq S3DataDistribution
+Eq S3DataDistribution
+-&gt; (S3DataDistribution -&gt; S3DataDistribution -&gt; Ordering)
+-&gt; (S3DataDistribution -&gt; S3DataDistribution -&gt; Bool)
+-&gt; (S3DataDistribution -&gt; S3DataDistribution -&gt; Bool)
+-&gt; (S3DataDistribution -&gt; S3DataDistribution -&gt; Bool)
+-&gt; (S3DataDistribution -&gt; S3DataDistribution -&gt; Bool)
+-&gt; (S3DataDistribution -&gt; S3DataDistribution -&gt; S3DataDistribution)
+-&gt; (S3DataDistribution -&gt; S3DataDistribution -&gt; S3DataDistribution)
+-&gt; Ord S3DataDistribution
+S3DataDistribution -&gt; S3DataDistribution -&gt; Bool
+S3DataDistribution -&gt; S3DataDistribution -&gt; Ordering
+S3DataDistribution -&gt; S3DataDistribution -&gt; S3DataDistribution
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: S3DataDistribution -&gt; S3DataDistribution -&gt; S3DataDistribution
+$cmin :: S3DataDistribution -&gt; S3DataDistribution -&gt; S3DataDistribution
+max :: S3DataDistribution -&gt; S3DataDistribution -&gt; S3DataDistribution
+$cmax :: S3DataDistribution -&gt; S3DataDistribution -&gt; S3DataDistribution
+&gt;= :: S3DataDistribution -&gt; S3DataDistribution -&gt; Bool
+$c&gt;= :: S3DataDistribution -&gt; S3DataDistribution -&gt; Bool
+&gt; :: S3DataDistribution -&gt; S3DataDistribution -&gt; Bool
+$c&gt; :: S3DataDistribution -&gt; S3DataDistribution -&gt; Bool
+&lt;= :: S3DataDistribution -&gt; S3DataDistribution -&gt; Bool
+$c&lt;= :: S3DataDistribution -&gt; S3DataDistribution -&gt; Bool
+&lt; :: S3DataDistribution -&gt; S3DataDistribution -&gt; Bool
+$c&lt; :: S3DataDistribution -&gt; S3DataDistribution -&gt; Bool
+compare :: S3DataDistribution -&gt; S3DataDistribution -&gt; Ordering
+$ccompare :: S3DataDistribution -&gt; S3DataDistribution -&gt; Ordering
+$cp1Ord :: Eq S3DataDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. S3DataDistribution -&gt; Rep S3DataDistribution x)
+-&gt; (forall x. Rep S3DataDistribution x -&gt; S3DataDistribution)
+-&gt; Generic S3DataDistribution
+forall x. Rep S3DataDistribution x -&gt; S3DataDistribution
+forall x. S3DataDistribution -&gt; Rep S3DataDistribution x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep S3DataDistribution x -&gt; S3DataDistribution
+$cfrom :: forall x. S3DataDistribution -&gt; Rep S3DataDistribution x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680338371"><span id="local-6989586621680338373"><span class="annot"><span class="annottext">Int -&gt; S3DataDistribution -&gt; Int
+S3DataDistribution -&gt; Int
+(Int -&gt; S3DataDistribution -&gt; Int)
+-&gt; (S3DataDistribution -&gt; Int) -&gt; Hashable S3DataDistribution
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: S3DataDistribution -&gt; Int
+$chash :: S3DataDistribution -&gt; Int
+hashWithSalt :: Int -&gt; S3DataDistribution -&gt; Int
+$chashWithSalt :: Int -&gt; S3DataDistribution -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680338368"><span class="annot"><span class="annottext">S3DataDistribution -&gt; ()
+(S3DataDistribution -&gt; ()) -&gt; NFData S3DataDistribution
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: S3DataDistribution -&gt; ()
+$crnf :: S3DataDistribution -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680338365"><span class="annot"><span class="annottext">Text -&gt; Either String S3DataDistribution
+(Text -&gt; Either String S3DataDistribution)
+-&gt; FromText S3DataDistribution
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String S3DataDistribution
+$cfromText :: Text -&gt; Either String S3DataDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680338362"><span class="annot"><span class="annottext">S3DataDistribution -&gt; Text
+(S3DataDistribution -&gt; Text) -&gt; ToText S3DataDistribution
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: S3DataDistribution -&gt; Text
+$ctoText :: S3DataDistribution -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680338359"><span class="annot"><span class="annottext">S3DataDistribution -&gt; ByteString
+(S3DataDistribution -&gt; ByteString)
+-&gt; ToByteString S3DataDistribution
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: S3DataDistribution -&gt; ByteString
+$ctoBS :: S3DataDistribution -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680338356"><span class="annot"><span class="annottext">S3DataDistribution -&gt; ByteStringBuilder
+(S3DataDistribution -&gt; ByteStringBuilder)
+-&gt; ToLog S3DataDistribution
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: S3DataDistribution -&gt; ByteStringBuilder
+$cbuild :: S3DataDistribution -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680338353"><span class="annot"><span class="annottext">HeaderName -&gt; S3DataDistribution -&gt; [Header]
+(HeaderName -&gt; S3DataDistribution -&gt; [Header])
+-&gt; ToHeader S3DataDistribution
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; S3DataDistribution -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; S3DataDistribution -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680338350"><span class="annot"><span class="annottext">S3DataDistribution -&gt; QueryString
+(S3DataDistribution -&gt; QueryString) -&gt; ToQuery S3DataDistribution
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: S3DataDistribution -&gt; QueryString
+$ctoQuery :: S3DataDistribution -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680338345"><span id="local-6989586621680338347"><span class="annot"><span class="annottext">Value -&gt; Parser [S3DataDistribution]
+Value -&gt; Parser S3DataDistribution
+(Value -&gt; Parser S3DataDistribution)
+-&gt; (Value -&gt; Parser [S3DataDistribution])
+-&gt; FromJSON S3DataDistribution
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [S3DataDistribution]
+$cparseJSONList :: Value -&gt; Parser [S3DataDistribution]
+parseJSON :: Value -&gt; Parser S3DataDistribution
+$cparseJSON :: Value -&gt; Parser S3DataDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680338340"><span id="local-6989586621680338342"><span class="annot"><span class="annottext">FromJSONKeyFunction [S3DataDistribution]
+FromJSONKeyFunction S3DataDistribution
+FromJSONKeyFunction S3DataDistribution
+-&gt; FromJSONKeyFunction [S3DataDistribution]
+-&gt; FromJSONKey S3DataDistribution
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [S3DataDistribution]
+$cfromJSONKeyList :: FromJSONKeyFunction [S3DataDistribution]
+fromJSONKey :: FromJSONKeyFunction S3DataDistribution
+$cfromJSONKey :: FromJSONKeyFunction S3DataDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680338331"><span id="local-6989586621680338333"><span id="local-6989586621680338335"><span id="local-6989586621680338337"><span class="annot"><span class="annottext">[S3DataDistribution] -&gt; Encoding
+[S3DataDistribution] -&gt; Value
+S3DataDistribution -&gt; Encoding
+S3DataDistribution -&gt; Value
+(S3DataDistribution -&gt; Value)
+-&gt; (S3DataDistribution -&gt; Encoding)
+-&gt; ([S3DataDistribution] -&gt; Value)
+-&gt; ([S3DataDistribution] -&gt; Encoding)
+-&gt; ToJSON S3DataDistribution
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [S3DataDistribution] -&gt; Encoding
+$ctoEncodingList :: [S3DataDistribution] -&gt; Encoding
+toJSONList :: [S3DataDistribution] -&gt; Value
+$ctoJSONList :: [S3DataDistribution] -&gt; Value
+toEncoding :: S3DataDistribution -&gt; Encoding
+$ctoEncoding :: S3DataDistribution -&gt; Encoding
+toJSON :: S3DataDistribution -&gt; Value
+$ctoJSON :: S3DataDistribution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680338326"><span id="local-6989586621680338328"><span class="annot"><span class="annottext">ToJSONKeyFunction [S3DataDistribution]
+ToJSONKeyFunction S3DataDistribution
+ToJSONKeyFunction S3DataDistribution
+-&gt; ToJSONKeyFunction [S3DataDistribution]
+-&gt; ToJSONKey S3DataDistribution
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [S3DataDistribution]
+$ctoJSONKeyList :: ToJSONKeyFunction [S3DataDistribution]
+toJSONKey :: ToJSONKeyFunction S3DataDistribution
+$ctoJSONKey :: ToJSONKeyFunction S3DataDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680338323"><span class="annot"><span class="annottext">[Node] -&gt; Either String S3DataDistribution
+([Node] -&gt; Either String S3DataDistribution)
+-&gt; FromXML S3DataDistribution
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String S3DataDistribution
+$cparseXML :: [Node] -&gt; Either String S3DataDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680338320"><span class="annot"><span class="annottext">S3DataDistribution -&gt; XML
+(S3DataDistribution -&gt; XML) -&gt; ToXML S3DataDistribution
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: S3DataDistribution -&gt; XML
+$ctoXML :: S3DataDistribution -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#S3DataDistribution_FullyReplicated"><span class="hs-identifier hs-type">S3DataDistribution_FullyReplicated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#S3DataDistribution"><span class="hs-identifier hs-type">S3DataDistribution</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3DataDistribution_FullyReplicated"><span id="%24mS3DataDistribution_FullyReplicated"><span id="S3DataDistribution_FullyReplicated"><span class="annot"><span class="annottext">$bS3DataDistribution_FullyReplicated :: S3DataDistribution
+$mS3DataDistribution_FullyReplicated :: forall r. S3DataDistribution -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#%24bS3DataDistribution_FullyReplicated"><span class="hs-identifier hs-var hs-var hs-var">S3DataDistribution_FullyReplicated</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#S3DataDistribution%27"><span class="hs-identifier hs-type">S3DataDistribution'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FullyReplicated&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#S3DataDistribution_ShardedByS3Key"><span class="hs-identifier hs-type">S3DataDistribution_ShardedByS3Key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#S3DataDistribution"><span class="hs-identifier hs-type">S3DataDistribution</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3DataDistribution_ShardedByS3Key"><span id="%24mS3DataDistribution_ShardedByS3Key"><span id="S3DataDistribution_ShardedByS3Key"><span class="annot"><span class="annottext">$bS3DataDistribution_ShardedByS3Key :: S3DataDistribution
+$mS3DataDistribution_ShardedByS3Key :: forall r. S3DataDistribution -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#%24bS3DataDistribution_ShardedByS3Key"><span class="hs-identifier hs-var hs-var hs-var">S3DataDistribution_ShardedByS3Key</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#S3DataDistribution%27"><span class="hs-identifier hs-type">S3DataDistribution'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ShardedByS3Key&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#S3DataDistribution_FullyReplicated"><span class="hs-pragma hs-type">S3DataDistribution_FullyReplicated</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#S3DataDistribution_ShardedByS3Key"><span class="hs-pragma hs-type">S3DataDistribution_ShardedByS3Key</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.S3DataDistribution.html#S3DataDistribution%27"><span class="hs-pragma hs-type">S3DataDistribution'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

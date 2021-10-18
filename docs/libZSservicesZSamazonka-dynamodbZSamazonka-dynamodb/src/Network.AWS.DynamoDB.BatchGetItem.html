@@ -1,0 +1,1075 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DynamoDB.BatchGetItem</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- The @BatchGetItem@ operation returns the attributes of one or more items</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- from one or more tables. You identify requested items by primary key.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- A single operation can retrieve up to 16 MB of data, which can contain</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- as many as 100 items. @BatchGetItem@ returns a partial result if the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- response size limit is exceeded, the table\'s provisioned throughput is</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- exceeded, or an internal processing failure occurs. If a partial result</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- is returned, the operation returns a value for @UnprocessedKeys@. You</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- can use this value to retry the operation starting with the next item to</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- get.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- If you request more than 100 items, @BatchGetItem@ returns a</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- @ValidationException@ with the message \&quot;Too many items requested for</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- the BatchGetItem call.\&quot;</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- For example, if you ask to retrieve 100 items, but each individual item</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- is 300 KB in size, the system returns 52 items (so as not to exceed the</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- 16 MB limit). It also returns an appropriate @UnprocessedKeys@ value so</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- you can get the next page of results. If desired, your application can</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- include its own logic to assemble the pages of results into one dataset.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- If /none/ of the items can be processed due to insufficient provisioned</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- throughput on all of the tables in the request, then @BatchGetItem@</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- returns a @ProvisionedThroughputExceededException@. If /at least one/ of</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- the items is successfully processed, then @BatchGetItem@ completes</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- successfully, while returning the keys of the unread items in</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- @UnprocessedKeys@.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- If DynamoDB returns any unprocessed items, you should retry the batch</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- operation on those items. However, /we strongly recommend that you use</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- an exponential backoff algorithm/. If you retry the batch operation</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- immediately, the underlying read or write requests can still fail due to</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- throttling on the individual tables. If you delay the batch operation</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- using exponential backoff, the individual requests in the batch are much</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- more likely to succeed.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations Batch Operations and Error Handling&gt;</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- By default, @BatchGetItem@ performs eventually consistent reads on every</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- table in the request. If you want strongly consistent reads instead, you</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- can set @ConsistentRead@ to @true@ for any or all tables.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- In order to minimize response latency, @BatchGetItem@ retrieves items in</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- parallel.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- When designing your application, keep in mind that DynamoDB does not</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- return items in any particular order. To help parse the response by</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- item, include the primary key values for the items in your request in</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the @ProjectionExpression@ parameter.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- If a requested item does not exist, it is not returned in the result.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Requests for nonexistent items consume the minimum read capacity units</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- according to the type of read. For more information, see</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations Working with Tables&gt;</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-80"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DynamoDB.BatchGetItem</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem"><span class="hs-identifier">BatchGetItem</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#newBatchGetItem"><span class="hs-identifier">newBatchGetItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItem_returnConsumedCapacity"><span class="hs-identifier">batchGetItem_returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItem_requestItems"><span class="hs-identifier">batchGetItem_requestItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse"><span class="hs-identifier">BatchGetItemResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#newBatchGetItemResponse"><span class="hs-identifier">newBatchGetItemResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItemResponse_unprocessedKeys"><span class="hs-identifier">batchGetItemResponse_unprocessedKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItemResponse_consumedCapacity"><span class="hs-identifier">batchGetItemResponse_consumedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItemResponse_responses"><span class="hs-identifier">batchGetItemResponse_responses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItemResponse_httpStatus"><span class="hs-identifier">batchGetItemResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.html"><span class="hs-identifier">Network.AWS.DynamoDB.Types</span></a></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | Represents the input of a @BatchGetItem@ operation.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- /See:/ 'newBatchGetItem' smart constructor.</span><span>
+</span><span id="line-111"></span><span id="local-6989586621679395031"><span id="local-6989586621679395032"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetItem"><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem"><span class="hs-identifier hs-var">BatchGetItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetItem%27"><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem%27"><span class="hs-identifier hs-var">BatchGetItem'</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AreturnConsumedCapacity%3ABatchGetItem%27"><span class="annot"><span class="annottext">BatchGetItem -&gt; Maybe ReturnConsumedCapacity
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3AreturnConsumedCapacity%3ABatchGetItem%27"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReturnConsumedCapacity.html#ReturnConsumedCapacity"><span class="hs-identifier hs-type">ReturnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | A map of one or more table names and, for each table, a map that</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- describes one or more items to retrieve from that table. Each table name</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- can be used only once per @BatchGetItem@ request.</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- Each element in the map of items to retrieve consists of the following:</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- -   @ConsistentRead@ - If @true@, a strongly consistent read is used; if</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--     @false@ (the default), an eventually consistent read is used.</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- -   @ExpressionAttributeNames@ - One or more substitution tokens for</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--     attribute names in the @ProjectionExpression@ parameter. The</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--     following are some use cases for using @ExpressionAttributeNames@:</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--     -   To access an attribute whose name conflicts with a DynamoDB</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--         reserved word.</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--     -   To create a placeholder for repeating occurrences of an</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">--         attribute name in an expression.</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--     -   To prevent special characters in an attribute name from being</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--         misinterpreted in an expression.</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--     Use the __#__ character in an expression to dereference an attribute</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--     name. For example, consider the following attribute name:</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--     -   @Percentile@</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">--     The name of this attribute conflicts with a reserved word, so it</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--     cannot be used directly in an expression. (For the complete list of</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">--     reserved words, see</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words&gt;</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--     in the /Amazon DynamoDB Developer Guide/). To work around this, you</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">--     could specify the following for @ExpressionAttributeNames@:</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">--     -   @{\&quot;#P\&quot;:\&quot;Percentile\&quot;}@</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">--     You could then use this substitution in an expression, as in this</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">--     example:</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">--     -   @#P = :val@</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">--     Tokens that begin with the __:__ character are /expression attribute</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">--     values/, which are placeholders for the actual value at runtime.</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">--     For more information about expression attribute names, see</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes&gt;</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">--     in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- -   @Keys@ - An array of primary key attribute values that define</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">--     specific items in the table. For each primary key, you must provide</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">--     /all/ of the key attributes. For example, with a simple primary key,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">--     you only need to provide the partition key value. For a composite</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">--     key, you must provide /both/ the partition key value and the sort</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">--     key value.</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- -   @ProjectionExpression@ - A string that identifies one or more</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">--     attributes to retrieve from the table. These attributes can include</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">--     scalars, sets, or elements of a JSON document. The attributes in the</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">--     expression must be separated by commas.</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">--     If no attribute names are specified, then all attributes are</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">--     returned. If any of the requested attributes are not found, they do</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">--     not appear in the result.</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">--     For more information, see</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes&gt;</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">--     in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- -   @AttributesToGet@ - This is a legacy parameter. Use</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">--     @ProjectionExpression@ instead. For more information, see</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet&gt;</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">--     in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3ArequestItems%3ABatchGetItem%27"><span class="annot"><span class="annottext">BatchGetItem -&gt; HashMap Text KeysAndAttributes
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3ArequestItems%3ABatchGetItem%27"><span class="hs-identifier hs-var hs-var">requestItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395024"><span id="local-6989586621679395026"><span class="annot"><span class="annottext">BatchGetItem -&gt; BatchGetItem -&gt; Bool
+(BatchGetItem -&gt; BatchGetItem -&gt; Bool)
+-&gt; (BatchGetItem -&gt; BatchGetItem -&gt; Bool) -&gt; Eq BatchGetItem
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchGetItem -&gt; BatchGetItem -&gt; Bool
+$c/= :: BatchGetItem -&gt; BatchGetItem -&gt; Bool
+== :: BatchGetItem -&gt; BatchGetItem -&gt; Bool
+$c== :: BatchGetItem -&gt; BatchGetItem -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395015"><span id="local-6989586621679395017"><span id="local-6989586621679395019"><span id="local-6989586621679395021"><span class="annot"><span class="annottext">ReadPrec [BatchGetItem]
+ReadPrec BatchGetItem
+Int -&gt; ReadS BatchGetItem
+ReadS [BatchGetItem]
+(Int -&gt; ReadS BatchGetItem)
+-&gt; ReadS [BatchGetItem]
+-&gt; ReadPrec BatchGetItem
+-&gt; ReadPrec [BatchGetItem]
+-&gt; Read BatchGetItem
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchGetItem]
+$creadListPrec :: ReadPrec [BatchGetItem]
+readPrec :: ReadPrec BatchGetItem
+$creadPrec :: ReadPrec BatchGetItem
+readList :: ReadS [BatchGetItem]
+$creadList :: ReadS [BatchGetItem]
+readsPrec :: Int -&gt; ReadS BatchGetItem
+$creadsPrec :: Int -&gt; ReadS BatchGetItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395008"><span id="local-6989586621679395010"><span id="local-6989586621679395012"><span class="annot"><span class="annottext">Int -&gt; BatchGetItem -&gt; ShowS
+[BatchGetItem] -&gt; ShowS
+BatchGetItem -&gt; String
+(Int -&gt; BatchGetItem -&gt; ShowS)
+-&gt; (BatchGetItem -&gt; String)
+-&gt; ([BatchGetItem] -&gt; ShowS)
+-&gt; Show BatchGetItem
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchGetItem] -&gt; ShowS
+$cshowList :: [BatchGetItem] -&gt; ShowS
+show :: BatchGetItem -&gt; String
+$cshow :: BatchGetItem -&gt; String
+showsPrec :: Int -&gt; BatchGetItem -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchGetItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchGetItem -&gt; Rep BatchGetItem x)
+-&gt; (forall x. Rep BatchGetItem x -&gt; BatchGetItem)
+-&gt; Generic BatchGetItem
+forall x. Rep BatchGetItem x -&gt; BatchGetItem
+forall x. BatchGetItem -&gt; Rep BatchGetItem x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchGetItem x -&gt; BatchGetItem
+$cfrom :: forall x. BatchGetItem -&gt; Rep BatchGetItem x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Create a value of 'BatchGetItem' with all optional fields omitted.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'returnConsumedCapacity', 'batchGetItem_returnConsumedCapacity' - Undocumented member.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'requestItems', 'batchGetItem_requestItems' - A map of one or more table names and, for each table, a map that</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- describes one or more items to retrieve from that table. Each table name</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- can be used only once per @BatchGetItem@ request.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Each element in the map of items to retrieve consists of the following:</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- -   @ConsistentRead@ - If @true@, a strongly consistent read is used; if</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--     @false@ (the default), an eventually consistent read is used.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- -   @ExpressionAttributeNames@ - One or more substitution tokens for</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--     attribute names in the @ProjectionExpression@ parameter. The</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--     following are some use cases for using @ExpressionAttributeNames@:</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--     -   To access an attribute whose name conflicts with a DynamoDB</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--         reserved word.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--     -   To create a placeholder for repeating occurrences of an</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--         attribute name in an expression.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--     -   To prevent special characters in an attribute name from being</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--         misinterpreted in an expression.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--     Use the __#__ character in an expression to dereference an attribute</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--     name. For example, consider the following attribute name:</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--     -   @Percentile@</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--     The name of this attribute conflicts with a reserved word, so it</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--     cannot be used directly in an expression. (For the complete list of</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--     reserved words, see</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words&gt;</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--     in the /Amazon DynamoDB Developer Guide/). To work around this, you</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--     could specify the following for @ExpressionAttributeNames@:</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--     -   @{\&quot;#P\&quot;:\&quot;Percentile\&quot;}@</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--     You could then use this substitution in an expression, as in this</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--     example:</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     -   @#P = :val@</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--     Tokens that begin with the __:__ character are /expression attribute</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     values/, which are placeholders for the actual value at runtime.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--     For more information about expression attribute names, see</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes&gt;</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--     in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- -   @Keys@ - An array of primary key attribute values that define</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--     specific items in the table. For each primary key, you must provide</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     /all/ of the key attributes. For example, with a simple primary key,</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--     you only need to provide the partition key value. For a composite</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     key, you must provide /both/ the partition key value and the sort</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     key value.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- -   @ProjectionExpression@ - A string that identifies one or more</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--     attributes to retrieve from the table. These attributes can include</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--     scalars, sets, or elements of a JSON document. The attributes in the</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--     expression must be separated by commas.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     If no attribute names are specified, then all attributes are</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--     returned. If any of the requested attributes are not found, they do</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--     not appear in the result.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--     For more information, see</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes&gt;</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--     in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- -   @AttributesToGet@ - This is a legacy parameter. Use</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--     @ProjectionExpression@ instead. For more information, see</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet&gt;</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--     in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#newBatchGetItem"><span class="hs-identifier hs-type">newBatchGetItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-272"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem"><span class="hs-identifier hs-type">BatchGetItem</span></a></span><span>
+</span><span id="line-273"></span><span id="newBatchGetItem"><span class="annot"><span class="annottext">newBatchGetItem :: BatchGetItem
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#newBatchGetItem"><span class="hs-identifier hs-var hs-var">newBatchGetItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-274"></span><span>  </span><span class="annot"><span class="annottext">BatchGetItem' :: Maybe ReturnConsumedCapacity
+-&gt; HashMap Text KeysAndAttributes -&gt; BatchGetItem
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem%27"><span class="hs-identifier hs-type">BatchGetItem'</span></a></span><span>
+</span><span id="line-275"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:BatchGetItem' :: Maybe ReturnConsumedCapacity
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3AreturnConsumedCapacity%3ABatchGetItem%27"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-276"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestItems:BatchGetItem' :: HashMap Text KeysAndAttributes
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3ArequestItems%3ABatchGetItem%27"><span class="hs-identifier hs-var">requestItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text KeysAndAttributes
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-278"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItem_returnConsumedCapacity"><span class="hs-identifier hs-type">batchGetItem_returnConsumedCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem"><span class="hs-identifier hs-type">BatchGetItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReturnConsumedCapacity.html#ReturnConsumedCapacity"><span class="hs-identifier hs-type">ReturnConsumedCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span id="batchGetItem_returnConsumedCapacity"><span class="annot"><span class="annottext">batchGetItem_returnConsumedCapacity :: (Maybe ReturnConsumedCapacity -&gt; f (Maybe ReturnConsumedCapacity))
+-&gt; BatchGetItem -&gt; f BatchGetItem
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItem_returnConsumedCapacity"><span class="hs-identifier hs-var hs-var">batchGetItem_returnConsumedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetItem -&gt; Maybe ReturnConsumedCapacity)
+-&gt; (BatchGetItem -&gt; Maybe ReturnConsumedCapacity -&gt; BatchGetItem)
+-&gt; Lens
+     BatchGetItem
+     BatchGetItem
+     (Maybe ReturnConsumedCapacity)
+     (Maybe ReturnConsumedCapacity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem%27"><span class="hs-identifier hs-type">BatchGetItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395001"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+returnConsumedCapacity :: Maybe ReturnConsumedCapacity
+$sel:returnConsumedCapacity:BatchGetItem' :: BatchGetItem -&gt; Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679395001"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679395001"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395000"><span class="annot"><span class="annottext">s :: BatchGetItem
+</span><a href="#local-6989586621679395000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem%27"><span class="hs-identifier hs-type">BatchGetItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394999"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679394999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetItem
+</span><a href="#local-6989586621679395000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:BatchGetItem' :: Maybe ReturnConsumedCapacity
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3AreturnConsumedCapacity%3ABatchGetItem%27"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679394999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem"><span class="hs-identifier hs-type">BatchGetItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | A map of one or more table names and, for each table, a map that</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- describes one or more items to retrieve from that table. Each table name</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- can be used only once per @BatchGetItem@ request.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- Each element in the map of items to retrieve consists of the following:</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- -   @ConsistentRead@ - If @true@, a strongly consistent read is used; if</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--     @false@ (the default), an eventually consistent read is used.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- -   @ExpressionAttributeNames@ - One or more substitution tokens for</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--     attribute names in the @ProjectionExpression@ parameter. The</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--     following are some use cases for using @ExpressionAttributeNames@:</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--     -   To access an attribute whose name conflicts with a DynamoDB</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--         reserved word.</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--     -   To create a placeholder for repeating occurrences of an</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--         attribute name in an expression.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--     -   To prevent special characters in an attribute name from being</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--         misinterpreted in an expression.</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--     Use the __#__ character in an expression to dereference an attribute</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--     name. For example, consider the following attribute name:</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--     -   @Percentile@</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--     The name of this attribute conflicts with a reserved word, so it</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--     cannot be used directly in an expression. (For the complete list of</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--     reserved words, see</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words&gt;</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--     in the /Amazon DynamoDB Developer Guide/). To work around this, you</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--     could specify the following for @ExpressionAttributeNames@:</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--     -   @{\&quot;#P\&quot;:\&quot;Percentile\&quot;}@</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--     You could then use this substitution in an expression, as in this</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--     example:</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--     -   @#P = :val@</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--     Tokens that begin with the __:__ character are /expression attribute</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--     values/, which are placeholders for the actual value at runtime.</span><span>
+</span><span id="line-327"></span><span class="hs-comment">--</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--     For more information about expression attribute names, see</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes&gt;</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--     in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-331"></span><span class="hs-comment">--</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- -   @Keys@ - An array of primary key attribute values that define</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--     specific items in the table. For each primary key, you must provide</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--     /all/ of the key attributes. For example, with a simple primary key,</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--     you only need to provide the partition key value. For a composite</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--     key, you must provide /both/ the partition key value and the sort</span><span>
+</span><span id="line-337"></span><span class="hs-comment">--     key value.</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- -   @ProjectionExpression@ - A string that identifies one or more</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--     attributes to retrieve from the table. These attributes can include</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--     scalars, sets, or elements of a JSON document. The attributes in the</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--     expression must be separated by commas.</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--</span><span>
+</span><span id="line-344"></span><span class="hs-comment">--     If no attribute names are specified, then all attributes are</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--     returned. If any of the requested attributes are not found, they do</span><span>
+</span><span id="line-346"></span><span class="hs-comment">--     not appear in the result.</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--     For more information, see</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes&gt;</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--     in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-351"></span><span class="hs-comment">--</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- -   @AttributesToGet@ - This is a legacy parameter. Use</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--     @ProjectionExpression@ instead. For more information, see</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet&gt;</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--     in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-356"></span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItem_requestItems"><span class="hs-identifier hs-type">batchGetItem_requestItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem"><span class="hs-identifier hs-type">BatchGetItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span id="batchGetItem_requestItems"><span class="annot"><span class="annottext">batchGetItem_requestItems :: (HashMap Text KeysAndAttributes
+ -&gt; f (HashMap Text KeysAndAttributes))
+-&gt; BatchGetItem -&gt; f BatchGetItem
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItem_requestItems"><span class="hs-identifier hs-var hs-var">batchGetItem_requestItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetItem -&gt; HashMap Text KeysAndAttributes)
+-&gt; (BatchGetItem -&gt; HashMap Text KeysAndAttributes -&gt; BatchGetItem)
+-&gt; Lens
+     BatchGetItem
+     BatchGetItem
+     (HashMap Text KeysAndAttributes)
+     (HashMap Text KeysAndAttributes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem%27"><span class="hs-identifier hs-type">BatchGetItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394998"><span class="annot"><span class="annottext">HashMap Text KeysAndAttributes
+requestItems :: HashMap Text KeysAndAttributes
+$sel:requestItems:BatchGetItem' :: BatchGetItem -&gt; HashMap Text KeysAndAttributes
+</span><a href="#local-6989586621679394998"><span class="hs-identifier hs-var hs-var">requestItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text KeysAndAttributes
+</span><a href="#local-6989586621679394998"><span class="hs-identifier hs-var">requestItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394997"><span class="annot"><span class="annottext">s :: BatchGetItem
+</span><a href="#local-6989586621679394997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem%27"><span class="hs-identifier hs-type">BatchGetItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394996"><span class="annot"><span class="annottext">HashMap Text KeysAndAttributes
+</span><a href="#local-6989586621679394996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetItem
+</span><a href="#local-6989586621679394997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestItems:BatchGetItem' :: HashMap Text KeysAndAttributes
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3ArequestItems%3ABatchGetItem%27"><span class="hs-identifier hs-var">requestItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text KeysAndAttributes
+</span><a href="#local-6989586621679394996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem"><span class="hs-identifier hs-type">BatchGetItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text KeysAndAttributes
+  -&gt; f (HashMap Text KeysAndAttributes))
+ -&gt; BatchGetItem -&gt; f BatchGetItem)
+-&gt; ((HashMap Text KeysAndAttributes
+     -&gt; f (HashMap Text KeysAndAttributes))
+    -&gt; HashMap Text KeysAndAttributes
+    -&gt; f (HashMap Text KeysAndAttributes))
+-&gt; (HashMap Text KeysAndAttributes
+    -&gt; f (HashMap Text KeysAndAttributes))
+-&gt; BatchGetItem
+-&gt; f BatchGetItem
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text KeysAndAttributes
+ -&gt; f (HashMap Text KeysAndAttributes))
+-&gt; HashMap Text KeysAndAttributes
+-&gt; f (HashMap Text KeysAndAttributes)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-358"></span><span>
+</span><span id="line-359"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem"><span class="hs-identifier hs-type">BatchGetItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-360"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem"><span class="hs-identifier hs-type">BatchGetItem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse"><span class="hs-identifier hs-type">BatchGetItemResponse</span></a></span><span>
+</span><span id="line-361"></span><span>  </span><span id="local-6989586621679394990"><span class="annot"><span class="annottext">request :: BatchGetItem -&gt; Request BatchGetItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchGetItem -&gt; Request BatchGetItem
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-362"></span><span>  </span><span id="local-6989586621679394986"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchGetItem
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse BatchGetItem)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-363"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchGetItem))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchGetItem
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse BatchGetItem)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-364"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394983"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394983"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394982"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679394982"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394981"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394981"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-365"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text KeysAndAttributes)
+-&gt; Maybe [ConsumedCapacity]
+-&gt; Maybe (HashMap Text [HashMap Text AttributeValue])
+-&gt; Int
+-&gt; BatchGetItemResponse
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse%27"><span class="hs-identifier hs-var">BatchGetItemResponse'</span></a></span><span>
+</span><span id="line-366"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text KeysAndAttributes)
+ -&gt; Maybe [ConsumedCapacity]
+ -&gt; Maybe (HashMap Text [HashMap Text AttributeValue])
+ -&gt; Int
+ -&gt; BatchGetItemResponse)
+-&gt; Either String (Maybe (HashMap Text KeysAndAttributes))
+-&gt; Either
+     String
+     (Maybe [ConsumedCapacity]
+      -&gt; Maybe (HashMap Text [HashMap Text AttributeValue])
+      -&gt; Int
+      -&gt; BatchGetItemResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe (HashMap Text KeysAndAttributes)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UnprocessedKeys&quot;</span></span><span>
+</span><span id="line-367"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text KeysAndAttributes)))
+-&gt; Maybe (HashMap Text KeysAndAttributes)
+-&gt; Either String (Maybe (HashMap Text KeysAndAttributes))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text KeysAndAttributes)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-368"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-369"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ConsumedCapacity]
+   -&gt; Maybe (HashMap Text [HashMap Text AttributeValue])
+   -&gt; Int
+   -&gt; BatchGetItemResponse)
+-&gt; Either String (Maybe [ConsumedCapacity])
+-&gt; Either
+     String
+     (Maybe (HashMap Text [HashMap Text AttributeValue])
+      -&gt; Int -&gt; BatchGetItemResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ConsumedCapacity]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConsumedCapacity&quot;</span></span><span>
+</span><span id="line-370"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ConsumedCapacity]))
+-&gt; Maybe [ConsumedCapacity]
+-&gt; Either String (Maybe [ConsumedCapacity])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-371"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-372"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text [HashMap Text AttributeValue])
+   -&gt; Int -&gt; BatchGetItemResponse)
+-&gt; Either
+     String (Maybe (HashMap Text [HashMap Text AttributeValue]))
+-&gt; Either String (Int -&gt; BatchGetItemResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either
+     String (Maybe (Maybe (HashMap Text [HashMap Text AttributeValue])))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Responses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either
+  String (Maybe (Maybe (HashMap Text [HashMap Text AttributeValue])))
+-&gt; Maybe (HashMap Text [HashMap Text AttributeValue])
+-&gt; Either
+     String (Maybe (HashMap Text [HashMap Text AttributeValue]))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [HashMap Text AttributeValue])
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchGetItemResponse)
+-&gt; Either String Int -&gt; Either String BatchGetItemResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394983"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-375"></span><span>
+</span><span id="line-376"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394972"><span id="local-6989586621679394974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem"><span class="hs-identifier hs-type">BatchGetItem</span></a></span></span></span><span>
+</span><span id="line-377"></span><span>
+</span><span id="line-378"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem"><span class="hs-identifier hs-type">BatchGetItem</span></a></span></span><span>
+</span><span id="line-379"></span><span>
+</span><span id="line-380"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem"><span class="hs-identifier hs-type">BatchGetItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-381"></span><span>  </span><span id="local-6989586621679394965"><span class="annot"><span class="annottext">toHeaders :: BatchGetItem -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-382"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetItem -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-383"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-384"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-385"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DynamoDB_20120810.BatchGetItem&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-386"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-387"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-388"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-389"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-390"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-391"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-392"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-393"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-394"></span><span>
+</span><span id="line-395"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394955"><span id="local-6989586621679394957"><span id="local-6989586621679394959"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem"><span class="hs-identifier hs-type">BatchGetItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-396"></span><span>  </span><span id="local-6989586621679394953"><span class="annot"><span class="annottext">toJSON :: BatchGetItem -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem%27"><span class="hs-identifier hs-type">BatchGetItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394950"><span id="local-6989586621679394951"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+HashMap Text KeysAndAttributes
+requestItems :: HashMap Text KeysAndAttributes
+returnConsumedCapacity :: Maybe ReturnConsumedCapacity
+$sel:requestItems:BatchGetItem' :: BatchGetItem -&gt; HashMap Text KeysAndAttributes
+$sel:returnConsumedCapacity:BatchGetItem' :: BatchGetItem -&gt; Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679394950"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-397"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-398"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-399"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReturnConsumedCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnConsumedCapacity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-400"></span><span>              </span><span class="annot"><span class="annottext">(ReturnConsumedCapacity -&gt; Pair)
+-&gt; Maybe ReturnConsumedCapacity -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679394951"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-401"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text KeysAndAttributes -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text KeysAndAttributes
+</span><a href="#local-6989586621679394950"><span class="hs-identifier hs-var">requestItems</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-402"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-403"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-404"></span><span>
+</span><span id="line-405"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem"><span class="hs-identifier hs-type">BatchGetItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-406"></span><span>  </span><span id="local-6989586621679394944"><span class="annot"><span class="annottext">toPath :: BatchGetItem -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchGetItem -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-407"></span><span>
+</span><span id="line-408"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItem"><span class="hs-identifier hs-type">BatchGetItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-409"></span><span>  </span><span id="local-6989586621679394940"><span class="annot"><span class="annottext">toQuery :: BatchGetItem -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchGetItem -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-410"></span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- | Represents the output of a @BatchGetItem@ operation.</span><span>
+</span><span id="line-412"></span><span class="hs-comment">--</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- /See:/ 'newBatchGetItemResponse' smart constructor.</span><span>
+</span><span id="line-414"></span><span id="local-6989586621679394937"><span id="local-6989586621679394938"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetItemResponse"><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse"><span class="hs-identifier hs-var">BatchGetItemResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetItemResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse%27"><span class="hs-identifier hs-var">BatchGetItemResponse'</span></a></span></span><span>
+</span><span id="line-415"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map of tables and their respective keys that were not processed with</span><span>
+</span><span id="line-416"></span><span>    </span><span class="hs-comment">-- the current response. The @UnprocessedKeys@ value is in the same form as</span><span>
+</span><span id="line-417"></span><span>    </span><span class="hs-comment">-- @RequestItems@, so the value can be provided directly to a subsequent</span><span>
+</span><span id="line-418"></span><span>    </span><span class="hs-comment">-- @BatchGetItem@ operation. For more information, see @RequestItems@ in</span><span>
+</span><span id="line-419"></span><span>    </span><span class="hs-comment">-- the Request Parameters section.</span><span>
+</span><span id="line-420"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-421"></span><span>    </span><span class="hs-comment">-- Each element consists of:</span><span>
+</span><span id="line-422"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-423"></span><span>    </span><span class="hs-comment">-- -   @Keys@ - An array of primary key attribute values that define</span><span>
+</span><span id="line-424"></span><span>    </span><span class="hs-comment">--     specific items in the table.</span><span>
+</span><span id="line-425"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-426"></span><span>    </span><span class="hs-comment">-- -   @ProjectionExpression@ - One or more attributes to be retrieved from</span><span>
+</span><span id="line-427"></span><span>    </span><span class="hs-comment">--     the table or index. By default, all attributes are returned. If a</span><span>
+</span><span id="line-428"></span><span>    </span><span class="hs-comment">--     requested attribute is not found, it does not appear in the result.</span><span>
+</span><span id="line-429"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-430"></span><span>    </span><span class="hs-comment">-- -   @ConsistentRead@ - The consistency of a read operation. If set to</span><span>
+</span><span id="line-431"></span><span>    </span><span class="hs-comment">--     @true@, then a strongly consistent read is used; otherwise, an</span><span>
+</span><span id="line-432"></span><span>    </span><span class="hs-comment">--     eventually consistent read is used.</span><span>
+</span><span id="line-433"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-434"></span><span>    </span><span class="hs-comment">-- If there are no unprocessed keys remaining, the response contains an</span><span>
+</span><span id="line-435"></span><span>    </span><span class="hs-comment">-- empty @UnprocessedKeys@ map.</span><span>
+</span><span id="line-436"></span><span>    </span><span id="%24sel%3AunprocessedKeys%3ABatchGetItemResponse%27"><span class="annot"><span class="annottext">BatchGetItemResponse -&gt; Maybe (HashMap Text KeysAndAttributes)
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3AunprocessedKeys%3ABatchGetItemResponse%27"><span class="hs-identifier hs-var hs-var">unprocessedKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-437"></span><span>    </span><span class="hs-comment">-- | The read capacity units consumed by the entire @BatchGetItem@ operation.</span><span>
+</span><span id="line-438"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-439"></span><span>    </span><span class="hs-comment">-- Each element consists of:</span><span>
+</span><span id="line-440"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-441"></span><span>    </span><span class="hs-comment">-- -   @TableName@ - The table that consumed the provisioned throughput.</span><span>
+</span><span id="line-442"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-443"></span><span>    </span><span class="hs-comment">-- -   @CapacityUnits@ - The total number of capacity units consumed.</span><span>
+</span><span id="line-444"></span><span>    </span><span id="%24sel%3AconsumedCapacity%3ABatchGetItemResponse%27"><span class="annot"><span class="annottext">BatchGetItemResponse -&gt; Maybe [ConsumedCapacity]
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3AconsumedCapacity%3ABatchGetItemResponse%27"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConsumedCapacity.html#ConsumedCapacity"><span class="hs-identifier hs-type">ConsumedCapacity</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-445"></span><span>    </span><span class="hs-comment">-- | A map of table name to a list of items. Each object in @Responses@</span><span>
+</span><span id="line-446"></span><span>    </span><span class="hs-comment">-- consists of a table name, along with a map of attribute data consisting</span><span>
+</span><span id="line-447"></span><span>    </span><span class="hs-comment">-- of the data type and attribute value.</span><span>
+</span><span id="line-448"></span><span>    </span><span id="%24sel%3Aresponses%3ABatchGetItemResponse%27"><span class="annot"><span class="annottext">BatchGetItemResponse
+-&gt; Maybe (HashMap Text [HashMap Text AttributeValue])
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3Aresponses%3ABatchGetItemResponse%27"><span class="hs-identifier hs-var hs-var">responses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-449"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-450"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetItemResponse%27"><span class="annot"><span class="annottext">BatchGetItemResponse -&gt; Int
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3AhttpStatus%3ABatchGetItemResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-451"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-452"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394929"><span id="local-6989586621679394931"><span class="annot"><span class="annottext">BatchGetItemResponse -&gt; BatchGetItemResponse -&gt; Bool
+(BatchGetItemResponse -&gt; BatchGetItemResponse -&gt; Bool)
+-&gt; (BatchGetItemResponse -&gt; BatchGetItemResponse -&gt; Bool)
+-&gt; Eq BatchGetItemResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchGetItemResponse -&gt; BatchGetItemResponse -&gt; Bool
+$c/= :: BatchGetItemResponse -&gt; BatchGetItemResponse -&gt; Bool
+== :: BatchGetItemResponse -&gt; BatchGetItemResponse -&gt; Bool
+$c== :: BatchGetItemResponse -&gt; BatchGetItemResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394921"><span id="local-6989586621679394923"><span id="local-6989586621679394925"><span id="local-6989586621679394927"><span class="annot"><span class="annottext">ReadPrec [BatchGetItemResponse]
+ReadPrec BatchGetItemResponse
+Int -&gt; ReadS BatchGetItemResponse
+ReadS [BatchGetItemResponse]
+(Int -&gt; ReadS BatchGetItemResponse)
+-&gt; ReadS [BatchGetItemResponse]
+-&gt; ReadPrec BatchGetItemResponse
+-&gt; ReadPrec [BatchGetItemResponse]
+-&gt; Read BatchGetItemResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchGetItemResponse]
+$creadListPrec :: ReadPrec [BatchGetItemResponse]
+readPrec :: ReadPrec BatchGetItemResponse
+$creadPrec :: ReadPrec BatchGetItemResponse
+readList :: ReadS [BatchGetItemResponse]
+$creadList :: ReadS [BatchGetItemResponse]
+readsPrec :: Int -&gt; ReadS BatchGetItemResponse
+$creadsPrec :: Int -&gt; ReadS BatchGetItemResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394915"><span id="local-6989586621679394917"><span id="local-6989586621679394919"><span class="annot"><span class="annottext">Int -&gt; BatchGetItemResponse -&gt; ShowS
+[BatchGetItemResponse] -&gt; ShowS
+BatchGetItemResponse -&gt; String
+(Int -&gt; BatchGetItemResponse -&gt; ShowS)
+-&gt; (BatchGetItemResponse -&gt; String)
+-&gt; ([BatchGetItemResponse] -&gt; ShowS)
+-&gt; Show BatchGetItemResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchGetItemResponse] -&gt; ShowS
+$cshowList :: [BatchGetItemResponse] -&gt; ShowS
+show :: BatchGetItemResponse -&gt; String
+$cshow :: BatchGetItemResponse -&gt; String
+showsPrec :: Int -&gt; BatchGetItemResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchGetItemResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchGetItemResponse -&gt; Rep BatchGetItemResponse x)
+-&gt; (forall x. Rep BatchGetItemResponse x -&gt; BatchGetItemResponse)
+-&gt; Generic BatchGetItemResponse
+forall x. Rep BatchGetItemResponse x -&gt; BatchGetItemResponse
+forall x. BatchGetItemResponse -&gt; Rep BatchGetItemResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchGetItemResponse x -&gt; BatchGetItemResponse
+$cfrom :: forall x. BatchGetItemResponse -&gt; Rep BatchGetItemResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-453"></span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-455"></span><span class="hs-comment">-- Create a value of 'BatchGetItemResponse' with all optional fields omitted.</span><span>
+</span><span id="line-456"></span><span class="hs-comment">--</span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-458"></span><span class="hs-comment">--</span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-460"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-461"></span><span class="hs-comment">--</span><span>
+</span><span id="line-462"></span><span class="hs-comment">-- 'unprocessedKeys', 'batchGetItemResponse_unprocessedKeys' - A map of tables and their respective keys that were not processed with</span><span>
+</span><span id="line-463"></span><span class="hs-comment">-- the current response. The @UnprocessedKeys@ value is in the same form as</span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- @RequestItems@, so the value can be provided directly to a subsequent</span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- @BatchGetItem@ operation. For more information, see @RequestItems@ in</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- the Request Parameters section.</span><span>
+</span><span id="line-467"></span><span class="hs-comment">--</span><span>
+</span><span id="line-468"></span><span class="hs-comment">-- Each element consists of:</span><span>
+</span><span id="line-469"></span><span class="hs-comment">--</span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- -   @Keys@ - An array of primary key attribute values that define</span><span>
+</span><span id="line-471"></span><span class="hs-comment">--     specific items in the table.</span><span>
+</span><span id="line-472"></span><span class="hs-comment">--</span><span>
+</span><span id="line-473"></span><span class="hs-comment">-- -   @ProjectionExpression@ - One or more attributes to be retrieved from</span><span>
+</span><span id="line-474"></span><span class="hs-comment">--     the table or index. By default, all attributes are returned. If a</span><span>
+</span><span id="line-475"></span><span class="hs-comment">--     requested attribute is not found, it does not appear in the result.</span><span>
+</span><span id="line-476"></span><span class="hs-comment">--</span><span>
+</span><span id="line-477"></span><span class="hs-comment">-- -   @ConsistentRead@ - The consistency of a read operation. If set to</span><span>
+</span><span id="line-478"></span><span class="hs-comment">--     @true@, then a strongly consistent read is used; otherwise, an</span><span>
+</span><span id="line-479"></span><span class="hs-comment">--     eventually consistent read is used.</span><span>
+</span><span id="line-480"></span><span class="hs-comment">--</span><span>
+</span><span id="line-481"></span><span class="hs-comment">-- If there are no unprocessed keys remaining, the response contains an</span><span>
+</span><span id="line-482"></span><span class="hs-comment">-- empty @UnprocessedKeys@ map.</span><span>
+</span><span id="line-483"></span><span class="hs-comment">--</span><span>
+</span><span id="line-484"></span><span class="hs-comment">-- 'consumedCapacity', 'batchGetItemResponse_consumedCapacity' - The read capacity units consumed by the entire @BatchGetItem@ operation.</span><span>
+</span><span id="line-485"></span><span class="hs-comment">--</span><span>
+</span><span id="line-486"></span><span class="hs-comment">-- Each element consists of:</span><span>
+</span><span id="line-487"></span><span class="hs-comment">--</span><span>
+</span><span id="line-488"></span><span class="hs-comment">-- -   @TableName@ - The table that consumed the provisioned throughput.</span><span>
+</span><span id="line-489"></span><span class="hs-comment">--</span><span>
+</span><span id="line-490"></span><span class="hs-comment">-- -   @CapacityUnits@ - The total number of capacity units consumed.</span><span>
+</span><span id="line-491"></span><span class="hs-comment">--</span><span>
+</span><span id="line-492"></span><span class="hs-comment">-- 'responses', 'batchGetItemResponse_responses' - A map of table name to a list of items. Each object in @Responses@</span><span>
+</span><span id="line-493"></span><span class="hs-comment">-- consists of a table name, along with a map of attribute data consisting</span><span>
+</span><span id="line-494"></span><span class="hs-comment">-- of the data type and attribute value.</span><span>
+</span><span id="line-495"></span><span class="hs-comment">--</span><span>
+</span><span id="line-496"></span><span class="hs-comment">-- 'httpStatus', 'batchGetItemResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-497"></span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#newBatchGetItemResponse"><span class="hs-identifier hs-type">newBatchGetItemResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-498"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-499"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-500"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse"><span class="hs-identifier hs-type">BatchGetItemResponse</span></a></span><span>
+</span><span id="line-501"></span><span id="newBatchGetItemResponse"><span class="annot"><span class="annottext">newBatchGetItemResponse :: Int -&gt; BatchGetItemResponse
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#newBatchGetItemResponse"><span class="hs-identifier hs-var hs-var">newBatchGetItemResponse</span></a></span></span><span> </span><span id="local-6989586621679394912"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-502"></span><span>  </span><span class="annot"><span class="annottext">BatchGetItemResponse' :: Maybe (HashMap Text KeysAndAttributes)
+-&gt; Maybe [ConsumedCapacity]
+-&gt; Maybe (HashMap Text [HashMap Text AttributeValue])
+-&gt; Int
+-&gt; BatchGetItemResponse
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse%27"><span class="hs-identifier hs-type">BatchGetItemResponse'</span></a></span><span>
+</span><span id="line-503"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:unprocessedKeys:BatchGetItemResponse' :: Maybe (HashMap Text KeysAndAttributes)
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3AunprocessedKeys%3ABatchGetItemResponse%27"><span class="hs-identifier hs-var">unprocessedKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-504"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap Text KeysAndAttributes)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-505"></span><span>      </span><span class="annot"><span class="annottext">$sel:consumedCapacity:BatchGetItemResponse' :: Maybe [ConsumedCapacity]
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3AconsumedCapacity%3ABatchGetItemResponse%27"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-506"></span><span>      </span><span class="annot"><span class="annottext">$sel:responses:BatchGetItemResponse' :: Maybe (HashMap Text [HashMap Text AttributeValue])
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3Aresponses%3ABatchGetItemResponse%27"><span class="hs-identifier hs-var">responses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [HashMap Text AttributeValue])
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-507"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetItemResponse' :: Int
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3AhttpStatus%3ABatchGetItemResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-508"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-509"></span><span>
+</span><span id="line-510"></span><span class="hs-comment">-- | A map of tables and their respective keys that were not processed with</span><span>
+</span><span id="line-511"></span><span class="hs-comment">-- the current response. The @UnprocessedKeys@ value is in the same form as</span><span>
+</span><span id="line-512"></span><span class="hs-comment">-- @RequestItems@, so the value can be provided directly to a subsequent</span><span>
+</span><span id="line-513"></span><span class="hs-comment">-- @BatchGetItem@ operation. For more information, see @RequestItems@ in</span><span>
+</span><span id="line-514"></span><span class="hs-comment">-- the Request Parameters section.</span><span>
+</span><span id="line-515"></span><span class="hs-comment">--</span><span>
+</span><span id="line-516"></span><span class="hs-comment">-- Each element consists of:</span><span>
+</span><span id="line-517"></span><span class="hs-comment">--</span><span>
+</span><span id="line-518"></span><span class="hs-comment">-- -   @Keys@ - An array of primary key attribute values that define</span><span>
+</span><span id="line-519"></span><span class="hs-comment">--     specific items in the table.</span><span>
+</span><span id="line-520"></span><span class="hs-comment">--</span><span>
+</span><span id="line-521"></span><span class="hs-comment">-- -   @ProjectionExpression@ - One or more attributes to be retrieved from</span><span>
+</span><span id="line-522"></span><span class="hs-comment">--     the table or index. By default, all attributes are returned. If a</span><span>
+</span><span id="line-523"></span><span class="hs-comment">--     requested attribute is not found, it does not appear in the result.</span><span>
+</span><span id="line-524"></span><span class="hs-comment">--</span><span>
+</span><span id="line-525"></span><span class="hs-comment">-- -   @ConsistentRead@ - The consistency of a read operation. If set to</span><span>
+</span><span id="line-526"></span><span class="hs-comment">--     @true@, then a strongly consistent read is used; otherwise, an</span><span>
+</span><span id="line-527"></span><span class="hs-comment">--     eventually consistent read is used.</span><span>
+</span><span id="line-528"></span><span class="hs-comment">--</span><span>
+</span><span id="line-529"></span><span class="hs-comment">-- If there are no unprocessed keys remaining, the response contains an</span><span>
+</span><span id="line-530"></span><span class="hs-comment">-- empty @UnprocessedKeys@ map.</span><span>
+</span><span id="line-531"></span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItemResponse_unprocessedKeys"><span class="hs-identifier hs-type">batchGetItemResponse_unprocessedKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse"><span class="hs-identifier hs-type">BatchGetItemResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-532"></span><span id="batchGetItemResponse_unprocessedKeys"><span class="annot"><span class="annottext">batchGetItemResponse_unprocessedKeys :: (Maybe (HashMap Text KeysAndAttributes)
+ -&gt; f (Maybe (HashMap Text KeysAndAttributes)))
+-&gt; BatchGetItemResponse -&gt; f BatchGetItemResponse
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItemResponse_unprocessedKeys"><span class="hs-identifier hs-var hs-var">batchGetItemResponse_unprocessedKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetItemResponse -&gt; Maybe (HashMap Text KeysAndAttributes))
+-&gt; (BatchGetItemResponse
+    -&gt; Maybe (HashMap Text KeysAndAttributes) -&gt; BatchGetItemResponse)
+-&gt; Lens
+     BatchGetItemResponse
+     BatchGetItemResponse
+     (Maybe (HashMap Text KeysAndAttributes))
+     (Maybe (HashMap Text KeysAndAttributes))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse%27"><span class="hs-identifier hs-type">BatchGetItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394911"><span class="annot"><span class="annottext">Maybe (HashMap Text KeysAndAttributes)
+unprocessedKeys :: Maybe (HashMap Text KeysAndAttributes)
+$sel:unprocessedKeys:BatchGetItemResponse' :: BatchGetItemResponse -&gt; Maybe (HashMap Text KeysAndAttributes)
+</span><a href="#local-6989586621679394911"><span class="hs-identifier hs-var hs-var">unprocessedKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text KeysAndAttributes)
+</span><a href="#local-6989586621679394911"><span class="hs-identifier hs-var">unprocessedKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394910"><span class="annot"><span class="annottext">s :: BatchGetItemResponse
+</span><a href="#local-6989586621679394910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse%27"><span class="hs-identifier hs-type">BatchGetItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394909"><span class="annot"><span class="annottext">Maybe (HashMap Text KeysAndAttributes)
+</span><a href="#local-6989586621679394909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetItemResponse
+</span><a href="#local-6989586621679394910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedKeys:BatchGetItemResponse' :: Maybe (HashMap Text KeysAndAttributes)
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3AunprocessedKeys%3ABatchGetItemResponse%27"><span class="hs-identifier hs-var">unprocessedKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text KeysAndAttributes)
+</span><a href="#local-6989586621679394909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse"><span class="hs-identifier hs-type">BatchGetItemResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text KeysAndAttributes)
+  -&gt; f (Maybe (HashMap Text KeysAndAttributes)))
+ -&gt; BatchGetItemResponse -&gt; f BatchGetItemResponse)
+-&gt; ((Maybe (HashMap Text KeysAndAttributes)
+     -&gt; f (Maybe (HashMap Text KeysAndAttributes)))
+    -&gt; Maybe (HashMap Text KeysAndAttributes)
+    -&gt; f (Maybe (HashMap Text KeysAndAttributes)))
+-&gt; (Maybe (HashMap Text KeysAndAttributes)
+    -&gt; f (Maybe (HashMap Text KeysAndAttributes)))
+-&gt; BatchGetItemResponse
+-&gt; f BatchGetItemResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text KeysAndAttributes)
+  (HashMap Text KeysAndAttributes)
+  (HashMap Text KeysAndAttributes)
+  (HashMap Text KeysAndAttributes)
+-&gt; Iso
+     (Maybe (HashMap Text KeysAndAttributes))
+     (Maybe (HashMap Text KeysAndAttributes))
+     (Maybe (HashMap Text KeysAndAttributes))
+     (Maybe (HashMap Text KeysAndAttributes))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text KeysAndAttributes)
+  (HashMap Text KeysAndAttributes)
+  (HashMap Text KeysAndAttributes)
+  (HashMap Text KeysAndAttributes)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-533"></span><span>
+</span><span id="line-534"></span><span class="hs-comment">-- | The read capacity units consumed by the entire @BatchGetItem@ operation.</span><span>
+</span><span id="line-535"></span><span class="hs-comment">--</span><span>
+</span><span id="line-536"></span><span class="hs-comment">-- Each element consists of:</span><span>
+</span><span id="line-537"></span><span class="hs-comment">--</span><span>
+</span><span id="line-538"></span><span class="hs-comment">-- -   @TableName@ - The table that consumed the provisioned throughput.</span><span>
+</span><span id="line-539"></span><span class="hs-comment">--</span><span>
+</span><span id="line-540"></span><span class="hs-comment">-- -   @CapacityUnits@ - The total number of capacity units consumed.</span><span>
+</span><span id="line-541"></span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItemResponse_consumedCapacity"><span class="hs-identifier hs-type">batchGetItemResponse_consumedCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse"><span class="hs-identifier hs-type">BatchGetItemResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConsumedCapacity.html#ConsumedCapacity"><span class="hs-identifier hs-type">ConsumedCapacity</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-542"></span><span id="batchGetItemResponse_consumedCapacity"><span class="annot"><span class="annottext">batchGetItemResponse_consumedCapacity :: (Maybe [ConsumedCapacity] -&gt; f (Maybe [ConsumedCapacity]))
+-&gt; BatchGetItemResponse -&gt; f BatchGetItemResponse
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItemResponse_consumedCapacity"><span class="hs-identifier hs-var hs-var">batchGetItemResponse_consumedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetItemResponse -&gt; Maybe [ConsumedCapacity])
+-&gt; (BatchGetItemResponse
+    -&gt; Maybe [ConsumedCapacity] -&gt; BatchGetItemResponse)
+-&gt; Lens
+     BatchGetItemResponse
+     BatchGetItemResponse
+     (Maybe [ConsumedCapacity])
+     (Maybe [ConsumedCapacity])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse%27"><span class="hs-identifier hs-type">BatchGetItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394907"><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
+consumedCapacity :: Maybe [ConsumedCapacity]
+$sel:consumedCapacity:BatchGetItemResponse' :: BatchGetItemResponse -&gt; Maybe [ConsumedCapacity]
+</span><a href="#local-6989586621679394907"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
+</span><a href="#local-6989586621679394907"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394906"><span class="annot"><span class="annottext">s :: BatchGetItemResponse
+</span><a href="#local-6989586621679394906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse%27"><span class="hs-identifier hs-type">BatchGetItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394905"><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
+</span><a href="#local-6989586621679394905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetItemResponse
+</span><a href="#local-6989586621679394906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedCapacity:BatchGetItemResponse' :: Maybe [ConsumedCapacity]
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3AconsumedCapacity%3ABatchGetItemResponse%27"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
+</span><a href="#local-6989586621679394905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse"><span class="hs-identifier hs-type">BatchGetItemResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConsumedCapacity] -&gt; f (Maybe [ConsumedCapacity]))
+ -&gt; BatchGetItemResponse -&gt; f BatchGetItemResponse)
+-&gt; ((Maybe [ConsumedCapacity] -&gt; f (Maybe [ConsumedCapacity]))
+    -&gt; Maybe [ConsumedCapacity] -&gt; f (Maybe [ConsumedCapacity]))
+-&gt; (Maybe [ConsumedCapacity] -&gt; f (Maybe [ConsumedCapacity]))
+-&gt; BatchGetItemResponse
+-&gt; f BatchGetItemResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConsumedCapacity]
+  [ConsumedCapacity]
+  [ConsumedCapacity]
+  [ConsumedCapacity]
+-&gt; Iso
+     (Maybe [ConsumedCapacity])
+     (Maybe [ConsumedCapacity])
+     (Maybe [ConsumedCapacity])
+     (Maybe [ConsumedCapacity])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConsumedCapacity]
+  [ConsumedCapacity]
+  [ConsumedCapacity]
+  [ConsumedCapacity]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-543"></span><span>
+</span><span id="line-544"></span><span class="hs-comment">-- | A map of table name to a list of items. Each object in @Responses@</span><span>
+</span><span id="line-545"></span><span class="hs-comment">-- consists of a table name, along with a map of attribute data consisting</span><span>
+</span><span id="line-546"></span><span class="hs-comment">-- of the data type and attribute value.</span><span>
+</span><span id="line-547"></span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItemResponse_responses"><span class="hs-identifier hs-type">batchGetItemResponse_responses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse"><span class="hs-identifier hs-type">BatchGetItemResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-548"></span><span id="batchGetItemResponse_responses"><span class="annot"><span class="annottext">batchGetItemResponse_responses :: (Maybe (HashMap Text [HashMap Text AttributeValue])
+ -&gt; f (Maybe (HashMap Text [HashMap Text AttributeValue])))
+-&gt; BatchGetItemResponse -&gt; f BatchGetItemResponse
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItemResponse_responses"><span class="hs-identifier hs-var hs-var">batchGetItemResponse_responses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetItemResponse
+ -&gt; Maybe (HashMap Text [HashMap Text AttributeValue]))
+-&gt; (BatchGetItemResponse
+    -&gt; Maybe (HashMap Text [HashMap Text AttributeValue])
+    -&gt; BatchGetItemResponse)
+-&gt; Lens
+     BatchGetItemResponse
+     BatchGetItemResponse
+     (Maybe (HashMap Text [HashMap Text AttributeValue]))
+     (Maybe (HashMap Text [HashMap Text AttributeValue]))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse%27"><span class="hs-identifier hs-type">BatchGetItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394904"><span class="annot"><span class="annottext">Maybe (HashMap Text [HashMap Text AttributeValue])
+responses :: Maybe (HashMap Text [HashMap Text AttributeValue])
+$sel:responses:BatchGetItemResponse' :: BatchGetItemResponse
+-&gt; Maybe (HashMap Text [HashMap Text AttributeValue])
+</span><a href="#local-6989586621679394904"><span class="hs-identifier hs-var hs-var">responses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [HashMap Text AttributeValue])
+</span><a href="#local-6989586621679394904"><span class="hs-identifier hs-var">responses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394903"><span class="annot"><span class="annottext">s :: BatchGetItemResponse
+</span><a href="#local-6989586621679394903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse%27"><span class="hs-identifier hs-type">BatchGetItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394902"><span class="annot"><span class="annottext">Maybe (HashMap Text [HashMap Text AttributeValue])
+</span><a href="#local-6989586621679394902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetItemResponse
+</span><a href="#local-6989586621679394903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responses:BatchGetItemResponse' :: Maybe (HashMap Text [HashMap Text AttributeValue])
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3Aresponses%3ABatchGetItemResponse%27"><span class="hs-identifier hs-var">responses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [HashMap Text AttributeValue])
+</span><a href="#local-6989586621679394902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse"><span class="hs-identifier hs-type">BatchGetItemResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [HashMap Text AttributeValue])
+  -&gt; f (Maybe (HashMap Text [HashMap Text AttributeValue])))
+ -&gt; BatchGetItemResponse -&gt; f BatchGetItemResponse)
+-&gt; ((Maybe (HashMap Text [HashMap Text AttributeValue])
+     -&gt; f (Maybe (HashMap Text [HashMap Text AttributeValue])))
+    -&gt; Maybe (HashMap Text [HashMap Text AttributeValue])
+    -&gt; f (Maybe (HashMap Text [HashMap Text AttributeValue])))
+-&gt; (Maybe (HashMap Text [HashMap Text AttributeValue])
+    -&gt; f (Maybe (HashMap Text [HashMap Text AttributeValue])))
+-&gt; BatchGetItemResponse
+-&gt; f BatchGetItemResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [HashMap Text AttributeValue])
+  (HashMap Text [HashMap Text AttributeValue])
+  (HashMap Text [HashMap Text AttributeValue])
+  (HashMap Text [HashMap Text AttributeValue])
+-&gt; Iso
+     (Maybe (HashMap Text [HashMap Text AttributeValue]))
+     (Maybe (HashMap Text [HashMap Text AttributeValue]))
+     (Maybe (HashMap Text [HashMap Text AttributeValue]))
+     (Maybe (HashMap Text [HashMap Text AttributeValue]))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [HashMap Text AttributeValue])
+  (HashMap Text [HashMap Text AttributeValue])
+  (HashMap Text [HashMap Text AttributeValue])
+  (HashMap Text [HashMap Text AttributeValue])
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-549"></span><span>
+</span><span id="line-550"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-551"></span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItemResponse_httpStatus"><span class="hs-identifier hs-type">batchGetItemResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse"><span class="hs-identifier hs-type">BatchGetItemResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-552"></span><span id="batchGetItemResponse_httpStatus"><span class="annot"><span class="annottext">batchGetItemResponse_httpStatus :: (Int -&gt; f Int) -&gt; BatchGetItemResponse -&gt; f BatchGetItemResponse
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#batchGetItemResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchGetItemResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetItemResponse -&gt; Int)
+-&gt; (BatchGetItemResponse -&gt; Int -&gt; BatchGetItemResponse)
+-&gt; Lens BatchGetItemResponse BatchGetItemResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse%27"><span class="hs-identifier hs-type">BatchGetItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394901"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchGetItemResponse' :: BatchGetItemResponse -&gt; Int
+</span><a href="#local-6989586621679394901"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394901"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394900"><span class="annot"><span class="annottext">s :: BatchGetItemResponse
+</span><a href="#local-6989586621679394900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse%27"><span class="hs-identifier hs-type">BatchGetItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394899"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetItemResponse
+</span><a href="#local-6989586621679394900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetItemResponse' :: Int
+</span><a href="Network.AWS.DynamoDB.BatchGetItem.html#%24sel%3AhttpStatus%3ABatchGetItemResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse"><span class="hs-identifier hs-type">BatchGetItemResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-553"></span><span>
+</span><span id="line-554"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394897"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchGetItem.html#BatchGetItemResponse"><span class="hs-identifier hs-type">BatchGetItemResponse</span></a></span></span><span>
+</span><span id="line-555"></span></pre></body></html>

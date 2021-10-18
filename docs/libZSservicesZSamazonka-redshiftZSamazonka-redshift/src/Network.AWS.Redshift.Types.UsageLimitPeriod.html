@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Redshift.Types.UsageLimitPeriod</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Redshift.Types.UsageLimitPeriod</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod"><span class="hs-identifier">UsageLimitPeriod</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod_Daily"><span class="hs-identifier">UsageLimitPeriod_Daily</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod_Monthly"><span class="hs-identifier">UsageLimitPeriod_Monthly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod_Weekly"><span class="hs-identifier">UsageLimitPeriod_Weekly</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Internal.html"><span class="hs-identifier">Network.AWS.Redshift.Internal</span></a></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679501577"><span id="local-6989586621679501578"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UsageLimitPeriod"><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod"><span class="hs-identifier hs-var">UsageLimitPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageLimitPeriod%27"><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod%27"><span class="hs-identifier hs-var">UsageLimitPeriod'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUsageLimitPeriod"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; Text
+</span><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#fromUsageLimitPeriod"><span class="hs-identifier hs-var hs-var">fromUsageLimitPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679501569"><span id="local-6989586621679501571"><span id="local-6989586621679501573"><span class="annot"><span class="annottext">Int -&gt; UsageLimitPeriod -&gt; ShowS
+[UsageLimitPeriod] -&gt; ShowS
+UsageLimitPeriod -&gt; String
+(Int -&gt; UsageLimitPeriod -&gt; ShowS)
+-&gt; (UsageLimitPeriod -&gt; String)
+-&gt; ([UsageLimitPeriod] -&gt; ShowS)
+-&gt; Show UsageLimitPeriod
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UsageLimitPeriod] -&gt; ShowS
+$cshowList :: [UsageLimitPeriod] -&gt; ShowS
+show :: UsageLimitPeriod -&gt; String
+$cshow :: UsageLimitPeriod -&gt; String
+showsPrec :: Int -&gt; UsageLimitPeriod -&gt; ShowS
+$cshowsPrec :: Int -&gt; UsageLimitPeriod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679501560"><span id="local-6989586621679501562"><span id="local-6989586621679501564"><span id="local-6989586621679501566"><span class="annot"><span class="annottext">ReadPrec [UsageLimitPeriod]
+ReadPrec UsageLimitPeriod
+Int -&gt; ReadS UsageLimitPeriod
+ReadS [UsageLimitPeriod]
+(Int -&gt; ReadS UsageLimitPeriod)
+-&gt; ReadS [UsageLimitPeriod]
+-&gt; ReadPrec UsageLimitPeriod
+-&gt; ReadPrec [UsageLimitPeriod]
+-&gt; Read UsageLimitPeriod
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UsageLimitPeriod]
+$creadListPrec :: ReadPrec [UsageLimitPeriod]
+readPrec :: ReadPrec UsageLimitPeriod
+$creadPrec :: ReadPrec UsageLimitPeriod
+readList :: ReadS [UsageLimitPeriod]
+$creadList :: ReadS [UsageLimitPeriod]
+readsPrec :: Int -&gt; ReadS UsageLimitPeriod
+$creadsPrec :: Int -&gt; ReadS UsageLimitPeriod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679501555"><span id="local-6989586621679501557"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
+(UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool)
+-&gt; (UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool)
+-&gt; Eq UsageLimitPeriod
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
+$c/= :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
+== :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
+$c== :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679501539"><span id="local-6989586621679501541"><span id="local-6989586621679501543"><span id="local-6989586621679501545"><span id="local-6989586621679501547"><span id="local-6989586621679501549"><span id="local-6989586621679501551"><span class="annot"><span class="annottext">Eq UsageLimitPeriod
+Eq UsageLimitPeriod
+-&gt; (UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Ordering)
+-&gt; (UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool)
+-&gt; (UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool)
+-&gt; (UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool)
+-&gt; (UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool)
+-&gt; (UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; UsageLimitPeriod)
+-&gt; (UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; UsageLimitPeriod)
+-&gt; Ord UsageLimitPeriod
+UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
+UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Ordering
+UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; UsageLimitPeriod
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; UsageLimitPeriod
+$cmin :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; UsageLimitPeriod
+max :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; UsageLimitPeriod
+$cmax :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; UsageLimitPeriod
+&gt;= :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
+$c&gt;= :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
+&gt; :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
+$c&gt; :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
+&lt;= :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
+$c&lt;= :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
+&lt; :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
+$c&lt; :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
+compare :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Ordering
+$ccompare :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Ordering
+$cp1Ord :: Eq UsageLimitPeriod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. UsageLimitPeriod -&gt; Rep UsageLimitPeriod x)
+-&gt; (forall x. Rep UsageLimitPeriod x -&gt; UsageLimitPeriod)
+-&gt; Generic UsageLimitPeriod
+forall x. Rep UsageLimitPeriod x -&gt; UsageLimitPeriod
+forall x. UsageLimitPeriod -&gt; Rep UsageLimitPeriod x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UsageLimitPeriod x -&gt; UsageLimitPeriod
+$cfrom :: forall x. UsageLimitPeriod -&gt; Rep UsageLimitPeriod x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679501531"><span id="local-6989586621679501533"><span class="annot"><span class="annottext">Int -&gt; UsageLimitPeriod -&gt; Int
+UsageLimitPeriod -&gt; Int
+(Int -&gt; UsageLimitPeriod -&gt; Int)
+-&gt; (UsageLimitPeriod -&gt; Int) -&gt; Hashable UsageLimitPeriod
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UsageLimitPeriod -&gt; Int
+$chash :: UsageLimitPeriod -&gt; Int
+hashWithSalt :: Int -&gt; UsageLimitPeriod -&gt; Int
+$chashWithSalt :: Int -&gt; UsageLimitPeriod -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679501528"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; ()
+(UsageLimitPeriod -&gt; ()) -&gt; NFData UsageLimitPeriod
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UsageLimitPeriod -&gt; ()
+$crnf :: UsageLimitPeriod -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679501525"><span class="annot"><span class="annottext">Text -&gt; Either String UsageLimitPeriod
+(Text -&gt; Either String UsageLimitPeriod)
+-&gt; FromText UsageLimitPeriod
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UsageLimitPeriod
+$cfromText :: Text -&gt; Either String UsageLimitPeriod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679501522"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; Text
+(UsageLimitPeriod -&gt; Text) -&gt; ToText UsageLimitPeriod
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UsageLimitPeriod -&gt; Text
+$ctoText :: UsageLimitPeriod -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679501519"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; ByteString
+(UsageLimitPeriod -&gt; ByteString) -&gt; ToByteString UsageLimitPeriod
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UsageLimitPeriod -&gt; ByteString
+$ctoBS :: UsageLimitPeriod -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679501516"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; ByteStringBuilder
+(UsageLimitPeriod -&gt; ByteStringBuilder) -&gt; ToLog UsageLimitPeriod
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UsageLimitPeriod -&gt; ByteStringBuilder
+$cbuild :: UsageLimitPeriod -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679501513"><span class="annot"><span class="annottext">HeaderName -&gt; UsageLimitPeriod -&gt; [Header]
+(HeaderName -&gt; UsageLimitPeriod -&gt; [Header])
+-&gt; ToHeader UsageLimitPeriod
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UsageLimitPeriod -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UsageLimitPeriod -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679501510"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; QueryString
+(UsageLimitPeriod -&gt; QueryString) -&gt; ToQuery UsageLimitPeriod
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UsageLimitPeriod -&gt; QueryString
+$ctoQuery :: UsageLimitPeriod -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679501505"><span id="local-6989586621679501507"><span class="annot"><span class="annottext">Value -&gt; Parser [UsageLimitPeriod]
+Value -&gt; Parser UsageLimitPeriod
+(Value -&gt; Parser UsageLimitPeriod)
+-&gt; (Value -&gt; Parser [UsageLimitPeriod])
+-&gt; FromJSON UsageLimitPeriod
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UsageLimitPeriod]
+$cparseJSONList :: Value -&gt; Parser [UsageLimitPeriod]
+parseJSON :: Value -&gt; Parser UsageLimitPeriod
+$cparseJSON :: Value -&gt; Parser UsageLimitPeriod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679501500"><span id="local-6989586621679501502"><span class="annot"><span class="annottext">FromJSONKeyFunction [UsageLimitPeriod]
+FromJSONKeyFunction UsageLimitPeriod
+FromJSONKeyFunction UsageLimitPeriod
+-&gt; FromJSONKeyFunction [UsageLimitPeriod]
+-&gt; FromJSONKey UsageLimitPeriod
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UsageLimitPeriod]
+$cfromJSONKeyList :: FromJSONKeyFunction [UsageLimitPeriod]
+fromJSONKey :: FromJSONKeyFunction UsageLimitPeriod
+$cfromJSONKey :: FromJSONKeyFunction UsageLimitPeriod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679501491"><span id="local-6989586621679501493"><span id="local-6989586621679501495"><span id="local-6989586621679501497"><span class="annot"><span class="annottext">[UsageLimitPeriod] -&gt; Encoding
+[UsageLimitPeriod] -&gt; Value
+UsageLimitPeriod -&gt; Encoding
+UsageLimitPeriod -&gt; Value
+(UsageLimitPeriod -&gt; Value)
+-&gt; (UsageLimitPeriod -&gt; Encoding)
+-&gt; ([UsageLimitPeriod] -&gt; Value)
+-&gt; ([UsageLimitPeriod] -&gt; Encoding)
+-&gt; ToJSON UsageLimitPeriod
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UsageLimitPeriod] -&gt; Encoding
+$ctoEncodingList :: [UsageLimitPeriod] -&gt; Encoding
+toJSONList :: [UsageLimitPeriod] -&gt; Value
+$ctoJSONList :: [UsageLimitPeriod] -&gt; Value
+toEncoding :: UsageLimitPeriod -&gt; Encoding
+$ctoEncoding :: UsageLimitPeriod -&gt; Encoding
+toJSON :: UsageLimitPeriod -&gt; Value
+$ctoJSON :: UsageLimitPeriod -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679501486"><span id="local-6989586621679501488"><span class="annot"><span class="annottext">ToJSONKeyFunction [UsageLimitPeriod]
+ToJSONKeyFunction UsageLimitPeriod
+ToJSONKeyFunction UsageLimitPeriod
+-&gt; ToJSONKeyFunction [UsageLimitPeriod]
+-&gt; ToJSONKey UsageLimitPeriod
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UsageLimitPeriod]
+$ctoJSONKeyList :: ToJSONKeyFunction [UsageLimitPeriod]
+toJSONKey :: ToJSONKeyFunction UsageLimitPeriod
+$ctoJSONKey :: ToJSONKeyFunction UsageLimitPeriod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679501483"><span class="annot"><span class="annottext">[Node] -&gt; Either String UsageLimitPeriod
+([Node] -&gt; Either String UsageLimitPeriod)
+-&gt; FromXML UsageLimitPeriod
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UsageLimitPeriod
+$cparseXML :: [Node] -&gt; Either String UsageLimitPeriod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679501480"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; XML
+(UsageLimitPeriod -&gt; XML) -&gt; ToXML UsageLimitPeriod
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UsageLimitPeriod -&gt; XML
+$ctoXML :: UsageLimitPeriod -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod_Daily"><span class="hs-identifier hs-type">UsageLimitPeriod_Daily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod"><span class="hs-identifier hs-type">UsageLimitPeriod</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUsageLimitPeriod_Daily"><span id="%24mUsageLimitPeriod_Daily"><span id="UsageLimitPeriod_Daily"><span class="annot"><span class="annottext">$bUsageLimitPeriod_Daily :: UsageLimitPeriod
+$mUsageLimitPeriod_Daily :: forall r. UsageLimitPeriod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#%24bUsageLimitPeriod_Daily"><span class="hs-identifier hs-var hs-var hs-var">UsageLimitPeriod_Daily</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod%27"><span class="hs-identifier hs-type">UsageLimitPeriod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;daily&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod_Monthly"><span class="hs-identifier hs-type">UsageLimitPeriod_Monthly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod"><span class="hs-identifier hs-type">UsageLimitPeriod</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUsageLimitPeriod_Monthly"><span id="%24mUsageLimitPeriod_Monthly"><span id="UsageLimitPeriod_Monthly"><span class="annot"><span class="annottext">$bUsageLimitPeriod_Monthly :: UsageLimitPeriod
+$mUsageLimitPeriod_Monthly :: forall r. UsageLimitPeriod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#%24bUsageLimitPeriod_Monthly"><span class="hs-identifier hs-var hs-var hs-var">UsageLimitPeriod_Monthly</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod%27"><span class="hs-identifier hs-type">UsageLimitPeriod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;monthly&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod_Weekly"><span class="hs-identifier hs-type">UsageLimitPeriod_Weekly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod"><span class="hs-identifier hs-type">UsageLimitPeriod</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUsageLimitPeriod_Weekly"><span id="%24mUsageLimitPeriod_Weekly"><span id="UsageLimitPeriod_Weekly"><span class="annot"><span class="annottext">$bUsageLimitPeriod_Weekly :: UsageLimitPeriod
+$mUsageLimitPeriod_Weekly :: forall r. UsageLimitPeriod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#%24bUsageLimitPeriod_Weekly"><span class="hs-identifier hs-var hs-var hs-var">UsageLimitPeriod_Weekly</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod%27"><span class="hs-identifier hs-type">UsageLimitPeriod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;weekly&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod_Daily"><span class="hs-pragma hs-type">UsageLimitPeriod_Daily</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod_Monthly"><span class="hs-pragma hs-type">UsageLimitPeriod_Monthly</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod_Weekly"><span class="hs-pragma hs-type">UsageLimitPeriod_Weekly</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod%27"><span class="hs-pragma hs-type">UsageLimitPeriod'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoIdentity.GetId</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Generates (or retrieves) a Cognito ID. Supplying multiple logins will</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- create an implicit linked account.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This is a public API. You do not need any credentials to call this API.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoIdentity.GetId</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier">GetId</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#newGetId"><span class="hs-identifier">newGetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#getId_accountId"><span class="hs-identifier">getId_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#getId_logins"><span class="hs-identifier">getId_logins</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#getId_identityPoolId"><span class="hs-identifier">getId_identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse"><span class="hs-identifier">GetIdResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#newGetIdResponse"><span class="hs-identifier">newGetIdResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#getIdResponse_identityId"><span class="hs-identifier">getIdResponse_identityId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#getIdResponse_httpStatus"><span class="hs-identifier">getIdResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.html"><span class="hs-identifier">Network.AWS.CognitoIdentity.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | Input to the GetId action.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newGetId' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679187345"><span id="local-6989586621679187346"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetId"><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-var">GetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetId%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId%27"><span class="hs-identifier hs-var">GetId'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A standard AWS account ID (9+ digits).</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AaccountId%3AGetId%27"><span class="annot"><span class="annottext">GetId -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#%24sel%3AaccountId%3AGetId%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A set of optional name-value pairs that map provider names to provider</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- tokens. The available provider names for @Logins@ are as follows:</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   Facebook: @graph.facebook.com@</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   Amazon Cognito user pool:</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     @cognito-idp.\&lt;region&gt;.amazonaws.com\/\&lt;YOUR_USER_POOL_ID&gt;@, for</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     example, @cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789@.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   Google: @accounts.google.com@</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   Amazon: @www.amazon.com@</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   Twitter: @api.twitter.com@</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   Digits: @www.digits.com@</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Alogins%3AGetId%27"><span class="annot"><span class="annottext">GetId -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#%24sel%3Alogins%3AGetId%27"><span class="hs-identifier hs-var hs-var">logins</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | An identity pool ID in the format REGION:GUID.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AidentityPoolId%3AGetId%27"><span class="annot"><span class="annottext">GetId -&gt; Text
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#%24sel%3AidentityPoolId%3AGetId%27"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187337"><span id="local-6989586621679187339"><span class="annot"><span class="annottext">GetId -&gt; GetId -&gt; Bool
+(GetId -&gt; GetId -&gt; Bool) -&gt; (GetId -&gt; GetId -&gt; Bool) -&gt; Eq GetId
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetId -&gt; GetId -&gt; Bool
+$c/= :: GetId -&gt; GetId -&gt; Bool
+== :: GetId -&gt; GetId -&gt; Bool
+$c== :: GetId -&gt; GetId -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187328"><span id="local-6989586621679187330"><span id="local-6989586621679187332"><span id="local-6989586621679187334"><span class="annot"><span class="annottext">ReadPrec [GetId]
+ReadPrec GetId
+Int -&gt; ReadS GetId
+ReadS [GetId]
+(Int -&gt; ReadS GetId)
+-&gt; ReadS [GetId]
+-&gt; ReadPrec GetId
+-&gt; ReadPrec [GetId]
+-&gt; Read GetId
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetId]
+$creadListPrec :: ReadPrec [GetId]
+readPrec :: ReadPrec GetId
+$creadPrec :: ReadPrec GetId
+readList :: ReadS [GetId]
+$creadList :: ReadS [GetId]
+readsPrec :: Int -&gt; ReadS GetId
+$creadsPrec :: Int -&gt; ReadS GetId
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187321"><span id="local-6989586621679187323"><span id="local-6989586621679187325"><span class="annot"><span class="annottext">Int -&gt; GetId -&gt; ShowS
+[GetId] -&gt; ShowS
+GetId -&gt; String
+(Int -&gt; GetId -&gt; ShowS)
+-&gt; (GetId -&gt; String) -&gt; ([GetId] -&gt; ShowS) -&gt; Show GetId
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetId] -&gt; ShowS
+$cshowList :: [GetId] -&gt; ShowS
+show :: GetId -&gt; String
+$cshow :: GetId -&gt; String
+showsPrec :: Int -&gt; GetId -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetId -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetId -&gt; Rep GetId x)
+-&gt; (forall x. Rep GetId x -&gt; GetId) -&gt; Generic GetId
+forall x. Rep GetId x -&gt; GetId
+forall x. GetId -&gt; Rep GetId x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetId x -&gt; GetId
+$cfrom :: forall x. GetId -&gt; Rep GetId x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Create a value of 'GetId' with all optional fields omitted.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'accountId', 'getId_accountId' - A standard AWS account ID (9+ digits).</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'logins', 'getId_logins' - A set of optional name-value pairs that map provider names to provider</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- tokens. The available provider names for @Logins@ are as follows:</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   Facebook: @graph.facebook.com@</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   Amazon Cognito user pool:</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     @cognito-idp.\&lt;region&gt;.amazonaws.com\/\&lt;YOUR_USER_POOL_ID&gt;@, for</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--     example, @cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789@.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- -   Google: @accounts.google.com@</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- -   Amazon: @www.amazon.com@</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -   Twitter: @api.twitter.com@</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -   Digits: @www.digits.com@</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'identityPoolId', 'getId_identityPoolId' - An identity pool ID in the format REGION:GUID.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#newGetId"><span class="hs-identifier hs-type">newGetId</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-comment">-- | 'identityPoolId'</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-type">GetId</span></a></span><span>
+</span><span id="line-114"></span><span id="newGetId"><span class="annot"><span class="annottext">newGetId :: Text -&gt; GetId
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#newGetId"><span class="hs-identifier hs-var hs-var">newGetId</span></a></span></span><span> </span><span id="local-6989586621679187316"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187316"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">GetId' :: Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; GetId
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#GetId%27"><span class="hs-identifier hs-type">GetId'</span></a></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:GetId' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#%24sel%3AaccountId%3AGetId%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:logins:GetId' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#%24sel%3Alogins%3AGetId%27"><span class="hs-identifier hs-var">logins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityPoolId:GetId' :: Text
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#%24sel%3AidentityPoolId%3AGetId%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187316"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | A standard AWS account ID (9+ digits).</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#getId_accountId"><span class="hs-identifier hs-type">getId_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-type">GetId</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="getId_accountId"><span class="annot"><span class="annottext">getId_accountId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetId -&gt; f GetId
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#getId_accountId"><span class="hs-identifier hs-var hs-var">getId_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetId -&gt; Maybe Text)
+-&gt; (GetId -&gt; Maybe Text -&gt; GetId)
+-&gt; Lens GetId GetId (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId%27"><span class="hs-identifier hs-type">GetId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187313"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:GetId' :: GetId -&gt; Maybe Text
+</span><a href="#local-6989586621679187313"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187313"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187312"><span class="annot"><span class="annottext">s :: GetId
+</span><a href="#local-6989586621679187312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId%27"><span class="hs-identifier hs-type">GetId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187311"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetId
+</span><a href="#local-6989586621679187312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:GetId' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#%24sel%3AaccountId%3AGetId%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-type">GetId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | A set of optional name-value pairs that map provider names to provider</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- tokens. The available provider names for @Logins@ are as follows:</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   Facebook: @graph.facebook.com@</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- -   Amazon Cognito user pool:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--     @cognito-idp.\&lt;region&gt;.amazonaws.com\/\&lt;YOUR_USER_POOL_ID&gt;@, for</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--     example, @cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789@.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   Google: @accounts.google.com@</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- -   Amazon: @www.amazon.com@</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   Twitter: @api.twitter.com@</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   Digits: @www.digits.com@</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#getId_logins"><span class="hs-identifier hs-type">getId_logins</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-type">GetId</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="getId_logins"><span class="annot"><span class="annottext">getId_logins :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetId -&gt; f GetId
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#getId_logins"><span class="hs-identifier hs-var hs-var">getId_logins</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetId -&gt; Maybe (HashMap Text Text))
+-&gt; (GetId -&gt; Maybe (HashMap Text Text) -&gt; GetId)
+-&gt; Lens
+     GetId GetId (Maybe (HashMap Text Text)) (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId%27"><span class="hs-identifier hs-type">GetId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187310"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+logins :: Maybe (HashMap Text Text)
+$sel:logins:GetId' :: GetId -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679187310"><span class="hs-identifier hs-var hs-var">logins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679187310"><span class="hs-identifier hs-var">logins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187309"><span class="annot"><span class="annottext">s :: GetId
+</span><a href="#local-6989586621679187309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId%27"><span class="hs-identifier hs-type">GetId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187308"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679187308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetId
+</span><a href="#local-6989586621679187309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logins:GetId' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#%24sel%3Alogins%3AGetId%27"><span class="hs-identifier hs-var">logins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679187308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-type">GetId</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; GetId -&gt; f GetId)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetId
+-&gt; f GetId
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | An identity pool ID in the format REGION:GUID.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#getId_identityPoolId"><span class="hs-identifier hs-type">getId_identityPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-type">GetId</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-146"></span><span id="getId_identityPoolId"><span class="annot"><span class="annottext">getId_identityPoolId :: (Text -&gt; f Text) -&gt; GetId -&gt; f GetId
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#getId_identityPoolId"><span class="hs-identifier hs-var hs-var">getId_identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetId -&gt; Text)
+-&gt; (GetId -&gt; Text -&gt; GetId) -&gt; Lens GetId GetId Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId%27"><span class="hs-identifier hs-type">GetId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187304"><span class="annot"><span class="annottext">Text
+identityPoolId :: Text
+$sel:identityPoolId:GetId' :: GetId -&gt; Text
+</span><a href="#local-6989586621679187304"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187304"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187303"><span class="annot"><span class="annottext">s :: GetId
+</span><a href="#local-6989586621679187303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId%27"><span class="hs-identifier hs-type">GetId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187302"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetId
+</span><a href="#local-6989586621679187303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:GetId' :: Text
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#%24sel%3AidentityPoolId%3AGetId%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-type">GetId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-type">GetId</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-type">GetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse"><span class="hs-identifier hs-type">GetIdResponse</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679187298"><span class="annot"><span class="annottext">request :: GetId -&gt; Request GetId
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetId -&gt; Request GetId
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CognitoIdentity.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679187294"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetId
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetId)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse GetId))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetId
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetId)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679187291"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187291"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679187290"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679187290"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679187289"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187289"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; GetIdResponse
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse%27"><span class="hs-identifier hs-var">GetIdResponse'</span></a></span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; GetIdResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetIdResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetIdResponse)
+-&gt; Either String Int -&gt; Either String GetIdResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187291"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187281"><span id="local-6989586621679187283"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-type">GetId</span></a></span></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187278"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-type">GetId</span></a></span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-type">GetId</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679187274"><span class="annot"><span class="annottext">toHeaders :: GetId -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetId -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSCognitoIdentityService.GetId&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-170"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-174"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187264"><span id="local-6989586621679187266"><span id="local-6989586621679187268"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-type">GetId</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679187262"><span class="annot"><span class="annottext">toJSON :: GetId -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId%27"><span class="hs-identifier hs-type">GetId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187258"><span id="local-6989586621679187259"><span id="local-6989586621679187260"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Text
+identityPoolId :: Text
+logins :: Maybe (HashMap Text Text)
+accountId :: Maybe Text
+$sel:identityPoolId:GetId' :: GetId -&gt; Text
+$sel:logins:GetId' :: GetId -&gt; Maybe (HashMap Text Text)
+$sel:accountId:GetId' :: GetId -&gt; Maybe Text
+</span><a href="#local-6989586621679187258"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187260"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Logins&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679187259"><span class="hs-identifier hs-var">logins</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-185"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187258"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-type">GetId</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679187252"><span class="annot"><span class="annottext">toPath :: GetId -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetId -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetId"><span class="hs-identifier hs-type">GetId</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679187248"><span class="annot"><span class="annottext">toQuery :: GetId -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetId -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | Returned in response to a GetId request.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- /See:/ 'newGetIdResponse' smart constructor.</span><span>
+</span><span id="line-198"></span><span id="local-6989586621679187245"><span id="local-6989586621679187246"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIdResponse"><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse"><span class="hs-identifier hs-var">GetIdResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIdResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse%27"><span class="hs-identifier hs-var">GetIdResponse'</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-200"></span><span>    </span><span id="%24sel%3AidentityId%3AGetIdResponse%27"><span class="annot"><span class="annottext">GetIdResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#%24sel%3AidentityId%3AGetIdResponse%27"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-202"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetIdResponse%27"><span class="annot"><span class="annottext">GetIdResponse -&gt; Int
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#%24sel%3AhttpStatus%3AGetIdResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187239"><span id="local-6989586621679187241"><span class="annot"><span class="annottext">GetIdResponse -&gt; GetIdResponse -&gt; Bool
+(GetIdResponse -&gt; GetIdResponse -&gt; Bool)
+-&gt; (GetIdResponse -&gt; GetIdResponse -&gt; Bool) -&gt; Eq GetIdResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetIdResponse -&gt; GetIdResponse -&gt; Bool
+$c/= :: GetIdResponse -&gt; GetIdResponse -&gt; Bool
+== :: GetIdResponse -&gt; GetIdResponse -&gt; Bool
+$c== :: GetIdResponse -&gt; GetIdResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187231"><span id="local-6989586621679187233"><span id="local-6989586621679187235"><span id="local-6989586621679187237"><span class="annot"><span class="annottext">ReadPrec [GetIdResponse]
+ReadPrec GetIdResponse
+Int -&gt; ReadS GetIdResponse
+ReadS [GetIdResponse]
+(Int -&gt; ReadS GetIdResponse)
+-&gt; ReadS [GetIdResponse]
+-&gt; ReadPrec GetIdResponse
+-&gt; ReadPrec [GetIdResponse]
+-&gt; Read GetIdResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetIdResponse]
+$creadListPrec :: ReadPrec [GetIdResponse]
+readPrec :: ReadPrec GetIdResponse
+$creadPrec :: ReadPrec GetIdResponse
+readList :: ReadS [GetIdResponse]
+$creadList :: ReadS [GetIdResponse]
+readsPrec :: Int -&gt; ReadS GetIdResponse
+$creadsPrec :: Int -&gt; ReadS GetIdResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187225"><span id="local-6989586621679187227"><span id="local-6989586621679187229"><span class="annot"><span class="annottext">Int -&gt; GetIdResponse -&gt; ShowS
+[GetIdResponse] -&gt; ShowS
+GetIdResponse -&gt; String
+(Int -&gt; GetIdResponse -&gt; ShowS)
+-&gt; (GetIdResponse -&gt; String)
+-&gt; ([GetIdResponse] -&gt; ShowS)
+-&gt; Show GetIdResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetIdResponse] -&gt; ShowS
+$cshowList :: [GetIdResponse] -&gt; ShowS
+show :: GetIdResponse -&gt; String
+$cshow :: GetIdResponse -&gt; String
+showsPrec :: Int -&gt; GetIdResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetIdResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetIdResponse -&gt; Rep GetIdResponse x)
+-&gt; (forall x. Rep GetIdResponse x -&gt; GetIdResponse)
+-&gt; Generic GetIdResponse
+forall x. Rep GetIdResponse x -&gt; GetIdResponse
+forall x. GetIdResponse -&gt; Rep GetIdResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetIdResponse x -&gt; GetIdResponse
+$cfrom :: forall x. GetIdResponse -&gt; Rep GetIdResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- Create a value of 'GetIdResponse' with all optional fields omitted.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'identityId', 'getIdResponse_identityId' - A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'httpStatus', 'getIdResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#newGetIdResponse"><span class="hs-identifier hs-type">newGetIdResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-220"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse"><span class="hs-identifier hs-type">GetIdResponse</span></a></span><span>
+</span><span id="line-221"></span><span id="newGetIdResponse"><span class="annot"><span class="annottext">newGetIdResponse :: Int -&gt; GetIdResponse
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#newGetIdResponse"><span class="hs-identifier hs-var hs-var">newGetIdResponse</span></a></span></span><span> </span><span id="local-6989586621679187222"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187222"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="annottext">GetIdResponse' :: Maybe Text -&gt; Int -&gt; GetIdResponse
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse%27"><span class="hs-identifier hs-type">GetIdResponse'</span></a></span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityId:GetIdResponse' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#%24sel%3AidentityId%3AGetIdResponse%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetIdResponse' :: Int
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#%24sel%3AhttpStatus%3AGetIdResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187222"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#getIdResponse_identityId"><span class="hs-identifier hs-type">getIdResponse_identityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse"><span class="hs-identifier hs-type">GetIdResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="getIdResponse_identityId"><span class="annot"><span class="annottext">getIdResponse_identityId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetIdResponse -&gt; f GetIdResponse
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#getIdResponse_identityId"><span class="hs-identifier hs-var hs-var">getIdResponse_identityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIdResponse -&gt; Maybe Text)
+-&gt; (GetIdResponse -&gt; Maybe Text -&gt; GetIdResponse)
+-&gt; Lens GetIdResponse GetIdResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse%27"><span class="hs-identifier hs-type">GetIdResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187221"><span class="annot"><span class="annottext">Maybe Text
+identityId :: Maybe Text
+$sel:identityId:GetIdResponse' :: GetIdResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679187221"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187221"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187220"><span class="annot"><span class="annottext">s :: GetIdResponse
+</span><a href="#local-6989586621679187220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse%27"><span class="hs-identifier hs-type">GetIdResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187219"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdResponse
+</span><a href="#local-6989586621679187220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:GetIdResponse' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#%24sel%3AidentityId%3AGetIdResponse%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse"><span class="hs-identifier hs-type">GetIdResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#getIdResponse_httpStatus"><span class="hs-identifier hs-type">getIdResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse"><span class="hs-identifier hs-type">GetIdResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-233"></span><span id="getIdResponse_httpStatus"><span class="annot"><span class="annottext">getIdResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetIdResponse -&gt; f GetIdResponse
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#getIdResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getIdResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIdResponse -&gt; Int)
+-&gt; (GetIdResponse -&gt; Int -&gt; GetIdResponse)
+-&gt; Lens GetIdResponse GetIdResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse%27"><span class="hs-identifier hs-type">GetIdResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187218"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetIdResponse' :: GetIdResponse -&gt; Int
+</span><a href="#local-6989586621679187218"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187218"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187217"><span class="annot"><span class="annottext">s :: GetIdResponse
+</span><a href="#local-6989586621679187217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse%27"><span class="hs-identifier hs-type">GetIdResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187216"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdResponse
+</span><a href="#local-6989586621679187217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetIdResponse' :: Int
+</span><a href="Network.AWS.CognitoIdentity.GetId.html#%24sel%3AhttpStatus%3AGetIdResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse"><span class="hs-identifier hs-type">GetIdResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187214"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetId.html#GetIdResponse"><span class="hs-identifier hs-type">GetIdResponse</span></a></span></span><span>
+</span><span id="line-236"></span></pre></body></html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#AggregateConformancePackComplianceSummaryGroupKey"><span class="hs-identifier">AggregateConformancePackComplianceSummaryGroupKey</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#AggregateConformancePackComplianceSummaryGroupKey_ACCOUNT_ID"><span class="hs-identifier">AggregateConformancePackComplianceSummaryGroupKey_ACCOUNT_ID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#AggregateConformancePackComplianceSummaryGroupKey_AWS_REGION"><span class="hs-identifier">AggregateConformancePackComplianceSummaryGroupKey_AWS_REGION</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679394218"><span id="local-6989586621679394219"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AggregateConformancePackComplianceSummaryGroupKey"><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#AggregateConformancePackComplianceSummaryGroupKey"><span class="hs-identifier hs-var">AggregateConformancePackComplianceSummaryGroupKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregateConformancePackComplianceSummaryGroupKey%27"><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#AggregateConformancePackComplianceSummaryGroupKey%27"><span class="hs-identifier hs-var">AggregateConformancePackComplianceSummaryGroupKey'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAggregateConformancePackComplianceSummaryGroupKey"><span class="annot"><span class="annottext">AggregateConformancePackComplianceSummaryGroupKey -&gt; Text
+</span><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#fromAggregateConformancePackComplianceSummaryGroupKey"><span class="hs-identifier hs-var hs-var">fromAggregateConformancePackComplianceSummaryGroupKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679394210"><span id="local-6989586621679394212"><span id="local-6989586621679394214"><span class="annot"><span class="annottext">Int -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; ShowS
+[AggregateConformancePackComplianceSummaryGroupKey] -&gt; ShowS
+AggregateConformancePackComplianceSummaryGroupKey -&gt; String
+(Int -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; ShowS)
+-&gt; (AggregateConformancePackComplianceSummaryGroupKey -&gt; String)
+-&gt; ([AggregateConformancePackComplianceSummaryGroupKey] -&gt; ShowS)
+-&gt; Show AggregateConformancePackComplianceSummaryGroupKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AggregateConformancePackComplianceSummaryGroupKey] -&gt; ShowS
+$cshowList :: [AggregateConformancePackComplianceSummaryGroupKey] -&gt; ShowS
+show :: AggregateConformancePackComplianceSummaryGroupKey -&gt; String
+$cshow :: AggregateConformancePackComplianceSummaryGroupKey -&gt; String
+showsPrec :: Int -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679394201"><span id="local-6989586621679394203"><span id="local-6989586621679394205"><span id="local-6989586621679394207"><span class="annot"><span class="annottext">ReadPrec [AggregateConformancePackComplianceSummaryGroupKey]
+ReadPrec AggregateConformancePackComplianceSummaryGroupKey
+Int -&gt; ReadS AggregateConformancePackComplianceSummaryGroupKey
+ReadS [AggregateConformancePackComplianceSummaryGroupKey]
+(Int -&gt; ReadS AggregateConformancePackComplianceSummaryGroupKey)
+-&gt; ReadS [AggregateConformancePackComplianceSummaryGroupKey]
+-&gt; ReadPrec AggregateConformancePackComplianceSummaryGroupKey
+-&gt; ReadPrec [AggregateConformancePackComplianceSummaryGroupKey]
+-&gt; Read AggregateConformancePackComplianceSummaryGroupKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AggregateConformancePackComplianceSummaryGroupKey]
+$creadListPrec :: ReadPrec [AggregateConformancePackComplianceSummaryGroupKey]
+readPrec :: ReadPrec AggregateConformancePackComplianceSummaryGroupKey
+$creadPrec :: ReadPrec AggregateConformancePackComplianceSummaryGroupKey
+readList :: ReadS [AggregateConformancePackComplianceSummaryGroupKey]
+$creadList :: ReadS [AggregateConformancePackComplianceSummaryGroupKey]
+readsPrec :: Int -&gt; ReadS AggregateConformancePackComplianceSummaryGroupKey
+$creadsPrec :: Int -&gt; ReadS AggregateConformancePackComplianceSummaryGroupKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679394196"><span id="local-6989586621679394198"><span class="annot"><span class="annottext">AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool
+(AggregateConformancePackComplianceSummaryGroupKey
+ -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool)
+-&gt; (AggregateConformancePackComplianceSummaryGroupKey
+    -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool)
+-&gt; Eq AggregateConformancePackComplianceSummaryGroupKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool
+$c/= :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool
+== :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool
+$c== :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679394180"><span id="local-6989586621679394182"><span id="local-6989586621679394184"><span id="local-6989586621679394186"><span id="local-6989586621679394188"><span id="local-6989586621679394190"><span id="local-6989586621679394192"><span class="annot"><span class="annottext">Eq AggregateConformancePackComplianceSummaryGroupKey
+Eq AggregateConformancePackComplianceSummaryGroupKey
+-&gt; (AggregateConformancePackComplianceSummaryGroupKey
+    -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Ordering)
+-&gt; (AggregateConformancePackComplianceSummaryGroupKey
+    -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool)
+-&gt; (AggregateConformancePackComplianceSummaryGroupKey
+    -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool)
+-&gt; (AggregateConformancePackComplianceSummaryGroupKey
+    -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool)
+-&gt; (AggregateConformancePackComplianceSummaryGroupKey
+    -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool)
+-&gt; (AggregateConformancePackComplianceSummaryGroupKey
+    -&gt; AggregateConformancePackComplianceSummaryGroupKey
+    -&gt; AggregateConformancePackComplianceSummaryGroupKey)
+-&gt; (AggregateConformancePackComplianceSummaryGroupKey
+    -&gt; AggregateConformancePackComplianceSummaryGroupKey
+    -&gt; AggregateConformancePackComplianceSummaryGroupKey)
+-&gt; Ord AggregateConformancePackComplianceSummaryGroupKey
+AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool
+AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Ordering
+AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey
+$cmin :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey
+max :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey
+$cmax :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey
+&gt;= :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool
+$c&gt;= :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool
+&gt; :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool
+$c&gt; :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool
+&lt;= :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool
+$c&lt;= :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool
+&lt; :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool
+$c&lt; :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Bool
+compare :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Ordering
+$ccompare :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Ordering
+$cp1Ord :: Eq AggregateConformancePackComplianceSummaryGroupKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AggregateConformancePackComplianceSummaryGroupKey
+ -&gt; Rep AggregateConformancePackComplianceSummaryGroupKey x)
+-&gt; (forall x.
+    Rep AggregateConformancePackComplianceSummaryGroupKey x
+    -&gt; AggregateConformancePackComplianceSummaryGroupKey)
+-&gt; Generic AggregateConformancePackComplianceSummaryGroupKey
+forall x.
+Rep AggregateConformancePackComplianceSummaryGroupKey x
+-&gt; AggregateConformancePackComplianceSummaryGroupKey
+forall x.
+AggregateConformancePackComplianceSummaryGroupKey
+-&gt; Rep AggregateConformancePackComplianceSummaryGroupKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AggregateConformancePackComplianceSummaryGroupKey x
+-&gt; AggregateConformancePackComplianceSummaryGroupKey
+$cfrom :: forall x.
+AggregateConformancePackComplianceSummaryGroupKey
+-&gt; Rep AggregateConformancePackComplianceSummaryGroupKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679394172"><span id="local-6989586621679394174"><span class="annot"><span class="annottext">Int -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Int
+AggregateConformancePackComplianceSummaryGroupKey -&gt; Int
+(Int -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Int)
+-&gt; (AggregateConformancePackComplianceSummaryGroupKey -&gt; Int)
+-&gt; Hashable AggregateConformancePackComplianceSummaryGroupKey
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AggregateConformancePackComplianceSummaryGroupKey -&gt; Int
+$chash :: AggregateConformancePackComplianceSummaryGroupKey -&gt; Int
+hashWithSalt :: Int -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Int
+$chashWithSalt :: Int -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679394169"><span class="annot"><span class="annottext">AggregateConformancePackComplianceSummaryGroupKey -&gt; ()
+(AggregateConformancePackComplianceSummaryGroupKey -&gt; ())
+-&gt; NFData AggregateConformancePackComplianceSummaryGroupKey
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AggregateConformancePackComplianceSummaryGroupKey -&gt; ()
+$crnf :: AggregateConformancePackComplianceSummaryGroupKey -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679394166"><span class="annot"><span class="annottext">Text
+-&gt; Either String AggregateConformancePackComplianceSummaryGroupKey
+(Text
+ -&gt; Either String AggregateConformancePackComplianceSummaryGroupKey)
+-&gt; FromText AggregateConformancePackComplianceSummaryGroupKey
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text
+-&gt; Either String AggregateConformancePackComplianceSummaryGroupKey
+$cfromText :: Text
+-&gt; Either String AggregateConformancePackComplianceSummaryGroupKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679394163"><span class="annot"><span class="annottext">AggregateConformancePackComplianceSummaryGroupKey -&gt; Text
+(AggregateConformancePackComplianceSummaryGroupKey -&gt; Text)
+-&gt; ToText AggregateConformancePackComplianceSummaryGroupKey
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AggregateConformancePackComplianceSummaryGroupKey -&gt; Text
+$ctoText :: AggregateConformancePackComplianceSummaryGroupKey -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679394160"><span class="annot"><span class="annottext">AggregateConformancePackComplianceSummaryGroupKey -&gt; ByteString
+(AggregateConformancePackComplianceSummaryGroupKey -&gt; ByteString)
+-&gt; ToByteString AggregateConformancePackComplianceSummaryGroupKey
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AggregateConformancePackComplianceSummaryGroupKey -&gt; ByteString
+$ctoBS :: AggregateConformancePackComplianceSummaryGroupKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679394157"><span class="annot"><span class="annottext">AggregateConformancePackComplianceSummaryGroupKey
+-&gt; ByteStringBuilder
+(AggregateConformancePackComplianceSummaryGroupKey
+ -&gt; ByteStringBuilder)
+-&gt; ToLog AggregateConformancePackComplianceSummaryGroupKey
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; ByteStringBuilder
+$cbuild :: AggregateConformancePackComplianceSummaryGroupKey
+-&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679394154"><span class="annot"><span class="annottext">HeaderName
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; [Header]
+(HeaderName
+ -&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; [Header])
+-&gt; ToHeader AggregateConformancePackComplianceSummaryGroupKey
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; [Header]
+$ctoHeader :: HeaderName
+-&gt; AggregateConformancePackComplianceSummaryGroupKey -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679394151"><span class="annot"><span class="annottext">AggregateConformancePackComplianceSummaryGroupKey -&gt; QueryString
+(AggregateConformancePackComplianceSummaryGroupKey -&gt; QueryString)
+-&gt; ToQuery AggregateConformancePackComplianceSummaryGroupKey
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AggregateConformancePackComplianceSummaryGroupKey -&gt; QueryString
+$ctoQuery :: AggregateConformancePackComplianceSummaryGroupKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679394146"><span id="local-6989586621679394148"><span class="annot"><span class="annottext">Value -&gt; Parser [AggregateConformancePackComplianceSummaryGroupKey]
+Value -&gt; Parser AggregateConformancePackComplianceSummaryGroupKey
+(Value -&gt; Parser AggregateConformancePackComplianceSummaryGroupKey)
+-&gt; (Value
+    -&gt; Parser [AggregateConformancePackComplianceSummaryGroupKey])
+-&gt; FromJSON AggregateConformancePackComplianceSummaryGroupKey
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AggregateConformancePackComplianceSummaryGroupKey]
+$cparseJSONList :: Value -&gt; Parser [AggregateConformancePackComplianceSummaryGroupKey]
+parseJSON :: Value -&gt; Parser AggregateConformancePackComplianceSummaryGroupKey
+$cparseJSON :: Value -&gt; Parser AggregateConformancePackComplianceSummaryGroupKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679394141"><span id="local-6989586621679394143"><span class="annot"><span class="annottext">FromJSONKeyFunction
+  [AggregateConformancePackComplianceSummaryGroupKey]
+FromJSONKeyFunction
+  AggregateConformancePackComplianceSummaryGroupKey
+FromJSONKeyFunction
+  AggregateConformancePackComplianceSummaryGroupKey
+-&gt; FromJSONKeyFunction
+     [AggregateConformancePackComplianceSummaryGroupKey]
+-&gt; FromJSONKey AggregateConformancePackComplianceSummaryGroupKey
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction
+  [AggregateConformancePackComplianceSummaryGroupKey]
+$cfromJSONKeyList :: FromJSONKeyFunction
+  [AggregateConformancePackComplianceSummaryGroupKey]
+fromJSONKey :: FromJSONKeyFunction
+  AggregateConformancePackComplianceSummaryGroupKey
+$cfromJSONKey :: FromJSONKeyFunction
+  AggregateConformancePackComplianceSummaryGroupKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679394132"><span id="local-6989586621679394134"><span id="local-6989586621679394136"><span id="local-6989586621679394138"><span class="annot"><span class="annottext">[AggregateConformancePackComplianceSummaryGroupKey] -&gt; Encoding
+[AggregateConformancePackComplianceSummaryGroupKey] -&gt; Value
+AggregateConformancePackComplianceSummaryGroupKey -&gt; Encoding
+AggregateConformancePackComplianceSummaryGroupKey -&gt; Value
+(AggregateConformancePackComplianceSummaryGroupKey -&gt; Value)
+-&gt; (AggregateConformancePackComplianceSummaryGroupKey -&gt; Encoding)
+-&gt; ([AggregateConformancePackComplianceSummaryGroupKey] -&gt; Value)
+-&gt; ([AggregateConformancePackComplianceSummaryGroupKey]
+    -&gt; Encoding)
+-&gt; ToJSON AggregateConformancePackComplianceSummaryGroupKey
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AggregateConformancePackComplianceSummaryGroupKey] -&gt; Encoding
+$ctoEncodingList :: [AggregateConformancePackComplianceSummaryGroupKey] -&gt; Encoding
+toJSONList :: [AggregateConformancePackComplianceSummaryGroupKey] -&gt; Value
+$ctoJSONList :: [AggregateConformancePackComplianceSummaryGroupKey] -&gt; Value
+toEncoding :: AggregateConformancePackComplianceSummaryGroupKey -&gt; Encoding
+$ctoEncoding :: AggregateConformancePackComplianceSummaryGroupKey -&gt; Encoding
+toJSON :: AggregateConformancePackComplianceSummaryGroupKey -&gt; Value
+$ctoJSON :: AggregateConformancePackComplianceSummaryGroupKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679394127"><span id="local-6989586621679394129"><span class="annot"><span class="annottext">ToJSONKeyFunction
+  [AggregateConformancePackComplianceSummaryGroupKey]
+ToJSONKeyFunction AggregateConformancePackComplianceSummaryGroupKey
+ToJSONKeyFunction AggregateConformancePackComplianceSummaryGroupKey
+-&gt; ToJSONKeyFunction
+     [AggregateConformancePackComplianceSummaryGroupKey]
+-&gt; ToJSONKey AggregateConformancePackComplianceSummaryGroupKey
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction
+  [AggregateConformancePackComplianceSummaryGroupKey]
+$ctoJSONKeyList :: ToJSONKeyFunction
+  [AggregateConformancePackComplianceSummaryGroupKey]
+toJSONKey :: ToJSONKeyFunction AggregateConformancePackComplianceSummaryGroupKey
+$ctoJSONKey :: ToJSONKeyFunction AggregateConformancePackComplianceSummaryGroupKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679394124"><span class="annot"><span class="annottext">[Node]
+-&gt; Either String AggregateConformancePackComplianceSummaryGroupKey
+([Node]
+ -&gt; Either String AggregateConformancePackComplianceSummaryGroupKey)
+-&gt; FromXML AggregateConformancePackComplianceSummaryGroupKey
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node]
+-&gt; Either String AggregateConformancePackComplianceSummaryGroupKey
+$cparseXML :: [Node]
+-&gt; Either String AggregateConformancePackComplianceSummaryGroupKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679394121"><span class="annot"><span class="annottext">AggregateConformancePackComplianceSummaryGroupKey -&gt; XML
+(AggregateConformancePackComplianceSummaryGroupKey -&gt; XML)
+-&gt; ToXML AggregateConformancePackComplianceSummaryGroupKey
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AggregateConformancePackComplianceSummaryGroupKey -&gt; XML
+$ctoXML :: AggregateConformancePackComplianceSummaryGroupKey -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#AggregateConformancePackComplianceSummaryGroupKey_ACCOUNT_ID"><span class="hs-identifier hs-type">AggregateConformancePackComplianceSummaryGroupKey_ACCOUNT_ID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#AggregateConformancePackComplianceSummaryGroupKey"><span class="hs-identifier hs-type">AggregateConformancePackComplianceSummaryGroupKey</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAggregateConformancePackComplianceSummaryGroupKey_ACCOUNT_ID"><span id="%24mAggregateConformancePackComplianceSummaryGroupKey_ACCOUNT_ID"><span id="AggregateConformancePackComplianceSummaryGroupKey_ACCOUNT_ID"><span class="annot"><span class="annottext">$bAggregateConformancePackComplianceSummaryGroupKey_ACCOUNT_ID :: AggregateConformancePackComplianceSummaryGroupKey
+$mAggregateConformancePackComplianceSummaryGroupKey_ACCOUNT_ID :: forall r.
+AggregateConformancePackComplianceSummaryGroupKey
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#%24bAggregateConformancePackComplianceSummaryGroupKey_ACCOUNT_ID"><span class="hs-identifier hs-var hs-var hs-var">AggregateConformancePackComplianceSummaryGroupKey_ACCOUNT_ID</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#AggregateConformancePackComplianceSummaryGroupKey%27"><span class="hs-identifier hs-type">AggregateConformancePackComplianceSummaryGroupKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACCOUNT_ID&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#AggregateConformancePackComplianceSummaryGroupKey_AWS_REGION"><span class="hs-identifier hs-type">AggregateConformancePackComplianceSummaryGroupKey_AWS_REGION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#AggregateConformancePackComplianceSummaryGroupKey"><span class="hs-identifier hs-type">AggregateConformancePackComplianceSummaryGroupKey</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAggregateConformancePackComplianceSummaryGroupKey_AWS_REGION"><span id="%24mAggregateConformancePackComplianceSummaryGroupKey_AWS_REGION"><span id="AggregateConformancePackComplianceSummaryGroupKey_AWS_REGION"><span class="annot"><span class="annottext">$bAggregateConformancePackComplianceSummaryGroupKey_AWS_REGION :: AggregateConformancePackComplianceSummaryGroupKey
+$mAggregateConformancePackComplianceSummaryGroupKey_AWS_REGION :: forall r.
+AggregateConformancePackComplianceSummaryGroupKey
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#%24bAggregateConformancePackComplianceSummaryGroupKey_AWS_REGION"><span class="hs-identifier hs-var hs-var hs-var">AggregateConformancePackComplianceSummaryGroupKey_AWS_REGION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#AggregateConformancePackComplianceSummaryGroupKey%27"><span class="hs-identifier hs-type">AggregateConformancePackComplianceSummaryGroupKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWS_REGION&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#AggregateConformancePackComplianceSummaryGroupKey_ACCOUNT_ID"><span class="hs-pragma hs-type">AggregateConformancePackComplianceSummaryGroupKey_ACCOUNT_ID</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#AggregateConformancePackComplianceSummaryGroupKey_AWS_REGION"><span class="hs-pragma hs-type">AggregateConformancePackComplianceSummaryGroupKey_AWS_REGION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey.html#AggregateConformancePackComplianceSummaryGroupKey%27"><span class="hs-pragma hs-type">AggregateConformancePackComplianceSummaryGroupKey'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

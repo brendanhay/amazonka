@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.EdgeOutputConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.EdgeOutputConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgePresetDeploymentType.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.EdgePresetDeploymentType</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The output configuration.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEdgeOutputConfig' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621680302373"><span id="local-6989586621680302374"></span></span><span class="hs-keyword">data</span><span> </span><span id="EdgeOutputConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-var">EdgeOutputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EdgeOutputConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig%27"><span class="hs-identifier hs-var">EdgeOutputConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration used to create deployment artifacts. Specify</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- configuration options with a JSON string. The available configuration</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- options for each type are:</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   @ComponentName@ (optional) - Name of the GreenGrass V2 component. If</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--     not specified, the default name generated consists of</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--     \&quot;SagemakerEdgeManager\&quot; and the name of your SageMaker Edge Manager</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--     packaging job.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @ComponentDescription@ (optional) - Description of the component.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   @ComponentVersion@ (optional) - The version of the component.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     Amazon Web Services IoT Greengrass uses semantic versions for</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     components. Semantic versions follow a /major.minor.patch/ number</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     system. For example, version 1.0.0 represents the first major</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     release for a component. For more information, see the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     &lt;https://semver.org/ semantic version specification&gt;.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @PlatformOS@ (optional) - The name of the operating system for the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     platform. Supported platforms include Windows and Linux.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   @PlatformArchitecture@ (optional) - The processor architecture for</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     the platform.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     Supported architectures Windows include: Windows32_x86,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     Windows64_x64.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     Supported architectures for Linux include: Linux x86_64, Linux</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     ARMV8.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3ApresetDeploymentConfig%3AEdgeOutputConfig%27"><span class="annot"><span class="annottext">EdgeOutputConfig -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#%24sel%3ApresetDeploymentConfig%3AEdgeOutputConfig%27"><span class="hs-identifier hs-var hs-var">presetDeploymentConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- key that Amazon SageMaker uses to encrypt data on the storage volume</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- after compilation job. If you don\'t provide a KMS key ID, Amazon</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- SageMaker uses the default KMS key for Amazon S3 for your role\'s</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AkmsKeyId%3AEdgeOutputConfig%27"><span class="annot"><span class="annottext">EdgeOutputConfig -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#%24sel%3AkmsKeyId%3AEdgeOutputConfig%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The deployment type SageMaker Edge Manager will create. Currently only</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- supports Amazon Web Services IoT Greengrass Version 2 components.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3ApresetDeploymentType%3AEdgeOutputConfig%27"><span class="annot"><span class="annottext">EdgeOutputConfig -&gt; Maybe EdgePresetDeploymentType
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#%24sel%3ApresetDeploymentType%3AEdgeOutputConfig%27"><span class="hs-identifier hs-var hs-var">presetDeploymentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgePresetDeploymentType.html#EdgePresetDeploymentType"><span class="hs-identifier hs-type">EdgePresetDeploymentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The Amazon Simple Storage (S3) bucker URI.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3As3OutputLocation%3AEdgeOutputConfig%27"><span class="annot"><span class="annottext">EdgeOutputConfig -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#%24sel%3As3OutputLocation%3AEdgeOutputConfig%27"><span class="hs-identifier hs-var hs-var">s3OutputLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680302364"><span id="local-6989586621680302366"><span class="annot"><span class="annottext">EdgeOutputConfig -&gt; EdgeOutputConfig -&gt; Bool
+(EdgeOutputConfig -&gt; EdgeOutputConfig -&gt; Bool)
+-&gt; (EdgeOutputConfig -&gt; EdgeOutputConfig -&gt; Bool)
+-&gt; Eq EdgeOutputConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EdgeOutputConfig -&gt; EdgeOutputConfig -&gt; Bool
+$c/= :: EdgeOutputConfig -&gt; EdgeOutputConfig -&gt; Bool
+== :: EdgeOutputConfig -&gt; EdgeOutputConfig -&gt; Bool
+$c== :: EdgeOutputConfig -&gt; EdgeOutputConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680302355"><span id="local-6989586621680302357"><span id="local-6989586621680302359"><span id="local-6989586621680302361"><span class="annot"><span class="annottext">ReadPrec [EdgeOutputConfig]
+ReadPrec EdgeOutputConfig
+Int -&gt; ReadS EdgeOutputConfig
+ReadS [EdgeOutputConfig]
+(Int -&gt; ReadS EdgeOutputConfig)
+-&gt; ReadS [EdgeOutputConfig]
+-&gt; ReadPrec EdgeOutputConfig
+-&gt; ReadPrec [EdgeOutputConfig]
+-&gt; Read EdgeOutputConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EdgeOutputConfig]
+$creadListPrec :: ReadPrec [EdgeOutputConfig]
+readPrec :: ReadPrec EdgeOutputConfig
+$creadPrec :: ReadPrec EdgeOutputConfig
+readList :: ReadS [EdgeOutputConfig]
+$creadList :: ReadS [EdgeOutputConfig]
+readsPrec :: Int -&gt; ReadS EdgeOutputConfig
+$creadsPrec :: Int -&gt; ReadS EdgeOutputConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680302348"><span id="local-6989586621680302350"><span id="local-6989586621680302352"><span class="annot"><span class="annottext">Int -&gt; EdgeOutputConfig -&gt; ShowS
+[EdgeOutputConfig] -&gt; ShowS
+EdgeOutputConfig -&gt; String
+(Int -&gt; EdgeOutputConfig -&gt; ShowS)
+-&gt; (EdgeOutputConfig -&gt; String)
+-&gt; ([EdgeOutputConfig] -&gt; ShowS)
+-&gt; Show EdgeOutputConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EdgeOutputConfig] -&gt; ShowS
+$cshowList :: [EdgeOutputConfig] -&gt; ShowS
+show :: EdgeOutputConfig -&gt; String
+$cshow :: EdgeOutputConfig -&gt; String
+showsPrec :: Int -&gt; EdgeOutputConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; EdgeOutputConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EdgeOutputConfig -&gt; Rep EdgeOutputConfig x)
+-&gt; (forall x. Rep EdgeOutputConfig x -&gt; EdgeOutputConfig)
+-&gt; Generic EdgeOutputConfig
+forall x. Rep EdgeOutputConfig x -&gt; EdgeOutputConfig
+forall x. EdgeOutputConfig -&gt; Rep EdgeOutputConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EdgeOutputConfig x -&gt; EdgeOutputConfig
+$cfrom :: forall x. EdgeOutputConfig -&gt; Rep EdgeOutputConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'EdgeOutputConfig' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'presetDeploymentConfig', 'edgeOutputConfig_presetDeploymentConfig' - The configuration used to create deployment artifacts. Specify</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- configuration options with a JSON string. The available configuration</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- options for each type are:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- -   @ComponentName@ (optional) - Name of the GreenGrass V2 component. If</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--     not specified, the default name generated consists of</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--     \&quot;SagemakerEdgeManager\&quot; and the name of your SageMaker Edge Manager</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     packaging job.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   @ComponentDescription@ (optional) - Description of the component.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   @ComponentVersion@ (optional) - The version of the component.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--     Amazon Web Services IoT Greengrass uses semantic versions for</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     components. Semantic versions follow a /major.minor.patch/ number</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--     system. For example, version 1.0.0 represents the first major</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--     release for a component. For more information, see the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--     &lt;https://semver.org/ semantic version specification&gt;.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- -   @PlatformOS@ (optional) - The name of the operating system for the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--     platform. Supported platforms include Windows and Linux.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- -   @PlatformArchitecture@ (optional) - The processor architecture for</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--     the platform.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--     Supported architectures Windows include: Windows32_x86,</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--     Windows64_x64.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--     Supported architectures for Linux include: Linux x86_64, Linux</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--     ARMV8.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'kmsKeyId', 'edgeOutputConfig_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- key that Amazon SageMaker uses to encrypt data on the storage volume</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- after compilation job. If you don\'t provide a KMS key ID, Amazon</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- SageMaker uses the default KMS key for Amazon S3 for your role\'s</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'presetDeploymentType', 'edgeOutputConfig_presetDeploymentType' - The deployment type SageMaker Edge Manager will create. Currently only</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- supports Amazon Web Services IoT Greengrass Version 2 components.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 's3OutputLocation', 'edgeOutputConfig_s3OutputLocation' - The Amazon Simple Storage (S3) bucker URI.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#newEdgeOutputConfig"><span class="hs-identifier hs-type">newEdgeOutputConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 's3OutputLocation'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span><span>
+</span><span id="line-129"></span><span id="newEdgeOutputConfig"><span class="annot"><span class="annottext">newEdgeOutputConfig :: Text -&gt; EdgeOutputConfig
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#newEdgeOutputConfig"><span class="hs-identifier hs-var hs-var">newEdgeOutputConfig</span></a></span></span><span> </span><span id="local-6989586621680302342"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302342"><span class="hs-identifier hs-var">pS3OutputLocation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">EdgeOutputConfig' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe EdgePresetDeploymentType
+-&gt; Text
+-&gt; EdgeOutputConfig
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig%27"><span class="hs-identifier hs-type">EdgeOutputConfig'</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:presetDeploymentConfig:EdgeOutputConfig' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#%24sel%3ApresetDeploymentConfig%3AEdgeOutputConfig%27"><span class="hs-identifier hs-var">presetDeploymentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:EdgeOutputConfig' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#%24sel%3AkmsKeyId%3AEdgeOutputConfig%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:presetDeploymentType:EdgeOutputConfig' :: Maybe EdgePresetDeploymentType
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#%24sel%3ApresetDeploymentType%3AEdgeOutputConfig%27"><span class="hs-identifier hs-var">presetDeploymentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EdgePresetDeploymentType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3OutputLocation:EdgeOutputConfig' :: Text
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#%24sel%3As3OutputLocation%3AEdgeOutputConfig%27"><span class="hs-identifier hs-var">s3OutputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302342"><span class="hs-identifier hs-var">pS3OutputLocation_</span></a></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The configuration used to create deployment artifacts. Specify</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- configuration options with a JSON string. The available configuration</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- options for each type are:</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- -   @ComponentName@ (optional) - Name of the GreenGrass V2 component. If</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--     not specified, the default name generated consists of</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     \&quot;SagemakerEdgeManager\&quot; and the name of your SageMaker Edge Manager</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     packaging job.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- -   @ComponentDescription@ (optional) - Description of the component.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- -   @ComponentVersion@ (optional) - The version of the component.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--     Amazon Web Services IoT Greengrass uses semantic versions for</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     components. Semantic versions follow a /major.minor.patch/ number</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     system. For example, version 1.0.0 represents the first major</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     release for a component. For more information, see the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     &lt;https://semver.org/ semantic version specification&gt;.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- -   @PlatformOS@ (optional) - The name of the operating system for the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     platform. Supported platforms include Windows and Linux.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   @PlatformArchitecture@ (optional) - The processor architecture for</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--     the platform.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--     Supported architectures Windows include: Windows32_x86,</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--     Windows64_x64.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     Supported architectures for Linux include: Linux x86_64, Linux</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--     ARMV8.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#edgeOutputConfig_presetDeploymentConfig"><span class="hs-identifier hs-type">edgeOutputConfig_presetDeploymentConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="edgeOutputConfig_presetDeploymentConfig"><span class="annot"><span class="annottext">edgeOutputConfig_presetDeploymentConfig :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EdgeOutputConfig -&gt; f EdgeOutputConfig
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#edgeOutputConfig_presetDeploymentConfig"><span class="hs-identifier hs-var hs-var">edgeOutputConfig_presetDeploymentConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EdgeOutputConfig -&gt; Maybe Text)
+-&gt; (EdgeOutputConfig -&gt; Maybe Text -&gt; EdgeOutputConfig)
+-&gt; Lens EdgeOutputConfig EdgeOutputConfig (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig%27"><span class="hs-identifier hs-type">EdgeOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302338"><span class="annot"><span class="annottext">Maybe Text
+presetDeploymentConfig :: Maybe Text
+$sel:presetDeploymentConfig:EdgeOutputConfig' :: EdgeOutputConfig -&gt; Maybe Text
+</span><a href="#local-6989586621680302338"><span class="hs-identifier hs-var hs-var">presetDeploymentConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302338"><span class="hs-identifier hs-var">presetDeploymentConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302337"><span class="annot"><span class="annottext">s :: EdgeOutputConfig
+</span><a href="#local-6989586621680302337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig%27"><span class="hs-identifier hs-type">EdgeOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302336"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EdgeOutputConfig
+</span><a href="#local-6989586621680302337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:presetDeploymentConfig:EdgeOutputConfig' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#%24sel%3ApresetDeploymentConfig%3AEdgeOutputConfig%27"><span class="hs-identifier hs-var">presetDeploymentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- key that Amazon SageMaker uses to encrypt data on the storage volume</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- after compilation job. If you don\'t provide a KMS key ID, Amazon</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- SageMaker uses the default KMS key for Amazon S3 for your role\'s</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#edgeOutputConfig_kmsKeyId"><span class="hs-identifier hs-type">edgeOutputConfig_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="edgeOutputConfig_kmsKeyId"><span class="annot"><span class="annottext">edgeOutputConfig_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EdgeOutputConfig -&gt; f EdgeOutputConfig
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#edgeOutputConfig_kmsKeyId"><span class="hs-identifier hs-var hs-var">edgeOutputConfig_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EdgeOutputConfig -&gt; Maybe Text)
+-&gt; (EdgeOutputConfig -&gt; Maybe Text -&gt; EdgeOutputConfig)
+-&gt; Lens EdgeOutputConfig EdgeOutputConfig (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig%27"><span class="hs-identifier hs-type">EdgeOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302334"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyId :: Maybe Text
+$sel:kmsKeyId:EdgeOutputConfig' :: EdgeOutputConfig -&gt; Maybe Text
+</span><a href="#local-6989586621680302334"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302334"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302333"><span class="annot"><span class="annottext">s :: EdgeOutputConfig
+</span><a href="#local-6989586621680302333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig%27"><span class="hs-identifier hs-type">EdgeOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302332"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EdgeOutputConfig
+</span><a href="#local-6989586621680302333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:EdgeOutputConfig' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#%24sel%3AkmsKeyId%3AEdgeOutputConfig%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The deployment type SageMaker Edge Manager will create. Currently only</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- supports Amazon Web Services IoT Greengrass Version 2 components.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#edgeOutputConfig_presetDeploymentType"><span class="hs-identifier hs-type">edgeOutputConfig_presetDeploymentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgePresetDeploymentType.html#EdgePresetDeploymentType"><span class="hs-identifier hs-type">EdgePresetDeploymentType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="edgeOutputConfig_presetDeploymentType"><span class="annot"><span class="annottext">edgeOutputConfig_presetDeploymentType :: (Maybe EdgePresetDeploymentType
+ -&gt; f (Maybe EdgePresetDeploymentType))
+-&gt; EdgeOutputConfig -&gt; f EdgeOutputConfig
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#edgeOutputConfig_presetDeploymentType"><span class="hs-identifier hs-var hs-var">edgeOutputConfig_presetDeploymentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EdgeOutputConfig -&gt; Maybe EdgePresetDeploymentType)
+-&gt; (EdgeOutputConfig
+    -&gt; Maybe EdgePresetDeploymentType -&gt; EdgeOutputConfig)
+-&gt; Lens
+     EdgeOutputConfig
+     EdgeOutputConfig
+     (Maybe EdgePresetDeploymentType)
+     (Maybe EdgePresetDeploymentType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig%27"><span class="hs-identifier hs-type">EdgeOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302330"><span class="annot"><span class="annottext">Maybe EdgePresetDeploymentType
+presetDeploymentType :: Maybe EdgePresetDeploymentType
+$sel:presetDeploymentType:EdgeOutputConfig' :: EdgeOutputConfig -&gt; Maybe EdgePresetDeploymentType
+</span><a href="#local-6989586621680302330"><span class="hs-identifier hs-var hs-var">presetDeploymentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EdgePresetDeploymentType
+</span><a href="#local-6989586621680302330"><span class="hs-identifier hs-var">presetDeploymentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302329"><span class="annot"><span class="annottext">s :: EdgeOutputConfig
+</span><a href="#local-6989586621680302329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig%27"><span class="hs-identifier hs-type">EdgeOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302328"><span class="annot"><span class="annottext">Maybe EdgePresetDeploymentType
+</span><a href="#local-6989586621680302328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EdgeOutputConfig
+</span><a href="#local-6989586621680302329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:presetDeploymentType:EdgeOutputConfig' :: Maybe EdgePresetDeploymentType
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#%24sel%3ApresetDeploymentType%3AEdgeOutputConfig%27"><span class="hs-identifier hs-var">presetDeploymentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EdgePresetDeploymentType
+</span><a href="#local-6989586621680302328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The Amazon Simple Storage (S3) bucker URI.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#edgeOutputConfig_s3OutputLocation"><span class="hs-identifier hs-type">edgeOutputConfig_s3OutputLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-186"></span><span id="edgeOutputConfig_s3OutputLocation"><span class="annot"><span class="annottext">edgeOutputConfig_s3OutputLocation :: (Text -&gt; f Text) -&gt; EdgeOutputConfig -&gt; f EdgeOutputConfig
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#edgeOutputConfig_s3OutputLocation"><span class="hs-identifier hs-var hs-var">edgeOutputConfig_s3OutputLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EdgeOutputConfig -&gt; Text)
+-&gt; (EdgeOutputConfig -&gt; Text -&gt; EdgeOutputConfig)
+-&gt; Lens EdgeOutputConfig EdgeOutputConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig%27"><span class="hs-identifier hs-type">EdgeOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302326"><span class="annot"><span class="annottext">Text
+s3OutputLocation :: Text
+$sel:s3OutputLocation:EdgeOutputConfig' :: EdgeOutputConfig -&gt; Text
+</span><a href="#local-6989586621680302326"><span class="hs-identifier hs-var hs-var">s3OutputLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302326"><span class="hs-identifier hs-var">s3OutputLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302325"><span class="annot"><span class="annottext">s :: EdgeOutputConfig
+</span><a href="#local-6989586621680302325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig%27"><span class="hs-identifier hs-type">EdgeOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302324"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EdgeOutputConfig
+</span><a href="#local-6989586621680302325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputLocation:EdgeOutputConfig' :: Text
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#%24sel%3As3OutputLocation%3AEdgeOutputConfig%27"><span class="hs-identifier hs-var">s3OutputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680302321"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621680302319"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EdgeOutputConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EdgeOutputConfig)
+-&gt; Value
+-&gt; Parser EdgeOutputConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EdgeOutputConfig&quot;</span></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680302316"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680302316"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe EdgePresetDeploymentType
+-&gt; Text
+-&gt; EdgeOutputConfig
+</span><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig%27"><span class="hs-identifier hs-var">EdgeOutputConfig'</span></a></span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe EdgePresetDeploymentType
+ -&gt; Text
+ -&gt; EdgeOutputConfig)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe EdgePresetDeploymentType -&gt; Text -&gt; EdgeOutputConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680302316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PresetDeploymentConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe EdgePresetDeploymentType -&gt; Text -&gt; EdgeOutputConfig)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe EdgePresetDeploymentType -&gt; Text -&gt; EdgeOutputConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680302316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EdgePresetDeploymentType -&gt; Text -&gt; EdgeOutputConfig)
+-&gt; Parser (Maybe EdgePresetDeploymentType)
+-&gt; Parser (Text -&gt; EdgeOutputConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680302316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EdgePresetDeploymentType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PresetDeploymentType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; EdgeOutputConfig)
+-&gt; Parser Text -&gt; Parser EdgeOutputConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680302316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3OutputLocation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680302309"><span id="local-6989586621680302311"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span></span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680302306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680302298"><span id="local-6989586621680302300"><span id="local-6989586621680302302"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621680302296"><span class="annot"><span class="annottext">toJSON :: EdgeOutputConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig%27"><span class="hs-identifier hs-type">EdgeOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302291"><span id="local-6989586621680302292"><span id="local-6989586621680302293"><span id="local-6989586621680302294"><span class="annot"><span class="annottext">Maybe Text
+Maybe EdgePresetDeploymentType
+Text
+s3OutputLocation :: Text
+presetDeploymentType :: Maybe EdgePresetDeploymentType
+kmsKeyId :: Maybe Text
+presetDeploymentConfig :: Maybe Text
+$sel:s3OutputLocation:EdgeOutputConfig' :: EdgeOutputConfig -&gt; Text
+$sel:presetDeploymentType:EdgeOutputConfig' :: EdgeOutputConfig -&gt; Maybe EdgePresetDeploymentType
+$sel:kmsKeyId:EdgeOutputConfig' :: EdgeOutputConfig -&gt; Maybe Text
+$sel:presetDeploymentConfig:EdgeOutputConfig' :: EdgeOutputConfig -&gt; Maybe Text
+</span><a href="#local-6989586621680302291"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-208"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PresetDeploymentConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302294"><span class="hs-identifier hs-var">presetDeploymentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302293"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PresetDeploymentType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EdgePresetDeploymentType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">(EdgePresetDeploymentType -&gt; Pair)
+-&gt; Maybe EdgePresetDeploymentType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EdgePresetDeploymentType
+</span><a href="#local-6989586621680302292"><span class="hs-identifier hs-var">presetDeploymentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-214"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3OutputLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302291"><span class="hs-identifier hs-var">s3OutputLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span></pre></body></html>

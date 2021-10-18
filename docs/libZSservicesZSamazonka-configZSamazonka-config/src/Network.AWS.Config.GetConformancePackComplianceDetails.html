@@ -1,0 +1,820 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Config.GetConformancePackComplianceDetails</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns compliance details of a conformance pack for all Amazon Web</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Services resources that are monitered by conformance pack.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Config.GetConformancePackComplianceDetails</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier">GetConformancePackComplianceDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#newGetConformancePackComplianceDetails"><span class="hs-identifier">newGetConformancePackComplianceDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetails_nextToken"><span class="hs-identifier">getConformancePackComplianceDetails_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetails_filters"><span class="hs-identifier">getConformancePackComplianceDetails_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetails_limit"><span class="hs-identifier">getConformancePackComplianceDetails_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetails_conformancePackName"><span class="hs-identifier">getConformancePackComplianceDetails_conformancePackName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse"><span class="hs-identifier">GetConformancePackComplianceDetailsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#newGetConformancePackComplianceDetailsResponse"><span class="hs-identifier">newGetConformancePackComplianceDetailsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetailsResponse_nextToken"><span class="hs-identifier">getConformancePackComplianceDetailsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetailsResponse_conformancePackRuleEvaluationResults"><span class="hs-identifier">getConformancePackComplianceDetailsResponse_conformancePackRuleEvaluationResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetailsResponse_httpStatus"><span class="hs-identifier">getConformancePackComplianceDetailsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetailsResponse_conformancePackName"><span class="hs-identifier">getConformancePackComplianceDetailsResponse_conformancePackName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.html"><span class="hs-identifier">Network.AWS.Config.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newGetConformancePackComplianceDetails' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679419517"><span id="local-6989586621679419518"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetConformancePackComplianceDetails"><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-var">GetConformancePackComplianceDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetConformancePackComplianceDetails%27"><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails%27"><span class="hs-identifier hs-var">GetConformancePackComplianceDetails'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ string returned in a previous request that you use to</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- request the next page of results in a paginated response.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AGetConformancePackComplianceDetails%27"><span class="annot"><span class="annottext">GetConformancePackComplianceDetails -&gt; Maybe Text
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AnextToken%3AGetConformancePackComplianceDetails%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A @ConformancePackEvaluationFilters@ object.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Afilters%3AGetConformancePackComplianceDetails%27"><span class="annot"><span class="annottext">GetConformancePackComplianceDetails
+-&gt; Maybe ConformancePackEvaluationFilters
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3Afilters%3AGetConformancePackComplianceDetails%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackEvaluationFilters.html#ConformancePackEvaluationFilters"><span class="hs-identifier hs-type">ConformancePackEvaluationFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The maximum number of evaluation results returned on each page. If you</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- do no specify a number, Config uses the default. The default is 100.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Alimit%3AGetConformancePackComplianceDetails%27"><span class="annot"><span class="annottext">GetConformancePackComplianceDetails -&gt; Maybe Natural
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3Alimit%3AGetConformancePackComplianceDetails%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Name of the conformance pack.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AconformancePackName%3AGetConformancePackComplianceDetails%27"><span class="annot"><span class="annottext">GetConformancePackComplianceDetails -&gt; Text
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AconformancePackName%3AGetConformancePackComplianceDetails%27"><span class="hs-identifier hs-var hs-var">conformancePackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679419508"><span id="local-6989586621679419510"><span class="annot"><span class="annottext">GetConformancePackComplianceDetails
+-&gt; GetConformancePackComplianceDetails -&gt; Bool
+(GetConformancePackComplianceDetails
+ -&gt; GetConformancePackComplianceDetails -&gt; Bool)
+-&gt; (GetConformancePackComplianceDetails
+    -&gt; GetConformancePackComplianceDetails -&gt; Bool)
+-&gt; Eq GetConformancePackComplianceDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetConformancePackComplianceDetails
+-&gt; GetConformancePackComplianceDetails -&gt; Bool
+$c/= :: GetConformancePackComplianceDetails
+-&gt; GetConformancePackComplianceDetails -&gt; Bool
+== :: GetConformancePackComplianceDetails
+-&gt; GetConformancePackComplianceDetails -&gt; Bool
+$c== :: GetConformancePackComplianceDetails
+-&gt; GetConformancePackComplianceDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419499"><span id="local-6989586621679419501"><span id="local-6989586621679419503"><span id="local-6989586621679419505"><span class="annot"><span class="annottext">ReadPrec [GetConformancePackComplianceDetails]
+ReadPrec GetConformancePackComplianceDetails
+Int -&gt; ReadS GetConformancePackComplianceDetails
+ReadS [GetConformancePackComplianceDetails]
+(Int -&gt; ReadS GetConformancePackComplianceDetails)
+-&gt; ReadS [GetConformancePackComplianceDetails]
+-&gt; ReadPrec GetConformancePackComplianceDetails
+-&gt; ReadPrec [GetConformancePackComplianceDetails]
+-&gt; Read GetConformancePackComplianceDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetConformancePackComplianceDetails]
+$creadListPrec :: ReadPrec [GetConformancePackComplianceDetails]
+readPrec :: ReadPrec GetConformancePackComplianceDetails
+$creadPrec :: ReadPrec GetConformancePackComplianceDetails
+readList :: ReadS [GetConformancePackComplianceDetails]
+$creadList :: ReadS [GetConformancePackComplianceDetails]
+readsPrec :: Int -&gt; ReadS GetConformancePackComplianceDetails
+$creadsPrec :: Int -&gt; ReadS GetConformancePackComplianceDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419492"><span id="local-6989586621679419494"><span id="local-6989586621679419496"><span class="annot"><span class="annottext">Int -&gt; GetConformancePackComplianceDetails -&gt; ShowS
+[GetConformancePackComplianceDetails] -&gt; ShowS
+GetConformancePackComplianceDetails -&gt; String
+(Int -&gt; GetConformancePackComplianceDetails -&gt; ShowS)
+-&gt; (GetConformancePackComplianceDetails -&gt; String)
+-&gt; ([GetConformancePackComplianceDetails] -&gt; ShowS)
+-&gt; Show GetConformancePackComplianceDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetConformancePackComplianceDetails] -&gt; ShowS
+$cshowList :: [GetConformancePackComplianceDetails] -&gt; ShowS
+show :: GetConformancePackComplianceDetails -&gt; String
+$cshow :: GetConformancePackComplianceDetails -&gt; String
+showsPrec :: Int -&gt; GetConformancePackComplianceDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetConformancePackComplianceDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetConformancePackComplianceDetails
+ -&gt; Rep GetConformancePackComplianceDetails x)
+-&gt; (forall x.
+    Rep GetConformancePackComplianceDetails x
+    -&gt; GetConformancePackComplianceDetails)
+-&gt; Generic GetConformancePackComplianceDetails
+forall x.
+Rep GetConformancePackComplianceDetails x
+-&gt; GetConformancePackComplianceDetails
+forall x.
+GetConformancePackComplianceDetails
+-&gt; Rep GetConformancePackComplianceDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetConformancePackComplianceDetails x
+-&gt; GetConformancePackComplianceDetails
+$cfrom :: forall x.
+GetConformancePackComplianceDetails
+-&gt; Rep GetConformancePackComplianceDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'GetConformancePackComplianceDetails' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'nextToken', 'getConformancePackComplianceDetails_nextToken' - The @nextToken@ string returned in a previous request that you use to</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- request the next page of results in a paginated response.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'filters', 'getConformancePackComplianceDetails_filters' - A @ConformancePackEvaluationFilters@ object.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'limit', 'getConformancePackComplianceDetails_limit' - The maximum number of evaluation results returned on each page. If you</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- do no specify a number, Config uses the default. The default is 100.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'conformancePackName', 'getConformancePackComplianceDetails_conformancePackName' - Name of the conformance pack.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#newGetConformancePackComplianceDetails"><span class="hs-identifier hs-type">newGetConformancePackComplianceDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'conformancePackName'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span><span>
+</span><span id="line-91"></span><span id="newGetConformancePackComplianceDetails"><span class="annot"><span class="annottext">newGetConformancePackComplianceDetails :: Text -&gt; GetConformancePackComplianceDetails
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#newGetConformancePackComplianceDetails"><span class="hs-identifier hs-var hs-var">newGetConformancePackComplianceDetails</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679419487"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419487"><span class="hs-identifier hs-var">pConformancePackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">GetConformancePackComplianceDetails' :: Maybe Text
+-&gt; Maybe ConformancePackEvaluationFilters
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; GetConformancePackComplianceDetails
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails'</span></a></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetConformancePackComplianceDetails' :: Maybe Text
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AnextToken%3AGetConformancePackComplianceDetails%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:filters:GetConformancePackComplianceDetails' :: Maybe ConformancePackEvaluationFilters
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3Afilters%3AGetConformancePackComplianceDetails%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConformancePackEvaluationFilters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:limit:GetConformancePackComplianceDetails' :: Maybe Natural
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3Alimit%3AGetConformancePackComplianceDetails%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:conformancePackName:GetConformancePackComplianceDetails' :: Text
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AconformancePackName%3AGetConformancePackComplianceDetails%27"><span class="hs-identifier hs-var">conformancePackName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419487"><span class="hs-identifier hs-var">pConformancePackName_</span></a></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The @nextToken@ string returned in a previous request that you use to</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- request the next page of results in a paginated response.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetails_nextToken"><span class="hs-identifier hs-type">getConformancePackComplianceDetails_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="getConformancePackComplianceDetails_nextToken"><span class="annot"><span class="annottext">getConformancePackComplianceDetails_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetConformancePackComplianceDetails
+-&gt; f GetConformancePackComplianceDetails
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetails_nextToken"><span class="hs-identifier hs-var hs-var">getConformancePackComplianceDetails_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConformancePackComplianceDetails -&gt; Maybe Text)
+-&gt; (GetConformancePackComplianceDetails
+    -&gt; Maybe Text -&gt; GetConformancePackComplianceDetails)
+-&gt; Lens
+     GetConformancePackComplianceDetails
+     GetConformancePackComplianceDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419484"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetConformancePackComplianceDetails' :: GetConformancePackComplianceDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679419484"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419484"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419483"><span class="annot"><span class="annottext">s :: GetConformancePackComplianceDetails
+</span><a href="#local-6989586621679419483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419482"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConformancePackComplianceDetails
+</span><a href="#local-6989586621679419483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetConformancePackComplianceDetails' :: Maybe Text
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AnextToken%3AGetConformancePackComplianceDetails%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | A @ConformancePackEvaluationFilters@ object.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetails_filters"><span class="hs-identifier hs-type">getConformancePackComplianceDetails_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackEvaluationFilters.html#ConformancePackEvaluationFilters"><span class="hs-identifier hs-type">ConformancePackEvaluationFilters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="getConformancePackComplianceDetails_filters"><span class="annot"><span class="annottext">getConformancePackComplianceDetails_filters :: (Maybe ConformancePackEvaluationFilters
+ -&gt; f (Maybe ConformancePackEvaluationFilters))
+-&gt; GetConformancePackComplianceDetails
+-&gt; f GetConformancePackComplianceDetails
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetails_filters"><span class="hs-identifier hs-var hs-var">getConformancePackComplianceDetails_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConformancePackComplianceDetails
+ -&gt; Maybe ConformancePackEvaluationFilters)
+-&gt; (GetConformancePackComplianceDetails
+    -&gt; Maybe ConformancePackEvaluationFilters
+    -&gt; GetConformancePackComplianceDetails)
+-&gt; Lens
+     GetConformancePackComplianceDetails
+     GetConformancePackComplianceDetails
+     (Maybe ConformancePackEvaluationFilters)
+     (Maybe ConformancePackEvaluationFilters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419481"><span class="annot"><span class="annottext">Maybe ConformancePackEvaluationFilters
+filters :: Maybe ConformancePackEvaluationFilters
+$sel:filters:GetConformancePackComplianceDetails' :: GetConformancePackComplianceDetails
+-&gt; Maybe ConformancePackEvaluationFilters
+</span><a href="#local-6989586621679419481"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConformancePackEvaluationFilters
+</span><a href="#local-6989586621679419481"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419480"><span class="annot"><span class="annottext">s :: GetConformancePackComplianceDetails
+</span><a href="#local-6989586621679419480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419479"><span class="annot"><span class="annottext">Maybe ConformancePackEvaluationFilters
+</span><a href="#local-6989586621679419479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConformancePackComplianceDetails
+</span><a href="#local-6989586621679419480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:GetConformancePackComplianceDetails' :: Maybe ConformancePackEvaluationFilters
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3Afilters%3AGetConformancePackComplianceDetails%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConformancePackEvaluationFilters
+</span><a href="#local-6989586621679419479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The maximum number of evaluation results returned on each page. If you</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- do no specify a number, Config uses the default. The default is 100.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetails_limit"><span class="hs-identifier hs-type">getConformancePackComplianceDetails_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="getConformancePackComplianceDetails_limit"><span class="annot"><span class="annottext">getConformancePackComplianceDetails_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetConformancePackComplianceDetails
+-&gt; f GetConformancePackComplianceDetails
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetails_limit"><span class="hs-identifier hs-var hs-var">getConformancePackComplianceDetails_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConformancePackComplianceDetails -&gt; Maybe Natural)
+-&gt; (GetConformancePackComplianceDetails
+    -&gt; Maybe Natural -&gt; GetConformancePackComplianceDetails)
+-&gt; Lens
+     GetConformancePackComplianceDetails
+     GetConformancePackComplianceDetails
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419478"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:GetConformancePackComplianceDetails' :: GetConformancePackComplianceDetails -&gt; Maybe Natural
+</span><a href="#local-6989586621679419478"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679419478"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419477"><span class="annot"><span class="annottext">s :: GetConformancePackComplianceDetails
+</span><a href="#local-6989586621679419477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419476"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679419476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConformancePackComplianceDetails
+</span><a href="#local-6989586621679419477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:GetConformancePackComplianceDetails' :: Maybe Natural
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3Alimit%3AGetConformancePackComplianceDetails%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679419476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Name of the conformance pack.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetails_conformancePackName"><span class="hs-identifier hs-type">getConformancePackComplianceDetails_conformancePackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="getConformancePackComplianceDetails_conformancePackName"><span class="annot"><span class="annottext">getConformancePackComplianceDetails_conformancePackName :: (Text -&gt; f Text)
+-&gt; GetConformancePackComplianceDetails
+-&gt; f GetConformancePackComplianceDetails
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetails_conformancePackName"><span class="hs-identifier hs-var hs-var">getConformancePackComplianceDetails_conformancePackName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConformancePackComplianceDetails -&gt; Text)
+-&gt; (GetConformancePackComplianceDetails
+    -&gt; Text -&gt; GetConformancePackComplianceDetails)
+-&gt; Lens
+     GetConformancePackComplianceDetails
+     GetConformancePackComplianceDetails
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419475"><span class="annot"><span class="annottext">Text
+conformancePackName :: Text
+$sel:conformancePackName:GetConformancePackComplianceDetails' :: GetConformancePackComplianceDetails -&gt; Text
+</span><a href="#local-6989586621679419475"><span class="hs-identifier hs-var hs-var">conformancePackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419475"><span class="hs-identifier hs-var">conformancePackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419474"><span class="annot"><span class="annottext">s :: GetConformancePackComplianceDetails
+</span><a href="#local-6989586621679419474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419473"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConformancePackComplianceDetails
+</span><a href="#local-6989586621679419474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conformancePackName:GetConformancePackComplianceDetails' :: Text
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AconformancePackName%3AGetConformancePackComplianceDetails%27"><span class="hs-identifier hs-var">conformancePackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679419469"><span class="annot"><span class="annottext">request :: GetConformancePackComplianceDetails
+-&gt; Request GetConformancePackComplianceDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetConformancePackComplianceDetails
+-&gt; Request GetConformancePackComplianceDetails
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679419465"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetConformancePackComplianceDetails
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetConformancePackComplianceDetails)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetConformancePackComplianceDetails))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetConformancePackComplianceDetails
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetConformancePackComplianceDetails)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679419462"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419462"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679419461"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679419461"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679419460"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679419460"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ConformancePackEvaluationResult]
+-&gt; Int
+-&gt; Text
+-&gt; GetConformancePackComplianceDetailsResponse
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-var">GetConformancePackComplianceDetailsResponse'</span></a></span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ConformancePackEvaluationResult]
+ -&gt; Int
+ -&gt; Text
+ -&gt; GetConformancePackComplianceDetailsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ConformancePackEvaluationResult]
+      -&gt; Int -&gt; Text -&gt; GetConformancePackComplianceDetailsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679419460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ConformancePackEvaluationResult]
+   -&gt; Int -&gt; Text -&gt; GetConformancePackComplianceDetailsResponse)
+-&gt; Either String (Maybe [ConformancePackEvaluationResult])
+-&gt; Either
+     String (Int -&gt; Text -&gt; GetConformancePackComplianceDetailsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679419460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [ConformancePackEvaluationResult]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConformancePackRuleEvaluationResults&quot;</span></span><span>
+</span><span id="line-134"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ConformancePackEvaluationResult]))
+-&gt; Maybe [ConformancePackEvaluationResult]
+-&gt; Either String (Maybe [ConformancePackEvaluationResult])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConformancePackEvaluationResult]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; Text -&gt; GetConformancePackComplianceDetailsResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (Text -&gt; GetConformancePackComplianceDetailsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419462"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">Either String (Text -&gt; GetConformancePackComplianceDetailsResponse)
+-&gt; Either String Text
+-&gt; Either String GetConformancePackComplianceDetailsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679419460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConformancePackName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679419450"><span id="local-6989586621679419452"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679419447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679419443"><span class="annot"><span class="annottext">toHeaders :: GetConformancePackComplianceDetails -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetConformancePackComplianceDetails -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StarlingDoveService.GetConformancePackComplianceDetails&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-158"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-162"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679419433"><span id="local-6989586621679419435"><span id="local-6989586621679419437"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span></span></span></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679419431"><span class="annot"><span class="annottext">toJSON :: GetConformancePackComplianceDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419426"><span id="local-6989586621679419427"><span id="local-6989586621679419428"><span id="local-6989586621679419429"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe ConformancePackEvaluationFilters
+Text
+conformancePackName :: Text
+limit :: Maybe Natural
+filters :: Maybe ConformancePackEvaluationFilters
+nextToken :: Maybe Text
+$sel:conformancePackName:GetConformancePackComplianceDetails' :: GetConformancePackComplianceDetails -&gt; Text
+$sel:limit:GetConformancePackComplianceDetails' :: GetConformancePackComplianceDetails -&gt; Maybe Natural
+$sel:filters:GetConformancePackComplianceDetails' :: GetConformancePackComplianceDetails
+-&gt; Maybe ConformancePackEvaluationFilters
+$sel:nextToken:GetConformancePackComplianceDetails' :: GetConformancePackComplianceDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679419426"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419429"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConformancePackEvaluationFilters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ConformancePackEvaluationFilters -&gt; Pair)
+-&gt; Maybe ConformancePackEvaluationFilters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConformancePackEvaluationFilters
+</span><a href="#local-6989586621679419428"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679419427"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-177"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConformancePackName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419426"><span class="hs-identifier hs-var">conformancePackName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679419420"><span class="annot"><span class="annottext">toPath :: GetConformancePackComplianceDetails -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetConformancePackComplianceDetails -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetails"><span class="hs-identifier hs-type">GetConformancePackComplianceDetails</span></a></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679419416"><span class="annot"><span class="annottext">toQuery :: GetConformancePackComplianceDetails -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetConformancePackComplianceDetails -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | /See:/ 'newGetConformancePackComplianceDetailsResponse' smart constructor.</span><span>
+</span><span id="line-194"></span><span id="local-6989586621679419413"><span id="local-6989586621679419414"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetConformancePackComplianceDetailsResponse"><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse"><span class="hs-identifier hs-var">GetConformancePackComplianceDetailsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetConformancePackComplianceDetailsResponse%27"><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-var">GetConformancePackComplianceDetailsResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ string returned in a previous request that you use to</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- request the next page of results in a paginated response.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AnextToken%3AGetConformancePackComplianceDetailsResponse%27"><span class="annot"><span class="annottext">GetConformancePackComplianceDetailsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AnextToken%3AGetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | Returns a list of @ConformancePackEvaluationResult@ objects.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AconformancePackRuleEvaluationResults%3AGetConformancePackComplianceDetailsResponse%27"><span class="annot"><span class="annottext">GetConformancePackComplianceDetailsResponse
+-&gt; Maybe [ConformancePackEvaluationResult]
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AconformancePackRuleEvaluationResults%3AGetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-var hs-var">conformancePackRuleEvaluationResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackEvaluationResult.html#ConformancePackEvaluationResult"><span class="hs-identifier hs-type">ConformancePackEvaluationResult</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetConformancePackComplianceDetailsResponse%27"><span class="annot"><span class="annottext">GetConformancePackComplianceDetailsResponse -&gt; Int
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AhttpStatus%3AGetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | Name of the conformance pack.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3AconformancePackName%3AGetConformancePackComplianceDetailsResponse%27"><span class="annot"><span class="annottext">GetConformancePackComplianceDetailsResponse -&gt; Text
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AconformancePackName%3AGetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-var hs-var">conformancePackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679419405"><span id="local-6989586621679419407"><span class="annot"><span class="annottext">GetConformancePackComplianceDetailsResponse
+-&gt; GetConformancePackComplianceDetailsResponse -&gt; Bool
+(GetConformancePackComplianceDetailsResponse
+ -&gt; GetConformancePackComplianceDetailsResponse -&gt; Bool)
+-&gt; (GetConformancePackComplianceDetailsResponse
+    -&gt; GetConformancePackComplianceDetailsResponse -&gt; Bool)
+-&gt; Eq GetConformancePackComplianceDetailsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetConformancePackComplianceDetailsResponse
+-&gt; GetConformancePackComplianceDetailsResponse -&gt; Bool
+$c/= :: GetConformancePackComplianceDetailsResponse
+-&gt; GetConformancePackComplianceDetailsResponse -&gt; Bool
+== :: GetConformancePackComplianceDetailsResponse
+-&gt; GetConformancePackComplianceDetailsResponse -&gt; Bool
+$c== :: GetConformancePackComplianceDetailsResponse
+-&gt; GetConformancePackComplianceDetailsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419397"><span id="local-6989586621679419399"><span id="local-6989586621679419401"><span id="local-6989586621679419403"><span class="annot"><span class="annottext">ReadPrec [GetConformancePackComplianceDetailsResponse]
+ReadPrec GetConformancePackComplianceDetailsResponse
+Int -&gt; ReadS GetConformancePackComplianceDetailsResponse
+ReadS [GetConformancePackComplianceDetailsResponse]
+(Int -&gt; ReadS GetConformancePackComplianceDetailsResponse)
+-&gt; ReadS [GetConformancePackComplianceDetailsResponse]
+-&gt; ReadPrec GetConformancePackComplianceDetailsResponse
+-&gt; ReadPrec [GetConformancePackComplianceDetailsResponse]
+-&gt; Read GetConformancePackComplianceDetailsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetConformancePackComplianceDetailsResponse]
+$creadListPrec :: ReadPrec [GetConformancePackComplianceDetailsResponse]
+readPrec :: ReadPrec GetConformancePackComplianceDetailsResponse
+$creadPrec :: ReadPrec GetConformancePackComplianceDetailsResponse
+readList :: ReadS [GetConformancePackComplianceDetailsResponse]
+$creadList :: ReadS [GetConformancePackComplianceDetailsResponse]
+readsPrec :: Int -&gt; ReadS GetConformancePackComplianceDetailsResponse
+$creadsPrec :: Int -&gt; ReadS GetConformancePackComplianceDetailsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419391"><span id="local-6989586621679419393"><span id="local-6989586621679419395"><span class="annot"><span class="annottext">Int -&gt; GetConformancePackComplianceDetailsResponse -&gt; ShowS
+[GetConformancePackComplianceDetailsResponse] -&gt; ShowS
+GetConformancePackComplianceDetailsResponse -&gt; String
+(Int -&gt; GetConformancePackComplianceDetailsResponse -&gt; ShowS)
+-&gt; (GetConformancePackComplianceDetailsResponse -&gt; String)
+-&gt; ([GetConformancePackComplianceDetailsResponse] -&gt; ShowS)
+-&gt; Show GetConformancePackComplianceDetailsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetConformancePackComplianceDetailsResponse] -&gt; ShowS
+$cshowList :: [GetConformancePackComplianceDetailsResponse] -&gt; ShowS
+show :: GetConformancePackComplianceDetailsResponse -&gt; String
+$cshow :: GetConformancePackComplianceDetailsResponse -&gt; String
+showsPrec :: Int -&gt; GetConformancePackComplianceDetailsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetConformancePackComplianceDetailsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetConformancePackComplianceDetailsResponse
+ -&gt; Rep GetConformancePackComplianceDetailsResponse x)
+-&gt; (forall x.
+    Rep GetConformancePackComplianceDetailsResponse x
+    -&gt; GetConformancePackComplianceDetailsResponse)
+-&gt; Generic GetConformancePackComplianceDetailsResponse
+forall x.
+Rep GetConformancePackComplianceDetailsResponse x
+-&gt; GetConformancePackComplianceDetailsResponse
+forall x.
+GetConformancePackComplianceDetailsResponse
+-&gt; Rep GetConformancePackComplianceDetailsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetConformancePackComplianceDetailsResponse x
+-&gt; GetConformancePackComplianceDetailsResponse
+$cfrom :: forall x.
+GetConformancePackComplianceDetailsResponse
+-&gt; Rep GetConformancePackComplianceDetailsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Create a value of 'GetConformancePackComplianceDetailsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'nextToken', 'getConformancePackComplianceDetailsResponse_nextToken' - The @nextToken@ string returned in a previous request that you use to</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- request the next page of results in a paginated response.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'conformancePackRuleEvaluationResults', 'getConformancePackComplianceDetailsResponse_conformancePackRuleEvaluationResults' - Returns a list of @ConformancePackEvaluationResult@ objects.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'httpStatus', 'getConformancePackComplianceDetailsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'conformancePackName', 'getConformancePackComplianceDetailsResponse_conformancePackName' - Name of the conformance pack.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#newGetConformancePackComplianceDetailsResponse"><span class="hs-identifier hs-type">newGetConformancePackComplianceDetailsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-comment">-- | 'conformancePackName'</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-228"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse</span></a></span><span>
+</span><span id="line-229"></span><span id="newGetConformancePackComplianceDetailsResponse"><span class="annot"><span class="annottext">newGetConformancePackComplianceDetailsResponse :: Int -&gt; Text -&gt; GetConformancePackComplianceDetailsResponse
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#newGetConformancePackComplianceDetailsResponse"><span class="hs-identifier hs-var hs-var">newGetConformancePackComplianceDetailsResponse</span></a></span></span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679419388"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419388"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679419387"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419387"><span class="hs-identifier hs-var">pConformancePackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">GetConformancePackComplianceDetailsResponse' :: Maybe Text
+-&gt; Maybe [ConformancePackEvaluationResult]
+-&gt; Int
+-&gt; Text
+-&gt; GetConformancePackComplianceDetailsResponse
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse'</span></a></span><span>
+</span><span id="line-233"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetConformancePackComplianceDetailsResponse' :: Maybe Text
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AnextToken%3AGetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">$sel:conformancePackRuleEvaluationResults:GetConformancePackComplianceDetailsResponse' :: Maybe [ConformancePackEvaluationResult]
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AconformancePackRuleEvaluationResults%3AGetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-var">conformancePackRuleEvaluationResults</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ConformancePackEvaluationResult]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetConformancePackComplianceDetailsResponse' :: Int
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AhttpStatus%3AGetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419388"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">$sel:conformancePackName:GetConformancePackComplianceDetailsResponse' :: Text
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AconformancePackName%3AGetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-var">conformancePackName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419387"><span class="hs-identifier hs-var">pConformancePackName_</span></a></span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The @nextToken@ string returned in a previous request that you use to</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- request the next page of results in a paginated response.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetailsResponse_nextToken"><span class="hs-identifier hs-type">getConformancePackComplianceDetailsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="getConformancePackComplianceDetailsResponse_nextToken"><span class="annot"><span class="annottext">getConformancePackComplianceDetailsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetConformancePackComplianceDetailsResponse
+-&gt; f GetConformancePackComplianceDetailsResponse
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetailsResponse_nextToken"><span class="hs-identifier hs-var hs-var">getConformancePackComplianceDetailsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConformancePackComplianceDetailsResponse -&gt; Maybe Text)
+-&gt; (GetConformancePackComplianceDetailsResponse
+    -&gt; Maybe Text -&gt; GetConformancePackComplianceDetailsResponse)
+-&gt; Lens
+     GetConformancePackComplianceDetailsResponse
+     GetConformancePackComplianceDetailsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419386"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetConformancePackComplianceDetailsResponse' :: GetConformancePackComplianceDetailsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679419386"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419386"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419385"><span class="annot"><span class="annottext">s :: GetConformancePackComplianceDetailsResponse
+</span><a href="#local-6989586621679419385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419384"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConformancePackComplianceDetailsResponse
+</span><a href="#local-6989586621679419385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetConformancePackComplianceDetailsResponse' :: Maybe Text
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AnextToken%3AGetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | Returns a list of @ConformancePackEvaluationResult@ objects.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetailsResponse_conformancePackRuleEvaluationResults"><span class="hs-identifier hs-type">getConformancePackComplianceDetailsResponse_conformancePackRuleEvaluationResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackEvaluationResult.html#ConformancePackEvaluationResult"><span class="hs-identifier hs-type">ConformancePackEvaluationResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="getConformancePackComplianceDetailsResponse_conformancePackRuleEvaluationResults"><span class="annot"><span class="annottext">getConformancePackComplianceDetailsResponse_conformancePackRuleEvaluationResults :: (Maybe [ConformancePackEvaluationResult]
+ -&gt; f (Maybe [ConformancePackEvaluationResult]))
+-&gt; GetConformancePackComplianceDetailsResponse
+-&gt; f GetConformancePackComplianceDetailsResponse
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetailsResponse_conformancePackRuleEvaluationResults"><span class="hs-identifier hs-var hs-var">getConformancePackComplianceDetailsResponse_conformancePackRuleEvaluationResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConformancePackComplianceDetailsResponse
+ -&gt; Maybe [ConformancePackEvaluationResult])
+-&gt; (GetConformancePackComplianceDetailsResponse
+    -&gt; Maybe [ConformancePackEvaluationResult]
+    -&gt; GetConformancePackComplianceDetailsResponse)
+-&gt; Lens
+     GetConformancePackComplianceDetailsResponse
+     GetConformancePackComplianceDetailsResponse
+     (Maybe [ConformancePackEvaluationResult])
+     (Maybe [ConformancePackEvaluationResult])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419383"><span class="annot"><span class="annottext">Maybe [ConformancePackEvaluationResult]
+conformancePackRuleEvaluationResults :: Maybe [ConformancePackEvaluationResult]
+$sel:conformancePackRuleEvaluationResults:GetConformancePackComplianceDetailsResponse' :: GetConformancePackComplianceDetailsResponse
+-&gt; Maybe [ConformancePackEvaluationResult]
+</span><a href="#local-6989586621679419383"><span class="hs-identifier hs-var hs-var">conformancePackRuleEvaluationResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConformancePackEvaluationResult]
+</span><a href="#local-6989586621679419383"><span class="hs-identifier hs-var">conformancePackRuleEvaluationResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419382"><span class="annot"><span class="annottext">s :: GetConformancePackComplianceDetailsResponse
+</span><a href="#local-6989586621679419382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419381"><span class="annot"><span class="annottext">Maybe [ConformancePackEvaluationResult]
+</span><a href="#local-6989586621679419381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConformancePackComplianceDetailsResponse
+</span><a href="#local-6989586621679419382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conformancePackRuleEvaluationResults:GetConformancePackComplianceDetailsResponse' :: Maybe [ConformancePackEvaluationResult]
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AconformancePackRuleEvaluationResults%3AGetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-var">conformancePackRuleEvaluationResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConformancePackEvaluationResult]
+</span><a href="#local-6989586621679419381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConformancePackEvaluationResult]
+  -&gt; f (Maybe [ConformancePackEvaluationResult]))
+ -&gt; GetConformancePackComplianceDetailsResponse
+ -&gt; f GetConformancePackComplianceDetailsResponse)
+-&gt; ((Maybe [ConformancePackEvaluationResult]
+     -&gt; f (Maybe [ConformancePackEvaluationResult]))
+    -&gt; Maybe [ConformancePackEvaluationResult]
+    -&gt; f (Maybe [ConformancePackEvaluationResult]))
+-&gt; (Maybe [ConformancePackEvaluationResult]
+    -&gt; f (Maybe [ConformancePackEvaluationResult]))
+-&gt; GetConformancePackComplianceDetailsResponse
+-&gt; f GetConformancePackComplianceDetailsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConformancePackEvaluationResult]
+  [ConformancePackEvaluationResult]
+  [ConformancePackEvaluationResult]
+  [ConformancePackEvaluationResult]
+-&gt; Iso
+     (Maybe [ConformancePackEvaluationResult])
+     (Maybe [ConformancePackEvaluationResult])
+     (Maybe [ConformancePackEvaluationResult])
+     (Maybe [ConformancePackEvaluationResult])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConformancePackEvaluationResult]
+  [ConformancePackEvaluationResult]
+  [ConformancePackEvaluationResult]
+  [ConformancePackEvaluationResult]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetailsResponse_httpStatus"><span class="hs-identifier hs-type">getConformancePackComplianceDetailsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-253"></span><span id="getConformancePackComplianceDetailsResponse_httpStatus"><span class="annot"><span class="annottext">getConformancePackComplianceDetailsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetConformancePackComplianceDetailsResponse
+-&gt; f GetConformancePackComplianceDetailsResponse
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetailsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getConformancePackComplianceDetailsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConformancePackComplianceDetailsResponse -&gt; Int)
+-&gt; (GetConformancePackComplianceDetailsResponse
+    -&gt; Int -&gt; GetConformancePackComplianceDetailsResponse)
+-&gt; Lens
+     GetConformancePackComplianceDetailsResponse
+     GetConformancePackComplianceDetailsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419377"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetConformancePackComplianceDetailsResponse' :: GetConformancePackComplianceDetailsResponse -&gt; Int
+</span><a href="#local-6989586621679419377"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419377"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419376"><span class="annot"><span class="annottext">s :: GetConformancePackComplianceDetailsResponse
+</span><a href="#local-6989586621679419376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419375"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConformancePackComplianceDetailsResponse
+</span><a href="#local-6989586621679419376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetConformancePackComplianceDetailsResponse' :: Int
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AhttpStatus%3AGetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | Name of the conformance pack.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetailsResponse_conformancePackName"><span class="hs-identifier hs-type">getConformancePackComplianceDetailsResponse_conformancePackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-257"></span><span id="getConformancePackComplianceDetailsResponse_conformancePackName"><span class="annot"><span class="annottext">getConformancePackComplianceDetailsResponse_conformancePackName :: (Text -&gt; f Text)
+-&gt; GetConformancePackComplianceDetailsResponse
+-&gt; f GetConformancePackComplianceDetailsResponse
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#getConformancePackComplianceDetailsResponse_conformancePackName"><span class="hs-identifier hs-var hs-var">getConformancePackComplianceDetailsResponse_conformancePackName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConformancePackComplianceDetailsResponse -&gt; Text)
+-&gt; (GetConformancePackComplianceDetailsResponse
+    -&gt; Text -&gt; GetConformancePackComplianceDetailsResponse)
+-&gt; Lens
+     GetConformancePackComplianceDetailsResponse
+     GetConformancePackComplianceDetailsResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419374"><span class="annot"><span class="annottext">Text
+conformancePackName :: Text
+$sel:conformancePackName:GetConformancePackComplianceDetailsResponse' :: GetConformancePackComplianceDetailsResponse -&gt; Text
+</span><a href="#local-6989586621679419374"><span class="hs-identifier hs-var hs-var">conformancePackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419374"><span class="hs-identifier hs-var">conformancePackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419373"><span class="annot"><span class="annottext">s :: GetConformancePackComplianceDetailsResponse
+</span><a href="#local-6989586621679419373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419372"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConformancePackComplianceDetailsResponse
+</span><a href="#local-6989586621679419373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conformancePackName:GetConformancePackComplianceDetailsResponse' :: Text
+</span><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#%24sel%3AconformancePackName%3AGetConformancePackComplianceDetailsResponse%27"><span class="hs-identifier hs-var">conformancePackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679419370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetConformancePackComplianceDetails.html#GetConformancePackComplianceDetailsResponse"><span class="hs-identifier hs-type">GetConformancePackComplianceDetailsResponse</span></a></span></span><span>
+</span><span id="line-262"></span></pre></body></html>

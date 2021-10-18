@@ -1,0 +1,811 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFormation.ListStackSets</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns summary information about stack sets that are associated with</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the user.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- -   [Self-managed permissions] If you set the @CallAs@ parameter to</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--     @SELF@ while signed in to your Amazon Web Services account,</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--     @ListStackSets@ returns all self-managed stack sets in your Amazon</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--     Web Services account.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- -   [Service-managed permissions] If you set the @CallAs@ parameter to</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     @SELF@ while signed in to the organization\'s management account,</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     @ListStackSets@ returns all stack sets in the management account.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   [Service-managed permissions] If you set the @CallAs@ parameter to</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     @DELEGATED_ADMIN@ while signed in to your member account,</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     @ListStackSets@ returns all stack sets with service-managed</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     permissions in the management account.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFormation.ListStackSets</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier">ListStackSets</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#newListStackSets"><span class="hs-identifier">newListStackSets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSets_status"><span class="hs-identifier">listStackSets_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSets_nextToken"><span class="hs-identifier">listStackSets_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSets_maxResults"><span class="hs-identifier">listStackSets_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSets_callAs"><span class="hs-identifier">listStackSets_callAs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse"><span class="hs-identifier">ListStackSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#newListStackSetsResponse"><span class="hs-identifier">newListStackSetsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSetsResponse_nextToken"><span class="hs-identifier">listStackSetsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSetsResponse_summaries"><span class="hs-identifier">listStackSetsResponse_summaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSetsResponse_httpStatus"><span class="hs-identifier">listStackSetsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.html"><span class="hs-identifier">Network.AWS.CloudFormation.Types</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | /See:/ 'newListStackSets' smart constructor.</span><span>
+</span><span id="line-71"></span><span id="local-6989586621679433039"><span id="local-6989586621679433040"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStackSets"><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-var">ListStackSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStackSets%27"><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets%27"><span class="hs-identifier hs-var">ListStackSets'</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the stack sets that you want to get summary information</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- about.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Astatus%3AListStackSets%27"><span class="annot"><span class="annottext">ListStackSets -&gt; Maybe StackSetStatus
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3Astatus%3AListStackSets%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetStatus.html#StackSetStatus"><span class="hs-identifier hs-type">StackSetStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | If the previous paginated request didn\'t return all of the remaining</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- results, the response object\'s @NextToken@ parameter value is set to a</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- token. To retrieve the next set of results, call @ListStackSets@ again</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- and assign that token to the request object\'s @NextToken@ parameter. If</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- there are no remaining results, the previous response object\'s</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- @NextToken@ parameter is set to @null@.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AnextToken%3AListStackSets%27"><span class="annot"><span class="annottext">ListStackSets -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3AnextToken%3AListStackSets%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to be returned with a single call. If the</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- number of available results exceeds this maximum, the response includes</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- a @NextToken@ value that you can assign to the @NextToken@ request</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- parameter to get the next set of results.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AmaxResults%3AListStackSets%27"><span class="annot"><span class="annottext">ListStackSets -&gt; Maybe Natural
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3AmaxResults%3AListStackSets%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | [Service-managed permissions] Specifies whether you are acting as an</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- account administrator in the management account or as a delegated</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- administrator in a member account.</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- By default, @SELF@ is specified. Use @SELF@ for stack sets with</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- self-managed permissions.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- -   If you are signed in to the management account, specify @SELF@.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- -   If you are signed in to a delegated administrator account, specify</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     @DELEGATED_ADMIN@.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--     Your Amazon Web Services account must be registered as a delegated</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     administrator in the management account. For more information, see</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator&gt;</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AcallAs%3AListStackSets%27"><span class="annot"><span class="annottext">ListStackSets -&gt; Maybe CallAs
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3AcallAs%3AListStackSets%27"><span class="hs-identifier hs-var hs-var">callAs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.CallAs.html#CallAs"><span class="hs-identifier hs-type">CallAs</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433030"><span id="local-6989586621679433032"><span class="annot"><span class="annottext">ListStackSets -&gt; ListStackSets -&gt; Bool
+(ListStackSets -&gt; ListStackSets -&gt; Bool)
+-&gt; (ListStackSets -&gt; ListStackSets -&gt; Bool) -&gt; Eq ListStackSets
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListStackSets -&gt; ListStackSets -&gt; Bool
+$c/= :: ListStackSets -&gt; ListStackSets -&gt; Bool
+== :: ListStackSets -&gt; ListStackSets -&gt; Bool
+$c== :: ListStackSets -&gt; ListStackSets -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433021"><span id="local-6989586621679433023"><span id="local-6989586621679433025"><span id="local-6989586621679433027"><span class="annot"><span class="annottext">ReadPrec [ListStackSets]
+ReadPrec ListStackSets
+Int -&gt; ReadS ListStackSets
+ReadS [ListStackSets]
+(Int -&gt; ReadS ListStackSets)
+-&gt; ReadS [ListStackSets]
+-&gt; ReadPrec ListStackSets
+-&gt; ReadPrec [ListStackSets]
+-&gt; Read ListStackSets
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListStackSets]
+$creadListPrec :: ReadPrec [ListStackSets]
+readPrec :: ReadPrec ListStackSets
+$creadPrec :: ReadPrec ListStackSets
+readList :: ReadS [ListStackSets]
+$creadList :: ReadS [ListStackSets]
+readsPrec :: Int -&gt; ReadS ListStackSets
+$creadsPrec :: Int -&gt; ReadS ListStackSets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433014"><span id="local-6989586621679433016"><span id="local-6989586621679433018"><span class="annot"><span class="annottext">Int -&gt; ListStackSets -&gt; ShowS
+[ListStackSets] -&gt; ShowS
+ListStackSets -&gt; String
+(Int -&gt; ListStackSets -&gt; ShowS)
+-&gt; (ListStackSets -&gt; String)
+-&gt; ([ListStackSets] -&gt; ShowS)
+-&gt; Show ListStackSets
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListStackSets] -&gt; ShowS
+$cshowList :: [ListStackSets] -&gt; ShowS
+show :: ListStackSets -&gt; String
+$cshow :: ListStackSets -&gt; String
+showsPrec :: Int -&gt; ListStackSets -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListStackSets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListStackSets -&gt; Rep ListStackSets x)
+-&gt; (forall x. Rep ListStackSets x -&gt; ListStackSets)
+-&gt; Generic ListStackSets
+forall x. Rep ListStackSets x -&gt; ListStackSets
+forall x. ListStackSets -&gt; Rep ListStackSets x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListStackSets x -&gt; ListStackSets
+$cfrom :: forall x. ListStackSets -&gt; Rep ListStackSets x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Create a value of 'ListStackSets' with all optional fields omitted.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'status', 'listStackSets_status' - The status of the stack sets that you want to get summary information</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- about.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'nextToken', 'listStackSets_nextToken' - If the previous paginated request didn\'t return all of the remaining</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- results, the response object\'s @NextToken@ parameter value is set to a</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- token. To retrieve the next set of results, call @ListStackSets@ again</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- and assign that token to the request object\'s @NextToken@ parameter. If</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- there are no remaining results, the previous response object\'s</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- @NextToken@ parameter is set to @null@.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'maxResults', 'listStackSets_maxResults' - The maximum number of results to be returned with a single call. If the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- number of available results exceeds this maximum, the response includes</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- a @NextToken@ value that you can assign to the @NextToken@ request</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- parameter to get the next set of results.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'callAs', 'listStackSets_callAs' - [Service-managed permissions] Specifies whether you are acting as an</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- account administrator in the management account or as a delegated</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- administrator in a member account.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- By default, @SELF@ is specified. Use @SELF@ for stack sets with</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- self-managed permissions.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   If you are signed in to the management account, specify @SELF@.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   If you are signed in to a delegated administrator account, specify</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--     @DELEGATED_ADMIN@.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--     Your Amazon Web Services account must be registered as a delegated</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--     administrator in the management account. For more information, see</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator&gt;</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#newListStackSets"><span class="hs-identifier hs-type">newListStackSets</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span><span>
+</span><span id="line-148"></span><span id="newListStackSets"><span class="annot"><span class="annottext">newListStackSets :: ListStackSets
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#newListStackSets"><span class="hs-identifier hs-var hs-var">newListStackSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="annottext">ListStackSets' :: Maybe StackSetStatus
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; Maybe CallAs -&gt; ListStackSets
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets%27"><span class="hs-identifier hs-type">ListStackSets'</span></a></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ListStackSets' :: Maybe StackSetStatus
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3Astatus%3AListStackSets%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListStackSets' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3AnextToken%3AListStackSets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListStackSets' :: Maybe Natural
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3AmaxResults%3AListStackSets%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:callAs:ListStackSets' :: Maybe CallAs
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3AcallAs%3AListStackSets%27"><span class="hs-identifier hs-var">callAs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CallAs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The status of the stack sets that you want to get summary information</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- about.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSets_status"><span class="hs-identifier hs-type">listStackSets_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetStatus.html#StackSetStatus"><span class="hs-identifier hs-type">StackSetStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="listStackSets_status"><span class="annot"><span class="annottext">listStackSets_status :: (Maybe StackSetStatus -&gt; f (Maybe StackSetStatus))
+-&gt; ListStackSets -&gt; f ListStackSets
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSets_status"><span class="hs-identifier hs-var hs-var">listStackSets_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStackSets -&gt; Maybe StackSetStatus)
+-&gt; (ListStackSets -&gt; Maybe StackSetStatus -&gt; ListStackSets)
+-&gt; Lens
+     ListStackSets
+     ListStackSets
+     (Maybe StackSetStatus)
+     (Maybe StackSetStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets%27"><span class="hs-identifier hs-type">ListStackSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433008"><span class="annot"><span class="annottext">Maybe StackSetStatus
+status :: Maybe StackSetStatus
+$sel:status:ListStackSets' :: ListStackSets -&gt; Maybe StackSetStatus
+</span><a href="#local-6989586621679433008"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetStatus
+</span><a href="#local-6989586621679433008"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433007"><span class="annot"><span class="annottext">s :: ListStackSets
+</span><a href="#local-6989586621679433007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets%27"><span class="hs-identifier hs-type">ListStackSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433006"><span class="annot"><span class="annottext">Maybe StackSetStatus
+</span><a href="#local-6989586621679433006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStackSets
+</span><a href="#local-6989586621679433007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListStackSets' :: Maybe StackSetStatus
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3Astatus%3AListStackSets%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetStatus
+</span><a href="#local-6989586621679433006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | If the previous paginated request didn\'t return all of the remaining</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- results, the response object\'s @NextToken@ parameter value is set to a</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- token. To retrieve the next set of results, call @ListStackSets@ again</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- and assign that token to the request object\'s @NextToken@ parameter. If</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- there are no remaining results, the previous response object\'s</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- @NextToken@ parameter is set to @null@.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSets_nextToken"><span class="hs-identifier hs-type">listStackSets_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="listStackSets_nextToken"><span class="annot"><span class="annottext">listStackSets_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListStackSets -&gt; f ListStackSets
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSets_nextToken"><span class="hs-identifier hs-var hs-var">listStackSets_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStackSets -&gt; Maybe Text)
+-&gt; (ListStackSets -&gt; Maybe Text -&gt; ListStackSets)
+-&gt; Lens ListStackSets ListStackSets (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets%27"><span class="hs-identifier hs-type">ListStackSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433005"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListStackSets' :: ListStackSets -&gt; Maybe Text
+</span><a href="#local-6989586621679433005"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433005"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433004"><span class="annot"><span class="annottext">s :: ListStackSets
+</span><a href="#local-6989586621679433004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets%27"><span class="hs-identifier hs-type">ListStackSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433003"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStackSets
+</span><a href="#local-6989586621679433004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListStackSets' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3AnextToken%3AListStackSets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The maximum number of results to be returned with a single call. If the</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- number of available results exceeds this maximum, the response includes</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- a @NextToken@ value that you can assign to the @NextToken@ request</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- parameter to get the next set of results.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSets_maxResults"><span class="hs-identifier hs-type">listStackSets_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="listStackSets_maxResults"><span class="annot"><span class="annottext">listStackSets_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListStackSets -&gt; f ListStackSets
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSets_maxResults"><span class="hs-identifier hs-var hs-var">listStackSets_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStackSets -&gt; Maybe Natural)
+-&gt; (ListStackSets -&gt; Maybe Natural -&gt; ListStackSets)
+-&gt; Lens ListStackSets ListStackSets (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets%27"><span class="hs-identifier hs-type">ListStackSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433002"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListStackSets' :: ListStackSets -&gt; Maybe Natural
+</span><a href="#local-6989586621679433002"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679433002"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433001"><span class="annot"><span class="annottext">s :: ListStackSets
+</span><a href="#local-6989586621679433001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets%27"><span class="hs-identifier hs-type">ListStackSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433000"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679433000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStackSets
+</span><a href="#local-6989586621679433001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListStackSets' :: Maybe Natural
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3AmaxResults%3AListStackSets%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679433000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | [Service-managed permissions] Specifies whether you are acting as an</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- account administrator in the management account or as a delegated</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- administrator in a member account.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- By default, @SELF@ is specified. Use @SELF@ for stack sets with</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- self-managed permissions.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- -   If you are signed in to the management account, specify @SELF@.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- -   If you are signed in to a delegated administrator account, specify</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--     @DELEGATED_ADMIN@.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     Your Amazon Web Services account must be registered as a delegated</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     administrator in the management account. For more information, see</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator&gt;</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--     in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSets_callAs"><span class="hs-identifier hs-type">listStackSets_callAs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.CallAs.html#CallAs"><span class="hs-identifier hs-type">CallAs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="listStackSets_callAs"><span class="annot"><span class="annottext">listStackSets_callAs :: (Maybe CallAs -&gt; f (Maybe CallAs))
+-&gt; ListStackSets -&gt; f ListStackSets
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSets_callAs"><span class="hs-identifier hs-var hs-var">listStackSets_callAs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStackSets -&gt; Maybe CallAs)
+-&gt; (ListStackSets -&gt; Maybe CallAs -&gt; ListStackSets)
+-&gt; Lens ListStackSets ListStackSets (Maybe CallAs) (Maybe CallAs)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets%27"><span class="hs-identifier hs-type">ListStackSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432999"><span class="annot"><span class="annottext">Maybe CallAs
+callAs :: Maybe CallAs
+$sel:callAs:ListStackSets' :: ListStackSets -&gt; Maybe CallAs
+</span><a href="#local-6989586621679432999"><span class="hs-identifier hs-var hs-var">callAs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CallAs
+</span><a href="#local-6989586621679432999"><span class="hs-identifier hs-var">callAs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432998"><span class="annot"><span class="annottext">s :: ListStackSets
+</span><a href="#local-6989586621679432998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets%27"><span class="hs-identifier hs-type">ListStackSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432997"><span class="annot"><span class="annottext">Maybe CallAs
+</span><a href="#local-6989586621679432997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStackSets
+</span><a href="#local-6989586621679432998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callAs:ListStackSets' :: Maybe CallAs
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3AcallAs%3AListStackSets%27"><span class="hs-identifier hs-var">callAs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CallAs
+</span><a href="#local-6989586621679432997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679432993"><span class="annot"><span class="annottext">page :: ListStackSets -&gt; AWSResponse ListStackSets -&gt; Maybe ListStackSets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679432991"><span class="annot"><span class="annottext">ListStackSets
+</span><a href="#local-6989586621679432991"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679432990"><span class="annot"><span class="annottext">AWSResponse ListStackSets
+</span><a href="#local-6989586621679432990"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-199"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStackSets
+ListStackSetsResponse
+</span><a href="#local-6989586621679432990"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">ListStackSetsResponse
+-&gt; Getting (First Text) ListStackSetsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListStackSetsResponse
+-&gt; Const (First Text) ListStackSetsResponse
+Lens' ListStackSetsResponse (Maybe Text)
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSetsResponse_nextToken"><span class="hs-identifier hs-var">listStackSetsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListStackSetsResponse
+ -&gt; Const (First Text) ListStackSetsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListStackSetsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-201"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListStackSets
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [StackSetSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-204"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStackSets
+ListStackSetsResponse
+</span><a href="#local-6989586621679432990"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">ListStackSetsResponse
+-&gt; Getting
+     (First [StackSetSummary]) ListStackSetsResponse [StackSetSummary]
+-&gt; Maybe [StackSetSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [StackSetSummary]
+ -&gt; Const (First [StackSetSummary]) (Maybe [StackSetSummary]))
+-&gt; ListStackSetsResponse
+-&gt; Const (First [StackSetSummary]) ListStackSetsResponse
+Lens' ListStackSetsResponse (Maybe [StackSetSummary])
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSetsResponse_summaries"><span class="hs-identifier hs-var">listStackSetsResponse_summaries</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [StackSetSummary]
+  -&gt; Const (First [StackSetSummary]) (Maybe [StackSetSummary]))
+ -&gt; ListStackSetsResponse
+ -&gt; Const (First [StackSetSummary]) ListStackSetsResponse)
+-&gt; (([StackSetSummary]
+     -&gt; Const (First [StackSetSummary]) [StackSetSummary])
+    -&gt; Maybe [StackSetSummary]
+    -&gt; Const (First [StackSetSummary]) (Maybe [StackSetSummary]))
+-&gt; Getting
+     (First [StackSetSummary]) ListStackSetsResponse [StackSetSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([StackSetSummary]
+ -&gt; Const (First [StackSetSummary]) [StackSetSummary])
+-&gt; Maybe [StackSetSummary]
+-&gt; Const (First [StackSetSummary]) (Maybe [StackSetSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-206"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListStackSets
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">ListStackSets -&gt; Maybe ListStackSets
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListStackSets -&gt; Maybe ListStackSets)
+-&gt; ListStackSets -&gt; Maybe ListStackSets
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">ListStackSets
+</span><a href="#local-6989586621679432991"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">ListStackSets -&gt; (ListStackSets -&gt; ListStackSets) -&gt; ListStackSets
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListStackSets -&gt; Identity ListStackSets
+Lens ListStackSets ListStackSets (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSets_nextToken"><span class="hs-identifier hs-var">listStackSets_nextToken</span></a></span><span>
+</span><span id="line-212"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListStackSets -&gt; Identity ListStackSets)
+-&gt; Maybe Text -&gt; ListStackSets -&gt; ListStackSets
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStackSets
+ListStackSetsResponse
+</span><a href="#local-6989586621679432990"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-213"></span><span>          </span><span class="annot"><span class="annottext">ListStackSetsResponse
+-&gt; Getting (First Text) ListStackSetsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListStackSetsResponse
+-&gt; Const (First Text) ListStackSetsResponse
+Lens' ListStackSetsResponse (Maybe Text)
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSetsResponse_nextToken"><span class="hs-identifier hs-var">listStackSetsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListStackSetsResponse
+ -&gt; Const (First Text) ListStackSetsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListStackSetsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-217"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse"><span class="hs-identifier hs-type">ListStackSetsResponse</span></a></span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679432980"><span class="annot"><span class="annottext">request :: ListStackSets -&gt; Request ListStackSets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListStackSets -&gt; Request ListStackSets
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679432976"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListStackSets
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListStackSets)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse ListStackSets))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListStackSets
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListStackSets)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ListStackSetsResult&quot;</span></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679432973"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432973"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679432972"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679432972"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679432971"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679432971"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-224"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [StackSetSummary] -&gt; Int -&gt; ListStackSetsResponse
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse%27"><span class="hs-identifier hs-var">ListStackSetsResponse'</span></a></span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [StackSetSummary] -&gt; Int -&gt; ListStackSetsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [StackSetSummary] -&gt; Int -&gt; ListStackSetsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679432971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [StackSetSummary] -&gt; Int -&gt; ListStackSetsResponse)
+-&gt; Either String (Maybe [StackSetSummary])
+-&gt; Either String (Int -&gt; ListStackSetsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679432971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Summaries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-227"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [StackSetSummary]))
+-&gt; Either String (Maybe [StackSetSummary])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [StackSetSummary])
+-&gt; [Node] -&gt; Either String (Maybe [StackSetSummary])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [StackSetSummary]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListStackSetsResponse)
+-&gt; Either String Int -&gt; Either String ListStackSetsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432973"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432960"><span id="local-6989586621679432962"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span></span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432957"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679432953"><span class="annot"><span class="annottext">toHeaders :: ListStackSets -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListStackSets -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679432948"><span class="annot"><span class="annottext">toPath :: ListStackSets -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListStackSets -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets"><span class="hs-identifier hs-type">ListStackSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679432944"><span class="annot"><span class="annottext">toQuery :: ListStackSets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSets%27"><span class="hs-identifier hs-type">ListStackSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432939"><span id="local-6989586621679432940"><span id="local-6989586621679432941"><span id="local-6989586621679432942"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe CallAs
+Maybe StackSetStatus
+callAs :: Maybe CallAs
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+status :: Maybe StackSetStatus
+$sel:callAs:ListStackSets' :: ListStackSets -&gt; Maybe CallAs
+$sel:maxResults:ListStackSets' :: ListStackSets -&gt; Maybe Natural
+$sel:nextToken:ListStackSets' :: ListStackSets -&gt; Maybe Text
+$sel:status:ListStackSets' :: ListStackSets -&gt; Maybe StackSetStatus
+</span><a href="#local-6989586621679432939"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-246"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ListStackSets&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-248"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe StackSetStatus -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe StackSetStatus
+</span><a href="#local-6989586621679432942"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432941"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679432940"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CallAs&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe CallAs -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe CallAs
+</span><a href="#local-6989586621679432939"><span class="hs-identifier hs-var">callAs</span></a></span><span>
+</span><span id="line-253"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | /See:/ 'newListStackSetsResponse' smart constructor.</span><span>
+</span><span id="line-256"></span><span id="local-6989586621679432936"><span id="local-6989586621679432937"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStackSetsResponse"><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse"><span class="hs-identifier hs-var">ListStackSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStackSetsResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse%27"><span class="hs-identifier hs-var">ListStackSetsResponse'</span></a></span></span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the request doesn\'t return all of the remaining results, @NextToken@</span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-comment">-- is set to a token. To retrieve the next set of results, call</span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-comment">-- @ListStackInstances@ again and assign that token to the request</span><span>
+</span><span id="line-260"></span><span>    </span><span class="hs-comment">-- object\'s @NextToken@ parameter. If the request returns all results,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="hs-comment">-- @NextToken@ is set to @null@.</span><span>
+</span><span id="line-262"></span><span>    </span><span id="%24sel%3AnextToken%3AListStackSetsResponse%27"><span class="annot"><span class="annottext">ListStackSetsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3AnextToken%3AListStackSetsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="hs-comment">-- | A list of @StackSetSummary@ structures that contain information about</span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-comment">-- the user\'s stack sets.</span><span>
+</span><span id="line-265"></span><span>    </span><span id="%24sel%3Asummaries%3AListStackSetsResponse%27"><span class="annot"><span class="annottext">ListStackSetsResponse -&gt; Maybe [StackSetSummary]
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3Asummaries%3AListStackSetsResponse%27"><span class="hs-identifier hs-var hs-var">summaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetSummary.html#StackSetSummary"><span class="hs-identifier hs-type">StackSetSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-267"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListStackSetsResponse%27"><span class="annot"><span class="annottext">ListStackSetsResponse -&gt; Int
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3AhttpStatus%3AListStackSetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-268"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-269"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432929"><span id="local-6989586621679432931"><span class="annot"><span class="annottext">ListStackSetsResponse -&gt; ListStackSetsResponse -&gt; Bool
+(ListStackSetsResponse -&gt; ListStackSetsResponse -&gt; Bool)
+-&gt; (ListStackSetsResponse -&gt; ListStackSetsResponse -&gt; Bool)
+-&gt; Eq ListStackSetsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListStackSetsResponse -&gt; ListStackSetsResponse -&gt; Bool
+$c/= :: ListStackSetsResponse -&gt; ListStackSetsResponse -&gt; Bool
+== :: ListStackSetsResponse -&gt; ListStackSetsResponse -&gt; Bool
+$c== :: ListStackSetsResponse -&gt; ListStackSetsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432921"><span id="local-6989586621679432923"><span id="local-6989586621679432925"><span id="local-6989586621679432927"><span class="annot"><span class="annottext">ReadPrec [ListStackSetsResponse]
+ReadPrec ListStackSetsResponse
+Int -&gt; ReadS ListStackSetsResponse
+ReadS [ListStackSetsResponse]
+(Int -&gt; ReadS ListStackSetsResponse)
+-&gt; ReadS [ListStackSetsResponse]
+-&gt; ReadPrec ListStackSetsResponse
+-&gt; ReadPrec [ListStackSetsResponse]
+-&gt; Read ListStackSetsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListStackSetsResponse]
+$creadListPrec :: ReadPrec [ListStackSetsResponse]
+readPrec :: ReadPrec ListStackSetsResponse
+$creadPrec :: ReadPrec ListStackSetsResponse
+readList :: ReadS [ListStackSetsResponse]
+$creadList :: ReadS [ListStackSetsResponse]
+readsPrec :: Int -&gt; ReadS ListStackSetsResponse
+$creadsPrec :: Int -&gt; ReadS ListStackSetsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432915"><span id="local-6989586621679432917"><span id="local-6989586621679432919"><span class="annot"><span class="annottext">Int -&gt; ListStackSetsResponse -&gt; ShowS
+[ListStackSetsResponse] -&gt; ShowS
+ListStackSetsResponse -&gt; String
+(Int -&gt; ListStackSetsResponse -&gt; ShowS)
+-&gt; (ListStackSetsResponse -&gt; String)
+-&gt; ([ListStackSetsResponse] -&gt; ShowS)
+-&gt; Show ListStackSetsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListStackSetsResponse] -&gt; ShowS
+$cshowList :: [ListStackSetsResponse] -&gt; ShowS
+show :: ListStackSetsResponse -&gt; String
+$cshow :: ListStackSetsResponse -&gt; String
+showsPrec :: Int -&gt; ListStackSetsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListStackSetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListStackSetsResponse -&gt; Rep ListStackSetsResponse x)
+-&gt; (forall x. Rep ListStackSetsResponse x -&gt; ListStackSetsResponse)
+-&gt; Generic ListStackSetsResponse
+forall x. Rep ListStackSetsResponse x -&gt; ListStackSetsResponse
+forall x. ListStackSetsResponse -&gt; Rep ListStackSetsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListStackSetsResponse x -&gt; ListStackSetsResponse
+$cfrom :: forall x. ListStackSetsResponse -&gt; Rep ListStackSetsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- Create a value of 'ListStackSetsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- 'nextToken', 'listStackSetsResponse_nextToken' - If the request doesn\'t return all of the remaining results, @NextToken@</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- is set to a token. To retrieve the next set of results, call</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- @ListStackInstances@ again and assign that token to the request</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- object\'s @NextToken@ parameter. If the request returns all results,</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- @NextToken@ is set to @null@.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- 'summaries', 'listStackSetsResponse_summaries' - A list of @StackSetSummary@ structures that contain information about</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- the user\'s stack sets.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- 'httpStatus', 'listStackSetsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#newListStackSetsResponse"><span class="hs-identifier hs-type">newListStackSetsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-290"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-291"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-292"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse"><span class="hs-identifier hs-type">ListStackSetsResponse</span></a></span><span>
+</span><span id="line-293"></span><span id="newListStackSetsResponse"><span class="annot"><span class="annottext">newListStackSetsResponse :: Int -&gt; ListStackSetsResponse
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#newListStackSetsResponse"><span class="hs-identifier hs-var hs-var">newListStackSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679432912"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-294"></span><span>  </span><span class="annot"><span class="annottext">ListStackSetsResponse' :: Maybe Text
+-&gt; Maybe [StackSetSummary] -&gt; Int -&gt; ListStackSetsResponse
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse%27"><span class="hs-identifier hs-type">ListStackSetsResponse'</span></a></span><span>
+</span><span id="line-295"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListStackSetsResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3AnextToken%3AListStackSetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">$sel:summaries:ListStackSetsResponse' :: Maybe [StackSetSummary]
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3Asummaries%3AListStackSetsResponse%27"><span class="hs-identifier hs-var">summaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StackSetSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListStackSetsResponse' :: Int
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3AhttpStatus%3AListStackSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-298"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | If the request doesn\'t return all of the remaining results, @NextToken@</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- is set to a token. To retrieve the next set of results, call</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- @ListStackInstances@ again and assign that token to the request</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- object\'s @NextToken@ parameter. If the request returns all results,</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- @NextToken@ is set to @null@.</span><span>
+</span><span id="line-305"></span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSetsResponse_nextToken"><span class="hs-identifier hs-type">listStackSetsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse"><span class="hs-identifier hs-type">ListStackSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span id="listStackSetsResponse_nextToken"><span class="annot"><span class="annottext">listStackSetsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListStackSetsResponse -&gt; f ListStackSetsResponse
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSetsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listStackSetsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStackSetsResponse -&gt; Maybe Text)
+-&gt; (ListStackSetsResponse -&gt; Maybe Text -&gt; ListStackSetsResponse)
+-&gt; Lens' ListStackSetsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse%27"><span class="hs-identifier hs-type">ListStackSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432911"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListStackSetsResponse' :: ListStackSetsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679432911"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432911"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432910"><span class="annot"><span class="annottext">s :: ListStackSetsResponse
+</span><a href="#local-6989586621679432910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse%27"><span class="hs-identifier hs-type">ListStackSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432909"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStackSetsResponse
+</span><a href="#local-6989586621679432910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListStackSetsResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3AnextToken%3AListStackSetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse"><span class="hs-identifier hs-type">ListStackSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- | A list of @StackSetSummary@ structures that contain information about</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- the user\'s stack sets.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSetsResponse_summaries"><span class="hs-identifier hs-type">listStackSetsResponse_summaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse"><span class="hs-identifier hs-type">ListStackSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetSummary.html#StackSetSummary"><span class="hs-identifier hs-type">StackSetSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span id="listStackSetsResponse_summaries"><span class="annot"><span class="annottext">listStackSetsResponse_summaries :: (Maybe [StackSetSummary] -&gt; f (Maybe [StackSetSummary]))
+-&gt; ListStackSetsResponse -&gt; f ListStackSetsResponse
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSetsResponse_summaries"><span class="hs-identifier hs-var hs-var">listStackSetsResponse_summaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStackSetsResponse -&gt; Maybe [StackSetSummary])
+-&gt; (ListStackSetsResponse
+    -&gt; Maybe [StackSetSummary] -&gt; ListStackSetsResponse)
+-&gt; Lens' ListStackSetsResponse (Maybe [StackSetSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse%27"><span class="hs-identifier hs-type">ListStackSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432908"><span class="annot"><span class="annottext">Maybe [StackSetSummary]
+summaries :: Maybe [StackSetSummary]
+$sel:summaries:ListStackSetsResponse' :: ListStackSetsResponse -&gt; Maybe [StackSetSummary]
+</span><a href="#local-6989586621679432908"><span class="hs-identifier hs-var hs-var">summaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StackSetSummary]
+</span><a href="#local-6989586621679432908"><span class="hs-identifier hs-var">summaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432907"><span class="annot"><span class="annottext">s :: ListStackSetsResponse
+</span><a href="#local-6989586621679432907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse%27"><span class="hs-identifier hs-type">ListStackSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432906"><span class="annot"><span class="annottext">Maybe [StackSetSummary]
+</span><a href="#local-6989586621679432906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStackSetsResponse
+</span><a href="#local-6989586621679432907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summaries:ListStackSetsResponse' :: Maybe [StackSetSummary]
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3Asummaries%3AListStackSetsResponse%27"><span class="hs-identifier hs-var">summaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StackSetSummary]
+</span><a href="#local-6989586621679432906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse"><span class="hs-identifier hs-type">ListStackSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StackSetSummary] -&gt; f (Maybe [StackSetSummary]))
+ -&gt; ListStackSetsResponse -&gt; f ListStackSetsResponse)
+-&gt; ((Maybe [StackSetSummary] -&gt; f (Maybe [StackSetSummary]))
+    -&gt; Maybe [StackSetSummary] -&gt; f (Maybe [StackSetSummary]))
+-&gt; (Maybe [StackSetSummary] -&gt; f (Maybe [StackSetSummary]))
+-&gt; ListStackSetsResponse
+-&gt; f ListStackSetsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [StackSetSummary]
+  [StackSetSummary]
+  [StackSetSummary]
+  [StackSetSummary]
+-&gt; Iso
+     (Maybe [StackSetSummary])
+     (Maybe [StackSetSummary])
+     (Maybe [StackSetSummary])
+     (Maybe [StackSetSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [StackSetSummary]
+  [StackSetSummary]
+  [StackSetSummary]
+  [StackSetSummary]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-314"></span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSetsResponse_httpStatus"><span class="hs-identifier hs-type">listStackSetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse"><span class="hs-identifier hs-type">ListStackSetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-315"></span><span id="listStackSetsResponse_httpStatus"><span class="annot"><span class="annottext">listStackSetsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListStackSetsResponse -&gt; f ListStackSetsResponse
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#listStackSetsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listStackSetsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStackSetsResponse -&gt; Int)
+-&gt; (ListStackSetsResponse -&gt; Int -&gt; ListStackSetsResponse)
+-&gt; Lens ListStackSetsResponse ListStackSetsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse%27"><span class="hs-identifier hs-type">ListStackSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432903"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListStackSetsResponse' :: ListStackSetsResponse -&gt; Int
+</span><a href="#local-6989586621679432903"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432903"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432902"><span class="annot"><span class="annottext">s :: ListStackSetsResponse
+</span><a href="#local-6989586621679432902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse%27"><span class="hs-identifier hs-type">ListStackSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432901"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStackSetsResponse
+</span><a href="#local-6989586621679432902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListStackSetsResponse' :: Int
+</span><a href="Network.AWS.CloudFormation.ListStackSets.html#%24sel%3AhttpStatus%3AListStackSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse"><span class="hs-identifier hs-type">ListStackSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432899"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListStackSets.html#ListStackSetsResponse"><span class="hs-identifier hs-type">ListStackSetsResponse</span></a></span></span><span>
+</span><span id="line-318"></span></pre></body></html>

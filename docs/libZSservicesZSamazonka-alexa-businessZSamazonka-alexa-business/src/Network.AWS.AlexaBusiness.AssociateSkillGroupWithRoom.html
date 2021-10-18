@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Associates a skill group with a given room. This enables all skills in</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the associated skill group on all devices in the room.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom"><span class="hs-identifier">AssociateSkillGroupWithRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#newAssociateSkillGroupWithRoom"><span class="hs-identifier">newAssociateSkillGroupWithRoom</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#associateSkillGroupWithRoom_roomArn"><span class="hs-identifier">associateSkillGroupWithRoom_roomArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#associateSkillGroupWithRoom_skillGroupArn"><span class="hs-identifier">associateSkillGroupWithRoom_skillGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoomResponse"><span class="hs-identifier">AssociateSkillGroupWithRoomResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#newAssociateSkillGroupWithRoomResponse"><span class="hs-identifier">newAssociateSkillGroupWithRoomResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#associateSkillGroupWithRoomResponse_httpStatus"><span class="hs-identifier">associateSkillGroupWithRoomResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.html"><span class="hs-identifier">Network.AWS.AlexaBusiness.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newAssociateSkillGroupWithRoom' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679393321"><span id="local-6989586621679393322"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateSkillGroupWithRoom"><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom"><span class="hs-identifier hs-var">AssociateSkillGroupWithRoom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateSkillGroupWithRoom%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom%27"><span class="hs-identifier hs-var">AssociateSkillGroupWithRoom'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the room with which to associate the skill group. Required.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AroomArn%3AAssociateSkillGroupWithRoom%27"><span class="annot"><span class="annottext">AssociateSkillGroupWithRoom -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#%24sel%3AroomArn%3AAssociateSkillGroupWithRoom%27"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The ARN of the skill group to associate with a room. Required.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AskillGroupArn%3AAssociateSkillGroupWithRoom%27"><span class="annot"><span class="annottext">AssociateSkillGroupWithRoom -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#%24sel%3AskillGroupArn%3AAssociateSkillGroupWithRoom%27"><span class="hs-identifier hs-var hs-var">skillGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393314"><span id="local-6989586621679393316"><span class="annot"><span class="annottext">AssociateSkillGroupWithRoom -&gt; AssociateSkillGroupWithRoom -&gt; Bool
+(AssociateSkillGroupWithRoom
+ -&gt; AssociateSkillGroupWithRoom -&gt; Bool)
+-&gt; (AssociateSkillGroupWithRoom
+    -&gt; AssociateSkillGroupWithRoom -&gt; Bool)
+-&gt; Eq AssociateSkillGroupWithRoom
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateSkillGroupWithRoom -&gt; AssociateSkillGroupWithRoom -&gt; Bool
+$c/= :: AssociateSkillGroupWithRoom -&gt; AssociateSkillGroupWithRoom -&gt; Bool
+== :: AssociateSkillGroupWithRoom -&gt; AssociateSkillGroupWithRoom -&gt; Bool
+$c== :: AssociateSkillGroupWithRoom -&gt; AssociateSkillGroupWithRoom -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393305"><span id="local-6989586621679393307"><span id="local-6989586621679393309"><span id="local-6989586621679393311"><span class="annot"><span class="annottext">ReadPrec [AssociateSkillGroupWithRoom]
+ReadPrec AssociateSkillGroupWithRoom
+Int -&gt; ReadS AssociateSkillGroupWithRoom
+ReadS [AssociateSkillGroupWithRoom]
+(Int -&gt; ReadS AssociateSkillGroupWithRoom)
+-&gt; ReadS [AssociateSkillGroupWithRoom]
+-&gt; ReadPrec AssociateSkillGroupWithRoom
+-&gt; ReadPrec [AssociateSkillGroupWithRoom]
+-&gt; Read AssociateSkillGroupWithRoom
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateSkillGroupWithRoom]
+$creadListPrec :: ReadPrec [AssociateSkillGroupWithRoom]
+readPrec :: ReadPrec AssociateSkillGroupWithRoom
+$creadPrec :: ReadPrec AssociateSkillGroupWithRoom
+readList :: ReadS [AssociateSkillGroupWithRoom]
+$creadList :: ReadS [AssociateSkillGroupWithRoom]
+readsPrec :: Int -&gt; ReadS AssociateSkillGroupWithRoom
+$creadsPrec :: Int -&gt; ReadS AssociateSkillGroupWithRoom
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393298"><span id="local-6989586621679393300"><span id="local-6989586621679393302"><span class="annot"><span class="annottext">Int -&gt; AssociateSkillGroupWithRoom -&gt; ShowS
+[AssociateSkillGroupWithRoom] -&gt; ShowS
+AssociateSkillGroupWithRoom -&gt; String
+(Int -&gt; AssociateSkillGroupWithRoom -&gt; ShowS)
+-&gt; (AssociateSkillGroupWithRoom -&gt; String)
+-&gt; ([AssociateSkillGroupWithRoom] -&gt; ShowS)
+-&gt; Show AssociateSkillGroupWithRoom
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateSkillGroupWithRoom] -&gt; ShowS
+$cshowList :: [AssociateSkillGroupWithRoom] -&gt; ShowS
+show :: AssociateSkillGroupWithRoom -&gt; String
+$cshow :: AssociateSkillGroupWithRoom -&gt; String
+showsPrec :: Int -&gt; AssociateSkillGroupWithRoom -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateSkillGroupWithRoom -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateSkillGroupWithRoom -&gt; Rep AssociateSkillGroupWithRoom x)
+-&gt; (forall x.
+    Rep AssociateSkillGroupWithRoom x -&gt; AssociateSkillGroupWithRoom)
+-&gt; Generic AssociateSkillGroupWithRoom
+forall x.
+Rep AssociateSkillGroupWithRoom x -&gt; AssociateSkillGroupWithRoom
+forall x.
+AssociateSkillGroupWithRoom -&gt; Rep AssociateSkillGroupWithRoom x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateSkillGroupWithRoom x -&gt; AssociateSkillGroupWithRoom
+$cfrom :: forall x.
+AssociateSkillGroupWithRoom -&gt; Rep AssociateSkillGroupWithRoom x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'AssociateSkillGroupWithRoom' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'roomArn', 'associateSkillGroupWithRoom_roomArn' - The ARN of the room with which to associate the skill group. Required.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'skillGroupArn', 'associateSkillGroupWithRoom_skillGroupArn' - The ARN of the skill group to associate with a room. Required.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#newAssociateSkillGroupWithRoom"><span class="hs-identifier hs-type">newAssociateSkillGroupWithRoom</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom</span></a></span><span>
+</span><span id="line-72"></span><span id="newAssociateSkillGroupWithRoom"><span class="annot"><span class="annottext">newAssociateSkillGroupWithRoom :: AssociateSkillGroupWithRoom
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#newAssociateSkillGroupWithRoom"><span class="hs-identifier hs-var hs-var">newAssociateSkillGroupWithRoom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">AssociateSkillGroupWithRoom' :: Maybe Text -&gt; Maybe Text -&gt; AssociateSkillGroupWithRoom
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom%27"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roomArn:AssociateSkillGroupWithRoom' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#%24sel%3AroomArn%3AAssociateSkillGroupWithRoom%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:skillGroupArn:AssociateSkillGroupWithRoom' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#%24sel%3AskillGroupArn%3AAssociateSkillGroupWithRoom%27"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The ARN of the room with which to associate the skill group. Required.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#associateSkillGroupWithRoom_roomArn"><span class="hs-identifier hs-type">associateSkillGroupWithRoom_roomArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="associateSkillGroupWithRoom_roomArn"><span class="annot"><span class="annottext">associateSkillGroupWithRoom_roomArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociateSkillGroupWithRoom -&gt; f AssociateSkillGroupWithRoom
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#associateSkillGroupWithRoom_roomArn"><span class="hs-identifier hs-var hs-var">associateSkillGroupWithRoom_roomArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateSkillGroupWithRoom -&gt; Maybe Text)
+-&gt; (AssociateSkillGroupWithRoom
+    -&gt; Maybe Text -&gt; AssociateSkillGroupWithRoom)
+-&gt; Lens
+     AssociateSkillGroupWithRoom
+     AssociateSkillGroupWithRoom
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom%27"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393291"><span class="annot"><span class="annottext">Maybe Text
+roomArn :: Maybe Text
+$sel:roomArn:AssociateSkillGroupWithRoom' :: AssociateSkillGroupWithRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679393291"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393291"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393290"><span class="annot"><span class="annottext">s :: AssociateSkillGroupWithRoom
+</span><a href="#local-6989586621679393290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom%27"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393289"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateSkillGroupWithRoom
+</span><a href="#local-6989586621679393290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomArn:AssociateSkillGroupWithRoom' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#%24sel%3AroomArn%3AAssociateSkillGroupWithRoom%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The ARN of the skill group to associate with a room. Required.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#associateSkillGroupWithRoom_skillGroupArn"><span class="hs-identifier hs-type">associateSkillGroupWithRoom_skillGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="associateSkillGroupWithRoom_skillGroupArn"><span class="annot"><span class="annottext">associateSkillGroupWithRoom_skillGroupArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociateSkillGroupWithRoom -&gt; f AssociateSkillGroupWithRoom
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#associateSkillGroupWithRoom_skillGroupArn"><span class="hs-identifier hs-var hs-var">associateSkillGroupWithRoom_skillGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateSkillGroupWithRoom -&gt; Maybe Text)
+-&gt; (AssociateSkillGroupWithRoom
+    -&gt; Maybe Text -&gt; AssociateSkillGroupWithRoom)
+-&gt; Lens
+     AssociateSkillGroupWithRoom
+     AssociateSkillGroupWithRoom
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom%27"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393288"><span class="annot"><span class="annottext">Maybe Text
+skillGroupArn :: Maybe Text
+$sel:skillGroupArn:AssociateSkillGroupWithRoom' :: AssociateSkillGroupWithRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679393288"><span class="hs-identifier hs-var hs-var">skillGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393288"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393287"><span class="annot"><span class="annottext">s :: AssociateSkillGroupWithRoom
+</span><a href="#local-6989586621679393287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom%27"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393286"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateSkillGroupWithRoom
+</span><a href="#local-6989586621679393287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skillGroupArn:AssociateSkillGroupWithRoom' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#%24sel%3AskillGroupArn%3AAssociateSkillGroupWithRoom%27"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoomResponse"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoomResponse</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679393282"><span class="annot"><span class="annottext">request :: AssociateSkillGroupWithRoom -&gt; Request AssociateSkillGroupWithRoom
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; AssociateSkillGroupWithRoom
+-&gt; Request AssociateSkillGroupWithRoom
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679393278"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AssociateSkillGroupWithRoom
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AssociateSkillGroupWithRoom)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse AssociateSkillGroupWithRoom))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AssociateSkillGroupWithRoom
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AssociateSkillGroupWithRoom)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393275"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393275"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393274"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679393274"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393273"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679393273"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AssociateSkillGroupWithRoomResponse
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoomResponse%27"><span class="hs-identifier hs-var">AssociateSkillGroupWithRoomResponse'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AssociateSkillGroupWithRoomResponse)
+-&gt; Either String Int
+-&gt; Either String AssociateSkillGroupWithRoomResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393275"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393266"><span id="local-6989586621679393268"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393263"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679393259"><span class="annot"><span class="annottext">toHeaders :: AssociateSkillGroupWithRoom -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateSkillGroupWithRoom -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AlexaForBusiness.AssociateSkillGroupWithRoom&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393249"><span id="local-6989586621679393251"><span id="local-6989586621679393253"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679393247"><span class="annot"><span class="annottext">toJSON :: AssociateSkillGroupWithRoom -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom%27"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393244"><span id="local-6989586621679393245"><span class="annot"><span class="annottext">Maybe Text
+skillGroupArn :: Maybe Text
+roomArn :: Maybe Text
+$sel:skillGroupArn:AssociateSkillGroupWithRoom' :: AssociateSkillGroupWithRoom -&gt; Maybe Text
+$sel:roomArn:AssociateSkillGroupWithRoom' :: AssociateSkillGroupWithRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679393244"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoomArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393245"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SkillGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393244"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679393238"><span class="annot"><span class="annottext">toPath :: AssociateSkillGroupWithRoom -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateSkillGroupWithRoom -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoom"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679393234"><span class="annot"><span class="annottext">toQuery :: AssociateSkillGroupWithRoom -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateSkillGroupWithRoom -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newAssociateSkillGroupWithRoomResponse' smart constructor.</span><span>
+</span><span id="line-134"></span><span id="local-6989586621679393231"><span id="local-6989586621679393232"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateSkillGroupWithRoomResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoomResponse"><span class="hs-identifier hs-var">AssociateSkillGroupWithRoomResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateSkillGroupWithRoomResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoomResponse%27"><span class="hs-identifier hs-var">AssociateSkillGroupWithRoomResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateSkillGroupWithRoomResponse%27"><span class="annot"><span class="annottext">AssociateSkillGroupWithRoomResponse -&gt; Int
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#%24sel%3AhttpStatus%3AAssociateSkillGroupWithRoomResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393226"><span id="local-6989586621679393228"><span class="annot"><span class="annottext">AssociateSkillGroupWithRoomResponse
+-&gt; AssociateSkillGroupWithRoomResponse -&gt; Bool
+(AssociateSkillGroupWithRoomResponse
+ -&gt; AssociateSkillGroupWithRoomResponse -&gt; Bool)
+-&gt; (AssociateSkillGroupWithRoomResponse
+    -&gt; AssociateSkillGroupWithRoomResponse -&gt; Bool)
+-&gt; Eq AssociateSkillGroupWithRoomResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateSkillGroupWithRoomResponse
+-&gt; AssociateSkillGroupWithRoomResponse -&gt; Bool
+$c/= :: AssociateSkillGroupWithRoomResponse
+-&gt; AssociateSkillGroupWithRoomResponse -&gt; Bool
+== :: AssociateSkillGroupWithRoomResponse
+-&gt; AssociateSkillGroupWithRoomResponse -&gt; Bool
+$c== :: AssociateSkillGroupWithRoomResponse
+-&gt; AssociateSkillGroupWithRoomResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393218"><span id="local-6989586621679393220"><span id="local-6989586621679393222"><span id="local-6989586621679393224"><span class="annot"><span class="annottext">ReadPrec [AssociateSkillGroupWithRoomResponse]
+ReadPrec AssociateSkillGroupWithRoomResponse
+Int -&gt; ReadS AssociateSkillGroupWithRoomResponse
+ReadS [AssociateSkillGroupWithRoomResponse]
+(Int -&gt; ReadS AssociateSkillGroupWithRoomResponse)
+-&gt; ReadS [AssociateSkillGroupWithRoomResponse]
+-&gt; ReadPrec AssociateSkillGroupWithRoomResponse
+-&gt; ReadPrec [AssociateSkillGroupWithRoomResponse]
+-&gt; Read AssociateSkillGroupWithRoomResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateSkillGroupWithRoomResponse]
+$creadListPrec :: ReadPrec [AssociateSkillGroupWithRoomResponse]
+readPrec :: ReadPrec AssociateSkillGroupWithRoomResponse
+$creadPrec :: ReadPrec AssociateSkillGroupWithRoomResponse
+readList :: ReadS [AssociateSkillGroupWithRoomResponse]
+$creadList :: ReadS [AssociateSkillGroupWithRoomResponse]
+readsPrec :: Int -&gt; ReadS AssociateSkillGroupWithRoomResponse
+$creadsPrec :: Int -&gt; ReadS AssociateSkillGroupWithRoomResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393212"><span id="local-6989586621679393214"><span id="local-6989586621679393216"><span class="annot"><span class="annottext">Int -&gt; AssociateSkillGroupWithRoomResponse -&gt; ShowS
+[AssociateSkillGroupWithRoomResponse] -&gt; ShowS
+AssociateSkillGroupWithRoomResponse -&gt; String
+(Int -&gt; AssociateSkillGroupWithRoomResponse -&gt; ShowS)
+-&gt; (AssociateSkillGroupWithRoomResponse -&gt; String)
+-&gt; ([AssociateSkillGroupWithRoomResponse] -&gt; ShowS)
+-&gt; Show AssociateSkillGroupWithRoomResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateSkillGroupWithRoomResponse] -&gt; ShowS
+$cshowList :: [AssociateSkillGroupWithRoomResponse] -&gt; ShowS
+show :: AssociateSkillGroupWithRoomResponse -&gt; String
+$cshow :: AssociateSkillGroupWithRoomResponse -&gt; String
+showsPrec :: Int -&gt; AssociateSkillGroupWithRoomResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateSkillGroupWithRoomResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateSkillGroupWithRoomResponse
+ -&gt; Rep AssociateSkillGroupWithRoomResponse x)
+-&gt; (forall x.
+    Rep AssociateSkillGroupWithRoomResponse x
+    -&gt; AssociateSkillGroupWithRoomResponse)
+-&gt; Generic AssociateSkillGroupWithRoomResponse
+forall x.
+Rep AssociateSkillGroupWithRoomResponse x
+-&gt; AssociateSkillGroupWithRoomResponse
+forall x.
+AssociateSkillGroupWithRoomResponse
+-&gt; Rep AssociateSkillGroupWithRoomResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateSkillGroupWithRoomResponse x
+-&gt; AssociateSkillGroupWithRoomResponse
+$cfrom :: forall x.
+AssociateSkillGroupWithRoomResponse
+-&gt; Rep AssociateSkillGroupWithRoomResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Create a value of 'AssociateSkillGroupWithRoomResponse' with all optional fields omitted.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'httpStatus', 'associateSkillGroupWithRoomResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#newAssociateSkillGroupWithRoomResponse"><span class="hs-identifier hs-type">newAssociateSkillGroupWithRoomResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoomResponse"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoomResponse</span></a></span><span>
+</span><span id="line-153"></span><span id="newAssociateSkillGroupWithRoomResponse"><span class="annot"><span class="annottext">newAssociateSkillGroupWithRoomResponse :: Int -&gt; AssociateSkillGroupWithRoomResponse
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#newAssociateSkillGroupWithRoomResponse"><span class="hs-identifier hs-var hs-var">newAssociateSkillGroupWithRoomResponse</span></a></span></span><span> </span><span id="local-6989586621679393209"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393209"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">AssociateSkillGroupWithRoomResponse' :: Int -&gt; AssociateSkillGroupWithRoomResponse
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoomResponse%27"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoomResponse'</span></a></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateSkillGroupWithRoomResponse' :: Int
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#%24sel%3AhttpStatus%3AAssociateSkillGroupWithRoomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393209"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#associateSkillGroupWithRoomResponse_httpStatus"><span class="hs-identifier hs-type">associateSkillGroupWithRoomResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoomResponse"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoomResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-161"></span><span id="associateSkillGroupWithRoomResponse_httpStatus"><span class="annot"><span class="annottext">associateSkillGroupWithRoomResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AssociateSkillGroupWithRoomResponse
+-&gt; f AssociateSkillGroupWithRoomResponse
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#associateSkillGroupWithRoomResponse_httpStatus"><span class="hs-identifier hs-var hs-var">associateSkillGroupWithRoomResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateSkillGroupWithRoomResponse -&gt; Int)
+-&gt; (AssociateSkillGroupWithRoomResponse
+    -&gt; Int -&gt; AssociateSkillGroupWithRoomResponse)
+-&gt; Lens
+     AssociateSkillGroupWithRoomResponse
+     AssociateSkillGroupWithRoomResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoomResponse%27"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393208"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AssociateSkillGroupWithRoomResponse' :: AssociateSkillGroupWithRoomResponse -&gt; Int
+</span><a href="#local-6989586621679393208"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393208"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393207"><span class="annot"><span class="annottext">s :: AssociateSkillGroupWithRoomResponse
+</span><a href="#local-6989586621679393207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoomResponse%27"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393206"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateSkillGroupWithRoomResponse
+</span><a href="#local-6989586621679393207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateSkillGroupWithRoomResponse' :: Int
+</span><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#%24sel%3AhttpStatus%3AAssociateSkillGroupWithRoomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoomResponse"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoomResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679393204"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom.html#AssociateSkillGroupWithRoomResponse"><span class="hs-identifier hs-type">AssociateSkillGroupWithRoomResponse</span></a></span></span><span>
+</span><span id="line-166"></span></pre></body></html>

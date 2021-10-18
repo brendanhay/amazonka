@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor"><span class="hs-identifier">BurninSubtitleShadowColor</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor_AUTO"><span class="hs-identifier">BurninSubtitleShadowColor_AUTO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor_BLACK"><span class="hs-identifier">BurninSubtitleShadowColor_BLACK</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor_NONE"><span class="hs-identifier">BurninSubtitleShadowColor_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor_WHITE"><span class="hs-identifier">BurninSubtitleShadowColor_WHITE</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Specifies the color of the shadow cast by the captions. All burn-in and</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- DVB-Sub font settings must match.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679941557"><span id="local-6989586621679941558"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BurninSubtitleShadowColor"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor"><span class="hs-identifier hs-var">BurninSubtitleShadowColor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BurninSubtitleShadowColor%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor%27"><span class="hs-identifier hs-var">BurninSubtitleShadowColor'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBurninSubtitleShadowColor"><span class="annot"><span class="annottext">BurninSubtitleShadowColor -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#fromBurninSubtitleShadowColor"><span class="hs-identifier hs-var hs-var">fromBurninSubtitleShadowColor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679941549"><span id="local-6989586621679941551"><span id="local-6989586621679941553"><span class="annot"><span class="annottext">Int -&gt; BurninSubtitleShadowColor -&gt; ShowS
+[BurninSubtitleShadowColor] -&gt; ShowS
+BurninSubtitleShadowColor -&gt; String
+(Int -&gt; BurninSubtitleShadowColor -&gt; ShowS)
+-&gt; (BurninSubtitleShadowColor -&gt; String)
+-&gt; ([BurninSubtitleShadowColor] -&gt; ShowS)
+-&gt; Show BurninSubtitleShadowColor
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BurninSubtitleShadowColor] -&gt; ShowS
+$cshowList :: [BurninSubtitleShadowColor] -&gt; ShowS
+show :: BurninSubtitleShadowColor -&gt; String
+$cshow :: BurninSubtitleShadowColor -&gt; String
+showsPrec :: Int -&gt; BurninSubtitleShadowColor -&gt; ShowS
+$cshowsPrec :: Int -&gt; BurninSubtitleShadowColor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679941540"><span id="local-6989586621679941542"><span id="local-6989586621679941544"><span id="local-6989586621679941546"><span class="annot"><span class="annottext">ReadPrec [BurninSubtitleShadowColor]
+ReadPrec BurninSubtitleShadowColor
+Int -&gt; ReadS BurninSubtitleShadowColor
+ReadS [BurninSubtitleShadowColor]
+(Int -&gt; ReadS BurninSubtitleShadowColor)
+-&gt; ReadS [BurninSubtitleShadowColor]
+-&gt; ReadPrec BurninSubtitleShadowColor
+-&gt; ReadPrec [BurninSubtitleShadowColor]
+-&gt; Read BurninSubtitleShadowColor
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BurninSubtitleShadowColor]
+$creadListPrec :: ReadPrec [BurninSubtitleShadowColor]
+readPrec :: ReadPrec BurninSubtitleShadowColor
+$creadPrec :: ReadPrec BurninSubtitleShadowColor
+readList :: ReadS [BurninSubtitleShadowColor]
+$creadList :: ReadS [BurninSubtitleShadowColor]
+readsPrec :: Int -&gt; ReadS BurninSubtitleShadowColor
+$creadsPrec :: Int -&gt; ReadS BurninSubtitleShadowColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679941535"><span id="local-6989586621679941537"><span class="annot"><span class="annottext">BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool
+(BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool)
+-&gt; (BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool)
+-&gt; Eq BurninSubtitleShadowColor
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool
+$c/= :: BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool
+== :: BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool
+$c== :: BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679941519"><span id="local-6989586621679941521"><span id="local-6989586621679941523"><span id="local-6989586621679941525"><span id="local-6989586621679941527"><span id="local-6989586621679941529"><span id="local-6989586621679941531"><span class="annot"><span class="annottext">Eq BurninSubtitleShadowColor
+Eq BurninSubtitleShadowColor
+-&gt; (BurninSubtitleShadowColor
+    -&gt; BurninSubtitleShadowColor -&gt; Ordering)
+-&gt; (BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool)
+-&gt; (BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool)
+-&gt; (BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool)
+-&gt; (BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool)
+-&gt; (BurninSubtitleShadowColor
+    -&gt; BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor)
+-&gt; (BurninSubtitleShadowColor
+    -&gt; BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor)
+-&gt; Ord BurninSubtitleShadowColor
+BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool
+BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Ordering
+BurninSubtitleShadowColor
+-&gt; BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: BurninSubtitleShadowColor
+-&gt; BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor
+$cmin :: BurninSubtitleShadowColor
+-&gt; BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor
+max :: BurninSubtitleShadowColor
+-&gt; BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor
+$cmax :: BurninSubtitleShadowColor
+-&gt; BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor
+&gt;= :: BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool
+$c&gt;= :: BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool
+&gt; :: BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool
+$c&gt; :: BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool
+&lt;= :: BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool
+$c&lt;= :: BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool
+&lt; :: BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool
+$c&lt; :: BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Bool
+compare :: BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Ordering
+$ccompare :: BurninSubtitleShadowColor -&gt; BurninSubtitleShadowColor -&gt; Ordering
+$cp1Ord :: Eq BurninSubtitleShadowColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ BurninSubtitleShadowColor -&gt; Rep BurninSubtitleShadowColor x)
+-&gt; (forall x.
+    Rep BurninSubtitleShadowColor x -&gt; BurninSubtitleShadowColor)
+-&gt; Generic BurninSubtitleShadowColor
+forall x.
+Rep BurninSubtitleShadowColor x -&gt; BurninSubtitleShadowColor
+forall x.
+BurninSubtitleShadowColor -&gt; Rep BurninSubtitleShadowColor x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BurninSubtitleShadowColor x -&gt; BurninSubtitleShadowColor
+$cfrom :: forall x.
+BurninSubtitleShadowColor -&gt; Rep BurninSubtitleShadowColor x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679941511"><span id="local-6989586621679941513"><span class="annot"><span class="annottext">Int -&gt; BurninSubtitleShadowColor -&gt; Int
+BurninSubtitleShadowColor -&gt; Int
+(Int -&gt; BurninSubtitleShadowColor -&gt; Int)
+-&gt; (BurninSubtitleShadowColor -&gt; Int)
+-&gt; Hashable BurninSubtitleShadowColor
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: BurninSubtitleShadowColor -&gt; Int
+$chash :: BurninSubtitleShadowColor -&gt; Int
+hashWithSalt :: Int -&gt; BurninSubtitleShadowColor -&gt; Int
+$chashWithSalt :: Int -&gt; BurninSubtitleShadowColor -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679941508"><span class="annot"><span class="annottext">BurninSubtitleShadowColor -&gt; ()
+(BurninSubtitleShadowColor -&gt; ())
+-&gt; NFData BurninSubtitleShadowColor
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: BurninSubtitleShadowColor -&gt; ()
+$crnf :: BurninSubtitleShadowColor -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679941505"><span class="annot"><span class="annottext">Text -&gt; Either String BurninSubtitleShadowColor
+(Text -&gt; Either String BurninSubtitleShadowColor)
+-&gt; FromText BurninSubtitleShadowColor
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String BurninSubtitleShadowColor
+$cfromText :: Text -&gt; Either String BurninSubtitleShadowColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679941502"><span class="annot"><span class="annottext">BurninSubtitleShadowColor -&gt; Text
+(BurninSubtitleShadowColor -&gt; Text)
+-&gt; ToText BurninSubtitleShadowColor
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: BurninSubtitleShadowColor -&gt; Text
+$ctoText :: BurninSubtitleShadowColor -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679941499"><span class="annot"><span class="annottext">BurninSubtitleShadowColor -&gt; ByteString
+(BurninSubtitleShadowColor -&gt; ByteString)
+-&gt; ToByteString BurninSubtitleShadowColor
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: BurninSubtitleShadowColor -&gt; ByteString
+$ctoBS :: BurninSubtitleShadowColor -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679941496"><span class="annot"><span class="annottext">BurninSubtitleShadowColor -&gt; ByteStringBuilder
+(BurninSubtitleShadowColor -&gt; ByteStringBuilder)
+-&gt; ToLog BurninSubtitleShadowColor
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: BurninSubtitleShadowColor -&gt; ByteStringBuilder
+$cbuild :: BurninSubtitleShadowColor -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679941493"><span class="annot"><span class="annottext">HeaderName -&gt; BurninSubtitleShadowColor -&gt; [Header]
+(HeaderName -&gt; BurninSubtitleShadowColor -&gt; [Header])
+-&gt; ToHeader BurninSubtitleShadowColor
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; BurninSubtitleShadowColor -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; BurninSubtitleShadowColor -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679941490"><span class="annot"><span class="annottext">BurninSubtitleShadowColor -&gt; QueryString
+(BurninSubtitleShadowColor -&gt; QueryString)
+-&gt; ToQuery BurninSubtitleShadowColor
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: BurninSubtitleShadowColor -&gt; QueryString
+$ctoQuery :: BurninSubtitleShadowColor -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679941485"><span id="local-6989586621679941487"><span class="annot"><span class="annottext">Value -&gt; Parser [BurninSubtitleShadowColor]
+Value -&gt; Parser BurninSubtitleShadowColor
+(Value -&gt; Parser BurninSubtitleShadowColor)
+-&gt; (Value -&gt; Parser [BurninSubtitleShadowColor])
+-&gt; FromJSON BurninSubtitleShadowColor
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [BurninSubtitleShadowColor]
+$cparseJSONList :: Value -&gt; Parser [BurninSubtitleShadowColor]
+parseJSON :: Value -&gt; Parser BurninSubtitleShadowColor
+$cparseJSON :: Value -&gt; Parser BurninSubtitleShadowColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679941480"><span id="local-6989586621679941482"><span class="annot"><span class="annottext">FromJSONKeyFunction [BurninSubtitleShadowColor]
+FromJSONKeyFunction BurninSubtitleShadowColor
+FromJSONKeyFunction BurninSubtitleShadowColor
+-&gt; FromJSONKeyFunction [BurninSubtitleShadowColor]
+-&gt; FromJSONKey BurninSubtitleShadowColor
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [BurninSubtitleShadowColor]
+$cfromJSONKeyList :: FromJSONKeyFunction [BurninSubtitleShadowColor]
+fromJSONKey :: FromJSONKeyFunction BurninSubtitleShadowColor
+$cfromJSONKey :: FromJSONKeyFunction BurninSubtitleShadowColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679941471"><span id="local-6989586621679941473"><span id="local-6989586621679941475"><span id="local-6989586621679941477"><span class="annot"><span class="annottext">[BurninSubtitleShadowColor] -&gt; Encoding
+[BurninSubtitleShadowColor] -&gt; Value
+BurninSubtitleShadowColor -&gt; Encoding
+BurninSubtitleShadowColor -&gt; Value
+(BurninSubtitleShadowColor -&gt; Value)
+-&gt; (BurninSubtitleShadowColor -&gt; Encoding)
+-&gt; ([BurninSubtitleShadowColor] -&gt; Value)
+-&gt; ([BurninSubtitleShadowColor] -&gt; Encoding)
+-&gt; ToJSON BurninSubtitleShadowColor
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [BurninSubtitleShadowColor] -&gt; Encoding
+$ctoEncodingList :: [BurninSubtitleShadowColor] -&gt; Encoding
+toJSONList :: [BurninSubtitleShadowColor] -&gt; Value
+$ctoJSONList :: [BurninSubtitleShadowColor] -&gt; Value
+toEncoding :: BurninSubtitleShadowColor -&gt; Encoding
+$ctoEncoding :: BurninSubtitleShadowColor -&gt; Encoding
+toJSON :: BurninSubtitleShadowColor -&gt; Value
+$ctoJSON :: BurninSubtitleShadowColor -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679941466"><span id="local-6989586621679941468"><span class="annot"><span class="annottext">ToJSONKeyFunction [BurninSubtitleShadowColor]
+ToJSONKeyFunction BurninSubtitleShadowColor
+ToJSONKeyFunction BurninSubtitleShadowColor
+-&gt; ToJSONKeyFunction [BurninSubtitleShadowColor]
+-&gt; ToJSONKey BurninSubtitleShadowColor
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [BurninSubtitleShadowColor]
+$ctoJSONKeyList :: ToJSONKeyFunction [BurninSubtitleShadowColor]
+toJSONKey :: ToJSONKeyFunction BurninSubtitleShadowColor
+$ctoJSONKey :: ToJSONKeyFunction BurninSubtitleShadowColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679941463"><span class="annot"><span class="annottext">[Node] -&gt; Either String BurninSubtitleShadowColor
+([Node] -&gt; Either String BurninSubtitleShadowColor)
+-&gt; FromXML BurninSubtitleShadowColor
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String BurninSubtitleShadowColor
+$cparseXML :: [Node] -&gt; Either String BurninSubtitleShadowColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679941460"><span class="annot"><span class="annottext">BurninSubtitleShadowColor -&gt; XML
+(BurninSubtitleShadowColor -&gt; XML)
+-&gt; ToXML BurninSubtitleShadowColor
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: BurninSubtitleShadowColor -&gt; XML
+$ctoXML :: BurninSubtitleShadowColor -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor_AUTO"><span class="hs-identifier hs-type">BurninSubtitleShadowColor_AUTO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor"><span class="hs-identifier hs-type">BurninSubtitleShadowColor</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBurninSubtitleShadowColor_AUTO"><span id="%24mBurninSubtitleShadowColor_AUTO"><span id="BurninSubtitleShadowColor_AUTO"><span class="annot"><span class="annottext">$bBurninSubtitleShadowColor_AUTO :: BurninSubtitleShadowColor
+$mBurninSubtitleShadowColor_AUTO :: forall r.
+BurninSubtitleShadowColor -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#%24bBurninSubtitleShadowColor_AUTO"><span class="hs-identifier hs-var hs-var hs-var">BurninSubtitleShadowColor_AUTO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor%27"><span class="hs-identifier hs-type">BurninSubtitleShadowColor'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTO&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor_BLACK"><span class="hs-identifier hs-type">BurninSubtitleShadowColor_BLACK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor"><span class="hs-identifier hs-type">BurninSubtitleShadowColor</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBurninSubtitleShadowColor_BLACK"><span id="%24mBurninSubtitleShadowColor_BLACK"><span id="BurninSubtitleShadowColor_BLACK"><span class="annot"><span class="annottext">$bBurninSubtitleShadowColor_BLACK :: BurninSubtitleShadowColor
+$mBurninSubtitleShadowColor_BLACK :: forall r.
+BurninSubtitleShadowColor -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#%24bBurninSubtitleShadowColor_BLACK"><span class="hs-identifier hs-var hs-var hs-var">BurninSubtitleShadowColor_BLACK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor%27"><span class="hs-identifier hs-type">BurninSubtitleShadowColor'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BLACK&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor_NONE"><span class="hs-identifier hs-type">BurninSubtitleShadowColor_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor"><span class="hs-identifier hs-type">BurninSubtitleShadowColor</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBurninSubtitleShadowColor_NONE"><span id="%24mBurninSubtitleShadowColor_NONE"><span id="BurninSubtitleShadowColor_NONE"><span class="annot"><span class="annottext">$bBurninSubtitleShadowColor_NONE :: BurninSubtitleShadowColor
+$mBurninSubtitleShadowColor_NONE :: forall r.
+BurninSubtitleShadowColor -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#%24bBurninSubtitleShadowColor_NONE"><span class="hs-identifier hs-var hs-var hs-var">BurninSubtitleShadowColor_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor%27"><span class="hs-identifier hs-type">BurninSubtitleShadowColor'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor_WHITE"><span class="hs-identifier hs-type">BurninSubtitleShadowColor_WHITE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor"><span class="hs-identifier hs-type">BurninSubtitleShadowColor</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBurninSubtitleShadowColor_WHITE"><span id="%24mBurninSubtitleShadowColor_WHITE"><span id="BurninSubtitleShadowColor_WHITE"><span class="annot"><span class="annottext">$bBurninSubtitleShadowColor_WHITE :: BurninSubtitleShadowColor
+$mBurninSubtitleShadowColor_WHITE :: forall r.
+BurninSubtitleShadowColor -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#%24bBurninSubtitleShadowColor_WHITE"><span class="hs-identifier hs-var hs-var hs-var">BurninSubtitleShadowColor_WHITE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor%27"><span class="hs-identifier hs-type">BurninSubtitleShadowColor'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WHITE&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor_AUTO"><span class="hs-pragma hs-type">BurninSubtitleShadowColor_AUTO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor_BLACK"><span class="hs-pragma hs-type">BurninSubtitleShadowColor_BLACK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor_NONE"><span class="hs-pragma hs-type">BurninSubtitleShadowColor_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor_WHITE"><span class="hs-pragma hs-type">BurninSubtitleShadowColor_WHITE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor.html#BurninSubtitleShadowColor%27"><span class="hs-pragma hs-type">BurninSubtitleShadowColor'</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-83"></span></pre></body></html>

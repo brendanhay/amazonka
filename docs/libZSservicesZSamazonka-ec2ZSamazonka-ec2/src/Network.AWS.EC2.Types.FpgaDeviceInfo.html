@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.FpgaDeviceInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.FpgaDeviceInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceMemoryInfo.html"><span class="hs-identifier">Network.AWS.EC2.Types.FpgaDeviceMemoryInfo</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the FPGA accelerator for the instance type.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFpgaDeviceInfo' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621681075503"><span id="local-6989586621681075504"></span></span><span class="hs-keyword">data</span><span> </span><span id="FpgaDeviceInfo"><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo"><span class="hs-identifier hs-var">FpgaDeviceInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FpgaDeviceInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo%27"><span class="hs-identifier hs-var">FpgaDeviceInfo'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The manufacturer of the FPGA accelerator.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Amanufacturer%3AFpgaDeviceInfo%27"><span class="annot"><span class="annottext">FpgaDeviceInfo -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#%24sel%3Amanufacturer%3AFpgaDeviceInfo%27"><span class="hs-identifier hs-var hs-var">manufacturer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Describes the memory for the FPGA accelerator for the instance type.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AmemoryInfo%3AFpgaDeviceInfo%27"><span class="annot"><span class="annottext">FpgaDeviceInfo -&gt; Maybe FpgaDeviceMemoryInfo
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#%24sel%3AmemoryInfo%3AFpgaDeviceInfo%27"><span class="hs-identifier hs-var hs-var">memoryInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceMemoryInfo.html#FpgaDeviceMemoryInfo"><span class="hs-identifier hs-type">FpgaDeviceMemoryInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the FPGA accelerator.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aname%3AFpgaDeviceInfo%27"><span class="annot"><span class="annottext">FpgaDeviceInfo -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#%24sel%3Aname%3AFpgaDeviceInfo%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The count of FPGA accelerators for the instance type.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Acount%3AFpgaDeviceInfo%27"><span class="annot"><span class="annottext">FpgaDeviceInfo -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#%24sel%3Acount%3AFpgaDeviceInfo%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681075494"><span id="local-6989586621681075496"><span class="annot"><span class="annottext">FpgaDeviceInfo -&gt; FpgaDeviceInfo -&gt; Bool
+(FpgaDeviceInfo -&gt; FpgaDeviceInfo -&gt; Bool)
+-&gt; (FpgaDeviceInfo -&gt; FpgaDeviceInfo -&gt; Bool) -&gt; Eq FpgaDeviceInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FpgaDeviceInfo -&gt; FpgaDeviceInfo -&gt; Bool
+$c/= :: FpgaDeviceInfo -&gt; FpgaDeviceInfo -&gt; Bool
+== :: FpgaDeviceInfo -&gt; FpgaDeviceInfo -&gt; Bool
+$c== :: FpgaDeviceInfo -&gt; FpgaDeviceInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681075485"><span id="local-6989586621681075487"><span id="local-6989586621681075489"><span id="local-6989586621681075491"><span class="annot"><span class="annottext">ReadPrec [FpgaDeviceInfo]
+ReadPrec FpgaDeviceInfo
+Int -&gt; ReadS FpgaDeviceInfo
+ReadS [FpgaDeviceInfo]
+(Int -&gt; ReadS FpgaDeviceInfo)
+-&gt; ReadS [FpgaDeviceInfo]
+-&gt; ReadPrec FpgaDeviceInfo
+-&gt; ReadPrec [FpgaDeviceInfo]
+-&gt; Read FpgaDeviceInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FpgaDeviceInfo]
+$creadListPrec :: ReadPrec [FpgaDeviceInfo]
+readPrec :: ReadPrec FpgaDeviceInfo
+$creadPrec :: ReadPrec FpgaDeviceInfo
+readList :: ReadS [FpgaDeviceInfo]
+$creadList :: ReadS [FpgaDeviceInfo]
+readsPrec :: Int -&gt; ReadS FpgaDeviceInfo
+$creadsPrec :: Int -&gt; ReadS FpgaDeviceInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681075478"><span id="local-6989586621681075480"><span id="local-6989586621681075482"><span class="annot"><span class="annottext">Int -&gt; FpgaDeviceInfo -&gt; ShowS
+[FpgaDeviceInfo] -&gt; ShowS
+FpgaDeviceInfo -&gt; String
+(Int -&gt; FpgaDeviceInfo -&gt; ShowS)
+-&gt; (FpgaDeviceInfo -&gt; String)
+-&gt; ([FpgaDeviceInfo] -&gt; ShowS)
+-&gt; Show FpgaDeviceInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FpgaDeviceInfo] -&gt; ShowS
+$cshowList :: [FpgaDeviceInfo] -&gt; ShowS
+show :: FpgaDeviceInfo -&gt; String
+$cshow :: FpgaDeviceInfo -&gt; String
+showsPrec :: Int -&gt; FpgaDeviceInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; FpgaDeviceInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FpgaDeviceInfo -&gt; Rep FpgaDeviceInfo x)
+-&gt; (forall x. Rep FpgaDeviceInfo x -&gt; FpgaDeviceInfo)
+-&gt; Generic FpgaDeviceInfo
+forall x. Rep FpgaDeviceInfo x -&gt; FpgaDeviceInfo
+forall x. FpgaDeviceInfo -&gt; Rep FpgaDeviceInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FpgaDeviceInfo x -&gt; FpgaDeviceInfo
+$cfrom :: forall x. FpgaDeviceInfo -&gt; Rep FpgaDeviceInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'FpgaDeviceInfo' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'manufacturer', 'fpgaDeviceInfo_manufacturer' - The manufacturer of the FPGA accelerator.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'memoryInfo', 'fpgaDeviceInfo_memoryInfo' - Describes the memory for the FPGA accelerator for the instance type.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'name', 'fpgaDeviceInfo_name' - The name of the FPGA accelerator.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'count', 'fpgaDeviceInfo_count' - The count of FPGA accelerators for the instance type.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#newFpgaDeviceInfo"><span class="hs-identifier hs-type">newFpgaDeviceInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo"><span class="hs-identifier hs-type">FpgaDeviceInfo</span></a></span><span>
+</span><span id="line-60"></span><span id="newFpgaDeviceInfo"><span class="annot"><span class="annottext">newFpgaDeviceInfo :: FpgaDeviceInfo
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#newFpgaDeviceInfo"><span class="hs-identifier hs-var hs-var">newFpgaDeviceInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">FpgaDeviceInfo' :: Maybe Text
+-&gt; Maybe FpgaDeviceMemoryInfo
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; FpgaDeviceInfo
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo%27"><span class="hs-identifier hs-type">FpgaDeviceInfo'</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:manufacturer:FpgaDeviceInfo' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#%24sel%3Amanufacturer%3AFpgaDeviceInfo%27"><span class="hs-identifier hs-var">manufacturer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:memoryInfo:FpgaDeviceInfo' :: Maybe FpgaDeviceMemoryInfo
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#%24sel%3AmemoryInfo%3AFpgaDeviceInfo%27"><span class="hs-identifier hs-var">memoryInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FpgaDeviceMemoryInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:FpgaDeviceInfo' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#%24sel%3Aname%3AFpgaDeviceInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:count:FpgaDeviceInfo' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#%24sel%3Acount%3AFpgaDeviceInfo%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The manufacturer of the FPGA accelerator.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#fpgaDeviceInfo_manufacturer"><span class="hs-identifier hs-type">fpgaDeviceInfo_manufacturer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo"><span class="hs-identifier hs-type">FpgaDeviceInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="fpgaDeviceInfo_manufacturer"><span class="annot"><span class="annottext">fpgaDeviceInfo_manufacturer :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FpgaDeviceInfo -&gt; f FpgaDeviceInfo
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#fpgaDeviceInfo_manufacturer"><span class="hs-identifier hs-var hs-var">fpgaDeviceInfo_manufacturer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FpgaDeviceInfo -&gt; Maybe Text)
+-&gt; (FpgaDeviceInfo -&gt; Maybe Text -&gt; FpgaDeviceInfo)
+-&gt; Lens FpgaDeviceInfo FpgaDeviceInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo%27"><span class="hs-identifier hs-type">FpgaDeviceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681075469"><span class="annot"><span class="annottext">Maybe Text
+manufacturer :: Maybe Text
+$sel:manufacturer:FpgaDeviceInfo' :: FpgaDeviceInfo -&gt; Maybe Text
+</span><a href="#local-6989586621681075469"><span class="hs-identifier hs-var hs-var">manufacturer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681075469"><span class="hs-identifier hs-var">manufacturer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681075468"><span class="annot"><span class="annottext">s :: FpgaDeviceInfo
+</span><a href="#local-6989586621681075468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo%27"><span class="hs-identifier hs-type">FpgaDeviceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681075467"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681075467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FpgaDeviceInfo
+</span><a href="#local-6989586621681075468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manufacturer:FpgaDeviceInfo' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#%24sel%3Amanufacturer%3AFpgaDeviceInfo%27"><span class="hs-identifier hs-var">manufacturer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681075467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo"><span class="hs-identifier hs-type">FpgaDeviceInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Describes the memory for the FPGA accelerator for the instance type.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#fpgaDeviceInfo_memoryInfo"><span class="hs-identifier hs-type">fpgaDeviceInfo_memoryInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo"><span class="hs-identifier hs-type">FpgaDeviceInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceMemoryInfo.html#FpgaDeviceMemoryInfo"><span class="hs-identifier hs-type">FpgaDeviceMemoryInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="fpgaDeviceInfo_memoryInfo"><span class="annot"><span class="annottext">fpgaDeviceInfo_memoryInfo :: (Maybe FpgaDeviceMemoryInfo -&gt; f (Maybe FpgaDeviceMemoryInfo))
+-&gt; FpgaDeviceInfo -&gt; f FpgaDeviceInfo
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#fpgaDeviceInfo_memoryInfo"><span class="hs-identifier hs-var hs-var">fpgaDeviceInfo_memoryInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FpgaDeviceInfo -&gt; Maybe FpgaDeviceMemoryInfo)
+-&gt; (FpgaDeviceInfo -&gt; Maybe FpgaDeviceMemoryInfo -&gt; FpgaDeviceInfo)
+-&gt; Lens
+     FpgaDeviceInfo
+     FpgaDeviceInfo
+     (Maybe FpgaDeviceMemoryInfo)
+     (Maybe FpgaDeviceMemoryInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo%27"><span class="hs-identifier hs-type">FpgaDeviceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681075465"><span class="annot"><span class="annottext">Maybe FpgaDeviceMemoryInfo
+memoryInfo :: Maybe FpgaDeviceMemoryInfo
+$sel:memoryInfo:FpgaDeviceInfo' :: FpgaDeviceInfo -&gt; Maybe FpgaDeviceMemoryInfo
+</span><a href="#local-6989586621681075465"><span class="hs-identifier hs-var hs-var">memoryInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FpgaDeviceMemoryInfo
+</span><a href="#local-6989586621681075465"><span class="hs-identifier hs-var">memoryInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681075464"><span class="annot"><span class="annottext">s :: FpgaDeviceInfo
+</span><a href="#local-6989586621681075464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo%27"><span class="hs-identifier hs-type">FpgaDeviceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681075463"><span class="annot"><span class="annottext">Maybe FpgaDeviceMemoryInfo
+</span><a href="#local-6989586621681075463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FpgaDeviceInfo
+</span><a href="#local-6989586621681075464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memoryInfo:FpgaDeviceInfo' :: Maybe FpgaDeviceMemoryInfo
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#%24sel%3AmemoryInfo%3AFpgaDeviceInfo%27"><span class="hs-identifier hs-var">memoryInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FpgaDeviceMemoryInfo
+</span><a href="#local-6989586621681075463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo"><span class="hs-identifier hs-type">FpgaDeviceInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The name of the FPGA accelerator.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#fpgaDeviceInfo_name"><span class="hs-identifier hs-type">fpgaDeviceInfo_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo"><span class="hs-identifier hs-type">FpgaDeviceInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="fpgaDeviceInfo_name"><span class="annot"><span class="annottext">fpgaDeviceInfo_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FpgaDeviceInfo -&gt; f FpgaDeviceInfo
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#fpgaDeviceInfo_name"><span class="hs-identifier hs-var hs-var">fpgaDeviceInfo_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FpgaDeviceInfo -&gt; Maybe Text)
+-&gt; (FpgaDeviceInfo -&gt; Maybe Text -&gt; FpgaDeviceInfo)
+-&gt; Lens FpgaDeviceInfo FpgaDeviceInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo%27"><span class="hs-identifier hs-type">FpgaDeviceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681075461"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:FpgaDeviceInfo' :: FpgaDeviceInfo -&gt; Maybe Text
+</span><a href="#local-6989586621681075461"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681075461"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681075460"><span class="annot"><span class="annottext">s :: FpgaDeviceInfo
+</span><a href="#local-6989586621681075460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo%27"><span class="hs-identifier hs-type">FpgaDeviceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681075459"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681075459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FpgaDeviceInfo
+</span><a href="#local-6989586621681075460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:FpgaDeviceInfo' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#%24sel%3Aname%3AFpgaDeviceInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681075459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo"><span class="hs-identifier hs-type">FpgaDeviceInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The count of FPGA accelerators for the instance type.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#fpgaDeviceInfo_count"><span class="hs-identifier hs-type">fpgaDeviceInfo_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo"><span class="hs-identifier hs-type">FpgaDeviceInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="fpgaDeviceInfo_count"><span class="annot"><span class="annottext">fpgaDeviceInfo_count :: (Maybe Int -&gt; f (Maybe Int)) -&gt; FpgaDeviceInfo -&gt; f FpgaDeviceInfo
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#fpgaDeviceInfo_count"><span class="hs-identifier hs-var hs-var">fpgaDeviceInfo_count</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FpgaDeviceInfo -&gt; Maybe Int)
+-&gt; (FpgaDeviceInfo -&gt; Maybe Int -&gt; FpgaDeviceInfo)
+-&gt; Lens FpgaDeviceInfo FpgaDeviceInfo (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo%27"><span class="hs-identifier hs-type">FpgaDeviceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681075457"><span class="annot"><span class="annottext">Maybe Int
+count :: Maybe Int
+$sel:count:FpgaDeviceInfo' :: FpgaDeviceInfo -&gt; Maybe Int
+</span><a href="#local-6989586621681075457"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681075457"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681075456"><span class="annot"><span class="annottext">s :: FpgaDeviceInfo
+</span><a href="#local-6989586621681075456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo%27"><span class="hs-identifier hs-type">FpgaDeviceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681075455"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681075455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FpgaDeviceInfo
+</span><a href="#local-6989586621681075456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:FpgaDeviceInfo' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#%24sel%3Acount%3AFpgaDeviceInfo%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681075455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo"><span class="hs-identifier hs-type">FpgaDeviceInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo"><span class="hs-identifier hs-type">FpgaDeviceInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621681075452"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FpgaDeviceInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681075450"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681075450"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe FpgaDeviceMemoryInfo
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; FpgaDeviceInfo
+</span><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo%27"><span class="hs-identifier hs-var">FpgaDeviceInfo'</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe FpgaDeviceMemoryInfo
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; FpgaDeviceInfo)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe FpgaDeviceMemoryInfo
+      -&gt; Maybe Text -&gt; Maybe Int -&gt; FpgaDeviceInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681075450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;manufacturer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe FpgaDeviceMemoryInfo
+   -&gt; Maybe Text -&gt; Maybe Int -&gt; FpgaDeviceInfo)
+-&gt; Either String (Maybe FpgaDeviceMemoryInfo)
+-&gt; Either String (Maybe Text -&gt; Maybe Int -&gt; FpgaDeviceInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681075450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe FpgaDeviceMemoryInfo)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;memoryInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Int -&gt; FpgaDeviceInfo)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Int -&gt; FpgaDeviceInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681075450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; FpgaDeviceInfo)
+-&gt; Either String (Maybe Int) -&gt; Either String FpgaDeviceInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681075450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;count&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681075444"><span id="local-6989586621681075446"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo"><span class="hs-identifier hs-type">FpgaDeviceInfo</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681075441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo"><span class="hs-identifier hs-type">FpgaDeviceInfo</span></a></span></span><span>
+</span><span id="line-95"></span></pre></body></html>

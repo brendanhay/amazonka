@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Route53Domains.Types.ExtraParamName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53Domains.Types.ExtraParamName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier">ExtraParamName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_AU_ID_NUMBER"><span class="hs-identifier">ExtraParamName_AU_ID_NUMBER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_AU_ID_TYPE"><span class="hs-identifier">ExtraParamName_AU_ID_TYPE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_BIRTH_CITY"><span class="hs-identifier">ExtraParamName_BIRTH_CITY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_BIRTH_COUNTRY"><span class="hs-identifier">ExtraParamName_BIRTH_COUNTRY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_BIRTH_DATE_IN_YYYY_MM_DD"><span class="hs-identifier">ExtraParamName_BIRTH_DATE_IN_YYYY_MM_DD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_BIRTH_DEPARTMENT"><span class="hs-identifier">ExtraParamName_BIRTH_DEPARTMENT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_BRAND_NUMBER"><span class="hs-identifier">ExtraParamName_BRAND_NUMBER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_CA_BUSINESS_ENTITY_TYPE"><span class="hs-identifier">ExtraParamName_CA_BUSINESS_ENTITY_TYPE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_CA_LEGAL_REPRESENTATIVE"><span class="hs-identifier">ExtraParamName_CA_LEGAL_REPRESENTATIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_CA_LEGAL_REPRESENTATIVE_CAPACITY"><span class="hs-identifier">ExtraParamName_CA_LEGAL_REPRESENTATIVE_CAPACITY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_CA_LEGAL_TYPE"><span class="hs-identifier">ExtraParamName_CA_LEGAL_TYPE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_DOCUMENT_NUMBER"><span class="hs-identifier">ExtraParamName_DOCUMENT_NUMBER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_DUNS_NUMBER"><span class="hs-identifier">ExtraParamName_DUNS_NUMBER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_ES_IDENTIFICATION"><span class="hs-identifier">ExtraParamName_ES_IDENTIFICATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_ES_IDENTIFICATION_TYPE"><span class="hs-identifier">ExtraParamName_ES_IDENTIFICATION_TYPE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_ES_LEGAL_FORM"><span class="hs-identifier">ExtraParamName_ES_LEGAL_FORM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_FI_BUSINESS_NUMBER"><span class="hs-identifier">ExtraParamName_FI_BUSINESS_NUMBER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_FI_ID_NUMBER"><span class="hs-identifier">ExtraParamName_FI_ID_NUMBER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_FI_NATIONALITY"><span class="hs-identifier">ExtraParamName_FI_NATIONALITY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_FI_ORGANIZATION_TYPE"><span class="hs-identifier">ExtraParamName_FI_ORGANIZATION_TYPE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_IT_NATIONALITY"><span class="hs-identifier">ExtraParamName_IT_NATIONALITY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_IT_PIN"><span class="hs-identifier">ExtraParamName_IT_PIN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_IT_REGISTRANT_ENTITY_TYPE"><span class="hs-identifier">ExtraParamName_IT_REGISTRANT_ENTITY_TYPE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_RU_PASSPORT_DATA"><span class="hs-identifier">ExtraParamName_RU_PASSPORT_DATA</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_SE_ID_NUMBER"><span class="hs-identifier">ExtraParamName_SE_ID_NUMBER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_SG_ID_NUMBER"><span class="hs-identifier">ExtraParamName_SG_ID_NUMBER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_UK_COMPANY_NUMBER"><span class="hs-identifier">ExtraParamName_UK_COMPANY_NUMBER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_UK_CONTACT_TYPE"><span class="hs-identifier">ExtraParamName_UK_CONTACT_TYPE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_VAT_NUMBER"><span class="hs-identifier">ExtraParamName_VAT_NUMBER</span></a></span><span>
+</span><span id="line-52"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679209142"><span id="local-6989586621679209143"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExtraParamName"><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-var">ExtraParamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExtraParamName%27"><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-var">ExtraParamName'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExtraParamName"><span class="annot"><span class="annottext">ExtraParamName -&gt; Text
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#fromExtraParamName"><span class="hs-identifier hs-var hs-var">fromExtraParamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209134"><span id="local-6989586621679209136"><span id="local-6989586621679209138"><span class="annot"><span class="annottext">Int -&gt; ExtraParamName -&gt; ShowS
+[ExtraParamName] -&gt; ShowS
+ExtraParamName -&gt; String
+(Int -&gt; ExtraParamName -&gt; ShowS)
+-&gt; (ExtraParamName -&gt; String)
+-&gt; ([ExtraParamName] -&gt; ShowS)
+-&gt; Show ExtraParamName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExtraParamName] -&gt; ShowS
+$cshowList :: [ExtraParamName] -&gt; ShowS
+show :: ExtraParamName -&gt; String
+$cshow :: ExtraParamName -&gt; String
+showsPrec :: Int -&gt; ExtraParamName -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExtraParamName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679209125"><span id="local-6989586621679209127"><span id="local-6989586621679209129"><span id="local-6989586621679209131"><span class="annot"><span class="annottext">ReadPrec [ExtraParamName]
+ReadPrec ExtraParamName
+Int -&gt; ReadS ExtraParamName
+ReadS [ExtraParamName]
+(Int -&gt; ReadS ExtraParamName)
+-&gt; ReadS [ExtraParamName]
+-&gt; ReadPrec ExtraParamName
+-&gt; ReadPrec [ExtraParamName]
+-&gt; Read ExtraParamName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExtraParamName]
+$creadListPrec :: ReadPrec [ExtraParamName]
+readPrec :: ReadPrec ExtraParamName
+$creadPrec :: ReadPrec ExtraParamName
+readList :: ReadS [ExtraParamName]
+$creadList :: ReadS [ExtraParamName]
+readsPrec :: Int -&gt; ReadS ExtraParamName
+$creadsPrec :: Int -&gt; ReadS ExtraParamName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679209120"><span id="local-6989586621679209122"><span class="annot"><span class="annottext">ExtraParamName -&gt; ExtraParamName -&gt; Bool
+(ExtraParamName -&gt; ExtraParamName -&gt; Bool)
+-&gt; (ExtraParamName -&gt; ExtraParamName -&gt; Bool) -&gt; Eq ExtraParamName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExtraParamName -&gt; ExtraParamName -&gt; Bool
+$c/= :: ExtraParamName -&gt; ExtraParamName -&gt; Bool
+== :: ExtraParamName -&gt; ExtraParamName -&gt; Bool
+$c== :: ExtraParamName -&gt; ExtraParamName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679209104"><span id="local-6989586621679209106"><span id="local-6989586621679209108"><span id="local-6989586621679209110"><span id="local-6989586621679209112"><span id="local-6989586621679209114"><span id="local-6989586621679209116"><span class="annot"><span class="annottext">Eq ExtraParamName
+Eq ExtraParamName
+-&gt; (ExtraParamName -&gt; ExtraParamName -&gt; Ordering)
+-&gt; (ExtraParamName -&gt; ExtraParamName -&gt; Bool)
+-&gt; (ExtraParamName -&gt; ExtraParamName -&gt; Bool)
+-&gt; (ExtraParamName -&gt; ExtraParamName -&gt; Bool)
+-&gt; (ExtraParamName -&gt; ExtraParamName -&gt; Bool)
+-&gt; (ExtraParamName -&gt; ExtraParamName -&gt; ExtraParamName)
+-&gt; (ExtraParamName -&gt; ExtraParamName -&gt; ExtraParamName)
+-&gt; Ord ExtraParamName
+ExtraParamName -&gt; ExtraParamName -&gt; Bool
+ExtraParamName -&gt; ExtraParamName -&gt; Ordering
+ExtraParamName -&gt; ExtraParamName -&gt; ExtraParamName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ExtraParamName -&gt; ExtraParamName -&gt; ExtraParamName
+$cmin :: ExtraParamName -&gt; ExtraParamName -&gt; ExtraParamName
+max :: ExtraParamName -&gt; ExtraParamName -&gt; ExtraParamName
+$cmax :: ExtraParamName -&gt; ExtraParamName -&gt; ExtraParamName
+&gt;= :: ExtraParamName -&gt; ExtraParamName -&gt; Bool
+$c&gt;= :: ExtraParamName -&gt; ExtraParamName -&gt; Bool
+&gt; :: ExtraParamName -&gt; ExtraParamName -&gt; Bool
+$c&gt; :: ExtraParamName -&gt; ExtraParamName -&gt; Bool
+&lt;= :: ExtraParamName -&gt; ExtraParamName -&gt; Bool
+$c&lt;= :: ExtraParamName -&gt; ExtraParamName -&gt; Bool
+&lt; :: ExtraParamName -&gt; ExtraParamName -&gt; Bool
+$c&lt; :: ExtraParamName -&gt; ExtraParamName -&gt; Bool
+compare :: ExtraParamName -&gt; ExtraParamName -&gt; Ordering
+$ccompare :: ExtraParamName -&gt; ExtraParamName -&gt; Ordering
+$cp1Ord :: Eq ExtraParamName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ExtraParamName -&gt; Rep ExtraParamName x)
+-&gt; (forall x. Rep ExtraParamName x -&gt; ExtraParamName)
+-&gt; Generic ExtraParamName
+forall x. Rep ExtraParamName x -&gt; ExtraParamName
+forall x. ExtraParamName -&gt; Rep ExtraParamName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExtraParamName x -&gt; ExtraParamName
+$cfrom :: forall x. ExtraParamName -&gt; Rep ExtraParamName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209096"><span id="local-6989586621679209098"><span class="annot"><span class="annottext">Int -&gt; ExtraParamName -&gt; Int
+ExtraParamName -&gt; Int
+(Int -&gt; ExtraParamName -&gt; Int)
+-&gt; (ExtraParamName -&gt; Int) -&gt; Hashable ExtraParamName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ExtraParamName -&gt; Int
+$chash :: ExtraParamName -&gt; Int
+hashWithSalt :: Int -&gt; ExtraParamName -&gt; Int
+$chashWithSalt :: Int -&gt; ExtraParamName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679209093"><span class="annot"><span class="annottext">ExtraParamName -&gt; ()
+(ExtraParamName -&gt; ()) -&gt; NFData ExtraParamName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ExtraParamName -&gt; ()
+$crnf :: ExtraParamName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679209090"><span class="annot"><span class="annottext">Text -&gt; Either String ExtraParamName
+(Text -&gt; Either String ExtraParamName) -&gt; FromText ExtraParamName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ExtraParamName
+$cfromText :: Text -&gt; Either String ExtraParamName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679209087"><span class="annot"><span class="annottext">ExtraParamName -&gt; Text
+(ExtraParamName -&gt; Text) -&gt; ToText ExtraParamName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ExtraParamName -&gt; Text
+$ctoText :: ExtraParamName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679209084"><span class="annot"><span class="annottext">ExtraParamName -&gt; ByteString
+(ExtraParamName -&gt; ByteString) -&gt; ToByteString ExtraParamName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ExtraParamName -&gt; ByteString
+$ctoBS :: ExtraParamName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679209081"><span class="annot"><span class="annottext">ExtraParamName -&gt; ByteStringBuilder
+(ExtraParamName -&gt; ByteStringBuilder) -&gt; ToLog ExtraParamName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ExtraParamName -&gt; ByteStringBuilder
+$cbuild :: ExtraParamName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679209078"><span class="annot"><span class="annottext">HeaderName -&gt; ExtraParamName -&gt; [Header]
+(HeaderName -&gt; ExtraParamName -&gt; [Header])
+-&gt; ToHeader ExtraParamName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ExtraParamName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ExtraParamName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679209075"><span class="annot"><span class="annottext">ExtraParamName -&gt; QueryString
+(ExtraParamName -&gt; QueryString) -&gt; ToQuery ExtraParamName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ExtraParamName -&gt; QueryString
+$ctoQuery :: ExtraParamName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679209070"><span id="local-6989586621679209072"><span class="annot"><span class="annottext">Value -&gt; Parser [ExtraParamName]
+Value -&gt; Parser ExtraParamName
+(Value -&gt; Parser ExtraParamName)
+-&gt; (Value -&gt; Parser [ExtraParamName]) -&gt; FromJSON ExtraParamName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ExtraParamName]
+$cparseJSONList :: Value -&gt; Parser [ExtraParamName]
+parseJSON :: Value -&gt; Parser ExtraParamName
+$cparseJSON :: Value -&gt; Parser ExtraParamName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679209065"><span id="local-6989586621679209067"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExtraParamName]
+FromJSONKeyFunction ExtraParamName
+FromJSONKeyFunction ExtraParamName
+-&gt; FromJSONKeyFunction [ExtraParamName]
+-&gt; FromJSONKey ExtraParamName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ExtraParamName]
+$cfromJSONKeyList :: FromJSONKeyFunction [ExtraParamName]
+fromJSONKey :: FromJSONKeyFunction ExtraParamName
+$cfromJSONKey :: FromJSONKeyFunction ExtraParamName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679209056"><span id="local-6989586621679209058"><span id="local-6989586621679209060"><span id="local-6989586621679209062"><span class="annot"><span class="annottext">[ExtraParamName] -&gt; Encoding
+[ExtraParamName] -&gt; Value
+ExtraParamName -&gt; Encoding
+ExtraParamName -&gt; Value
+(ExtraParamName -&gt; Value)
+-&gt; (ExtraParamName -&gt; Encoding)
+-&gt; ([ExtraParamName] -&gt; Value)
+-&gt; ([ExtraParamName] -&gt; Encoding)
+-&gt; ToJSON ExtraParamName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ExtraParamName] -&gt; Encoding
+$ctoEncodingList :: [ExtraParamName] -&gt; Encoding
+toJSONList :: [ExtraParamName] -&gt; Value
+$ctoJSONList :: [ExtraParamName] -&gt; Value
+toEncoding :: ExtraParamName -&gt; Encoding
+$ctoEncoding :: ExtraParamName -&gt; Encoding
+toJSON :: ExtraParamName -&gt; Value
+$ctoJSON :: ExtraParamName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679209051"><span id="local-6989586621679209053"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExtraParamName]
+ToJSONKeyFunction ExtraParamName
+ToJSONKeyFunction ExtraParamName
+-&gt; ToJSONKeyFunction [ExtraParamName] -&gt; ToJSONKey ExtraParamName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ExtraParamName]
+$ctoJSONKeyList :: ToJSONKeyFunction [ExtraParamName]
+toJSONKey :: ToJSONKeyFunction ExtraParamName
+$ctoJSONKey :: ToJSONKeyFunction ExtraParamName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621679209048"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExtraParamName
+([Node] -&gt; Either String ExtraParamName) -&gt; FromXML ExtraParamName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ExtraParamName
+$cparseXML :: [Node] -&gt; Either String ExtraParamName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span id="local-6989586621679209045"><span class="annot"><span class="annottext">ExtraParamName -&gt; XML
+(ExtraParamName -&gt; XML) -&gt; ToXML ExtraParamName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ExtraParamName -&gt; XML
+$ctoXML :: ExtraParamName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_AU_ID_NUMBER"><span class="hs-identifier hs-type">ExtraParamName_AU_ID_NUMBER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_AU_ID_NUMBER"><span id="%24mExtraParamName_AU_ID_NUMBER"><span id="ExtraParamName_AU_ID_NUMBER"><span class="annot"><span class="annottext">$bExtraParamName_AU_ID_NUMBER :: ExtraParamName
+$mExtraParamName_AU_ID_NUMBER :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_AU_ID_NUMBER"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_AU_ID_NUMBER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AU_ID_NUMBER&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_AU_ID_TYPE"><span class="hs-identifier hs-type">ExtraParamName_AU_ID_TYPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_AU_ID_TYPE"><span id="%24mExtraParamName_AU_ID_TYPE"><span id="ExtraParamName_AU_ID_TYPE"><span class="annot"><span class="annottext">$bExtraParamName_AU_ID_TYPE :: ExtraParamName
+$mExtraParamName_AU_ID_TYPE :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_AU_ID_TYPE"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_AU_ID_TYPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AU_ID_TYPE&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_BIRTH_CITY"><span class="hs-identifier hs-type">ExtraParamName_BIRTH_CITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_BIRTH_CITY"><span id="%24mExtraParamName_BIRTH_CITY"><span id="ExtraParamName_BIRTH_CITY"><span class="annot"><span class="annottext">$bExtraParamName_BIRTH_CITY :: ExtraParamName
+$mExtraParamName_BIRTH_CITY :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_BIRTH_CITY"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_BIRTH_CITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BIRTH_CITY&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_BIRTH_COUNTRY"><span class="hs-identifier hs-type">ExtraParamName_BIRTH_COUNTRY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_BIRTH_COUNTRY"><span id="%24mExtraParamName_BIRTH_COUNTRY"><span id="ExtraParamName_BIRTH_COUNTRY"><span class="annot"><span class="annottext">$bExtraParamName_BIRTH_COUNTRY :: ExtraParamName
+$mExtraParamName_BIRTH_COUNTRY :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_BIRTH_COUNTRY"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_BIRTH_COUNTRY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BIRTH_COUNTRY&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_BIRTH_DATE_IN_YYYY_MM_DD"><span class="hs-identifier hs-type">ExtraParamName_BIRTH_DATE_IN_YYYY_MM_DD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_BIRTH_DATE_IN_YYYY_MM_DD"><span id="%24mExtraParamName_BIRTH_DATE_IN_YYYY_MM_DD"><span id="ExtraParamName_BIRTH_DATE_IN_YYYY_MM_DD"><span class="annot"><span class="annottext">$bExtraParamName_BIRTH_DATE_IN_YYYY_MM_DD :: ExtraParamName
+$mExtraParamName_BIRTH_DATE_IN_YYYY_MM_DD :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_BIRTH_DATE_IN_YYYY_MM_DD"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_BIRTH_DATE_IN_YYYY_MM_DD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BIRTH_DATE_IN_YYYY_MM_DD&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_BIRTH_DEPARTMENT"><span class="hs-identifier hs-type">ExtraParamName_BIRTH_DEPARTMENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_BIRTH_DEPARTMENT"><span id="%24mExtraParamName_BIRTH_DEPARTMENT"><span id="ExtraParamName_BIRTH_DEPARTMENT"><span class="annot"><span class="annottext">$bExtraParamName_BIRTH_DEPARTMENT :: ExtraParamName
+$mExtraParamName_BIRTH_DEPARTMENT :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_BIRTH_DEPARTMENT"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_BIRTH_DEPARTMENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BIRTH_DEPARTMENT&quot;</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_BRAND_NUMBER"><span class="hs-identifier hs-type">ExtraParamName_BRAND_NUMBER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_BRAND_NUMBER"><span id="%24mExtraParamName_BRAND_NUMBER"><span id="ExtraParamName_BRAND_NUMBER"><span class="annot"><span class="annottext">$bExtraParamName_BRAND_NUMBER :: ExtraParamName
+$mExtraParamName_BRAND_NUMBER :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_BRAND_NUMBER"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_BRAND_NUMBER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BRAND_NUMBER&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_CA_BUSINESS_ENTITY_TYPE"><span class="hs-identifier hs-type">ExtraParamName_CA_BUSINESS_ENTITY_TYPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_CA_BUSINESS_ENTITY_TYPE"><span id="%24mExtraParamName_CA_BUSINESS_ENTITY_TYPE"><span id="ExtraParamName_CA_BUSINESS_ENTITY_TYPE"><span class="annot"><span class="annottext">$bExtraParamName_CA_BUSINESS_ENTITY_TYPE :: ExtraParamName
+$mExtraParamName_CA_BUSINESS_ENTITY_TYPE :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_CA_BUSINESS_ENTITY_TYPE"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_CA_BUSINESS_ENTITY_TYPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CA_BUSINESS_ENTITY_TYPE&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_CA_LEGAL_REPRESENTATIVE"><span class="hs-identifier hs-type">ExtraParamName_CA_LEGAL_REPRESENTATIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_CA_LEGAL_REPRESENTATIVE"><span id="%24mExtraParamName_CA_LEGAL_REPRESENTATIVE"><span id="ExtraParamName_CA_LEGAL_REPRESENTATIVE"><span class="annot"><span class="annottext">$bExtraParamName_CA_LEGAL_REPRESENTATIVE :: ExtraParamName
+$mExtraParamName_CA_LEGAL_REPRESENTATIVE :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_CA_LEGAL_REPRESENTATIVE"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_CA_LEGAL_REPRESENTATIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CA_LEGAL_REPRESENTATIVE&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_CA_LEGAL_REPRESENTATIVE_CAPACITY"><span class="hs-identifier hs-type">ExtraParamName_CA_LEGAL_REPRESENTATIVE_CAPACITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_CA_LEGAL_REPRESENTATIVE_CAPACITY"><span id="%24mExtraParamName_CA_LEGAL_REPRESENTATIVE_CAPACITY"><span id="ExtraParamName_CA_LEGAL_REPRESENTATIVE_CAPACITY"><span class="annot"><span class="annottext">$bExtraParamName_CA_LEGAL_REPRESENTATIVE_CAPACITY :: ExtraParamName
+$mExtraParamName_CA_LEGAL_REPRESENTATIVE_CAPACITY :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_CA_LEGAL_REPRESENTATIVE_CAPACITY"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_CA_LEGAL_REPRESENTATIVE_CAPACITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CA_LEGAL_REPRESENTATIVE_CAPACITY&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_CA_LEGAL_TYPE"><span class="hs-identifier hs-type">ExtraParamName_CA_LEGAL_TYPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_CA_LEGAL_TYPE"><span id="%24mExtraParamName_CA_LEGAL_TYPE"><span id="ExtraParamName_CA_LEGAL_TYPE"><span class="annot"><span class="annottext">$bExtraParamName_CA_LEGAL_TYPE :: ExtraParamName
+$mExtraParamName_CA_LEGAL_TYPE :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_CA_LEGAL_TYPE"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_CA_LEGAL_TYPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CA_LEGAL_TYPE&quot;</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_DOCUMENT_NUMBER"><span class="hs-identifier hs-type">ExtraParamName_DOCUMENT_NUMBER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_DOCUMENT_NUMBER"><span id="%24mExtraParamName_DOCUMENT_NUMBER"><span id="ExtraParamName_DOCUMENT_NUMBER"><span class="annot"><span class="annottext">$bExtraParamName_DOCUMENT_NUMBER :: ExtraParamName
+$mExtraParamName_DOCUMENT_NUMBER :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_DOCUMENT_NUMBER"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_DOCUMENT_NUMBER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DOCUMENT_NUMBER&quot;</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_DUNS_NUMBER"><span class="hs-identifier hs-type">ExtraParamName_DUNS_NUMBER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_DUNS_NUMBER"><span id="%24mExtraParamName_DUNS_NUMBER"><span id="ExtraParamName_DUNS_NUMBER"><span class="annot"><span class="annottext">$bExtraParamName_DUNS_NUMBER :: ExtraParamName
+$mExtraParamName_DUNS_NUMBER :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_DUNS_NUMBER"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_DUNS_NUMBER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DUNS_NUMBER&quot;</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_ES_IDENTIFICATION"><span class="hs-identifier hs-type">ExtraParamName_ES_IDENTIFICATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_ES_IDENTIFICATION"><span id="%24mExtraParamName_ES_IDENTIFICATION"><span id="ExtraParamName_ES_IDENTIFICATION"><span class="annot"><span class="annottext">$bExtraParamName_ES_IDENTIFICATION :: ExtraParamName
+$mExtraParamName_ES_IDENTIFICATION :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_ES_IDENTIFICATION"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_ES_IDENTIFICATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ES_IDENTIFICATION&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_ES_IDENTIFICATION_TYPE"><span class="hs-identifier hs-type">ExtraParamName_ES_IDENTIFICATION_TYPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_ES_IDENTIFICATION_TYPE"><span id="%24mExtraParamName_ES_IDENTIFICATION_TYPE"><span id="ExtraParamName_ES_IDENTIFICATION_TYPE"><span class="annot"><span class="annottext">$bExtraParamName_ES_IDENTIFICATION_TYPE :: ExtraParamName
+$mExtraParamName_ES_IDENTIFICATION_TYPE :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_ES_IDENTIFICATION_TYPE"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_ES_IDENTIFICATION_TYPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ES_IDENTIFICATION_TYPE&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_ES_LEGAL_FORM"><span class="hs-identifier hs-type">ExtraParamName_ES_LEGAL_FORM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_ES_LEGAL_FORM"><span id="%24mExtraParamName_ES_LEGAL_FORM"><span id="ExtraParamName_ES_LEGAL_FORM"><span class="annot"><span class="annottext">$bExtraParamName_ES_LEGAL_FORM :: ExtraParamName
+$mExtraParamName_ES_LEGAL_FORM :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_ES_LEGAL_FORM"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_ES_LEGAL_FORM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ES_LEGAL_FORM&quot;</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_FI_BUSINESS_NUMBER"><span class="hs-identifier hs-type">ExtraParamName_FI_BUSINESS_NUMBER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_FI_BUSINESS_NUMBER"><span id="%24mExtraParamName_FI_BUSINESS_NUMBER"><span id="ExtraParamName_FI_BUSINESS_NUMBER"><span class="annot"><span class="annottext">$bExtraParamName_FI_BUSINESS_NUMBER :: ExtraParamName
+$mExtraParamName_FI_BUSINESS_NUMBER :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_FI_BUSINESS_NUMBER"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_FI_BUSINESS_NUMBER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FI_BUSINESS_NUMBER&quot;</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_FI_ID_NUMBER"><span class="hs-identifier hs-type">ExtraParamName_FI_ID_NUMBER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_FI_ID_NUMBER"><span id="%24mExtraParamName_FI_ID_NUMBER"><span id="ExtraParamName_FI_ID_NUMBER"><span class="annot"><span class="annottext">$bExtraParamName_FI_ID_NUMBER :: ExtraParamName
+$mExtraParamName_FI_ID_NUMBER :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_FI_ID_NUMBER"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_FI_ID_NUMBER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FI_ID_NUMBER&quot;</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_FI_NATIONALITY"><span class="hs-identifier hs-type">ExtraParamName_FI_NATIONALITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_FI_NATIONALITY"><span id="%24mExtraParamName_FI_NATIONALITY"><span id="ExtraParamName_FI_NATIONALITY"><span class="annot"><span class="annottext">$bExtraParamName_FI_NATIONALITY :: ExtraParamName
+$mExtraParamName_FI_NATIONALITY :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_FI_NATIONALITY"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_FI_NATIONALITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FI_NATIONALITY&quot;</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_FI_ORGANIZATION_TYPE"><span class="hs-identifier hs-type">ExtraParamName_FI_ORGANIZATION_TYPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_FI_ORGANIZATION_TYPE"><span id="%24mExtraParamName_FI_ORGANIZATION_TYPE"><span id="ExtraParamName_FI_ORGANIZATION_TYPE"><span class="annot"><span class="annottext">$bExtraParamName_FI_ORGANIZATION_TYPE :: ExtraParamName
+$mExtraParamName_FI_ORGANIZATION_TYPE :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_FI_ORGANIZATION_TYPE"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_FI_ORGANIZATION_TYPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FI_ORGANIZATION_TYPE&quot;</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_IT_NATIONALITY"><span class="hs-identifier hs-type">ExtraParamName_IT_NATIONALITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_IT_NATIONALITY"><span id="%24mExtraParamName_IT_NATIONALITY"><span id="ExtraParamName_IT_NATIONALITY"><span class="annot"><span class="annottext">$bExtraParamName_IT_NATIONALITY :: ExtraParamName
+$mExtraParamName_IT_NATIONALITY :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_IT_NATIONALITY"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_IT_NATIONALITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IT_NATIONALITY&quot;</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_IT_PIN"><span class="hs-identifier hs-type">ExtraParamName_IT_PIN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_IT_PIN"><span id="%24mExtraParamName_IT_PIN"><span id="ExtraParamName_IT_PIN"><span class="annot"><span class="annottext">$bExtraParamName_IT_PIN :: ExtraParamName
+$mExtraParamName_IT_PIN :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_IT_PIN"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_IT_PIN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IT_PIN&quot;</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_IT_REGISTRANT_ENTITY_TYPE"><span class="hs-identifier hs-type">ExtraParamName_IT_REGISTRANT_ENTITY_TYPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_IT_REGISTRANT_ENTITY_TYPE"><span id="%24mExtraParamName_IT_REGISTRANT_ENTITY_TYPE"><span id="ExtraParamName_IT_REGISTRANT_ENTITY_TYPE"><span class="annot"><span class="annottext">$bExtraParamName_IT_REGISTRANT_ENTITY_TYPE :: ExtraParamName
+$mExtraParamName_IT_REGISTRANT_ENTITY_TYPE :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_IT_REGISTRANT_ENTITY_TYPE"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_IT_REGISTRANT_ENTITY_TYPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IT_REGISTRANT_ENTITY_TYPE&quot;</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_RU_PASSPORT_DATA"><span class="hs-identifier hs-type">ExtraParamName_RU_PASSPORT_DATA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_RU_PASSPORT_DATA"><span id="%24mExtraParamName_RU_PASSPORT_DATA"><span id="ExtraParamName_RU_PASSPORT_DATA"><span class="annot"><span class="annottext">$bExtraParamName_RU_PASSPORT_DATA :: ExtraParamName
+$mExtraParamName_RU_PASSPORT_DATA :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_RU_PASSPORT_DATA"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_RU_PASSPORT_DATA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RU_PASSPORT_DATA&quot;</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_SE_ID_NUMBER"><span class="hs-identifier hs-type">ExtraParamName_SE_ID_NUMBER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_SE_ID_NUMBER"><span id="%24mExtraParamName_SE_ID_NUMBER"><span id="ExtraParamName_SE_ID_NUMBER"><span class="annot"><span class="annottext">$bExtraParamName_SE_ID_NUMBER :: ExtraParamName
+$mExtraParamName_SE_ID_NUMBER :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_SE_ID_NUMBER"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_SE_ID_NUMBER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SE_ID_NUMBER&quot;</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_SG_ID_NUMBER"><span class="hs-identifier hs-type">ExtraParamName_SG_ID_NUMBER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_SG_ID_NUMBER"><span id="%24mExtraParamName_SG_ID_NUMBER"><span id="ExtraParamName_SG_ID_NUMBER"><span class="annot"><span class="annottext">$bExtraParamName_SG_ID_NUMBER :: ExtraParamName
+$mExtraParamName_SG_ID_NUMBER :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_SG_ID_NUMBER"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_SG_ID_NUMBER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SG_ID_NUMBER&quot;</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_UK_COMPANY_NUMBER"><span class="hs-identifier hs-type">ExtraParamName_UK_COMPANY_NUMBER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_UK_COMPANY_NUMBER"><span id="%24mExtraParamName_UK_COMPANY_NUMBER"><span id="ExtraParamName_UK_COMPANY_NUMBER"><span class="annot"><span class="annottext">$bExtraParamName_UK_COMPANY_NUMBER :: ExtraParamName
+$mExtraParamName_UK_COMPANY_NUMBER :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_UK_COMPANY_NUMBER"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_UK_COMPANY_NUMBER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UK_COMPANY_NUMBER&quot;</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_UK_CONTACT_TYPE"><span class="hs-identifier hs-type">ExtraParamName_UK_CONTACT_TYPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_UK_CONTACT_TYPE"><span id="%24mExtraParamName_UK_CONTACT_TYPE"><span id="ExtraParamName_UK_CONTACT_TYPE"><span class="annot"><span class="annottext">$bExtraParamName_UK_CONTACT_TYPE :: ExtraParamName
+$mExtraParamName_UK_CONTACT_TYPE :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_UK_CONTACT_TYPE"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_UK_CONTACT_TYPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UK_CONTACT_TYPE&quot;</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_VAT_NUMBER"><span class="hs-identifier hs-type">ExtraParamName_VAT_NUMBER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName"><span class="hs-identifier hs-type">ExtraParamName</span></a></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtraParamName_VAT_NUMBER"><span id="%24mExtraParamName_VAT_NUMBER"><span id="ExtraParamName_VAT_NUMBER"><span class="annot"><span class="annottext">$bExtraParamName_VAT_NUMBER :: ExtraParamName
+$mExtraParamName_VAT_NUMBER :: forall r. ExtraParamName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#%24bExtraParamName_VAT_NUMBER"><span class="hs-identifier hs-var hs-var hs-var">ExtraParamName_VAT_NUMBER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-identifier hs-type">ExtraParamName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VAT_NUMBER&quot;</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_AU_ID_NUMBER"><span class="hs-pragma hs-type">ExtraParamName_AU_ID_NUMBER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_AU_ID_TYPE"><span class="hs-pragma hs-type">ExtraParamName_AU_ID_TYPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_BIRTH_CITY"><span class="hs-pragma hs-type">ExtraParamName_BIRTH_CITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_BIRTH_COUNTRY"><span class="hs-pragma hs-type">ExtraParamName_BIRTH_COUNTRY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_BIRTH_DATE_IN_YYYY_MM_DD"><span class="hs-pragma hs-type">ExtraParamName_BIRTH_DATE_IN_YYYY_MM_DD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_BIRTH_DEPARTMENT"><span class="hs-pragma hs-type">ExtraParamName_BIRTH_DEPARTMENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_BRAND_NUMBER"><span class="hs-pragma hs-type">ExtraParamName_BRAND_NUMBER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_CA_BUSINESS_ENTITY_TYPE"><span class="hs-pragma hs-type">ExtraParamName_CA_BUSINESS_ENTITY_TYPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_CA_LEGAL_REPRESENTATIVE"><span class="hs-pragma hs-type">ExtraParamName_CA_LEGAL_REPRESENTATIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_CA_LEGAL_REPRESENTATIVE_CAPACITY"><span class="hs-pragma hs-type">ExtraParamName_CA_LEGAL_REPRESENTATIVE_CAPACITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_CA_LEGAL_TYPE"><span class="hs-pragma hs-type">ExtraParamName_CA_LEGAL_TYPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_DOCUMENT_NUMBER"><span class="hs-pragma hs-type">ExtraParamName_DOCUMENT_NUMBER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_DUNS_NUMBER"><span class="hs-pragma hs-type">ExtraParamName_DUNS_NUMBER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_ES_IDENTIFICATION"><span class="hs-pragma hs-type">ExtraParamName_ES_IDENTIFICATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_ES_IDENTIFICATION_TYPE"><span class="hs-pragma hs-type">ExtraParamName_ES_IDENTIFICATION_TYPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_ES_LEGAL_FORM"><span class="hs-pragma hs-type">ExtraParamName_ES_LEGAL_FORM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_FI_BUSINESS_NUMBER"><span class="hs-pragma hs-type">ExtraParamName_FI_BUSINESS_NUMBER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_FI_ID_NUMBER"><span class="hs-pragma hs-type">ExtraParamName_FI_ID_NUMBER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_FI_NATIONALITY"><span class="hs-pragma hs-type">ExtraParamName_FI_NATIONALITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_FI_ORGANIZATION_TYPE"><span class="hs-pragma hs-type">ExtraParamName_FI_ORGANIZATION_TYPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_IT_NATIONALITY"><span class="hs-pragma hs-type">ExtraParamName_IT_NATIONALITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_IT_PIN"><span class="hs-pragma hs-type">ExtraParamName_IT_PIN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_IT_REGISTRANT_ENTITY_TYPE"><span class="hs-pragma hs-type">ExtraParamName_IT_REGISTRANT_ENTITY_TYPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_RU_PASSPORT_DATA"><span class="hs-pragma hs-type">ExtraParamName_RU_PASSPORT_DATA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_SE_ID_NUMBER"><span class="hs-pragma hs-type">ExtraParamName_SE_ID_NUMBER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_SG_ID_NUMBER"><span class="hs-pragma hs-type">ExtraParamName_SG_ID_NUMBER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_UK_COMPANY_NUMBER"><span class="hs-pragma hs-type">ExtraParamName_UK_COMPANY_NUMBER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_UK_CONTACT_TYPE"><span class="hs-pragma hs-type">ExtraParamName_UK_CONTACT_TYPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName_VAT_NUMBER"><span class="hs-pragma hs-type">ExtraParamName_VAT_NUMBER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ExtraParamName.html#ExtraParamName%27"><span class="hs-pragma hs-type">ExtraParamName'</span></a></span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-206"></span></pre></body></html>

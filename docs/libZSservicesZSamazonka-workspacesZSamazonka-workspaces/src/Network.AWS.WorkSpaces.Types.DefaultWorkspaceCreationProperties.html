@@ -1,0 +1,502 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Describes the default values that are used to create WorkSpaces. For</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html Update Directory Details for Your WorkSpaces&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDefaultWorkspaceCreationProperties' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679268738"><span id="local-6989586621679268739"></span></span><span class="hs-keyword">data</span><span> </span><span id="DefaultWorkspaceCreationProperties"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-var">DefaultWorkspaceCreationProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefaultWorkspaceCreationProperties%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">DefaultWorkspaceCreationProperties'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether maintenance mode is enabled for WorkSpaces. For more</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance&gt;.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AenableMaintenanceMode%3ADefaultWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">DefaultWorkspaceCreationProperties -&gt; Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AenableMaintenanceMode%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">enableMaintenanceMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The organizational unit (OU) in the directory for the WorkSpace machine</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- accounts.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdefaultOu%3ADefaultWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">DefaultWorkspaceCreationProperties -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AdefaultOu%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">defaultOu</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specifies whether to automatically assign an Elastic public IP address</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- to WorkSpaces in this directory by default. If enabled, the Elastic</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- public IP address allows outbound internet access from your WorkSpaces</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- when you&#8217;re using an internet gateway in the Amazon VPC in which your</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- WorkSpaces are located. If you\'re using a Network Address Translation</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- (NAT) gateway for outbound internet access from your VPC, or if your</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- WorkSpaces are in public subnets and you manually assign them Elastic IP</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- addresses, you should disable this setting. This setting applies to new</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- WorkSpaces that you launch or to existing WorkSpaces that you rebuild.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html Configure a VPC for Amazon WorkSpaces&gt;.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AenableInternetAccess%3ADefaultWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">DefaultWorkspaceCreationProperties -&gt; Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AenableInternetAccess%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">enableInternetAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Specifies whether the directory is enabled for Amazon WorkDocs.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AenableWorkDocs%3ADefaultWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">DefaultWorkspaceCreationProperties -&gt; Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AenableWorkDocs%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">enableWorkDocs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The identifier of the default security group to apply to WorkSpaces when</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- they are created. For more information, see</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-security-groups.html Security Groups for Your WorkSpaces&gt;.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AcustomSecurityGroupId%3ADefaultWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">DefaultWorkspaceCreationProperties -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AcustomSecurityGroupId%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">customSecurityGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Specifies whether WorkSpace users are local administrators on their</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- WorkSpaces.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AuserEnabledAsLocalAdministrator%3ADefaultWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">DefaultWorkspaceCreationProperties -&gt; Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AuserEnabledAsLocalAdministrator%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">userEnabledAsLocalAdministrator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268727"><span id="local-6989586621679268729"><span class="annot"><span class="annottext">DefaultWorkspaceCreationProperties
+-&gt; DefaultWorkspaceCreationProperties -&gt; Bool
+(DefaultWorkspaceCreationProperties
+ -&gt; DefaultWorkspaceCreationProperties -&gt; Bool)
+-&gt; (DefaultWorkspaceCreationProperties
+    -&gt; DefaultWorkspaceCreationProperties -&gt; Bool)
+-&gt; Eq DefaultWorkspaceCreationProperties
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DefaultWorkspaceCreationProperties
+-&gt; DefaultWorkspaceCreationProperties -&gt; Bool
+$c/= :: DefaultWorkspaceCreationProperties
+-&gt; DefaultWorkspaceCreationProperties -&gt; Bool
+== :: DefaultWorkspaceCreationProperties
+-&gt; DefaultWorkspaceCreationProperties -&gt; Bool
+$c== :: DefaultWorkspaceCreationProperties
+-&gt; DefaultWorkspaceCreationProperties -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268718"><span id="local-6989586621679268720"><span id="local-6989586621679268722"><span id="local-6989586621679268724"><span class="annot"><span class="annottext">ReadPrec [DefaultWorkspaceCreationProperties]
+ReadPrec DefaultWorkspaceCreationProperties
+Int -&gt; ReadS DefaultWorkspaceCreationProperties
+ReadS [DefaultWorkspaceCreationProperties]
+(Int -&gt; ReadS DefaultWorkspaceCreationProperties)
+-&gt; ReadS [DefaultWorkspaceCreationProperties]
+-&gt; ReadPrec DefaultWorkspaceCreationProperties
+-&gt; ReadPrec [DefaultWorkspaceCreationProperties]
+-&gt; Read DefaultWorkspaceCreationProperties
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DefaultWorkspaceCreationProperties]
+$creadListPrec :: ReadPrec [DefaultWorkspaceCreationProperties]
+readPrec :: ReadPrec DefaultWorkspaceCreationProperties
+$creadPrec :: ReadPrec DefaultWorkspaceCreationProperties
+readList :: ReadS [DefaultWorkspaceCreationProperties]
+$creadList :: ReadS [DefaultWorkspaceCreationProperties]
+readsPrec :: Int -&gt; ReadS DefaultWorkspaceCreationProperties
+$creadsPrec :: Int -&gt; ReadS DefaultWorkspaceCreationProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268711"><span id="local-6989586621679268713"><span id="local-6989586621679268715"><span class="annot"><span class="annottext">Int -&gt; DefaultWorkspaceCreationProperties -&gt; ShowS
+[DefaultWorkspaceCreationProperties] -&gt; ShowS
+DefaultWorkspaceCreationProperties -&gt; String
+(Int -&gt; DefaultWorkspaceCreationProperties -&gt; ShowS)
+-&gt; (DefaultWorkspaceCreationProperties -&gt; String)
+-&gt; ([DefaultWorkspaceCreationProperties] -&gt; ShowS)
+-&gt; Show DefaultWorkspaceCreationProperties
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DefaultWorkspaceCreationProperties] -&gt; ShowS
+$cshowList :: [DefaultWorkspaceCreationProperties] -&gt; ShowS
+show :: DefaultWorkspaceCreationProperties -&gt; String
+$cshow :: DefaultWorkspaceCreationProperties -&gt; String
+showsPrec :: Int -&gt; DefaultWorkspaceCreationProperties -&gt; ShowS
+$cshowsPrec :: Int -&gt; DefaultWorkspaceCreationProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DefaultWorkspaceCreationProperties
+ -&gt; Rep DefaultWorkspaceCreationProperties x)
+-&gt; (forall x.
+    Rep DefaultWorkspaceCreationProperties x
+    -&gt; DefaultWorkspaceCreationProperties)
+-&gt; Generic DefaultWorkspaceCreationProperties
+forall x.
+Rep DefaultWorkspaceCreationProperties x
+-&gt; DefaultWorkspaceCreationProperties
+forall x.
+DefaultWorkspaceCreationProperties
+-&gt; Rep DefaultWorkspaceCreationProperties x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DefaultWorkspaceCreationProperties x
+-&gt; DefaultWorkspaceCreationProperties
+$cfrom :: forall x.
+DefaultWorkspaceCreationProperties
+-&gt; Rep DefaultWorkspaceCreationProperties x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DefaultWorkspaceCreationProperties' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'enableMaintenanceMode', 'defaultWorkspaceCreationProperties_enableMaintenanceMode' - Specifies whether maintenance mode is enabled for WorkSpaces. For more</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance&gt;.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'defaultOu', 'defaultWorkspaceCreationProperties_defaultOu' - The organizational unit (OU) in the directory for the WorkSpace machine</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- accounts.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'enableInternetAccess', 'defaultWorkspaceCreationProperties_enableInternetAccess' - Specifies whether to automatically assign an Elastic public IP address</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- to WorkSpaces in this directory by default. If enabled, the Elastic</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- public IP address allows outbound internet access from your WorkSpaces</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- when you&#8217;re using an internet gateway in the Amazon VPC in which your</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- WorkSpaces are located. If you\'re using a Network Address Translation</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- (NAT) gateway for outbound internet access from your VPC, or if your</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- WorkSpaces are in public subnets and you manually assign them Elastic IP</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- addresses, you should disable this setting. This setting applies to new</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- WorkSpaces that you launch or to existing WorkSpaces that you rebuild.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html Configure a VPC for Amazon WorkSpaces&gt;.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'enableWorkDocs', 'defaultWorkspaceCreationProperties_enableWorkDocs' - Specifies whether the directory is enabled for Amazon WorkDocs.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'customSecurityGroupId', 'defaultWorkspaceCreationProperties_customSecurityGroupId' - The identifier of the default security group to apply to WorkSpaces when</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- they are created. For more information, see</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-security-groups.html Security Groups for Your WorkSpaces&gt;.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'userEnabledAsLocalAdministrator', 'defaultWorkspaceCreationProperties_userEnabledAsLocalAdministrator' - Specifies whether WorkSpace users are local administrators on their</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- WorkSpaces.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#newDefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">newDefaultWorkspaceCreationProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span><span>
+</span><span id="line-100"></span><span id="newDefaultWorkspaceCreationProperties"><span class="annot"><span class="annottext">newDefaultWorkspaceCreationProperties :: DefaultWorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#newDefaultWorkspaceCreationProperties"><span class="hs-identifier hs-var hs-var">newDefaultWorkspaceCreationProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">DefaultWorkspaceCreationProperties' :: Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; DefaultWorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties'</span></a></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enableMaintenanceMode:DefaultWorkspaceCreationProperties' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AenableMaintenanceMode%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableMaintenanceMode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultOu:DefaultWorkspaceCreationProperties' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AdefaultOu%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">defaultOu</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableInternetAccess:DefaultWorkspaceCreationProperties' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AenableInternetAccess%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableInternetAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableWorkDocs:DefaultWorkspaceCreationProperties' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AenableWorkDocs%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableWorkDocs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:customSecurityGroupId:DefaultWorkspaceCreationProperties' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AcustomSecurityGroupId%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">customSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:userEnabledAsLocalAdministrator:DefaultWorkspaceCreationProperties' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AuserEnabledAsLocalAdministrator%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">userEnabledAsLocalAdministrator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Specifies whether maintenance mode is enabled for WorkSpaces. For more</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance&gt;.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#defaultWorkspaceCreationProperties_enableMaintenanceMode"><span class="hs-identifier hs-type">defaultWorkspaceCreationProperties_enableMaintenanceMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="defaultWorkspaceCreationProperties_enableMaintenanceMode"><span class="annot"><span class="annottext">defaultWorkspaceCreationProperties_enableMaintenanceMode :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DefaultWorkspaceCreationProperties
+-&gt; f DefaultWorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#defaultWorkspaceCreationProperties_enableMaintenanceMode"><span class="hs-identifier hs-var hs-var">defaultWorkspaceCreationProperties_enableMaintenanceMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefaultWorkspaceCreationProperties -&gt; Maybe Bool)
+-&gt; (DefaultWorkspaceCreationProperties
+    -&gt; Maybe Bool -&gt; DefaultWorkspaceCreationProperties)
+-&gt; Lens
+     DefaultWorkspaceCreationProperties
+     DefaultWorkspaceCreationProperties
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268702"><span class="annot"><span class="annottext">Maybe Bool
+enableMaintenanceMode :: Maybe Bool
+$sel:enableMaintenanceMode:DefaultWorkspaceCreationProperties' :: DefaultWorkspaceCreationProperties -&gt; Maybe Bool
+</span><a href="#local-6989586621679268702"><span class="hs-identifier hs-var hs-var">enableMaintenanceMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679268702"><span class="hs-identifier hs-var">enableMaintenanceMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268701"><span class="annot"><span class="annottext">s :: DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679268701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268700"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679268700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679268701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableMaintenanceMode:DefaultWorkspaceCreationProperties' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AenableMaintenanceMode%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableMaintenanceMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679268700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The organizational unit (OU) in the directory for the WorkSpace machine</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- accounts.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#defaultWorkspaceCreationProperties_defaultOu"><span class="hs-identifier hs-type">defaultWorkspaceCreationProperties_defaultOu</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="defaultWorkspaceCreationProperties_defaultOu"><span class="annot"><span class="annottext">defaultWorkspaceCreationProperties_defaultOu :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DefaultWorkspaceCreationProperties
+-&gt; f DefaultWorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#defaultWorkspaceCreationProperties_defaultOu"><span class="hs-identifier hs-var hs-var">defaultWorkspaceCreationProperties_defaultOu</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefaultWorkspaceCreationProperties -&gt; Maybe Text)
+-&gt; (DefaultWorkspaceCreationProperties
+    -&gt; Maybe Text -&gt; DefaultWorkspaceCreationProperties)
+-&gt; Lens
+     DefaultWorkspaceCreationProperties
+     DefaultWorkspaceCreationProperties
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268698"><span class="annot"><span class="annottext">Maybe Text
+defaultOu :: Maybe Text
+$sel:defaultOu:DefaultWorkspaceCreationProperties' :: DefaultWorkspaceCreationProperties -&gt; Maybe Text
+</span><a href="#local-6989586621679268698"><span class="hs-identifier hs-var hs-var">defaultOu</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268698"><span class="hs-identifier hs-var">defaultOu</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268697"><span class="annot"><span class="annottext">s :: DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679268697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268696"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679268697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultOu:DefaultWorkspaceCreationProperties' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AdefaultOu%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">defaultOu</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Specifies whether to automatically assign an Elastic public IP address</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- to WorkSpaces in this directory by default. If enabled, the Elastic</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- public IP address allows outbound internet access from your WorkSpaces</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- when you&#8217;re using an internet gateway in the Amazon VPC in which your</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- WorkSpaces are located. If you\'re using a Network Address Translation</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- (NAT) gateway for outbound internet access from your VPC, or if your</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- WorkSpaces are in public subnets and you manually assign them Elastic IP</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- addresses, you should disable this setting. This setting applies to new</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- WorkSpaces that you launch or to existing WorkSpaces that you rebuild.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html Configure a VPC for Amazon WorkSpaces&gt;.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#defaultWorkspaceCreationProperties_enableInternetAccess"><span class="hs-identifier hs-type">defaultWorkspaceCreationProperties_enableInternetAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="defaultWorkspaceCreationProperties_enableInternetAccess"><span class="annot"><span class="annottext">defaultWorkspaceCreationProperties_enableInternetAccess :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DefaultWorkspaceCreationProperties
+-&gt; f DefaultWorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#defaultWorkspaceCreationProperties_enableInternetAccess"><span class="hs-identifier hs-var hs-var">defaultWorkspaceCreationProperties_enableInternetAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefaultWorkspaceCreationProperties -&gt; Maybe Bool)
+-&gt; (DefaultWorkspaceCreationProperties
+    -&gt; Maybe Bool -&gt; DefaultWorkspaceCreationProperties)
+-&gt; Lens
+     DefaultWorkspaceCreationProperties
+     DefaultWorkspaceCreationProperties
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268694"><span class="annot"><span class="annottext">Maybe Bool
+enableInternetAccess :: Maybe Bool
+$sel:enableInternetAccess:DefaultWorkspaceCreationProperties' :: DefaultWorkspaceCreationProperties -&gt; Maybe Bool
+</span><a href="#local-6989586621679268694"><span class="hs-identifier hs-var hs-var">enableInternetAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679268694"><span class="hs-identifier hs-var">enableInternetAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268693"><span class="annot"><span class="annottext">s :: DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679268693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268692"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679268692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679268693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableInternetAccess:DefaultWorkspaceCreationProperties' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AenableInternetAccess%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableInternetAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679268692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Specifies whether the directory is enabled for Amazon WorkDocs.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#defaultWorkspaceCreationProperties_enableWorkDocs"><span class="hs-identifier hs-type">defaultWorkspaceCreationProperties_enableWorkDocs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="defaultWorkspaceCreationProperties_enableWorkDocs"><span class="annot"><span class="annottext">defaultWorkspaceCreationProperties_enableWorkDocs :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DefaultWorkspaceCreationProperties
+-&gt; f DefaultWorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#defaultWorkspaceCreationProperties_enableWorkDocs"><span class="hs-identifier hs-var hs-var">defaultWorkspaceCreationProperties_enableWorkDocs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefaultWorkspaceCreationProperties -&gt; Maybe Bool)
+-&gt; (DefaultWorkspaceCreationProperties
+    -&gt; Maybe Bool -&gt; DefaultWorkspaceCreationProperties)
+-&gt; Lens
+     DefaultWorkspaceCreationProperties
+     DefaultWorkspaceCreationProperties
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268690"><span class="annot"><span class="annottext">Maybe Bool
+enableWorkDocs :: Maybe Bool
+$sel:enableWorkDocs:DefaultWorkspaceCreationProperties' :: DefaultWorkspaceCreationProperties -&gt; Maybe Bool
+</span><a href="#local-6989586621679268690"><span class="hs-identifier hs-var hs-var">enableWorkDocs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679268690"><span class="hs-identifier hs-var">enableWorkDocs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268689"><span class="annot"><span class="annottext">s :: DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679268689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268688"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679268688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679268689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableWorkDocs:DefaultWorkspaceCreationProperties' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AenableWorkDocs%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableWorkDocs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679268688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The identifier of the default security group to apply to WorkSpaces when</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- they are created. For more information, see</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-security-groups.html Security Groups for Your WorkSpaces&gt;.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#defaultWorkspaceCreationProperties_customSecurityGroupId"><span class="hs-identifier hs-type">defaultWorkspaceCreationProperties_customSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="defaultWorkspaceCreationProperties_customSecurityGroupId"><span class="annot"><span class="annottext">defaultWorkspaceCreationProperties_customSecurityGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DefaultWorkspaceCreationProperties
+-&gt; f DefaultWorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#defaultWorkspaceCreationProperties_customSecurityGroupId"><span class="hs-identifier hs-var hs-var">defaultWorkspaceCreationProperties_customSecurityGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefaultWorkspaceCreationProperties -&gt; Maybe Text)
+-&gt; (DefaultWorkspaceCreationProperties
+    -&gt; Maybe Text -&gt; DefaultWorkspaceCreationProperties)
+-&gt; Lens
+     DefaultWorkspaceCreationProperties
+     DefaultWorkspaceCreationProperties
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268686"><span class="annot"><span class="annottext">Maybe Text
+customSecurityGroupId :: Maybe Text
+$sel:customSecurityGroupId:DefaultWorkspaceCreationProperties' :: DefaultWorkspaceCreationProperties -&gt; Maybe Text
+</span><a href="#local-6989586621679268686"><span class="hs-identifier hs-var hs-var">customSecurityGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268686"><span class="hs-identifier hs-var">customSecurityGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268685"><span class="annot"><span class="annottext">s :: DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679268685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268684"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679268685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customSecurityGroupId:DefaultWorkspaceCreationProperties' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AcustomSecurityGroupId%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">customSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | Specifies whether WorkSpace users are local administrators on their</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- WorkSpaces.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#defaultWorkspaceCreationProperties_userEnabledAsLocalAdministrator"><span class="hs-identifier hs-type">defaultWorkspaceCreationProperties_userEnabledAsLocalAdministrator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="defaultWorkspaceCreationProperties_userEnabledAsLocalAdministrator"><span class="annot"><span class="annottext">defaultWorkspaceCreationProperties_userEnabledAsLocalAdministrator :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DefaultWorkspaceCreationProperties
+-&gt; f DefaultWorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#defaultWorkspaceCreationProperties_userEnabledAsLocalAdministrator"><span class="hs-identifier hs-var hs-var">defaultWorkspaceCreationProperties_userEnabledAsLocalAdministrator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefaultWorkspaceCreationProperties -&gt; Maybe Bool)
+-&gt; (DefaultWorkspaceCreationProperties
+    -&gt; Maybe Bool -&gt; DefaultWorkspaceCreationProperties)
+-&gt; Lens
+     DefaultWorkspaceCreationProperties
+     DefaultWorkspaceCreationProperties
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268682"><span class="annot"><span class="annottext">Maybe Bool
+userEnabledAsLocalAdministrator :: Maybe Bool
+$sel:userEnabledAsLocalAdministrator:DefaultWorkspaceCreationProperties' :: DefaultWorkspaceCreationProperties -&gt; Maybe Bool
+</span><a href="#local-6989586621679268682"><span class="hs-identifier hs-var hs-var">userEnabledAsLocalAdministrator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679268682"><span class="hs-identifier hs-var">userEnabledAsLocalAdministrator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268681"><span class="annot"><span class="annottext">s :: DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679268681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268680"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679268680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679268681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userEnabledAsLocalAdministrator:DefaultWorkspaceCreationProperties' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#%24sel%3AuserEnabledAsLocalAdministrator%3ADefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">userEnabledAsLocalAdministrator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679268680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679268677"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679268675"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DefaultWorkspaceCreationProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DefaultWorkspaceCreationProperties)
+-&gt; Value
+-&gt; Parser DefaultWorkspaceCreationProperties
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DefaultWorkspaceCreationProperties&quot;</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679268672"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268672"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; DefaultWorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">DefaultWorkspaceCreationProperties'</span></a></span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; DefaultWorkspaceCreationProperties)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; DefaultWorkspaceCreationProperties)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableMaintenanceMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; DefaultWorkspaceCreationProperties)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; DefaultWorkspaceCreationProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultOu&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; DefaultWorkspaceCreationProperties)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text -&gt; Maybe Bool -&gt; DefaultWorkspaceCreationProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableInternetAccess&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text -&gt; Maybe Bool -&gt; DefaultWorkspaceCreationProperties)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Bool -&gt; DefaultWorkspaceCreationProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableWorkDocs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Bool -&gt; DefaultWorkspaceCreationProperties)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Bool -&gt; DefaultWorkspaceCreationProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomSecurityGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; DefaultWorkspaceCreationProperties)
+-&gt; Parser (Maybe Bool) -&gt; Parser DefaultWorkspaceCreationProperties
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserEnabledAsLocalAdministrator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679268666"><span id="local-6989586621679268668"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span></span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679268663"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span></span><span>
+</span><span id="line-176"></span></pre></body></html>

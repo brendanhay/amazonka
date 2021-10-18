@@ -1,0 +1,662 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.BatchUpdatePartition</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates one or more partitions in a batch operation.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.BatchUpdatePartition</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier">BatchUpdatePartition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#newBatchUpdatePartition"><span class="hs-identifier">newBatchUpdatePartition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartition_catalogId"><span class="hs-identifier">batchUpdatePartition_catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartition_databaseName"><span class="hs-identifier">batchUpdatePartition_databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartition_tableName"><span class="hs-identifier">batchUpdatePartition_tableName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartition_entries"><span class="hs-identifier">batchUpdatePartition_entries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse"><span class="hs-identifier">BatchUpdatePartitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#newBatchUpdatePartitionResponse"><span class="hs-identifier">newBatchUpdatePartitionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartitionResponse_errors"><span class="hs-identifier">batchUpdatePartitionResponse_errors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartitionResponse_httpStatus"><span class="hs-identifier">batchUpdatePartitionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.html"><span class="hs-identifier">Network.AWS.Glue.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newBatchUpdatePartition' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679741123"><span id="local-6989586621679741124"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchUpdatePartition"><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-var">BatchUpdatePartition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchUpdatePartition%27"><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition%27"><span class="hs-identifier hs-var">BatchUpdatePartition'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the catalog in which the partition is to be updated.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Currently, this should be the Amazon Web Services account ID.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AcatalogId%3ABatchUpdatePartition%27"><span class="annot"><span class="annottext">BatchUpdatePartition -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3AcatalogId%3ABatchUpdatePartition%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The name of the metadata database in which the partition is to be</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdatabaseName%3ABatchUpdatePartition%27"><span class="annot"><span class="annottext">BatchUpdatePartition -&gt; Text
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3AdatabaseName%3ABatchUpdatePartition%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the metadata table in which the partition is to be updated.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AtableName%3ABatchUpdatePartition%27"><span class="annot"><span class="annottext">BatchUpdatePartition -&gt; Text
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3AtableName%3ABatchUpdatePartition%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aentries%3ABatchUpdatePartition%27"><span class="annot"><span class="annottext">BatchUpdatePartition -&gt; NonEmpty BatchUpdatePartitionRequestEntry
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3Aentries%3ABatchUpdatePartition%27"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchUpdatePartitionRequestEntry.html#BatchUpdatePartitionRequestEntry"><span class="hs-identifier hs-type">BatchUpdatePartitionRequestEntry</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679741114"><span id="local-6989586621679741116"><span class="annot"><span class="annottext">BatchUpdatePartition -&gt; BatchUpdatePartition -&gt; Bool
+(BatchUpdatePartition -&gt; BatchUpdatePartition -&gt; Bool)
+-&gt; (BatchUpdatePartition -&gt; BatchUpdatePartition -&gt; Bool)
+-&gt; Eq BatchUpdatePartition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchUpdatePartition -&gt; BatchUpdatePartition -&gt; Bool
+$c/= :: BatchUpdatePartition -&gt; BatchUpdatePartition -&gt; Bool
+== :: BatchUpdatePartition -&gt; BatchUpdatePartition -&gt; Bool
+$c== :: BatchUpdatePartition -&gt; BatchUpdatePartition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679741105"><span id="local-6989586621679741107"><span id="local-6989586621679741109"><span id="local-6989586621679741111"><span class="annot"><span class="annottext">ReadPrec [BatchUpdatePartition]
+ReadPrec BatchUpdatePartition
+Int -&gt; ReadS BatchUpdatePartition
+ReadS [BatchUpdatePartition]
+(Int -&gt; ReadS BatchUpdatePartition)
+-&gt; ReadS [BatchUpdatePartition]
+-&gt; ReadPrec BatchUpdatePartition
+-&gt; ReadPrec [BatchUpdatePartition]
+-&gt; Read BatchUpdatePartition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchUpdatePartition]
+$creadListPrec :: ReadPrec [BatchUpdatePartition]
+readPrec :: ReadPrec BatchUpdatePartition
+$creadPrec :: ReadPrec BatchUpdatePartition
+readList :: ReadS [BatchUpdatePartition]
+$creadList :: ReadS [BatchUpdatePartition]
+readsPrec :: Int -&gt; ReadS BatchUpdatePartition
+$creadsPrec :: Int -&gt; ReadS BatchUpdatePartition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679741098"><span id="local-6989586621679741100"><span id="local-6989586621679741102"><span class="annot"><span class="annottext">Int -&gt; BatchUpdatePartition -&gt; ShowS
+[BatchUpdatePartition] -&gt; ShowS
+BatchUpdatePartition -&gt; String
+(Int -&gt; BatchUpdatePartition -&gt; ShowS)
+-&gt; (BatchUpdatePartition -&gt; String)
+-&gt; ([BatchUpdatePartition] -&gt; ShowS)
+-&gt; Show BatchUpdatePartition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchUpdatePartition] -&gt; ShowS
+$cshowList :: [BatchUpdatePartition] -&gt; ShowS
+show :: BatchUpdatePartition -&gt; String
+$cshow :: BatchUpdatePartition -&gt; String
+showsPrec :: Int -&gt; BatchUpdatePartition -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchUpdatePartition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchUpdatePartition -&gt; Rep BatchUpdatePartition x)
+-&gt; (forall x. Rep BatchUpdatePartition x -&gt; BatchUpdatePartition)
+-&gt; Generic BatchUpdatePartition
+forall x. Rep BatchUpdatePartition x -&gt; BatchUpdatePartition
+forall x. BatchUpdatePartition -&gt; Rep BatchUpdatePartition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchUpdatePartition x -&gt; BatchUpdatePartition
+$cfrom :: forall x. BatchUpdatePartition -&gt; Rep BatchUpdatePartition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'BatchUpdatePartition' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'catalogId', 'batchUpdatePartition_catalogId' - The ID of the catalog in which the partition is to be updated.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Currently, this should be the Amazon Web Services account ID.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'databaseName', 'batchUpdatePartition_databaseName' - The name of the metadata database in which the partition is to be</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'tableName', 'batchUpdatePartition_tableName' - The name of the metadata table in which the partition is to be updated.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'entries', 'batchUpdatePartition_entries' - A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#newBatchUpdatePartition"><span class="hs-identifier hs-type">newBatchUpdatePartition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'databaseName'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'tableName'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'entries'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchUpdatePartitionRequestEntry.html#BatchUpdatePartitionRequestEntry"><span class="hs-identifier hs-type">BatchUpdatePartitionRequestEntry</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span><span>
+</span><span id="line-94"></span><span id="newBatchUpdatePartition"><span class="annot"><span class="annottext">newBatchUpdatePartition :: Text
+-&gt; Text
+-&gt; NonEmpty BatchUpdatePartitionRequestEntry
+-&gt; BatchUpdatePartition
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#newBatchUpdatePartition"><span class="hs-identifier hs-var hs-var">newBatchUpdatePartition</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679741093"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679741093"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679741092"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679741092"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679741091"><span class="annot"><span class="annottext">NonEmpty BatchUpdatePartitionRequestEntry
+</span><a href="#local-6989586621679741091"><span class="hs-identifier hs-var">pEntries_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">BatchUpdatePartition' :: Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; NonEmpty BatchUpdatePartitionRequestEntry
+-&gt; BatchUpdatePartition
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition%27"><span class="hs-identifier hs-type">BatchUpdatePartition'</span></a></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalogId:BatchUpdatePartition' :: Maybe Text
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3AcatalogId%3ABatchUpdatePartition%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:databaseName:BatchUpdatePartition' :: Text
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3AdatabaseName%3ABatchUpdatePartition%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679741093"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:tableName:BatchUpdatePartition' :: Text
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3AtableName%3ABatchUpdatePartition%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679741092"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:entries:BatchUpdatePartition' :: NonEmpty BatchUpdatePartitionRequestEntry
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3Aentries%3ABatchUpdatePartition%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty BatchUpdatePartitionRequestEntry)
+  (Identity (NonEmpty BatchUpdatePartitionRequestEntry))
+-&gt; Tagged
+     (NonEmpty BatchUpdatePartitionRequestEntry)
+     (Identity (NonEmpty BatchUpdatePartitionRequestEntry))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty BatchUpdatePartitionRequestEntry)
+   (Identity (NonEmpty BatchUpdatePartitionRequestEntry))
+ -&gt; Tagged
+      (NonEmpty BatchUpdatePartitionRequestEntry)
+      (Identity (NonEmpty BatchUpdatePartitionRequestEntry)))
+-&gt; NonEmpty BatchUpdatePartitionRequestEntry
+-&gt; NonEmpty BatchUpdatePartitionRequestEntry
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty BatchUpdatePartitionRequestEntry
+</span><a href="#local-6989586621679741091"><span class="hs-identifier hs-var">pEntries_</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the catalog in which the partition is to be updated.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Currently, this should be the Amazon Web Services account ID.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartition_catalogId"><span class="hs-identifier hs-type">batchUpdatePartition_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="batchUpdatePartition_catalogId"><span class="annot"><span class="annottext">batchUpdatePartition_catalogId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchUpdatePartition -&gt; f BatchUpdatePartition
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartition_catalogId"><span class="hs-identifier hs-var hs-var">batchUpdatePartition_catalogId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdatePartition -&gt; Maybe Text)
+-&gt; (BatchUpdatePartition -&gt; Maybe Text -&gt; BatchUpdatePartition)
+-&gt; Lens
+     BatchUpdatePartition BatchUpdatePartition (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition%27"><span class="hs-identifier hs-type">BatchUpdatePartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679741086"><span class="annot"><span class="annottext">Maybe Text
+catalogId :: Maybe Text
+$sel:catalogId:BatchUpdatePartition' :: BatchUpdatePartition -&gt; Maybe Text
+</span><a href="#local-6989586621679741086"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679741086"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679741085"><span class="annot"><span class="annottext">s :: BatchUpdatePartition
+</span><a href="#local-6989586621679741085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition%27"><span class="hs-identifier hs-type">BatchUpdatePartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679741084"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679741084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdatePartition
+</span><a href="#local-6989586621679741085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:BatchUpdatePartition' :: Maybe Text
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3AcatalogId%3ABatchUpdatePartition%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679741084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The name of the metadata database in which the partition is to be</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartition_databaseName"><span class="hs-identifier hs-type">batchUpdatePartition_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="batchUpdatePartition_databaseName"><span class="annot"><span class="annottext">batchUpdatePartition_databaseName :: (Text -&gt; f Text) -&gt; BatchUpdatePartition -&gt; f BatchUpdatePartition
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartition_databaseName"><span class="hs-identifier hs-var hs-var">batchUpdatePartition_databaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdatePartition -&gt; Text)
+-&gt; (BatchUpdatePartition -&gt; Text -&gt; BatchUpdatePartition)
+-&gt; Lens BatchUpdatePartition BatchUpdatePartition Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition%27"><span class="hs-identifier hs-type">BatchUpdatePartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679741083"><span class="annot"><span class="annottext">Text
+databaseName :: Text
+$sel:databaseName:BatchUpdatePartition' :: BatchUpdatePartition -&gt; Text
+</span><a href="#local-6989586621679741083"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679741083"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679741082"><span class="annot"><span class="annottext">s :: BatchUpdatePartition
+</span><a href="#local-6989586621679741082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition%27"><span class="hs-identifier hs-type">BatchUpdatePartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679741081"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679741081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdatePartition
+</span><a href="#local-6989586621679741082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:BatchUpdatePartition' :: Text
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3AdatabaseName%3ABatchUpdatePartition%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679741081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The name of the metadata table in which the partition is to be updated.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartition_tableName"><span class="hs-identifier hs-type">batchUpdatePartition_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="batchUpdatePartition_tableName"><span class="annot"><span class="annottext">batchUpdatePartition_tableName :: (Text -&gt; f Text) -&gt; BatchUpdatePartition -&gt; f BatchUpdatePartition
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartition_tableName"><span class="hs-identifier hs-var hs-var">batchUpdatePartition_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdatePartition -&gt; Text)
+-&gt; (BatchUpdatePartition -&gt; Text -&gt; BatchUpdatePartition)
+-&gt; Lens BatchUpdatePartition BatchUpdatePartition Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition%27"><span class="hs-identifier hs-type">BatchUpdatePartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679741080"><span class="annot"><span class="annottext">Text
+tableName :: Text
+$sel:tableName:BatchUpdatePartition' :: BatchUpdatePartition -&gt; Text
+</span><a href="#local-6989586621679741080"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679741080"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679741079"><span class="annot"><span class="annottext">s :: BatchUpdatePartition
+</span><a href="#local-6989586621679741079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition%27"><span class="hs-identifier hs-type">BatchUpdatePartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679741078"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679741078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdatePartition
+</span><a href="#local-6989586621679741079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:BatchUpdatePartition' :: Text
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3AtableName%3ABatchUpdatePartition%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679741078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartition_entries"><span class="hs-identifier hs-type">batchUpdatePartition_entries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchUpdatePartitionRequestEntry.html#BatchUpdatePartitionRequestEntry"><span class="hs-identifier hs-type">BatchUpdatePartitionRequestEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="batchUpdatePartition_entries"><span class="annot"><span class="annottext">batchUpdatePartition_entries :: (NonEmpty BatchUpdatePartitionRequestEntry
+ -&gt; f (NonEmpty BatchUpdatePartitionRequestEntry))
+-&gt; BatchUpdatePartition -&gt; f BatchUpdatePartition
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartition_entries"><span class="hs-identifier hs-var hs-var">batchUpdatePartition_entries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdatePartition -&gt; NonEmpty BatchUpdatePartitionRequestEntry)
+-&gt; (BatchUpdatePartition
+    -&gt; NonEmpty BatchUpdatePartitionRequestEntry
+    -&gt; BatchUpdatePartition)
+-&gt; Lens
+     BatchUpdatePartition
+     BatchUpdatePartition
+     (NonEmpty BatchUpdatePartitionRequestEntry)
+     (NonEmpty BatchUpdatePartitionRequestEntry)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition%27"><span class="hs-identifier hs-type">BatchUpdatePartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679741077"><span class="annot"><span class="annottext">NonEmpty BatchUpdatePartitionRequestEntry
+entries :: NonEmpty BatchUpdatePartitionRequestEntry
+$sel:entries:BatchUpdatePartition' :: BatchUpdatePartition -&gt; NonEmpty BatchUpdatePartitionRequestEntry
+</span><a href="#local-6989586621679741077"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty BatchUpdatePartitionRequestEntry
+</span><a href="#local-6989586621679741077"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679741076"><span class="annot"><span class="annottext">s :: BatchUpdatePartition
+</span><a href="#local-6989586621679741076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition%27"><span class="hs-identifier hs-type">BatchUpdatePartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679741075"><span class="annot"><span class="annottext">NonEmpty BatchUpdatePartitionRequestEntry
+</span><a href="#local-6989586621679741075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdatePartition
+</span><a href="#local-6989586621679741076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entries:BatchUpdatePartition' :: NonEmpty BatchUpdatePartitionRequestEntry
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3Aentries%3ABatchUpdatePartition%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty BatchUpdatePartitionRequestEntry
+</span><a href="#local-6989586621679741075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty BatchUpdatePartitionRequestEntry
+  -&gt; f (NonEmpty BatchUpdatePartitionRequestEntry))
+ -&gt; BatchUpdatePartition -&gt; f BatchUpdatePartition)
+-&gt; ((NonEmpty BatchUpdatePartitionRequestEntry
+     -&gt; f (NonEmpty BatchUpdatePartitionRequestEntry))
+    -&gt; NonEmpty BatchUpdatePartitionRequestEntry
+    -&gt; f (NonEmpty BatchUpdatePartitionRequestEntry))
+-&gt; (NonEmpty BatchUpdatePartitionRequestEntry
+    -&gt; f (NonEmpty BatchUpdatePartitionRequestEntry))
+-&gt; BatchUpdatePartition
+-&gt; f BatchUpdatePartition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty BatchUpdatePartitionRequestEntry
+ -&gt; f (NonEmpty BatchUpdatePartitionRequestEntry))
+-&gt; NonEmpty BatchUpdatePartitionRequestEntry
+-&gt; f (NonEmpty BatchUpdatePartitionRequestEntry)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse"><span class="hs-identifier hs-type">BatchUpdatePartitionResponse</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679741070"><span class="annot"><span class="annottext">request :: BatchUpdatePartition -&gt; Request BatchUpdatePartition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchUpdatePartition -&gt; Request BatchUpdatePartition
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679741066"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchUpdatePartition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchUpdatePartition)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchUpdatePartition))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchUpdatePartition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchUpdatePartition)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679741063"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679741063"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679741062"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679741062"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679741061"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679741061"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BatchUpdatePartitionFailureEntry]
+-&gt; Int -&gt; BatchUpdatePartitionResponse
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse%27"><span class="hs-identifier hs-var">BatchUpdatePartitionResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [BatchUpdatePartitionFailureEntry]
+ -&gt; Int -&gt; BatchUpdatePartitionResponse)
+-&gt; Either String (Maybe [BatchUpdatePartitionFailureEntry])
+-&gt; Either String (Int -&gt; BatchUpdatePartitionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679741061"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [BatchUpdatePartitionFailureEntry]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BatchUpdatePartitionFailureEntry]))
+-&gt; Maybe [BatchUpdatePartitionFailureEntry]
+-&gt; Either String (Maybe [BatchUpdatePartitionFailureEntry])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BatchUpdatePartitionFailureEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchUpdatePartitionResponse)
+-&gt; Either String Int -&gt; Either String BatchUpdatePartitionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679741063"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679741052"><span id="local-6989586621679741054"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679741049"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679741045"><span class="annot"><span class="annottext">toHeaders :: BatchUpdatePartition -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchUpdatePartition -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSGlue.BatchUpdatePartition&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-148"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-152"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679741035"><span id="local-6989586621679741037"><span id="local-6989586621679741039"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679741033"><span class="annot"><span class="annottext">toJSON :: BatchUpdatePartition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition%27"><span class="hs-identifier hs-type">BatchUpdatePartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679741028"><span id="local-6989586621679741029"><span id="local-6989586621679741030"><span id="local-6989586621679741031"><span class="annot"><span class="annottext">Maybe Text
+NonEmpty BatchUpdatePartitionRequestEntry
+Text
+entries :: NonEmpty BatchUpdatePartitionRequestEntry
+tableName :: Text
+databaseName :: Text
+catalogId :: Maybe Text
+$sel:entries:BatchUpdatePartition' :: BatchUpdatePartition -&gt; NonEmpty BatchUpdatePartitionRequestEntry
+$sel:tableName:BatchUpdatePartition' :: BatchUpdatePartition -&gt; Text
+$sel:databaseName:BatchUpdatePartition' :: BatchUpdatePartition -&gt; Text
+$sel:catalogId:BatchUpdatePartition' :: BatchUpdatePartition -&gt; Maybe Text
+</span><a href="#local-6989586621679741028"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679741031"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679741030"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679741029"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Entries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty BatchUpdatePartitionRequestEntry -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty BatchUpdatePartitionRequestEntry
+</span><a href="#local-6989586621679741028"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679741022"><span class="annot"><span class="annottext">toPath :: BatchUpdatePartition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchUpdatePartition -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartition"><span class="hs-identifier hs-type">BatchUpdatePartition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679741018"><span class="annot"><span class="annottext">toQuery :: BatchUpdatePartition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchUpdatePartition -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | /See:/ 'newBatchUpdatePartitionResponse' smart constructor.</span><span>
+</span><span id="line-174"></span><span id="local-6989586621679741015"><span id="local-6989586621679741016"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchUpdatePartitionResponse"><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse"><span class="hs-identifier hs-var">BatchUpdatePartitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchUpdatePartitionResponse%27"><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse%27"><span class="hs-identifier hs-var">BatchUpdatePartitionResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The errors encountered when trying to update the requested partitions. A</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- list of @BatchUpdatePartitionFailureEntry@ objects.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3Aerrors%3ABatchUpdatePartitionResponse%27"><span class="annot"><span class="annottext">BatchUpdatePartitionResponse
+-&gt; Maybe [BatchUpdatePartitionFailureEntry]
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3Aerrors%3ABatchUpdatePartitionResponse%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.BatchUpdatePartitionFailureEntry.html#BatchUpdatePartitionFailureEntry"><span class="hs-identifier hs-type">BatchUpdatePartitionFailureEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchUpdatePartitionResponse%27"><span class="annot"><span class="annottext">BatchUpdatePartitionResponse -&gt; Int
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3AhttpStatus%3ABatchUpdatePartitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679741009"><span id="local-6989586621679741011"><span class="annot"><span class="annottext">BatchUpdatePartitionResponse
+-&gt; BatchUpdatePartitionResponse -&gt; Bool
+(BatchUpdatePartitionResponse
+ -&gt; BatchUpdatePartitionResponse -&gt; Bool)
+-&gt; (BatchUpdatePartitionResponse
+    -&gt; BatchUpdatePartitionResponse -&gt; Bool)
+-&gt; Eq BatchUpdatePartitionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchUpdatePartitionResponse
+-&gt; BatchUpdatePartitionResponse -&gt; Bool
+$c/= :: BatchUpdatePartitionResponse
+-&gt; BatchUpdatePartitionResponse -&gt; Bool
+== :: BatchUpdatePartitionResponse
+-&gt; BatchUpdatePartitionResponse -&gt; Bool
+$c== :: BatchUpdatePartitionResponse
+-&gt; BatchUpdatePartitionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679741001"><span id="local-6989586621679741003"><span id="local-6989586621679741005"><span id="local-6989586621679741007"><span class="annot"><span class="annottext">ReadPrec [BatchUpdatePartitionResponse]
+ReadPrec BatchUpdatePartitionResponse
+Int -&gt; ReadS BatchUpdatePartitionResponse
+ReadS [BatchUpdatePartitionResponse]
+(Int -&gt; ReadS BatchUpdatePartitionResponse)
+-&gt; ReadS [BatchUpdatePartitionResponse]
+-&gt; ReadPrec BatchUpdatePartitionResponse
+-&gt; ReadPrec [BatchUpdatePartitionResponse]
+-&gt; Read BatchUpdatePartitionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchUpdatePartitionResponse]
+$creadListPrec :: ReadPrec [BatchUpdatePartitionResponse]
+readPrec :: ReadPrec BatchUpdatePartitionResponse
+$creadPrec :: ReadPrec BatchUpdatePartitionResponse
+readList :: ReadS [BatchUpdatePartitionResponse]
+$creadList :: ReadS [BatchUpdatePartitionResponse]
+readsPrec :: Int -&gt; ReadS BatchUpdatePartitionResponse
+$creadsPrec :: Int -&gt; ReadS BatchUpdatePartitionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679740995"><span id="local-6989586621679740997"><span id="local-6989586621679740999"><span class="annot"><span class="annottext">Int -&gt; BatchUpdatePartitionResponse -&gt; ShowS
+[BatchUpdatePartitionResponse] -&gt; ShowS
+BatchUpdatePartitionResponse -&gt; String
+(Int -&gt; BatchUpdatePartitionResponse -&gt; ShowS)
+-&gt; (BatchUpdatePartitionResponse -&gt; String)
+-&gt; ([BatchUpdatePartitionResponse] -&gt; ShowS)
+-&gt; Show BatchUpdatePartitionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchUpdatePartitionResponse] -&gt; ShowS
+$cshowList :: [BatchUpdatePartitionResponse] -&gt; ShowS
+show :: BatchUpdatePartitionResponse -&gt; String
+$cshow :: BatchUpdatePartitionResponse -&gt; String
+showsPrec :: Int -&gt; BatchUpdatePartitionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchUpdatePartitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchUpdatePartitionResponse -&gt; Rep BatchUpdatePartitionResponse x)
+-&gt; (forall x.
+    Rep BatchUpdatePartitionResponse x -&gt; BatchUpdatePartitionResponse)
+-&gt; Generic BatchUpdatePartitionResponse
+forall x.
+Rep BatchUpdatePartitionResponse x -&gt; BatchUpdatePartitionResponse
+forall x.
+BatchUpdatePartitionResponse -&gt; Rep BatchUpdatePartitionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchUpdatePartitionResponse x -&gt; BatchUpdatePartitionResponse
+$cfrom :: forall x.
+BatchUpdatePartitionResponse -&gt; Rep BatchUpdatePartitionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Create a value of 'BatchUpdatePartitionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'errors', 'batchUpdatePartitionResponse_errors' - The errors encountered when trying to update the requested partitions. A</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- list of @BatchUpdatePartitionFailureEntry@ objects.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'httpStatus', 'batchUpdatePartitionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#newBatchUpdatePartitionResponse"><span class="hs-identifier hs-type">newBatchUpdatePartitionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse"><span class="hs-identifier hs-type">BatchUpdatePartitionResponse</span></a></span><span>
+</span><span id="line-199"></span><span id="newBatchUpdatePartitionResponse"><span class="annot"><span class="annottext">newBatchUpdatePartitionResponse :: Int -&gt; BatchUpdatePartitionResponse
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#newBatchUpdatePartitionResponse"><span class="hs-identifier hs-var hs-var">newBatchUpdatePartitionResponse</span></a></span></span><span> </span><span id="local-6989586621679740992"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679740992"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">BatchUpdatePartitionResponse' :: Maybe [BatchUpdatePartitionFailureEntry]
+-&gt; Int -&gt; BatchUpdatePartitionResponse
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse%27"><span class="hs-identifier hs-type">BatchUpdatePartitionResponse'</span></a></span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errors:BatchUpdatePartitionResponse' :: Maybe [BatchUpdatePartitionFailureEntry]
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3Aerrors%3ABatchUpdatePartitionResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">Maybe [BatchUpdatePartitionFailureEntry]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchUpdatePartitionResponse' :: Int
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3AhttpStatus%3ABatchUpdatePartitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679740992"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The errors encountered when trying to update the requested partitions. A</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- list of @BatchUpdatePartitionFailureEntry@ objects.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartitionResponse_errors"><span class="hs-identifier hs-type">batchUpdatePartitionResponse_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse"><span class="hs-identifier hs-type">BatchUpdatePartitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.BatchUpdatePartitionFailureEntry.html#BatchUpdatePartitionFailureEntry"><span class="hs-identifier hs-type">BatchUpdatePartitionFailureEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="batchUpdatePartitionResponse_errors"><span class="annot"><span class="annottext">batchUpdatePartitionResponse_errors :: (Maybe [BatchUpdatePartitionFailureEntry]
+ -&gt; f (Maybe [BatchUpdatePartitionFailureEntry]))
+-&gt; BatchUpdatePartitionResponse -&gt; f BatchUpdatePartitionResponse
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartitionResponse_errors"><span class="hs-identifier hs-var hs-var">batchUpdatePartitionResponse_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdatePartitionResponse
+ -&gt; Maybe [BatchUpdatePartitionFailureEntry])
+-&gt; (BatchUpdatePartitionResponse
+    -&gt; Maybe [BatchUpdatePartitionFailureEntry]
+    -&gt; BatchUpdatePartitionResponse)
+-&gt; Lens
+     BatchUpdatePartitionResponse
+     BatchUpdatePartitionResponse
+     (Maybe [BatchUpdatePartitionFailureEntry])
+     (Maybe [BatchUpdatePartitionFailureEntry])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse%27"><span class="hs-identifier hs-type">BatchUpdatePartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679740991"><span class="annot"><span class="annottext">Maybe [BatchUpdatePartitionFailureEntry]
+errors :: Maybe [BatchUpdatePartitionFailureEntry]
+$sel:errors:BatchUpdatePartitionResponse' :: BatchUpdatePartitionResponse
+-&gt; Maybe [BatchUpdatePartitionFailureEntry]
+</span><a href="#local-6989586621679740991"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchUpdatePartitionFailureEntry]
+</span><a href="#local-6989586621679740991"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679740990"><span class="annot"><span class="annottext">s :: BatchUpdatePartitionResponse
+</span><a href="#local-6989586621679740990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse%27"><span class="hs-identifier hs-type">BatchUpdatePartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679740989"><span class="annot"><span class="annottext">Maybe [BatchUpdatePartitionFailureEntry]
+</span><a href="#local-6989586621679740989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdatePartitionResponse
+</span><a href="#local-6989586621679740990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchUpdatePartitionResponse' :: Maybe [BatchUpdatePartitionFailureEntry]
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3Aerrors%3ABatchUpdatePartitionResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchUpdatePartitionFailureEntry]
+</span><a href="#local-6989586621679740989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse"><span class="hs-identifier hs-type">BatchUpdatePartitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchUpdatePartitionFailureEntry]
+  -&gt; f (Maybe [BatchUpdatePartitionFailureEntry]))
+ -&gt; BatchUpdatePartitionResponse -&gt; f BatchUpdatePartitionResponse)
+-&gt; ((Maybe [BatchUpdatePartitionFailureEntry]
+     -&gt; f (Maybe [BatchUpdatePartitionFailureEntry]))
+    -&gt; Maybe [BatchUpdatePartitionFailureEntry]
+    -&gt; f (Maybe [BatchUpdatePartitionFailureEntry]))
+-&gt; (Maybe [BatchUpdatePartitionFailureEntry]
+    -&gt; f (Maybe [BatchUpdatePartitionFailureEntry]))
+-&gt; BatchUpdatePartitionResponse
+-&gt; f BatchUpdatePartitionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BatchUpdatePartitionFailureEntry]
+  [BatchUpdatePartitionFailureEntry]
+  [BatchUpdatePartitionFailureEntry]
+  [BatchUpdatePartitionFailureEntry]
+-&gt; Iso
+     (Maybe [BatchUpdatePartitionFailureEntry])
+     (Maybe [BatchUpdatePartitionFailureEntry])
+     (Maybe [BatchUpdatePartitionFailureEntry])
+     (Maybe [BatchUpdatePartitionFailureEntry])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BatchUpdatePartitionFailureEntry]
+  [BatchUpdatePartitionFailureEntry]
+  [BatchUpdatePartitionFailureEntry]
+  [BatchUpdatePartitionFailureEntry]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartitionResponse_httpStatus"><span class="hs-identifier hs-type">batchUpdatePartitionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse"><span class="hs-identifier hs-type">BatchUpdatePartitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-213"></span><span id="batchUpdatePartitionResponse_httpStatus"><span class="annot"><span class="annottext">batchUpdatePartitionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchUpdatePartitionResponse -&gt; f BatchUpdatePartitionResponse
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#batchUpdatePartitionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchUpdatePartitionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdatePartitionResponse -&gt; Int)
+-&gt; (BatchUpdatePartitionResponse
+    -&gt; Int -&gt; BatchUpdatePartitionResponse)
+-&gt; Lens
+     BatchUpdatePartitionResponse BatchUpdatePartitionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse%27"><span class="hs-identifier hs-type">BatchUpdatePartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679740987"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchUpdatePartitionResponse' :: BatchUpdatePartitionResponse -&gt; Int
+</span><a href="#local-6989586621679740987"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679740987"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679740986"><span class="annot"><span class="annottext">s :: BatchUpdatePartitionResponse
+</span><a href="#local-6989586621679740986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse%27"><span class="hs-identifier hs-type">BatchUpdatePartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679740985"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679740985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdatePartitionResponse
+</span><a href="#local-6989586621679740986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchUpdatePartitionResponse' :: Int
+</span><a href="Network.AWS.Glue.BatchUpdatePartition.html#%24sel%3AhttpStatus%3ABatchUpdatePartitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679740985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse"><span class="hs-identifier hs-type">BatchUpdatePartitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679740983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchUpdatePartition.html#BatchUpdatePartitionResponse"><span class="hs-identifier hs-type">BatchUpdatePartitionResponse</span></a></span></span><span>
+</span><span id="line-216"></span></pre></body></html>

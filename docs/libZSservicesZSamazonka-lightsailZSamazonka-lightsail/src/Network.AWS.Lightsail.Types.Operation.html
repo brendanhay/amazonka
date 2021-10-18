@@ -1,0 +1,761 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Lightsail.Types.Operation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lightsail.Types.Operation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.OperationStatus.html"><span class="hs-identifier">Network.AWS.Lightsail.Types.OperationStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.OperationType.html"><span class="hs-identifier">Network.AWS.Lightsail.Types.OperationType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceLocation.html"><span class="hs-identifier">Network.AWS.Lightsail.Types.ResourceLocation</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html"><span class="hs-identifier">Network.AWS.Lightsail.Types.ResourceType</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Describes the API operation.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newOperation' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679621651"><span id="local-6989586621679621652"></span></span><span class="hs-keyword">data</span><span> </span><span id="Operation"><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-var">Operation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Operation%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-var">Operation'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the operation (e.g., @Debian-1GB-Ohio-1@).</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AoperationDetails%3AOperation%27"><span class="annot"><span class="annottext">Operation -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AoperationDetails%3AOperation%27"><span class="hs-identifier hs-var hs-var">operationDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The status of the operation.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Astatus%3AOperation%27"><span class="annot"><span class="annottext">Operation -&gt; Maybe OperationStatus
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3Astatus%3AOperation%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.OperationStatus.html#OperationStatus"><span class="hs-identifier hs-type">OperationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A Boolean value indicating whether the operation is terminal.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AisTerminal%3AOperation%27"><span class="annot"><span class="annottext">Operation -&gt; Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AisTerminal%3AOperation%27"><span class="hs-identifier hs-var hs-var">isTerminal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ID of the operation.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aid%3AOperation%27"><span class="annot"><span class="annottext">Operation -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3Aid%3AOperation%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The timestamp when the operation was initialized (e.g.,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @1479816991.349@).</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcreatedAt%3AOperation%27"><span class="annot"><span class="annottext">Operation -&gt; Maybe POSIX
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AcreatedAt%3AOperation%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The resource type.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AresourceType%3AOperation%27"><span class="annot"><span class="annottext">Operation -&gt; Maybe ResourceType
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AresourceType%3AOperation%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The timestamp when the status was changed (e.g., @1479816991.349@).</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AstatusChangedAt%3AOperation%27"><span class="annot"><span class="annottext">Operation -&gt; Maybe POSIX
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AstatusChangedAt%3AOperation%27"><span class="hs-identifier hs-var hs-var">statusChangedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The error code.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AerrorCode%3AOperation%27"><span class="annot"><span class="annottext">Operation -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AerrorCode%3AOperation%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The type of operation.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AoperationType%3AOperation%27"><span class="annot"><span class="annottext">Operation -&gt; Maybe OperationType
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AoperationType%3AOperation%27"><span class="hs-identifier hs-var hs-var">operationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The resource name.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AresourceName%3AOperation%27"><span class="annot"><span class="annottext">Operation -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AresourceName%3AOperation%27"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The AWS Region and Availability Zone.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Alocation%3AOperation%27"><span class="annot"><span class="annottext">Operation -&gt; Maybe ResourceLocation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3Alocation%3AOperation%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceLocation.html#ResourceLocation"><span class="hs-identifier hs-type">ResourceLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The error details.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AerrorDetails%3AOperation%27"><span class="annot"><span class="annottext">Operation -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AerrorDetails%3AOperation%27"><span class="hs-identifier hs-var hs-var">errorDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679621634"><span id="local-6989586621679621636"><span class="annot"><span class="annottext">Operation -&gt; Operation -&gt; Bool
+(Operation -&gt; Operation -&gt; Bool)
+-&gt; (Operation -&gt; Operation -&gt; Bool) -&gt; Eq Operation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Operation -&gt; Operation -&gt; Bool
+$c/= :: Operation -&gt; Operation -&gt; Bool
+== :: Operation -&gt; Operation -&gt; Bool
+$c== :: Operation -&gt; Operation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679621625"><span id="local-6989586621679621627"><span id="local-6989586621679621629"><span id="local-6989586621679621631"><span class="annot"><span class="annottext">ReadPrec [Operation]
+ReadPrec Operation
+Int -&gt; ReadS Operation
+ReadS [Operation]
+(Int -&gt; ReadS Operation)
+-&gt; ReadS [Operation]
+-&gt; ReadPrec Operation
+-&gt; ReadPrec [Operation]
+-&gt; Read Operation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Operation]
+$creadListPrec :: ReadPrec [Operation]
+readPrec :: ReadPrec Operation
+$creadPrec :: ReadPrec Operation
+readList :: ReadS [Operation]
+$creadList :: ReadS [Operation]
+readsPrec :: Int -&gt; ReadS Operation
+$creadsPrec :: Int -&gt; ReadS Operation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679621618"><span id="local-6989586621679621620"><span id="local-6989586621679621622"><span class="annot"><span class="annottext">Int -&gt; Operation -&gt; ShowS
+[Operation] -&gt; ShowS
+Operation -&gt; String
+(Int -&gt; Operation -&gt; ShowS)
+-&gt; (Operation -&gt; String)
+-&gt; ([Operation] -&gt; ShowS)
+-&gt; Show Operation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Operation] -&gt; ShowS
+$cshowList :: [Operation] -&gt; ShowS
+show :: Operation -&gt; String
+$cshow :: Operation -&gt; String
+showsPrec :: Int -&gt; Operation -&gt; ShowS
+$cshowsPrec :: Int -&gt; Operation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Operation -&gt; Rep Operation x)
+-&gt; (forall x. Rep Operation x -&gt; Operation) -&gt; Generic Operation
+forall x. Rep Operation x -&gt; Operation
+forall x. Operation -&gt; Rep Operation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Operation x -&gt; Operation
+$cfrom :: forall x. Operation -&gt; Rep Operation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'Operation' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'operationDetails', 'operation_operationDetails' - Details about the operation (e.g., @Debian-1GB-Ohio-1@).</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'status', 'operation_status' - The status of the operation.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'isTerminal', 'operation_isTerminal' - A Boolean value indicating whether the operation is terminal.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'id', 'operation_id' - The ID of the operation.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'createdAt', 'operation_createdAt' - The timestamp when the operation was initialized (e.g.,</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- @1479816991.349@).</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'resourceType', 'operation_resourceType' - The resource type.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'statusChangedAt', 'operation_statusChangedAt' - The timestamp when the status was changed (e.g., @1479816991.349@).</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'errorCode', 'operation_errorCode' - The error code.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'operationType', 'operation_operationType' - The type of operation.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'resourceName', 'operation_resourceName' - The resource name.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'location', 'operation_location' - The AWS Region and Availability Zone.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'errorDetails', 'operation_errorDetails' - The error details.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#newOperation"><span class="hs-identifier hs-type">newOperation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span>
+</span><span id="line-96"></span><span id="newOperation"><span class="annot"><span class="annottext">newOperation :: Operation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#newOperation"><span class="hs-identifier hs-var hs-var">newOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">Operation' :: Maybe Text
+-&gt; Maybe OperationStatus
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ResourceType
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe OperationType
+-&gt; Maybe Text
+-&gt; Maybe ResourceLocation
+-&gt; Maybe Text
+-&gt; Operation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operationDetails:Operation' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AoperationDetails%3AOperation%27"><span class="hs-identifier hs-var">operationDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Operation' :: Maybe OperationStatus
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3Astatus%3AOperation%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:isTerminal:Operation' :: Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AisTerminal%3AOperation%27"><span class="hs-identifier hs-var">isTerminal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Operation' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3Aid%3AOperation%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:Operation' :: Maybe POSIX
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AcreatedAt%3AOperation%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:Operation' :: Maybe ResourceType
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AresourceType%3AOperation%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusChangedAt:Operation' :: Maybe POSIX
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AstatusChangedAt%3AOperation%27"><span class="hs-identifier hs-var">statusChangedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:Operation' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AerrorCode%3AOperation%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:operationType:Operation' :: Maybe OperationType
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AoperationType%3AOperation%27"><span class="hs-identifier hs-var">operationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceName:Operation' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AresourceName%3AOperation%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:Operation' :: Maybe ResourceLocation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3Alocation%3AOperation%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorDetails:Operation' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AerrorDetails%3AOperation%27"><span class="hs-identifier hs-var">errorDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Details about the operation (e.g., @Debian-1GB-Ohio-1@).</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#operation_operationDetails"><span class="hs-identifier hs-type">operation_operationDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="operation_operationDetails"><span class="annot"><span class="annottext">operation_operationDetails :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Operation -&gt; f Operation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#operation_operationDetails"><span class="hs-identifier hs-var hs-var">operation_operationDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Operation -&gt; Maybe Text)
+-&gt; (Operation -&gt; Maybe Text -&gt; Operation)
+-&gt; Lens Operation Operation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621609"><span class="annot"><span class="annottext">Maybe Text
+operationDetails :: Maybe Text
+$sel:operationDetails:Operation' :: Operation -&gt; Maybe Text
+</span><a href="#local-6989586621679621609"><span class="hs-identifier hs-var hs-var">operationDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621609"><span class="hs-identifier hs-var">operationDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621608"><span class="annot"><span class="annottext">s :: Operation
+</span><a href="#local-6989586621679621608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621607"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Operation
+</span><a href="#local-6989586621679621608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationDetails:Operation' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AoperationDetails%3AOperation%27"><span class="hs-identifier hs-var">operationDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The status of the operation.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#operation_status"><span class="hs-identifier hs-type">operation_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.OperationStatus.html#OperationStatus"><span class="hs-identifier hs-type">OperationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="operation_status"><span class="annot"><span class="annottext">operation_status :: (Maybe OperationStatus -&gt; f (Maybe OperationStatus))
+-&gt; Operation -&gt; f Operation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#operation_status"><span class="hs-identifier hs-var hs-var">operation_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Operation -&gt; Maybe OperationStatus)
+-&gt; (Operation -&gt; Maybe OperationStatus -&gt; Operation)
+-&gt; Lens
+     Operation Operation (Maybe OperationStatus) (Maybe OperationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621605"><span class="annot"><span class="annottext">Maybe OperationStatus
+status :: Maybe OperationStatus
+$sel:status:Operation' :: Operation -&gt; Maybe OperationStatus
+</span><a href="#local-6989586621679621605"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperationStatus
+</span><a href="#local-6989586621679621605"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621604"><span class="annot"><span class="annottext">s :: Operation
+</span><a href="#local-6989586621679621604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621603"><span class="annot"><span class="annottext">Maybe OperationStatus
+</span><a href="#local-6989586621679621603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Operation
+</span><a href="#local-6989586621679621604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Operation' :: Maybe OperationStatus
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3Astatus%3AOperation%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperationStatus
+</span><a href="#local-6989586621679621603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | A Boolean value indicating whether the operation is terminal.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#operation_isTerminal"><span class="hs-identifier hs-type">operation_isTerminal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="operation_isTerminal"><span class="annot"><span class="annottext">operation_isTerminal :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Operation -&gt; f Operation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#operation_isTerminal"><span class="hs-identifier hs-var hs-var">operation_isTerminal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Operation -&gt; Maybe Bool)
+-&gt; (Operation -&gt; Maybe Bool -&gt; Operation)
+-&gt; Lens Operation Operation (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621601"><span class="annot"><span class="annottext">Maybe Bool
+isTerminal :: Maybe Bool
+$sel:isTerminal:Operation' :: Operation -&gt; Maybe Bool
+</span><a href="#local-6989586621679621601"><span class="hs-identifier hs-var hs-var">isTerminal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679621601"><span class="hs-identifier hs-var">isTerminal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621600"><span class="annot"><span class="annottext">s :: Operation
+</span><a href="#local-6989586621679621600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621599"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679621599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Operation
+</span><a href="#local-6989586621679621600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTerminal:Operation' :: Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AisTerminal%3AOperation%27"><span class="hs-identifier hs-var">isTerminal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679621599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The ID of the operation.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#operation_id"><span class="hs-identifier hs-type">operation_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="operation_id"><span class="annot"><span class="annottext">operation_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Operation -&gt; f Operation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#operation_id"><span class="hs-identifier hs-var hs-var">operation_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Operation -&gt; Maybe Text)
+-&gt; (Operation -&gt; Maybe Text -&gt; Operation)
+-&gt; Lens Operation Operation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621597"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:Operation' :: Operation -&gt; Maybe Text
+</span><a href="#local-6989586621679621597"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621597"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621596"><span class="annot"><span class="annottext">s :: Operation
+</span><a href="#local-6989586621679621596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621595"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Operation
+</span><a href="#local-6989586621679621596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Operation' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3Aid%3AOperation%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The timestamp when the operation was initialized (e.g.,</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- @1479816991.349@).</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#operation_createdAt"><span class="hs-identifier hs-type">operation_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="operation_createdAt"><span class="annot"><span class="annottext">operation_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Operation -&gt; f Operation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#operation_createdAt"><span class="hs-identifier hs-var hs-var">operation_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Operation -&gt; Maybe POSIX)
+-&gt; (Operation -&gt; Maybe POSIX -&gt; Operation)
+-&gt; Lens Operation Operation (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621593"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:Operation' :: Operation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679621593"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679621593"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621592"><span class="annot"><span class="annottext">s :: Operation
+</span><a href="#local-6989586621679621592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621591"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679621591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Operation
+</span><a href="#local-6989586621679621592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:Operation' :: Maybe POSIX
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AcreatedAt%3AOperation%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679621591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Operation -&gt; f Operation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Operation
+-&gt; f Operation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The resource type.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#operation_resourceType"><span class="hs-identifier hs-type">operation_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="operation_resourceType"><span class="annot"><span class="annottext">operation_resourceType :: (Maybe ResourceType -&gt; f (Maybe ResourceType))
+-&gt; Operation -&gt; f Operation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#operation_resourceType"><span class="hs-identifier hs-var hs-var">operation_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Operation -&gt; Maybe ResourceType)
+-&gt; (Operation -&gt; Maybe ResourceType -&gt; Operation)
+-&gt; Lens
+     Operation Operation (Maybe ResourceType) (Maybe ResourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621586"><span class="annot"><span class="annottext">Maybe ResourceType
+resourceType :: Maybe ResourceType
+$sel:resourceType:Operation' :: Operation -&gt; Maybe ResourceType
+</span><a href="#local-6989586621679621586"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679621586"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621585"><span class="annot"><span class="annottext">s :: Operation
+</span><a href="#local-6989586621679621585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621584"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679621584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Operation
+</span><a href="#local-6989586621679621585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:Operation' :: Maybe ResourceType
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AresourceType%3AOperation%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679621584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The timestamp when the status was changed (e.g., @1479816991.349@).</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#operation_statusChangedAt"><span class="hs-identifier hs-type">operation_statusChangedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="operation_statusChangedAt"><span class="annot"><span class="annottext">operation_statusChangedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Operation -&gt; f Operation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#operation_statusChangedAt"><span class="hs-identifier hs-var hs-var">operation_statusChangedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Operation -&gt; Maybe POSIX)
+-&gt; (Operation -&gt; Maybe POSIX -&gt; Operation)
+-&gt; Lens Operation Operation (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621582"><span class="annot"><span class="annottext">Maybe POSIX
+statusChangedAt :: Maybe POSIX
+$sel:statusChangedAt:Operation' :: Operation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679621582"><span class="hs-identifier hs-var hs-var">statusChangedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679621582"><span class="hs-identifier hs-var">statusChangedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621581"><span class="annot"><span class="annottext">s :: Operation
+</span><a href="#local-6989586621679621581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621580"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679621580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Operation
+</span><a href="#local-6989586621679621581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusChangedAt:Operation' :: Maybe POSIX
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AstatusChangedAt%3AOperation%27"><span class="hs-identifier hs-var">statusChangedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679621580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Operation -&gt; f Operation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Operation
+-&gt; f Operation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The error code.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#operation_errorCode"><span class="hs-identifier hs-type">operation_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="operation_errorCode"><span class="annot"><span class="annottext">operation_errorCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Operation -&gt; f Operation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#operation_errorCode"><span class="hs-identifier hs-var hs-var">operation_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Operation -&gt; Maybe Text)
+-&gt; (Operation -&gt; Maybe Text -&gt; Operation)
+-&gt; Lens Operation Operation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621578"><span class="annot"><span class="annottext">Maybe Text
+errorCode :: Maybe Text
+$sel:errorCode:Operation' :: Operation -&gt; Maybe Text
+</span><a href="#local-6989586621679621578"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621578"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621577"><span class="annot"><span class="annottext">s :: Operation
+</span><a href="#local-6989586621679621577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621576"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Operation
+</span><a href="#local-6989586621679621577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:Operation' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AerrorCode%3AOperation%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The type of operation.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#operation_operationType"><span class="hs-identifier hs-type">operation_operationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="operation_operationType"><span class="annot"><span class="annottext">operation_operationType :: (Maybe OperationType -&gt; f (Maybe OperationType))
+-&gt; Operation -&gt; f Operation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#operation_operationType"><span class="hs-identifier hs-var hs-var">operation_operationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Operation -&gt; Maybe OperationType)
+-&gt; (Operation -&gt; Maybe OperationType -&gt; Operation)
+-&gt; Lens
+     Operation Operation (Maybe OperationType) (Maybe OperationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621574"><span class="annot"><span class="annottext">Maybe OperationType
+operationType :: Maybe OperationType
+$sel:operationType:Operation' :: Operation -&gt; Maybe OperationType
+</span><a href="#local-6989586621679621574"><span class="hs-identifier hs-var hs-var">operationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperationType
+</span><a href="#local-6989586621679621574"><span class="hs-identifier hs-var">operationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621573"><span class="annot"><span class="annottext">s :: Operation
+</span><a href="#local-6989586621679621573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621572"><span class="annot"><span class="annottext">Maybe OperationType
+</span><a href="#local-6989586621679621572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Operation
+</span><a href="#local-6989586621679621573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationType:Operation' :: Maybe OperationType
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AoperationType%3AOperation%27"><span class="hs-identifier hs-var">operationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperationType
+</span><a href="#local-6989586621679621572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The resource name.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#operation_resourceName"><span class="hs-identifier hs-type">operation_resourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="operation_resourceName"><span class="annot"><span class="annottext">operation_resourceName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Operation -&gt; f Operation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#operation_resourceName"><span class="hs-identifier hs-var hs-var">operation_resourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Operation -&gt; Maybe Text)
+-&gt; (Operation -&gt; Maybe Text -&gt; Operation)
+-&gt; Lens Operation Operation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621570"><span class="annot"><span class="annottext">Maybe Text
+resourceName :: Maybe Text
+$sel:resourceName:Operation' :: Operation -&gt; Maybe Text
+</span><a href="#local-6989586621679621570"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621570"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621569"><span class="annot"><span class="annottext">s :: Operation
+</span><a href="#local-6989586621679621569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621568"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Operation
+</span><a href="#local-6989586621679621569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:Operation' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AresourceName%3AOperation%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The AWS Region and Availability Zone.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#operation_location"><span class="hs-identifier hs-type">operation_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceLocation.html#ResourceLocation"><span class="hs-identifier hs-type">ResourceLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="operation_location"><span class="annot"><span class="annottext">operation_location :: (Maybe ResourceLocation -&gt; f (Maybe ResourceLocation))
+-&gt; Operation -&gt; f Operation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#operation_location"><span class="hs-identifier hs-var hs-var">operation_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Operation -&gt; Maybe ResourceLocation)
+-&gt; (Operation -&gt; Maybe ResourceLocation -&gt; Operation)
+-&gt; Lens
+     Operation
+     Operation
+     (Maybe ResourceLocation)
+     (Maybe ResourceLocation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621566"><span class="annot"><span class="annottext">Maybe ResourceLocation
+location :: Maybe ResourceLocation
+$sel:location:Operation' :: Operation -&gt; Maybe ResourceLocation
+</span><a href="#local-6989586621679621566"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><a href="#local-6989586621679621566"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621565"><span class="annot"><span class="annottext">s :: Operation
+</span><a href="#local-6989586621679621565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621564"><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><a href="#local-6989586621679621564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Operation
+</span><a href="#local-6989586621679621565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:Operation' :: Maybe ResourceLocation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3Alocation%3AOperation%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><a href="#local-6989586621679621564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The error details.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#operation_errorDetails"><span class="hs-identifier hs-type">operation_errorDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="operation_errorDetails"><span class="annot"><span class="annottext">operation_errorDetails :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Operation -&gt; f Operation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#operation_errorDetails"><span class="hs-identifier hs-var hs-var">operation_errorDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Operation -&gt; Maybe Text)
+-&gt; (Operation -&gt; Maybe Text -&gt; Operation)
+-&gt; Lens Operation Operation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621562"><span class="annot"><span class="annottext">Maybe Text
+errorDetails :: Maybe Text
+$sel:errorDetails:Operation' :: Operation -&gt; Maybe Text
+</span><a href="#local-6989586621679621562"><span class="hs-identifier hs-var hs-var">errorDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621562"><span class="hs-identifier hs-var">errorDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621561"><span class="annot"><span class="annottext">s :: Operation
+</span><a href="#local-6989586621679621561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-type">Operation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621560"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Operation
+</span><a href="#local-6989586621679621561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorDetails:Operation' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#%24sel%3AerrorDetails%3AOperation%27"><span class="hs-identifier hs-var">errorDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679621557"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679621555"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Operation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Operation) -&gt; Value -&gt; Parser Operation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Operation&quot;</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679621552"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679621552"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe OperationStatus
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ResourceType
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe OperationType
+-&gt; Maybe Text
+-&gt; Maybe ResourceLocation
+-&gt; Maybe Text
+-&gt; Operation
+</span><a href="Network.AWS.Lightsail.Types.Operation.html#Operation%27"><span class="hs-identifier hs-var">Operation'</span></a></span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe OperationStatus
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe ResourceType
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe OperationType
+ -&gt; Maybe Text
+ -&gt; Maybe ResourceLocation
+ -&gt; Maybe Text
+ -&gt; Operation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe OperationStatus
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ResourceType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe OperationType
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Operation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679621552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operationDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OperationStatus
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ResourceType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe OperationType
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Operation)
+-&gt; Parser (Maybe OperationStatus)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ResourceType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe OperationType
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Operation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679621552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OperationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ResourceType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe OperationType
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Operation)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ResourceType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe OperationType
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Operation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679621552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isTerminal&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ResourceType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe OperationType
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Operation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe ResourceType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe OperationType
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Operation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679621552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe ResourceType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe OperationType
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Operation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ResourceType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe OperationType
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Operation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679621552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResourceType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe OperationType
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Operation)
+-&gt; Parser (Maybe ResourceType)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe OperationType
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Operation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679621552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe OperationType
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Operation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe OperationType
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Operation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679621552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusChangedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe OperationType
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Operation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe OperationType
+      -&gt; Maybe Text -&gt; Maybe ResourceLocation -&gt; Maybe Text -&gt; Operation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679621552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OperationType
+   -&gt; Maybe Text -&gt; Maybe ResourceLocation -&gt; Maybe Text -&gt; Operation)
+-&gt; Parser (Maybe OperationType)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe ResourceLocation -&gt; Maybe Text -&gt; Operation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679621552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OperationType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operationType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe ResourceLocation -&gt; Maybe Text -&gt; Operation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ResourceLocation -&gt; Maybe Text -&gt; Operation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679621552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ResourceLocation -&gt; Maybe Text -&gt; Operation)
+-&gt; Parser (Maybe ResourceLocation)
+-&gt; Parser (Maybe Text -&gt; Operation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679621552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceLocation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Operation)
+-&gt; Parser (Maybe Text) -&gt; Parser Operation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679621552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679621546"><span id="local-6989586621679621548"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span></span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679621543"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span></span><span>
+</span><span id="line-184"></span></pre></body></html>

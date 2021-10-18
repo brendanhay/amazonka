@@ -1,0 +1,1044 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenSourceWatermarkStatusType.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.NielsenSourceWatermarkStatusType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenUniqueTicPerAudioTrackType.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.NielsenUniqueTicPerAudioTrackType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Ignore these settings unless you are using Nielsen non-linear</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- watermarking. Specify the values that MediaConvert uses to generate and</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- place Nielsen watermarks in your output audio. In addition to specifying</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- these values, you also need to set up your cloud TIC server. These</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- settings apply to every output in your job. The MediaConvert</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- implementation is currently with the following Nielsen versions: Nielsen</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newNielsenNonLinearWatermarkSettings' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679991511"><span id="local-6989586621679991512"></span></span><span class="hs-keyword">data</span><span> </span><span id="NielsenNonLinearWatermarkSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-var">NielsenNonLinearWatermarkSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NielsenNonLinearWatermarkSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">NielsenNonLinearWatermarkSettings'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use the asset name that you provide to Nielsen for this asset. Required</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- for all Nielsen non-linear watermarking.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AassetName%3ANielsenNonLinearWatermarkSettings%27"><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AassetName%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var hs-var">assetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Choose the type of Nielsen watermarks that you want in your outputs.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- When you choose NAES 2 and NW (NAES2_AND_NW), you must provide a value</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- for the setting SID (sourceId). When you choose CBET (CBET), you must</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- provide a value for the setting CSID (cbetSourceId). When you choose</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- NAES 2, NW, and CBET (NAES2_AND_NW_AND_CBET), you must provide values</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- for both of these settings.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AactiveWatermarkProcess%3ANielsenNonLinearWatermarkSettings%27"><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings
+-&gt; Maybe NielsenActiveWatermarkProcessType
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AactiveWatermarkProcess%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var hs-var">activeWatermarkProcess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType.html#NielsenActiveWatermarkProcessType"><span class="hs-identifier hs-type">NielsenActiveWatermarkProcessType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Required. Specify whether your source content already contains Nielsen</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- non-linear watermarks. When you set this value to Watermarked</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- (WATERMARKED), the service fails the job. Nielsen requires that you add</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- non-linear watermarking to only clean content that doesn\'t already have</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- non-linear Nielsen watermarks.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AsourceWatermarkStatus%3ANielsenNonLinearWatermarkSettings%27"><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings
+-&gt; Maybe NielsenSourceWatermarkStatusType
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AsourceWatermarkStatus%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var hs-var">sourceWatermarkStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenSourceWatermarkStatusType.html#NielsenSourceWatermarkStatusType"><span class="hs-identifier hs-type">NielsenSourceWatermarkStatusType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Use the SID that Nielsen provides to you. This source ID should be</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- unique to your Nielsen account but common to all of your output assets.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Required for all Nielsen non-linear watermarking. This ID should be</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- unique to your Nielsen account but common to all of your output assets.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Required for all Nielsen non-linear watermarking.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AsourceId%3ANielsenNonLinearWatermarkSettings%27"><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AsourceId%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Use the CSID that Nielsen provides to you. This CBET source ID should be</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- unique to your Nielsen account but common to all of your output assets</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- that have CBET watermarking. Required when you choose a value for the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- setting Watermark types (ActiveWatermarkProcess) that includes CBET.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AcbetSourceId%3ANielsenNonLinearWatermarkSettings%27"><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AcbetSourceId%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var hs-var">cbetSourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Specify the endpoint for the TIC server that you have deployed and</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- configured in the AWS Cloud. Required for all Nielsen non-linear</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- watermarking. MediaConvert can\'t connect directly to a TIC server.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Instead, you must use API Gateway to provide a RESTful interface between</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- MediaConvert and a TIC server that you deploy in your AWS account. For</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- more information on deploying a TIC server in your AWS account and the</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- required API Gateway, contact Nielsen support.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AticServerUrl%3ANielsenNonLinearWatermarkSettings%27"><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AticServerUrl%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var hs-var">ticServerUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Optional. If this asset uses an episode ID with Nielsen, provide it</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- here.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AepisodeId%3ANielsenNonLinearWatermarkSettings%27"><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AepisodeId%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var hs-var">episodeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Specify the Amazon S3 location where you want MediaConvert to save your</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- Nielsen non-linear metadata .zip file. This Amazon S3 bucket must be in</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- the same Region as the one where you do your MediaConvert transcoding.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- If you want to include an ADI file in this .zip file, use the setting</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- ADI file (adiFilename) to specify it. MediaConvert delivers the Nielsen</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- metadata .zip files only to your metadata destination Amazon S3 bucket.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- It doesn\'t deliver the .zip files to Nielsen. You are responsible for</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- delivering the metadata .zip files to Nielsen.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AmetadataDestination%3ANielsenNonLinearWatermarkSettings%27"><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AmetadataDestination%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var hs-var">metadataDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | To create assets that have the same TIC values in each audio track, keep</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- the default value Share TICs (SAME_TICS_PER_TRACK). To create assets</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- that have unique TIC values for each audio track, choose Use unique TICs</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- (RESERVE_UNIQUE_TICS_PER_TRACK).</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AuniqueTicPerAudioTrack%3ANielsenNonLinearWatermarkSettings%27"><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings
+-&gt; Maybe NielsenUniqueTicPerAudioTrackType
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AuniqueTicPerAudioTrack%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var hs-var">uniqueTicPerAudioTrack</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenUniqueTicPerAudioTrackType.html#NielsenUniqueTicPerAudioTrackType"><span class="hs-identifier hs-type">NielsenUniqueTicPerAudioTrackType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | Optional. Use this setting when you want the service to include an ADI</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- file in the Nielsen metadata .zip file. To provide an ADI file, store it</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- in Amazon S3 and provide a URL to it here. The URL should be in the</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- following format: S3:\/\/bucket\/path\/ADI-file. For more information</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- about the metadata .zip file, see the setting Metadata destination</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- (metadataDestination).</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AadiFilename%3ANielsenNonLinearWatermarkSettings%27"><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AadiFilename%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var hs-var">adiFilename</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | Use the asset ID that you provide to Nielsen to uniquely identify this</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- asset. Required for all Nielsen non-linear watermarking.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AassetId%3ANielsenNonLinearWatermarkSettings%27"><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AassetId%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var hs-var">assetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679991495"><span id="local-6989586621679991497"><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings
+-&gt; NielsenNonLinearWatermarkSettings -&gt; Bool
+(NielsenNonLinearWatermarkSettings
+ -&gt; NielsenNonLinearWatermarkSettings -&gt; Bool)
+-&gt; (NielsenNonLinearWatermarkSettings
+    -&gt; NielsenNonLinearWatermarkSettings -&gt; Bool)
+-&gt; Eq NielsenNonLinearWatermarkSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NielsenNonLinearWatermarkSettings
+-&gt; NielsenNonLinearWatermarkSettings -&gt; Bool
+$c/= :: NielsenNonLinearWatermarkSettings
+-&gt; NielsenNonLinearWatermarkSettings -&gt; Bool
+== :: NielsenNonLinearWatermarkSettings
+-&gt; NielsenNonLinearWatermarkSettings -&gt; Bool
+$c== :: NielsenNonLinearWatermarkSettings
+-&gt; NielsenNonLinearWatermarkSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679991486"><span id="local-6989586621679991488"><span id="local-6989586621679991490"><span id="local-6989586621679991492"><span class="annot"><span class="annottext">ReadPrec [NielsenNonLinearWatermarkSettings]
+ReadPrec NielsenNonLinearWatermarkSettings
+Int -&gt; ReadS NielsenNonLinearWatermarkSettings
+ReadS [NielsenNonLinearWatermarkSettings]
+(Int -&gt; ReadS NielsenNonLinearWatermarkSettings)
+-&gt; ReadS [NielsenNonLinearWatermarkSettings]
+-&gt; ReadPrec NielsenNonLinearWatermarkSettings
+-&gt; ReadPrec [NielsenNonLinearWatermarkSettings]
+-&gt; Read NielsenNonLinearWatermarkSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NielsenNonLinearWatermarkSettings]
+$creadListPrec :: ReadPrec [NielsenNonLinearWatermarkSettings]
+readPrec :: ReadPrec NielsenNonLinearWatermarkSettings
+$creadPrec :: ReadPrec NielsenNonLinearWatermarkSettings
+readList :: ReadS [NielsenNonLinearWatermarkSettings]
+$creadList :: ReadS [NielsenNonLinearWatermarkSettings]
+readsPrec :: Int -&gt; ReadS NielsenNonLinearWatermarkSettings
+$creadsPrec :: Int -&gt; ReadS NielsenNonLinearWatermarkSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679991479"><span id="local-6989586621679991481"><span id="local-6989586621679991483"><span class="annot"><span class="annottext">Int -&gt; NielsenNonLinearWatermarkSettings -&gt; ShowS
+[NielsenNonLinearWatermarkSettings] -&gt; ShowS
+NielsenNonLinearWatermarkSettings -&gt; String
+(Int -&gt; NielsenNonLinearWatermarkSettings -&gt; ShowS)
+-&gt; (NielsenNonLinearWatermarkSettings -&gt; String)
+-&gt; ([NielsenNonLinearWatermarkSettings] -&gt; ShowS)
+-&gt; Show NielsenNonLinearWatermarkSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NielsenNonLinearWatermarkSettings] -&gt; ShowS
+$cshowList :: [NielsenNonLinearWatermarkSettings] -&gt; ShowS
+show :: NielsenNonLinearWatermarkSettings -&gt; String
+$cshow :: NielsenNonLinearWatermarkSettings -&gt; String
+showsPrec :: Int -&gt; NielsenNonLinearWatermarkSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; NielsenNonLinearWatermarkSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ NielsenNonLinearWatermarkSettings
+ -&gt; Rep NielsenNonLinearWatermarkSettings x)
+-&gt; (forall x.
+    Rep NielsenNonLinearWatermarkSettings x
+    -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Generic NielsenNonLinearWatermarkSettings
+forall x.
+Rep NielsenNonLinearWatermarkSettings x
+-&gt; NielsenNonLinearWatermarkSettings
+forall x.
+NielsenNonLinearWatermarkSettings
+-&gt; Rep NielsenNonLinearWatermarkSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NielsenNonLinearWatermarkSettings x
+-&gt; NielsenNonLinearWatermarkSettings
+$cfrom :: forall x.
+NielsenNonLinearWatermarkSettings
+-&gt; Rep NielsenNonLinearWatermarkSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Create a value of 'NielsenNonLinearWatermarkSettings' with all optional fields omitted.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'assetName', 'nielsenNonLinearWatermarkSettings_assetName' - Use the asset name that you provide to Nielsen for this asset. Required</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- for all Nielsen non-linear watermarking.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'activeWatermarkProcess', 'nielsenNonLinearWatermarkSettings_activeWatermarkProcess' - Choose the type of Nielsen watermarks that you want in your outputs.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- When you choose NAES 2 and NW (NAES2_AND_NW), you must provide a value</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- for the setting SID (sourceId). When you choose CBET (CBET), you must</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- provide a value for the setting CSID (cbetSourceId). When you choose</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- NAES 2, NW, and CBET (NAES2_AND_NW_AND_CBET), you must provide values</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- for both of these settings.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'sourceWatermarkStatus', 'nielsenNonLinearWatermarkSettings_sourceWatermarkStatus' - Required. Specify whether your source content already contains Nielsen</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- non-linear watermarks. When you set this value to Watermarked</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- (WATERMARKED), the service fails the job. Nielsen requires that you add</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- non-linear watermarking to only clean content that doesn\'t already have</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- non-linear Nielsen watermarks.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'sourceId', 'nielsenNonLinearWatermarkSettings_sourceId' - Use the SID that Nielsen provides to you. This source ID should be</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- unique to your Nielsen account but common to all of your output assets.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Required for all Nielsen non-linear watermarking. This ID should be</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- unique to your Nielsen account but common to all of your output assets.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Required for all Nielsen non-linear watermarking.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'cbetSourceId', 'nielsenNonLinearWatermarkSettings_cbetSourceId' - Use the CSID that Nielsen provides to you. This CBET source ID should be</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- unique to your Nielsen account but common to all of your output assets</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- that have CBET watermarking. Required when you choose a value for the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- setting Watermark types (ActiveWatermarkProcess) that includes CBET.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'ticServerUrl', 'nielsenNonLinearWatermarkSettings_ticServerUrl' - Specify the endpoint for the TIC server that you have deployed and</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- configured in the AWS Cloud. Required for all Nielsen non-linear</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- watermarking. MediaConvert can\'t connect directly to a TIC server.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Instead, you must use API Gateway to provide a RESTful interface between</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- MediaConvert and a TIC server that you deploy in your AWS account. For</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- more information on deploying a TIC server in your AWS account and the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- required API Gateway, contact Nielsen support.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'episodeId', 'nielsenNonLinearWatermarkSettings_episodeId' - Optional. If this asset uses an episode ID with Nielsen, provide it</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- here.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'metadataDestination', 'nielsenNonLinearWatermarkSettings_metadataDestination' - Specify the Amazon S3 location where you want MediaConvert to save your</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Nielsen non-linear metadata .zip file. This Amazon S3 bucket must be in</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- the same Region as the one where you do your MediaConvert transcoding.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- If you want to include an ADI file in this .zip file, use the setting</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- ADI file (adiFilename) to specify it. MediaConvert delivers the Nielsen</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- metadata .zip files only to your metadata destination Amazon S3 bucket.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- It doesn\'t deliver the .zip files to Nielsen. You are responsible for</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- delivering the metadata .zip files to Nielsen.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'uniqueTicPerAudioTrack', 'nielsenNonLinearWatermarkSettings_uniqueTicPerAudioTrack' - To create assets that have the same TIC values in each audio track, keep</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- the default value Share TICs (SAME_TICS_PER_TRACK). To create assets</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- that have unique TIC values for each audio track, choose Use unique TICs</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- (RESERVE_UNIQUE_TICS_PER_TRACK).</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'adiFilename', 'nielsenNonLinearWatermarkSettings_adiFilename' - Optional. Use this setting when you want the service to include an ADI</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- file in the Nielsen metadata .zip file. To provide an ADI file, store it</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- in Amazon S3 and provide a URL to it here. The URL should be in the</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- following format: S3:\/\/bucket\/path\/ADI-file. For more information</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- about the metadata .zip file, see the setting Metadata destination</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- (metadataDestination).</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'assetId', 'nielsenNonLinearWatermarkSettings_assetId' - Use the asset ID that you provide to Nielsen to uniquely identify this</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- asset. Required for all Nielsen non-linear watermarking.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#newNielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">newNielsenNonLinearWatermarkSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span>
+</span><span id="line-176"></span><span id="newNielsenNonLinearWatermarkSettings"><span class="annot"><span class="annottext">newNielsenNonLinearWatermarkSettings :: NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#newNielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-var hs-var">newNielsenNonLinearWatermarkSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings' :: Maybe Text
+-&gt; Maybe NielsenActiveWatermarkProcessType
+-&gt; Maybe NielsenSourceWatermarkStatusType
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe NielsenUniqueTicPerAudioTrackType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:assetName:NielsenNonLinearWatermarkSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AassetName%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">assetName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:activeWatermarkProcess:NielsenNonLinearWatermarkSettings' :: Maybe NielsenActiveWatermarkProcessType
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AactiveWatermarkProcess%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">activeWatermarkProcess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenActiveWatermarkProcessType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceWatermarkStatus:NielsenNonLinearWatermarkSettings' :: Maybe NielsenSourceWatermarkStatusType
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AsourceWatermarkStatus%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">sourceWatermarkStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenSourceWatermarkStatusType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceId:NielsenNonLinearWatermarkSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AsourceId%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">sourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:cbetSourceId:NielsenNonLinearWatermarkSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AcbetSourceId%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">cbetSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:ticServerUrl:NielsenNonLinearWatermarkSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AticServerUrl%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">ticServerUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:episodeId:NielsenNonLinearWatermarkSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AepisodeId%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">episodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:metadataDestination:NielsenNonLinearWatermarkSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AmetadataDestination%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">metadataDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:uniqueTicPerAudioTrack:NielsenNonLinearWatermarkSettings' :: Maybe NielsenUniqueTicPerAudioTrackType
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AuniqueTicPerAudioTrack%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">uniqueTicPerAudioTrack</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenUniqueTicPerAudioTrackType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:adiFilename:NielsenNonLinearWatermarkSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AadiFilename%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">adiFilename</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:assetId:NielsenNonLinearWatermarkSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AassetId%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">assetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Use the asset name that you provide to Nielsen for this asset. Required</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- for all Nielsen non-linear watermarking.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_assetName"><span class="hs-identifier hs-type">nielsenNonLinearWatermarkSettings_assetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="nielsenNonLinearWatermarkSettings_assetName"><span class="annot"><span class="annottext">nielsenNonLinearWatermarkSettings_assetName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NielsenNonLinearWatermarkSettings
+-&gt; f NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_assetName"><span class="hs-identifier hs-var hs-var">nielsenNonLinearWatermarkSettings_assetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenNonLinearWatermarkSettings -&gt; Maybe Text)
+-&gt; (NielsenNonLinearWatermarkSettings
+    -&gt; Maybe Text -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Lens
+     NielsenNonLinearWatermarkSettings
+     NielsenNonLinearWatermarkSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991470"><span class="annot"><span class="annottext">Maybe Text
+assetName :: Maybe Text
+$sel:assetName:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679991470"><span class="hs-identifier hs-var hs-var">assetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991470"><span class="hs-identifier hs-var">assetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991469"><span class="annot"><span class="annottext">s :: NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991468"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetName:NielsenNonLinearWatermarkSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AassetName%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">assetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | Choose the type of Nielsen watermarks that you want in your outputs.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- When you choose NAES 2 and NW (NAES2_AND_NW), you must provide a value</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- for the setting SID (sourceId). When you choose CBET (CBET), you must</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- provide a value for the setting CSID (cbetSourceId). When you choose</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- NAES 2, NW, and CBET (NAES2_AND_NW_AND_CBET), you must provide values</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- for both of these settings.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_activeWatermarkProcess"><span class="hs-identifier hs-type">nielsenNonLinearWatermarkSettings_activeWatermarkProcess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType.html#NielsenActiveWatermarkProcessType"><span class="hs-identifier hs-type">NielsenActiveWatermarkProcessType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="nielsenNonLinearWatermarkSettings_activeWatermarkProcess"><span class="annot"><span class="annottext">nielsenNonLinearWatermarkSettings_activeWatermarkProcess :: (Maybe NielsenActiveWatermarkProcessType
+ -&gt; f (Maybe NielsenActiveWatermarkProcessType))
+-&gt; NielsenNonLinearWatermarkSettings
+-&gt; f NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_activeWatermarkProcess"><span class="hs-identifier hs-var hs-var">nielsenNonLinearWatermarkSettings_activeWatermarkProcess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenNonLinearWatermarkSettings
+ -&gt; Maybe NielsenActiveWatermarkProcessType)
+-&gt; (NielsenNonLinearWatermarkSettings
+    -&gt; Maybe NielsenActiveWatermarkProcessType
+    -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Lens
+     NielsenNonLinearWatermarkSettings
+     NielsenNonLinearWatermarkSettings
+     (Maybe NielsenActiveWatermarkProcessType)
+     (Maybe NielsenActiveWatermarkProcessType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991466"><span class="annot"><span class="annottext">Maybe NielsenActiveWatermarkProcessType
+activeWatermarkProcess :: Maybe NielsenActiveWatermarkProcessType
+$sel:activeWatermarkProcess:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings
+-&gt; Maybe NielsenActiveWatermarkProcessType
+</span><a href="#local-6989586621679991466"><span class="hs-identifier hs-var hs-var">activeWatermarkProcess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenActiveWatermarkProcessType
+</span><a href="#local-6989586621679991466"><span class="hs-identifier hs-var">activeWatermarkProcess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991465"><span class="annot"><span class="annottext">s :: NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991464"><span class="annot"><span class="annottext">Maybe NielsenActiveWatermarkProcessType
+</span><a href="#local-6989586621679991464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activeWatermarkProcess:NielsenNonLinearWatermarkSettings' :: Maybe NielsenActiveWatermarkProcessType
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AactiveWatermarkProcess%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">activeWatermarkProcess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenActiveWatermarkProcessType
+</span><a href="#local-6989586621679991464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | Required. Specify whether your source content already contains Nielsen</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- non-linear watermarks. When you set this value to Watermarked</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- (WATERMARKED), the service fails the job. Nielsen requires that you add</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- non-linear watermarking to only clean content that doesn\'t already have</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- non-linear Nielsen watermarks.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_sourceWatermarkStatus"><span class="hs-identifier hs-type">nielsenNonLinearWatermarkSettings_sourceWatermarkStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenSourceWatermarkStatusType.html#NielsenSourceWatermarkStatusType"><span class="hs-identifier hs-type">NielsenSourceWatermarkStatusType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="nielsenNonLinearWatermarkSettings_sourceWatermarkStatus"><span class="annot"><span class="annottext">nielsenNonLinearWatermarkSettings_sourceWatermarkStatus :: (Maybe NielsenSourceWatermarkStatusType
+ -&gt; f (Maybe NielsenSourceWatermarkStatusType))
+-&gt; NielsenNonLinearWatermarkSettings
+-&gt; f NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_sourceWatermarkStatus"><span class="hs-identifier hs-var hs-var">nielsenNonLinearWatermarkSettings_sourceWatermarkStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenNonLinearWatermarkSettings
+ -&gt; Maybe NielsenSourceWatermarkStatusType)
+-&gt; (NielsenNonLinearWatermarkSettings
+    -&gt; Maybe NielsenSourceWatermarkStatusType
+    -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Lens
+     NielsenNonLinearWatermarkSettings
+     NielsenNonLinearWatermarkSettings
+     (Maybe NielsenSourceWatermarkStatusType)
+     (Maybe NielsenSourceWatermarkStatusType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991462"><span class="annot"><span class="annottext">Maybe NielsenSourceWatermarkStatusType
+sourceWatermarkStatus :: Maybe NielsenSourceWatermarkStatusType
+$sel:sourceWatermarkStatus:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings
+-&gt; Maybe NielsenSourceWatermarkStatusType
+</span><a href="#local-6989586621679991462"><span class="hs-identifier hs-var hs-var">sourceWatermarkStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenSourceWatermarkStatusType
+</span><a href="#local-6989586621679991462"><span class="hs-identifier hs-var">sourceWatermarkStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991461"><span class="annot"><span class="annottext">s :: NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991460"><span class="annot"><span class="annottext">Maybe NielsenSourceWatermarkStatusType
+</span><a href="#local-6989586621679991460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceWatermarkStatus:NielsenNonLinearWatermarkSettings' :: Maybe NielsenSourceWatermarkStatusType
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AsourceWatermarkStatus%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">sourceWatermarkStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenSourceWatermarkStatusType
+</span><a href="#local-6989586621679991460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | Use the SID that Nielsen provides to you. This source ID should be</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- unique to your Nielsen account but common to all of your output assets.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- Required for all Nielsen non-linear watermarking. This ID should be</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- unique to your Nielsen account but common to all of your output assets.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Required for all Nielsen non-linear watermarking.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_sourceId"><span class="hs-identifier hs-type">nielsenNonLinearWatermarkSettings_sourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="nielsenNonLinearWatermarkSettings_sourceId"><span class="annot"><span class="annottext">nielsenNonLinearWatermarkSettings_sourceId :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; NielsenNonLinearWatermarkSettings
+-&gt; f NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_sourceId"><span class="hs-identifier hs-var hs-var">nielsenNonLinearWatermarkSettings_sourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenNonLinearWatermarkSettings -&gt; Maybe Natural)
+-&gt; (NielsenNonLinearWatermarkSettings
+    -&gt; Maybe Natural -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Lens
+     NielsenNonLinearWatermarkSettings
+     NielsenNonLinearWatermarkSettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991458"><span class="annot"><span class="annottext">Maybe Natural
+sourceId :: Maybe Natural
+$sel:sourceId:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679991458"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679991458"><span class="hs-identifier hs-var">sourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991457"><span class="annot"><span class="annottext">s :: NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991456"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679991456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceId:NielsenNonLinearWatermarkSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AsourceId%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">sourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679991456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | Use the CSID that Nielsen provides to you. This CBET source ID should be</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- unique to your Nielsen account but common to all of your output assets</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- that have CBET watermarking. Required when you choose a value for the</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- setting Watermark types (ActiveWatermarkProcess) that includes CBET.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_cbetSourceId"><span class="hs-identifier hs-type">nielsenNonLinearWatermarkSettings_cbetSourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="nielsenNonLinearWatermarkSettings_cbetSourceId"><span class="annot"><span class="annottext">nielsenNonLinearWatermarkSettings_cbetSourceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NielsenNonLinearWatermarkSettings
+-&gt; f NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_cbetSourceId"><span class="hs-identifier hs-var hs-var">nielsenNonLinearWatermarkSettings_cbetSourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenNonLinearWatermarkSettings -&gt; Maybe Text)
+-&gt; (NielsenNonLinearWatermarkSettings
+    -&gt; Maybe Text -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Lens
+     NielsenNonLinearWatermarkSettings
+     NielsenNonLinearWatermarkSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991454"><span class="annot"><span class="annottext">Maybe Text
+cbetSourceId :: Maybe Text
+$sel:cbetSourceId:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679991454"><span class="hs-identifier hs-var hs-var">cbetSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991454"><span class="hs-identifier hs-var">cbetSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991453"><span class="annot"><span class="annottext">s :: NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991452"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cbetSourceId:NielsenNonLinearWatermarkSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AcbetSourceId%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">cbetSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | Specify the endpoint for the TIC server that you have deployed and</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- configured in the AWS Cloud. Required for all Nielsen non-linear</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- watermarking. MediaConvert can\'t connect directly to a TIC server.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- Instead, you must use API Gateway to provide a RESTful interface between</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- MediaConvert and a TIC server that you deploy in your AWS account. For</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- more information on deploying a TIC server in your AWS account and the</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- required API Gateway, contact Nielsen support.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_ticServerUrl"><span class="hs-identifier hs-type">nielsenNonLinearWatermarkSettings_ticServerUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="nielsenNonLinearWatermarkSettings_ticServerUrl"><span class="annot"><span class="annottext">nielsenNonLinearWatermarkSettings_ticServerUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NielsenNonLinearWatermarkSettings
+-&gt; f NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_ticServerUrl"><span class="hs-identifier hs-var hs-var">nielsenNonLinearWatermarkSettings_ticServerUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenNonLinearWatermarkSettings -&gt; Maybe Text)
+-&gt; (NielsenNonLinearWatermarkSettings
+    -&gt; Maybe Text -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Lens
+     NielsenNonLinearWatermarkSettings
+     NielsenNonLinearWatermarkSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991450"><span class="annot"><span class="annottext">Maybe Text
+ticServerUrl :: Maybe Text
+$sel:ticServerUrl:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679991450"><span class="hs-identifier hs-var hs-var">ticServerUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991450"><span class="hs-identifier hs-var">ticServerUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991449"><span class="annot"><span class="annottext">s :: NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991448"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ticServerUrl:NielsenNonLinearWatermarkSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AticServerUrl%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">ticServerUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | Optional. If this asset uses an episode ID with Nielsen, provide it</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- here.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_episodeId"><span class="hs-identifier hs-type">nielsenNonLinearWatermarkSettings_episodeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="nielsenNonLinearWatermarkSettings_episodeId"><span class="annot"><span class="annottext">nielsenNonLinearWatermarkSettings_episodeId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NielsenNonLinearWatermarkSettings
+-&gt; f NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_episodeId"><span class="hs-identifier hs-var hs-var">nielsenNonLinearWatermarkSettings_episodeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenNonLinearWatermarkSettings -&gt; Maybe Text)
+-&gt; (NielsenNonLinearWatermarkSettings
+    -&gt; Maybe Text -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Lens
+     NielsenNonLinearWatermarkSettings
+     NielsenNonLinearWatermarkSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991446"><span class="annot"><span class="annottext">Maybe Text
+episodeId :: Maybe Text
+$sel:episodeId:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679991446"><span class="hs-identifier hs-var hs-var">episodeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991446"><span class="hs-identifier hs-var">episodeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991445"><span class="annot"><span class="annottext">s :: NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991444"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:episodeId:NielsenNonLinearWatermarkSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AepisodeId%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">episodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | Specify the Amazon S3 location where you want MediaConvert to save your</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- Nielsen non-linear metadata .zip file. This Amazon S3 bucket must be in</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- the same Region as the one where you do your MediaConvert transcoding.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- If you want to include an ADI file in this .zip file, use the setting</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- ADI file (adiFilename) to specify it. MediaConvert delivers the Nielsen</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- metadata .zip files only to your metadata destination Amazon S3 bucket.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- It doesn\'t deliver the .zip files to Nielsen. You are responsible for</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- delivering the metadata .zip files to Nielsen.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_metadataDestination"><span class="hs-identifier hs-type">nielsenNonLinearWatermarkSettings_metadataDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="nielsenNonLinearWatermarkSettings_metadataDestination"><span class="annot"><span class="annottext">nielsenNonLinearWatermarkSettings_metadataDestination :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NielsenNonLinearWatermarkSettings
+-&gt; f NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_metadataDestination"><span class="hs-identifier hs-var hs-var">nielsenNonLinearWatermarkSettings_metadataDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenNonLinearWatermarkSettings -&gt; Maybe Text)
+-&gt; (NielsenNonLinearWatermarkSettings
+    -&gt; Maybe Text -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Lens
+     NielsenNonLinearWatermarkSettings
+     NielsenNonLinearWatermarkSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991442"><span class="annot"><span class="annottext">Maybe Text
+metadataDestination :: Maybe Text
+$sel:metadataDestination:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679991442"><span class="hs-identifier hs-var hs-var">metadataDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991442"><span class="hs-identifier hs-var">metadataDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991441"><span class="annot"><span class="annottext">s :: NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991440"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadataDestination:NielsenNonLinearWatermarkSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AmetadataDestination%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">metadataDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | To create assets that have the same TIC values in each audio track, keep</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- the default value Share TICs (SAME_TICS_PER_TRACK). To create assets</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- that have unique TIC values for each audio track, choose Use unique TICs</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- (RESERVE_UNIQUE_TICS_PER_TRACK).</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_uniqueTicPerAudioTrack"><span class="hs-identifier hs-type">nielsenNonLinearWatermarkSettings_uniqueTicPerAudioTrack</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenUniqueTicPerAudioTrackType.html#NielsenUniqueTicPerAudioTrackType"><span class="hs-identifier hs-type">NielsenUniqueTicPerAudioTrackType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="nielsenNonLinearWatermarkSettings_uniqueTicPerAudioTrack"><span class="annot"><span class="annottext">nielsenNonLinearWatermarkSettings_uniqueTicPerAudioTrack :: (Maybe NielsenUniqueTicPerAudioTrackType
+ -&gt; f (Maybe NielsenUniqueTicPerAudioTrackType))
+-&gt; NielsenNonLinearWatermarkSettings
+-&gt; f NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_uniqueTicPerAudioTrack"><span class="hs-identifier hs-var hs-var">nielsenNonLinearWatermarkSettings_uniqueTicPerAudioTrack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenNonLinearWatermarkSettings
+ -&gt; Maybe NielsenUniqueTicPerAudioTrackType)
+-&gt; (NielsenNonLinearWatermarkSettings
+    -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+    -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Lens
+     NielsenNonLinearWatermarkSettings
+     NielsenNonLinearWatermarkSettings
+     (Maybe NielsenUniqueTicPerAudioTrackType)
+     (Maybe NielsenUniqueTicPerAudioTrackType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991438"><span class="annot"><span class="annottext">Maybe NielsenUniqueTicPerAudioTrackType
+uniqueTicPerAudioTrack :: Maybe NielsenUniqueTicPerAudioTrackType
+$sel:uniqueTicPerAudioTrack:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings
+-&gt; Maybe NielsenUniqueTicPerAudioTrackType
+</span><a href="#local-6989586621679991438"><span class="hs-identifier hs-var hs-var">uniqueTicPerAudioTrack</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenUniqueTicPerAudioTrackType
+</span><a href="#local-6989586621679991438"><span class="hs-identifier hs-var">uniqueTicPerAudioTrack</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991437"><span class="annot"><span class="annottext">s :: NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991436"><span class="annot"><span class="annottext">Maybe NielsenUniqueTicPerAudioTrackType
+</span><a href="#local-6989586621679991436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uniqueTicPerAudioTrack:NielsenNonLinearWatermarkSettings' :: Maybe NielsenUniqueTicPerAudioTrackType
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AuniqueTicPerAudioTrack%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">uniqueTicPerAudioTrack</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenUniqueTicPerAudioTrackType
+</span><a href="#local-6989586621679991436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | Optional. Use this setting when you want the service to include an ADI</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- file in the Nielsen metadata .zip file. To provide an ADI file, store it</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- in Amazon S3 and provide a URL to it here. The URL should be in the</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- following format: S3:\/\/bucket\/path\/ADI-file. For more information</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- about the metadata .zip file, see the setting Metadata destination</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- (metadataDestination).</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_adiFilename"><span class="hs-identifier hs-type">nielsenNonLinearWatermarkSettings_adiFilename</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span id="nielsenNonLinearWatermarkSettings_adiFilename"><span class="annot"><span class="annottext">nielsenNonLinearWatermarkSettings_adiFilename :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NielsenNonLinearWatermarkSettings
+-&gt; f NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_adiFilename"><span class="hs-identifier hs-var hs-var">nielsenNonLinearWatermarkSettings_adiFilename</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenNonLinearWatermarkSettings -&gt; Maybe Text)
+-&gt; (NielsenNonLinearWatermarkSettings
+    -&gt; Maybe Text -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Lens
+     NielsenNonLinearWatermarkSettings
+     NielsenNonLinearWatermarkSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991434"><span class="annot"><span class="annottext">Maybe Text
+adiFilename :: Maybe Text
+$sel:adiFilename:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679991434"><span class="hs-identifier hs-var hs-var">adiFilename</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991434"><span class="hs-identifier hs-var">adiFilename</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991433"><span class="annot"><span class="annottext">s :: NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991432"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adiFilename:NielsenNonLinearWatermarkSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AadiFilename%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">adiFilename</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | Use the asset ID that you provide to Nielsen to uniquely identify this</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- asset. Required for all Nielsen non-linear watermarking.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_assetId"><span class="hs-identifier hs-type">nielsenNonLinearWatermarkSettings_assetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="nielsenNonLinearWatermarkSettings_assetId"><span class="annot"><span class="annottext">nielsenNonLinearWatermarkSettings_assetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NielsenNonLinearWatermarkSettings
+-&gt; f NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#nielsenNonLinearWatermarkSettings_assetId"><span class="hs-identifier hs-var hs-var">nielsenNonLinearWatermarkSettings_assetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenNonLinearWatermarkSettings -&gt; Maybe Text)
+-&gt; (NielsenNonLinearWatermarkSettings
+    -&gt; Maybe Text -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Lens
+     NielsenNonLinearWatermarkSettings
+     NielsenNonLinearWatermarkSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991430"><span class="annot"><span class="annottext">Maybe Text
+assetId :: Maybe Text
+$sel:assetId:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679991430"><span class="hs-identifier hs-var hs-var">assetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991430"><span class="hs-identifier hs-var">assetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991429"><span class="annot"><span class="annottext">s :: NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991428"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621679991429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetId:NielsenNonLinearWatermarkSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#%24sel%3AassetId%3ANielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">assetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621679991425"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span></span><span>
+</span><span id="line-279"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621679991423"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NielsenNonLinearWatermarkSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser NielsenNonLinearWatermarkSettings)
+-&gt; Value
+-&gt; Parser NielsenNonLinearWatermarkSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-282"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NielsenNonLinearWatermarkSettings&quot;</span></span><span>
+</span><span id="line-283"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679991420"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679991420"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-284"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe NielsenActiveWatermarkProcessType
+-&gt; Maybe NielsenSourceWatermarkStatusType
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe NielsenUniqueTicPerAudioTrackType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-var">NielsenNonLinearWatermarkSettings'</span></a></span><span>
+</span><span id="line-285"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe NielsenActiveWatermarkProcessType
+ -&gt; Maybe NielsenSourceWatermarkStatusType
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe NielsenActiveWatermarkProcessType
+      -&gt; Maybe NielsenSourceWatermarkStatusType
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; NielsenNonLinearWatermarkSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679991420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NielsenActiveWatermarkProcessType
+   -&gt; Maybe NielsenSourceWatermarkStatusType
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Parser (Maybe NielsenActiveWatermarkProcessType)
+-&gt; Parser
+     (Maybe NielsenSourceWatermarkStatusType
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; NielsenNonLinearWatermarkSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679991420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NielsenActiveWatermarkProcessType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;activeWatermarkProcess&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NielsenSourceWatermarkStatusType
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Parser (Maybe NielsenSourceWatermarkStatusType)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; NielsenNonLinearWatermarkSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679991420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NielsenSourceWatermarkStatusType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceWatermarkStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; NielsenNonLinearWatermarkSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679991420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; NielsenNonLinearWatermarkSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679991420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cbetSourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; NielsenNonLinearWatermarkSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679991420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ticServerUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; NielsenNonLinearWatermarkSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679991420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;episodeId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe NielsenUniqueTicPerAudioTrackType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe NielsenUniqueTicPerAudioTrackType
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; NielsenNonLinearWatermarkSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679991420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metadataDestination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NielsenUniqueTicPerAudioTrackType
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Parser (Maybe NielsenUniqueTicPerAudioTrackType)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; NielsenNonLinearWatermarkSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679991420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NielsenUniqueTicPerAudioTrackType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uniqueTicPerAudioTrack&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; NielsenNonLinearWatermarkSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679991420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;adiFilename&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; NielsenNonLinearWatermarkSettings)
+-&gt; Parser (Maybe Text) -&gt; Parser NielsenNonLinearWatermarkSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679991420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-299"></span><span>  </span><span id="local-6989586621679991414"><span id="local-6989586621679991416"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span></span></span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-303"></span><span>  </span><span id="local-6989586621679991411"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span></span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-307"></span><span>  </span><span id="local-6989586621679991403"><span id="local-6989586621679991405"><span id="local-6989586621679991407"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span></span></span></span><span>
+</span><span id="line-309"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-310"></span><span>  </span><span id="local-6989586621679991401"><span class="annot"><span class="annottext">toJSON :: NielsenNonLinearWatermarkSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings%27"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991389"><span id="local-6989586621679991390"><span id="local-6989586621679991391"><span id="local-6989586621679991392"><span id="local-6989586621679991393"><span id="local-6989586621679991394"><span id="local-6989586621679991395"><span id="local-6989586621679991396"><span id="local-6989586621679991397"><span id="local-6989586621679991398"><span id="local-6989586621679991399"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe NielsenActiveWatermarkProcessType
+Maybe NielsenSourceWatermarkStatusType
+Maybe NielsenUniqueTicPerAudioTrackType
+assetId :: Maybe Text
+adiFilename :: Maybe Text
+uniqueTicPerAudioTrack :: Maybe NielsenUniqueTicPerAudioTrackType
+metadataDestination :: Maybe Text
+episodeId :: Maybe Text
+ticServerUrl :: Maybe Text
+cbetSourceId :: Maybe Text
+sourceId :: Maybe Natural
+sourceWatermarkStatus :: Maybe NielsenSourceWatermarkStatusType
+activeWatermarkProcess :: Maybe NielsenActiveWatermarkProcessType
+assetName :: Maybe Text
+$sel:assetId:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+$sel:adiFilename:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+$sel:uniqueTicPerAudioTrack:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings
+-&gt; Maybe NielsenUniqueTicPerAudioTrackType
+$sel:metadataDestination:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+$sel:episodeId:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+$sel:ticServerUrl:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+$sel:cbetSourceId:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+$sel:sourceId:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Natural
+$sel:sourceWatermarkStatus:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings
+-&gt; Maybe NielsenSourceWatermarkStatusType
+$sel:activeWatermarkProcess:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings
+-&gt; Maybe NielsenActiveWatermarkProcessType
+$sel:assetName:NielsenNonLinearWatermarkSettings' :: NielsenNonLinearWatermarkSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679991389"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-311"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-312"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-313"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991399"><span class="hs-identifier hs-var">assetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;activeWatermarkProcess&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NielsenActiveWatermarkProcessType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>              </span><span class="annot"><span class="annottext">(NielsenActiveWatermarkProcessType -&gt; Pair)
+-&gt; Maybe NielsenActiveWatermarkProcessType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NielsenActiveWatermarkProcessType
+</span><a href="#local-6989586621679991398"><span class="hs-identifier hs-var">activeWatermarkProcess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceWatermarkStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NielsenSourceWatermarkStatusType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>              </span><span class="annot"><span class="annottext">(NielsenSourceWatermarkStatusType -&gt; Pair)
+-&gt; Maybe NielsenSourceWatermarkStatusType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NielsenSourceWatermarkStatusType
+</span><a href="#local-6989586621679991397"><span class="hs-identifier hs-var">sourceWatermarkStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679991396"><span class="hs-identifier hs-var">sourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cbetSourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991395"><span class="hs-identifier hs-var">cbetSourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ticServerUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991394"><span class="hs-identifier hs-var">ticServerUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;episodeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991393"><span class="hs-identifier hs-var">episodeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metadataDestination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991392"><span class="hs-identifier hs-var">metadataDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uniqueTicPerAudioTrack&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NielsenUniqueTicPerAudioTrackType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>              </span><span class="annot"><span class="annottext">(NielsenUniqueTicPerAudioTrackType -&gt; Pair)
+-&gt; Maybe NielsenUniqueTicPerAudioTrackType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NielsenUniqueTicPerAudioTrackType
+</span><a href="#local-6989586621679991391"><span class="hs-identifier hs-var">uniqueTicPerAudioTrack</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;adiFilename&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991390"><span class="hs-identifier hs-var">adiFilename</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991389"><span class="hs-identifier hs-var">assetId</span></a></span><span>
+</span><span id="line-328"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-329"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span></pre></body></html>

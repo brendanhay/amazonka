@@ -1,0 +1,719 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.CreateRegistry</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new registry which may be used to hold a collection of</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- schemas.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.CreateRegistry</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier">CreateRegistry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#newCreateRegistry"><span class="hs-identifier">newCreateRegistry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistry_tags"><span class="hs-identifier">createRegistry_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistry_description"><span class="hs-identifier">createRegistry_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistry_registryName"><span class="hs-identifier">createRegistry_registryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse"><span class="hs-identifier">CreateRegistryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#newCreateRegistryResponse"><span class="hs-identifier">newCreateRegistryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistryResponse_registryName"><span class="hs-identifier">createRegistryResponse_registryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistryResponse_tags"><span class="hs-identifier">createRegistryResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistryResponse_description"><span class="hs-identifier">createRegistryResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistryResponse_registryArn"><span class="hs-identifier">createRegistryResponse_registryArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistryResponse_httpStatus"><span class="hs-identifier">createRegistryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.html"><span class="hs-identifier">Network.AWS.Glue.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newCreateRegistry' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679737682"><span id="local-6989586621679737683"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRegistry"><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-var">CreateRegistry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRegistry%27"><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry%27"><span class="hs-identifier hs-var">CreateRegistry'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon Web Services tags that contain a key value pair and may be</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- searched by console, command line, or API.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Atags%3ACreateRegistry%27"><span class="annot"><span class="annottext">CreateRegistry -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3Atags%3ACreateRegistry%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A description of the registry. If description is not provided, there</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- will not be any default value for this.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Adescription%3ACreateRegistry%27"><span class="annot"><span class="annottext">CreateRegistry -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3Adescription%3ACreateRegistry%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Name of the registry to be created of max length of 255, and may only</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- No whitespace.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AregistryName%3ACreateRegistry%27"><span class="annot"><span class="annottext">CreateRegistry -&gt; Text
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3AregistryName%3ACreateRegistry%27"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679737674"><span id="local-6989586621679737676"><span class="annot"><span class="annottext">CreateRegistry -&gt; CreateRegistry -&gt; Bool
+(CreateRegistry -&gt; CreateRegistry -&gt; Bool)
+-&gt; (CreateRegistry -&gt; CreateRegistry -&gt; Bool) -&gt; Eq CreateRegistry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRegistry -&gt; CreateRegistry -&gt; Bool
+$c/= :: CreateRegistry -&gt; CreateRegistry -&gt; Bool
+== :: CreateRegistry -&gt; CreateRegistry -&gt; Bool
+$c== :: CreateRegistry -&gt; CreateRegistry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679737665"><span id="local-6989586621679737667"><span id="local-6989586621679737669"><span id="local-6989586621679737671"><span class="annot"><span class="annottext">ReadPrec [CreateRegistry]
+ReadPrec CreateRegistry
+Int -&gt; ReadS CreateRegistry
+ReadS [CreateRegistry]
+(Int -&gt; ReadS CreateRegistry)
+-&gt; ReadS [CreateRegistry]
+-&gt; ReadPrec CreateRegistry
+-&gt; ReadPrec [CreateRegistry]
+-&gt; Read CreateRegistry
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRegistry]
+$creadListPrec :: ReadPrec [CreateRegistry]
+readPrec :: ReadPrec CreateRegistry
+$creadPrec :: ReadPrec CreateRegistry
+readList :: ReadS [CreateRegistry]
+$creadList :: ReadS [CreateRegistry]
+readsPrec :: Int -&gt; ReadS CreateRegistry
+$creadsPrec :: Int -&gt; ReadS CreateRegistry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679737658"><span id="local-6989586621679737660"><span id="local-6989586621679737662"><span class="annot"><span class="annottext">Int -&gt; CreateRegistry -&gt; ShowS
+[CreateRegistry] -&gt; ShowS
+CreateRegistry -&gt; String
+(Int -&gt; CreateRegistry -&gt; ShowS)
+-&gt; (CreateRegistry -&gt; String)
+-&gt; ([CreateRegistry] -&gt; ShowS)
+-&gt; Show CreateRegistry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRegistry] -&gt; ShowS
+$cshowList :: [CreateRegistry] -&gt; ShowS
+show :: CreateRegistry -&gt; String
+$cshow :: CreateRegistry -&gt; String
+showsPrec :: Int -&gt; CreateRegistry -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRegistry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateRegistry -&gt; Rep CreateRegistry x)
+-&gt; (forall x. Rep CreateRegistry x -&gt; CreateRegistry)
+-&gt; Generic CreateRegistry
+forall x. Rep CreateRegistry x -&gt; CreateRegistry
+forall x. CreateRegistry -&gt; Rep CreateRegistry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateRegistry x -&gt; CreateRegistry
+$cfrom :: forall x. CreateRegistry -&gt; Rep CreateRegistry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'CreateRegistry' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'tags', 'createRegistry_tags' - Amazon Web Services tags that contain a key value pair and may be</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- searched by console, command line, or API.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'description', 'createRegistry_description' - A description of the registry. If description is not provided, there</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- will not be any default value for this.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'registryName', 'createRegistry_registryName' - Name of the registry to be created of max length of 255, and may only</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- No whitespace.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#newCreateRegistry"><span class="hs-identifier hs-type">newCreateRegistry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'registryName'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-type">CreateRegistry</span></a></span><span>
+</span><span id="line-91"></span><span id="newCreateRegistry"><span class="annot"><span class="annottext">newCreateRegistry :: Text -&gt; CreateRegistry
+</span><a href="Network.AWS.Glue.CreateRegistry.html#newCreateRegistry"><span class="hs-identifier hs-var hs-var">newCreateRegistry</span></a></span></span><span> </span><span id="local-6989586621679737653"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679737653"><span class="hs-identifier hs-var">pRegistryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">CreateRegistry' :: Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; Text -&gt; CreateRegistry
+</span><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry%27"><span class="hs-identifier hs-type">CreateRegistry'</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateRegistry' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3Atags%3ACreateRegistry%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateRegistry' :: Maybe Text
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3Adescription%3ACreateRegistry%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:registryName:CreateRegistry' :: Text
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3AregistryName%3ACreateRegistry%27"><span class="hs-identifier hs-var">registryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679737653"><span class="hs-identifier hs-var">pRegistryName_</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Amazon Web Services tags that contain a key value pair and may be</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- searched by console, command line, or API.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistry_tags"><span class="hs-identifier hs-type">createRegistry_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-type">CreateRegistry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="createRegistry_tags"><span class="annot"><span class="annottext">createRegistry_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateRegistry -&gt; f CreateRegistry
+</span><a href="Network.AWS.Glue.CreateRegistry.html#createRegistry_tags"><span class="hs-identifier hs-var hs-var">createRegistry_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRegistry -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateRegistry -&gt; Maybe (HashMap Text Text) -&gt; CreateRegistry)
+-&gt; Lens
+     CreateRegistry
+     CreateRegistry
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry%27"><span class="hs-identifier hs-type">CreateRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679737650"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateRegistry' :: CreateRegistry -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679737650"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679737650"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679737649"><span class="annot"><span class="annottext">s :: CreateRegistry
+</span><a href="#local-6989586621679737649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry%27"><span class="hs-identifier hs-type">CreateRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679737648"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679737648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRegistry
+</span><a href="#local-6989586621679737649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRegistry' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3Atags%3ACreateRegistry%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679737648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-type">CreateRegistry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateRegistry -&gt; f CreateRegistry)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateRegistry
+-&gt; f CreateRegistry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | A description of the registry. If description is not provided, there</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- will not be any default value for this.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistry_description"><span class="hs-identifier hs-type">createRegistry_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-type">CreateRegistry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="createRegistry_description"><span class="annot"><span class="annottext">createRegistry_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRegistry -&gt; f CreateRegistry
+</span><a href="Network.AWS.Glue.CreateRegistry.html#createRegistry_description"><span class="hs-identifier hs-var hs-var">createRegistry_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRegistry -&gt; Maybe Text)
+-&gt; (CreateRegistry -&gt; Maybe Text -&gt; CreateRegistry)
+-&gt; Lens CreateRegistry CreateRegistry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry%27"><span class="hs-identifier hs-type">CreateRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679737644"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateRegistry' :: CreateRegistry -&gt; Maybe Text
+</span><a href="#local-6989586621679737644"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679737644"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679737643"><span class="annot"><span class="annottext">s :: CreateRegistry
+</span><a href="#local-6989586621679737643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry%27"><span class="hs-identifier hs-type">CreateRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679737642"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679737642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRegistry
+</span><a href="#local-6989586621679737643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateRegistry' :: Maybe Text
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3Adescription%3ACreateRegistry%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679737642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-type">CreateRegistry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | Name of the registry to be created of max length of 255, and may only</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- No whitespace.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistry_registryName"><span class="hs-identifier hs-type">createRegistry_registryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-type">CreateRegistry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="createRegistry_registryName"><span class="annot"><span class="annottext">createRegistry_registryName :: (Text -&gt; f Text) -&gt; CreateRegistry -&gt; f CreateRegistry
+</span><a href="Network.AWS.Glue.CreateRegistry.html#createRegistry_registryName"><span class="hs-identifier hs-var hs-var">createRegistry_registryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRegistry -&gt; Text)
+-&gt; (CreateRegistry -&gt; Text -&gt; CreateRegistry)
+-&gt; Lens CreateRegistry CreateRegistry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry%27"><span class="hs-identifier hs-type">CreateRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679737641"><span class="annot"><span class="annottext">Text
+registryName :: Text
+$sel:registryName:CreateRegistry' :: CreateRegistry -&gt; Text
+</span><a href="#local-6989586621679737641"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679737641"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679737640"><span class="annot"><span class="annottext">s :: CreateRegistry
+</span><a href="#local-6989586621679737640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry%27"><span class="hs-identifier hs-type">CreateRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679737639"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679737639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRegistry
+</span><a href="#local-6989586621679737640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryName:CreateRegistry' :: Text
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3AregistryName%3ACreateRegistry%27"><span class="hs-identifier hs-var">registryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679737639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-type">CreateRegistry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-type">CreateRegistry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-type">CreateRegistry</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse"><span class="hs-identifier hs-type">CreateRegistryResponse</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679737635"><span class="annot"><span class="annottext">request :: CreateRegistry -&gt; Request CreateRegistry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateRegistry -&gt; Request CreateRegistry
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679737631"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateRegistry
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateRegistry)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateRegistry))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateRegistry
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateRegistry)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679737628"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679737628"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679737627"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679737627"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679737626"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679737626"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; CreateRegistryResponse
+</span><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse%27"><span class="hs-identifier hs-var">CreateRegistryResponse'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; CreateRegistryResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateRegistryResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679737626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RegistryName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateRegistryResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateRegistryResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679737626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateRegistryResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; CreateRegistryResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679737626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateRegistryResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateRegistryResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679737626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RegistryArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateRegistryResponse)
+-&gt; Either String Int -&gt; Either String CreateRegistryResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679737628"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679737617"><span id="local-6989586621679737619"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-type">CreateRegistry</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679737614"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-type">CreateRegistry</span></a></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-type">CreateRegistry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679737610"><span class="annot"><span class="annottext">toHeaders :: CreateRegistry -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRegistry -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSGlue.CreateRegistry&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679737600"><span id="local-6989586621679737602"><span id="local-6989586621679737604"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-type">CreateRegistry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679737598"><span class="annot"><span class="annottext">toJSON :: CreateRegistry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry%27"><span class="hs-identifier hs-type">CreateRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679737594"><span id="local-6989586621679737595"><span id="local-6989586621679737596"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Text
+registryName :: Text
+description :: Maybe Text
+tags :: Maybe (HashMap Text Text)
+$sel:registryName:CreateRegistry' :: CreateRegistry -&gt; Text
+$sel:description:CreateRegistry' :: CreateRegistry -&gt; Maybe Text
+$sel:tags:CreateRegistry' :: CreateRegistry -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679737594"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679737596"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679737595"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RegistryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679737594"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-type">CreateRegistry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679737588"><span class="annot"><span class="annottext">toPath :: CreateRegistry -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateRegistry -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistry"><span class="hs-identifier hs-type">CreateRegistry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679737584"><span class="annot"><span class="annottext">toQuery :: CreateRegistry -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateRegistry -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | /See:/ 'newCreateRegistryResponse' smart constructor.</span><span>
+</span><span id="line-164"></span><span id="local-6989586621679737581"><span id="local-6989586621679737582"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRegistryResponse"><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse"><span class="hs-identifier hs-var">CreateRegistryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRegistryResponse%27"><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse%27"><span class="hs-identifier hs-var">CreateRegistryResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the registry.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AregistryName%3ACreateRegistryResponse%27"><span class="annot"><span class="annottext">CreateRegistryResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3AregistryName%3ACreateRegistryResponse%27"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | The tags for the registry.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3Atags%3ACreateRegistryResponse%27"><span class="annot"><span class="annottext">CreateRegistryResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3Atags%3ACreateRegistryResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | A description of the registry.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3Adescription%3ACreateRegistryResponse%27"><span class="annot"><span class="annottext">CreateRegistryResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3Adescription%3ACreateRegistryResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the newly created registry.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AregistryArn%3ACreateRegistryResponse%27"><span class="annot"><span class="annottext">CreateRegistryResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3AregistryArn%3ACreateRegistryResponse%27"><span class="hs-identifier hs-var hs-var">registryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateRegistryResponse%27"><span class="annot"><span class="annottext">CreateRegistryResponse -&gt; Int
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3AhttpStatus%3ACreateRegistryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679737572"><span id="local-6989586621679737574"><span class="annot"><span class="annottext">CreateRegistryResponse -&gt; CreateRegistryResponse -&gt; Bool
+(CreateRegistryResponse -&gt; CreateRegistryResponse -&gt; Bool)
+-&gt; (CreateRegistryResponse -&gt; CreateRegistryResponse -&gt; Bool)
+-&gt; Eq CreateRegistryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRegistryResponse -&gt; CreateRegistryResponse -&gt; Bool
+$c/= :: CreateRegistryResponse -&gt; CreateRegistryResponse -&gt; Bool
+== :: CreateRegistryResponse -&gt; CreateRegistryResponse -&gt; Bool
+$c== :: CreateRegistryResponse -&gt; CreateRegistryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679737564"><span id="local-6989586621679737566"><span id="local-6989586621679737568"><span id="local-6989586621679737570"><span class="annot"><span class="annottext">ReadPrec [CreateRegistryResponse]
+ReadPrec CreateRegistryResponse
+Int -&gt; ReadS CreateRegistryResponse
+ReadS [CreateRegistryResponse]
+(Int -&gt; ReadS CreateRegistryResponse)
+-&gt; ReadS [CreateRegistryResponse]
+-&gt; ReadPrec CreateRegistryResponse
+-&gt; ReadPrec [CreateRegistryResponse]
+-&gt; Read CreateRegistryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRegistryResponse]
+$creadListPrec :: ReadPrec [CreateRegistryResponse]
+readPrec :: ReadPrec CreateRegistryResponse
+$creadPrec :: ReadPrec CreateRegistryResponse
+readList :: ReadS [CreateRegistryResponse]
+$creadList :: ReadS [CreateRegistryResponse]
+readsPrec :: Int -&gt; ReadS CreateRegistryResponse
+$creadsPrec :: Int -&gt; ReadS CreateRegistryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679737558"><span id="local-6989586621679737560"><span id="local-6989586621679737562"><span class="annot"><span class="annottext">Int -&gt; CreateRegistryResponse -&gt; ShowS
+[CreateRegistryResponse] -&gt; ShowS
+CreateRegistryResponse -&gt; String
+(Int -&gt; CreateRegistryResponse -&gt; ShowS)
+-&gt; (CreateRegistryResponse -&gt; String)
+-&gt; ([CreateRegistryResponse] -&gt; ShowS)
+-&gt; Show CreateRegistryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRegistryResponse] -&gt; ShowS
+$cshowList :: [CreateRegistryResponse] -&gt; ShowS
+show :: CreateRegistryResponse -&gt; String
+$cshow :: CreateRegistryResponse -&gt; String
+showsPrec :: Int -&gt; CreateRegistryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRegistryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateRegistryResponse -&gt; Rep CreateRegistryResponse x)
+-&gt; (forall x.
+    Rep CreateRegistryResponse x -&gt; CreateRegistryResponse)
+-&gt; Generic CreateRegistryResponse
+forall x. Rep CreateRegistryResponse x -&gt; CreateRegistryResponse
+forall x. CreateRegistryResponse -&gt; Rep CreateRegistryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateRegistryResponse x -&gt; CreateRegistryResponse
+$cfrom :: forall x. CreateRegistryResponse -&gt; Rep CreateRegistryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Create a value of 'CreateRegistryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'registryName', 'createRegistryResponse_registryName' - The name of the registry.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'tags', 'createRegistryResponse_tags' - The tags for the registry.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'description', 'createRegistryResponse_description' - A description of the registry.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'registryArn', 'createRegistryResponse_registryArn' - The Amazon Resource Name (ARN) of the newly created registry.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'httpStatus', 'createRegistryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#newCreateRegistryResponse"><span class="hs-identifier hs-type">newCreateRegistryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse"><span class="hs-identifier hs-type">CreateRegistryResponse</span></a></span><span>
+</span><span id="line-199"></span><span id="newCreateRegistryResponse"><span class="annot"><span class="annottext">newCreateRegistryResponse :: Int -&gt; CreateRegistryResponse
+</span><a href="Network.AWS.Glue.CreateRegistry.html#newCreateRegistryResponse"><span class="hs-identifier hs-var hs-var">newCreateRegistryResponse</span></a></span></span><span> </span><span id="local-6989586621679737555"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679737555"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">CreateRegistryResponse' :: Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; CreateRegistryResponse
+</span><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse%27"><span class="hs-identifier hs-type">CreateRegistryResponse'</span></a></span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:registryName:CreateRegistryResponse' :: Maybe Text
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3AregistryName%3ACreateRegistryResponse%27"><span class="hs-identifier hs-var">registryName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateRegistryResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3Atags%3ACreateRegistryResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateRegistryResponse' :: Maybe Text
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3Adescription%3ACreateRegistryResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:registryArn:CreateRegistryResponse' :: Maybe Text
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3AregistryArn%3ACreateRegistryResponse%27"><span class="hs-identifier hs-var">registryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRegistryResponse' :: Int
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3AhttpStatus%3ACreateRegistryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679737555"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The name of the registry.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistryResponse_registryName"><span class="hs-identifier hs-type">createRegistryResponse_registryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse"><span class="hs-identifier hs-type">CreateRegistryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="createRegistryResponse_registryName"><span class="annot"><span class="annottext">createRegistryResponse_registryName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRegistryResponse -&gt; f CreateRegistryResponse
+</span><a href="Network.AWS.Glue.CreateRegistry.html#createRegistryResponse_registryName"><span class="hs-identifier hs-var hs-var">createRegistryResponse_registryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRegistryResponse -&gt; Maybe Text)
+-&gt; (CreateRegistryResponse -&gt; Maybe Text -&gt; CreateRegistryResponse)
+-&gt; Lens
+     CreateRegistryResponse
+     CreateRegistryResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse%27"><span class="hs-identifier hs-type">CreateRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679737554"><span class="annot"><span class="annottext">Maybe Text
+registryName :: Maybe Text
+$sel:registryName:CreateRegistryResponse' :: CreateRegistryResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679737554"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679737554"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679737553"><span class="annot"><span class="annottext">s :: CreateRegistryResponse
+</span><a href="#local-6989586621679737553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse%27"><span class="hs-identifier hs-type">CreateRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679737552"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679737552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRegistryResponse
+</span><a href="#local-6989586621679737553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryName:CreateRegistryResponse' :: Maybe Text
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3AregistryName%3ACreateRegistryResponse%27"><span class="hs-identifier hs-var">registryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679737552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse"><span class="hs-identifier hs-type">CreateRegistryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The tags for the registry.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistryResponse_tags"><span class="hs-identifier hs-type">createRegistryResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse"><span class="hs-identifier hs-type">CreateRegistryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="createRegistryResponse_tags"><span class="annot"><span class="annottext">createRegistryResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateRegistryResponse -&gt; f CreateRegistryResponse
+</span><a href="Network.AWS.Glue.CreateRegistry.html#createRegistryResponse_tags"><span class="hs-identifier hs-var hs-var">createRegistryResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRegistryResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateRegistryResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateRegistryResponse)
+-&gt; Lens
+     CreateRegistryResponse
+     CreateRegistryResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse%27"><span class="hs-identifier hs-type">CreateRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679737551"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateRegistryResponse' :: CreateRegistryResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679737551"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679737551"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679737550"><span class="annot"><span class="annottext">s :: CreateRegistryResponse
+</span><a href="#local-6989586621679737550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse%27"><span class="hs-identifier hs-type">CreateRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679737549"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679737549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRegistryResponse
+</span><a href="#local-6989586621679737550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRegistryResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3Atags%3ACreateRegistryResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679737549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse"><span class="hs-identifier hs-type">CreateRegistryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateRegistryResponse -&gt; f CreateRegistryResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateRegistryResponse
+-&gt; f CreateRegistryResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | A description of the registry.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistryResponse_description"><span class="hs-identifier hs-type">createRegistryResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse"><span class="hs-identifier hs-type">CreateRegistryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="createRegistryResponse_description"><span class="annot"><span class="annottext">createRegistryResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRegistryResponse -&gt; f CreateRegistryResponse
+</span><a href="Network.AWS.Glue.CreateRegistry.html#createRegistryResponse_description"><span class="hs-identifier hs-var hs-var">createRegistryResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRegistryResponse -&gt; Maybe Text)
+-&gt; (CreateRegistryResponse -&gt; Maybe Text -&gt; CreateRegistryResponse)
+-&gt; Lens
+     CreateRegistryResponse
+     CreateRegistryResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse%27"><span class="hs-identifier hs-type">CreateRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679737548"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateRegistryResponse' :: CreateRegistryResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679737548"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679737548"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679737547"><span class="annot"><span class="annottext">s :: CreateRegistryResponse
+</span><a href="#local-6989586621679737547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse%27"><span class="hs-identifier hs-type">CreateRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679737546"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679737546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRegistryResponse
+</span><a href="#local-6989586621679737547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateRegistryResponse' :: Maybe Text
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3Adescription%3ACreateRegistryResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679737546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse"><span class="hs-identifier hs-type">CreateRegistryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the newly created registry.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistryResponse_registryArn"><span class="hs-identifier hs-type">createRegistryResponse_registryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse"><span class="hs-identifier hs-type">CreateRegistryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="createRegistryResponse_registryArn"><span class="annot"><span class="annottext">createRegistryResponse_registryArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRegistryResponse -&gt; f CreateRegistryResponse
+</span><a href="Network.AWS.Glue.CreateRegistry.html#createRegistryResponse_registryArn"><span class="hs-identifier hs-var hs-var">createRegistryResponse_registryArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRegistryResponse -&gt; Maybe Text)
+-&gt; (CreateRegistryResponse -&gt; Maybe Text -&gt; CreateRegistryResponse)
+-&gt; Lens
+     CreateRegistryResponse
+     CreateRegistryResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse%27"><span class="hs-identifier hs-type">CreateRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679737545"><span class="annot"><span class="annottext">Maybe Text
+registryArn :: Maybe Text
+$sel:registryArn:CreateRegistryResponse' :: CreateRegistryResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679737545"><span class="hs-identifier hs-var hs-var">registryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679737545"><span class="hs-identifier hs-var">registryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679737544"><span class="annot"><span class="annottext">s :: CreateRegistryResponse
+</span><a href="#local-6989586621679737544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse%27"><span class="hs-identifier hs-type">CreateRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679737543"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679737543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRegistryResponse
+</span><a href="#local-6989586621679737544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryArn:CreateRegistryResponse' :: Maybe Text
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3AregistryArn%3ACreateRegistryResponse%27"><span class="hs-identifier hs-var">registryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679737543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse"><span class="hs-identifier hs-type">CreateRegistryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#createRegistryResponse_httpStatus"><span class="hs-identifier hs-type">createRegistryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse"><span class="hs-identifier hs-type">CreateRegistryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-227"></span><span id="createRegistryResponse_httpStatus"><span class="annot"><span class="annottext">createRegistryResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateRegistryResponse -&gt; f CreateRegistryResponse
+</span><a href="Network.AWS.Glue.CreateRegistry.html#createRegistryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createRegistryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRegistryResponse -&gt; Int)
+-&gt; (CreateRegistryResponse -&gt; Int -&gt; CreateRegistryResponse)
+-&gt; Lens CreateRegistryResponse CreateRegistryResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse%27"><span class="hs-identifier hs-type">CreateRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679737542"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateRegistryResponse' :: CreateRegistryResponse -&gt; Int
+</span><a href="#local-6989586621679737542"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679737542"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679737541"><span class="annot"><span class="annottext">s :: CreateRegistryResponse
+</span><a href="#local-6989586621679737541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse%27"><span class="hs-identifier hs-type">CreateRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679737540"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679737540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRegistryResponse
+</span><a href="#local-6989586621679737541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRegistryResponse' :: Int
+</span><a href="Network.AWS.Glue.CreateRegistry.html#%24sel%3AhttpStatus%3ACreateRegistryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679737540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse"><span class="hs-identifier hs-type">CreateRegistryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679737538"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateRegistry.html#CreateRegistryResponse"><span class="hs-identifier hs-type">CreateRegistryResponse</span></a></span></span><span>
+</span><span id="line-230"></span></pre></body></html>

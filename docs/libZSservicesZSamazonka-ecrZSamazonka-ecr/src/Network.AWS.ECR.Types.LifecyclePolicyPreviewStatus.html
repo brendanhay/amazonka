@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus"><span class="hs-identifier">LifecyclePolicyPreviewStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus_COMPLETE"><span class="hs-identifier">LifecyclePolicyPreviewStatus_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus_EXPIRED"><span class="hs-identifier">LifecyclePolicyPreviewStatus_EXPIRED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus_FAILED"><span class="hs-identifier">LifecyclePolicyPreviewStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus_IN_PROGRESS"><span class="hs-identifier">LifecyclePolicyPreviewStatus_IN_PROGRESS</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679233617"><span id="local-6989586621679233618"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LifecyclePolicyPreviewStatus"><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus"><span class="hs-identifier hs-var">LifecyclePolicyPreviewStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifecyclePolicyPreviewStatus%27"><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus%27"><span class="hs-identifier hs-var">LifecyclePolicyPreviewStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLifecyclePolicyPreviewStatus"><span class="annot"><span class="annottext">LifecyclePolicyPreviewStatus -&gt; Text
+</span><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#fromLifecyclePolicyPreviewStatus"><span class="hs-identifier hs-var hs-var">fromLifecyclePolicyPreviewStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679233609"><span id="local-6989586621679233611"><span id="local-6989586621679233613"><span class="annot"><span class="annottext">Int -&gt; LifecyclePolicyPreviewStatus -&gt; ShowS
+[LifecyclePolicyPreviewStatus] -&gt; ShowS
+LifecyclePolicyPreviewStatus -&gt; String
+(Int -&gt; LifecyclePolicyPreviewStatus -&gt; ShowS)
+-&gt; (LifecyclePolicyPreviewStatus -&gt; String)
+-&gt; ([LifecyclePolicyPreviewStatus] -&gt; ShowS)
+-&gt; Show LifecyclePolicyPreviewStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LifecyclePolicyPreviewStatus] -&gt; ShowS
+$cshowList :: [LifecyclePolicyPreviewStatus] -&gt; ShowS
+show :: LifecyclePolicyPreviewStatus -&gt; String
+$cshow :: LifecyclePolicyPreviewStatus -&gt; String
+showsPrec :: Int -&gt; LifecyclePolicyPreviewStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; LifecyclePolicyPreviewStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679233600"><span id="local-6989586621679233602"><span id="local-6989586621679233604"><span id="local-6989586621679233606"><span class="annot"><span class="annottext">ReadPrec [LifecyclePolicyPreviewStatus]
+ReadPrec LifecyclePolicyPreviewStatus
+Int -&gt; ReadS LifecyclePolicyPreviewStatus
+ReadS [LifecyclePolicyPreviewStatus]
+(Int -&gt; ReadS LifecyclePolicyPreviewStatus)
+-&gt; ReadS [LifecyclePolicyPreviewStatus]
+-&gt; ReadPrec LifecyclePolicyPreviewStatus
+-&gt; ReadPrec [LifecyclePolicyPreviewStatus]
+-&gt; Read LifecyclePolicyPreviewStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LifecyclePolicyPreviewStatus]
+$creadListPrec :: ReadPrec [LifecyclePolicyPreviewStatus]
+readPrec :: ReadPrec LifecyclePolicyPreviewStatus
+$creadPrec :: ReadPrec LifecyclePolicyPreviewStatus
+readList :: ReadS [LifecyclePolicyPreviewStatus]
+$creadList :: ReadS [LifecyclePolicyPreviewStatus]
+readsPrec :: Int -&gt; ReadS LifecyclePolicyPreviewStatus
+$creadsPrec :: Int -&gt; ReadS LifecyclePolicyPreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679233595"><span id="local-6989586621679233597"><span class="annot"><span class="annottext">LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Bool
+(LifecyclePolicyPreviewStatus
+ -&gt; LifecyclePolicyPreviewStatus -&gt; Bool)
+-&gt; (LifecyclePolicyPreviewStatus
+    -&gt; LifecyclePolicyPreviewStatus -&gt; Bool)
+-&gt; Eq LifecyclePolicyPreviewStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Bool
+$c/= :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Bool
+== :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Bool
+$c== :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679233579"><span id="local-6989586621679233581"><span id="local-6989586621679233583"><span id="local-6989586621679233585"><span id="local-6989586621679233587"><span id="local-6989586621679233589"><span id="local-6989586621679233591"><span class="annot"><span class="annottext">Eq LifecyclePolicyPreviewStatus
+Eq LifecyclePolicyPreviewStatus
+-&gt; (LifecyclePolicyPreviewStatus
+    -&gt; LifecyclePolicyPreviewStatus -&gt; Ordering)
+-&gt; (LifecyclePolicyPreviewStatus
+    -&gt; LifecyclePolicyPreviewStatus -&gt; Bool)
+-&gt; (LifecyclePolicyPreviewStatus
+    -&gt; LifecyclePolicyPreviewStatus -&gt; Bool)
+-&gt; (LifecyclePolicyPreviewStatus
+    -&gt; LifecyclePolicyPreviewStatus -&gt; Bool)
+-&gt; (LifecyclePolicyPreviewStatus
+    -&gt; LifecyclePolicyPreviewStatus -&gt; Bool)
+-&gt; (LifecyclePolicyPreviewStatus
+    -&gt; LifecyclePolicyPreviewStatus -&gt; LifecyclePolicyPreviewStatus)
+-&gt; (LifecyclePolicyPreviewStatus
+    -&gt; LifecyclePolicyPreviewStatus -&gt; LifecyclePolicyPreviewStatus)
+-&gt; Ord LifecyclePolicyPreviewStatus
+LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Bool
+LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Ordering
+LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; LifecyclePolicyPreviewStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; LifecyclePolicyPreviewStatus
+$cmin :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; LifecyclePolicyPreviewStatus
+max :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; LifecyclePolicyPreviewStatus
+$cmax :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; LifecyclePolicyPreviewStatus
+&gt;= :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Bool
+$c&gt;= :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Bool
+&gt; :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Bool
+$c&gt; :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Bool
+&lt;= :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Bool
+$c&lt;= :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Bool
+&lt; :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Bool
+$c&lt; :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Bool
+compare :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Ordering
+$ccompare :: LifecyclePolicyPreviewStatus
+-&gt; LifecyclePolicyPreviewStatus -&gt; Ordering
+$cp1Ord :: Eq LifecyclePolicyPreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ LifecyclePolicyPreviewStatus -&gt; Rep LifecyclePolicyPreviewStatus x)
+-&gt; (forall x.
+    Rep LifecyclePolicyPreviewStatus x -&gt; LifecyclePolicyPreviewStatus)
+-&gt; Generic LifecyclePolicyPreviewStatus
+forall x.
+Rep LifecyclePolicyPreviewStatus x -&gt; LifecyclePolicyPreviewStatus
+forall x.
+LifecyclePolicyPreviewStatus -&gt; Rep LifecyclePolicyPreviewStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep LifecyclePolicyPreviewStatus x -&gt; LifecyclePolicyPreviewStatus
+$cfrom :: forall x.
+LifecyclePolicyPreviewStatus -&gt; Rep LifecyclePolicyPreviewStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679233571"><span id="local-6989586621679233573"><span class="annot"><span class="annottext">Int -&gt; LifecyclePolicyPreviewStatus -&gt; Int
+LifecyclePolicyPreviewStatus -&gt; Int
+(Int -&gt; LifecyclePolicyPreviewStatus -&gt; Int)
+-&gt; (LifecyclePolicyPreviewStatus -&gt; Int)
+-&gt; Hashable LifecyclePolicyPreviewStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LifecyclePolicyPreviewStatus -&gt; Int
+$chash :: LifecyclePolicyPreviewStatus -&gt; Int
+hashWithSalt :: Int -&gt; LifecyclePolicyPreviewStatus -&gt; Int
+$chashWithSalt :: Int -&gt; LifecyclePolicyPreviewStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679233568"><span class="annot"><span class="annottext">LifecyclePolicyPreviewStatus -&gt; ()
+(LifecyclePolicyPreviewStatus -&gt; ())
+-&gt; NFData LifecyclePolicyPreviewStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LifecyclePolicyPreviewStatus -&gt; ()
+$crnf :: LifecyclePolicyPreviewStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679233565"><span class="annot"><span class="annottext">Text -&gt; Either String LifecyclePolicyPreviewStatus
+(Text -&gt; Either String LifecyclePolicyPreviewStatus)
+-&gt; FromText LifecyclePolicyPreviewStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LifecyclePolicyPreviewStatus
+$cfromText :: Text -&gt; Either String LifecyclePolicyPreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679233562"><span class="annot"><span class="annottext">LifecyclePolicyPreviewStatus -&gt; Text
+(LifecyclePolicyPreviewStatus -&gt; Text)
+-&gt; ToText LifecyclePolicyPreviewStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LifecyclePolicyPreviewStatus -&gt; Text
+$ctoText :: LifecyclePolicyPreviewStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679233559"><span class="annot"><span class="annottext">LifecyclePolicyPreviewStatus -&gt; ByteString
+(LifecyclePolicyPreviewStatus -&gt; ByteString)
+-&gt; ToByteString LifecyclePolicyPreviewStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LifecyclePolicyPreviewStatus -&gt; ByteString
+$ctoBS :: LifecyclePolicyPreviewStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679233556"><span class="annot"><span class="annottext">LifecyclePolicyPreviewStatus -&gt; ByteStringBuilder
+(LifecyclePolicyPreviewStatus -&gt; ByteStringBuilder)
+-&gt; ToLog LifecyclePolicyPreviewStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LifecyclePolicyPreviewStatus -&gt; ByteStringBuilder
+$cbuild :: LifecyclePolicyPreviewStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679233553"><span class="annot"><span class="annottext">HeaderName -&gt; LifecyclePolicyPreviewStatus -&gt; [Header]
+(HeaderName -&gt; LifecyclePolicyPreviewStatus -&gt; [Header])
+-&gt; ToHeader LifecyclePolicyPreviewStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LifecyclePolicyPreviewStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LifecyclePolicyPreviewStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679233550"><span class="annot"><span class="annottext">LifecyclePolicyPreviewStatus -&gt; QueryString
+(LifecyclePolicyPreviewStatus -&gt; QueryString)
+-&gt; ToQuery LifecyclePolicyPreviewStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LifecyclePolicyPreviewStatus -&gt; QueryString
+$ctoQuery :: LifecyclePolicyPreviewStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679233545"><span id="local-6989586621679233547"><span class="annot"><span class="annottext">Value -&gt; Parser [LifecyclePolicyPreviewStatus]
+Value -&gt; Parser LifecyclePolicyPreviewStatus
+(Value -&gt; Parser LifecyclePolicyPreviewStatus)
+-&gt; (Value -&gt; Parser [LifecyclePolicyPreviewStatus])
+-&gt; FromJSON LifecyclePolicyPreviewStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LifecyclePolicyPreviewStatus]
+$cparseJSONList :: Value -&gt; Parser [LifecyclePolicyPreviewStatus]
+parseJSON :: Value -&gt; Parser LifecyclePolicyPreviewStatus
+$cparseJSON :: Value -&gt; Parser LifecyclePolicyPreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679233540"><span id="local-6989586621679233542"><span class="annot"><span class="annottext">FromJSONKeyFunction [LifecyclePolicyPreviewStatus]
+FromJSONKeyFunction LifecyclePolicyPreviewStatus
+FromJSONKeyFunction LifecyclePolicyPreviewStatus
+-&gt; FromJSONKeyFunction [LifecyclePolicyPreviewStatus]
+-&gt; FromJSONKey LifecyclePolicyPreviewStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LifecyclePolicyPreviewStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [LifecyclePolicyPreviewStatus]
+fromJSONKey :: FromJSONKeyFunction LifecyclePolicyPreviewStatus
+$cfromJSONKey :: FromJSONKeyFunction LifecyclePolicyPreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679233531"><span id="local-6989586621679233533"><span id="local-6989586621679233535"><span id="local-6989586621679233537"><span class="annot"><span class="annottext">[LifecyclePolicyPreviewStatus] -&gt; Encoding
+[LifecyclePolicyPreviewStatus] -&gt; Value
+LifecyclePolicyPreviewStatus -&gt; Encoding
+LifecyclePolicyPreviewStatus -&gt; Value
+(LifecyclePolicyPreviewStatus -&gt; Value)
+-&gt; (LifecyclePolicyPreviewStatus -&gt; Encoding)
+-&gt; ([LifecyclePolicyPreviewStatus] -&gt; Value)
+-&gt; ([LifecyclePolicyPreviewStatus] -&gt; Encoding)
+-&gt; ToJSON LifecyclePolicyPreviewStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LifecyclePolicyPreviewStatus] -&gt; Encoding
+$ctoEncodingList :: [LifecyclePolicyPreviewStatus] -&gt; Encoding
+toJSONList :: [LifecyclePolicyPreviewStatus] -&gt; Value
+$ctoJSONList :: [LifecyclePolicyPreviewStatus] -&gt; Value
+toEncoding :: LifecyclePolicyPreviewStatus -&gt; Encoding
+$ctoEncoding :: LifecyclePolicyPreviewStatus -&gt; Encoding
+toJSON :: LifecyclePolicyPreviewStatus -&gt; Value
+$ctoJSON :: LifecyclePolicyPreviewStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679233526"><span id="local-6989586621679233528"><span class="annot"><span class="annottext">ToJSONKeyFunction [LifecyclePolicyPreviewStatus]
+ToJSONKeyFunction LifecyclePolicyPreviewStatus
+ToJSONKeyFunction LifecyclePolicyPreviewStatus
+-&gt; ToJSONKeyFunction [LifecyclePolicyPreviewStatus]
+-&gt; ToJSONKey LifecyclePolicyPreviewStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LifecyclePolicyPreviewStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [LifecyclePolicyPreviewStatus]
+toJSONKey :: ToJSONKeyFunction LifecyclePolicyPreviewStatus
+$ctoJSONKey :: ToJSONKeyFunction LifecyclePolicyPreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679233523"><span class="annot"><span class="annottext">[Node] -&gt; Either String LifecyclePolicyPreviewStatus
+([Node] -&gt; Either String LifecyclePolicyPreviewStatus)
+-&gt; FromXML LifecyclePolicyPreviewStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LifecyclePolicyPreviewStatus
+$cparseXML :: [Node] -&gt; Either String LifecyclePolicyPreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679233520"><span class="annot"><span class="annottext">LifecyclePolicyPreviewStatus -&gt; XML
+(LifecyclePolicyPreviewStatus -&gt; XML)
+-&gt; ToXML LifecyclePolicyPreviewStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LifecyclePolicyPreviewStatus -&gt; XML
+$ctoXML :: LifecyclePolicyPreviewStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus_COMPLETE"><span class="hs-identifier hs-type">LifecyclePolicyPreviewStatus_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus"><span class="hs-identifier hs-type">LifecyclePolicyPreviewStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifecyclePolicyPreviewStatus_COMPLETE"><span id="%24mLifecyclePolicyPreviewStatus_COMPLETE"><span id="LifecyclePolicyPreviewStatus_COMPLETE"><span class="annot"><span class="annottext">$bLifecyclePolicyPreviewStatus_COMPLETE :: LifecyclePolicyPreviewStatus
+$mLifecyclePolicyPreviewStatus_COMPLETE :: forall r.
+LifecyclePolicyPreviewStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#%24bLifecyclePolicyPreviewStatus_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">LifecyclePolicyPreviewStatus_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus%27"><span class="hs-identifier hs-type">LifecyclePolicyPreviewStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETE&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus_EXPIRED"><span class="hs-identifier hs-type">LifecyclePolicyPreviewStatus_EXPIRED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus"><span class="hs-identifier hs-type">LifecyclePolicyPreviewStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifecyclePolicyPreviewStatus_EXPIRED"><span id="%24mLifecyclePolicyPreviewStatus_EXPIRED"><span id="LifecyclePolicyPreviewStatus_EXPIRED"><span class="annot"><span class="annottext">$bLifecyclePolicyPreviewStatus_EXPIRED :: LifecyclePolicyPreviewStatus
+$mLifecyclePolicyPreviewStatus_EXPIRED :: forall r.
+LifecyclePolicyPreviewStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#%24bLifecyclePolicyPreviewStatus_EXPIRED"><span class="hs-identifier hs-var hs-var hs-var">LifecyclePolicyPreviewStatus_EXPIRED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus%27"><span class="hs-identifier hs-type">LifecyclePolicyPreviewStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXPIRED&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus_FAILED"><span class="hs-identifier hs-type">LifecyclePolicyPreviewStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus"><span class="hs-identifier hs-type">LifecyclePolicyPreviewStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifecyclePolicyPreviewStatus_FAILED"><span id="%24mLifecyclePolicyPreviewStatus_FAILED"><span id="LifecyclePolicyPreviewStatus_FAILED"><span class="annot"><span class="annottext">$bLifecyclePolicyPreviewStatus_FAILED :: LifecyclePolicyPreviewStatus
+$mLifecyclePolicyPreviewStatus_FAILED :: forall r.
+LifecyclePolicyPreviewStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#%24bLifecyclePolicyPreviewStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">LifecyclePolicyPreviewStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus%27"><span class="hs-identifier hs-type">LifecyclePolicyPreviewStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus_IN_PROGRESS"><span class="hs-identifier hs-type">LifecyclePolicyPreviewStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus"><span class="hs-identifier hs-type">LifecyclePolicyPreviewStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifecyclePolicyPreviewStatus_IN_PROGRESS"><span id="%24mLifecyclePolicyPreviewStatus_IN_PROGRESS"><span id="LifecyclePolicyPreviewStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bLifecyclePolicyPreviewStatus_IN_PROGRESS :: LifecyclePolicyPreviewStatus
+$mLifecyclePolicyPreviewStatus_IN_PROGRESS :: forall r.
+LifecyclePolicyPreviewStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#%24bLifecyclePolicyPreviewStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">LifecyclePolicyPreviewStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus%27"><span class="hs-identifier hs-type">LifecyclePolicyPreviewStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus_COMPLETE"><span class="hs-pragma hs-type">LifecyclePolicyPreviewStatus_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus_EXPIRED"><span class="hs-pragma hs-type">LifecyclePolicyPreviewStatus_EXPIRED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus_FAILED"><span class="hs-pragma hs-type">LifecyclePolicyPreviewStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus_IN_PROGRESS"><span class="hs-pragma hs-type">LifecyclePolicyPreviewStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus%27"><span class="hs-pragma hs-type">LifecyclePolicyPreviewStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

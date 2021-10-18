@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GameLift.Types.BalancingStrategy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GameLift.Types.BalancingStrategy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy"><span class="hs-identifier">BalancingStrategy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy_ON_DEMAND_ONLY"><span class="hs-identifier">BalancingStrategy_ON_DEMAND_ONLY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy_SPOT_ONLY"><span class="hs-identifier">BalancingStrategy_SPOT_ONLY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy_SPOT_PREFERRED"><span class="hs-identifier">BalancingStrategy_SPOT_PREFERRED</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679428010"><span id="local-6989586621679428011"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BalancingStrategy"><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy"><span class="hs-identifier hs-var">BalancingStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BalancingStrategy%27"><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy%27"><span class="hs-identifier hs-var">BalancingStrategy'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBalancingStrategy"><span class="annot"><span class="annottext">BalancingStrategy -&gt; Text
+</span><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#fromBalancingStrategy"><span class="hs-identifier hs-var hs-var">fromBalancingStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428002"><span id="local-6989586621679428004"><span id="local-6989586621679428006"><span class="annot"><span class="annottext">Int -&gt; BalancingStrategy -&gt; ShowS
+[BalancingStrategy] -&gt; ShowS
+BalancingStrategy -&gt; String
+(Int -&gt; BalancingStrategy -&gt; ShowS)
+-&gt; (BalancingStrategy -&gt; String)
+-&gt; ([BalancingStrategy] -&gt; ShowS)
+-&gt; Show BalancingStrategy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BalancingStrategy] -&gt; ShowS
+$cshowList :: [BalancingStrategy] -&gt; ShowS
+show :: BalancingStrategy -&gt; String
+$cshow :: BalancingStrategy -&gt; String
+showsPrec :: Int -&gt; BalancingStrategy -&gt; ShowS
+$cshowsPrec :: Int -&gt; BalancingStrategy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679427993"><span id="local-6989586621679427995"><span id="local-6989586621679427997"><span id="local-6989586621679427999"><span class="annot"><span class="annottext">ReadPrec [BalancingStrategy]
+ReadPrec BalancingStrategy
+Int -&gt; ReadS BalancingStrategy
+ReadS [BalancingStrategy]
+(Int -&gt; ReadS BalancingStrategy)
+-&gt; ReadS [BalancingStrategy]
+-&gt; ReadPrec BalancingStrategy
+-&gt; ReadPrec [BalancingStrategy]
+-&gt; Read BalancingStrategy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BalancingStrategy]
+$creadListPrec :: ReadPrec [BalancingStrategy]
+readPrec :: ReadPrec BalancingStrategy
+$creadPrec :: ReadPrec BalancingStrategy
+readList :: ReadS [BalancingStrategy]
+$creadList :: ReadS [BalancingStrategy]
+readsPrec :: Int -&gt; ReadS BalancingStrategy
+$creadsPrec :: Int -&gt; ReadS BalancingStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679427988"><span id="local-6989586621679427990"><span class="annot"><span class="annottext">BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
+(BalancingStrategy -&gt; BalancingStrategy -&gt; Bool)
+-&gt; (BalancingStrategy -&gt; BalancingStrategy -&gt; Bool)
+-&gt; Eq BalancingStrategy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
+$c/= :: BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
+== :: BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
+$c== :: BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679427972"><span id="local-6989586621679427974"><span id="local-6989586621679427976"><span id="local-6989586621679427978"><span id="local-6989586621679427980"><span id="local-6989586621679427982"><span id="local-6989586621679427984"><span class="annot"><span class="annottext">Eq BalancingStrategy
+Eq BalancingStrategy
+-&gt; (BalancingStrategy -&gt; BalancingStrategy -&gt; Ordering)
+-&gt; (BalancingStrategy -&gt; BalancingStrategy -&gt; Bool)
+-&gt; (BalancingStrategy -&gt; BalancingStrategy -&gt; Bool)
+-&gt; (BalancingStrategy -&gt; BalancingStrategy -&gt; Bool)
+-&gt; (BalancingStrategy -&gt; BalancingStrategy -&gt; Bool)
+-&gt; (BalancingStrategy -&gt; BalancingStrategy -&gt; BalancingStrategy)
+-&gt; (BalancingStrategy -&gt; BalancingStrategy -&gt; BalancingStrategy)
+-&gt; Ord BalancingStrategy
+BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
+BalancingStrategy -&gt; BalancingStrategy -&gt; Ordering
+BalancingStrategy -&gt; BalancingStrategy -&gt; BalancingStrategy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: BalancingStrategy -&gt; BalancingStrategy -&gt; BalancingStrategy
+$cmin :: BalancingStrategy -&gt; BalancingStrategy -&gt; BalancingStrategy
+max :: BalancingStrategy -&gt; BalancingStrategy -&gt; BalancingStrategy
+$cmax :: BalancingStrategy -&gt; BalancingStrategy -&gt; BalancingStrategy
+&gt;= :: BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
+$c&gt;= :: BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
+&gt; :: BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
+$c&gt; :: BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
+&lt;= :: BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
+$c&lt;= :: BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
+&lt; :: BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
+$c&lt; :: BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
+compare :: BalancingStrategy -&gt; BalancingStrategy -&gt; Ordering
+$ccompare :: BalancingStrategy -&gt; BalancingStrategy -&gt; Ordering
+$cp1Ord :: Eq BalancingStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. BalancingStrategy -&gt; Rep BalancingStrategy x)
+-&gt; (forall x. Rep BalancingStrategy x -&gt; BalancingStrategy)
+-&gt; Generic BalancingStrategy
+forall x. Rep BalancingStrategy x -&gt; BalancingStrategy
+forall x. BalancingStrategy -&gt; Rep BalancingStrategy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BalancingStrategy x -&gt; BalancingStrategy
+$cfrom :: forall x. BalancingStrategy -&gt; Rep BalancingStrategy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427964"><span id="local-6989586621679427966"><span class="annot"><span class="annottext">Int -&gt; BalancingStrategy -&gt; Int
+BalancingStrategy -&gt; Int
+(Int -&gt; BalancingStrategy -&gt; Int)
+-&gt; (BalancingStrategy -&gt; Int) -&gt; Hashable BalancingStrategy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: BalancingStrategy -&gt; Int
+$chash :: BalancingStrategy -&gt; Int
+hashWithSalt :: Int -&gt; BalancingStrategy -&gt; Int
+$chashWithSalt :: Int -&gt; BalancingStrategy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679427961"><span class="annot"><span class="annottext">BalancingStrategy -&gt; ()
+(BalancingStrategy -&gt; ()) -&gt; NFData BalancingStrategy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: BalancingStrategy -&gt; ()
+$crnf :: BalancingStrategy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679427958"><span class="annot"><span class="annottext">Text -&gt; Either String BalancingStrategy
+(Text -&gt; Either String BalancingStrategy)
+-&gt; FromText BalancingStrategy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String BalancingStrategy
+$cfromText :: Text -&gt; Either String BalancingStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679427955"><span class="annot"><span class="annottext">BalancingStrategy -&gt; Text
+(BalancingStrategy -&gt; Text) -&gt; ToText BalancingStrategy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: BalancingStrategy -&gt; Text
+$ctoText :: BalancingStrategy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679427952"><span class="annot"><span class="annottext">BalancingStrategy -&gt; ByteString
+(BalancingStrategy -&gt; ByteString) -&gt; ToByteString BalancingStrategy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: BalancingStrategy -&gt; ByteString
+$ctoBS :: BalancingStrategy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679427949"><span class="annot"><span class="annottext">BalancingStrategy -&gt; ByteStringBuilder
+(BalancingStrategy -&gt; ByteStringBuilder) -&gt; ToLog BalancingStrategy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: BalancingStrategy -&gt; ByteStringBuilder
+$cbuild :: BalancingStrategy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679427946"><span class="annot"><span class="annottext">HeaderName -&gt; BalancingStrategy -&gt; [Header]
+(HeaderName -&gt; BalancingStrategy -&gt; [Header])
+-&gt; ToHeader BalancingStrategy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; BalancingStrategy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; BalancingStrategy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679427943"><span class="annot"><span class="annottext">BalancingStrategy -&gt; QueryString
+(BalancingStrategy -&gt; QueryString) -&gt; ToQuery BalancingStrategy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: BalancingStrategy -&gt; QueryString
+$ctoQuery :: BalancingStrategy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679427938"><span id="local-6989586621679427940"><span class="annot"><span class="annottext">Value -&gt; Parser [BalancingStrategy]
+Value -&gt; Parser BalancingStrategy
+(Value -&gt; Parser BalancingStrategy)
+-&gt; (Value -&gt; Parser [BalancingStrategy])
+-&gt; FromJSON BalancingStrategy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [BalancingStrategy]
+$cparseJSONList :: Value -&gt; Parser [BalancingStrategy]
+parseJSON :: Value -&gt; Parser BalancingStrategy
+$cparseJSON :: Value -&gt; Parser BalancingStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679427933"><span id="local-6989586621679427935"><span class="annot"><span class="annottext">FromJSONKeyFunction [BalancingStrategy]
+FromJSONKeyFunction BalancingStrategy
+FromJSONKeyFunction BalancingStrategy
+-&gt; FromJSONKeyFunction [BalancingStrategy]
+-&gt; FromJSONKey BalancingStrategy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [BalancingStrategy]
+$cfromJSONKeyList :: FromJSONKeyFunction [BalancingStrategy]
+fromJSONKey :: FromJSONKeyFunction BalancingStrategy
+$cfromJSONKey :: FromJSONKeyFunction BalancingStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679427924"><span id="local-6989586621679427926"><span id="local-6989586621679427928"><span id="local-6989586621679427930"><span class="annot"><span class="annottext">[BalancingStrategy] -&gt; Encoding
+[BalancingStrategy] -&gt; Value
+BalancingStrategy -&gt; Encoding
+BalancingStrategy -&gt; Value
+(BalancingStrategy -&gt; Value)
+-&gt; (BalancingStrategy -&gt; Encoding)
+-&gt; ([BalancingStrategy] -&gt; Value)
+-&gt; ([BalancingStrategy] -&gt; Encoding)
+-&gt; ToJSON BalancingStrategy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [BalancingStrategy] -&gt; Encoding
+$ctoEncodingList :: [BalancingStrategy] -&gt; Encoding
+toJSONList :: [BalancingStrategy] -&gt; Value
+$ctoJSONList :: [BalancingStrategy] -&gt; Value
+toEncoding :: BalancingStrategy -&gt; Encoding
+$ctoEncoding :: BalancingStrategy -&gt; Encoding
+toJSON :: BalancingStrategy -&gt; Value
+$ctoJSON :: BalancingStrategy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679427919"><span id="local-6989586621679427921"><span class="annot"><span class="annottext">ToJSONKeyFunction [BalancingStrategy]
+ToJSONKeyFunction BalancingStrategy
+ToJSONKeyFunction BalancingStrategy
+-&gt; ToJSONKeyFunction [BalancingStrategy]
+-&gt; ToJSONKey BalancingStrategy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [BalancingStrategy]
+$ctoJSONKeyList :: ToJSONKeyFunction [BalancingStrategy]
+toJSONKey :: ToJSONKeyFunction BalancingStrategy
+$ctoJSONKey :: ToJSONKeyFunction BalancingStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679427916"><span class="annot"><span class="annottext">[Node] -&gt; Either String BalancingStrategy
+([Node] -&gt; Either String BalancingStrategy)
+-&gt; FromXML BalancingStrategy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String BalancingStrategy
+$cparseXML :: [Node] -&gt; Either String BalancingStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679427913"><span class="annot"><span class="annottext">BalancingStrategy -&gt; XML
+(BalancingStrategy -&gt; XML) -&gt; ToXML BalancingStrategy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: BalancingStrategy -&gt; XML
+$ctoXML :: BalancingStrategy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy_ON_DEMAND_ONLY"><span class="hs-identifier hs-type">BalancingStrategy_ON_DEMAND_ONLY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy"><span class="hs-identifier hs-type">BalancingStrategy</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBalancingStrategy_ON_DEMAND_ONLY"><span id="%24mBalancingStrategy_ON_DEMAND_ONLY"><span id="BalancingStrategy_ON_DEMAND_ONLY"><span class="annot"><span class="annottext">$bBalancingStrategy_ON_DEMAND_ONLY :: BalancingStrategy
+$mBalancingStrategy_ON_DEMAND_ONLY :: forall r. BalancingStrategy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#%24bBalancingStrategy_ON_DEMAND_ONLY"><span class="hs-identifier hs-var hs-var hs-var">BalancingStrategy_ON_DEMAND_ONLY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy%27"><span class="hs-identifier hs-type">BalancingStrategy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ON_DEMAND_ONLY&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy_SPOT_ONLY"><span class="hs-identifier hs-type">BalancingStrategy_SPOT_ONLY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy"><span class="hs-identifier hs-type">BalancingStrategy</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBalancingStrategy_SPOT_ONLY"><span id="%24mBalancingStrategy_SPOT_ONLY"><span id="BalancingStrategy_SPOT_ONLY"><span class="annot"><span class="annottext">$bBalancingStrategy_SPOT_ONLY :: BalancingStrategy
+$mBalancingStrategy_SPOT_ONLY :: forall r. BalancingStrategy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#%24bBalancingStrategy_SPOT_ONLY"><span class="hs-identifier hs-var hs-var hs-var">BalancingStrategy_SPOT_ONLY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy%27"><span class="hs-identifier hs-type">BalancingStrategy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPOT_ONLY&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy_SPOT_PREFERRED"><span class="hs-identifier hs-type">BalancingStrategy_SPOT_PREFERRED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy"><span class="hs-identifier hs-type">BalancingStrategy</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBalancingStrategy_SPOT_PREFERRED"><span id="%24mBalancingStrategy_SPOT_PREFERRED"><span id="BalancingStrategy_SPOT_PREFERRED"><span class="annot"><span class="annottext">$bBalancingStrategy_SPOT_PREFERRED :: BalancingStrategy
+$mBalancingStrategy_SPOT_PREFERRED :: forall r. BalancingStrategy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#%24bBalancingStrategy_SPOT_PREFERRED"><span class="hs-identifier hs-var hs-var hs-var">BalancingStrategy_SPOT_PREFERRED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy%27"><span class="hs-identifier hs-type">BalancingStrategy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPOT_PREFERRED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy_ON_DEMAND_ONLY"><span class="hs-pragma hs-type">BalancingStrategy_ON_DEMAND_ONLY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy_SPOT_ONLY"><span class="hs-pragma hs-type">BalancingStrategy_SPOT_ONLY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy_SPOT_PREFERRED"><span class="hs-pragma hs-type">BalancingStrategy_SPOT_PREFERRED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy%27"><span class="hs-pragma hs-type">BalancingStrategy'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

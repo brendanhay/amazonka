@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Route53.Types.HostedZone</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53.Types.HostedZone</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html"><span class="hs-identifier">Network.AWS.Route53.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneConfig.html"><span class="hs-identifier">Network.AWS.Route53.Types.HostedZoneConfig</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html"><span class="hs-identifier">Network.AWS.Route53.Types.LinkedService</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | A complex type that contains general information about the hosted zone.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newHostedZone' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679295859"><span id="local-6989586621679295860"></span></span><span class="hs-keyword">data</span><span> </span><span id="HostedZone"><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-var">HostedZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HostedZone%27"><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone%27"><span class="hs-identifier hs-var">HostedZone'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of resource record sets in the hosted zone.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AresourceRecordSetCount%3AHostedZone%27"><span class="annot"><span class="annottext">HostedZone -&gt; Maybe Integer
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3AresourceRecordSetCount%3AHostedZone%27"><span class="hs-identifier hs-var hs-var">resourceRecordSetCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A complex type that includes the @Comment@ and @PrivateZone@ elements.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- If you omitted the @HostedZoneConfig@ and @Comment@ elements from the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- request, the @Config@ and @Comment@ elements don\'t appear in the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aconfig%3AHostedZone%27"><span class="annot"><span class="annottext">HostedZone -&gt; Maybe HostedZoneConfig
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3Aconfig%3AHostedZone%27"><span class="hs-identifier hs-var hs-var">config</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneConfig.html#HostedZoneConfig"><span class="hs-identifier hs-type">HostedZoneConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | If the hosted zone was created by another service, the service that</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- created the hosted zone. When a hosted zone is created by another</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- service, you can\'t edit or delete it using Route 53.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlinkedService%3AHostedZone%27"><span class="annot"><span class="annottext">HostedZone -&gt; Maybe LinkedService
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3AlinkedService%3AHostedZone%27"><span class="hs-identifier hs-var hs-var">linkedService</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-type">LinkedService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The ID that Amazon Route 53 assigned to the hosted zone when you created</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- it.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aid%3AHostedZone%27"><span class="annot"><span class="annottext">HostedZone -&gt; ResourceId
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3Aid%3AHostedZone%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of the domain. For public hosted zones, this is the name that</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- you have registered with your DNS registrar.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- For information about how to specify characters other than @a-z@, @0-9@,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- and @-@ (hyphen) and how to specify internationalized domain names, see</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html CreateHostedZone&gt;.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aname%3AHostedZone%27"><span class="annot"><span class="annottext">HostedZone -&gt; Text
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3Aname%3AHostedZone%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The value that you specified for @CallerReference@ when you created the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- hosted zone.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AcallerReference%3AHostedZone%27"><span class="annot"><span class="annottext">HostedZone -&gt; Text
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3AcallerReference%3AHostedZone%27"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295848"><span id="local-6989586621679295850"><span class="annot"><span class="annottext">HostedZone -&gt; HostedZone -&gt; Bool
+(HostedZone -&gt; HostedZone -&gt; Bool)
+-&gt; (HostedZone -&gt; HostedZone -&gt; Bool) -&gt; Eq HostedZone
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HostedZone -&gt; HostedZone -&gt; Bool
+$c/= :: HostedZone -&gt; HostedZone -&gt; Bool
+== :: HostedZone -&gt; HostedZone -&gt; Bool
+$c== :: HostedZone -&gt; HostedZone -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295839"><span id="local-6989586621679295841"><span id="local-6989586621679295843"><span id="local-6989586621679295845"><span class="annot"><span class="annottext">ReadPrec [HostedZone]
+ReadPrec HostedZone
+Int -&gt; ReadS HostedZone
+ReadS [HostedZone]
+(Int -&gt; ReadS HostedZone)
+-&gt; ReadS [HostedZone]
+-&gt; ReadPrec HostedZone
+-&gt; ReadPrec [HostedZone]
+-&gt; Read HostedZone
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HostedZone]
+$creadListPrec :: ReadPrec [HostedZone]
+readPrec :: ReadPrec HostedZone
+$creadPrec :: ReadPrec HostedZone
+readList :: ReadS [HostedZone]
+$creadList :: ReadS [HostedZone]
+readsPrec :: Int -&gt; ReadS HostedZone
+$creadsPrec :: Int -&gt; ReadS HostedZone
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295832"><span id="local-6989586621679295834"><span id="local-6989586621679295836"><span class="annot"><span class="annottext">Int -&gt; HostedZone -&gt; ShowS
+[HostedZone] -&gt; ShowS
+HostedZone -&gt; String
+(Int -&gt; HostedZone -&gt; ShowS)
+-&gt; (HostedZone -&gt; String)
+-&gt; ([HostedZone] -&gt; ShowS)
+-&gt; Show HostedZone
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HostedZone] -&gt; ShowS
+$cshowList :: [HostedZone] -&gt; ShowS
+show :: HostedZone -&gt; String
+$cshow :: HostedZone -&gt; String
+showsPrec :: Int -&gt; HostedZone -&gt; ShowS
+$cshowsPrec :: Int -&gt; HostedZone -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. HostedZone -&gt; Rep HostedZone x)
+-&gt; (forall x. Rep HostedZone x -&gt; HostedZone) -&gt; Generic HostedZone
+forall x. Rep HostedZone x -&gt; HostedZone
+forall x. HostedZone -&gt; Rep HostedZone x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HostedZone x -&gt; HostedZone
+$cfrom :: forall x. HostedZone -&gt; Rep HostedZone x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'HostedZone' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'resourceRecordSetCount', 'hostedZone_resourceRecordSetCount' - The number of resource record sets in the hosted zone.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'config', 'hostedZone_config' - A complex type that includes the @Comment@ and @PrivateZone@ elements.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- If you omitted the @HostedZoneConfig@ and @Comment@ elements from the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- request, the @Config@ and @Comment@ elements don\'t appear in the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'linkedService', 'hostedZone_linkedService' - If the hosted zone was created by another service, the service that</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- created the hosted zone. When a hosted zone is created by another</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- service, you can\'t edit or delete it using Route 53.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'id', 'hostedZone_id' - The ID that Amazon Route 53 assigned to the hosted zone when you created</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- it.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'name', 'hostedZone_name' - The name of the domain. For public hosted zones, this is the name that</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- you have registered with your DNS registrar.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- For information about how to specify characters other than @a-z@, @0-9@,</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- and @-@ (hyphen) and how to specify internationalized domain names, see</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html CreateHostedZone&gt;.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'callerReference', 'hostedZone_callerReference' - The value that you specified for @CallerReference@ when you created the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- hosted zone.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#newHostedZone"><span class="hs-identifier hs-type">newHostedZone</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'callerReference'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span>
+</span><span id="line-99"></span><span id="newHostedZone"><span class="annot"><span class="annottext">newHostedZone :: ResourceId -&gt; Text -&gt; Text -&gt; HostedZone
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#newHostedZone"><span class="hs-identifier hs-var hs-var">newHostedZone</span></a></span></span><span> </span><span id="local-6989586621679295826"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679295826"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679295825"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295825"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679295824"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295824"><span class="hs-identifier hs-var">pCallerReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">HostedZone' :: Maybe Integer
+-&gt; Maybe HostedZoneConfig
+-&gt; Maybe LinkedService
+-&gt; ResourceId
+-&gt; Text
+-&gt; Text
+-&gt; HostedZone
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone%27"><span class="hs-identifier hs-type">HostedZone'</span></a></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceRecordSetCount:HostedZone' :: Maybe Integer
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3AresourceRecordSetCount%3AHostedZone%27"><span class="hs-identifier hs-var">resourceRecordSetCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:config:HostedZone' :: Maybe HostedZoneConfig
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3Aconfig%3AHostedZone%27"><span class="hs-identifier hs-var">config</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HostedZoneConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:linkedService:HostedZone' :: Maybe LinkedService
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3AlinkedService%3AHostedZone%27"><span class="hs-identifier hs-var">linkedService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LinkedService
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:HostedZone' :: ResourceId
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3Aid%3AHostedZone%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679295826"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:HostedZone' :: Text
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3Aname%3AHostedZone%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295825"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:callerReference:HostedZone' :: Text
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3AcallerReference%3AHostedZone%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295824"><span class="hs-identifier hs-var">pCallerReference_</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The number of resource record sets in the hosted zone.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#hostedZone_resourceRecordSetCount"><span class="hs-identifier hs-type">hostedZone_resourceRecordSetCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="hostedZone_resourceRecordSetCount"><span class="annot"><span class="annottext">hostedZone_resourceRecordSetCount :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; HostedZone -&gt; f HostedZone
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#hostedZone_resourceRecordSetCount"><span class="hs-identifier hs-var hs-var">hostedZone_resourceRecordSetCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HostedZone -&gt; Maybe Integer)
+-&gt; (HostedZone -&gt; Maybe Integer -&gt; HostedZone)
+-&gt; Lens HostedZone HostedZone (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone%27"><span class="hs-identifier hs-type">HostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295820"><span class="annot"><span class="annottext">Maybe Integer
+resourceRecordSetCount :: Maybe Integer
+$sel:resourceRecordSetCount:HostedZone' :: HostedZone -&gt; Maybe Integer
+</span><a href="#local-6989586621679295820"><span class="hs-identifier hs-var hs-var">resourceRecordSetCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679295820"><span class="hs-identifier hs-var">resourceRecordSetCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295819"><span class="annot"><span class="annottext">s :: HostedZone
+</span><a href="#local-6989586621679295819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone%27"><span class="hs-identifier hs-type">HostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295818"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679295818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedZone
+</span><a href="#local-6989586621679295819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceRecordSetCount:HostedZone' :: Maybe Integer
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3AresourceRecordSetCount%3AHostedZone%27"><span class="hs-identifier hs-var">resourceRecordSetCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679295818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | A complex type that includes the @Comment@ and @PrivateZone@ elements.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- If you omitted the @HostedZoneConfig@ and @Comment@ elements from the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- request, the @Config@ and @Comment@ elements don\'t appear in the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#hostedZone_config"><span class="hs-identifier hs-type">hostedZone_config</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneConfig.html#HostedZoneConfig"><span class="hs-identifier hs-type">HostedZoneConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="hostedZone_config"><span class="annot"><span class="annottext">hostedZone_config :: (Maybe HostedZoneConfig -&gt; f (Maybe HostedZoneConfig))
+-&gt; HostedZone -&gt; f HostedZone
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#hostedZone_config"><span class="hs-identifier hs-var hs-var">hostedZone_config</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HostedZone -&gt; Maybe HostedZoneConfig)
+-&gt; (HostedZone -&gt; Maybe HostedZoneConfig -&gt; HostedZone)
+-&gt; Lens
+     HostedZone
+     HostedZone
+     (Maybe HostedZoneConfig)
+     (Maybe HostedZoneConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone%27"><span class="hs-identifier hs-type">HostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295816"><span class="annot"><span class="annottext">Maybe HostedZoneConfig
+config :: Maybe HostedZoneConfig
+$sel:config:HostedZone' :: HostedZone -&gt; Maybe HostedZoneConfig
+</span><a href="#local-6989586621679295816"><span class="hs-identifier hs-var hs-var">config</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HostedZoneConfig
+</span><a href="#local-6989586621679295816"><span class="hs-identifier hs-var">config</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295815"><span class="annot"><span class="annottext">s :: HostedZone
+</span><a href="#local-6989586621679295815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone%27"><span class="hs-identifier hs-type">HostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295814"><span class="annot"><span class="annottext">Maybe HostedZoneConfig
+</span><a href="#local-6989586621679295814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedZone
+</span><a href="#local-6989586621679295815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:config:HostedZone' :: Maybe HostedZoneConfig
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3Aconfig%3AHostedZone%27"><span class="hs-identifier hs-var">config</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HostedZoneConfig
+</span><a href="#local-6989586621679295814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | If the hosted zone was created by another service, the service that</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- created the hosted zone. When a hosted zone is created by another</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- service, you can\'t edit or delete it using Route 53.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#hostedZone_linkedService"><span class="hs-identifier hs-type">hostedZone_linkedService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-type">LinkedService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="hostedZone_linkedService"><span class="annot"><span class="annottext">hostedZone_linkedService :: (Maybe LinkedService -&gt; f (Maybe LinkedService))
+-&gt; HostedZone -&gt; f HostedZone
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#hostedZone_linkedService"><span class="hs-identifier hs-var hs-var">hostedZone_linkedService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HostedZone -&gt; Maybe LinkedService)
+-&gt; (HostedZone -&gt; Maybe LinkedService -&gt; HostedZone)
+-&gt; Lens
+     HostedZone HostedZone (Maybe LinkedService) (Maybe LinkedService)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone%27"><span class="hs-identifier hs-type">HostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295812"><span class="annot"><span class="annottext">Maybe LinkedService
+linkedService :: Maybe LinkedService
+$sel:linkedService:HostedZone' :: HostedZone -&gt; Maybe LinkedService
+</span><a href="#local-6989586621679295812"><span class="hs-identifier hs-var hs-var">linkedService</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LinkedService
+</span><a href="#local-6989586621679295812"><span class="hs-identifier hs-var">linkedService</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295811"><span class="annot"><span class="annottext">s :: HostedZone
+</span><a href="#local-6989586621679295811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone%27"><span class="hs-identifier hs-type">HostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295810"><span class="annot"><span class="annottext">Maybe LinkedService
+</span><a href="#local-6989586621679295810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedZone
+</span><a href="#local-6989586621679295811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkedService:HostedZone' :: Maybe LinkedService
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3AlinkedService%3AHostedZone%27"><span class="hs-identifier hs-var">linkedService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LinkedService
+</span><a href="#local-6989586621679295810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The ID that Amazon Route 53 assigned to the hosted zone when you created</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- it.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#hostedZone_id"><span class="hs-identifier hs-type">hostedZone_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span>
+</span><span id="line-130"></span><span id="hostedZone_id"><span class="annot"><span class="annottext">hostedZone_id :: (ResourceId -&gt; f ResourceId) -&gt; HostedZone -&gt; f HostedZone
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#hostedZone_id"><span class="hs-identifier hs-var hs-var">hostedZone_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HostedZone -&gt; ResourceId)
+-&gt; (HostedZone -&gt; ResourceId -&gt; HostedZone)
+-&gt; Lens HostedZone HostedZone ResourceId ResourceId
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone%27"><span class="hs-identifier hs-type">HostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295808"><span class="annot"><span class="annottext">ResourceId
+id :: ResourceId
+$sel:id:HostedZone' :: HostedZone -&gt; ResourceId
+</span><a href="#local-6989586621679295808"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679295808"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295807"><span class="annot"><span class="annottext">s :: HostedZone
+</span><a href="#local-6989586621679295807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone%27"><span class="hs-identifier hs-type">HostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295806"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679295806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedZone
+</span><a href="#local-6989586621679295807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:HostedZone' :: ResourceId
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3Aid%3AHostedZone%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679295806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The name of the domain. For public hosted zones, this is the name that</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- you have registered with your DNS registrar.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- For information about how to specify characters other than @a-z@, @0-9@,</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- and @-@ (hyphen) and how to specify internationalized domain names, see</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html CreateHostedZone&gt;.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#hostedZone_name"><span class="hs-identifier hs-type">hostedZone_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-139"></span><span id="hostedZone_name"><span class="annot"><span class="annottext">hostedZone_name :: (Text -&gt; f Text) -&gt; HostedZone -&gt; f HostedZone
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#hostedZone_name"><span class="hs-identifier hs-var hs-var">hostedZone_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HostedZone -&gt; Text)
+-&gt; (HostedZone -&gt; Text -&gt; HostedZone)
+-&gt; Lens HostedZone HostedZone Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone%27"><span class="hs-identifier hs-type">HostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295804"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:HostedZone' :: HostedZone -&gt; Text
+</span><a href="#local-6989586621679295804"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295804"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295803"><span class="annot"><span class="annottext">s :: HostedZone
+</span><a href="#local-6989586621679295803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone%27"><span class="hs-identifier hs-type">HostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295802"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedZone
+</span><a href="#local-6989586621679295803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:HostedZone' :: Text
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3Aname%3AHostedZone%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The value that you specified for @CallerReference@ when you created the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- hosted zone.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#hostedZone_callerReference"><span class="hs-identifier hs-type">hostedZone_callerReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-144"></span><span id="hostedZone_callerReference"><span class="annot"><span class="annottext">hostedZone_callerReference :: (Text -&gt; f Text) -&gt; HostedZone -&gt; f HostedZone
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#hostedZone_callerReference"><span class="hs-identifier hs-var hs-var">hostedZone_callerReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HostedZone -&gt; Text)
+-&gt; (HostedZone -&gt; Text -&gt; HostedZone)
+-&gt; Lens HostedZone HostedZone Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone%27"><span class="hs-identifier hs-type">HostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295800"><span class="annot"><span class="annottext">Text
+callerReference :: Text
+$sel:callerReference:HostedZone' :: HostedZone -&gt; Text
+</span><a href="#local-6989586621679295800"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295800"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295799"><span class="annot"><span class="annottext">s :: HostedZone
+</span><a href="#local-6989586621679295799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone%27"><span class="hs-identifier hs-type">HostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295798"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedZone
+</span><a href="#local-6989586621679295799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:HostedZone' :: Text
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#%24sel%3AcallerReference%3AHostedZone%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679295795"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HostedZone
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679295793"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679295793"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe HostedZoneConfig
+-&gt; Maybe LinkedService
+-&gt; ResourceId
+-&gt; Text
+-&gt; Text
+-&gt; HostedZone
+</span><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone%27"><span class="hs-identifier hs-var">HostedZone'</span></a></span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe HostedZoneConfig
+ -&gt; Maybe LinkedService
+ -&gt; ResourceId
+ -&gt; Text
+ -&gt; Text
+ -&gt; HostedZone)
+-&gt; Either String (Maybe Integer)
+-&gt; Either
+     String
+     (Maybe HostedZoneConfig
+      -&gt; Maybe LinkedService -&gt; ResourceId -&gt; Text -&gt; Text -&gt; HostedZone)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679295793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceRecordSetCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe HostedZoneConfig
+   -&gt; Maybe LinkedService -&gt; ResourceId -&gt; Text -&gt; Text -&gt; HostedZone)
+-&gt; Either String (Maybe HostedZoneConfig)
+-&gt; Either
+     String
+     (Maybe LinkedService -&gt; ResourceId -&gt; Text -&gt; Text -&gt; HostedZone)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679295793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe HostedZoneConfig)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Config&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe LinkedService -&gt; ResourceId -&gt; Text -&gt; Text -&gt; HostedZone)
+-&gt; Either String (Maybe LinkedService)
+-&gt; Either String (ResourceId -&gt; Text -&gt; Text -&gt; HostedZone)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679295793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LinkedService)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LinkedService&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">Either String (ResourceId -&gt; Text -&gt; Text -&gt; HostedZone)
+-&gt; Either String ResourceId
+-&gt; Either String (Text -&gt; Text -&gt; HostedZone)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679295793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ResourceId
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; HostedZone)
+-&gt; Either String Text -&gt; Either String (Text -&gt; HostedZone)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679295793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; HostedZone)
+-&gt; Either String Text -&gt; Either String HostedZone
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679295793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CallerReference&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295786"><span id="local-6989586621679295788"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span></span><span>
+</span><span id="line-159"></span></pre></body></html>

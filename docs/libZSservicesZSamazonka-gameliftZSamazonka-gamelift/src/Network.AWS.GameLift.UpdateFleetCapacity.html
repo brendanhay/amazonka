@@ -1,0 +1,780 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.GameLift.UpdateFleetCapacity</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates capacity settings for a fleet. For fleets with multiple</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- locations, use this operation to manage capacity settings in each</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- location individually. Fleet capacity determines the number of game</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- sessions and players that can be hosted based on the fleet</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- configuration. Use this operation to set the following fleet capacity</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- properties:</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- -   Minimum\/maximum size: Set hard limits on fleet capacity. GameLift</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--     cannot set the fleet\'s capacity to a value outside of this range,</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     whether the capacity is changed manually or through automatic</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     scaling.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   Desired capacity: Manually set the number of EC2 instances to be</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     maintained in a fleet location. Before changing a fleet\'s desired</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     capacity, you may want to call DescribeEC2InstanceLimits to get the</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     maximum capacity of the fleet\'s EC2 instance type. Alternatively,</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     consider using automatic scaling to adjust capacity based on player</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     demand.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- This operation can be used in the following ways:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- -   To update capacity for a fleet\'s home Region, or if the fleet has</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--     no remote locations, omit the @Location@ parameter. The fleet must</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     be in @ACTIVE@ status.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- -   To update capacity for a fleet\'s remote location, include the</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     @Location@ parameter set to the location to be updated. The location</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--     must be in @ACTIVE@ status.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- If successful, capacity settings are updated immediately. In response a</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- change in desired capacity, GameLift initiates steps to start new</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- instances or terminate existing instances in the requested fleet</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- location. This continues until the location\'s active instance count</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- matches the new desired instance count. You can track a fleet\'s current</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- capacity by calling DescribeFleetCapacity or</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- DescribeFleetLocationCapacity. If the requested desired instance count</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- is higher than the instance type\'s limit, the @LimitExceeded@ exception</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- occurs.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- __Learn more__</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-manage-capacity.html Scaling fleet capacity&gt;</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- __Related actions__</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- CreateFleetLocations | UpdateFleetAttributes | UpdateFleetCapacity |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- UpdateFleetPortSettings | UpdateRuntimeConfiguration | StopFleetActions</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | StartFleetActions | PutScalingPolicy | DeleteFleet |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- DeleteFleetLocations | DeleteScalingPolicy |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task&gt;</span><span>
+</span><span id="line-73"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GameLift.UpdateFleetCapacity</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier">UpdateFleetCapacity</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#newUpdateFleetCapacity"><span class="hs-identifier">newUpdateFleetCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacity_minSize"><span class="hs-identifier">updateFleetCapacity_minSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacity_maxSize"><span class="hs-identifier">updateFleetCapacity_maxSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacity_location"><span class="hs-identifier">updateFleetCapacity_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacity_desiredInstances"><span class="hs-identifier">updateFleetCapacity_desiredInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacity_fleetId"><span class="hs-identifier">updateFleetCapacity_fleetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse"><span class="hs-identifier">UpdateFleetCapacityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#newUpdateFleetCapacityResponse"><span class="hs-identifier">newUpdateFleetCapacityResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacityResponse_fleetId"><span class="hs-identifier">updateFleetCapacityResponse_fleetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacityResponse_fleetArn"><span class="hs-identifier">updateFleetCapacityResponse_fleetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacityResponse_location"><span class="hs-identifier">updateFleetCapacityResponse_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacityResponse_httpStatus"><span class="hs-identifier">updateFleetCapacityResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.html"><span class="hs-identifier">Network.AWS.GameLift.Types</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- /See:/ 'newUpdateFleetCapacity' smart constructor.</span><span>
+</span><span id="line-107"></span><span id="local-6989586621679464137"><span id="local-6989586621679464138"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFleetCapacity"><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-var">UpdateFleetCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFleetCapacity%27"><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity%27"><span class="hs-identifier hs-var">UpdateFleetCapacity'</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The minimum number of instances that are allowed in the specified fleet</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- location. If this parameter is not set, the default is 0.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AminSize%3AUpdateFleetCapacity%27"><span class="annot"><span class="annottext">UpdateFleetCapacity -&gt; Maybe Natural
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AminSize%3AUpdateFleetCapacity%27"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- | The maximum number of instances that are allowed in the specified fleet</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- location. If this parameter is not set, the default is 1.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3AmaxSize%3AUpdateFleetCapacity%27"><span class="annot"><span class="annottext">UpdateFleetCapacity -&gt; Maybe Natural
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AmaxSize%3AUpdateFleetCapacity%27"><span class="hs-identifier hs-var hs-var">maxSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | The name of a remote location to update fleet capacity settings for, in</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- the form of an AWS Region code such as @us-west-2@.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3Alocation%3AUpdateFleetCapacity%27"><span class="annot"><span class="annottext">UpdateFleetCapacity -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3Alocation%3AUpdateFleetCapacity%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The number of EC2 instances you want to maintain in the specified fleet</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- location. This value must fall between the minimum and maximum size</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- limits.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AdesiredInstances%3AUpdateFleetCapacity%27"><span class="annot"><span class="annottext">UpdateFleetCapacity -&gt; Maybe Natural
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AdesiredInstances%3AUpdateFleetCapacity%27"><span class="hs-identifier hs-var hs-var">desiredInstances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the fleet to update capacity settings for. You</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- can use either the fleet ID or ARN value.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AfleetId%3AUpdateFleetCapacity%27"><span class="annot"><span class="annottext">UpdateFleetCapacity -&gt; Text
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AfleetId%3AUpdateFleetCapacity%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679464127"><span id="local-6989586621679464129"><span class="annot"><span class="annottext">UpdateFleetCapacity -&gt; UpdateFleetCapacity -&gt; Bool
+(UpdateFleetCapacity -&gt; UpdateFleetCapacity -&gt; Bool)
+-&gt; (UpdateFleetCapacity -&gt; UpdateFleetCapacity -&gt; Bool)
+-&gt; Eq UpdateFleetCapacity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateFleetCapacity -&gt; UpdateFleetCapacity -&gt; Bool
+$c/= :: UpdateFleetCapacity -&gt; UpdateFleetCapacity -&gt; Bool
+== :: UpdateFleetCapacity -&gt; UpdateFleetCapacity -&gt; Bool
+$c== :: UpdateFleetCapacity -&gt; UpdateFleetCapacity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464118"><span id="local-6989586621679464120"><span id="local-6989586621679464122"><span id="local-6989586621679464124"><span class="annot"><span class="annottext">ReadPrec [UpdateFleetCapacity]
+ReadPrec UpdateFleetCapacity
+Int -&gt; ReadS UpdateFleetCapacity
+ReadS [UpdateFleetCapacity]
+(Int -&gt; ReadS UpdateFleetCapacity)
+-&gt; ReadS [UpdateFleetCapacity]
+-&gt; ReadPrec UpdateFleetCapacity
+-&gt; ReadPrec [UpdateFleetCapacity]
+-&gt; Read UpdateFleetCapacity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateFleetCapacity]
+$creadListPrec :: ReadPrec [UpdateFleetCapacity]
+readPrec :: ReadPrec UpdateFleetCapacity
+$creadPrec :: ReadPrec UpdateFleetCapacity
+readList :: ReadS [UpdateFleetCapacity]
+$creadList :: ReadS [UpdateFleetCapacity]
+readsPrec :: Int -&gt; ReadS UpdateFleetCapacity
+$creadsPrec :: Int -&gt; ReadS UpdateFleetCapacity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464111"><span id="local-6989586621679464113"><span id="local-6989586621679464115"><span class="annot"><span class="annottext">Int -&gt; UpdateFleetCapacity -&gt; ShowS
+[UpdateFleetCapacity] -&gt; ShowS
+UpdateFleetCapacity -&gt; String
+(Int -&gt; UpdateFleetCapacity -&gt; ShowS)
+-&gt; (UpdateFleetCapacity -&gt; String)
+-&gt; ([UpdateFleetCapacity] -&gt; ShowS)
+-&gt; Show UpdateFleetCapacity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateFleetCapacity] -&gt; ShowS
+$cshowList :: [UpdateFleetCapacity] -&gt; ShowS
+show :: UpdateFleetCapacity -&gt; String
+$cshow :: UpdateFleetCapacity -&gt; String
+showsPrec :: Int -&gt; UpdateFleetCapacity -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateFleetCapacity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateFleetCapacity -&gt; Rep UpdateFleetCapacity x)
+-&gt; (forall x. Rep UpdateFleetCapacity x -&gt; UpdateFleetCapacity)
+-&gt; Generic UpdateFleetCapacity
+forall x. Rep UpdateFleetCapacity x -&gt; UpdateFleetCapacity
+forall x. UpdateFleetCapacity -&gt; Rep UpdateFleetCapacity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateFleetCapacity x -&gt; UpdateFleetCapacity
+$cfrom :: forall x. UpdateFleetCapacity -&gt; Rep UpdateFleetCapacity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Create a value of 'UpdateFleetCapacity' with all optional fields omitted.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'minSize', 'updateFleetCapacity_minSize' - The minimum number of instances that are allowed in the specified fleet</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- location. If this parameter is not set, the default is 0.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'maxSize', 'updateFleetCapacity_maxSize' - The maximum number of instances that are allowed in the specified fleet</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- location. If this parameter is not set, the default is 1.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'location', 'updateFleetCapacity_location' - The name of a remote location to update fleet capacity settings for, in</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- the form of an AWS Region code such as @us-west-2@.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'desiredInstances', 'updateFleetCapacity_desiredInstances' - The number of EC2 instances you want to maintain in the specified fleet</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- location. This value must fall between the minimum and maximum size</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- limits.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'fleetId', 'updateFleetCapacity_fleetId' - A unique identifier for the fleet to update capacity settings for. You</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- can use either the fleet ID or ARN value.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#newUpdateFleetCapacity"><span class="hs-identifier hs-type">newUpdateFleetCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'fleetId'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span>
+</span><span id="line-154"></span><span id="newUpdateFleetCapacity"><span class="annot"><span class="annottext">newUpdateFleetCapacity :: Text -&gt; UpdateFleetCapacity
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#newUpdateFleetCapacity"><span class="hs-identifier hs-var hs-var">newUpdateFleetCapacity</span></a></span></span><span> </span><span id="local-6989586621679464106"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464106"><span class="hs-identifier hs-var">pFleetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">UpdateFleetCapacity' :: Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; UpdateFleetCapacity
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity%27"><span class="hs-identifier hs-type">UpdateFleetCapacity'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:minSize:UpdateFleetCapacity' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AminSize%3AUpdateFleetCapacity%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxSize:UpdateFleetCapacity' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AmaxSize%3AUpdateFleetCapacity%27"><span class="hs-identifier hs-var">maxSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:UpdateFleetCapacity' :: Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3Alocation%3AUpdateFleetCapacity%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:desiredInstances:UpdateFleetCapacity' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AdesiredInstances%3AUpdateFleetCapacity%27"><span class="hs-identifier hs-var">desiredInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetId:UpdateFleetCapacity' :: Text
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AfleetId%3AUpdateFleetCapacity%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464106"><span class="hs-identifier hs-var">pFleetId_</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The minimum number of instances that are allowed in the specified fleet</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- location. If this parameter is not set, the default is 0.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacity_minSize"><span class="hs-identifier hs-type">updateFleetCapacity_minSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="updateFleetCapacity_minSize"><span class="annot"><span class="annottext">updateFleetCapacity_minSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateFleetCapacity -&gt; f UpdateFleetCapacity
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacity_minSize"><span class="hs-identifier hs-var hs-var">updateFleetCapacity_minSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFleetCapacity -&gt; Maybe Natural)
+-&gt; (UpdateFleetCapacity -&gt; Maybe Natural -&gt; UpdateFleetCapacity)
+-&gt; Lens
+     UpdateFleetCapacity
+     UpdateFleetCapacity
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity%27"><span class="hs-identifier hs-type">UpdateFleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464103"><span class="annot"><span class="annottext">Maybe Natural
+minSize :: Maybe Natural
+$sel:minSize:UpdateFleetCapacity' :: UpdateFleetCapacity -&gt; Maybe Natural
+</span><a href="#local-6989586621679464103"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679464103"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464102"><span class="annot"><span class="annottext">s :: UpdateFleetCapacity
+</span><a href="#local-6989586621679464102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity%27"><span class="hs-identifier hs-type">UpdateFleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464101"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679464101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFleetCapacity
+</span><a href="#local-6989586621679464102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minSize:UpdateFleetCapacity' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AminSize%3AUpdateFleetCapacity%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679464101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The maximum number of instances that are allowed in the specified fleet</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- location. If this parameter is not set, the default is 1.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacity_maxSize"><span class="hs-identifier hs-type">updateFleetCapacity_maxSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="updateFleetCapacity_maxSize"><span class="annot"><span class="annottext">updateFleetCapacity_maxSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateFleetCapacity -&gt; f UpdateFleetCapacity
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacity_maxSize"><span class="hs-identifier hs-var hs-var">updateFleetCapacity_maxSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFleetCapacity -&gt; Maybe Natural)
+-&gt; (UpdateFleetCapacity -&gt; Maybe Natural -&gt; UpdateFleetCapacity)
+-&gt; Lens
+     UpdateFleetCapacity
+     UpdateFleetCapacity
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity%27"><span class="hs-identifier hs-type">UpdateFleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464100"><span class="annot"><span class="annottext">Maybe Natural
+maxSize :: Maybe Natural
+$sel:maxSize:UpdateFleetCapacity' :: UpdateFleetCapacity -&gt; Maybe Natural
+</span><a href="#local-6989586621679464100"><span class="hs-identifier hs-var hs-var">maxSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679464100"><span class="hs-identifier hs-var">maxSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464099"><span class="annot"><span class="annottext">s :: UpdateFleetCapacity
+</span><a href="#local-6989586621679464099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity%27"><span class="hs-identifier hs-type">UpdateFleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464098"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679464098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFleetCapacity
+</span><a href="#local-6989586621679464099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSize:UpdateFleetCapacity' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AmaxSize%3AUpdateFleetCapacity%27"><span class="hs-identifier hs-var">maxSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679464098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The name of a remote location to update fleet capacity settings for, in</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- the form of an AWS Region code such as @us-west-2@.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacity_location"><span class="hs-identifier hs-type">updateFleetCapacity_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="updateFleetCapacity_location"><span class="annot"><span class="annottext">updateFleetCapacity_location :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFleetCapacity -&gt; f UpdateFleetCapacity
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacity_location"><span class="hs-identifier hs-var hs-var">updateFleetCapacity_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFleetCapacity -&gt; Maybe Text)
+-&gt; (UpdateFleetCapacity -&gt; Maybe Text -&gt; UpdateFleetCapacity)
+-&gt; Lens
+     UpdateFleetCapacity UpdateFleetCapacity (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity%27"><span class="hs-identifier hs-type">UpdateFleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464097"><span class="annot"><span class="annottext">Maybe Text
+location :: Maybe Text
+$sel:location:UpdateFleetCapacity' :: UpdateFleetCapacity -&gt; Maybe Text
+</span><a href="#local-6989586621679464097"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679464097"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464096"><span class="annot"><span class="annottext">s :: UpdateFleetCapacity
+</span><a href="#local-6989586621679464096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity%27"><span class="hs-identifier hs-type">UpdateFleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464095"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679464095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFleetCapacity
+</span><a href="#local-6989586621679464096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:UpdateFleetCapacity' :: Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3Alocation%3AUpdateFleetCapacity%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679464095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The number of EC2 instances you want to maintain in the specified fleet</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- location. This value must fall between the minimum and maximum size</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- limits.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacity_desiredInstances"><span class="hs-identifier hs-type">updateFleetCapacity_desiredInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="updateFleetCapacity_desiredInstances"><span class="annot"><span class="annottext">updateFleetCapacity_desiredInstances :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateFleetCapacity -&gt; f UpdateFleetCapacity
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacity_desiredInstances"><span class="hs-identifier hs-var hs-var">updateFleetCapacity_desiredInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFleetCapacity -&gt; Maybe Natural)
+-&gt; (UpdateFleetCapacity -&gt; Maybe Natural -&gt; UpdateFleetCapacity)
+-&gt; Lens
+     UpdateFleetCapacity
+     UpdateFleetCapacity
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity%27"><span class="hs-identifier hs-type">UpdateFleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464094"><span class="annot"><span class="annottext">Maybe Natural
+desiredInstances :: Maybe Natural
+$sel:desiredInstances:UpdateFleetCapacity' :: UpdateFleetCapacity -&gt; Maybe Natural
+</span><a href="#local-6989586621679464094"><span class="hs-identifier hs-var hs-var">desiredInstances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679464094"><span class="hs-identifier hs-var">desiredInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464093"><span class="annot"><span class="annottext">s :: UpdateFleetCapacity
+</span><a href="#local-6989586621679464093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity%27"><span class="hs-identifier hs-type">UpdateFleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464092"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679464092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFleetCapacity
+</span><a href="#local-6989586621679464093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredInstances:UpdateFleetCapacity' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AdesiredInstances%3AUpdateFleetCapacity%27"><span class="hs-identifier hs-var">desiredInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679464092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | A unique identifier for the fleet to update capacity settings for. You</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- can use either the fleet ID or ARN value.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacity_fleetId"><span class="hs-identifier hs-type">updateFleetCapacity_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-187"></span><span id="updateFleetCapacity_fleetId"><span class="annot"><span class="annottext">updateFleetCapacity_fleetId :: (Text -&gt; f Text) -&gt; UpdateFleetCapacity -&gt; f UpdateFleetCapacity
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacity_fleetId"><span class="hs-identifier hs-var hs-var">updateFleetCapacity_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFleetCapacity -&gt; Text)
+-&gt; (UpdateFleetCapacity -&gt; Text -&gt; UpdateFleetCapacity)
+-&gt; Lens UpdateFleetCapacity UpdateFleetCapacity Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity%27"><span class="hs-identifier hs-type">UpdateFleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464091"><span class="annot"><span class="annottext">Text
+fleetId :: Text
+$sel:fleetId:UpdateFleetCapacity' :: UpdateFleetCapacity -&gt; Text
+</span><a href="#local-6989586621679464091"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464091"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464090"><span class="annot"><span class="annottext">s :: UpdateFleetCapacity
+</span><a href="#local-6989586621679464090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity%27"><span class="hs-identifier hs-type">UpdateFleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464089"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFleetCapacity
+</span><a href="#local-6989586621679464090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:UpdateFleetCapacity' :: Text
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AfleetId%3AUpdateFleetCapacity%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-191"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse</span></a></span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679464085"><span class="annot"><span class="annottext">request :: UpdateFleetCapacity -&gt; Request UpdateFleetCapacity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateFleetCapacity -&gt; Request UpdateFleetCapacity
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679464081"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateFleetCapacity
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateFleetCapacity)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateFleetCapacity))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateFleetCapacity
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateFleetCapacity)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679464078"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679464078"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679464077"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679464077"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679464076"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679464076"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateFleetCapacityResponse
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse%27"><span class="hs-identifier hs-var">UpdateFleetCapacityResponse'</span></a></span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateFleetCapacityResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateFleetCapacityResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679464076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateFleetCapacityResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; UpdateFleetCapacityResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679464076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UpdateFleetCapacityResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateFleetCapacityResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679464076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateFleetCapacityResponse)
+-&gt; Either String Int -&gt; Either String UpdateFleetCapacityResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679464078"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464068"><span id="local-6989586621679464070"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span></span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464065"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679464061"><span class="annot"><span class="annottext">toHeaders :: UpdateFleetCapacity -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateFleetCapacity -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-212"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GameLift.UpdateFleetCapacity&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-214"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-215"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-218"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-219"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464051"><span id="local-6989586621679464053"><span id="local-6989586621679464055"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679464049"><span class="annot"><span class="annottext">toJSON :: UpdateFleetCapacity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity%27"><span class="hs-identifier hs-type">UpdateFleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464043"><span id="local-6989586621679464044"><span id="local-6989586621679464045"><span id="local-6989586621679464046"><span id="local-6989586621679464047"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+fleetId :: Text
+desiredInstances :: Maybe Natural
+location :: Maybe Text
+maxSize :: Maybe Natural
+minSize :: Maybe Natural
+$sel:fleetId:UpdateFleetCapacity' :: UpdateFleetCapacity -&gt; Text
+$sel:desiredInstances:UpdateFleetCapacity' :: UpdateFleetCapacity -&gt; Maybe Natural
+$sel:location:UpdateFleetCapacity' :: UpdateFleetCapacity -&gt; Maybe Text
+$sel:maxSize:UpdateFleetCapacity' :: UpdateFleetCapacity -&gt; Maybe Natural
+$sel:minSize:UpdateFleetCapacity' :: UpdateFleetCapacity -&gt; Maybe Natural
+</span><a href="#local-6989586621679464043"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-227"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MinSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679464047"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679464046"><span class="hs-identifier hs-var">maxSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679464045"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DesiredInstances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679464044"><span class="hs-identifier hs-var">desiredInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464043"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-234"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679464037"><span class="annot"><span class="annottext">toPath :: UpdateFleetCapacity -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateFleetCapacity -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacity"><span class="hs-identifier hs-type">UpdateFleetCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679464033"><span class="annot"><span class="annottext">toQuery :: UpdateFleetCapacity -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateFleetCapacity -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- /See:/ 'newUpdateFleetCapacityResponse' smart constructor.</span><span>
+</span><span id="line-245"></span><span id="local-6989586621679464030"><span id="local-6989586621679464031"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFleetCapacityResponse"><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse"><span class="hs-identifier hs-var">UpdateFleetCapacityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFleetCapacityResponse%27"><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse%27"><span class="hs-identifier hs-var">UpdateFleetCapacityResponse'</span></a></span></span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the fleet that was updated.</span><span>
+</span><span id="line-247"></span><span>    </span><span id="%24sel%3AfleetId%3AUpdateFleetCapacityResponse%27"><span class="annot"><span class="annottext">UpdateFleetCapacityResponse -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AfleetId%3AUpdateFleetCapacityResponse%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-253"></span><span>    </span><span id="%24sel%3AfleetArn%3AUpdateFleetCapacityResponse%27"><span class="annot"><span class="annottext">UpdateFleetCapacityResponse -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AfleetArn%3AUpdateFleetCapacityResponse%27"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- | The remote location being updated, expressed as an AWS Region code, such</span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-comment">-- as @us-west-2@.</span><span>
+</span><span id="line-256"></span><span>    </span><span id="%24sel%3Alocation%3AUpdateFleetCapacityResponse%27"><span class="annot"><span class="annottext">UpdateFleetCapacityResponse -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3Alocation%3AUpdateFleetCapacityResponse%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-258"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateFleetCapacityResponse%27"><span class="annot"><span class="annottext">UpdateFleetCapacityResponse -&gt; Int
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AhttpStatus%3AUpdateFleetCapacityResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679464022"><span id="local-6989586621679464024"><span class="annot"><span class="annottext">UpdateFleetCapacityResponse -&gt; UpdateFleetCapacityResponse -&gt; Bool
+(UpdateFleetCapacityResponse
+ -&gt; UpdateFleetCapacityResponse -&gt; Bool)
+-&gt; (UpdateFleetCapacityResponse
+    -&gt; UpdateFleetCapacityResponse -&gt; Bool)
+-&gt; Eq UpdateFleetCapacityResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateFleetCapacityResponse -&gt; UpdateFleetCapacityResponse -&gt; Bool
+$c/= :: UpdateFleetCapacityResponse -&gt; UpdateFleetCapacityResponse -&gt; Bool
+== :: UpdateFleetCapacityResponse -&gt; UpdateFleetCapacityResponse -&gt; Bool
+$c== :: UpdateFleetCapacityResponse -&gt; UpdateFleetCapacityResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464014"><span id="local-6989586621679464016"><span id="local-6989586621679464018"><span id="local-6989586621679464020"><span class="annot"><span class="annottext">ReadPrec [UpdateFleetCapacityResponse]
+ReadPrec UpdateFleetCapacityResponse
+Int -&gt; ReadS UpdateFleetCapacityResponse
+ReadS [UpdateFleetCapacityResponse]
+(Int -&gt; ReadS UpdateFleetCapacityResponse)
+-&gt; ReadS [UpdateFleetCapacityResponse]
+-&gt; ReadPrec UpdateFleetCapacityResponse
+-&gt; ReadPrec [UpdateFleetCapacityResponse]
+-&gt; Read UpdateFleetCapacityResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateFleetCapacityResponse]
+$creadListPrec :: ReadPrec [UpdateFleetCapacityResponse]
+readPrec :: ReadPrec UpdateFleetCapacityResponse
+$creadPrec :: ReadPrec UpdateFleetCapacityResponse
+readList :: ReadS [UpdateFleetCapacityResponse]
+$creadList :: ReadS [UpdateFleetCapacityResponse]
+readsPrec :: Int -&gt; ReadS UpdateFleetCapacityResponse
+$creadsPrec :: Int -&gt; ReadS UpdateFleetCapacityResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464008"><span id="local-6989586621679464010"><span id="local-6989586621679464012"><span class="annot"><span class="annottext">Int -&gt; UpdateFleetCapacityResponse -&gt; ShowS
+[UpdateFleetCapacityResponse] -&gt; ShowS
+UpdateFleetCapacityResponse -&gt; String
+(Int -&gt; UpdateFleetCapacityResponse -&gt; ShowS)
+-&gt; (UpdateFleetCapacityResponse -&gt; String)
+-&gt; ([UpdateFleetCapacityResponse] -&gt; ShowS)
+-&gt; Show UpdateFleetCapacityResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateFleetCapacityResponse] -&gt; ShowS
+$cshowList :: [UpdateFleetCapacityResponse] -&gt; ShowS
+show :: UpdateFleetCapacityResponse -&gt; String
+$cshow :: UpdateFleetCapacityResponse -&gt; String
+showsPrec :: Int -&gt; UpdateFleetCapacityResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateFleetCapacityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateFleetCapacityResponse -&gt; Rep UpdateFleetCapacityResponse x)
+-&gt; (forall x.
+    Rep UpdateFleetCapacityResponse x -&gt; UpdateFleetCapacityResponse)
+-&gt; Generic UpdateFleetCapacityResponse
+forall x.
+Rep UpdateFleetCapacityResponse x -&gt; UpdateFleetCapacityResponse
+forall x.
+UpdateFleetCapacityResponse -&gt; Rep UpdateFleetCapacityResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateFleetCapacityResponse x -&gt; UpdateFleetCapacityResponse
+$cfrom :: forall x.
+UpdateFleetCapacityResponse -&gt; Rep UpdateFleetCapacityResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- Create a value of 'UpdateFleetCapacityResponse' with all optional fields omitted.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- 'fleetId', 'updateFleetCapacityResponse_fleetId' - A unique identifier for the fleet that was updated.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- 'fleetArn', 'updateFleetCapacityResponse_fleetArn' - The Amazon Resource Name</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- 'location', 'updateFleetCapacityResponse_location' - The remote location being updated, expressed as an AWS Region code, such</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- as @us-west-2@.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- 'httpStatus', 'updateFleetCapacityResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#newUpdateFleetCapacityResponse"><span class="hs-identifier hs-type">newUpdateFleetCapacityResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-283"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-284"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-285"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse</span></a></span><span>
+</span><span id="line-286"></span><span id="newUpdateFleetCapacityResponse"><span class="annot"><span class="annottext">newUpdateFleetCapacityResponse :: Int -&gt; UpdateFleetCapacityResponse
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#newUpdateFleetCapacityResponse"><span class="hs-identifier hs-var hs-var">newUpdateFleetCapacityResponse</span></a></span></span><span> </span><span id="local-6989586621679464005"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679464005"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-287"></span><span>  </span><span class="annot"><span class="annottext">UpdateFleetCapacityResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateFleetCapacityResponse
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse%27"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse'</span></a></span><span>
+</span><span id="line-288"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fleetId:UpdateFleetCapacityResponse' :: Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AfleetId%3AUpdateFleetCapacityResponse%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-289"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetArn:UpdateFleetCapacityResponse' :: Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AfleetArn%3AUpdateFleetCapacityResponse%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:UpdateFleetCapacityResponse' :: Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3Alocation%3AUpdateFleetCapacityResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFleetCapacityResponse' :: Int
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AhttpStatus%3AUpdateFleetCapacityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679464005"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-293"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- | A unique identifier for the fleet that was updated.</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacityResponse_fleetId"><span class="hs-identifier hs-type">updateFleetCapacityResponse_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span id="updateFleetCapacityResponse_fleetId"><span class="annot"><span class="annottext">updateFleetCapacityResponse_fleetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFleetCapacityResponse -&gt; f UpdateFleetCapacityResponse
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacityResponse_fleetId"><span class="hs-identifier hs-var hs-var">updateFleetCapacityResponse_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFleetCapacityResponse -&gt; Maybe Text)
+-&gt; (UpdateFleetCapacityResponse
+    -&gt; Maybe Text -&gt; UpdateFleetCapacityResponse)
+-&gt; Lens
+     UpdateFleetCapacityResponse
+     UpdateFleetCapacityResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse%27"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464004"><span class="annot"><span class="annottext">Maybe Text
+fleetId :: Maybe Text
+$sel:fleetId:UpdateFleetCapacityResponse' :: UpdateFleetCapacityResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679464004"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679464004"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464003"><span class="annot"><span class="annottext">s :: UpdateFleetCapacityResponse
+</span><a href="#local-6989586621679464003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse%27"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464002"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679464002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFleetCapacityResponse
+</span><a href="#local-6989586621679464003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:UpdateFleetCapacityResponse' :: Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AfleetId%3AUpdateFleetCapacityResponse%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679464002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-304"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacityResponse_fleetArn"><span class="hs-identifier hs-type">updateFleetCapacityResponse_fleetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span id="updateFleetCapacityResponse_fleetArn"><span class="annot"><span class="annottext">updateFleetCapacityResponse_fleetArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFleetCapacityResponse -&gt; f UpdateFleetCapacityResponse
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacityResponse_fleetArn"><span class="hs-identifier hs-var hs-var">updateFleetCapacityResponse_fleetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFleetCapacityResponse -&gt; Maybe Text)
+-&gt; (UpdateFleetCapacityResponse
+    -&gt; Maybe Text -&gt; UpdateFleetCapacityResponse)
+-&gt; Lens
+     UpdateFleetCapacityResponse
+     UpdateFleetCapacityResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse%27"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464001"><span class="annot"><span class="annottext">Maybe Text
+fleetArn :: Maybe Text
+$sel:fleetArn:UpdateFleetCapacityResponse' :: UpdateFleetCapacityResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679464001"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679464001"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464000"><span class="annot"><span class="annottext">s :: UpdateFleetCapacityResponse
+</span><a href="#local-6989586621679464000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse%27"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463999"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFleetCapacityResponse
+</span><a href="#local-6989586621679464000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetArn:UpdateFleetCapacityResponse' :: Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AfleetArn%3AUpdateFleetCapacityResponse%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- | The remote location being updated, expressed as an AWS Region code, such</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- as @us-west-2@.</span><span>
+</span><span id="line-309"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacityResponse_location"><span class="hs-identifier hs-type">updateFleetCapacityResponse_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span id="updateFleetCapacityResponse_location"><span class="annot"><span class="annottext">updateFleetCapacityResponse_location :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFleetCapacityResponse -&gt; f UpdateFleetCapacityResponse
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacityResponse_location"><span class="hs-identifier hs-var hs-var">updateFleetCapacityResponse_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFleetCapacityResponse -&gt; Maybe Text)
+-&gt; (UpdateFleetCapacityResponse
+    -&gt; Maybe Text -&gt; UpdateFleetCapacityResponse)
+-&gt; Lens
+     UpdateFleetCapacityResponse
+     UpdateFleetCapacityResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse%27"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463998"><span class="annot"><span class="annottext">Maybe Text
+location :: Maybe Text
+$sel:location:UpdateFleetCapacityResponse' :: UpdateFleetCapacityResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679463998"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463998"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463997"><span class="annot"><span class="annottext">s :: UpdateFleetCapacityResponse
+</span><a href="#local-6989586621679463997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse%27"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463996"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFleetCapacityResponse
+</span><a href="#local-6989586621679463997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:UpdateFleetCapacityResponse' :: Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3Alocation%3AUpdateFleetCapacityResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-313"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacityResponse_httpStatus"><span class="hs-identifier hs-type">updateFleetCapacityResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-314"></span><span id="updateFleetCapacityResponse_httpStatus"><span class="annot"><span class="annottext">updateFleetCapacityResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateFleetCapacityResponse -&gt; f UpdateFleetCapacityResponse
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#updateFleetCapacityResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateFleetCapacityResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFleetCapacityResponse -&gt; Int)
+-&gt; (UpdateFleetCapacityResponse
+    -&gt; Int -&gt; UpdateFleetCapacityResponse)
+-&gt; Lens
+     UpdateFleetCapacityResponse UpdateFleetCapacityResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse%27"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463995"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateFleetCapacityResponse' :: UpdateFleetCapacityResponse -&gt; Int
+</span><a href="#local-6989586621679463995"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679463995"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463994"><span class="annot"><span class="annottext">s :: UpdateFleetCapacityResponse
+</span><a href="#local-6989586621679463994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse%27"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463993"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679463993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFleetCapacityResponse
+</span><a href="#local-6989586621679463994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFleetCapacityResponse' :: Int
+</span><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#%24sel%3AhttpStatus%3AUpdateFleetCapacityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679463993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463991"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateFleetCapacity.html#UpdateFleetCapacityResponse"><span class="hs-identifier hs-type">UpdateFleetCapacityResponse</span></a></span></span><span>
+</span><span id="line-317"></span></pre></body></html>

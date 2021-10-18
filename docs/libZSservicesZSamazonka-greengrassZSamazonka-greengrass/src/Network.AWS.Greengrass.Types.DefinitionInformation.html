@@ -1,0 +1,574 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Greengrass.Types.DefinitionInformation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Greengrass.Types.DefinitionInformation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information about a definition.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDefinitionInformation' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679341739"><span id="local-6989586621679341740"></span></span><span class="hs-keyword">data</span><span> </span><span id="DefinitionInformation"><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-var">DefinitionInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefinitionInformation%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-var">DefinitionInformation'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcreationTimestamp%3ADefinitionInformation%27"><span class="annot"><span class="annottext">DefinitionInformation -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3AcreationTimestamp%3ADefinitionInformation%27"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ARN of the latest version associated with the definition.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlatestVersionArn%3ADefinitionInformation%27"><span class="annot"><span class="annottext">DefinitionInformation -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3AlatestVersionArn%3ADefinitionInformation%27"><span class="hs-identifier hs-var hs-var">latestVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of the latest version associated with the definition.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlatestVersion%3ADefinitionInformation%27"><span class="annot"><span class="annottext">DefinitionInformation -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3AlatestVersion%3ADefinitionInformation%27"><span class="hs-identifier hs-var hs-var">latestVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ARN of the definition.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aarn%3ADefinitionInformation%27"><span class="annot"><span class="annottext">DefinitionInformation -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3Aarn%3ADefinitionInformation%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the definition.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aid%3ADefinitionInformation%27"><span class="annot"><span class="annottext">DefinitionInformation -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3Aid%3ADefinitionInformation%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the definition.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aname%3ADefinitionInformation%27"><span class="annot"><span class="annottext">DefinitionInformation -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3Aname%3ADefinitionInformation%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Tag(s) attached to the resource arn.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Atags%3ADefinitionInformation%27"><span class="annot"><span class="annottext">DefinitionInformation -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3Atags%3ADefinitionInformation%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was last</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AlastUpdatedTimestamp%3ADefinitionInformation%27"><span class="annot"><span class="annottext">DefinitionInformation -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3AlastUpdatedTimestamp%3ADefinitionInformation%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341726"><span id="local-6989586621679341728"><span class="annot"><span class="annottext">DefinitionInformation -&gt; DefinitionInformation -&gt; Bool
+(DefinitionInformation -&gt; DefinitionInformation -&gt; Bool)
+-&gt; (DefinitionInformation -&gt; DefinitionInformation -&gt; Bool)
+-&gt; Eq DefinitionInformation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DefinitionInformation -&gt; DefinitionInformation -&gt; Bool
+$c/= :: DefinitionInformation -&gt; DefinitionInformation -&gt; Bool
+== :: DefinitionInformation -&gt; DefinitionInformation -&gt; Bool
+$c== :: DefinitionInformation -&gt; DefinitionInformation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341717"><span id="local-6989586621679341719"><span id="local-6989586621679341721"><span id="local-6989586621679341723"><span class="annot"><span class="annottext">ReadPrec [DefinitionInformation]
+ReadPrec DefinitionInformation
+Int -&gt; ReadS DefinitionInformation
+ReadS [DefinitionInformation]
+(Int -&gt; ReadS DefinitionInformation)
+-&gt; ReadS [DefinitionInformation]
+-&gt; ReadPrec DefinitionInformation
+-&gt; ReadPrec [DefinitionInformation]
+-&gt; Read DefinitionInformation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DefinitionInformation]
+$creadListPrec :: ReadPrec [DefinitionInformation]
+readPrec :: ReadPrec DefinitionInformation
+$creadPrec :: ReadPrec DefinitionInformation
+readList :: ReadS [DefinitionInformation]
+$creadList :: ReadS [DefinitionInformation]
+readsPrec :: Int -&gt; ReadS DefinitionInformation
+$creadsPrec :: Int -&gt; ReadS DefinitionInformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341710"><span id="local-6989586621679341712"><span id="local-6989586621679341714"><span class="annot"><span class="annottext">Int -&gt; DefinitionInformation -&gt; ShowS
+[DefinitionInformation] -&gt; ShowS
+DefinitionInformation -&gt; String
+(Int -&gt; DefinitionInformation -&gt; ShowS)
+-&gt; (DefinitionInformation -&gt; String)
+-&gt; ([DefinitionInformation] -&gt; ShowS)
+-&gt; Show DefinitionInformation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DefinitionInformation] -&gt; ShowS
+$cshowList :: [DefinitionInformation] -&gt; ShowS
+show :: DefinitionInformation -&gt; String
+$cshow :: DefinitionInformation -&gt; String
+showsPrec :: Int -&gt; DefinitionInformation -&gt; ShowS
+$cshowsPrec :: Int -&gt; DefinitionInformation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DefinitionInformation -&gt; Rep DefinitionInformation x)
+-&gt; (forall x. Rep DefinitionInformation x -&gt; DefinitionInformation)
+-&gt; Generic DefinitionInformation
+forall x. Rep DefinitionInformation x -&gt; DefinitionInformation
+forall x. DefinitionInformation -&gt; Rep DefinitionInformation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DefinitionInformation x -&gt; DefinitionInformation
+$cfrom :: forall x. DefinitionInformation -&gt; Rep DefinitionInformation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'DefinitionInformation' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'creationTimestamp', 'definitionInformation_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'latestVersionArn', 'definitionInformation_latestVersionArn' - The ARN of the latest version associated with the definition.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'latestVersion', 'definitionInformation_latestVersion' - The ID of the latest version associated with the definition.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'arn', 'definitionInformation_arn' - The ARN of the definition.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'id', 'definitionInformation_id' - The ID of the definition.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'name', 'definitionInformation_name' - The name of the definition.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'tags', 'definitionInformation_tags' - Tag(s) attached to the resource arn.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'lastUpdatedTimestamp', 'definitionInformation_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#newDefinitionInformation"><span class="hs-identifier hs-type">newDefinitionInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span>
+</span><span id="line-78"></span><span id="newDefinitionInformation"><span class="annot"><span class="annottext">newDefinitionInformation :: DefinitionInformation
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#newDefinitionInformation"><span class="hs-identifier hs-var hs-var">newDefinitionInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DefinitionInformation' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; DefinitionInformation
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTimestamp:DefinitionInformation' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3AcreationTimestamp%3ADefinitionInformation%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestVersionArn:DefinitionInformation' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3AlatestVersionArn%3ADefinitionInformation%27"><span class="hs-identifier hs-var">latestVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestVersion:DefinitionInformation' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3AlatestVersion%3ADefinitionInformation%27"><span class="hs-identifier hs-var">latestVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DefinitionInformation' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3Aarn%3ADefinitionInformation%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:DefinitionInformation' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3Aid%3ADefinitionInformation%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DefinitionInformation' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3Aname%3ADefinitionInformation%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:DefinitionInformation' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3Atags%3ADefinitionInformation%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:DefinitionInformation' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3AlastUpdatedTimestamp%3ADefinitionInformation%27"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_creationTimestamp"><span class="hs-identifier hs-type">definitionInformation_creationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="definitionInformation_creationTimestamp"><span class="annot"><span class="annottext">definitionInformation_creationTimestamp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DefinitionInformation -&gt; f DefinitionInformation
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_creationTimestamp"><span class="hs-identifier hs-var hs-var">definitionInformation_creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefinitionInformation -&gt; Maybe Text)
+-&gt; (DefinitionInformation -&gt; Maybe Text -&gt; DefinitionInformation)
+-&gt; Lens
+     DefinitionInformation
+     DefinitionInformation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341701"><span class="annot"><span class="annottext">Maybe Text
+creationTimestamp :: Maybe Text
+$sel:creationTimestamp:DefinitionInformation' :: DefinitionInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679341701"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341701"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341700"><span class="annot"><span class="annottext">s :: DefinitionInformation
+</span><a href="#local-6989586621679341700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341699"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefinitionInformation
+</span><a href="#local-6989586621679341700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimestamp:DefinitionInformation' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3AcreationTimestamp%3ADefinitionInformation%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The ARN of the latest version associated with the definition.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_latestVersionArn"><span class="hs-identifier hs-type">definitionInformation_latestVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="definitionInformation_latestVersionArn"><span class="annot"><span class="annottext">definitionInformation_latestVersionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DefinitionInformation -&gt; f DefinitionInformation
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_latestVersionArn"><span class="hs-identifier hs-var hs-var">definitionInformation_latestVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefinitionInformation -&gt; Maybe Text)
+-&gt; (DefinitionInformation -&gt; Maybe Text -&gt; DefinitionInformation)
+-&gt; Lens
+     DefinitionInformation
+     DefinitionInformation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341697"><span class="annot"><span class="annottext">Maybe Text
+latestVersionArn :: Maybe Text
+$sel:latestVersionArn:DefinitionInformation' :: DefinitionInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679341697"><span class="hs-identifier hs-var hs-var">latestVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341697"><span class="hs-identifier hs-var">latestVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341696"><span class="annot"><span class="annottext">s :: DefinitionInformation
+</span><a href="#local-6989586621679341696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341695"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefinitionInformation
+</span><a href="#local-6989586621679341696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersionArn:DefinitionInformation' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3AlatestVersionArn%3ADefinitionInformation%27"><span class="hs-identifier hs-var">latestVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The ID of the latest version associated with the definition.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_latestVersion"><span class="hs-identifier hs-type">definitionInformation_latestVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="definitionInformation_latestVersion"><span class="annot"><span class="annottext">definitionInformation_latestVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DefinitionInformation -&gt; f DefinitionInformation
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_latestVersion"><span class="hs-identifier hs-var hs-var">definitionInformation_latestVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefinitionInformation -&gt; Maybe Text)
+-&gt; (DefinitionInformation -&gt; Maybe Text -&gt; DefinitionInformation)
+-&gt; Lens
+     DefinitionInformation
+     DefinitionInformation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341693"><span class="annot"><span class="annottext">Maybe Text
+latestVersion :: Maybe Text
+$sel:latestVersion:DefinitionInformation' :: DefinitionInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679341693"><span class="hs-identifier hs-var hs-var">latestVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341693"><span class="hs-identifier hs-var">latestVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341692"><span class="annot"><span class="annottext">s :: DefinitionInformation
+</span><a href="#local-6989586621679341692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341691"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefinitionInformation
+</span><a href="#local-6989586621679341692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersion:DefinitionInformation' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3AlatestVersion%3ADefinitionInformation%27"><span class="hs-identifier hs-var">latestVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The ARN of the definition.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_arn"><span class="hs-identifier hs-type">definitionInformation_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="definitionInformation_arn"><span class="annot"><span class="annottext">definitionInformation_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DefinitionInformation -&gt; f DefinitionInformation
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_arn"><span class="hs-identifier hs-var hs-var">definitionInformation_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefinitionInformation -&gt; Maybe Text)
+-&gt; (DefinitionInformation -&gt; Maybe Text -&gt; DefinitionInformation)
+-&gt; Lens
+     DefinitionInformation
+     DefinitionInformation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341689"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DefinitionInformation' :: DefinitionInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679341689"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341689"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341688"><span class="annot"><span class="annottext">s :: DefinitionInformation
+</span><a href="#local-6989586621679341688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341687"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefinitionInformation
+</span><a href="#local-6989586621679341688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DefinitionInformation' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3Aarn%3ADefinitionInformation%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The ID of the definition.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_id"><span class="hs-identifier hs-type">definitionInformation_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="definitionInformation_id"><span class="annot"><span class="annottext">definitionInformation_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DefinitionInformation -&gt; f DefinitionInformation
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_id"><span class="hs-identifier hs-var hs-var">definitionInformation_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefinitionInformation -&gt; Maybe Text)
+-&gt; (DefinitionInformation -&gt; Maybe Text -&gt; DefinitionInformation)
+-&gt; Lens
+     DefinitionInformation
+     DefinitionInformation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341685"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:DefinitionInformation' :: DefinitionInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679341685"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341685"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341684"><span class="annot"><span class="annottext">s :: DefinitionInformation
+</span><a href="#local-6989586621679341684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341683"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefinitionInformation
+</span><a href="#local-6989586621679341684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DefinitionInformation' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3Aid%3ADefinitionInformation%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The name of the definition.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_name"><span class="hs-identifier hs-type">definitionInformation_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="definitionInformation_name"><span class="annot"><span class="annottext">definitionInformation_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DefinitionInformation -&gt; f DefinitionInformation
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_name"><span class="hs-identifier hs-var hs-var">definitionInformation_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefinitionInformation -&gt; Maybe Text)
+-&gt; (DefinitionInformation -&gt; Maybe Text -&gt; DefinitionInformation)
+-&gt; Lens
+     DefinitionInformation
+     DefinitionInformation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341681"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:DefinitionInformation' :: DefinitionInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679341681"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341681"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341680"><span class="annot"><span class="annottext">s :: DefinitionInformation
+</span><a href="#local-6989586621679341680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341679"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefinitionInformation
+</span><a href="#local-6989586621679341680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DefinitionInformation' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3Aname%3ADefinitionInformation%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Tag(s) attached to the resource arn.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_tags"><span class="hs-identifier hs-type">definitionInformation_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="definitionInformation_tags"><span class="annot"><span class="annottext">definitionInformation_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DefinitionInformation -&gt; f DefinitionInformation
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_tags"><span class="hs-identifier hs-var hs-var">definitionInformation_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefinitionInformation -&gt; Maybe (HashMap Text Text))
+-&gt; (DefinitionInformation
+    -&gt; Maybe (HashMap Text Text) -&gt; DefinitionInformation)
+-&gt; Lens
+     DefinitionInformation
+     DefinitionInformation
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341677"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:DefinitionInformation' :: DefinitionInformation -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679341677"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679341677"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341676"><span class="annot"><span class="annottext">s :: DefinitionInformation
+</span><a href="#local-6989586621679341676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341675"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679341675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefinitionInformation
+</span><a href="#local-6989586621679341676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DefinitionInformation' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3Atags%3ADefinitionInformation%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679341675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; DefinitionInformation -&gt; f DefinitionInformation)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DefinitionInformation
+-&gt; f DefinitionInformation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was last</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_lastUpdatedTimestamp"><span class="hs-identifier hs-type">definitionInformation_lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="definitionInformation_lastUpdatedTimestamp"><span class="annot"><span class="annottext">definitionInformation_lastUpdatedTimestamp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DefinitionInformation -&gt; f DefinitionInformation
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#definitionInformation_lastUpdatedTimestamp"><span class="hs-identifier hs-var hs-var">definitionInformation_lastUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefinitionInformation -&gt; Maybe Text)
+-&gt; (DefinitionInformation -&gt; Maybe Text -&gt; DefinitionInformation)
+-&gt; Lens
+     DefinitionInformation
+     DefinitionInformation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341670"><span class="annot"><span class="annottext">Maybe Text
+lastUpdatedTimestamp :: Maybe Text
+$sel:lastUpdatedTimestamp:DefinitionInformation' :: DefinitionInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679341670"><span class="hs-identifier hs-var hs-var">lastUpdatedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341670"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341669"><span class="annot"><span class="annottext">s :: DefinitionInformation
+</span><a href="#local-6989586621679341669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-type">DefinitionInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341668"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefinitionInformation
+</span><a href="#local-6989586621679341669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:DefinitionInformation' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#%24sel%3AlastUpdatedTimestamp%3ADefinitionInformation%27"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341665"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679341663"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DefinitionInformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DefinitionInformation)
+-&gt; Value
+-&gt; Parser DefinitionInformation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DefinitionInformation&quot;</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341660"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341660"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; DefinitionInformation
+</span><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation%27"><span class="hs-identifier hs-var">DefinitionInformation'</span></a></span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; DefinitionInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; DefinitionInformation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; DefinitionInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; DefinitionInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LatestVersionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; DefinitionInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; DefinitionInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LatestVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; DefinitionInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; DefinitionInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; DefinitionInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; DefinitionInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; DefinitionInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; DefinitionInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; DefinitionInformation)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Maybe Text -&gt; DefinitionInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DefinitionInformation)
+-&gt; Parser (Maybe Text) -&gt; Parser DefinitionInformation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341653"><span id="local-6989586621679341655"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341650"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DefinitionInformation.html#DefinitionInformation"><span class="hs-identifier hs-type">DefinitionInformation</span></a></span></span><span>
+</span><span id="line-144"></span></pre></body></html>

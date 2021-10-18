@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ResourceGroupsTagging.Types.Summary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ResourceGroupsTagging.Types.Summary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TargetIdType.html"><span class="hs-identifier">Network.AWS.ResourceGroupsTagging.Types.TargetIdType</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A count of noncompliant resources.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679157126"><span id="local-6989586621679157127"></span></span><span class="hs-keyword">data</span><span> </span><span id="Summary"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-var">Summary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Summary%27"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary%27"><span class="hs-identifier hs-var">Summary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account identifier or the root identifier of the organization. If</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- you don\'t know the root ID, you can call the AWS Organizations</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html ListRoots&gt;</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AtargetId%3ASummary%27"><span class="annot"><span class="annottext">Summary -&gt; Maybe Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3AtargetId%3ASummary%27"><span class="hs-identifier hs-var hs-var">targetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The AWS resource type.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AresourceType%3ASummary%27"><span class="annot"><span class="annottext">Summary -&gt; Maybe Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3AresourceType%3ASummary%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The timestamp that shows when this summary was generated in this Region.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastUpdated%3ASummary%27"><span class="annot"><span class="annottext">Summary -&gt; Maybe Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3AlastUpdated%3ASummary%27"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Whether the target is an account, an OU, or the organization root.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtargetIdType%3ASummary%27"><span class="annot"><span class="annottext">Summary -&gt; Maybe TargetIdType
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3AtargetIdType%3ASummary%27"><span class="hs-identifier hs-var hs-var">targetIdType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TargetIdType.html#TargetIdType"><span class="hs-identifier hs-type">TargetIdType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The count of noncompliant resources.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AnonCompliantResources%3ASummary%27"><span class="annot"><span class="annottext">Summary -&gt; Maybe Integer
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3AnonCompliantResources%3ASummary%27"><span class="hs-identifier hs-var hs-var">nonCompliantResources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The AWS Region that the summary applies to.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aregion%3ASummary%27"><span class="annot"><span class="annottext">Summary -&gt; Maybe Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3Aregion%3ASummary%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679157115"><span id="local-6989586621679157117"><span class="annot"><span class="annottext">Summary -&gt; Summary -&gt; Bool
+(Summary -&gt; Summary -&gt; Bool)
+-&gt; (Summary -&gt; Summary -&gt; Bool) -&gt; Eq Summary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Summary -&gt; Summary -&gt; Bool
+$c/= :: Summary -&gt; Summary -&gt; Bool
+== :: Summary -&gt; Summary -&gt; Bool
+$c== :: Summary -&gt; Summary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679157106"><span id="local-6989586621679157108"><span id="local-6989586621679157110"><span id="local-6989586621679157112"><span class="annot"><span class="annottext">ReadPrec [Summary]
+ReadPrec Summary
+Int -&gt; ReadS Summary
+ReadS [Summary]
+(Int -&gt; ReadS Summary)
+-&gt; ReadS [Summary]
+-&gt; ReadPrec Summary
+-&gt; ReadPrec [Summary]
+-&gt; Read Summary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Summary]
+$creadListPrec :: ReadPrec [Summary]
+readPrec :: ReadPrec Summary
+$creadPrec :: ReadPrec Summary
+readList :: ReadS [Summary]
+$creadList :: ReadS [Summary]
+readsPrec :: Int -&gt; ReadS Summary
+$creadsPrec :: Int -&gt; ReadS Summary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679157099"><span id="local-6989586621679157101"><span id="local-6989586621679157103"><span class="annot"><span class="annottext">Int -&gt; Summary -&gt; ShowS
+[Summary] -&gt; ShowS
+Summary -&gt; String
+(Int -&gt; Summary -&gt; ShowS)
+-&gt; (Summary -&gt; String) -&gt; ([Summary] -&gt; ShowS) -&gt; Show Summary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Summary] -&gt; ShowS
+$cshowList :: [Summary] -&gt; ShowS
+show :: Summary -&gt; String
+$cshow :: Summary -&gt; String
+showsPrec :: Int -&gt; Summary -&gt; ShowS
+$cshowsPrec :: Int -&gt; Summary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Summary -&gt; Rep Summary x)
+-&gt; (forall x. Rep Summary x -&gt; Summary) -&gt; Generic Summary
+forall x. Rep Summary x -&gt; Summary
+forall x. Summary -&gt; Rep Summary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Summary x -&gt; Summary
+$cfrom :: forall x. Summary -&gt; Rep Summary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'Summary' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'targetId', 'summary_targetId' - The account identifier or the root identifier of the organization. If</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- you don\'t know the root ID, you can call the AWS Organizations</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html ListRoots&gt;</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'resourceType', 'summary_resourceType' - The AWS resource type.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'lastUpdated', 'summary_lastUpdated' - The timestamp that shows when this summary was generated in this Region.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'targetIdType', 'summary_targetIdType' - Whether the target is an account, an OU, or the organization root.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'nonCompliantResources', 'summary_nonCompliantResources' - The count of noncompliant resources.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'region', 'summary_region' - The AWS Region that the summary applies to.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#newSummary"><span class="hs-identifier hs-type">newSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span>
+</span><span id="line-73"></span><span id="newSummary"><span class="annot"><span class="annottext">newSummary :: Summary
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#newSummary"><span class="hs-identifier hs-var hs-var">newSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">Summary' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe TargetIdType
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Summary
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetId:Summary' :: Maybe Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3AtargetId%3ASummary%27"><span class="hs-identifier hs-var">targetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:Summary' :: Maybe Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3AresourceType%3ASummary%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdated:Summary' :: Maybe Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3AlastUpdated%3ASummary%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetIdType:Summary' :: Maybe TargetIdType
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3AtargetIdType%3ASummary%27"><span class="hs-identifier hs-var">targetIdType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetIdType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:nonCompliantResources:Summary' :: Maybe Integer
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3AnonCompliantResources%3ASummary%27"><span class="hs-identifier hs-var">nonCompliantResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:region:Summary' :: Maybe Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3Aregion%3ASummary%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The account identifier or the root identifier of the organization. If</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- you don\'t know the root ID, you can call the AWS Organizations</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html ListRoots&gt;</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#summary_targetId"><span class="hs-identifier hs-type">summary_targetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="summary_targetId"><span class="annot"><span class="annottext">summary_targetId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Summary -&gt; f Summary
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#summary_targetId"><span class="hs-identifier hs-var hs-var">summary_targetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Summary -&gt; Maybe Text)
+-&gt; (Summary -&gt; Maybe Text -&gt; Summary)
+-&gt; Lens Summary Summary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157090"><span class="annot"><span class="annottext">Maybe Text
+targetId :: Maybe Text
+$sel:targetId:Summary' :: Summary -&gt; Maybe Text
+</span><a href="#local-6989586621679157090"><span class="hs-identifier hs-var hs-var">targetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157090"><span class="hs-identifier hs-var">targetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157089"><span class="annot"><span class="annottext">s :: Summary
+</span><a href="#local-6989586621679157089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157088"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Summary
+</span><a href="#local-6989586621679157089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetId:Summary' :: Maybe Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3AtargetId%3ASummary%27"><span class="hs-identifier hs-var">targetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The AWS resource type.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#summary_resourceType"><span class="hs-identifier hs-type">summary_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="summary_resourceType"><span class="annot"><span class="annottext">summary_resourceType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Summary -&gt; f Summary
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#summary_resourceType"><span class="hs-identifier hs-var hs-var">summary_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Summary -&gt; Maybe Text)
+-&gt; (Summary -&gt; Maybe Text -&gt; Summary)
+-&gt; Lens Summary Summary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157086"><span class="annot"><span class="annottext">Maybe Text
+resourceType :: Maybe Text
+$sel:resourceType:Summary' :: Summary -&gt; Maybe Text
+</span><a href="#local-6989586621679157086"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157086"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157085"><span class="annot"><span class="annottext">s :: Summary
+</span><a href="#local-6989586621679157085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157084"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Summary
+</span><a href="#local-6989586621679157085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:Summary' :: Maybe Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3AresourceType%3ASummary%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The timestamp that shows when this summary was generated in this Region.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#summary_lastUpdated"><span class="hs-identifier hs-type">summary_lastUpdated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="summary_lastUpdated"><span class="annot"><span class="annottext">summary_lastUpdated :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Summary -&gt; f Summary
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#summary_lastUpdated"><span class="hs-identifier hs-var hs-var">summary_lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Summary -&gt; Maybe Text)
+-&gt; (Summary -&gt; Maybe Text -&gt; Summary)
+-&gt; Lens Summary Summary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157082"><span class="annot"><span class="annottext">Maybe Text
+lastUpdated :: Maybe Text
+$sel:lastUpdated:Summary' :: Summary -&gt; Maybe Text
+</span><a href="#local-6989586621679157082"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157082"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157081"><span class="annot"><span class="annottext">s :: Summary
+</span><a href="#local-6989586621679157081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157080"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Summary
+</span><a href="#local-6989586621679157081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdated:Summary' :: Maybe Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3AlastUpdated%3ASummary%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Whether the target is an account, an OU, or the organization root.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#summary_targetIdType"><span class="hs-identifier hs-type">summary_targetIdType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TargetIdType.html#TargetIdType"><span class="hs-identifier hs-type">TargetIdType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="summary_targetIdType"><span class="annot"><span class="annottext">summary_targetIdType :: (Maybe TargetIdType -&gt; f (Maybe TargetIdType))
+-&gt; Summary -&gt; f Summary
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#summary_targetIdType"><span class="hs-identifier hs-var hs-var">summary_targetIdType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Summary -&gt; Maybe TargetIdType)
+-&gt; (Summary -&gt; Maybe TargetIdType -&gt; Summary)
+-&gt; Lens Summary Summary (Maybe TargetIdType) (Maybe TargetIdType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157078"><span class="annot"><span class="annottext">Maybe TargetIdType
+targetIdType :: Maybe TargetIdType
+$sel:targetIdType:Summary' :: Summary -&gt; Maybe TargetIdType
+</span><a href="#local-6989586621679157078"><span class="hs-identifier hs-var hs-var">targetIdType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetIdType
+</span><a href="#local-6989586621679157078"><span class="hs-identifier hs-var">targetIdType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157077"><span class="annot"><span class="annottext">s :: Summary
+</span><a href="#local-6989586621679157077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157076"><span class="annot"><span class="annottext">Maybe TargetIdType
+</span><a href="#local-6989586621679157076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Summary
+</span><a href="#local-6989586621679157077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetIdType:Summary' :: Maybe TargetIdType
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3AtargetIdType%3ASummary%27"><span class="hs-identifier hs-var">targetIdType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetIdType
+</span><a href="#local-6989586621679157076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The count of noncompliant resources.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#summary_nonCompliantResources"><span class="hs-identifier hs-type">summary_nonCompliantResources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="summary_nonCompliantResources"><span class="annot"><span class="annottext">summary_nonCompliantResources :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Summary -&gt; f Summary
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#summary_nonCompliantResources"><span class="hs-identifier hs-var hs-var">summary_nonCompliantResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Summary -&gt; Maybe Integer)
+-&gt; (Summary -&gt; Maybe Integer -&gt; Summary)
+-&gt; Lens Summary Summary (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157074"><span class="annot"><span class="annottext">Maybe Integer
+nonCompliantResources :: Maybe Integer
+$sel:nonCompliantResources:Summary' :: Summary -&gt; Maybe Integer
+</span><a href="#local-6989586621679157074"><span class="hs-identifier hs-var hs-var">nonCompliantResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679157074"><span class="hs-identifier hs-var">nonCompliantResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157073"><span class="annot"><span class="annottext">s :: Summary
+</span><a href="#local-6989586621679157073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157072"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679157072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Summary
+</span><a href="#local-6989586621679157073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonCompliantResources:Summary' :: Maybe Integer
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3AnonCompliantResources%3ASummary%27"><span class="hs-identifier hs-var">nonCompliantResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679157072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The AWS Region that the summary applies to.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#summary_region"><span class="hs-identifier hs-type">summary_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="summary_region"><span class="annot"><span class="annottext">summary_region :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Summary -&gt; f Summary
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#summary_region"><span class="hs-identifier hs-var hs-var">summary_region</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Summary -&gt; Maybe Text)
+-&gt; (Summary -&gt; Maybe Text -&gt; Summary)
+-&gt; Lens Summary Summary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157070"><span class="annot"><span class="annottext">Maybe Text
+region :: Maybe Text
+$sel:region:Summary' :: Summary -&gt; Maybe Text
+</span><a href="#local-6989586621679157070"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157070"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157069"><span class="annot"><span class="annottext">s :: Summary
+</span><a href="#local-6989586621679157069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157068"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Summary
+</span><a href="#local-6989586621679157069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:Summary' :: Maybe Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#%24sel%3Aregion%3ASummary%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679157065"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679157063"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Summary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Summary) -&gt; Value -&gt; Parser Summary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Summary&quot;</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679157060"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679157060"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe TargetIdType
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Summary
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary%27"><span class="hs-identifier hs-var">Summary'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe TargetIdType
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Summary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TargetIdType
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Summary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679157060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TargetIdType
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Summary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe TargetIdType -&gt; Maybe Integer -&gt; Maybe Text -&gt; Summary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679157060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe TargetIdType -&gt; Maybe Integer -&gt; Maybe Text -&gt; Summary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe TargetIdType -&gt; Maybe Integer -&gt; Maybe Text -&gt; Summary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679157060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TargetIdType -&gt; Maybe Integer -&gt; Maybe Text -&gt; Summary)
+-&gt; Parser (Maybe TargetIdType)
+-&gt; Parser (Maybe Integer -&gt; Maybe Text -&gt; Summary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679157060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TargetIdType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetIdType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; Maybe Text -&gt; Summary)
+-&gt; Parser (Maybe Integer) -&gt; Parser (Maybe Text -&gt; Summary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679157060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonCompliantResources&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Summary)
+-&gt; Parser (Maybe Text) -&gt; Parser Summary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679157060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679157054"><span id="local-6989586621679157056"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679157051"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span></span><span>
+</span><span id="line-127"></span></pre></body></html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode"><span class="hs-identifier">Eac3AtmosCodingMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode_CODING_MODE_5_1_4"><span class="hs-identifier">Eac3AtmosCodingMode_CODING_MODE_5_1_4</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode_CODING_MODE_7_1_4"><span class="hs-identifier">Eac3AtmosCodingMode_CODING_MODE_7_1_4</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode_CODING_MODE_9_1_6"><span class="hs-identifier">Eac3AtmosCodingMode_CODING_MODE_9_1_6</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode_CODING_MODE_AUTO"><span class="hs-identifier">Eac3AtmosCodingMode_CODING_MODE_AUTO</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | The coding mode for Dolby Digital Plus JOC (Atmos).</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679953949"><span id="local-6989586621679953950"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3AtmosCodingMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode"><span class="hs-identifier hs-var">Eac3AtmosCodingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3AtmosCodingMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode%27"><span class="hs-identifier hs-var">Eac3AtmosCodingMode'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEac3AtmosCodingMode"><span class="annot"><span class="annottext">Eac3AtmosCodingMode -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#fromEac3AtmosCodingMode"><span class="hs-identifier hs-var hs-var">fromEac3AtmosCodingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953941"><span id="local-6989586621679953943"><span id="local-6989586621679953945"><span class="annot"><span class="annottext">Int -&gt; Eac3AtmosCodingMode -&gt; ShowS
+[Eac3AtmosCodingMode] -&gt; ShowS
+Eac3AtmosCodingMode -&gt; String
+(Int -&gt; Eac3AtmosCodingMode -&gt; ShowS)
+-&gt; (Eac3AtmosCodingMode -&gt; String)
+-&gt; ([Eac3AtmosCodingMode] -&gt; ShowS)
+-&gt; Show Eac3AtmosCodingMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Eac3AtmosCodingMode] -&gt; ShowS
+$cshowList :: [Eac3AtmosCodingMode] -&gt; ShowS
+show :: Eac3AtmosCodingMode -&gt; String
+$cshow :: Eac3AtmosCodingMode -&gt; String
+showsPrec :: Int -&gt; Eac3AtmosCodingMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; Eac3AtmosCodingMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679953932"><span id="local-6989586621679953934"><span id="local-6989586621679953936"><span id="local-6989586621679953938"><span class="annot"><span class="annottext">ReadPrec [Eac3AtmosCodingMode]
+ReadPrec Eac3AtmosCodingMode
+Int -&gt; ReadS Eac3AtmosCodingMode
+ReadS [Eac3AtmosCodingMode]
+(Int -&gt; ReadS Eac3AtmosCodingMode)
+-&gt; ReadS [Eac3AtmosCodingMode]
+-&gt; ReadPrec Eac3AtmosCodingMode
+-&gt; ReadPrec [Eac3AtmosCodingMode]
+-&gt; Read Eac3AtmosCodingMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Eac3AtmosCodingMode]
+$creadListPrec :: ReadPrec [Eac3AtmosCodingMode]
+readPrec :: ReadPrec Eac3AtmosCodingMode
+$creadPrec :: ReadPrec Eac3AtmosCodingMode
+readList :: ReadS [Eac3AtmosCodingMode]
+$creadList :: ReadS [Eac3AtmosCodingMode]
+readsPrec :: Int -&gt; ReadS Eac3AtmosCodingMode
+$creadsPrec :: Int -&gt; ReadS Eac3AtmosCodingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679953927"><span id="local-6989586621679953929"><span class="annot"><span class="annottext">Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool
+(Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool)
+-&gt; (Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool)
+-&gt; Eq Eac3AtmosCodingMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool
+$c/= :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool
+== :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool
+$c== :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679953911"><span id="local-6989586621679953913"><span id="local-6989586621679953915"><span id="local-6989586621679953917"><span id="local-6989586621679953919"><span id="local-6989586621679953921"><span id="local-6989586621679953923"><span class="annot"><span class="annottext">Eq Eac3AtmosCodingMode
+Eq Eac3AtmosCodingMode
+-&gt; (Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Ordering)
+-&gt; (Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool)
+-&gt; (Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool)
+-&gt; (Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool)
+-&gt; (Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool)
+-&gt; (Eac3AtmosCodingMode
+    -&gt; Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode)
+-&gt; (Eac3AtmosCodingMode
+    -&gt; Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode)
+-&gt; Ord Eac3AtmosCodingMode
+Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool
+Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Ordering
+Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode
+$cmin :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode
+max :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode
+$cmax :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode
+&gt;= :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool
+$c&gt;= :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool
+&gt; :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool
+$c&gt; :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool
+&lt;= :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool
+$c&lt;= :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool
+&lt; :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool
+$c&lt; :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Bool
+compare :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Ordering
+$ccompare :: Eac3AtmosCodingMode -&gt; Eac3AtmosCodingMode -&gt; Ordering
+$cp1Ord :: Eq Eac3AtmosCodingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Eac3AtmosCodingMode -&gt; Rep Eac3AtmosCodingMode x)
+-&gt; (forall x. Rep Eac3AtmosCodingMode x -&gt; Eac3AtmosCodingMode)
+-&gt; Generic Eac3AtmosCodingMode
+forall x. Rep Eac3AtmosCodingMode x -&gt; Eac3AtmosCodingMode
+forall x. Eac3AtmosCodingMode -&gt; Rep Eac3AtmosCodingMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Eac3AtmosCodingMode x -&gt; Eac3AtmosCodingMode
+$cfrom :: forall x. Eac3AtmosCodingMode -&gt; Rep Eac3AtmosCodingMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953903"><span id="local-6989586621679953905"><span class="annot"><span class="annottext">Int -&gt; Eac3AtmosCodingMode -&gt; Int
+Eac3AtmosCodingMode -&gt; Int
+(Int -&gt; Eac3AtmosCodingMode -&gt; Int)
+-&gt; (Eac3AtmosCodingMode -&gt; Int) -&gt; Hashable Eac3AtmosCodingMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Eac3AtmosCodingMode -&gt; Int
+$chash :: Eac3AtmosCodingMode -&gt; Int
+hashWithSalt :: Int -&gt; Eac3AtmosCodingMode -&gt; Int
+$chashWithSalt :: Int -&gt; Eac3AtmosCodingMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679953900"><span class="annot"><span class="annottext">Eac3AtmosCodingMode -&gt; ()
+(Eac3AtmosCodingMode -&gt; ()) -&gt; NFData Eac3AtmosCodingMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Eac3AtmosCodingMode -&gt; ()
+$crnf :: Eac3AtmosCodingMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679953897"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3AtmosCodingMode
+(Text -&gt; Either String Eac3AtmosCodingMode)
+-&gt; FromText Eac3AtmosCodingMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Eac3AtmosCodingMode
+$cfromText :: Text -&gt; Either String Eac3AtmosCodingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679953894"><span class="annot"><span class="annottext">Eac3AtmosCodingMode -&gt; Text
+(Eac3AtmosCodingMode -&gt; Text) -&gt; ToText Eac3AtmosCodingMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Eac3AtmosCodingMode -&gt; Text
+$ctoText :: Eac3AtmosCodingMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679953891"><span class="annot"><span class="annottext">Eac3AtmosCodingMode -&gt; ByteString
+(Eac3AtmosCodingMode -&gt; ByteString)
+-&gt; ToByteString Eac3AtmosCodingMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Eac3AtmosCodingMode -&gt; ByteString
+$ctoBS :: Eac3AtmosCodingMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679953888"><span class="annot"><span class="annottext">Eac3AtmosCodingMode -&gt; ByteStringBuilder
+(Eac3AtmosCodingMode -&gt; ByteStringBuilder)
+-&gt; ToLog Eac3AtmosCodingMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Eac3AtmosCodingMode -&gt; ByteStringBuilder
+$cbuild :: Eac3AtmosCodingMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679953885"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3AtmosCodingMode -&gt; [Header]
+(HeaderName -&gt; Eac3AtmosCodingMode -&gt; [Header])
+-&gt; ToHeader Eac3AtmosCodingMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Eac3AtmosCodingMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Eac3AtmosCodingMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679953882"><span class="annot"><span class="annottext">Eac3AtmosCodingMode -&gt; QueryString
+(Eac3AtmosCodingMode -&gt; QueryString) -&gt; ToQuery Eac3AtmosCodingMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Eac3AtmosCodingMode -&gt; QueryString
+$ctoQuery :: Eac3AtmosCodingMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679953877"><span id="local-6989586621679953879"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3AtmosCodingMode]
+Value -&gt; Parser Eac3AtmosCodingMode
+(Value -&gt; Parser Eac3AtmosCodingMode)
+-&gt; (Value -&gt; Parser [Eac3AtmosCodingMode])
+-&gt; FromJSON Eac3AtmosCodingMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Eac3AtmosCodingMode]
+$cparseJSONList :: Value -&gt; Parser [Eac3AtmosCodingMode]
+parseJSON :: Value -&gt; Parser Eac3AtmosCodingMode
+$cparseJSON :: Value -&gt; Parser Eac3AtmosCodingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679953872"><span id="local-6989586621679953874"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3AtmosCodingMode]
+FromJSONKeyFunction Eac3AtmosCodingMode
+FromJSONKeyFunction Eac3AtmosCodingMode
+-&gt; FromJSONKeyFunction [Eac3AtmosCodingMode]
+-&gt; FromJSONKey Eac3AtmosCodingMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Eac3AtmosCodingMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [Eac3AtmosCodingMode]
+fromJSONKey :: FromJSONKeyFunction Eac3AtmosCodingMode
+$cfromJSONKey :: FromJSONKeyFunction Eac3AtmosCodingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679953863"><span id="local-6989586621679953865"><span id="local-6989586621679953867"><span id="local-6989586621679953869"><span class="annot"><span class="annottext">[Eac3AtmosCodingMode] -&gt; Encoding
+[Eac3AtmosCodingMode] -&gt; Value
+Eac3AtmosCodingMode -&gt; Encoding
+Eac3AtmosCodingMode -&gt; Value
+(Eac3AtmosCodingMode -&gt; Value)
+-&gt; (Eac3AtmosCodingMode -&gt; Encoding)
+-&gt; ([Eac3AtmosCodingMode] -&gt; Value)
+-&gt; ([Eac3AtmosCodingMode] -&gt; Encoding)
+-&gt; ToJSON Eac3AtmosCodingMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Eac3AtmosCodingMode] -&gt; Encoding
+$ctoEncodingList :: [Eac3AtmosCodingMode] -&gt; Encoding
+toJSONList :: [Eac3AtmosCodingMode] -&gt; Value
+$ctoJSONList :: [Eac3AtmosCodingMode] -&gt; Value
+toEncoding :: Eac3AtmosCodingMode -&gt; Encoding
+$ctoEncoding :: Eac3AtmosCodingMode -&gt; Encoding
+toJSON :: Eac3AtmosCodingMode -&gt; Value
+$ctoJSON :: Eac3AtmosCodingMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679953858"><span id="local-6989586621679953860"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3AtmosCodingMode]
+ToJSONKeyFunction Eac3AtmosCodingMode
+ToJSONKeyFunction Eac3AtmosCodingMode
+-&gt; ToJSONKeyFunction [Eac3AtmosCodingMode]
+-&gt; ToJSONKey Eac3AtmosCodingMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Eac3AtmosCodingMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [Eac3AtmosCodingMode]
+toJSONKey :: ToJSONKeyFunction Eac3AtmosCodingMode
+$ctoJSONKey :: ToJSONKeyFunction Eac3AtmosCodingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679953855"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3AtmosCodingMode
+([Node] -&gt; Either String Eac3AtmosCodingMode)
+-&gt; FromXML Eac3AtmosCodingMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Eac3AtmosCodingMode
+$cparseXML :: [Node] -&gt; Either String Eac3AtmosCodingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679953852"><span class="annot"><span class="annottext">Eac3AtmosCodingMode -&gt; XML
+(Eac3AtmosCodingMode -&gt; XML) -&gt; ToXML Eac3AtmosCodingMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Eac3AtmosCodingMode -&gt; XML
+$ctoXML :: Eac3AtmosCodingMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode_CODING_MODE_5_1_4"><span class="hs-identifier hs-type">Eac3AtmosCodingMode_CODING_MODE_5_1_4</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode"><span class="hs-identifier hs-type">Eac3AtmosCodingMode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3AtmosCodingMode_CODING_MODE_5_1_4"><span id="%24mEac3AtmosCodingMode_CODING_MODE_5_1_4"><span id="Eac3AtmosCodingMode_CODING_MODE_5_1_4"><span class="annot"><span class="annottext">$bEac3AtmosCodingMode_CODING_MODE_5_1_4 :: Eac3AtmosCodingMode
+$mEac3AtmosCodingMode_CODING_MODE_5_1_4 :: forall r. Eac3AtmosCodingMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#%24bEac3AtmosCodingMode_CODING_MODE_5_1_4"><span class="hs-identifier hs-var hs-var hs-var">Eac3AtmosCodingMode_CODING_MODE_5_1_4</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode%27"><span class="hs-identifier hs-type">Eac3AtmosCodingMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CODING_MODE_5_1_4&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode_CODING_MODE_7_1_4"><span class="hs-identifier hs-type">Eac3AtmosCodingMode_CODING_MODE_7_1_4</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode"><span class="hs-identifier hs-type">Eac3AtmosCodingMode</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3AtmosCodingMode_CODING_MODE_7_1_4"><span id="%24mEac3AtmosCodingMode_CODING_MODE_7_1_4"><span id="Eac3AtmosCodingMode_CODING_MODE_7_1_4"><span class="annot"><span class="annottext">$bEac3AtmosCodingMode_CODING_MODE_7_1_4 :: Eac3AtmosCodingMode
+$mEac3AtmosCodingMode_CODING_MODE_7_1_4 :: forall r. Eac3AtmosCodingMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#%24bEac3AtmosCodingMode_CODING_MODE_7_1_4"><span class="hs-identifier hs-var hs-var hs-var">Eac3AtmosCodingMode_CODING_MODE_7_1_4</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode%27"><span class="hs-identifier hs-type">Eac3AtmosCodingMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CODING_MODE_7_1_4&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode_CODING_MODE_9_1_6"><span class="hs-identifier hs-type">Eac3AtmosCodingMode_CODING_MODE_9_1_6</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode"><span class="hs-identifier hs-type">Eac3AtmosCodingMode</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3AtmosCodingMode_CODING_MODE_9_1_6"><span id="%24mEac3AtmosCodingMode_CODING_MODE_9_1_6"><span id="Eac3AtmosCodingMode_CODING_MODE_9_1_6"><span class="annot"><span class="annottext">$bEac3AtmosCodingMode_CODING_MODE_9_1_6 :: Eac3AtmosCodingMode
+$mEac3AtmosCodingMode_CODING_MODE_9_1_6 :: forall r. Eac3AtmosCodingMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#%24bEac3AtmosCodingMode_CODING_MODE_9_1_6"><span class="hs-identifier hs-var hs-var hs-var">Eac3AtmosCodingMode_CODING_MODE_9_1_6</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode%27"><span class="hs-identifier hs-type">Eac3AtmosCodingMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CODING_MODE_9_1_6&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode_CODING_MODE_AUTO"><span class="hs-identifier hs-type">Eac3AtmosCodingMode_CODING_MODE_AUTO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode"><span class="hs-identifier hs-type">Eac3AtmosCodingMode</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3AtmosCodingMode_CODING_MODE_AUTO"><span id="%24mEac3AtmosCodingMode_CODING_MODE_AUTO"><span id="Eac3AtmosCodingMode_CODING_MODE_AUTO"><span class="annot"><span class="annottext">$bEac3AtmosCodingMode_CODING_MODE_AUTO :: Eac3AtmosCodingMode
+$mEac3AtmosCodingMode_CODING_MODE_AUTO :: forall r. Eac3AtmosCodingMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#%24bEac3AtmosCodingMode_CODING_MODE_AUTO"><span class="hs-identifier hs-var hs-var hs-var">Eac3AtmosCodingMode_CODING_MODE_AUTO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode%27"><span class="hs-identifier hs-type">Eac3AtmosCodingMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CODING_MODE_AUTO&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode_CODING_MODE_5_1_4"><span class="hs-pragma hs-type">Eac3AtmosCodingMode_CODING_MODE_5_1_4</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode_CODING_MODE_7_1_4"><span class="hs-pragma hs-type">Eac3AtmosCodingMode_CODING_MODE_7_1_4</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode_CODING_MODE_9_1_6"><span class="hs-pragma hs-type">Eac3AtmosCodingMode_CODING_MODE_9_1_6</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode_CODING_MODE_AUTO"><span class="hs-pragma hs-type">Eac3AtmosCodingMode_CODING_MODE_AUTO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode.html#Eac3AtmosCodingMode%27"><span class="hs-pragma hs-type">Eac3AtmosCodingMode'</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-82"></span></pre></body></html>

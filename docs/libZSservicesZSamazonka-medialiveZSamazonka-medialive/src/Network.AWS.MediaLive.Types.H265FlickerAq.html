@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.H265FlickerAq</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.H265FlickerAq</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#H265FlickerAq"><span class="hs-identifier">H265FlickerAq</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#H265FlickerAq_DISABLED"><span class="hs-identifier">H265FlickerAq_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#H265FlickerAq_ENABLED"><span class="hs-identifier">H265FlickerAq_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | H265 Flicker Aq</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679876473"><span id="local-6989586621679876474"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265FlickerAq"><span class="annot"><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#H265FlickerAq"><span class="hs-identifier hs-var">H265FlickerAq</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265FlickerAq%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#H265FlickerAq%27"><span class="hs-identifier hs-var">H265FlickerAq'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265FlickerAq"><span class="annot"><span class="annottext">H265FlickerAq -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#fromH265FlickerAq"><span class="hs-identifier hs-var hs-var">fromH265FlickerAq</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679876465"><span id="local-6989586621679876467"><span id="local-6989586621679876469"><span class="annot"><span class="annottext">Int -&gt; H265FlickerAq -&gt; ShowS
+[H265FlickerAq] -&gt; ShowS
+H265FlickerAq -&gt; String
+(Int -&gt; H265FlickerAq -&gt; ShowS)
+-&gt; (H265FlickerAq -&gt; String)
+-&gt; ([H265FlickerAq] -&gt; ShowS)
+-&gt; Show H265FlickerAq
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H265FlickerAq] -&gt; ShowS
+$cshowList :: [H265FlickerAq] -&gt; ShowS
+show :: H265FlickerAq -&gt; String
+$cshow :: H265FlickerAq -&gt; String
+showsPrec :: Int -&gt; H265FlickerAq -&gt; ShowS
+$cshowsPrec :: Int -&gt; H265FlickerAq -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679876456"><span id="local-6989586621679876458"><span id="local-6989586621679876460"><span id="local-6989586621679876462"><span class="annot"><span class="annottext">ReadPrec [H265FlickerAq]
+ReadPrec H265FlickerAq
+Int -&gt; ReadS H265FlickerAq
+ReadS [H265FlickerAq]
+(Int -&gt; ReadS H265FlickerAq)
+-&gt; ReadS [H265FlickerAq]
+-&gt; ReadPrec H265FlickerAq
+-&gt; ReadPrec [H265FlickerAq]
+-&gt; Read H265FlickerAq
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H265FlickerAq]
+$creadListPrec :: ReadPrec [H265FlickerAq]
+readPrec :: ReadPrec H265FlickerAq
+$creadPrec :: ReadPrec H265FlickerAq
+readList :: ReadS [H265FlickerAq]
+$creadList :: ReadS [H265FlickerAq]
+readsPrec :: Int -&gt; ReadS H265FlickerAq
+$creadsPrec :: Int -&gt; ReadS H265FlickerAq
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679876451"><span id="local-6989586621679876453"><span class="annot"><span class="annottext">H265FlickerAq -&gt; H265FlickerAq -&gt; Bool
+(H265FlickerAq -&gt; H265FlickerAq -&gt; Bool)
+-&gt; (H265FlickerAq -&gt; H265FlickerAq -&gt; Bool) -&gt; Eq H265FlickerAq
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H265FlickerAq -&gt; H265FlickerAq -&gt; Bool
+$c/= :: H265FlickerAq -&gt; H265FlickerAq -&gt; Bool
+== :: H265FlickerAq -&gt; H265FlickerAq -&gt; Bool
+$c== :: H265FlickerAq -&gt; H265FlickerAq -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679876435"><span id="local-6989586621679876437"><span id="local-6989586621679876439"><span id="local-6989586621679876441"><span id="local-6989586621679876443"><span id="local-6989586621679876445"><span id="local-6989586621679876447"><span class="annot"><span class="annottext">Eq H265FlickerAq
+Eq H265FlickerAq
+-&gt; (H265FlickerAq -&gt; H265FlickerAq -&gt; Ordering)
+-&gt; (H265FlickerAq -&gt; H265FlickerAq -&gt; Bool)
+-&gt; (H265FlickerAq -&gt; H265FlickerAq -&gt; Bool)
+-&gt; (H265FlickerAq -&gt; H265FlickerAq -&gt; Bool)
+-&gt; (H265FlickerAq -&gt; H265FlickerAq -&gt; Bool)
+-&gt; (H265FlickerAq -&gt; H265FlickerAq -&gt; H265FlickerAq)
+-&gt; (H265FlickerAq -&gt; H265FlickerAq -&gt; H265FlickerAq)
+-&gt; Ord H265FlickerAq
+H265FlickerAq -&gt; H265FlickerAq -&gt; Bool
+H265FlickerAq -&gt; H265FlickerAq -&gt; Ordering
+H265FlickerAq -&gt; H265FlickerAq -&gt; H265FlickerAq
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: H265FlickerAq -&gt; H265FlickerAq -&gt; H265FlickerAq
+$cmin :: H265FlickerAq -&gt; H265FlickerAq -&gt; H265FlickerAq
+max :: H265FlickerAq -&gt; H265FlickerAq -&gt; H265FlickerAq
+$cmax :: H265FlickerAq -&gt; H265FlickerAq -&gt; H265FlickerAq
+&gt;= :: H265FlickerAq -&gt; H265FlickerAq -&gt; Bool
+$c&gt;= :: H265FlickerAq -&gt; H265FlickerAq -&gt; Bool
+&gt; :: H265FlickerAq -&gt; H265FlickerAq -&gt; Bool
+$c&gt; :: H265FlickerAq -&gt; H265FlickerAq -&gt; Bool
+&lt;= :: H265FlickerAq -&gt; H265FlickerAq -&gt; Bool
+$c&lt;= :: H265FlickerAq -&gt; H265FlickerAq -&gt; Bool
+&lt; :: H265FlickerAq -&gt; H265FlickerAq -&gt; Bool
+$c&lt; :: H265FlickerAq -&gt; H265FlickerAq -&gt; Bool
+compare :: H265FlickerAq -&gt; H265FlickerAq -&gt; Ordering
+$ccompare :: H265FlickerAq -&gt; H265FlickerAq -&gt; Ordering
+$cp1Ord :: Eq H265FlickerAq
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. H265FlickerAq -&gt; Rep H265FlickerAq x)
+-&gt; (forall x. Rep H265FlickerAq x -&gt; H265FlickerAq)
+-&gt; Generic H265FlickerAq
+forall x. Rep H265FlickerAq x -&gt; H265FlickerAq
+forall x. H265FlickerAq -&gt; Rep H265FlickerAq x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep H265FlickerAq x -&gt; H265FlickerAq
+$cfrom :: forall x. H265FlickerAq -&gt; Rep H265FlickerAq x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679876427"><span id="local-6989586621679876429"><span class="annot"><span class="annottext">Int -&gt; H265FlickerAq -&gt; Int
+H265FlickerAq -&gt; Int
+(Int -&gt; H265FlickerAq -&gt; Int)
+-&gt; (H265FlickerAq -&gt; Int) -&gt; Hashable H265FlickerAq
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: H265FlickerAq -&gt; Int
+$chash :: H265FlickerAq -&gt; Int
+hashWithSalt :: Int -&gt; H265FlickerAq -&gt; Int
+$chashWithSalt :: Int -&gt; H265FlickerAq -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679876424"><span class="annot"><span class="annottext">H265FlickerAq -&gt; ()
+(H265FlickerAq -&gt; ()) -&gt; NFData H265FlickerAq
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: H265FlickerAq -&gt; ()
+$crnf :: H265FlickerAq -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679876421"><span class="annot"><span class="annottext">Text -&gt; Either String H265FlickerAq
+(Text -&gt; Either String H265FlickerAq) -&gt; FromText H265FlickerAq
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String H265FlickerAq
+$cfromText :: Text -&gt; Either String H265FlickerAq
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679876418"><span class="annot"><span class="annottext">H265FlickerAq -&gt; Text
+(H265FlickerAq -&gt; Text) -&gt; ToText H265FlickerAq
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: H265FlickerAq -&gt; Text
+$ctoText :: H265FlickerAq -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679876415"><span class="annot"><span class="annottext">H265FlickerAq -&gt; ByteString
+(H265FlickerAq -&gt; ByteString) -&gt; ToByteString H265FlickerAq
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: H265FlickerAq -&gt; ByteString
+$ctoBS :: H265FlickerAq -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679876412"><span class="annot"><span class="annottext">H265FlickerAq -&gt; ByteStringBuilder
+(H265FlickerAq -&gt; ByteStringBuilder) -&gt; ToLog H265FlickerAq
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: H265FlickerAq -&gt; ByteStringBuilder
+$cbuild :: H265FlickerAq -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679876409"><span class="annot"><span class="annottext">HeaderName -&gt; H265FlickerAq -&gt; [Header]
+(HeaderName -&gt; H265FlickerAq -&gt; [Header]) -&gt; ToHeader H265FlickerAq
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; H265FlickerAq -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; H265FlickerAq -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679876406"><span class="annot"><span class="annottext">H265FlickerAq -&gt; QueryString
+(H265FlickerAq -&gt; QueryString) -&gt; ToQuery H265FlickerAq
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: H265FlickerAq -&gt; QueryString
+$ctoQuery :: H265FlickerAq -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679876401"><span id="local-6989586621679876403"><span class="annot"><span class="annottext">Value -&gt; Parser [H265FlickerAq]
+Value -&gt; Parser H265FlickerAq
+(Value -&gt; Parser H265FlickerAq)
+-&gt; (Value -&gt; Parser [H265FlickerAq]) -&gt; FromJSON H265FlickerAq
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [H265FlickerAq]
+$cparseJSONList :: Value -&gt; Parser [H265FlickerAq]
+parseJSON :: Value -&gt; Parser H265FlickerAq
+$cparseJSON :: Value -&gt; Parser H265FlickerAq
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679876396"><span id="local-6989586621679876398"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265FlickerAq]
+FromJSONKeyFunction H265FlickerAq
+FromJSONKeyFunction H265FlickerAq
+-&gt; FromJSONKeyFunction [H265FlickerAq] -&gt; FromJSONKey H265FlickerAq
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [H265FlickerAq]
+$cfromJSONKeyList :: FromJSONKeyFunction [H265FlickerAq]
+fromJSONKey :: FromJSONKeyFunction H265FlickerAq
+$cfromJSONKey :: FromJSONKeyFunction H265FlickerAq
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679876387"><span id="local-6989586621679876389"><span id="local-6989586621679876391"><span id="local-6989586621679876393"><span class="annot"><span class="annottext">[H265FlickerAq] -&gt; Encoding
+[H265FlickerAq] -&gt; Value
+H265FlickerAq -&gt; Encoding
+H265FlickerAq -&gt; Value
+(H265FlickerAq -&gt; Value)
+-&gt; (H265FlickerAq -&gt; Encoding)
+-&gt; ([H265FlickerAq] -&gt; Value)
+-&gt; ([H265FlickerAq] -&gt; Encoding)
+-&gt; ToJSON H265FlickerAq
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [H265FlickerAq] -&gt; Encoding
+$ctoEncodingList :: [H265FlickerAq] -&gt; Encoding
+toJSONList :: [H265FlickerAq] -&gt; Value
+$ctoJSONList :: [H265FlickerAq] -&gt; Value
+toEncoding :: H265FlickerAq -&gt; Encoding
+$ctoEncoding :: H265FlickerAq -&gt; Encoding
+toJSON :: H265FlickerAq -&gt; Value
+$ctoJSON :: H265FlickerAq -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679876382"><span id="local-6989586621679876384"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265FlickerAq]
+ToJSONKeyFunction H265FlickerAq
+ToJSONKeyFunction H265FlickerAq
+-&gt; ToJSONKeyFunction [H265FlickerAq] -&gt; ToJSONKey H265FlickerAq
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [H265FlickerAq]
+$ctoJSONKeyList :: ToJSONKeyFunction [H265FlickerAq]
+toJSONKey :: ToJSONKeyFunction H265FlickerAq
+$ctoJSONKey :: ToJSONKeyFunction H265FlickerAq
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679876379"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265FlickerAq
+([Node] -&gt; Either String H265FlickerAq) -&gt; FromXML H265FlickerAq
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String H265FlickerAq
+$cparseXML :: [Node] -&gt; Either String H265FlickerAq
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679876376"><span class="annot"><span class="annottext">H265FlickerAq -&gt; XML
+(H265FlickerAq -&gt; XML) -&gt; ToXML H265FlickerAq
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: H265FlickerAq -&gt; XML
+$ctoXML :: H265FlickerAq -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#H265FlickerAq_DISABLED"><span class="hs-identifier hs-type">H265FlickerAq_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#H265FlickerAq"><span class="hs-identifier hs-type">H265FlickerAq</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265FlickerAq_DISABLED"><span id="%24mH265FlickerAq_DISABLED"><span id="H265FlickerAq_DISABLED"><span class="annot"><span class="annottext">$bH265FlickerAq_DISABLED :: H265FlickerAq
+$mH265FlickerAq_DISABLED :: forall r. H265FlickerAq -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#%24bH265FlickerAq_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">H265FlickerAq_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#H265FlickerAq%27"><span class="hs-identifier hs-type">H265FlickerAq'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#H265FlickerAq_ENABLED"><span class="hs-identifier hs-type">H265FlickerAq_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#H265FlickerAq"><span class="hs-identifier hs-type">H265FlickerAq</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265FlickerAq_ENABLED"><span id="%24mH265FlickerAq_ENABLED"><span id="H265FlickerAq_ENABLED"><span class="annot"><span class="annottext">$bH265FlickerAq_ENABLED :: H265FlickerAq
+$mH265FlickerAq_ENABLED :: forall r. H265FlickerAq -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#%24bH265FlickerAq_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">H265FlickerAq_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#H265FlickerAq%27"><span class="hs-identifier hs-type">H265FlickerAq'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#H265FlickerAq_DISABLED"><span class="hs-pragma hs-type">H265FlickerAq_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#H265FlickerAq_ENABLED"><span class="hs-pragma hs-type">H265FlickerAq_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265FlickerAq.html#H265FlickerAq%27"><span class="hs-pragma hs-type">H265FlickerAq'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

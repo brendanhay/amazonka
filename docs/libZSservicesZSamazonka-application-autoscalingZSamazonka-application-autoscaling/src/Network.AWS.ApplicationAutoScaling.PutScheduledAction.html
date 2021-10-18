@@ -1,0 +1,1267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ApplicationAutoScaling.PutScheduledAction</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates or updates a scheduled action for an Application Auto Scaling</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- scalable target.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Each scalable target is identified by a service namespace, resource ID,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- and scalable dimension. A scheduled action applies to the scalable</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- target identified by those three attributes. You cannot create a</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- scheduled action until you have registered the resource as a scalable</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- target.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- When start and end times are specified with a recurring schedule using a</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- cron expression or rates, they form the boundaries for when the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- recurring action starts and stops.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- To update a scheduled action, specify the parameters that you want to</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- change. If you don\'t specify start and end times, the old values are</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- deleted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html Scheduled scaling&gt;</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- in the /Application Auto Scaling User Guide/.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- If a scalable target is deregistered, the scalable target is no longer</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- available to run scheduled actions. Any scheduled actions that were</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- specified for the scalable target are deleted.</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApplicationAutoScaling.PutScheduledAction</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier">PutScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#newPutScheduledAction"><span class="hs-identifier">newPutScheduledAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_startTime"><span class="hs-identifier">putScheduledAction_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_endTime"><span class="hs-identifier">putScheduledAction_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_timezone"><span class="hs-identifier">putScheduledAction_timezone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_scalableTargetAction"><span class="hs-identifier">putScheduledAction_scalableTargetAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_schedule"><span class="hs-identifier">putScheduledAction_schedule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_serviceNamespace"><span class="hs-identifier">putScheduledAction_serviceNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_scheduledActionName"><span class="hs-identifier">putScheduledAction_scheduledActionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_resourceId"><span class="hs-identifier">putScheduledAction_resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_scalableDimension"><span class="hs-identifier">putScheduledAction_scalableDimension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledActionResponse"><span class="hs-identifier">PutScheduledActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#newPutScheduledActionResponse"><span class="hs-identifier">newPutScheduledActionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledActionResponse_httpStatus"><span class="hs-identifier">putScheduledActionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html"><span class="hs-identifier">Network.AWS.ApplicationAutoScaling.Types</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | /See:/ 'newPutScheduledAction' smart constructor.</span><span>
+</span><span id="line-80"></span><span id="local-6989586621679187202"><span id="local-6989586621679187203"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutScheduledAction"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-var">PutScheduledAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutScheduledAction%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-var">PutScheduledAction'</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time for this scheduled action to start, in UTC.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AstartTime%3APutScheduledAction%27"><span class="annot"><span class="annottext">PutScheduledAction -&gt; Maybe POSIX
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AstartTime%3APutScheduledAction%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The date and time for the recurring schedule to end, in UTC.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AendTime%3APutScheduledAction%27"><span class="annot"><span class="annottext">PutScheduledAction -&gt; Maybe POSIX
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AendTime%3APutScheduledAction%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Specifies the time zone used when setting a scheduled action by using an</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- at or cron expression. If a time zone is not provided, UTC is used by</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- default.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- Valid values are the canonical names of the IANA time zones supported by</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Joda-Time (such as @Etc\/GMT+9@ or @Pacific\/Tahiti@). For more</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- information, see &lt;https://www.joda.org/joda-time/timezones.html&gt;.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3Atimezone%3APutScheduledAction%27"><span class="annot"><span class="annottext">PutScheduledAction -&gt; Maybe Text
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3Atimezone%3APutScheduledAction%27"><span class="hs-identifier hs-var hs-var">timezone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The new minimum and maximum capacity. You can set both values or just</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- one. At the scheduled time, if the current capacity is below the minimum</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- capacity, Application Auto Scaling scales out to the minimum capacity.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- If the current capacity is above the maximum capacity, Application Auto</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- Scaling scales in to the maximum capacity.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AscalableTargetAction%3APutScheduledAction%27"><span class="annot"><span class="annottext">PutScheduledAction -&gt; Maybe ScalableTargetAction
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AscalableTargetAction%3APutScheduledAction%27"><span class="hs-identifier hs-var hs-var">scalableTargetAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction.html#ScalableTargetAction"><span class="hs-identifier hs-type">ScalableTargetAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The schedule for this action. The following formats are supported:</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   At expressions - \&quot;@at(yyyy-mm-ddThh:mm:ss)@\&quot;</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- -   Rate expressions - \&quot;@rate(value unit)@\&quot;</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- -   Cron expressions - \&quot;@cron(fields)@\&quot;</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- At expressions are useful for one-time schedules. Cron expressions are</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- useful for scheduled actions that run periodically at a specified date</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- and time, and rate expressions are useful for scheduled actions that run</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- at a regular interval.</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- At and cron expressions use Universal Coordinated Time (UTC) by default.</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- The cron format consists of six fields separated by white spaces:</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- For rate expressions, /value/ is a positive integer and /unit/ is</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- @minute@ | @minutes@ | @hour@ | @hours@ | @day@ | @days@.</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- For more information and examples, see</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling&gt;</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- in the /Application Auto Scaling User Guide/.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3Aschedule%3APutScheduledAction%27"><span class="annot"><span class="annottext">PutScheduledAction -&gt; Maybe Text
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3Aschedule%3APutScheduledAction%27"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- | The namespace of the Amazon Web Services service that provides the</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- resource. For a resource provided by your own application or service,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- use @custom-resource@ instead.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AserviceNamespace%3APutScheduledAction%27"><span class="annot"><span class="annottext">PutScheduledAction -&gt; ServiceNamespace
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AserviceNamespace%3APutScheduledAction%27"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The name of the scheduled action. This name must be unique among all</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- other scheduled actions on the specified scalable target.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AscheduledActionName%3APutScheduledAction%27"><span class="annot"><span class="annottext">PutScheduledAction -&gt; Text
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AscheduledActionName%3APutScheduledAction%27"><span class="hs-identifier hs-var hs-var">scheduledActionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The identifier of the resource associated with the scheduled action.</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- This string consists of the resource type and unique identifier.</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- -   ECS service - The resource type is @service@ and the unique</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--     identifier is the cluster name and service name. Example:</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--     @service\/default\/sample-webapp@.</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- -   Spot Fleet request - The resource type is @spot-fleet-request@ and</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--     the unique identifier is the Spot Fleet request ID. Example:</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">--     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- -   EMR cluster - The resource type is @instancegroup@ and the unique</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">--     identifier is the cluster ID and instance group ID. Example:</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">--     identifier is the fleet name. Example: @fleet\/sample-fleet@.</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- -   DynamoDB table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">--     identifier is the table name. Example: @table\/my-table@.</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- -   DynamoDB global secondary index - The resource type is @index@ and</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">--     the unique identifier is the index name. Example:</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">--     @table\/my-table\/index\/my-table-index@.</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- -   Aurora DB cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:my-db-cluster@.</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- -   Amazon SageMaker endpoint variant - The resource type is @variant@</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">--     and the unique identifier is the resource ID. Example:</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">--     @endpoint\/my-end-point\/variant\/KMeansClustering@.</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- -   Custom resources are not supported with a resource type. This</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">--     parameter must specify the @OutputValue@ from the CloudFormation</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">--     template stack used to access the resources. The unique identifier</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">--     is defined by the service provider. More information is available in</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">--     our</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">--     &lt;https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository&gt;.</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- -   Amazon Comprehend document classification endpoint - The resource</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">--     type and unique identifier are specified using the endpoint ARN.</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">--     Example:</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- -   Amazon Comprehend entity recognizer endpoint - The resource type and</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">--     unique identifier are specified using the endpoint ARN. Example:</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- -   Lambda provisioned concurrency - The resource type is @function@ and</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">--     the unique identifier is the function name with a function version</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">--     or alias name suffix that is not @$LATEST@. Example:</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">--     @function:my-function:prod@ or @function:my-function:1@.</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- -   Amazon Keyspaces table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">--     identifier is the table name. Example:</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">--     @keyspace\/mykeyspace\/table\/mytable@.</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- -   Amazon MSK cluster - The resource type and unique identifier are</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">--     specified using the cluster ARN. Example:</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">--     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- -   Amazon ElastiCache replication group - The resource type is</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">--     @replication-group@ and the unique identifier is the replication</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">--     group name. Example: @replication-group\/mycluster@.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AresourceId%3APutScheduledAction%27"><span class="annot"><span class="annottext">PutScheduledAction -&gt; Text
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AresourceId%3APutScheduledAction%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The scalable dimension. This string consists of the service namespace,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- resource type, and scaling property.</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">--     of an EMR Instance Group.</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">--     Spot Fleet request.</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">--     AppStream 2.0 fleet.</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">--     Aurora PostgreSQL-compatible edition.</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">--     instances for an Amazon SageMaker model endpoint variant.</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">--     a custom resource provided by your own application or service.</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">--     The number of inference units for an Amazon Comprehend document</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">--     classification endpoint.</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">--     number of inference units for an Amazon Comprehend entity recognizer</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">--     endpoint.</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">--     concurrency for a Lambda function.</span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-comment">-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-comment">--     for an Amazon Keyspaces table.</span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-comment">-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">--     capacity for an Amazon Keyspaces table.</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-comment">-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in</span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-comment">--     GiB) for brokers in an Amazon MSK cluster.</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-comment">-- -   @elasticache:replication-group:NodeGroups@ - The number of node</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">--     groups for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span>    </span><span class="hs-comment">-- -   @elasticache:replication-group:Replicas@ - The number of replicas</span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-comment">--     per node group for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-258"></span><span>    </span><span id="%24sel%3AscalableDimension%3APutScheduledAction%27"><span class="annot"><span class="annottext">PutScheduledAction -&gt; ScalableDimension
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AscalableDimension%3APutScheduledAction%27"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187188"><span id="local-6989586621679187190"><span class="annot"><span class="annottext">PutScheduledAction -&gt; PutScheduledAction -&gt; Bool
+(PutScheduledAction -&gt; PutScheduledAction -&gt; Bool)
+-&gt; (PutScheduledAction -&gt; PutScheduledAction -&gt; Bool)
+-&gt; Eq PutScheduledAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutScheduledAction -&gt; PutScheduledAction -&gt; Bool
+$c/= :: PutScheduledAction -&gt; PutScheduledAction -&gt; Bool
+== :: PutScheduledAction -&gt; PutScheduledAction -&gt; Bool
+$c== :: PutScheduledAction -&gt; PutScheduledAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187179"><span id="local-6989586621679187181"><span id="local-6989586621679187183"><span id="local-6989586621679187185"><span class="annot"><span class="annottext">ReadPrec [PutScheduledAction]
+ReadPrec PutScheduledAction
+Int -&gt; ReadS PutScheduledAction
+ReadS [PutScheduledAction]
+(Int -&gt; ReadS PutScheduledAction)
+-&gt; ReadS [PutScheduledAction]
+-&gt; ReadPrec PutScheduledAction
+-&gt; ReadPrec [PutScheduledAction]
+-&gt; Read PutScheduledAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutScheduledAction]
+$creadListPrec :: ReadPrec [PutScheduledAction]
+readPrec :: ReadPrec PutScheduledAction
+$creadPrec :: ReadPrec PutScheduledAction
+readList :: ReadS [PutScheduledAction]
+$creadList :: ReadS [PutScheduledAction]
+readsPrec :: Int -&gt; ReadS PutScheduledAction
+$creadsPrec :: Int -&gt; ReadS PutScheduledAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187172"><span id="local-6989586621679187174"><span id="local-6989586621679187176"><span class="annot"><span class="annottext">Int -&gt; PutScheduledAction -&gt; ShowS
+[PutScheduledAction] -&gt; ShowS
+PutScheduledAction -&gt; String
+(Int -&gt; PutScheduledAction -&gt; ShowS)
+-&gt; (PutScheduledAction -&gt; String)
+-&gt; ([PutScheduledAction] -&gt; ShowS)
+-&gt; Show PutScheduledAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutScheduledAction] -&gt; ShowS
+$cshowList :: [PutScheduledAction] -&gt; ShowS
+show :: PutScheduledAction -&gt; String
+$cshow :: PutScheduledAction -&gt; String
+showsPrec :: Int -&gt; PutScheduledAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutScheduledAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutScheduledAction -&gt; Rep PutScheduledAction x)
+-&gt; (forall x. Rep PutScheduledAction x -&gt; PutScheduledAction)
+-&gt; Generic PutScheduledAction
+forall x. Rep PutScheduledAction x -&gt; PutScheduledAction
+forall x. PutScheduledAction -&gt; Rep PutScheduledAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutScheduledAction x -&gt; PutScheduledAction
+$cfrom :: forall x. PutScheduledAction -&gt; Rep PutScheduledAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- Create a value of 'PutScheduledAction' with all optional fields omitted.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- 'startTime', 'putScheduledAction_startTime' - The date and time for this scheduled action to start, in UTC.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- 'endTime', 'putScheduledAction_endTime' - The date and time for the recurring schedule to end, in UTC.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- 'timezone', 'putScheduledAction_timezone' - Specifies the time zone used when setting a scheduled action by using an</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- at or cron expression. If a time zone is not provided, UTC is used by</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- default.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- Valid values are the canonical names of the IANA time zones supported by</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- Joda-Time (such as @Etc\/GMT+9@ or @Pacific\/Tahiti@). For more</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- information, see &lt;https://www.joda.org/joda-time/timezones.html&gt;.</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- 'scalableTargetAction', 'putScheduledAction_scalableTargetAction' - The new minimum and maximum capacity. You can set both values or just</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- one. At the scheduled time, if the current capacity is below the minimum</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- capacity, Application Auto Scaling scales out to the minimum capacity.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- If the current capacity is above the maximum capacity, Application Auto</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- Scaling scales in to the maximum capacity.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- 'schedule', 'putScheduledAction_schedule' - The schedule for this action. The following formats are supported:</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- -   At expressions - \&quot;@at(yyyy-mm-ddThh:mm:ss)@\&quot;</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- -   Rate expressions - \&quot;@rate(value unit)@\&quot;</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- -   Cron expressions - \&quot;@cron(fields)@\&quot;</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- At expressions are useful for one-time schedules. Cron expressions are</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- useful for scheduled actions that run periodically at a specified date</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- and time, and rate expressions are useful for scheduled actions that run</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- at a regular interval.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- At and cron expressions use Universal Coordinated Time (UTC) by default.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- The cron format consists of six fields separated by white spaces:</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- For rate expressions, /value/ is a positive integer and /unit/ is</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- @minute@ | @minutes@ | @hour@ | @hours@ | @day@ | @days@.</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- For more information and examples, see</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling&gt;</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- in the /Application Auto Scaling User Guide/.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- 'serviceNamespace', 'putScheduledAction_serviceNamespace' - The namespace of the Amazon Web Services service that provides the</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- resource. For a resource provided by your own application or service,</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- use @custom-resource@ instead.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- 'scheduledActionName', 'putScheduledAction_scheduledActionName' - The name of the scheduled action. This name must be unique among all</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- other scheduled actions on the specified scalable target.</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- 'resourceId', 'putScheduledAction_resourceId' - The identifier of the resource associated with the scheduled action.</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- This string consists of the resource type and unique identifier.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- -   ECS service - The resource type is @service@ and the unique</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--     identifier is the cluster name and service name. Example:</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--     @service\/default\/sample-webapp@.</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- -   Spot Fleet request - The resource type is @spot-fleet-request@ and</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--     the unique identifier is the Spot Fleet request ID. Example:</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- -   EMR cluster - The resource type is @instancegroup@ and the unique</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--     identifier is the cluster ID and instance group ID. Example:</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--     identifier is the fleet name. Example: @fleet\/sample-fleet@.</span><span>
+</span><span id="line-337"></span><span class="hs-comment">--</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- -   DynamoDB table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--     identifier is the table name. Example: @table\/my-table@.</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- -   DynamoDB global secondary index - The resource type is @index@ and</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--     the unique identifier is the index name. Example:</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--     @table\/my-table\/index\/my-table-index@.</span><span>
+</span><span id="line-344"></span><span class="hs-comment">--</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- -   Aurora DB cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-346"></span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:my-db-cluster@.</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- -   Amazon SageMaker endpoint variant - The resource type is @variant@</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--     and the unique identifier is the resource ID. Example:</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--     @endpoint\/my-end-point\/variant\/KMeansClustering@.</span><span>
+</span><span id="line-351"></span><span class="hs-comment">--</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- -   Custom resources are not supported with a resource type. This</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--     parameter must specify the @OutputValue@ from the CloudFormation</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--     template stack used to access the resources. The unique identifier</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--     is defined by the service provider. More information is available in</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--     our</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--     &lt;https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository&gt;.</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- -   Amazon Comprehend document classification endpoint - The resource</span><span>
+</span><span id="line-360"></span><span class="hs-comment">--     type and unique identifier are specified using the endpoint ARN.</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--     Example:</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- -   Amazon Comprehend entity recognizer endpoint - The resource type and</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--     unique identifier are specified using the endpoint ARN. Example:</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- -   Lambda provisioned concurrency - The resource type is @function@ and</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--     the unique identifier is the function name with a function version</span><span>
+</span><span id="line-370"></span><span class="hs-comment">--     or alias name suffix that is not @$LATEST@. Example:</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--     @function:my-function:prod@ or @function:my-function:1@.</span><span>
+</span><span id="line-372"></span><span class="hs-comment">--</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- -   Amazon Keyspaces table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-374"></span><span class="hs-comment">--     identifier is the table name. Example:</span><span>
+</span><span id="line-375"></span><span class="hs-comment">--     @keyspace\/mykeyspace\/table\/mytable@.</span><span>
+</span><span id="line-376"></span><span class="hs-comment">--</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- -   Amazon MSK cluster - The resource type and unique identifier are</span><span>
+</span><span id="line-378"></span><span class="hs-comment">--     specified using the cluster ARN. Example:</span><span>
+</span><span id="line-379"></span><span class="hs-comment">--     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.</span><span>
+</span><span id="line-380"></span><span class="hs-comment">--</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- -   Amazon ElastiCache replication group - The resource type is</span><span>
+</span><span id="line-382"></span><span class="hs-comment">--     @replication-group@ and the unique identifier is the replication</span><span>
+</span><span id="line-383"></span><span class="hs-comment">--     group name. Example: @replication-group\/mycluster@.</span><span>
+</span><span id="line-384"></span><span class="hs-comment">--</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- 'scalableDimension', 'putScheduledAction_scalableDimension' - The scalable dimension. This string consists of the service namespace,</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- resource type, and scaling property.</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-390"></span><span class="hs-comment">--</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count</span><span>
+</span><span id="line-392"></span><span class="hs-comment">--     of an EMR Instance Group.</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a</span><span>
+</span><span id="line-395"></span><span class="hs-comment">--     Spot Fleet request.</span><span>
+</span><span id="line-396"></span><span class="hs-comment">--</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an</span><span>
+</span><span id="line-398"></span><span class="hs-comment">--     AppStream 2.0 fleet.</span><span>
+</span><span id="line-399"></span><span class="hs-comment">--</span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-401"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-402"></span><span class="hs-comment">--</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-404"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-405"></span><span class="hs-comment">--</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-407"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-408"></span><span class="hs-comment">--</span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-410"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-411"></span><span class="hs-comment">--</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an</span><span>
+</span><span id="line-413"></span><span class="hs-comment">--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and</span><span>
+</span><span id="line-414"></span><span class="hs-comment">--     Aurora PostgreSQL-compatible edition.</span><span>
+</span><span id="line-415"></span><span class="hs-comment">--</span><span>
+</span><span id="line-416"></span><span class="hs-comment">-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2</span><span>
+</span><span id="line-417"></span><span class="hs-comment">--     instances for an Amazon SageMaker model endpoint variant.</span><span>
+</span><span id="line-418"></span><span class="hs-comment">--</span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for</span><span>
+</span><span id="line-420"></span><span class="hs-comment">--     a custom resource provided by your own application or service.</span><span>
+</span><span id="line-421"></span><span class="hs-comment">--</span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -</span><span>
+</span><span id="line-423"></span><span class="hs-comment">--     The number of inference units for an Amazon Comprehend document</span><span>
+</span><span id="line-424"></span><span class="hs-comment">--     classification endpoint.</span><span>
+</span><span id="line-425"></span><span class="hs-comment">--</span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The</span><span>
+</span><span id="line-427"></span><span class="hs-comment">--     number of inference units for an Amazon Comprehend entity recognizer</span><span>
+</span><span id="line-428"></span><span class="hs-comment">--     endpoint.</span><span>
+</span><span id="line-429"></span><span class="hs-comment">--</span><span>
+</span><span id="line-430"></span><span class="hs-comment">-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned</span><span>
+</span><span id="line-431"></span><span class="hs-comment">--     concurrency for a Lambda function.</span><span>
+</span><span id="line-432"></span><span class="hs-comment">--</span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-434"></span><span class="hs-comment">--     for an Amazon Keyspaces table.</span><span>
+</span><span id="line-435"></span><span class="hs-comment">--</span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write</span><span>
+</span><span id="line-437"></span><span class="hs-comment">--     capacity for an Amazon Keyspaces table.</span><span>
+</span><span id="line-438"></span><span class="hs-comment">--</span><span>
+</span><span id="line-439"></span><span class="hs-comment">-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in</span><span>
+</span><span id="line-440"></span><span class="hs-comment">--     GiB) for brokers in an Amazon MSK cluster.</span><span>
+</span><span id="line-441"></span><span class="hs-comment">--</span><span>
+</span><span id="line-442"></span><span class="hs-comment">-- -   @elasticache:replication-group:NodeGroups@ - The number of node</span><span>
+</span><span id="line-443"></span><span class="hs-comment">--     groups for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-444"></span><span class="hs-comment">--</span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- -   @elasticache:replication-group:Replicas@ - The number of replicas</span><span>
+</span><span id="line-446"></span><span class="hs-comment">--     per node group for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-447"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#newPutScheduledAction"><span class="hs-identifier hs-type">newPutScheduledAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-448"></span><span>  </span><span class="hs-comment">-- | 'serviceNamespace'</span><span>
+</span><span id="line-449"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-450"></span><span>  </span><span class="hs-comment">-- | 'scheduledActionName'</span><span>
+</span><span id="line-451"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-452"></span><span>  </span><span class="hs-comment">-- | 'resourceId'</span><span>
+</span><span id="line-453"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-454"></span><span>  </span><span class="hs-comment">-- | 'scalableDimension'</span><span>
+</span><span id="line-455"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-456"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span>
+</span><span id="line-457"></span><span id="newPutScheduledAction"><span class="annot"><span class="annottext">newPutScheduledAction :: ServiceNamespace
+-&gt; Text -&gt; Text -&gt; ScalableDimension -&gt; PutScheduledAction
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#newPutScheduledAction"><span class="hs-identifier hs-var hs-var">newPutScheduledAction</span></a></span></span><span>
+</span><span id="line-458"></span><span>  </span><span id="local-6989586621679187167"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679187167"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span>
+</span><span id="line-459"></span><span>  </span><span id="local-6989586621679187166"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187166"><span class="hs-identifier hs-var">pScheduledActionName_</span></a></span></span><span>
+</span><span id="line-460"></span><span>  </span><span id="local-6989586621679187165"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187165"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
+</span><span id="line-461"></span><span>  </span><span id="local-6989586621679187164"><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679187164"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-462"></span><span>    </span><span class="annot"><span class="annottext">PutScheduledAction' :: Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ScalableTargetAction
+-&gt; Maybe Text
+-&gt; ServiceNamespace
+-&gt; Text
+-&gt; Text
+-&gt; ScalableDimension
+-&gt; PutScheduledAction
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span>
+</span><span id="line-463"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTime:PutScheduledAction' :: Maybe POSIX
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AstartTime%3APutScheduledAction%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-464"></span><span>        </span><span class="annot"><span class="annottext">$sel:endTime:PutScheduledAction' :: Maybe POSIX
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AendTime%3APutScheduledAction%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-465"></span><span>        </span><span class="annot"><span class="annottext">$sel:timezone:PutScheduledAction' :: Maybe Text
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3Atimezone%3APutScheduledAction%27"><span class="hs-identifier hs-var">timezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-466"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalableTargetAction:PutScheduledAction' :: Maybe ScalableTargetAction
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AscalableTargetAction%3APutScheduledAction%27"><span class="hs-identifier hs-var">scalableTargetAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScalableTargetAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-467"></span><span>        </span><span class="annot"><span class="annottext">$sel:schedule:PutScheduledAction' :: Maybe Text
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3Aschedule%3APutScheduledAction%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-468"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceNamespace:PutScheduledAction' :: ServiceNamespace
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AserviceNamespace%3APutScheduledAction%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679187167"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-469"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduledActionName:PutScheduledAction' :: Text
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AscheduledActionName%3APutScheduledAction%27"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187166"><span class="hs-identifier hs-var">pScheduledActionName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-470"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:PutScheduledAction' :: Text
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AresourceId%3APutScheduledAction%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187165"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-471"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalableDimension:PutScheduledAction' :: ScalableDimension
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AscalableDimension%3APutScheduledAction%27"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679187164"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span><span>
+</span><span id="line-472"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-473"></span><span>
+</span><span id="line-474"></span><span class="hs-comment">-- | The date and time for this scheduled action to start, in UTC.</span><span>
+</span><span id="line-475"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_startTime"><span class="hs-identifier hs-type">putScheduledAction_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-476"></span><span id="putScheduledAction_startTime"><span class="annot"><span class="annottext">putScheduledAction_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PutScheduledAction -&gt; f PutScheduledAction
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_startTime"><span class="hs-identifier hs-var hs-var">putScheduledAction_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledAction -&gt; Maybe POSIX)
+-&gt; (PutScheduledAction -&gt; Maybe POSIX -&gt; PutScheduledAction)
+-&gt; Lens
+     PutScheduledAction PutScheduledAction (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187161"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:PutScheduledAction' :: PutScheduledAction -&gt; Maybe POSIX
+</span><a href="#local-6989586621679187161"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187161"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187160"><span class="annot"><span class="annottext">s :: PutScheduledAction
+</span><a href="#local-6989586621679187160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187159"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledAction
+</span><a href="#local-6989586621679187160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:PutScheduledAction' :: Maybe POSIX
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AstartTime%3APutScheduledAction%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PutScheduledAction -&gt; f PutScheduledAction)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PutScheduledAction
+-&gt; f PutScheduledAction
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-477"></span><span>
+</span><span id="line-478"></span><span class="hs-comment">-- | The date and time for the recurring schedule to end, in UTC.</span><span>
+</span><span id="line-479"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_endTime"><span class="hs-identifier hs-type">putScheduledAction_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-480"></span><span id="putScheduledAction_endTime"><span class="annot"><span class="annottext">putScheduledAction_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PutScheduledAction -&gt; f PutScheduledAction
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_endTime"><span class="hs-identifier hs-var hs-var">putScheduledAction_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledAction -&gt; Maybe POSIX)
+-&gt; (PutScheduledAction -&gt; Maybe POSIX -&gt; PutScheduledAction)
+-&gt; Lens
+     PutScheduledAction PutScheduledAction (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187155"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:PutScheduledAction' :: PutScheduledAction -&gt; Maybe POSIX
+</span><a href="#local-6989586621679187155"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187155"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187154"><span class="annot"><span class="annottext">s :: PutScheduledAction
+</span><a href="#local-6989586621679187154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187153"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledAction
+</span><a href="#local-6989586621679187154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:PutScheduledAction' :: Maybe POSIX
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AendTime%3APutScheduledAction%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PutScheduledAction -&gt; f PutScheduledAction)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PutScheduledAction
+-&gt; f PutScheduledAction
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-481"></span><span>
+</span><span id="line-482"></span><span class="hs-comment">-- | Specifies the time zone used when setting a scheduled action by using an</span><span>
+</span><span id="line-483"></span><span class="hs-comment">-- at or cron expression. If a time zone is not provided, UTC is used by</span><span>
+</span><span id="line-484"></span><span class="hs-comment">-- default.</span><span>
+</span><span id="line-485"></span><span class="hs-comment">--</span><span>
+</span><span id="line-486"></span><span class="hs-comment">-- Valid values are the canonical names of the IANA time zones supported by</span><span>
+</span><span id="line-487"></span><span class="hs-comment">-- Joda-Time (such as @Etc\/GMT+9@ or @Pacific\/Tahiti@). For more</span><span>
+</span><span id="line-488"></span><span class="hs-comment">-- information, see &lt;https://www.joda.org/joda-time/timezones.html&gt;.</span><span>
+</span><span id="line-489"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_timezone"><span class="hs-identifier hs-type">putScheduledAction_timezone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-490"></span><span id="putScheduledAction_timezone"><span class="annot"><span class="annottext">putScheduledAction_timezone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutScheduledAction -&gt; f PutScheduledAction
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_timezone"><span class="hs-identifier hs-var hs-var">putScheduledAction_timezone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledAction -&gt; Maybe Text)
+-&gt; (PutScheduledAction -&gt; Maybe Text -&gt; PutScheduledAction)
+-&gt; Lens
+     PutScheduledAction PutScheduledAction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187152"><span class="annot"><span class="annottext">Maybe Text
+timezone :: Maybe Text
+$sel:timezone:PutScheduledAction' :: PutScheduledAction -&gt; Maybe Text
+</span><a href="#local-6989586621679187152"><span class="hs-identifier hs-var hs-var">timezone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187152"><span class="hs-identifier hs-var">timezone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187151"><span class="annot"><span class="annottext">s :: PutScheduledAction
+</span><a href="#local-6989586621679187151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187150"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledAction
+</span><a href="#local-6989586621679187151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timezone:PutScheduledAction' :: Maybe Text
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3Atimezone%3APutScheduledAction%27"><span class="hs-identifier hs-var">timezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-491"></span><span>
+</span><span id="line-492"></span><span class="hs-comment">-- | The new minimum and maximum capacity. You can set both values or just</span><span>
+</span><span id="line-493"></span><span class="hs-comment">-- one. At the scheduled time, if the current capacity is below the minimum</span><span>
+</span><span id="line-494"></span><span class="hs-comment">-- capacity, Application Auto Scaling scales out to the minimum capacity.</span><span>
+</span><span id="line-495"></span><span class="hs-comment">-- If the current capacity is above the maximum capacity, Application Auto</span><span>
+</span><span id="line-496"></span><span class="hs-comment">-- Scaling scales in to the maximum capacity.</span><span>
+</span><span id="line-497"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_scalableTargetAction"><span class="hs-identifier hs-type">putScheduledAction_scalableTargetAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction.html#ScalableTargetAction"><span class="hs-identifier hs-type">ScalableTargetAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-498"></span><span id="putScheduledAction_scalableTargetAction"><span class="annot"><span class="annottext">putScheduledAction_scalableTargetAction :: (Maybe ScalableTargetAction -&gt; f (Maybe ScalableTargetAction))
+-&gt; PutScheduledAction -&gt; f PutScheduledAction
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_scalableTargetAction"><span class="hs-identifier hs-var hs-var">putScheduledAction_scalableTargetAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledAction -&gt; Maybe ScalableTargetAction)
+-&gt; (PutScheduledAction
+    -&gt; Maybe ScalableTargetAction -&gt; PutScheduledAction)
+-&gt; Lens
+     PutScheduledAction
+     PutScheduledAction
+     (Maybe ScalableTargetAction)
+     (Maybe ScalableTargetAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187149"><span class="annot"><span class="annottext">Maybe ScalableTargetAction
+scalableTargetAction :: Maybe ScalableTargetAction
+$sel:scalableTargetAction:PutScheduledAction' :: PutScheduledAction -&gt; Maybe ScalableTargetAction
+</span><a href="#local-6989586621679187149"><span class="hs-identifier hs-var hs-var">scalableTargetAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScalableTargetAction
+</span><a href="#local-6989586621679187149"><span class="hs-identifier hs-var">scalableTargetAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187148"><span class="annot"><span class="annottext">s :: PutScheduledAction
+</span><a href="#local-6989586621679187148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187147"><span class="annot"><span class="annottext">Maybe ScalableTargetAction
+</span><a href="#local-6989586621679187147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledAction
+</span><a href="#local-6989586621679187148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalableTargetAction:PutScheduledAction' :: Maybe ScalableTargetAction
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AscalableTargetAction%3APutScheduledAction%27"><span class="hs-identifier hs-var">scalableTargetAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScalableTargetAction
+</span><a href="#local-6989586621679187147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-499"></span><span>
+</span><span id="line-500"></span><span class="hs-comment">-- | The schedule for this action. The following formats are supported:</span><span>
+</span><span id="line-501"></span><span class="hs-comment">--</span><span>
+</span><span id="line-502"></span><span class="hs-comment">-- -   At expressions - \&quot;@at(yyyy-mm-ddThh:mm:ss)@\&quot;</span><span>
+</span><span id="line-503"></span><span class="hs-comment">--</span><span>
+</span><span id="line-504"></span><span class="hs-comment">-- -   Rate expressions - \&quot;@rate(value unit)@\&quot;</span><span>
+</span><span id="line-505"></span><span class="hs-comment">--</span><span>
+</span><span id="line-506"></span><span class="hs-comment">-- -   Cron expressions - \&quot;@cron(fields)@\&quot;</span><span>
+</span><span id="line-507"></span><span class="hs-comment">--</span><span>
+</span><span id="line-508"></span><span class="hs-comment">-- At expressions are useful for one-time schedules. Cron expressions are</span><span>
+</span><span id="line-509"></span><span class="hs-comment">-- useful for scheduled actions that run periodically at a specified date</span><span>
+</span><span id="line-510"></span><span class="hs-comment">-- and time, and rate expressions are useful for scheduled actions that run</span><span>
+</span><span id="line-511"></span><span class="hs-comment">-- at a regular interval.</span><span>
+</span><span id="line-512"></span><span class="hs-comment">--</span><span>
+</span><span id="line-513"></span><span class="hs-comment">-- At and cron expressions use Universal Coordinated Time (UTC) by default.</span><span>
+</span><span id="line-514"></span><span class="hs-comment">--</span><span>
+</span><span id="line-515"></span><span class="hs-comment">-- The cron format consists of six fields separated by white spaces:</span><span>
+</span><span id="line-516"></span><span class="hs-comment">-- [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].</span><span>
+</span><span id="line-517"></span><span class="hs-comment">--</span><span>
+</span><span id="line-518"></span><span class="hs-comment">-- For rate expressions, /value/ is a positive integer and /unit/ is</span><span>
+</span><span id="line-519"></span><span class="hs-comment">-- @minute@ | @minutes@ | @hour@ | @hours@ | @day@ | @days@.</span><span>
+</span><span id="line-520"></span><span class="hs-comment">--</span><span>
+</span><span id="line-521"></span><span class="hs-comment">-- For more information and examples, see</span><span>
+</span><span id="line-522"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling&gt;</span><span>
+</span><span id="line-523"></span><span class="hs-comment">-- in the /Application Auto Scaling User Guide/.</span><span>
+</span><span id="line-524"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_schedule"><span class="hs-identifier hs-type">putScheduledAction_schedule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-525"></span><span id="putScheduledAction_schedule"><span class="annot"><span class="annottext">putScheduledAction_schedule :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutScheduledAction -&gt; f PutScheduledAction
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_schedule"><span class="hs-identifier hs-var hs-var">putScheduledAction_schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledAction -&gt; Maybe Text)
+-&gt; (PutScheduledAction -&gt; Maybe Text -&gt; PutScheduledAction)
+-&gt; Lens
+     PutScheduledAction PutScheduledAction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187146"><span class="annot"><span class="annottext">Maybe Text
+schedule :: Maybe Text
+$sel:schedule:PutScheduledAction' :: PutScheduledAction -&gt; Maybe Text
+</span><a href="#local-6989586621679187146"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187146"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187145"><span class="annot"><span class="annottext">s :: PutScheduledAction
+</span><a href="#local-6989586621679187145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187144"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledAction
+</span><a href="#local-6989586621679187145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:PutScheduledAction' :: Maybe Text
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3Aschedule%3APutScheduledAction%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-526"></span><span>
+</span><span id="line-527"></span><span class="hs-comment">-- | The namespace of the Amazon Web Services service that provides the</span><span>
+</span><span id="line-528"></span><span class="hs-comment">-- resource. For a resource provided by your own application or service,</span><span>
+</span><span id="line-529"></span><span class="hs-comment">-- use @custom-resource@ instead.</span><span>
+</span><span id="line-530"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_serviceNamespace"><span class="hs-identifier hs-type">putScheduledAction_serviceNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span>
+</span><span id="line-531"></span><span id="putScheduledAction_serviceNamespace"><span class="annot"><span class="annottext">putScheduledAction_serviceNamespace :: (ServiceNamespace -&gt; f ServiceNamespace)
+-&gt; PutScheduledAction -&gt; f PutScheduledAction
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_serviceNamespace"><span class="hs-identifier hs-var hs-var">putScheduledAction_serviceNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledAction -&gt; ServiceNamespace)
+-&gt; (PutScheduledAction -&gt; ServiceNamespace -&gt; PutScheduledAction)
+-&gt; Lens
+     PutScheduledAction
+     PutScheduledAction
+     ServiceNamespace
+     ServiceNamespace
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187143"><span class="annot"><span class="annottext">ServiceNamespace
+serviceNamespace :: ServiceNamespace
+$sel:serviceNamespace:PutScheduledAction' :: PutScheduledAction -&gt; ServiceNamespace
+</span><a href="#local-6989586621679187143"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679187143"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187142"><span class="annot"><span class="annottext">s :: PutScheduledAction
+</span><a href="#local-6989586621679187142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187141"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679187141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledAction
+</span><a href="#local-6989586621679187142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:PutScheduledAction' :: ServiceNamespace
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AserviceNamespace%3APutScheduledAction%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679187141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-532"></span><span>
+</span><span id="line-533"></span><span class="hs-comment">-- | The name of the scheduled action. This name must be unique among all</span><span>
+</span><span id="line-534"></span><span class="hs-comment">-- other scheduled actions on the specified scalable target.</span><span>
+</span><span id="line-535"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_scheduledActionName"><span class="hs-identifier hs-type">putScheduledAction_scheduledActionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-536"></span><span id="putScheduledAction_scheduledActionName"><span class="annot"><span class="annottext">putScheduledAction_scheduledActionName :: (Text -&gt; f Text) -&gt; PutScheduledAction -&gt; f PutScheduledAction
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_scheduledActionName"><span class="hs-identifier hs-var hs-var">putScheduledAction_scheduledActionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledAction -&gt; Text)
+-&gt; (PutScheduledAction -&gt; Text -&gt; PutScheduledAction)
+-&gt; Lens PutScheduledAction PutScheduledAction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187140"><span class="annot"><span class="annottext">Text
+scheduledActionName :: Text
+$sel:scheduledActionName:PutScheduledAction' :: PutScheduledAction -&gt; Text
+</span><a href="#local-6989586621679187140"><span class="hs-identifier hs-var hs-var">scheduledActionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187140"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187139"><span class="annot"><span class="annottext">s :: PutScheduledAction
+</span><a href="#local-6989586621679187139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187138"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledAction
+</span><a href="#local-6989586621679187139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActionName:PutScheduledAction' :: Text
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AscheduledActionName%3APutScheduledAction%27"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-537"></span><span>
+</span><span id="line-538"></span><span class="hs-comment">-- | The identifier of the resource associated with the scheduled action.</span><span>
+</span><span id="line-539"></span><span class="hs-comment">-- This string consists of the resource type and unique identifier.</span><span>
+</span><span id="line-540"></span><span class="hs-comment">--</span><span>
+</span><span id="line-541"></span><span class="hs-comment">-- -   ECS service - The resource type is @service@ and the unique</span><span>
+</span><span id="line-542"></span><span class="hs-comment">--     identifier is the cluster name and service name. Example:</span><span>
+</span><span id="line-543"></span><span class="hs-comment">--     @service\/default\/sample-webapp@.</span><span>
+</span><span id="line-544"></span><span class="hs-comment">--</span><span>
+</span><span id="line-545"></span><span class="hs-comment">-- -   Spot Fleet request - The resource type is @spot-fleet-request@ and</span><span>
+</span><span id="line-546"></span><span class="hs-comment">--     the unique identifier is the Spot Fleet request ID. Example:</span><span>
+</span><span id="line-547"></span><span class="hs-comment">--     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.</span><span>
+</span><span id="line-548"></span><span class="hs-comment">--</span><span>
+</span><span id="line-549"></span><span class="hs-comment">-- -   EMR cluster - The resource type is @instancegroup@ and the unique</span><span>
+</span><span id="line-550"></span><span class="hs-comment">--     identifier is the cluster ID and instance group ID. Example:</span><span>
+</span><span id="line-551"></span><span class="hs-comment">--     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.</span><span>
+</span><span id="line-552"></span><span class="hs-comment">--</span><span>
+</span><span id="line-553"></span><span class="hs-comment">-- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique</span><span>
+</span><span id="line-554"></span><span class="hs-comment">--     identifier is the fleet name. Example: @fleet\/sample-fleet@.</span><span>
+</span><span id="line-555"></span><span class="hs-comment">--</span><span>
+</span><span id="line-556"></span><span class="hs-comment">-- -   DynamoDB table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-557"></span><span class="hs-comment">--     identifier is the table name. Example: @table\/my-table@.</span><span>
+</span><span id="line-558"></span><span class="hs-comment">--</span><span>
+</span><span id="line-559"></span><span class="hs-comment">-- -   DynamoDB global secondary index - The resource type is @index@ and</span><span>
+</span><span id="line-560"></span><span class="hs-comment">--     the unique identifier is the index name. Example:</span><span>
+</span><span id="line-561"></span><span class="hs-comment">--     @table\/my-table\/index\/my-table-index@.</span><span>
+</span><span id="line-562"></span><span class="hs-comment">--</span><span>
+</span><span id="line-563"></span><span class="hs-comment">-- -   Aurora DB cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-564"></span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:my-db-cluster@.</span><span>
+</span><span id="line-565"></span><span class="hs-comment">--</span><span>
+</span><span id="line-566"></span><span class="hs-comment">-- -   Amazon SageMaker endpoint variant - The resource type is @variant@</span><span>
+</span><span id="line-567"></span><span class="hs-comment">--     and the unique identifier is the resource ID. Example:</span><span>
+</span><span id="line-568"></span><span class="hs-comment">--     @endpoint\/my-end-point\/variant\/KMeansClustering@.</span><span>
+</span><span id="line-569"></span><span class="hs-comment">--</span><span>
+</span><span id="line-570"></span><span class="hs-comment">-- -   Custom resources are not supported with a resource type. This</span><span>
+</span><span id="line-571"></span><span class="hs-comment">--     parameter must specify the @OutputValue@ from the CloudFormation</span><span>
+</span><span id="line-572"></span><span class="hs-comment">--     template stack used to access the resources. The unique identifier</span><span>
+</span><span id="line-573"></span><span class="hs-comment">--     is defined by the service provider. More information is available in</span><span>
+</span><span id="line-574"></span><span class="hs-comment">--     our</span><span>
+</span><span id="line-575"></span><span class="hs-comment">--     &lt;https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository&gt;.</span><span>
+</span><span id="line-576"></span><span class="hs-comment">--</span><span>
+</span><span id="line-577"></span><span class="hs-comment">-- -   Amazon Comprehend document classification endpoint - The resource</span><span>
+</span><span id="line-578"></span><span class="hs-comment">--     type and unique identifier are specified using the endpoint ARN.</span><span>
+</span><span id="line-579"></span><span class="hs-comment">--     Example:</span><span>
+</span><span id="line-580"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-581"></span><span class="hs-comment">--</span><span>
+</span><span id="line-582"></span><span class="hs-comment">-- -   Amazon Comprehend entity recognizer endpoint - The resource type and</span><span>
+</span><span id="line-583"></span><span class="hs-comment">--     unique identifier are specified using the endpoint ARN. Example:</span><span>
+</span><span id="line-584"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-585"></span><span class="hs-comment">--</span><span>
+</span><span id="line-586"></span><span class="hs-comment">-- -   Lambda provisioned concurrency - The resource type is @function@ and</span><span>
+</span><span id="line-587"></span><span class="hs-comment">--     the unique identifier is the function name with a function version</span><span>
+</span><span id="line-588"></span><span class="hs-comment">--     or alias name suffix that is not @$LATEST@. Example:</span><span>
+</span><span id="line-589"></span><span class="hs-comment">--     @function:my-function:prod@ or @function:my-function:1@.</span><span>
+</span><span id="line-590"></span><span class="hs-comment">--</span><span>
+</span><span id="line-591"></span><span class="hs-comment">-- -   Amazon Keyspaces table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-592"></span><span class="hs-comment">--     identifier is the table name. Example:</span><span>
+</span><span id="line-593"></span><span class="hs-comment">--     @keyspace\/mykeyspace\/table\/mytable@.</span><span>
+</span><span id="line-594"></span><span class="hs-comment">--</span><span>
+</span><span id="line-595"></span><span class="hs-comment">-- -   Amazon MSK cluster - The resource type and unique identifier are</span><span>
+</span><span id="line-596"></span><span class="hs-comment">--     specified using the cluster ARN. Example:</span><span>
+</span><span id="line-597"></span><span class="hs-comment">--     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.</span><span>
+</span><span id="line-598"></span><span class="hs-comment">--</span><span>
+</span><span id="line-599"></span><span class="hs-comment">-- -   Amazon ElastiCache replication group - The resource type is</span><span>
+</span><span id="line-600"></span><span class="hs-comment">--     @replication-group@ and the unique identifier is the replication</span><span>
+</span><span id="line-601"></span><span class="hs-comment">--     group name. Example: @replication-group\/mycluster@.</span><span>
+</span><span id="line-602"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_resourceId"><span class="hs-identifier hs-type">putScheduledAction_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-603"></span><span id="putScheduledAction_resourceId"><span class="annot"><span class="annottext">putScheduledAction_resourceId :: (Text -&gt; f Text) -&gt; PutScheduledAction -&gt; f PutScheduledAction
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_resourceId"><span class="hs-identifier hs-var hs-var">putScheduledAction_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledAction -&gt; Text)
+-&gt; (PutScheduledAction -&gt; Text -&gt; PutScheduledAction)
+-&gt; Lens PutScheduledAction PutScheduledAction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187137"><span class="annot"><span class="annottext">Text
+resourceId :: Text
+$sel:resourceId:PutScheduledAction' :: PutScheduledAction -&gt; Text
+</span><a href="#local-6989586621679187137"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187137"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187136"><span class="annot"><span class="annottext">s :: PutScheduledAction
+</span><a href="#local-6989586621679187136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187135"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledAction
+</span><a href="#local-6989586621679187136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:PutScheduledAction' :: Text
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AresourceId%3APutScheduledAction%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-604"></span><span>
+</span><span id="line-605"></span><span class="hs-comment">-- | The scalable dimension. This string consists of the service namespace,</span><span>
+</span><span id="line-606"></span><span class="hs-comment">-- resource type, and scaling property.</span><span>
+</span><span id="line-607"></span><span class="hs-comment">--</span><span>
+</span><span id="line-608"></span><span class="hs-comment">-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS</span><span>
+</span><span id="line-609"></span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-610"></span><span class="hs-comment">--</span><span>
+</span><span id="line-611"></span><span class="hs-comment">-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count</span><span>
+</span><span id="line-612"></span><span class="hs-comment">--     of an EMR Instance Group.</span><span>
+</span><span id="line-613"></span><span class="hs-comment">--</span><span>
+</span><span id="line-614"></span><span class="hs-comment">-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a</span><span>
+</span><span id="line-615"></span><span class="hs-comment">--     Spot Fleet request.</span><span>
+</span><span id="line-616"></span><span class="hs-comment">--</span><span>
+</span><span id="line-617"></span><span class="hs-comment">-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an</span><span>
+</span><span id="line-618"></span><span class="hs-comment">--     AppStream 2.0 fleet.</span><span>
+</span><span id="line-619"></span><span class="hs-comment">--</span><span>
+</span><span id="line-620"></span><span class="hs-comment">-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-621"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-622"></span><span class="hs-comment">--</span><span>
+</span><span id="line-623"></span><span class="hs-comment">-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-624"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-625"></span><span class="hs-comment">--</span><span>
+</span><span id="line-626"></span><span class="hs-comment">-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-627"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-628"></span><span class="hs-comment">--</span><span>
+</span><span id="line-629"></span><span class="hs-comment">-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-630"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-631"></span><span class="hs-comment">--</span><span>
+</span><span id="line-632"></span><span class="hs-comment">-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an</span><span>
+</span><span id="line-633"></span><span class="hs-comment">--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and</span><span>
+</span><span id="line-634"></span><span class="hs-comment">--     Aurora PostgreSQL-compatible edition.</span><span>
+</span><span id="line-635"></span><span class="hs-comment">--</span><span>
+</span><span id="line-636"></span><span class="hs-comment">-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2</span><span>
+</span><span id="line-637"></span><span class="hs-comment">--     instances for an Amazon SageMaker model endpoint variant.</span><span>
+</span><span id="line-638"></span><span class="hs-comment">--</span><span>
+</span><span id="line-639"></span><span class="hs-comment">-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for</span><span>
+</span><span id="line-640"></span><span class="hs-comment">--     a custom resource provided by your own application or service.</span><span>
+</span><span id="line-641"></span><span class="hs-comment">--</span><span>
+</span><span id="line-642"></span><span class="hs-comment">-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -</span><span>
+</span><span id="line-643"></span><span class="hs-comment">--     The number of inference units for an Amazon Comprehend document</span><span>
+</span><span id="line-644"></span><span class="hs-comment">--     classification endpoint.</span><span>
+</span><span id="line-645"></span><span class="hs-comment">--</span><span>
+</span><span id="line-646"></span><span class="hs-comment">-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The</span><span>
+</span><span id="line-647"></span><span class="hs-comment">--     number of inference units for an Amazon Comprehend entity recognizer</span><span>
+</span><span id="line-648"></span><span class="hs-comment">--     endpoint.</span><span>
+</span><span id="line-649"></span><span class="hs-comment">--</span><span>
+</span><span id="line-650"></span><span class="hs-comment">-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned</span><span>
+</span><span id="line-651"></span><span class="hs-comment">--     concurrency for a Lambda function.</span><span>
+</span><span id="line-652"></span><span class="hs-comment">--</span><span>
+</span><span id="line-653"></span><span class="hs-comment">-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-654"></span><span class="hs-comment">--     for an Amazon Keyspaces table.</span><span>
+</span><span id="line-655"></span><span class="hs-comment">--</span><span>
+</span><span id="line-656"></span><span class="hs-comment">-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write</span><span>
+</span><span id="line-657"></span><span class="hs-comment">--     capacity for an Amazon Keyspaces table.</span><span>
+</span><span id="line-658"></span><span class="hs-comment">--</span><span>
+</span><span id="line-659"></span><span class="hs-comment">-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in</span><span>
+</span><span id="line-660"></span><span class="hs-comment">--     GiB) for brokers in an Amazon MSK cluster.</span><span>
+</span><span id="line-661"></span><span class="hs-comment">--</span><span>
+</span><span id="line-662"></span><span class="hs-comment">-- -   @elasticache:replication-group:NodeGroups@ - The number of node</span><span>
+</span><span id="line-663"></span><span class="hs-comment">--     groups for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-664"></span><span class="hs-comment">--</span><span>
+</span><span id="line-665"></span><span class="hs-comment">-- -   @elasticache:replication-group:Replicas@ - The number of replicas</span><span>
+</span><span id="line-666"></span><span class="hs-comment">--     per node group for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-667"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_scalableDimension"><span class="hs-identifier hs-type">putScheduledAction_scalableDimension</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-668"></span><span id="putScheduledAction_scalableDimension"><span class="annot"><span class="annottext">putScheduledAction_scalableDimension :: (ScalableDimension -&gt; f ScalableDimension)
+-&gt; PutScheduledAction -&gt; f PutScheduledAction
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledAction_scalableDimension"><span class="hs-identifier hs-var hs-var">putScheduledAction_scalableDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledAction -&gt; ScalableDimension)
+-&gt; (PutScheduledAction -&gt; ScalableDimension -&gt; PutScheduledAction)
+-&gt; Lens
+     PutScheduledAction
+     PutScheduledAction
+     ScalableDimension
+     ScalableDimension
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187134"><span class="annot"><span class="annottext">ScalableDimension
+scalableDimension :: ScalableDimension
+$sel:scalableDimension:PutScheduledAction' :: PutScheduledAction -&gt; ScalableDimension
+</span><a href="#local-6989586621679187134"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679187134"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187133"><span class="annot"><span class="annottext">s :: PutScheduledAction
+</span><a href="#local-6989586621679187133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187132"><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679187132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledAction
+</span><a href="#local-6989586621679187133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalableDimension:PutScheduledAction' :: ScalableDimension
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AscalableDimension%3APutScheduledAction%27"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679187132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-669"></span><span>
+</span><span id="line-670"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-671"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-672"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-673"></span><span>      </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledActionResponse"><span class="hs-identifier hs-type">PutScheduledActionResponse</span></a></span><span>
+</span><span id="line-674"></span><span>  </span><span id="local-6989586621679187128"><span class="annot"><span class="annottext">request :: PutScheduledAction -&gt; Request PutScheduledAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutScheduledAction -&gt; Request PutScheduledAction
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-675"></span><span>  </span><span id="local-6989586621679187124"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutScheduledAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutScheduledAction)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-676"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse PutScheduledAction))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutScheduledAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutScheduledAction)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-677"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679187121"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187121"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679187120"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679187120"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679187119"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679187119"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-678"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutScheduledActionResponse
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledActionResponse%27"><span class="hs-identifier hs-var">PutScheduledActionResponse'</span></a></span><span>
+</span><span id="line-679"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutScheduledActionResponse)
+-&gt; Either String Int -&gt; Either String PutScheduledActionResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187121"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-680"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-681"></span><span>
+</span><span id="line-682"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187112"><span id="local-6989586621679187114"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span></span></span><span>
+</span><span id="line-683"></span><span>
+</span><span id="line-684"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187109"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span></span><span>
+</span><span id="line-685"></span><span>
+</span><span id="line-686"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-687"></span><span>  </span><span id="local-6989586621679187105"><span class="annot"><span class="annottext">toHeaders :: PutScheduledAction -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-688"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutScheduledAction -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-689"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-690"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-691"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AnyScaleFrontendService.PutScheduledAction&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-692"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-693"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-694"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-695"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-696"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-697"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-698"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-699"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-700"></span><span>
+</span><span id="line-701"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187095"><span id="local-6989586621679187097"><span id="local-6989586621679187099"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-702"></span><span>  </span><span id="local-6989586621679187093"><span class="annot"><span class="annottext">toJSON :: PutScheduledAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction%27"><span class="hs-identifier hs-type">PutScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187083"><span id="local-6989586621679187084"><span id="local-6989586621679187085"><span id="local-6989586621679187086"><span id="local-6989586621679187087"><span id="local-6989586621679187088"><span id="local-6989586621679187089"><span id="local-6989586621679187090"><span id="local-6989586621679187091"><span class="annot"><span class="annottext">Maybe Text
+Maybe POSIX
+Maybe ScalableTargetAction
+Text
+ScalableDimension
+ServiceNamespace
+scalableDimension :: ScalableDimension
+resourceId :: Text
+scheduledActionName :: Text
+serviceNamespace :: ServiceNamespace
+schedule :: Maybe Text
+scalableTargetAction :: Maybe ScalableTargetAction
+timezone :: Maybe Text
+endTime :: Maybe POSIX
+startTime :: Maybe POSIX
+$sel:scalableDimension:PutScheduledAction' :: PutScheduledAction -&gt; ScalableDimension
+$sel:resourceId:PutScheduledAction' :: PutScheduledAction -&gt; Text
+$sel:scheduledActionName:PutScheduledAction' :: PutScheduledAction -&gt; Text
+$sel:serviceNamespace:PutScheduledAction' :: PutScheduledAction -&gt; ServiceNamespace
+$sel:schedule:PutScheduledAction' :: PutScheduledAction -&gt; Maybe Text
+$sel:scalableTargetAction:PutScheduledAction' :: PutScheduledAction -&gt; Maybe ScalableTargetAction
+$sel:timezone:PutScheduledAction' :: PutScheduledAction -&gt; Maybe Text
+$sel:endTime:PutScheduledAction' :: PutScheduledAction -&gt; Maybe POSIX
+$sel:startTime:PutScheduledAction' :: PutScheduledAction -&gt; Maybe POSIX
+</span><a href="#local-6989586621679187083"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-703"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-704"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-705"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187091"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-706"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187090"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-707"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timezone&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187089"><span class="hs-identifier hs-var">timezone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-708"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScalableTargetAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScalableTargetAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-709"></span><span>              </span><span class="annot"><span class="annottext">(ScalableTargetAction -&gt; Pair)
+-&gt; Maybe ScalableTargetAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScalableTargetAction
+</span><a href="#local-6989586621679187088"><span class="hs-identifier hs-var">scalableTargetAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-710"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Schedule&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187087"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-711"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-712"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceNamespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ServiceNamespace -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679187086"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-713"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-714"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScheduledActionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187085"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-715"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187084"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-716"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-717"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScalableDimension&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScalableDimension -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679187083"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-718"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-719"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-720"></span><span>
+</span><span id="line-721"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-722"></span><span>  </span><span id="local-6989586621679187077"><span class="annot"><span class="annottext">toPath :: PutScheduledAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutScheduledAction -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-723"></span><span>
+</span><span id="line-724"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledAction"><span class="hs-identifier hs-type">PutScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-725"></span><span>  </span><span id="local-6989586621679187073"><span class="annot"><span class="annottext">toQuery :: PutScheduledAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutScheduledAction -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-726"></span><span>
+</span><span id="line-727"></span><span class="hs-comment">-- | /See:/ 'newPutScheduledActionResponse' smart constructor.</span><span>
+</span><span id="line-728"></span><span id="local-6989586621679187070"><span id="local-6989586621679187071"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutScheduledActionResponse"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledActionResponse"><span class="hs-identifier hs-var">PutScheduledActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutScheduledActionResponse%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledActionResponse%27"><span class="hs-identifier hs-var">PutScheduledActionResponse'</span></a></span></span><span>
+</span><span id="line-729"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-730"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutScheduledActionResponse%27"><span class="annot"><span class="annottext">PutScheduledActionResponse -&gt; Int
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AhttpStatus%3APutScheduledActionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-731"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-732"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187065"><span id="local-6989586621679187067"><span class="annot"><span class="annottext">PutScheduledActionResponse -&gt; PutScheduledActionResponse -&gt; Bool
+(PutScheduledActionResponse -&gt; PutScheduledActionResponse -&gt; Bool)
+-&gt; (PutScheduledActionResponse
+    -&gt; PutScheduledActionResponse -&gt; Bool)
+-&gt; Eq PutScheduledActionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutScheduledActionResponse -&gt; PutScheduledActionResponse -&gt; Bool
+$c/= :: PutScheduledActionResponse -&gt; PutScheduledActionResponse -&gt; Bool
+== :: PutScheduledActionResponse -&gt; PutScheduledActionResponse -&gt; Bool
+$c== :: PutScheduledActionResponse -&gt; PutScheduledActionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187057"><span id="local-6989586621679187059"><span id="local-6989586621679187061"><span id="local-6989586621679187063"><span class="annot"><span class="annottext">ReadPrec [PutScheduledActionResponse]
+ReadPrec PutScheduledActionResponse
+Int -&gt; ReadS PutScheduledActionResponse
+ReadS [PutScheduledActionResponse]
+(Int -&gt; ReadS PutScheduledActionResponse)
+-&gt; ReadS [PutScheduledActionResponse]
+-&gt; ReadPrec PutScheduledActionResponse
+-&gt; ReadPrec [PutScheduledActionResponse]
+-&gt; Read PutScheduledActionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutScheduledActionResponse]
+$creadListPrec :: ReadPrec [PutScheduledActionResponse]
+readPrec :: ReadPrec PutScheduledActionResponse
+$creadPrec :: ReadPrec PutScheduledActionResponse
+readList :: ReadS [PutScheduledActionResponse]
+$creadList :: ReadS [PutScheduledActionResponse]
+readsPrec :: Int -&gt; ReadS PutScheduledActionResponse
+$creadsPrec :: Int -&gt; ReadS PutScheduledActionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187051"><span id="local-6989586621679187053"><span id="local-6989586621679187055"><span class="annot"><span class="annottext">Int -&gt; PutScheduledActionResponse -&gt; ShowS
+[PutScheduledActionResponse] -&gt; ShowS
+PutScheduledActionResponse -&gt; String
+(Int -&gt; PutScheduledActionResponse -&gt; ShowS)
+-&gt; (PutScheduledActionResponse -&gt; String)
+-&gt; ([PutScheduledActionResponse] -&gt; ShowS)
+-&gt; Show PutScheduledActionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutScheduledActionResponse] -&gt; ShowS
+$cshowList :: [PutScheduledActionResponse] -&gt; ShowS
+show :: PutScheduledActionResponse -&gt; String
+$cshow :: PutScheduledActionResponse -&gt; String
+showsPrec :: Int -&gt; PutScheduledActionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutScheduledActionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutScheduledActionResponse -&gt; Rep PutScheduledActionResponse x)
+-&gt; (forall x.
+    Rep PutScheduledActionResponse x -&gt; PutScheduledActionResponse)
+-&gt; Generic PutScheduledActionResponse
+forall x.
+Rep PutScheduledActionResponse x -&gt; PutScheduledActionResponse
+forall x.
+PutScheduledActionResponse -&gt; Rep PutScheduledActionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutScheduledActionResponse x -&gt; PutScheduledActionResponse
+$cfrom :: forall x.
+PutScheduledActionResponse -&gt; Rep PutScheduledActionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-733"></span><span>
+</span><span id="line-734"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-735"></span><span class="hs-comment">-- Create a value of 'PutScheduledActionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-736"></span><span class="hs-comment">--</span><span>
+</span><span id="line-737"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-738"></span><span class="hs-comment">--</span><span>
+</span><span id="line-739"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-740"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-741"></span><span class="hs-comment">--</span><span>
+</span><span id="line-742"></span><span class="hs-comment">-- 'httpStatus', 'putScheduledActionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-743"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#newPutScheduledActionResponse"><span class="hs-identifier hs-type">newPutScheduledActionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-744"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-745"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-746"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledActionResponse"><span class="hs-identifier hs-type">PutScheduledActionResponse</span></a></span><span>
+</span><span id="line-747"></span><span id="newPutScheduledActionResponse"><span class="annot"><span class="annottext">newPutScheduledActionResponse :: Int -&gt; PutScheduledActionResponse
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#newPutScheduledActionResponse"><span class="hs-identifier hs-var hs-var">newPutScheduledActionResponse</span></a></span></span><span> </span><span id="local-6989586621679187048"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187048"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-748"></span><span>  </span><span class="annot"><span class="annottext">PutScheduledActionResponse' :: Int -&gt; PutScheduledActionResponse
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledActionResponse%27"><span class="hs-identifier hs-type">PutScheduledActionResponse'</span></a></span><span>
+</span><span id="line-749"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutScheduledActionResponse' :: Int
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AhttpStatus%3APutScheduledActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-750"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187048"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-751"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-752"></span><span>
+</span><span id="line-753"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-754"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledActionResponse_httpStatus"><span class="hs-identifier hs-type">putScheduledActionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledActionResponse"><span class="hs-identifier hs-type">PutScheduledActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-755"></span><span id="putScheduledActionResponse_httpStatus"><span class="annot"><span class="annottext">putScheduledActionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutScheduledActionResponse -&gt; f PutScheduledActionResponse
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#putScheduledActionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putScheduledActionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledActionResponse -&gt; Int)
+-&gt; (PutScheduledActionResponse
+    -&gt; Int -&gt; PutScheduledActionResponse)
+-&gt; Lens
+     PutScheduledActionResponse PutScheduledActionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledActionResponse%27"><span class="hs-identifier hs-type">PutScheduledActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187047"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutScheduledActionResponse' :: PutScheduledActionResponse -&gt; Int
+</span><a href="#local-6989586621679187047"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187047"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187046"><span class="annot"><span class="annottext">s :: PutScheduledActionResponse
+</span><a href="#local-6989586621679187046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledActionResponse%27"><span class="hs-identifier hs-type">PutScheduledActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187045"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledActionResponse
+</span><a href="#local-6989586621679187046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutScheduledActionResponse' :: Int
+</span><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#%24sel%3AhttpStatus%3APutScheduledActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledActionResponse"><span class="hs-identifier hs-type">PutScheduledActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-756"></span><span>
+</span><span id="line-757"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187043"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.PutScheduledAction.html#PutScheduledActionResponse"><span class="hs-identifier hs-type">PutScheduledActionResponse</span></a></span></span><span>
+</span><span id="line-758"></span></pre></body></html>

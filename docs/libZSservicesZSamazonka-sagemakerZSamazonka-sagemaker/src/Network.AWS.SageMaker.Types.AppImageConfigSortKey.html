@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.AppImageConfigSortKey</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.AppImageConfigSortKey</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey"><span class="hs-identifier">AppImageConfigSortKey</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey_CreationTime"><span class="hs-identifier">AppImageConfigSortKey_CreationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey_LastModifiedTime"><span class="hs-identifier">AppImageConfigSortKey_LastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey_Name"><span class="hs-identifier">AppImageConfigSortKey_Name</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680287829"><span id="local-6989586621680287830"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AppImageConfigSortKey"><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey"><span class="hs-identifier hs-var">AppImageConfigSortKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppImageConfigSortKey%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey%27"><span class="hs-identifier hs-var">AppImageConfigSortKey'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAppImageConfigSortKey"><span class="annot"><span class="annottext">AppImageConfigSortKey -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#fromAppImageConfigSortKey"><span class="hs-identifier hs-var hs-var">fromAppImageConfigSortKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680287821"><span id="local-6989586621680287823"><span id="local-6989586621680287825"><span class="annot"><span class="annottext">Int -&gt; AppImageConfigSortKey -&gt; ShowS
+[AppImageConfigSortKey] -&gt; ShowS
+AppImageConfigSortKey -&gt; String
+(Int -&gt; AppImageConfigSortKey -&gt; ShowS)
+-&gt; (AppImageConfigSortKey -&gt; String)
+-&gt; ([AppImageConfigSortKey] -&gt; ShowS)
+-&gt; Show AppImageConfigSortKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AppImageConfigSortKey] -&gt; ShowS
+$cshowList :: [AppImageConfigSortKey] -&gt; ShowS
+show :: AppImageConfigSortKey -&gt; String
+$cshow :: AppImageConfigSortKey -&gt; String
+showsPrec :: Int -&gt; AppImageConfigSortKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; AppImageConfigSortKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680287812"><span id="local-6989586621680287814"><span id="local-6989586621680287816"><span id="local-6989586621680287818"><span class="annot"><span class="annottext">ReadPrec [AppImageConfigSortKey]
+ReadPrec AppImageConfigSortKey
+Int -&gt; ReadS AppImageConfigSortKey
+ReadS [AppImageConfigSortKey]
+(Int -&gt; ReadS AppImageConfigSortKey)
+-&gt; ReadS [AppImageConfigSortKey]
+-&gt; ReadPrec AppImageConfigSortKey
+-&gt; ReadPrec [AppImageConfigSortKey]
+-&gt; Read AppImageConfigSortKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AppImageConfigSortKey]
+$creadListPrec :: ReadPrec [AppImageConfigSortKey]
+readPrec :: ReadPrec AppImageConfigSortKey
+$creadPrec :: ReadPrec AppImageConfigSortKey
+readList :: ReadS [AppImageConfigSortKey]
+$creadList :: ReadS [AppImageConfigSortKey]
+readsPrec :: Int -&gt; ReadS AppImageConfigSortKey
+$creadsPrec :: Int -&gt; ReadS AppImageConfigSortKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680287807"><span id="local-6989586621680287809"><span class="annot"><span class="annottext">AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool
+(AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool)
+-&gt; (AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool)
+-&gt; Eq AppImageConfigSortKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool
+$c/= :: AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool
+== :: AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool
+$c== :: AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680287791"><span id="local-6989586621680287793"><span id="local-6989586621680287795"><span id="local-6989586621680287797"><span id="local-6989586621680287799"><span id="local-6989586621680287801"><span id="local-6989586621680287803"><span class="annot"><span class="annottext">Eq AppImageConfigSortKey
+Eq AppImageConfigSortKey
+-&gt; (AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Ordering)
+-&gt; (AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool)
+-&gt; (AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool)
+-&gt; (AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool)
+-&gt; (AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool)
+-&gt; (AppImageConfigSortKey
+    -&gt; AppImageConfigSortKey -&gt; AppImageConfigSortKey)
+-&gt; (AppImageConfigSortKey
+    -&gt; AppImageConfigSortKey -&gt; AppImageConfigSortKey)
+-&gt; Ord AppImageConfigSortKey
+AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool
+AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Ordering
+AppImageConfigSortKey
+-&gt; AppImageConfigSortKey -&gt; AppImageConfigSortKey
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AppImageConfigSortKey
+-&gt; AppImageConfigSortKey -&gt; AppImageConfigSortKey
+$cmin :: AppImageConfigSortKey
+-&gt; AppImageConfigSortKey -&gt; AppImageConfigSortKey
+max :: AppImageConfigSortKey
+-&gt; AppImageConfigSortKey -&gt; AppImageConfigSortKey
+$cmax :: AppImageConfigSortKey
+-&gt; AppImageConfigSortKey -&gt; AppImageConfigSortKey
+&gt;= :: AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool
+$c&gt;= :: AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool
+&gt; :: AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool
+$c&gt; :: AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool
+&lt;= :: AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool
+$c&lt;= :: AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool
+&lt; :: AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool
+$c&lt; :: AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Bool
+compare :: AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Ordering
+$ccompare :: AppImageConfigSortKey -&gt; AppImageConfigSortKey -&gt; Ordering
+$cp1Ord :: Eq AppImageConfigSortKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AppImageConfigSortKey -&gt; Rep AppImageConfigSortKey x)
+-&gt; (forall x. Rep AppImageConfigSortKey x -&gt; AppImageConfigSortKey)
+-&gt; Generic AppImageConfigSortKey
+forall x. Rep AppImageConfigSortKey x -&gt; AppImageConfigSortKey
+forall x. AppImageConfigSortKey -&gt; Rep AppImageConfigSortKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AppImageConfigSortKey x -&gt; AppImageConfigSortKey
+$cfrom :: forall x. AppImageConfigSortKey -&gt; Rep AppImageConfigSortKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680287783"><span id="local-6989586621680287785"><span class="annot"><span class="annottext">Int -&gt; AppImageConfigSortKey -&gt; Int
+AppImageConfigSortKey -&gt; Int
+(Int -&gt; AppImageConfigSortKey -&gt; Int)
+-&gt; (AppImageConfigSortKey -&gt; Int) -&gt; Hashable AppImageConfigSortKey
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AppImageConfigSortKey -&gt; Int
+$chash :: AppImageConfigSortKey -&gt; Int
+hashWithSalt :: Int -&gt; AppImageConfigSortKey -&gt; Int
+$chashWithSalt :: Int -&gt; AppImageConfigSortKey -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680287780"><span class="annot"><span class="annottext">AppImageConfigSortKey -&gt; ()
+(AppImageConfigSortKey -&gt; ()) -&gt; NFData AppImageConfigSortKey
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AppImageConfigSortKey -&gt; ()
+$crnf :: AppImageConfigSortKey -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680287777"><span class="annot"><span class="annottext">Text -&gt; Either String AppImageConfigSortKey
+(Text -&gt; Either String AppImageConfigSortKey)
+-&gt; FromText AppImageConfigSortKey
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AppImageConfigSortKey
+$cfromText :: Text -&gt; Either String AppImageConfigSortKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680287774"><span class="annot"><span class="annottext">AppImageConfigSortKey -&gt; Text
+(AppImageConfigSortKey -&gt; Text) -&gt; ToText AppImageConfigSortKey
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AppImageConfigSortKey -&gt; Text
+$ctoText :: AppImageConfigSortKey -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680287771"><span class="annot"><span class="annottext">AppImageConfigSortKey -&gt; ByteString
+(AppImageConfigSortKey -&gt; ByteString)
+-&gt; ToByteString AppImageConfigSortKey
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AppImageConfigSortKey -&gt; ByteString
+$ctoBS :: AppImageConfigSortKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680287768"><span class="annot"><span class="annottext">AppImageConfigSortKey -&gt; ByteStringBuilder
+(AppImageConfigSortKey -&gt; ByteStringBuilder)
+-&gt; ToLog AppImageConfigSortKey
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AppImageConfigSortKey -&gt; ByteStringBuilder
+$cbuild :: AppImageConfigSortKey -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680287765"><span class="annot"><span class="annottext">HeaderName -&gt; AppImageConfigSortKey -&gt; [Header]
+(HeaderName -&gt; AppImageConfigSortKey -&gt; [Header])
+-&gt; ToHeader AppImageConfigSortKey
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AppImageConfigSortKey -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AppImageConfigSortKey -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680287762"><span class="annot"><span class="annottext">AppImageConfigSortKey -&gt; QueryString
+(AppImageConfigSortKey -&gt; QueryString)
+-&gt; ToQuery AppImageConfigSortKey
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AppImageConfigSortKey -&gt; QueryString
+$ctoQuery :: AppImageConfigSortKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680287757"><span id="local-6989586621680287759"><span class="annot"><span class="annottext">Value -&gt; Parser [AppImageConfigSortKey]
+Value -&gt; Parser AppImageConfigSortKey
+(Value -&gt; Parser AppImageConfigSortKey)
+-&gt; (Value -&gt; Parser [AppImageConfigSortKey])
+-&gt; FromJSON AppImageConfigSortKey
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AppImageConfigSortKey]
+$cparseJSONList :: Value -&gt; Parser [AppImageConfigSortKey]
+parseJSON :: Value -&gt; Parser AppImageConfigSortKey
+$cparseJSON :: Value -&gt; Parser AppImageConfigSortKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680287752"><span id="local-6989586621680287754"><span class="annot"><span class="annottext">FromJSONKeyFunction [AppImageConfigSortKey]
+FromJSONKeyFunction AppImageConfigSortKey
+FromJSONKeyFunction AppImageConfigSortKey
+-&gt; FromJSONKeyFunction [AppImageConfigSortKey]
+-&gt; FromJSONKey AppImageConfigSortKey
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AppImageConfigSortKey]
+$cfromJSONKeyList :: FromJSONKeyFunction [AppImageConfigSortKey]
+fromJSONKey :: FromJSONKeyFunction AppImageConfigSortKey
+$cfromJSONKey :: FromJSONKeyFunction AppImageConfigSortKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680287743"><span id="local-6989586621680287745"><span id="local-6989586621680287747"><span id="local-6989586621680287749"><span class="annot"><span class="annottext">[AppImageConfigSortKey] -&gt; Encoding
+[AppImageConfigSortKey] -&gt; Value
+AppImageConfigSortKey -&gt; Encoding
+AppImageConfigSortKey -&gt; Value
+(AppImageConfigSortKey -&gt; Value)
+-&gt; (AppImageConfigSortKey -&gt; Encoding)
+-&gt; ([AppImageConfigSortKey] -&gt; Value)
+-&gt; ([AppImageConfigSortKey] -&gt; Encoding)
+-&gt; ToJSON AppImageConfigSortKey
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AppImageConfigSortKey] -&gt; Encoding
+$ctoEncodingList :: [AppImageConfigSortKey] -&gt; Encoding
+toJSONList :: [AppImageConfigSortKey] -&gt; Value
+$ctoJSONList :: [AppImageConfigSortKey] -&gt; Value
+toEncoding :: AppImageConfigSortKey -&gt; Encoding
+$ctoEncoding :: AppImageConfigSortKey -&gt; Encoding
+toJSON :: AppImageConfigSortKey -&gt; Value
+$ctoJSON :: AppImageConfigSortKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680287738"><span id="local-6989586621680287740"><span class="annot"><span class="annottext">ToJSONKeyFunction [AppImageConfigSortKey]
+ToJSONKeyFunction AppImageConfigSortKey
+ToJSONKeyFunction AppImageConfigSortKey
+-&gt; ToJSONKeyFunction [AppImageConfigSortKey]
+-&gt; ToJSONKey AppImageConfigSortKey
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AppImageConfigSortKey]
+$ctoJSONKeyList :: ToJSONKeyFunction [AppImageConfigSortKey]
+toJSONKey :: ToJSONKeyFunction AppImageConfigSortKey
+$ctoJSONKey :: ToJSONKeyFunction AppImageConfigSortKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680287735"><span class="annot"><span class="annottext">[Node] -&gt; Either String AppImageConfigSortKey
+([Node] -&gt; Either String AppImageConfigSortKey)
+-&gt; FromXML AppImageConfigSortKey
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AppImageConfigSortKey
+$cparseXML :: [Node] -&gt; Either String AppImageConfigSortKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680287732"><span class="annot"><span class="annottext">AppImageConfigSortKey -&gt; XML
+(AppImageConfigSortKey -&gt; XML) -&gt; ToXML AppImageConfigSortKey
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AppImageConfigSortKey -&gt; XML
+$ctoXML :: AppImageConfigSortKey -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey_CreationTime"><span class="hs-identifier hs-type">AppImageConfigSortKey_CreationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey"><span class="hs-identifier hs-type">AppImageConfigSortKey</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppImageConfigSortKey_CreationTime"><span id="%24mAppImageConfigSortKey_CreationTime"><span id="AppImageConfigSortKey_CreationTime"><span class="annot"><span class="annottext">$bAppImageConfigSortKey_CreationTime :: AppImageConfigSortKey
+$mAppImageConfigSortKey_CreationTime :: forall r.
+AppImageConfigSortKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#%24bAppImageConfigSortKey_CreationTime"><span class="hs-identifier hs-var hs-var hs-var">AppImageConfigSortKey_CreationTime</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey%27"><span class="hs-identifier hs-type">AppImageConfigSortKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CreationTime&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey_LastModifiedTime"><span class="hs-identifier hs-type">AppImageConfigSortKey_LastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey"><span class="hs-identifier hs-type">AppImageConfigSortKey</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppImageConfigSortKey_LastModifiedTime"><span id="%24mAppImageConfigSortKey_LastModifiedTime"><span id="AppImageConfigSortKey_LastModifiedTime"><span class="annot"><span class="annottext">$bAppImageConfigSortKey_LastModifiedTime :: AppImageConfigSortKey
+$mAppImageConfigSortKey_LastModifiedTime :: forall r.
+AppImageConfigSortKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#%24bAppImageConfigSortKey_LastModifiedTime"><span class="hs-identifier hs-var hs-var hs-var">AppImageConfigSortKey_LastModifiedTime</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey%27"><span class="hs-identifier hs-type">AppImageConfigSortKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey_Name"><span class="hs-identifier hs-type">AppImageConfigSortKey_Name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey"><span class="hs-identifier hs-type">AppImageConfigSortKey</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppImageConfigSortKey_Name"><span id="%24mAppImageConfigSortKey_Name"><span id="AppImageConfigSortKey_Name"><span class="annot"><span class="annottext">$bAppImageConfigSortKey_Name :: AppImageConfigSortKey
+$mAppImageConfigSortKey_Name :: forall r.
+AppImageConfigSortKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#%24bAppImageConfigSortKey_Name"><span class="hs-identifier hs-var hs-var hs-var">AppImageConfigSortKey_Name</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey%27"><span class="hs-identifier hs-type">AppImageConfigSortKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Name&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey_CreationTime"><span class="hs-pragma hs-type">AppImageConfigSortKey_CreationTime</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey_LastModifiedTime"><span class="hs-pragma hs-type">AppImageConfigSortKey_LastModifiedTime</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey_Name"><span class="hs-pragma hs-type">AppImageConfigSortKey_Name</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey%27"><span class="hs-pragma hs-type">AppImageConfigSortKey'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

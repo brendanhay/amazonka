@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.Vc3SlowPal</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.Vc3SlowPal</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal"><span class="hs-identifier">Vc3SlowPal</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal_DISABLED"><span class="hs-identifier">Vc3SlowPal_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal_ENABLED"><span class="hs-identifier">Vc3SlowPal_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Ignore this setting unless your input frame rate is 23.976 or 24 frames</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- per second (fps). Enable slow PAL to create a 25 fps output by</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- relabeling the video frames and resampling your audio. Note that</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- enabling this setting will slightly reduce the duration of your video.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Related settings: You must also set Framerate to 25. In your JSON job</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- specification, set (framerateControl) to (SPECIFIED),</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- (framerateNumerator) to 25 and (framerateDenominator) to 1.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621680005942"><span id="local-6989586621680005943"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vc3SlowPal"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal"><span class="hs-identifier hs-var">Vc3SlowPal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vc3SlowPal%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal%27"><span class="hs-identifier hs-var">Vc3SlowPal'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVc3SlowPal"><span class="annot"><span class="annottext">Vc3SlowPal -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#fromVc3SlowPal"><span class="hs-identifier hs-var hs-var">fromVc3SlowPal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680005934"><span id="local-6989586621680005936"><span id="local-6989586621680005938"><span class="annot"><span class="annottext">Int -&gt; Vc3SlowPal -&gt; ShowS
+[Vc3SlowPal] -&gt; ShowS
+Vc3SlowPal -&gt; String
+(Int -&gt; Vc3SlowPal -&gt; ShowS)
+-&gt; (Vc3SlowPal -&gt; String)
+-&gt; ([Vc3SlowPal] -&gt; ShowS)
+-&gt; Show Vc3SlowPal
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Vc3SlowPal] -&gt; ShowS
+$cshowList :: [Vc3SlowPal] -&gt; ShowS
+show :: Vc3SlowPal -&gt; String
+$cshow :: Vc3SlowPal -&gt; String
+showsPrec :: Int -&gt; Vc3SlowPal -&gt; ShowS
+$cshowsPrec :: Int -&gt; Vc3SlowPal -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680005925"><span id="local-6989586621680005927"><span id="local-6989586621680005929"><span id="local-6989586621680005931"><span class="annot"><span class="annottext">ReadPrec [Vc3SlowPal]
+ReadPrec Vc3SlowPal
+Int -&gt; ReadS Vc3SlowPal
+ReadS [Vc3SlowPal]
+(Int -&gt; ReadS Vc3SlowPal)
+-&gt; ReadS [Vc3SlowPal]
+-&gt; ReadPrec Vc3SlowPal
+-&gt; ReadPrec [Vc3SlowPal]
+-&gt; Read Vc3SlowPal
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Vc3SlowPal]
+$creadListPrec :: ReadPrec [Vc3SlowPal]
+readPrec :: ReadPrec Vc3SlowPal
+$creadPrec :: ReadPrec Vc3SlowPal
+readList :: ReadS [Vc3SlowPal]
+$creadList :: ReadS [Vc3SlowPal]
+readsPrec :: Int -&gt; ReadS Vc3SlowPal
+$creadsPrec :: Int -&gt; ReadS Vc3SlowPal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680005920"><span id="local-6989586621680005922"><span class="annot"><span class="annottext">Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool
+(Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool)
+-&gt; (Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool) -&gt; Eq Vc3SlowPal
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool
+$c/= :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool
+== :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool
+$c== :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680005904"><span id="local-6989586621680005906"><span id="local-6989586621680005908"><span id="local-6989586621680005910"><span id="local-6989586621680005912"><span id="local-6989586621680005914"><span id="local-6989586621680005916"><span class="annot"><span class="annottext">Eq Vc3SlowPal
+Eq Vc3SlowPal
+-&gt; (Vc3SlowPal -&gt; Vc3SlowPal -&gt; Ordering)
+-&gt; (Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool)
+-&gt; (Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool)
+-&gt; (Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool)
+-&gt; (Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool)
+-&gt; (Vc3SlowPal -&gt; Vc3SlowPal -&gt; Vc3SlowPal)
+-&gt; (Vc3SlowPal -&gt; Vc3SlowPal -&gt; Vc3SlowPal)
+-&gt; Ord Vc3SlowPal
+Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool
+Vc3SlowPal -&gt; Vc3SlowPal -&gt; Ordering
+Vc3SlowPal -&gt; Vc3SlowPal -&gt; Vc3SlowPal
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Vc3SlowPal
+$cmin :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Vc3SlowPal
+max :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Vc3SlowPal
+$cmax :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Vc3SlowPal
+&gt;= :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool
+$c&gt;= :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool
+&gt; :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool
+$c&gt; :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool
+&lt;= :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool
+$c&lt;= :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool
+&lt; :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool
+$c&lt; :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Bool
+compare :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Ordering
+$ccompare :: Vc3SlowPal -&gt; Vc3SlowPal -&gt; Ordering
+$cp1Ord :: Eq Vc3SlowPal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Vc3SlowPal -&gt; Rep Vc3SlowPal x)
+-&gt; (forall x. Rep Vc3SlowPal x -&gt; Vc3SlowPal) -&gt; Generic Vc3SlowPal
+forall x. Rep Vc3SlowPal x -&gt; Vc3SlowPal
+forall x. Vc3SlowPal -&gt; Rep Vc3SlowPal x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Vc3SlowPal x -&gt; Vc3SlowPal
+$cfrom :: forall x. Vc3SlowPal -&gt; Rep Vc3SlowPal x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680005896"><span id="local-6989586621680005898"><span class="annot"><span class="annottext">Int -&gt; Vc3SlowPal -&gt; Int
+Vc3SlowPal -&gt; Int
+(Int -&gt; Vc3SlowPal -&gt; Int)
+-&gt; (Vc3SlowPal -&gt; Int) -&gt; Hashable Vc3SlowPal
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Vc3SlowPal -&gt; Int
+$chash :: Vc3SlowPal -&gt; Int
+hashWithSalt :: Int -&gt; Vc3SlowPal -&gt; Int
+$chashWithSalt :: Int -&gt; Vc3SlowPal -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680005893"><span class="annot"><span class="annottext">Vc3SlowPal -&gt; ()
+(Vc3SlowPal -&gt; ()) -&gt; NFData Vc3SlowPal
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Vc3SlowPal -&gt; ()
+$crnf :: Vc3SlowPal -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680005890"><span class="annot"><span class="annottext">Text -&gt; Either String Vc3SlowPal
+(Text -&gt; Either String Vc3SlowPal) -&gt; FromText Vc3SlowPal
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Vc3SlowPal
+$cfromText :: Text -&gt; Either String Vc3SlowPal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680005887"><span class="annot"><span class="annottext">Vc3SlowPal -&gt; Text
+(Vc3SlowPal -&gt; Text) -&gt; ToText Vc3SlowPal
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Vc3SlowPal -&gt; Text
+$ctoText :: Vc3SlowPal -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680005884"><span class="annot"><span class="annottext">Vc3SlowPal -&gt; ByteString
+(Vc3SlowPal -&gt; ByteString) -&gt; ToByteString Vc3SlowPal
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Vc3SlowPal -&gt; ByteString
+$ctoBS :: Vc3SlowPal -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680005881"><span class="annot"><span class="annottext">Vc3SlowPal -&gt; ByteStringBuilder
+(Vc3SlowPal -&gt; ByteStringBuilder) -&gt; ToLog Vc3SlowPal
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Vc3SlowPal -&gt; ByteStringBuilder
+$cbuild :: Vc3SlowPal -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680005878"><span class="annot"><span class="annottext">HeaderName -&gt; Vc3SlowPal -&gt; [Header]
+(HeaderName -&gt; Vc3SlowPal -&gt; [Header]) -&gt; ToHeader Vc3SlowPal
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Vc3SlowPal -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Vc3SlowPal -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680005875"><span class="annot"><span class="annottext">Vc3SlowPal -&gt; QueryString
+(Vc3SlowPal -&gt; QueryString) -&gt; ToQuery Vc3SlowPal
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Vc3SlowPal -&gt; QueryString
+$ctoQuery :: Vc3SlowPal -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680005870"><span id="local-6989586621680005872"><span class="annot"><span class="annottext">Value -&gt; Parser [Vc3SlowPal]
+Value -&gt; Parser Vc3SlowPal
+(Value -&gt; Parser Vc3SlowPal)
+-&gt; (Value -&gt; Parser [Vc3SlowPal]) -&gt; FromJSON Vc3SlowPal
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Vc3SlowPal]
+$cparseJSONList :: Value -&gt; Parser [Vc3SlowPal]
+parseJSON :: Value -&gt; Parser Vc3SlowPal
+$cparseJSON :: Value -&gt; Parser Vc3SlowPal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680005865"><span id="local-6989586621680005867"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vc3SlowPal]
+FromJSONKeyFunction Vc3SlowPal
+FromJSONKeyFunction Vc3SlowPal
+-&gt; FromJSONKeyFunction [Vc3SlowPal] -&gt; FromJSONKey Vc3SlowPal
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Vc3SlowPal]
+$cfromJSONKeyList :: FromJSONKeyFunction [Vc3SlowPal]
+fromJSONKey :: FromJSONKeyFunction Vc3SlowPal
+$cfromJSONKey :: FromJSONKeyFunction Vc3SlowPal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680005856"><span id="local-6989586621680005858"><span id="local-6989586621680005860"><span id="local-6989586621680005862"><span class="annot"><span class="annottext">[Vc3SlowPal] -&gt; Encoding
+[Vc3SlowPal] -&gt; Value
+Vc3SlowPal -&gt; Encoding
+Vc3SlowPal -&gt; Value
+(Vc3SlowPal -&gt; Value)
+-&gt; (Vc3SlowPal -&gt; Encoding)
+-&gt; ([Vc3SlowPal] -&gt; Value)
+-&gt; ([Vc3SlowPal] -&gt; Encoding)
+-&gt; ToJSON Vc3SlowPal
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Vc3SlowPal] -&gt; Encoding
+$ctoEncodingList :: [Vc3SlowPal] -&gt; Encoding
+toJSONList :: [Vc3SlowPal] -&gt; Value
+$ctoJSONList :: [Vc3SlowPal] -&gt; Value
+toEncoding :: Vc3SlowPal -&gt; Encoding
+$ctoEncoding :: Vc3SlowPal -&gt; Encoding
+toJSON :: Vc3SlowPal -&gt; Value
+$ctoJSON :: Vc3SlowPal -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680005851"><span id="local-6989586621680005853"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vc3SlowPal]
+ToJSONKeyFunction Vc3SlowPal
+ToJSONKeyFunction Vc3SlowPal
+-&gt; ToJSONKeyFunction [Vc3SlowPal] -&gt; ToJSONKey Vc3SlowPal
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Vc3SlowPal]
+$ctoJSONKeyList :: ToJSONKeyFunction [Vc3SlowPal]
+toJSONKey :: ToJSONKeyFunction Vc3SlowPal
+$ctoJSONKey :: ToJSONKeyFunction Vc3SlowPal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680005848"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vc3SlowPal
+([Node] -&gt; Either String Vc3SlowPal) -&gt; FromXML Vc3SlowPal
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Vc3SlowPal
+$cparseXML :: [Node] -&gt; Either String Vc3SlowPal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680005845"><span class="annot"><span class="annottext">Vc3SlowPal -&gt; XML
+(Vc3SlowPal -&gt; XML) -&gt; ToXML Vc3SlowPal
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Vc3SlowPal -&gt; XML
+$ctoXML :: Vc3SlowPal -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal_DISABLED"><span class="hs-identifier hs-type">Vc3SlowPal_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal"><span class="hs-identifier hs-type">Vc3SlowPal</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVc3SlowPal_DISABLED"><span id="%24mVc3SlowPal_DISABLED"><span id="Vc3SlowPal_DISABLED"><span class="annot"><span class="annottext">$bVc3SlowPal_DISABLED :: Vc3SlowPal
+$mVc3SlowPal_DISABLED :: forall r. Vc3SlowPal -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#%24bVc3SlowPal_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">Vc3SlowPal_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal%27"><span class="hs-identifier hs-type">Vc3SlowPal'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal_ENABLED"><span class="hs-identifier hs-type">Vc3SlowPal_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal"><span class="hs-identifier hs-type">Vc3SlowPal</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVc3SlowPal_ENABLED"><span id="%24mVc3SlowPal_ENABLED"><span id="Vc3SlowPal_ENABLED"><span class="annot"><span class="annottext">$bVc3SlowPal_ENABLED :: Vc3SlowPal
+$mVc3SlowPal_ENABLED :: forall r. Vc3SlowPal -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#%24bVc3SlowPal_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">Vc3SlowPal_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal%27"><span class="hs-identifier hs-type">Vc3SlowPal'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal_DISABLED"><span class="hs-pragma hs-type">Vc3SlowPal_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal_ENABLED"><span class="hs-pragma hs-type">Vc3SlowPal_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal%27"><span class="hs-pragma hs-type">Vc3SlowPal'</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-78"></span></pre></body></html>

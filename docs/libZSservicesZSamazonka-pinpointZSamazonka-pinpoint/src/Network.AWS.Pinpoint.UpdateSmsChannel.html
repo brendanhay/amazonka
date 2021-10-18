@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Pinpoint.UpdateSmsChannel</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Enables the SMS channel for an application or updates the status and</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- settings of the SMS channel for an application.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pinpoint.UpdateSmsChannel</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel"><span class="hs-identifier">UpdateSmsChannel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#newUpdateSmsChannel"><span class="hs-identifier">newUpdateSmsChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#updateSmsChannel_applicationId"><span class="hs-identifier">updateSmsChannel_applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#updateSmsChannel_sMSChannelRequest"><span class="hs-identifier">updateSmsChannel_sMSChannelRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse"><span class="hs-identifier">UpdateSmsChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#newUpdateSmsChannelResponse"><span class="hs-identifier">newUpdateSmsChannelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#updateSmsChannelResponse_httpStatus"><span class="hs-identifier">updateSmsChannelResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#updateSmsChannelResponse_sMSChannelResponse"><span class="hs-identifier">updateSmsChannelResponse_sMSChannelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.html"><span class="hs-identifier">Network.AWS.Pinpoint.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdateSmsChannel' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679646362"><span id="local-6989586621679646363"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSmsChannel"><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel"><span class="hs-identifier hs-var">UpdateSmsChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSmsChannel%27"><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel%27"><span class="hs-identifier hs-var">UpdateSmsChannel'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AapplicationId%3AUpdateSmsChannel%27"><span class="annot"><span class="annottext">UpdateSmsChannel -&gt; Text
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#%24sel%3AapplicationId%3AUpdateSmsChannel%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AsMSChannelRequest%3AUpdateSmsChannel%27"><span class="annot"><span class="annottext">UpdateSmsChannel -&gt; SMSChannelRequest
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#%24sel%3AsMSChannelRequest%3AUpdateSmsChannel%27"><span class="hs-identifier hs-var hs-var">sMSChannelRequest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSChannelRequest.html#SMSChannelRequest"><span class="hs-identifier hs-type">SMSChannelRequest</span></a></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646355"><span id="local-6989586621679646357"><span class="annot"><span class="annottext">UpdateSmsChannel -&gt; UpdateSmsChannel -&gt; Bool
+(UpdateSmsChannel -&gt; UpdateSmsChannel -&gt; Bool)
+-&gt; (UpdateSmsChannel -&gt; UpdateSmsChannel -&gt; Bool)
+-&gt; Eq UpdateSmsChannel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSmsChannel -&gt; UpdateSmsChannel -&gt; Bool
+$c/= :: UpdateSmsChannel -&gt; UpdateSmsChannel -&gt; Bool
+== :: UpdateSmsChannel -&gt; UpdateSmsChannel -&gt; Bool
+$c== :: UpdateSmsChannel -&gt; UpdateSmsChannel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646346"><span id="local-6989586621679646348"><span id="local-6989586621679646350"><span id="local-6989586621679646352"><span class="annot"><span class="annottext">ReadPrec [UpdateSmsChannel]
+ReadPrec UpdateSmsChannel
+Int -&gt; ReadS UpdateSmsChannel
+ReadS [UpdateSmsChannel]
+(Int -&gt; ReadS UpdateSmsChannel)
+-&gt; ReadS [UpdateSmsChannel]
+-&gt; ReadPrec UpdateSmsChannel
+-&gt; ReadPrec [UpdateSmsChannel]
+-&gt; Read UpdateSmsChannel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateSmsChannel]
+$creadListPrec :: ReadPrec [UpdateSmsChannel]
+readPrec :: ReadPrec UpdateSmsChannel
+$creadPrec :: ReadPrec UpdateSmsChannel
+readList :: ReadS [UpdateSmsChannel]
+$creadList :: ReadS [UpdateSmsChannel]
+readsPrec :: Int -&gt; ReadS UpdateSmsChannel
+$creadsPrec :: Int -&gt; ReadS UpdateSmsChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646339"><span id="local-6989586621679646341"><span id="local-6989586621679646343"><span class="annot"><span class="annottext">Int -&gt; UpdateSmsChannel -&gt; ShowS
+[UpdateSmsChannel] -&gt; ShowS
+UpdateSmsChannel -&gt; String
+(Int -&gt; UpdateSmsChannel -&gt; ShowS)
+-&gt; (UpdateSmsChannel -&gt; String)
+-&gt; ([UpdateSmsChannel] -&gt; ShowS)
+-&gt; Show UpdateSmsChannel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSmsChannel] -&gt; ShowS
+$cshowList :: [UpdateSmsChannel] -&gt; ShowS
+show :: UpdateSmsChannel -&gt; String
+$cshow :: UpdateSmsChannel -&gt; String
+showsPrec :: Int -&gt; UpdateSmsChannel -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSmsChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateSmsChannel -&gt; Rep UpdateSmsChannel x)
+-&gt; (forall x. Rep UpdateSmsChannel x -&gt; UpdateSmsChannel)
+-&gt; Generic UpdateSmsChannel
+forall x. Rep UpdateSmsChannel x -&gt; UpdateSmsChannel
+forall x. UpdateSmsChannel -&gt; Rep UpdateSmsChannel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateSmsChannel x -&gt; UpdateSmsChannel
+$cfrom :: forall x. UpdateSmsChannel -&gt; Rep UpdateSmsChannel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'UpdateSmsChannel' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'applicationId', 'updateSmsChannel_applicationId' - The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'sMSChannelRequest', 'updateSmsChannel_sMSChannelRequest' - Undocumented member.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#newUpdateSmsChannel"><span class="hs-identifier hs-type">newUpdateSmsChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'sMSChannelRequest'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSChannelRequest.html#SMSChannelRequest"><span class="hs-identifier hs-type">SMSChannelRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel"><span class="hs-identifier hs-type">UpdateSmsChannel</span></a></span><span>
+</span><span id="line-78"></span><span id="newUpdateSmsChannel"><span class="annot"><span class="annottext">newUpdateSmsChannel :: Text -&gt; SMSChannelRequest -&gt; UpdateSmsChannel
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#newUpdateSmsChannel"><span class="hs-identifier hs-var hs-var">newUpdateSmsChannel</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679646334"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679646334"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679646333"><span class="annot"><span class="annottext">SMSChannelRequest
+</span><a href="#local-6989586621679646333"><span class="hs-identifier hs-var">pSMSChannelRequest_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">UpdateSmsChannel' :: Text -&gt; SMSChannelRequest -&gt; UpdateSmsChannel
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel%27"><span class="hs-identifier hs-type">UpdateSmsChannel'</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationId:UpdateSmsChannel' :: Text
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#%24sel%3AapplicationId%3AUpdateSmsChannel%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679646334"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:sMSChannelRequest:UpdateSmsChannel' :: SMSChannelRequest
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#%24sel%3AsMSChannelRequest%3AUpdateSmsChannel%27"><span class="hs-identifier hs-var">sMSChannelRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SMSChannelRequest
+</span><a href="#local-6989586621679646333"><span class="hs-identifier hs-var">pSMSChannelRequest_</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#updateSmsChannel_applicationId"><span class="hs-identifier hs-type">updateSmsChannel_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel"><span class="hs-identifier hs-type">UpdateSmsChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="updateSmsChannel_applicationId"><span class="annot"><span class="annottext">updateSmsChannel_applicationId :: (Text -&gt; f Text) -&gt; UpdateSmsChannel -&gt; f UpdateSmsChannel
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#updateSmsChannel_applicationId"><span class="hs-identifier hs-var hs-var">updateSmsChannel_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSmsChannel -&gt; Text)
+-&gt; (UpdateSmsChannel -&gt; Text -&gt; UpdateSmsChannel)
+-&gt; Lens UpdateSmsChannel UpdateSmsChannel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel%27"><span class="hs-identifier hs-type">UpdateSmsChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646330"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:UpdateSmsChannel' :: UpdateSmsChannel -&gt; Text
+</span><a href="#local-6989586621679646330"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679646330"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646329"><span class="annot"><span class="annottext">s :: UpdateSmsChannel
+</span><a href="#local-6989586621679646329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel%27"><span class="hs-identifier hs-type">UpdateSmsChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646328"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679646328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSmsChannel
+</span><a href="#local-6989586621679646329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:UpdateSmsChannel' :: Text
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#%24sel%3AapplicationId%3AUpdateSmsChannel%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679646328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel"><span class="hs-identifier hs-type">UpdateSmsChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#updateSmsChannel_sMSChannelRequest"><span class="hs-identifier hs-type">updateSmsChannel_sMSChannelRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel"><span class="hs-identifier hs-type">UpdateSmsChannel</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSChannelRequest.html#SMSChannelRequest"><span class="hs-identifier hs-type">SMSChannelRequest</span></a></span><span>
+</span><span id="line-93"></span><span id="updateSmsChannel_sMSChannelRequest"><span class="annot"><span class="annottext">updateSmsChannel_sMSChannelRequest :: (SMSChannelRequest -&gt; f SMSChannelRequest)
+-&gt; UpdateSmsChannel -&gt; f UpdateSmsChannel
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#updateSmsChannel_sMSChannelRequest"><span class="hs-identifier hs-var hs-var">updateSmsChannel_sMSChannelRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSmsChannel -&gt; SMSChannelRequest)
+-&gt; (UpdateSmsChannel -&gt; SMSChannelRequest -&gt; UpdateSmsChannel)
+-&gt; Lens
+     UpdateSmsChannel
+     UpdateSmsChannel
+     SMSChannelRequest
+     SMSChannelRequest
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel%27"><span class="hs-identifier hs-type">UpdateSmsChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646327"><span class="annot"><span class="annottext">SMSChannelRequest
+sMSChannelRequest :: SMSChannelRequest
+$sel:sMSChannelRequest:UpdateSmsChannel' :: UpdateSmsChannel -&gt; SMSChannelRequest
+</span><a href="#local-6989586621679646327"><span class="hs-identifier hs-var hs-var">sMSChannelRequest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelRequest
+</span><a href="#local-6989586621679646327"><span class="hs-identifier hs-var">sMSChannelRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646326"><span class="annot"><span class="annottext">s :: UpdateSmsChannel
+</span><a href="#local-6989586621679646326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel%27"><span class="hs-identifier hs-type">UpdateSmsChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646325"><span class="annot"><span class="annottext">SMSChannelRequest
+</span><a href="#local-6989586621679646325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSmsChannel
+</span><a href="#local-6989586621679646326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sMSChannelRequest:UpdateSmsChannel' :: SMSChannelRequest
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#%24sel%3AsMSChannelRequest%3AUpdateSmsChannel%27"><span class="hs-identifier hs-var">sMSChannelRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SMSChannelRequest
+</span><a href="#local-6989586621679646325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel"><span class="hs-identifier hs-type">UpdateSmsChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel"><span class="hs-identifier hs-type">UpdateSmsChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel"><span class="hs-identifier hs-type">UpdateSmsChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse"><span class="hs-identifier hs-type">UpdateSmsChannelResponse</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679646321"><span class="annot"><span class="annottext">request :: UpdateSmsChannel -&gt; Request UpdateSmsChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateSmsChannel -&gt; Request UpdateSmsChannel
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679646317"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateSmsChannel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateSmsChannel)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateSmsChannel))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateSmsChannel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateSmsChannel)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679646314"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646314"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679646313"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679646313"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679646312"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679646312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SMSChannelResponse -&gt; UpdateSmsChannelResponse
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse%27"><span class="hs-identifier hs-var">UpdateSmsChannelResponse'</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SMSChannelResponse -&gt; UpdateSmsChannelResponse)
+-&gt; Either String Int
+-&gt; Either String (SMSChannelResponse -&gt; UpdateSmsChannelResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646314"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either String (SMSChannelResponse -&gt; UpdateSmsChannelResponse)
+-&gt; Either String SMSChannelResponse
+-&gt; Either String UpdateSmsChannelResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String SMSChannelResponse
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679646312"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646304"><span id="local-6989586621679646306"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel"><span class="hs-identifier hs-type">UpdateSmsChannel</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646301"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel"><span class="hs-identifier hs-type">UpdateSmsChannel</span></a></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel"><span class="hs-identifier hs-type">UpdateSmsChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679646297"><span class="annot"><span class="annottext">toHeaders :: UpdateSmsChannel -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateSmsChannel -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-119"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646287"><span id="local-6989586621679646289"><span id="local-6989586621679646291"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel"><span class="hs-identifier hs-type">UpdateSmsChannel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679646285"><span class="annot"><span class="annottext">toJSON :: UpdateSmsChannel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel%27"><span class="hs-identifier hs-type">UpdateSmsChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646282"><span id="local-6989586621679646283"><span class="annot"><span class="annottext">Text
+SMSChannelRequest
+sMSChannelRequest :: SMSChannelRequest
+applicationId :: Text
+$sel:sMSChannelRequest:UpdateSmsChannel' :: UpdateSmsChannel -&gt; SMSChannelRequest
+$sel:applicationId:UpdateSmsChannel' :: UpdateSmsChannel -&gt; Text
+</span><a href="#local-6989586621679646282"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SMSChannelRequest&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SMSChannelRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SMSChannelRequest
+</span><a href="#local-6989586621679646282"><span class="hs-identifier hs-var">sMSChannelRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel"><span class="hs-identifier hs-type">UpdateSmsChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679646276"><span class="annot"><span class="annottext">toPath :: UpdateSmsChannel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel%27"><span class="hs-identifier hs-type">UpdateSmsChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646273"><span id="local-6989586621679646274"><span class="annot"><span class="annottext">Text
+SMSChannelRequest
+sMSChannelRequest :: SMSChannelRequest
+applicationId :: Text
+$sel:sMSChannelRequest:UpdateSmsChannel' :: UpdateSmsChannel -&gt; SMSChannelRequest
+$sel:applicationId:UpdateSmsChannel' :: UpdateSmsChannel -&gt; Text
+</span><a href="#local-6989586621679646273"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apps/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679646274"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/channels/sms&quot;</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannel"><span class="hs-identifier hs-type">UpdateSmsChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679646269"><span class="annot"><span class="annottext">toQuery :: UpdateSmsChannel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateSmsChannel -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newUpdateSmsChannelResponse' smart constructor.</span><span>
+</span><span id="line-144"></span><span id="local-6989586621679646266"><span id="local-6989586621679646267"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSmsChannelResponse"><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse"><span class="hs-identifier hs-var">UpdateSmsChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSmsChannelResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse%27"><span class="hs-identifier hs-var">UpdateSmsChannelResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateSmsChannelResponse%27"><span class="annot"><span class="annottext">UpdateSmsChannelResponse -&gt; Int
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#%24sel%3AhttpStatus%3AUpdateSmsChannelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AsMSChannelResponse%3AUpdateSmsChannelResponse%27"><span class="annot"><span class="annottext">UpdateSmsChannelResponse -&gt; SMSChannelResponse
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#%24sel%3AsMSChannelResponse%3AUpdateSmsChannelResponse%27"><span class="hs-identifier hs-var hs-var">sMSChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646260"><span id="local-6989586621679646262"><span class="annot"><span class="annottext">UpdateSmsChannelResponse -&gt; UpdateSmsChannelResponse -&gt; Bool
+(UpdateSmsChannelResponse -&gt; UpdateSmsChannelResponse -&gt; Bool)
+-&gt; (UpdateSmsChannelResponse -&gt; UpdateSmsChannelResponse -&gt; Bool)
+-&gt; Eq UpdateSmsChannelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSmsChannelResponse -&gt; UpdateSmsChannelResponse -&gt; Bool
+$c/= :: UpdateSmsChannelResponse -&gt; UpdateSmsChannelResponse -&gt; Bool
+== :: UpdateSmsChannelResponse -&gt; UpdateSmsChannelResponse -&gt; Bool
+$c== :: UpdateSmsChannelResponse -&gt; UpdateSmsChannelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646252"><span id="local-6989586621679646254"><span id="local-6989586621679646256"><span id="local-6989586621679646258"><span class="annot"><span class="annottext">ReadPrec [UpdateSmsChannelResponse]
+ReadPrec UpdateSmsChannelResponse
+Int -&gt; ReadS UpdateSmsChannelResponse
+ReadS [UpdateSmsChannelResponse]
+(Int -&gt; ReadS UpdateSmsChannelResponse)
+-&gt; ReadS [UpdateSmsChannelResponse]
+-&gt; ReadPrec UpdateSmsChannelResponse
+-&gt; ReadPrec [UpdateSmsChannelResponse]
+-&gt; Read UpdateSmsChannelResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateSmsChannelResponse]
+$creadListPrec :: ReadPrec [UpdateSmsChannelResponse]
+readPrec :: ReadPrec UpdateSmsChannelResponse
+$creadPrec :: ReadPrec UpdateSmsChannelResponse
+readList :: ReadS [UpdateSmsChannelResponse]
+$creadList :: ReadS [UpdateSmsChannelResponse]
+readsPrec :: Int -&gt; ReadS UpdateSmsChannelResponse
+$creadsPrec :: Int -&gt; ReadS UpdateSmsChannelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646246"><span id="local-6989586621679646248"><span id="local-6989586621679646250"><span class="annot"><span class="annottext">Int -&gt; UpdateSmsChannelResponse -&gt; ShowS
+[UpdateSmsChannelResponse] -&gt; ShowS
+UpdateSmsChannelResponse -&gt; String
+(Int -&gt; UpdateSmsChannelResponse -&gt; ShowS)
+-&gt; (UpdateSmsChannelResponse -&gt; String)
+-&gt; ([UpdateSmsChannelResponse] -&gt; ShowS)
+-&gt; Show UpdateSmsChannelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSmsChannelResponse] -&gt; ShowS
+$cshowList :: [UpdateSmsChannelResponse] -&gt; ShowS
+show :: UpdateSmsChannelResponse -&gt; String
+$cshow :: UpdateSmsChannelResponse -&gt; String
+showsPrec :: Int -&gt; UpdateSmsChannelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSmsChannelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateSmsChannelResponse -&gt; Rep UpdateSmsChannelResponse x)
+-&gt; (forall x.
+    Rep UpdateSmsChannelResponse x -&gt; UpdateSmsChannelResponse)
+-&gt; Generic UpdateSmsChannelResponse
+forall x.
+Rep UpdateSmsChannelResponse x -&gt; UpdateSmsChannelResponse
+forall x.
+UpdateSmsChannelResponse -&gt; Rep UpdateSmsChannelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateSmsChannelResponse x -&gt; UpdateSmsChannelResponse
+$cfrom :: forall x.
+UpdateSmsChannelResponse -&gt; Rep UpdateSmsChannelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Create a value of 'UpdateSmsChannelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'httpStatus', 'updateSmsChannelResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'sMSChannelResponse', 'updateSmsChannelResponse_sMSChannelResponse' - Undocumented member.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#newUpdateSmsChannelResponse"><span class="hs-identifier hs-type">newUpdateSmsChannelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-comment">-- | 'sMSChannelResponse'</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse"><span class="hs-identifier hs-type">UpdateSmsChannelResponse</span></a></span><span>
+</span><span id="line-168"></span><span id="newUpdateSmsChannelResponse"><span class="annot"><span class="annottext">newUpdateSmsChannelResponse :: Int -&gt; SMSChannelResponse -&gt; UpdateSmsChannelResponse
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#newUpdateSmsChannelResponse"><span class="hs-identifier hs-var hs-var">newUpdateSmsChannelResponse</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679646243"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646243"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679646242"><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679646242"><span class="hs-identifier hs-var">pSMSChannelResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">UpdateSmsChannelResponse' :: Int -&gt; SMSChannelResponse -&gt; UpdateSmsChannelResponse
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse%27"><span class="hs-identifier hs-type">UpdateSmsChannelResponse'</span></a></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSmsChannelResponse' :: Int
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#%24sel%3AhttpStatus%3AUpdateSmsChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646243"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">$sel:sMSChannelResponse:UpdateSmsChannelResponse' :: SMSChannelResponse
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#%24sel%3AsMSChannelResponse%3AUpdateSmsChannelResponse%27"><span class="hs-identifier hs-var">sMSChannelResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679646242"><span class="hs-identifier hs-var">pSMSChannelResponse_</span></a></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#updateSmsChannelResponse_httpStatus"><span class="hs-identifier hs-type">updateSmsChannelResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse"><span class="hs-identifier hs-type">UpdateSmsChannelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span id="updateSmsChannelResponse_httpStatus"><span class="annot"><span class="annottext">updateSmsChannelResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateSmsChannelResponse -&gt; f UpdateSmsChannelResponse
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#updateSmsChannelResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateSmsChannelResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSmsChannelResponse -&gt; Int)
+-&gt; (UpdateSmsChannelResponse -&gt; Int -&gt; UpdateSmsChannelResponse)
+-&gt; Lens UpdateSmsChannelResponse UpdateSmsChannelResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse%27"><span class="hs-identifier hs-type">UpdateSmsChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646241"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateSmsChannelResponse' :: UpdateSmsChannelResponse -&gt; Int
+</span><a href="#local-6989586621679646241"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646241"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646240"><span class="annot"><span class="annottext">s :: UpdateSmsChannelResponse
+</span><a href="#local-6989586621679646240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse%27"><span class="hs-identifier hs-type">UpdateSmsChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646239"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSmsChannelResponse
+</span><a href="#local-6989586621679646240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSmsChannelResponse' :: Int
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#%24sel%3AhttpStatus%3AUpdateSmsChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse"><span class="hs-identifier hs-type">UpdateSmsChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#updateSmsChannelResponse_sMSChannelResponse"><span class="hs-identifier hs-type">updateSmsChannelResponse_sMSChannelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse"><span class="hs-identifier hs-type">UpdateSmsChannelResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span>
+</span><span id="line-183"></span><span id="updateSmsChannelResponse_sMSChannelResponse"><span class="annot"><span class="annottext">updateSmsChannelResponse_sMSChannelResponse :: (SMSChannelResponse -&gt; f SMSChannelResponse)
+-&gt; UpdateSmsChannelResponse -&gt; f UpdateSmsChannelResponse
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#updateSmsChannelResponse_sMSChannelResponse"><span class="hs-identifier hs-var hs-var">updateSmsChannelResponse_sMSChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSmsChannelResponse -&gt; SMSChannelResponse)
+-&gt; (UpdateSmsChannelResponse
+    -&gt; SMSChannelResponse -&gt; UpdateSmsChannelResponse)
+-&gt; Lens
+     UpdateSmsChannelResponse
+     UpdateSmsChannelResponse
+     SMSChannelResponse
+     SMSChannelResponse
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse%27"><span class="hs-identifier hs-type">UpdateSmsChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646238"><span class="annot"><span class="annottext">SMSChannelResponse
+sMSChannelResponse :: SMSChannelResponse
+$sel:sMSChannelResponse:UpdateSmsChannelResponse' :: UpdateSmsChannelResponse -&gt; SMSChannelResponse
+</span><a href="#local-6989586621679646238"><span class="hs-identifier hs-var hs-var">sMSChannelResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679646238"><span class="hs-identifier hs-var">sMSChannelResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646237"><span class="annot"><span class="annottext">s :: UpdateSmsChannelResponse
+</span><a href="#local-6989586621679646237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse%27"><span class="hs-identifier hs-type">UpdateSmsChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646236"><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679646236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSmsChannelResponse
+</span><a href="#local-6989586621679646237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sMSChannelResponse:UpdateSmsChannelResponse' :: SMSChannelResponse
+</span><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#%24sel%3AsMSChannelResponse%3AUpdateSmsChannelResponse%27"><span class="hs-identifier hs-var">sMSChannelResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679646236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse"><span class="hs-identifier hs-type">UpdateSmsChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646234"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSmsChannel.html#UpdateSmsChannelResponse"><span class="hs-identifier hs-type">UpdateSmsChannelResponse</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

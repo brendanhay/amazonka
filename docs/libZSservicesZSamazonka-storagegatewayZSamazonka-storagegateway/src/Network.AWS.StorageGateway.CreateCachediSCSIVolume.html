@@ -1,0 +1,1030 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.StorageGateway.CreateCachediSCSIVolume</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a cached volume on a specified cached volume gateway. This</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- operation is only supported in the cached volume gateway type.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Cache storage must be allocated to the gateway before you can create a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- cached volume. Use the AddCache operation to add cache storage to a</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- In the request, you must specify the gateway, size of the volume in</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- bytes, the iSCSI target name, an IP address on which to expose the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- target, and a unique client token. In response, the gateway creates the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- volume and returns information about it. This information includes the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- volume Amazon Resource Name (ARN), its size, and the iSCSI target ARN</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- that initiators can use to connect to the volume target.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Optionally, you can provide the ARN for an existing volume as the</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- @SourceVolumeARN@ for this cached volume, which creates an exact copy of</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- the existing volume&#8217;s latest recovery point. The @VolumeSizeInBytes@</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- value must be equal to or larger than the size of the copied volume, in</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- bytes.</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.StorageGateway.CreateCachediSCSIVolume</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier">CreateCachediSCSIVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#newCreateCachediSCSIVolume"><span class="hs-identifier">newCreateCachediSCSIVolume</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_kmsKey"><span class="hs-identifier">createCachediSCSIVolume_kmsKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_sourceVolumeARN"><span class="hs-identifier">createCachediSCSIVolume_sourceVolumeARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_kmsEncrypted"><span class="hs-identifier">createCachediSCSIVolume_kmsEncrypted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_tags"><span class="hs-identifier">createCachediSCSIVolume_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_snapshotId"><span class="hs-identifier">createCachediSCSIVolume_snapshotId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_gatewayARN"><span class="hs-identifier">createCachediSCSIVolume_gatewayARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_volumeSizeInBytes"><span class="hs-identifier">createCachediSCSIVolume_volumeSizeInBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_targetName"><span class="hs-identifier">createCachediSCSIVolume_targetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_networkInterfaceId"><span class="hs-identifier">createCachediSCSIVolume_networkInterfaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_clientToken"><span class="hs-identifier">createCachediSCSIVolume_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse"><span class="hs-identifier">CreateCachediSCSIVolumeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#newCreateCachediSCSIVolumeResponse"><span class="hs-identifier">newCreateCachediSCSIVolumeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolumeResponse_targetARN"><span class="hs-identifier">createCachediSCSIVolumeResponse_targetARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolumeResponse_volumeARN"><span class="hs-identifier">createCachediSCSIVolumeResponse_volumeARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolumeResponse_httpStatus"><span class="hs-identifier">createCachediSCSIVolumeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.html"><span class="hs-identifier">Network.AWS.StorageGateway.Types</span></a></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | /See:/ 'newCreateCachediSCSIVolume' smart constructor.</span><span>
+</span><span id="line-78"></span><span id="local-6989586621679388417"><span id="local-6989586621679388418"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCachediSCSIVolume"><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-var">CreateCachediSCSIVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCachediSCSIVolume%27"><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">CreateCachediSCSIVolume'</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- used for Amazon S3 server-side encryption. Storage Gateway does not</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- support asymmetric CMKs. This value can only be set when @KMSEncrypted@</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- is @true@. Optional.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AkmsKey%3ACreateCachediSCSIVolume%27"><span class="annot"><span class="annottext">CreateCachediSCSIVolume -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AkmsKey%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var hs-var">kmsKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The ARN for an existing volume. Specifying this ARN makes the new volume</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- into an exact copy of the specified existing volume\'s latest recovery</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- point. The @VolumeSizeInBytes@ value for this new volume must be equal</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- to or larger than the size of the existing volume, in bytes.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AsourceVolumeARN%3ACreateCachediSCSIVolume%27"><span class="annot"><span class="annottext">CreateCachediSCSIVolume -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AsourceVolumeARN%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var hs-var">sourceVolumeARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- key, or @false@ to use a key managed by Amazon S3. Optional.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- Valid Values: @true@ | @false@</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AkmsEncrypted%3ACreateCachediSCSIVolume%27"><span class="annot"><span class="annottext">CreateCachediSCSIVolume -&gt; Maybe Bool
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AkmsEncrypted%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var hs-var">kmsEncrypted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | A list of up to 50 tags that you can assign to a cached volume. Each tag</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- is a key-value pair.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- Valid characters for key and value are letters, spaces, and numbers that</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- you can represent in UTF-8 format, and the following special characters:</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- + - = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- and the maximum length for a tag\'s value is 256 characters.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3Atags%3ACreateCachediSCSIVolume%27"><span class="annot"><span class="annottext">CreateCachediSCSIVolume -&gt; Maybe [Tag]
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3Atags%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The snapshot ID (e.g. \&quot;snap-1122aabb\&quot;) of the snapshot to restore as</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- the new cached volume. Specify this field if you want to create the</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- iSCSI storage volume from a snapshot; otherwise, do not include this</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- field. To list snapshots for your account use</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots&gt;</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud API Reference/.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AsnapshotId%3ACreateCachediSCSIVolume%27"><span class="annot"><span class="annottext">CreateCachediSCSIVolume -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AsnapshotId%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AgatewayARN%3ACreateCachediSCSIVolume%27"><span class="annot"><span class="annottext">CreateCachediSCSIVolume -&gt; Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AgatewayARN%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The size of the volume in bytes.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AvolumeSizeInBytes%3ACreateCachediSCSIVolume%27"><span class="annot"><span class="annottext">CreateCachediSCSIVolume -&gt; Integer
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AvolumeSizeInBytes%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var hs-var">volumeSizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The name of the iSCSI target used by an initiator to connect to a volume</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- and used as a suffix for the target ARN. For example, specifying</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- @TargetName@ as /myvolume/ results in the target ARN of</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- @arn:aws:storagegateway:us-east-2:111122223333:gateway\/sgw-12A3456B\/target\/iqn.1997-05.com.amazon:myvolume@.</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- The target name must be unique across all volumes on a gateway.</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- If you don\'t specify a value, Storage Gateway uses the value that was</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- previously used for this volume as the new target name.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AtargetName%3ACreateCachediSCSIVolume%27"><span class="annot"><span class="annottext">CreateCachediSCSIVolume -&gt; Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AtargetName%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var hs-var">targetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The network interface of the gateway on which to expose the iSCSI</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- target. Only IPv4 addresses are accepted. Use DescribeGatewayInformation</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- to get a list of the network interfaces available on a gateway.</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- Valid Values: A valid IP address.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AnetworkInterfaceId%3ACreateCachediSCSIVolume%27"><span class="annot"><span class="annottext">CreateCachediSCSIVolume -&gt; Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AnetworkInterfaceId%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | A unique identifier that you use to retry a request. If you retry a</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- request, use the same @ClientToken@ you specified in the initial</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateCachediSCSIVolume%27"><span class="annot"><span class="annottext">CreateCachediSCSIVolume -&gt; Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AclientToken%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388402"><span id="local-6989586621679388404"><span class="annot"><span class="annottext">CreateCachediSCSIVolume -&gt; CreateCachediSCSIVolume -&gt; Bool
+(CreateCachediSCSIVolume -&gt; CreateCachediSCSIVolume -&gt; Bool)
+-&gt; (CreateCachediSCSIVolume -&gt; CreateCachediSCSIVolume -&gt; Bool)
+-&gt; Eq CreateCachediSCSIVolume
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCachediSCSIVolume -&gt; CreateCachediSCSIVolume -&gt; Bool
+$c/= :: CreateCachediSCSIVolume -&gt; CreateCachediSCSIVolume -&gt; Bool
+== :: CreateCachediSCSIVolume -&gt; CreateCachediSCSIVolume -&gt; Bool
+$c== :: CreateCachediSCSIVolume -&gt; CreateCachediSCSIVolume -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388393"><span id="local-6989586621679388395"><span id="local-6989586621679388397"><span id="local-6989586621679388399"><span class="annot"><span class="annottext">ReadPrec [CreateCachediSCSIVolume]
+ReadPrec CreateCachediSCSIVolume
+Int -&gt; ReadS CreateCachediSCSIVolume
+ReadS [CreateCachediSCSIVolume]
+(Int -&gt; ReadS CreateCachediSCSIVolume)
+-&gt; ReadS [CreateCachediSCSIVolume]
+-&gt; ReadPrec CreateCachediSCSIVolume
+-&gt; ReadPrec [CreateCachediSCSIVolume]
+-&gt; Read CreateCachediSCSIVolume
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCachediSCSIVolume]
+$creadListPrec :: ReadPrec [CreateCachediSCSIVolume]
+readPrec :: ReadPrec CreateCachediSCSIVolume
+$creadPrec :: ReadPrec CreateCachediSCSIVolume
+readList :: ReadS [CreateCachediSCSIVolume]
+$creadList :: ReadS [CreateCachediSCSIVolume]
+readsPrec :: Int -&gt; ReadS CreateCachediSCSIVolume
+$creadsPrec :: Int -&gt; ReadS CreateCachediSCSIVolume
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388386"><span id="local-6989586621679388388"><span id="local-6989586621679388390"><span class="annot"><span class="annottext">Int -&gt; CreateCachediSCSIVolume -&gt; ShowS
+[CreateCachediSCSIVolume] -&gt; ShowS
+CreateCachediSCSIVolume -&gt; String
+(Int -&gt; CreateCachediSCSIVolume -&gt; ShowS)
+-&gt; (CreateCachediSCSIVolume -&gt; String)
+-&gt; ([CreateCachediSCSIVolume] -&gt; ShowS)
+-&gt; Show CreateCachediSCSIVolume
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCachediSCSIVolume] -&gt; ShowS
+$cshowList :: [CreateCachediSCSIVolume] -&gt; ShowS
+show :: CreateCachediSCSIVolume -&gt; String
+$cshow :: CreateCachediSCSIVolume -&gt; String
+showsPrec :: Int -&gt; CreateCachediSCSIVolume -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCachediSCSIVolume -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateCachediSCSIVolume -&gt; Rep CreateCachediSCSIVolume x)
+-&gt; (forall x.
+    Rep CreateCachediSCSIVolume x -&gt; CreateCachediSCSIVolume)
+-&gt; Generic CreateCachediSCSIVolume
+forall x. Rep CreateCachediSCSIVolume x -&gt; CreateCachediSCSIVolume
+forall x. CreateCachediSCSIVolume -&gt; Rep CreateCachediSCSIVolume x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateCachediSCSIVolume x -&gt; CreateCachediSCSIVolume
+$cfrom :: forall x. CreateCachediSCSIVolume -&gt; Rep CreateCachediSCSIVolume x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Create a value of 'CreateCachediSCSIVolume' with all optional fields omitted.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'kmsKey', 'createCachediSCSIVolume_kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- used for Amazon S3 server-side encryption. Storage Gateway does not</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- support asymmetric CMKs. This value can only be set when @KMSEncrypted@</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- is @true@. Optional.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'sourceVolumeARN', 'createCachediSCSIVolume_sourceVolumeARN' - The ARN for an existing volume. Specifying this ARN makes the new volume</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- into an exact copy of the specified existing volume\'s latest recovery</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- point. The @VolumeSizeInBytes@ value for this new volume must be equal</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- to or larger than the size of the existing volume, in bytes.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'kmsEncrypted', 'createCachediSCSIVolume_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- key, or @false@ to use a key managed by Amazon S3. Optional.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Valid Values: @true@ | @false@</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'tags', 'createCachediSCSIVolume_tags' - A list of up to 50 tags that you can assign to a cached volume. Each tag</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- is a key-value pair.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Valid characters for key and value are letters, spaces, and numbers that</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- you can represent in UTF-8 format, and the following special characters:</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- + - = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters,</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- and the maximum length for a tag\'s value is 256 characters.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'snapshotId', 'createCachediSCSIVolume_snapshotId' - The snapshot ID (e.g. \&quot;snap-1122aabb\&quot;) of the snapshot to restore as</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- the new cached volume. Specify this field if you want to create the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- iSCSI storage volume from a snapshot; otherwise, do not include this</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- field. To list snapshots for your account use</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots&gt;</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud API Reference/.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'gatewayARN', 'createCachediSCSIVolume_gatewayARN' - Undocumented member.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'volumeSizeInBytes', 'createCachediSCSIVolume_volumeSizeInBytes' - The size of the volume in bytes.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'targetName', 'createCachediSCSIVolume_targetName' - The name of the iSCSI target used by an initiator to connect to a volume</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- and used as a suffix for the target ARN. For example, specifying</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- @TargetName@ as /myvolume/ results in the target ARN of</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- @arn:aws:storagegateway:us-east-2:111122223333:gateway\/sgw-12A3456B\/target\/iqn.1997-05.com.amazon:myvolume@.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- The target name must be unique across all volumes on a gateway.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- If you don\'t specify a value, Storage Gateway uses the value that was</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- previously used for this volume as the new target name.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'networkInterfaceId', 'createCachediSCSIVolume_networkInterfaceId' - The network interface of the gateway on which to expose the iSCSI</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- target. Only IPv4 addresses are accepted. Use DescribeGatewayInformation</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- to get a list of the network interfaces available on a gateway.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Valid Values: A valid IP address.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'clientToken', 'createCachediSCSIVolume_clientToken' - A unique identifier that you use to retry a request. If you retry a</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- request, use the same @ClientToken@ you specified in the initial</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#newCreateCachediSCSIVolume"><span class="hs-identifier hs-type">newCreateCachediSCSIVolume</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'gatewayARN'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-comment">-- | 'volumeSizeInBytes'</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-comment">-- | 'targetName'</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-comment">-- | 'networkInterfaceId'</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-comment">-- | 'clientToken'</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span>
+</span><span id="line-206"></span><span id="newCreateCachediSCSIVolume"><span class="annot"><span class="annottext">newCreateCachediSCSIVolume :: Text -&gt; Integer -&gt; Text -&gt; Text -&gt; Text -&gt; CreateCachediSCSIVolume
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#newCreateCachediSCSIVolume"><span class="hs-identifier hs-var hs-var">newCreateCachediSCSIVolume</span></a></span></span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679388381"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388381"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span></span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679388380"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679388380"><span class="hs-identifier hs-var">pVolumeSizeInBytes_</span></a></span></span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679388379"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388379"><span class="hs-identifier hs-var">pTargetName_</span></a></span></span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679388378"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388378"><span class="hs-identifier hs-var">pNetworkInterfaceId_</span></a></span></span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679388377"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388377"><span class="hs-identifier hs-var">pClientToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">CreateCachediSCSIVolume' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe [Tag]
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Integer
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CreateCachediSCSIVolume
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsKey:CreateCachediSCSIVolume' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AkmsKey%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">kmsKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceVolumeARN:CreateCachediSCSIVolume' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AsourceVolumeARN%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">sourceVolumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">$sel:kmsEncrypted:CreateCachediSCSIVolume' :: Maybe Bool
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AkmsEncrypted%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">kmsEncrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateCachediSCSIVolume' :: Maybe [Tag]
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3Atags%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">$sel:snapshotId:CreateCachediSCSIVolume' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AsnapshotId%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayARN:CreateCachediSCSIVolume' :: Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AgatewayARN%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388381"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:volumeSizeInBytes:CreateCachediSCSIVolume' :: Integer
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AvolumeSizeInBytes%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">volumeSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679388380"><span class="hs-identifier hs-var">pVolumeSizeInBytes_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetName:CreateCachediSCSIVolume' :: Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AtargetName%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">targetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388379"><span class="hs-identifier hs-var">pTargetName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:networkInterfaceId:CreateCachediSCSIVolume' :: Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AnetworkInterfaceId%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388378"><span class="hs-identifier hs-var">pNetworkInterfaceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:CreateCachediSCSIVolume' :: Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AclientToken%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388377"><span class="hs-identifier hs-var">pClientToken_</span></a></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- used for Amazon S3 server-side encryption. Storage Gateway does not</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- support asymmetric CMKs. This value can only be set when @KMSEncrypted@</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- is @true@. Optional.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_kmsKey"><span class="hs-identifier hs-type">createCachediSCSIVolume_kmsKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="createCachediSCSIVolume_kmsKey"><span class="annot"><span class="annottext">createCachediSCSIVolume_kmsKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateCachediSCSIVolume -&gt; f CreateCachediSCSIVolume
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_kmsKey"><span class="hs-identifier hs-var hs-var">createCachediSCSIVolume_kmsKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCachediSCSIVolume -&gt; Maybe Text)
+-&gt; (CreateCachediSCSIVolume
+    -&gt; Maybe Text -&gt; CreateCachediSCSIVolume)
+-&gt; Lens
+     CreateCachediSCSIVolume
+     CreateCachediSCSIVolume
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388374"><span class="annot"><span class="annottext">Maybe Text
+kmsKey :: Maybe Text
+$sel:kmsKey:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Maybe Text
+</span><a href="#local-6989586621679388374"><span class="hs-identifier hs-var hs-var">kmsKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388374"><span class="hs-identifier hs-var">kmsKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388373"><span class="annot"><span class="annottext">s :: CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388372"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKey:CreateCachediSCSIVolume' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AkmsKey%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">kmsKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The ARN for an existing volume. Specifying this ARN makes the new volume</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- into an exact copy of the specified existing volume\'s latest recovery</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- point. The @VolumeSizeInBytes@ value for this new volume must be equal</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- to or larger than the size of the existing volume, in bytes.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_sourceVolumeARN"><span class="hs-identifier hs-type">createCachediSCSIVolume_sourceVolumeARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="createCachediSCSIVolume_sourceVolumeARN"><span class="annot"><span class="annottext">createCachediSCSIVolume_sourceVolumeARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateCachediSCSIVolume -&gt; f CreateCachediSCSIVolume
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_sourceVolumeARN"><span class="hs-identifier hs-var hs-var">createCachediSCSIVolume_sourceVolumeARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCachediSCSIVolume -&gt; Maybe Text)
+-&gt; (CreateCachediSCSIVolume
+    -&gt; Maybe Text -&gt; CreateCachediSCSIVolume)
+-&gt; Lens
+     CreateCachediSCSIVolume
+     CreateCachediSCSIVolume
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388371"><span class="annot"><span class="annottext">Maybe Text
+sourceVolumeARN :: Maybe Text
+$sel:sourceVolumeARN:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Maybe Text
+</span><a href="#local-6989586621679388371"><span class="hs-identifier hs-var hs-var">sourceVolumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388371"><span class="hs-identifier hs-var">sourceVolumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388370"><span class="annot"><span class="annottext">s :: CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388369"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceVolumeARN:CreateCachediSCSIVolume' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AsourceVolumeARN%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">sourceVolumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- key, or @false@ to use a key managed by Amazon S3. Optional.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- Valid Values: @true@ | @false@</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_kmsEncrypted"><span class="hs-identifier hs-type">createCachediSCSIVolume_kmsEncrypted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="createCachediSCSIVolume_kmsEncrypted"><span class="annot"><span class="annottext">createCachediSCSIVolume_kmsEncrypted :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateCachediSCSIVolume -&gt; f CreateCachediSCSIVolume
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_kmsEncrypted"><span class="hs-identifier hs-var hs-var">createCachediSCSIVolume_kmsEncrypted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCachediSCSIVolume -&gt; Maybe Bool)
+-&gt; (CreateCachediSCSIVolume
+    -&gt; Maybe Bool -&gt; CreateCachediSCSIVolume)
+-&gt; Lens
+     CreateCachediSCSIVolume
+     CreateCachediSCSIVolume
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388368"><span class="annot"><span class="annottext">Maybe Bool
+kmsEncrypted :: Maybe Bool
+$sel:kmsEncrypted:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Maybe Bool
+</span><a href="#local-6989586621679388368"><span class="hs-identifier hs-var hs-var">kmsEncrypted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679388368"><span class="hs-identifier hs-var">kmsEncrypted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388367"><span class="annot"><span class="annottext">s :: CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388366"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679388366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsEncrypted:CreateCachediSCSIVolume' :: Maybe Bool
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AkmsEncrypted%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">kmsEncrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679388366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | A list of up to 50 tags that you can assign to a cached volume. Each tag</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- is a key-value pair.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- Valid characters for key and value are letters, spaces, and numbers that</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- you can represent in UTF-8 format, and the following special characters:</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- + - = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters,</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- and the maximum length for a tag\'s value is 256 characters.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_tags"><span class="hs-identifier hs-type">createCachediSCSIVolume_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="createCachediSCSIVolume_tags"><span class="annot"><span class="annottext">createCachediSCSIVolume_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateCachediSCSIVolume -&gt; f CreateCachediSCSIVolume
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_tags"><span class="hs-identifier hs-var hs-var">createCachediSCSIVolume_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCachediSCSIVolume -&gt; Maybe [Tag])
+-&gt; (CreateCachediSCSIVolume
+    -&gt; Maybe [Tag] -&gt; CreateCachediSCSIVolume)
+-&gt; Lens
+     CreateCachediSCSIVolume
+     CreateCachediSCSIVolume
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388365"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679388365"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679388365"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388364"><span class="annot"><span class="annottext">s :: CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388363"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679388363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateCachediSCSIVolume' :: Maybe [Tag]
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3Atags%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679388363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateCachediSCSIVolume -&gt; f CreateCachediSCSIVolume)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateCachediSCSIVolume
+-&gt; f CreateCachediSCSIVolume
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The snapshot ID (e.g. \&quot;snap-1122aabb\&quot;) of the snapshot to restore as</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- the new cached volume. Specify this field if you want to create the</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- iSCSI storage volume from a snapshot; otherwise, do not include this</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- field. To list snapshots for your account use</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots&gt;</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud API Reference/.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_snapshotId"><span class="hs-identifier hs-type">createCachediSCSIVolume_snapshotId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="createCachediSCSIVolume_snapshotId"><span class="annot"><span class="annottext">createCachediSCSIVolume_snapshotId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateCachediSCSIVolume -&gt; f CreateCachediSCSIVolume
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_snapshotId"><span class="hs-identifier hs-var hs-var">createCachediSCSIVolume_snapshotId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCachediSCSIVolume -&gt; Maybe Text)
+-&gt; (CreateCachediSCSIVolume
+    -&gt; Maybe Text -&gt; CreateCachediSCSIVolume)
+-&gt; Lens
+     CreateCachediSCSIVolume
+     CreateCachediSCSIVolume
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388359"><span class="annot"><span class="annottext">Maybe Text
+snapshotId :: Maybe Text
+$sel:snapshotId:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Maybe Text
+</span><a href="#local-6989586621679388359"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388359"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388358"><span class="annot"><span class="annottext">s :: CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388357"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:CreateCachediSCSIVolume' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AsnapshotId%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_gatewayARN"><span class="hs-identifier hs-type">createCachediSCSIVolume_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-267"></span><span id="createCachediSCSIVolume_gatewayARN"><span class="annot"><span class="annottext">createCachediSCSIVolume_gatewayARN :: (Text -&gt; f Text)
+-&gt; CreateCachediSCSIVolume -&gt; f CreateCachediSCSIVolume
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_gatewayARN"><span class="hs-identifier hs-var hs-var">createCachediSCSIVolume_gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCachediSCSIVolume -&gt; Text)
+-&gt; (CreateCachediSCSIVolume -&gt; Text -&gt; CreateCachediSCSIVolume)
+-&gt; Lens CreateCachediSCSIVolume CreateCachediSCSIVolume Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388356"><span class="annot"><span class="annottext">Text
+gatewayARN :: Text
+$sel:gatewayARN:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Text
+</span><a href="#local-6989586621679388356"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388356"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388355"><span class="annot"><span class="annottext">s :: CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388354"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:CreateCachediSCSIVolume' :: Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AgatewayARN%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The size of the volume in bytes.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_volumeSizeInBytes"><span class="hs-identifier hs-type">createCachediSCSIVolume_volumeSizeInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-271"></span><span id="createCachediSCSIVolume_volumeSizeInBytes"><span class="annot"><span class="annottext">createCachediSCSIVolume_volumeSizeInBytes :: (Integer -&gt; f Integer)
+-&gt; CreateCachediSCSIVolume -&gt; f CreateCachediSCSIVolume
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_volumeSizeInBytes"><span class="hs-identifier hs-var hs-var">createCachediSCSIVolume_volumeSizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCachediSCSIVolume -&gt; Integer)
+-&gt; (CreateCachediSCSIVolume -&gt; Integer -&gt; CreateCachediSCSIVolume)
+-&gt; Lens
+     CreateCachediSCSIVolume CreateCachediSCSIVolume Integer Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388353"><span class="annot"><span class="annottext">Integer
+volumeSizeInBytes :: Integer
+$sel:volumeSizeInBytes:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Integer
+</span><a href="#local-6989586621679388353"><span class="hs-identifier hs-var hs-var">volumeSizeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679388353"><span class="hs-identifier hs-var">volumeSizeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388352"><span class="annot"><span class="annottext">s :: CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388351"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679388351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeSizeInBytes:CreateCachediSCSIVolume' :: Integer
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AvolumeSizeInBytes%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">volumeSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679388351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | The name of the iSCSI target used by an initiator to connect to a volume</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- and used as a suffix for the target ARN. For example, specifying</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- @TargetName@ as /myvolume/ results in the target ARN of</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- @arn:aws:storagegateway:us-east-2:111122223333:gateway\/sgw-12A3456B\/target\/iqn.1997-05.com.amazon:myvolume@.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- The target name must be unique across all volumes on a gateway.</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- If you don\'t specify a value, Storage Gateway uses the value that was</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- previously used for this volume as the new target name.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_targetName"><span class="hs-identifier hs-type">createCachediSCSIVolume_targetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-282"></span><span id="createCachediSCSIVolume_targetName"><span class="annot"><span class="annottext">createCachediSCSIVolume_targetName :: (Text -&gt; f Text)
+-&gt; CreateCachediSCSIVolume -&gt; f CreateCachediSCSIVolume
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_targetName"><span class="hs-identifier hs-var hs-var">createCachediSCSIVolume_targetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCachediSCSIVolume -&gt; Text)
+-&gt; (CreateCachediSCSIVolume -&gt; Text -&gt; CreateCachediSCSIVolume)
+-&gt; Lens CreateCachediSCSIVolume CreateCachediSCSIVolume Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388350"><span class="annot"><span class="annottext">Text
+targetName :: Text
+$sel:targetName:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Text
+</span><a href="#local-6989586621679388350"><span class="hs-identifier hs-var hs-var">targetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388350"><span class="hs-identifier hs-var">targetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388349"><span class="annot"><span class="annottext">s :: CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388348"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetName:CreateCachediSCSIVolume' :: Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AtargetName%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">targetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | The network interface of the gateway on which to expose the iSCSI</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- target. Only IPv4 addresses are accepted. Use DescribeGatewayInformation</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- to get a list of the network interfaces available on a gateway.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- Valid Values: A valid IP address.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_networkInterfaceId"><span class="hs-identifier hs-type">createCachediSCSIVolume_networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-290"></span><span id="createCachediSCSIVolume_networkInterfaceId"><span class="annot"><span class="annottext">createCachediSCSIVolume_networkInterfaceId :: (Text -&gt; f Text)
+-&gt; CreateCachediSCSIVolume -&gt; f CreateCachediSCSIVolume
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_networkInterfaceId"><span class="hs-identifier hs-var hs-var">createCachediSCSIVolume_networkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCachediSCSIVolume -&gt; Text)
+-&gt; (CreateCachediSCSIVolume -&gt; Text -&gt; CreateCachediSCSIVolume)
+-&gt; Lens CreateCachediSCSIVolume CreateCachediSCSIVolume Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388347"><span class="annot"><span class="annottext">Text
+networkInterfaceId :: Text
+$sel:networkInterfaceId:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Text
+</span><a href="#local-6989586621679388347"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388347"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388346"><span class="annot"><span class="annottext">s :: CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388345"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceId:CreateCachediSCSIVolume' :: Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AnetworkInterfaceId%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | A unique identifier that you use to retry a request. If you retry a</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- request, use the same @ClientToken@ you specified in the initial</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_clientToken"><span class="hs-identifier hs-type">createCachediSCSIVolume_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-296"></span><span id="createCachediSCSIVolume_clientToken"><span class="annot"><span class="annottext">createCachediSCSIVolume_clientToken :: (Text -&gt; f Text)
+-&gt; CreateCachediSCSIVolume -&gt; f CreateCachediSCSIVolume
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolume_clientToken"><span class="hs-identifier hs-var hs-var">createCachediSCSIVolume_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCachediSCSIVolume -&gt; Text)
+-&gt; (CreateCachediSCSIVolume -&gt; Text -&gt; CreateCachediSCSIVolume)
+-&gt; Lens CreateCachediSCSIVolume CreateCachediSCSIVolume Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388344"><span class="annot"><span class="annottext">Text
+clientToken :: Text
+$sel:clientToken:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Text
+</span><a href="#local-6989586621679388344"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388344"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388343"><span class="annot"><span class="annottext">s :: CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388342"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCachediSCSIVolume
+</span><a href="#local-6989586621679388343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateCachediSCSIVolume' :: Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AclientToken%3ACreateCachediSCSIVolume%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-299"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-300"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-301"></span><span>      </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse</span></a></span><span>
+</span><span id="line-302"></span><span>  </span><span id="local-6989586621679388338"><span class="annot"><span class="annottext">request :: CreateCachediSCSIVolume -&gt; Request CreateCachediSCSIVolume
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateCachediSCSIVolume -&gt; Request CreateCachediSCSIVolume
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-303"></span><span>  </span><span id="local-6989586621679388334"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateCachediSCSIVolume
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateCachediSCSIVolume)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateCachediSCSIVolume))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateCachediSCSIVolume
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateCachediSCSIVolume)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-305"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388331"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388331"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388330"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679388330"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388329"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388329"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-306"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateCachediSCSIVolumeResponse
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-var">CreateCachediSCSIVolumeResponse'</span></a></span><span>
+</span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Int -&gt; CreateCachediSCSIVolumeResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; CreateCachediSCSIVolumeResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; CreateCachediSCSIVolumeResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateCachediSCSIVolumeResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateCachediSCSIVolumeResponse)
+-&gt; Either String Int
+-&gt; Either String CreateCachediSCSIVolumeResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388331"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388321"><span id="local-6989586621679388323"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span></span></span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span></span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-317"></span><span>  </span><span id="local-6989586621679388314"><span class="annot"><span class="annottext">toHeaders :: CreateCachediSCSIVolume -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateCachediSCSIVolume -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-319"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-320"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-321"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StorageGateway_20130630.CreateCachediSCSIVolume&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-322"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-323"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-325"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-326"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-327"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-329"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388304"><span id="local-6989586621679388306"><span id="local-6989586621679388308"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-332"></span><span>  </span><span id="local-6989586621679388302"><span class="annot"><span class="annottext">toJSON :: CreateCachediSCSIVolume -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388291"><span id="local-6989586621679388292"><span id="local-6989586621679388293"><span id="local-6989586621679388294"><span id="local-6989586621679388295"><span id="local-6989586621679388296"><span id="local-6989586621679388297"><span id="local-6989586621679388298"><span id="local-6989586621679388299"><span id="local-6989586621679388300"><span class="annot"><span class="annottext">Integer
+Maybe Bool
+Maybe [Tag]
+Maybe Text
+Text
+clientToken :: Text
+networkInterfaceId :: Text
+targetName :: Text
+volumeSizeInBytes :: Integer
+gatewayARN :: Text
+snapshotId :: Maybe Text
+tags :: Maybe [Tag]
+kmsEncrypted :: Maybe Bool
+sourceVolumeARN :: Maybe Text
+kmsKey :: Maybe Text
+$sel:clientToken:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Text
+$sel:networkInterfaceId:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Text
+$sel:targetName:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Text
+$sel:volumeSizeInBytes:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Integer
+$sel:gatewayARN:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Text
+$sel:snapshotId:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Maybe Text
+$sel:tags:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Maybe [Tag]
+$sel:kmsEncrypted:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Maybe Bool
+$sel:sourceVolumeARN:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Maybe Text
+$sel:kmsKey:CreateCachediSCSIVolume' :: CreateCachediSCSIVolume -&gt; Maybe Text
+</span><a href="#local-6989586621679388291"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-333"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-334"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-335"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KMSKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388300"><span class="hs-identifier hs-var">kmsKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceVolumeARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388299"><span class="hs-identifier hs-var">sourceVolumeARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KMSEncrypted&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679388298"><span class="hs-identifier hs-var">kmsEncrypted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679388297"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SnapshotId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388296"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388295"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-343"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeSizeInBytes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679388294"><span class="hs-identifier hs-var">volumeSizeInBytes</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388293"><span class="hs-identifier hs-var">targetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-346"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkInterfaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388292"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-347"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388291"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-349"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span>
+</span><span id="line-351"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-352"></span><span>  </span><span id="local-6989586621679388285"><span class="annot"><span class="annottext">toPath :: CreateCachediSCSIVolume -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateCachediSCSIVolume -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolume"><span class="hs-identifier hs-type">CreateCachediSCSIVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-355"></span><span>  </span><span id="local-6989586621679388281"><span class="annot"><span class="annottext">toQuery :: CreateCachediSCSIVolume -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateCachediSCSIVolume -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-356"></span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- | /See:/ 'newCreateCachediSCSIVolumeResponse' smart constructor.</span><span>
+</span><span id="line-358"></span><span id="local-6989586621679388278"><span id="local-6989586621679388279"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCachediSCSIVolumeResponse"><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse"><span class="hs-identifier hs-var">CreateCachediSCSIVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCachediSCSIVolumeResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-var">CreateCachediSCSIVolumeResponse'</span></a></span></span><span>
+</span><span id="line-359"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the volume target, which includes the</span><span>
+</span><span id="line-360"></span><span>    </span><span class="hs-comment">-- iSCSI name that initiators can use to connect to the target.</span><span>
+</span><span id="line-361"></span><span>    </span><span id="%24sel%3AtargetARN%3ACreateCachediSCSIVolumeResponse%27"><span class="annot"><span class="annottext">CreateCachediSCSIVolumeResponse -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AtargetARN%3ACreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-var hs-var">targetARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-362"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the configured volume.</span><span>
+</span><span id="line-363"></span><span>    </span><span id="%24sel%3AvolumeARN%3ACreateCachediSCSIVolumeResponse%27"><span class="annot"><span class="annottext">CreateCachediSCSIVolumeResponse -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AvolumeARN%3ACreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-365"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateCachediSCSIVolumeResponse%27"><span class="annot"><span class="annottext">CreateCachediSCSIVolumeResponse -&gt; Int
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AhttpStatus%3ACreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-366"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-367"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388271"><span id="local-6989586621679388273"><span class="annot"><span class="annottext">CreateCachediSCSIVolumeResponse
+-&gt; CreateCachediSCSIVolumeResponse -&gt; Bool
+(CreateCachediSCSIVolumeResponse
+ -&gt; CreateCachediSCSIVolumeResponse -&gt; Bool)
+-&gt; (CreateCachediSCSIVolumeResponse
+    -&gt; CreateCachediSCSIVolumeResponse -&gt; Bool)
+-&gt; Eq CreateCachediSCSIVolumeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCachediSCSIVolumeResponse
+-&gt; CreateCachediSCSIVolumeResponse -&gt; Bool
+$c/= :: CreateCachediSCSIVolumeResponse
+-&gt; CreateCachediSCSIVolumeResponse -&gt; Bool
+== :: CreateCachediSCSIVolumeResponse
+-&gt; CreateCachediSCSIVolumeResponse -&gt; Bool
+$c== :: CreateCachediSCSIVolumeResponse
+-&gt; CreateCachediSCSIVolumeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388263"><span id="local-6989586621679388265"><span id="local-6989586621679388267"><span id="local-6989586621679388269"><span class="annot"><span class="annottext">ReadPrec [CreateCachediSCSIVolumeResponse]
+ReadPrec CreateCachediSCSIVolumeResponse
+Int -&gt; ReadS CreateCachediSCSIVolumeResponse
+ReadS [CreateCachediSCSIVolumeResponse]
+(Int -&gt; ReadS CreateCachediSCSIVolumeResponse)
+-&gt; ReadS [CreateCachediSCSIVolumeResponse]
+-&gt; ReadPrec CreateCachediSCSIVolumeResponse
+-&gt; ReadPrec [CreateCachediSCSIVolumeResponse]
+-&gt; Read CreateCachediSCSIVolumeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCachediSCSIVolumeResponse]
+$creadListPrec :: ReadPrec [CreateCachediSCSIVolumeResponse]
+readPrec :: ReadPrec CreateCachediSCSIVolumeResponse
+$creadPrec :: ReadPrec CreateCachediSCSIVolumeResponse
+readList :: ReadS [CreateCachediSCSIVolumeResponse]
+$creadList :: ReadS [CreateCachediSCSIVolumeResponse]
+readsPrec :: Int -&gt; ReadS CreateCachediSCSIVolumeResponse
+$creadsPrec :: Int -&gt; ReadS CreateCachediSCSIVolumeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388257"><span id="local-6989586621679388259"><span id="local-6989586621679388261"><span class="annot"><span class="annottext">Int -&gt; CreateCachediSCSIVolumeResponse -&gt; ShowS
+[CreateCachediSCSIVolumeResponse] -&gt; ShowS
+CreateCachediSCSIVolumeResponse -&gt; String
+(Int -&gt; CreateCachediSCSIVolumeResponse -&gt; ShowS)
+-&gt; (CreateCachediSCSIVolumeResponse -&gt; String)
+-&gt; ([CreateCachediSCSIVolumeResponse] -&gt; ShowS)
+-&gt; Show CreateCachediSCSIVolumeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCachediSCSIVolumeResponse] -&gt; ShowS
+$cshowList :: [CreateCachediSCSIVolumeResponse] -&gt; ShowS
+show :: CreateCachediSCSIVolumeResponse -&gt; String
+$cshow :: CreateCachediSCSIVolumeResponse -&gt; String
+showsPrec :: Int -&gt; CreateCachediSCSIVolumeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCachediSCSIVolumeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateCachediSCSIVolumeResponse
+ -&gt; Rep CreateCachediSCSIVolumeResponse x)
+-&gt; (forall x.
+    Rep CreateCachediSCSIVolumeResponse x
+    -&gt; CreateCachediSCSIVolumeResponse)
+-&gt; Generic CreateCachediSCSIVolumeResponse
+forall x.
+Rep CreateCachediSCSIVolumeResponse x
+-&gt; CreateCachediSCSIVolumeResponse
+forall x.
+CreateCachediSCSIVolumeResponse
+-&gt; Rep CreateCachediSCSIVolumeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateCachediSCSIVolumeResponse x
+-&gt; CreateCachediSCSIVolumeResponse
+$cfrom :: forall x.
+CreateCachediSCSIVolumeResponse
+-&gt; Rep CreateCachediSCSIVolumeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-368"></span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- Create a value of 'CreateCachediSCSIVolumeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-376"></span><span class="hs-comment">--</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- 'targetARN', 'createCachediSCSIVolumeResponse_targetARN' - The Amazon Resource Name (ARN) of the volume target, which includes the</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- iSCSI name that initiators can use to connect to the target.</span><span>
+</span><span id="line-379"></span><span class="hs-comment">--</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- 'volumeARN', 'createCachediSCSIVolumeResponse_volumeARN' - The Amazon Resource Name (ARN) of the configured volume.</span><span>
+</span><span id="line-381"></span><span class="hs-comment">--</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- 'httpStatus', 'createCachediSCSIVolumeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-383"></span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#newCreateCachediSCSIVolumeResponse"><span class="hs-identifier hs-type">newCreateCachediSCSIVolumeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-384"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-385"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-386"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse</span></a></span><span>
+</span><span id="line-387"></span><span id="newCreateCachediSCSIVolumeResponse"><span class="annot"><span class="annottext">newCreateCachediSCSIVolumeResponse :: Int -&gt; CreateCachediSCSIVolumeResponse
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#newCreateCachediSCSIVolumeResponse"><span class="hs-identifier hs-var hs-var">newCreateCachediSCSIVolumeResponse</span></a></span></span><span> </span><span id="local-6989586621679388254"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388254"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-388"></span><span>  </span><span class="annot"><span class="annottext">CreateCachediSCSIVolumeResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateCachediSCSIVolumeResponse
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse'</span></a></span><span>
+</span><span id="line-389"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetARN:CreateCachediSCSIVolumeResponse' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AtargetARN%3ACreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-var">targetARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-390"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-391"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeARN:CreateCachediSCSIVolumeResponse' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AvolumeARN%3ACreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-392"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCachediSCSIVolumeResponse' :: Int
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AhttpStatus%3ACreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388254"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-393"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-394"></span><span>
+</span><span id="line-395"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the volume target, which includes the</span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- iSCSI name that initiators can use to connect to the target.</span><span>
+</span><span id="line-397"></span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolumeResponse_targetARN"><span class="hs-identifier hs-type">createCachediSCSIVolumeResponse_targetARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-398"></span><span id="createCachediSCSIVolumeResponse_targetARN"><span class="annot"><span class="annottext">createCachediSCSIVolumeResponse_targetARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateCachediSCSIVolumeResponse
+-&gt; f CreateCachediSCSIVolumeResponse
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolumeResponse_targetARN"><span class="hs-identifier hs-var hs-var">createCachediSCSIVolumeResponse_targetARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCachediSCSIVolumeResponse -&gt; Maybe Text)
+-&gt; (CreateCachediSCSIVolumeResponse
+    -&gt; Maybe Text -&gt; CreateCachediSCSIVolumeResponse)
+-&gt; Lens
+     CreateCachediSCSIVolumeResponse
+     CreateCachediSCSIVolumeResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388253"><span class="annot"><span class="annottext">Maybe Text
+targetARN :: Maybe Text
+$sel:targetARN:CreateCachediSCSIVolumeResponse' :: CreateCachediSCSIVolumeResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679388253"><span class="hs-identifier hs-var hs-var">targetARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388253"><span class="hs-identifier hs-var">targetARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388252"><span class="annot"><span class="annottext">s :: CreateCachediSCSIVolumeResponse
+</span><a href="#local-6989586621679388252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388251"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCachediSCSIVolumeResponse
+</span><a href="#local-6989586621679388252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetARN:CreateCachediSCSIVolumeResponse' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AtargetARN%3ACreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-var">targetARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the configured volume.</span><span>
+</span><span id="line-401"></span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolumeResponse_volumeARN"><span class="hs-identifier hs-type">createCachediSCSIVolumeResponse_volumeARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-402"></span><span id="createCachediSCSIVolumeResponse_volumeARN"><span class="annot"><span class="annottext">createCachediSCSIVolumeResponse_volumeARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateCachediSCSIVolumeResponse
+-&gt; f CreateCachediSCSIVolumeResponse
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolumeResponse_volumeARN"><span class="hs-identifier hs-var hs-var">createCachediSCSIVolumeResponse_volumeARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCachediSCSIVolumeResponse -&gt; Maybe Text)
+-&gt; (CreateCachediSCSIVolumeResponse
+    -&gt; Maybe Text -&gt; CreateCachediSCSIVolumeResponse)
+-&gt; Lens
+     CreateCachediSCSIVolumeResponse
+     CreateCachediSCSIVolumeResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388250"><span class="annot"><span class="annottext">Maybe Text
+volumeARN :: Maybe Text
+$sel:volumeARN:CreateCachediSCSIVolumeResponse' :: CreateCachediSCSIVolumeResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679388250"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388250"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388249"><span class="annot"><span class="annottext">s :: CreateCachediSCSIVolumeResponse
+</span><a href="#local-6989586621679388249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388248"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCachediSCSIVolumeResponse
+</span><a href="#local-6989586621679388249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:CreateCachediSCSIVolumeResponse' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AvolumeARN%3ACreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-403"></span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-405"></span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolumeResponse_httpStatus"><span class="hs-identifier hs-type">createCachediSCSIVolumeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-406"></span><span id="createCachediSCSIVolumeResponse_httpStatus"><span class="annot"><span class="annottext">createCachediSCSIVolumeResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateCachediSCSIVolumeResponse
+-&gt; f CreateCachediSCSIVolumeResponse
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#createCachediSCSIVolumeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createCachediSCSIVolumeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCachediSCSIVolumeResponse -&gt; Int)
+-&gt; (CreateCachediSCSIVolumeResponse
+    -&gt; Int -&gt; CreateCachediSCSIVolumeResponse)
+-&gt; Lens
+     CreateCachediSCSIVolumeResponse
+     CreateCachediSCSIVolumeResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388247"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateCachediSCSIVolumeResponse' :: CreateCachediSCSIVolumeResponse -&gt; Int
+</span><a href="#local-6989586621679388247"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388247"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388246"><span class="annot"><span class="annottext">s :: CreateCachediSCSIVolumeResponse
+</span><a href="#local-6989586621679388246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388245"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCachediSCSIVolumeResponse
+</span><a href="#local-6989586621679388246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCachediSCSIVolumeResponse' :: Int
+</span><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#%24sel%3AhttpStatus%3ACreateCachediSCSIVolumeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-407"></span><span>
+</span><span id="line-408"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-409"></span><span>  </span><span id="local-6989586621679388243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-410"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.CreateCachediSCSIVolume.html#CreateCachediSCSIVolumeResponse"><span class="hs-identifier hs-type">CreateCachediSCSIVolumeResponse</span></a></span></span><span>
+</span><span id="line-411"></span></pre></body></html>

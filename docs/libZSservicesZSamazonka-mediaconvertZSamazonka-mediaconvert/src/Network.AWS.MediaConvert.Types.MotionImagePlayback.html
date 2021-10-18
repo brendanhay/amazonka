@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.MotionImagePlayback</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.MotionImagePlayback</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#MotionImagePlayback"><span class="hs-identifier">MotionImagePlayback</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#MotionImagePlayback_ONCE"><span class="hs-identifier">MotionImagePlayback_ONCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#MotionImagePlayback_REPEAT"><span class="hs-identifier">MotionImagePlayback_REPEAT</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Specify whether your motion graphic overlay repeats on a loop or plays</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- only once.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679982706"><span id="local-6989586621679982707"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MotionImagePlayback"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#MotionImagePlayback"><span class="hs-identifier hs-var">MotionImagePlayback</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MotionImagePlayback%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#MotionImagePlayback%27"><span class="hs-identifier hs-var">MotionImagePlayback'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMotionImagePlayback"><span class="annot"><span class="annottext">MotionImagePlayback -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#fromMotionImagePlayback"><span class="hs-identifier hs-var hs-var">fromMotionImagePlayback</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679982698"><span id="local-6989586621679982700"><span id="local-6989586621679982702"><span class="annot"><span class="annottext">Int -&gt; MotionImagePlayback -&gt; ShowS
+[MotionImagePlayback] -&gt; ShowS
+MotionImagePlayback -&gt; String
+(Int -&gt; MotionImagePlayback -&gt; ShowS)
+-&gt; (MotionImagePlayback -&gt; String)
+-&gt; ([MotionImagePlayback] -&gt; ShowS)
+-&gt; Show MotionImagePlayback
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MotionImagePlayback] -&gt; ShowS
+$cshowList :: [MotionImagePlayback] -&gt; ShowS
+show :: MotionImagePlayback -&gt; String
+$cshow :: MotionImagePlayback -&gt; String
+showsPrec :: Int -&gt; MotionImagePlayback -&gt; ShowS
+$cshowsPrec :: Int -&gt; MotionImagePlayback -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679982689"><span id="local-6989586621679982691"><span id="local-6989586621679982693"><span id="local-6989586621679982695"><span class="annot"><span class="annottext">ReadPrec [MotionImagePlayback]
+ReadPrec MotionImagePlayback
+Int -&gt; ReadS MotionImagePlayback
+ReadS [MotionImagePlayback]
+(Int -&gt; ReadS MotionImagePlayback)
+-&gt; ReadS [MotionImagePlayback]
+-&gt; ReadPrec MotionImagePlayback
+-&gt; ReadPrec [MotionImagePlayback]
+-&gt; Read MotionImagePlayback
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MotionImagePlayback]
+$creadListPrec :: ReadPrec [MotionImagePlayback]
+readPrec :: ReadPrec MotionImagePlayback
+$creadPrec :: ReadPrec MotionImagePlayback
+readList :: ReadS [MotionImagePlayback]
+$creadList :: ReadS [MotionImagePlayback]
+readsPrec :: Int -&gt; ReadS MotionImagePlayback
+$creadsPrec :: Int -&gt; ReadS MotionImagePlayback
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679982684"><span id="local-6989586621679982686"><span class="annot"><span class="annottext">MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool
+(MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool)
+-&gt; (MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool)
+-&gt; Eq MotionImagePlayback
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool
+$c/= :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool
+== :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool
+$c== :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679982668"><span id="local-6989586621679982670"><span id="local-6989586621679982672"><span id="local-6989586621679982674"><span id="local-6989586621679982676"><span id="local-6989586621679982678"><span id="local-6989586621679982680"><span class="annot"><span class="annottext">Eq MotionImagePlayback
+Eq MotionImagePlayback
+-&gt; (MotionImagePlayback -&gt; MotionImagePlayback -&gt; Ordering)
+-&gt; (MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool)
+-&gt; (MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool)
+-&gt; (MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool)
+-&gt; (MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool)
+-&gt; (MotionImagePlayback
+    -&gt; MotionImagePlayback -&gt; MotionImagePlayback)
+-&gt; (MotionImagePlayback
+    -&gt; MotionImagePlayback -&gt; MotionImagePlayback)
+-&gt; Ord MotionImagePlayback
+MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool
+MotionImagePlayback -&gt; MotionImagePlayback -&gt; Ordering
+MotionImagePlayback -&gt; MotionImagePlayback -&gt; MotionImagePlayback
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; MotionImagePlayback
+$cmin :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; MotionImagePlayback
+max :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; MotionImagePlayback
+$cmax :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; MotionImagePlayback
+&gt;= :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool
+$c&gt;= :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool
+&gt; :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool
+$c&gt; :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool
+&lt;= :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool
+$c&lt;= :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool
+&lt; :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool
+$c&lt; :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; Bool
+compare :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; Ordering
+$ccompare :: MotionImagePlayback -&gt; MotionImagePlayback -&gt; Ordering
+$cp1Ord :: Eq MotionImagePlayback
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MotionImagePlayback -&gt; Rep MotionImagePlayback x)
+-&gt; (forall x. Rep MotionImagePlayback x -&gt; MotionImagePlayback)
+-&gt; Generic MotionImagePlayback
+forall x. Rep MotionImagePlayback x -&gt; MotionImagePlayback
+forall x. MotionImagePlayback -&gt; Rep MotionImagePlayback x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MotionImagePlayback x -&gt; MotionImagePlayback
+$cfrom :: forall x. MotionImagePlayback -&gt; Rep MotionImagePlayback x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679982660"><span id="local-6989586621679982662"><span class="annot"><span class="annottext">Int -&gt; MotionImagePlayback -&gt; Int
+MotionImagePlayback -&gt; Int
+(Int -&gt; MotionImagePlayback -&gt; Int)
+-&gt; (MotionImagePlayback -&gt; Int) -&gt; Hashable MotionImagePlayback
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MotionImagePlayback -&gt; Int
+$chash :: MotionImagePlayback -&gt; Int
+hashWithSalt :: Int -&gt; MotionImagePlayback -&gt; Int
+$chashWithSalt :: Int -&gt; MotionImagePlayback -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679982657"><span class="annot"><span class="annottext">MotionImagePlayback -&gt; ()
+(MotionImagePlayback -&gt; ()) -&gt; NFData MotionImagePlayback
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MotionImagePlayback -&gt; ()
+$crnf :: MotionImagePlayback -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679982654"><span class="annot"><span class="annottext">Text -&gt; Either String MotionImagePlayback
+(Text -&gt; Either String MotionImagePlayback)
+-&gt; FromText MotionImagePlayback
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MotionImagePlayback
+$cfromText :: Text -&gt; Either String MotionImagePlayback
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679982651"><span class="annot"><span class="annottext">MotionImagePlayback -&gt; Text
+(MotionImagePlayback -&gt; Text) -&gt; ToText MotionImagePlayback
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MotionImagePlayback -&gt; Text
+$ctoText :: MotionImagePlayback -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679982648"><span class="annot"><span class="annottext">MotionImagePlayback -&gt; ByteString
+(MotionImagePlayback -&gt; ByteString)
+-&gt; ToByteString MotionImagePlayback
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MotionImagePlayback -&gt; ByteString
+$ctoBS :: MotionImagePlayback -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679982645"><span class="annot"><span class="annottext">MotionImagePlayback -&gt; ByteStringBuilder
+(MotionImagePlayback -&gt; ByteStringBuilder)
+-&gt; ToLog MotionImagePlayback
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MotionImagePlayback -&gt; ByteStringBuilder
+$cbuild :: MotionImagePlayback -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679982642"><span class="annot"><span class="annottext">HeaderName -&gt; MotionImagePlayback -&gt; [Header]
+(HeaderName -&gt; MotionImagePlayback -&gt; [Header])
+-&gt; ToHeader MotionImagePlayback
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MotionImagePlayback -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MotionImagePlayback -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679982639"><span class="annot"><span class="annottext">MotionImagePlayback -&gt; QueryString
+(MotionImagePlayback -&gt; QueryString) -&gt; ToQuery MotionImagePlayback
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MotionImagePlayback -&gt; QueryString
+$ctoQuery :: MotionImagePlayback -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679982634"><span id="local-6989586621679982636"><span class="annot"><span class="annottext">Value -&gt; Parser [MotionImagePlayback]
+Value -&gt; Parser MotionImagePlayback
+(Value -&gt; Parser MotionImagePlayback)
+-&gt; (Value -&gt; Parser [MotionImagePlayback])
+-&gt; FromJSON MotionImagePlayback
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MotionImagePlayback]
+$cparseJSONList :: Value -&gt; Parser [MotionImagePlayback]
+parseJSON :: Value -&gt; Parser MotionImagePlayback
+$cparseJSON :: Value -&gt; Parser MotionImagePlayback
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679982629"><span id="local-6989586621679982631"><span class="annot"><span class="annottext">FromJSONKeyFunction [MotionImagePlayback]
+FromJSONKeyFunction MotionImagePlayback
+FromJSONKeyFunction MotionImagePlayback
+-&gt; FromJSONKeyFunction [MotionImagePlayback]
+-&gt; FromJSONKey MotionImagePlayback
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MotionImagePlayback]
+$cfromJSONKeyList :: FromJSONKeyFunction [MotionImagePlayback]
+fromJSONKey :: FromJSONKeyFunction MotionImagePlayback
+$cfromJSONKey :: FromJSONKeyFunction MotionImagePlayback
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679982620"><span id="local-6989586621679982622"><span id="local-6989586621679982624"><span id="local-6989586621679982626"><span class="annot"><span class="annottext">[MotionImagePlayback] -&gt; Encoding
+[MotionImagePlayback] -&gt; Value
+MotionImagePlayback -&gt; Encoding
+MotionImagePlayback -&gt; Value
+(MotionImagePlayback -&gt; Value)
+-&gt; (MotionImagePlayback -&gt; Encoding)
+-&gt; ([MotionImagePlayback] -&gt; Value)
+-&gt; ([MotionImagePlayback] -&gt; Encoding)
+-&gt; ToJSON MotionImagePlayback
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MotionImagePlayback] -&gt; Encoding
+$ctoEncodingList :: [MotionImagePlayback] -&gt; Encoding
+toJSONList :: [MotionImagePlayback] -&gt; Value
+$ctoJSONList :: [MotionImagePlayback] -&gt; Value
+toEncoding :: MotionImagePlayback -&gt; Encoding
+$ctoEncoding :: MotionImagePlayback -&gt; Encoding
+toJSON :: MotionImagePlayback -&gt; Value
+$ctoJSON :: MotionImagePlayback -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679982615"><span id="local-6989586621679982617"><span class="annot"><span class="annottext">ToJSONKeyFunction [MotionImagePlayback]
+ToJSONKeyFunction MotionImagePlayback
+ToJSONKeyFunction MotionImagePlayback
+-&gt; ToJSONKeyFunction [MotionImagePlayback]
+-&gt; ToJSONKey MotionImagePlayback
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MotionImagePlayback]
+$ctoJSONKeyList :: ToJSONKeyFunction [MotionImagePlayback]
+toJSONKey :: ToJSONKeyFunction MotionImagePlayback
+$ctoJSONKey :: ToJSONKeyFunction MotionImagePlayback
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679982612"><span class="annot"><span class="annottext">[Node] -&gt; Either String MotionImagePlayback
+([Node] -&gt; Either String MotionImagePlayback)
+-&gt; FromXML MotionImagePlayback
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MotionImagePlayback
+$cparseXML :: [Node] -&gt; Either String MotionImagePlayback
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679982609"><span class="annot"><span class="annottext">MotionImagePlayback -&gt; XML
+(MotionImagePlayback -&gt; XML) -&gt; ToXML MotionImagePlayback
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MotionImagePlayback -&gt; XML
+$ctoXML :: MotionImagePlayback -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#MotionImagePlayback_ONCE"><span class="hs-identifier hs-type">MotionImagePlayback_ONCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#MotionImagePlayback"><span class="hs-identifier hs-type">MotionImagePlayback</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMotionImagePlayback_ONCE"><span id="%24mMotionImagePlayback_ONCE"><span id="MotionImagePlayback_ONCE"><span class="annot"><span class="annottext">$bMotionImagePlayback_ONCE :: MotionImagePlayback
+$mMotionImagePlayback_ONCE :: forall r. MotionImagePlayback -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#%24bMotionImagePlayback_ONCE"><span class="hs-identifier hs-var hs-var hs-var">MotionImagePlayback_ONCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#MotionImagePlayback%27"><span class="hs-identifier hs-type">MotionImagePlayback'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ONCE&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#MotionImagePlayback_REPEAT"><span class="hs-identifier hs-type">MotionImagePlayback_REPEAT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#MotionImagePlayback"><span class="hs-identifier hs-type">MotionImagePlayback</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMotionImagePlayback_REPEAT"><span id="%24mMotionImagePlayback_REPEAT"><span id="MotionImagePlayback_REPEAT"><span class="annot"><span class="annottext">$bMotionImagePlayback_REPEAT :: MotionImagePlayback
+$mMotionImagePlayback_REPEAT :: forall r. MotionImagePlayback -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#%24bMotionImagePlayback_REPEAT"><span class="hs-identifier hs-var hs-var hs-var">MotionImagePlayback_REPEAT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#MotionImagePlayback%27"><span class="hs-identifier hs-type">MotionImagePlayback'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REPEAT&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#MotionImagePlayback_ONCE"><span class="hs-pragma hs-type">MotionImagePlayback_ONCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#MotionImagePlayback_REPEAT"><span class="hs-pragma hs-type">MotionImagePlayback_REPEAT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#MotionImagePlayback%27"><span class="hs-pragma hs-type">MotionImagePlayback'</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-73"></span></pre></body></html>

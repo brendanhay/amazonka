@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening"><span class="hs-identifier">TemporalFilterPostFilterSharpening</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening_AUTO"><span class="hs-identifier">TemporalFilterPostFilterSharpening_AUTO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening_DISABLED"><span class="hs-identifier">TemporalFilterPostFilterSharpening_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening_ENABLED"><span class="hs-identifier">TemporalFilterPostFilterSharpening_ENABLED</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Temporal Filter Post Filter Sharpening</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679917908"><span id="local-6989586621679917909"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TemporalFilterPostFilterSharpening"><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening"><span class="hs-identifier hs-var">TemporalFilterPostFilterSharpening</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TemporalFilterPostFilterSharpening%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening%27"><span class="hs-identifier hs-var">TemporalFilterPostFilterSharpening'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTemporalFilterPostFilterSharpening"><span class="annot"><span class="annottext">TemporalFilterPostFilterSharpening -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#fromTemporalFilterPostFilterSharpening"><span class="hs-identifier hs-var hs-var">fromTemporalFilterPostFilterSharpening</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679917900"><span id="local-6989586621679917902"><span id="local-6989586621679917904"><span class="annot"><span class="annottext">Int -&gt; TemporalFilterPostFilterSharpening -&gt; ShowS
+[TemporalFilterPostFilterSharpening] -&gt; ShowS
+TemporalFilterPostFilterSharpening -&gt; String
+(Int -&gt; TemporalFilterPostFilterSharpening -&gt; ShowS)
+-&gt; (TemporalFilterPostFilterSharpening -&gt; String)
+-&gt; ([TemporalFilterPostFilterSharpening] -&gt; ShowS)
+-&gt; Show TemporalFilterPostFilterSharpening
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TemporalFilterPostFilterSharpening] -&gt; ShowS
+$cshowList :: [TemporalFilterPostFilterSharpening] -&gt; ShowS
+show :: TemporalFilterPostFilterSharpening -&gt; String
+$cshow :: TemporalFilterPostFilterSharpening -&gt; String
+showsPrec :: Int -&gt; TemporalFilterPostFilterSharpening -&gt; ShowS
+$cshowsPrec :: Int -&gt; TemporalFilterPostFilterSharpening -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679917891"><span id="local-6989586621679917893"><span id="local-6989586621679917895"><span id="local-6989586621679917897"><span class="annot"><span class="annottext">ReadPrec [TemporalFilterPostFilterSharpening]
+ReadPrec TemporalFilterPostFilterSharpening
+Int -&gt; ReadS TemporalFilterPostFilterSharpening
+ReadS [TemporalFilterPostFilterSharpening]
+(Int -&gt; ReadS TemporalFilterPostFilterSharpening)
+-&gt; ReadS [TemporalFilterPostFilterSharpening]
+-&gt; ReadPrec TemporalFilterPostFilterSharpening
+-&gt; ReadPrec [TemporalFilterPostFilterSharpening]
+-&gt; Read TemporalFilterPostFilterSharpening
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TemporalFilterPostFilterSharpening]
+$creadListPrec :: ReadPrec [TemporalFilterPostFilterSharpening]
+readPrec :: ReadPrec TemporalFilterPostFilterSharpening
+$creadPrec :: ReadPrec TemporalFilterPostFilterSharpening
+readList :: ReadS [TemporalFilterPostFilterSharpening]
+$creadList :: ReadS [TemporalFilterPostFilterSharpening]
+readsPrec :: Int -&gt; ReadS TemporalFilterPostFilterSharpening
+$creadsPrec :: Int -&gt; ReadS TemporalFilterPostFilterSharpening
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679917886"><span id="local-6989586621679917888"><span class="annot"><span class="annottext">TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Bool
+(TemporalFilterPostFilterSharpening
+ -&gt; TemporalFilterPostFilterSharpening -&gt; Bool)
+-&gt; (TemporalFilterPostFilterSharpening
+    -&gt; TemporalFilterPostFilterSharpening -&gt; Bool)
+-&gt; Eq TemporalFilterPostFilterSharpening
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Bool
+$c/= :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Bool
+== :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Bool
+$c== :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679917870"><span id="local-6989586621679917872"><span id="local-6989586621679917874"><span id="local-6989586621679917876"><span id="local-6989586621679917878"><span id="local-6989586621679917880"><span id="local-6989586621679917882"><span class="annot"><span class="annottext">Eq TemporalFilterPostFilterSharpening
+Eq TemporalFilterPostFilterSharpening
+-&gt; (TemporalFilterPostFilterSharpening
+    -&gt; TemporalFilterPostFilterSharpening -&gt; Ordering)
+-&gt; (TemporalFilterPostFilterSharpening
+    -&gt; TemporalFilterPostFilterSharpening -&gt; Bool)
+-&gt; (TemporalFilterPostFilterSharpening
+    -&gt; TemporalFilterPostFilterSharpening -&gt; Bool)
+-&gt; (TemporalFilterPostFilterSharpening
+    -&gt; TemporalFilterPostFilterSharpening -&gt; Bool)
+-&gt; (TemporalFilterPostFilterSharpening
+    -&gt; TemporalFilterPostFilterSharpening -&gt; Bool)
+-&gt; (TemporalFilterPostFilterSharpening
+    -&gt; TemporalFilterPostFilterSharpening
+    -&gt; TemporalFilterPostFilterSharpening)
+-&gt; (TemporalFilterPostFilterSharpening
+    -&gt; TemporalFilterPostFilterSharpening
+    -&gt; TemporalFilterPostFilterSharpening)
+-&gt; Ord TemporalFilterPostFilterSharpening
+TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Bool
+TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Ordering
+TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening
+$cmin :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening
+max :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening
+$cmax :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening
+&gt;= :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Bool
+$c&gt;= :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Bool
+&gt; :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Bool
+$c&gt; :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Bool
+&lt;= :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Bool
+$c&lt;= :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Bool
+&lt; :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Bool
+$c&lt; :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Bool
+compare :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Ordering
+$ccompare :: TemporalFilterPostFilterSharpening
+-&gt; TemporalFilterPostFilterSharpening -&gt; Ordering
+$cp1Ord :: Eq TemporalFilterPostFilterSharpening
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ TemporalFilterPostFilterSharpening
+ -&gt; Rep TemporalFilterPostFilterSharpening x)
+-&gt; (forall x.
+    Rep TemporalFilterPostFilterSharpening x
+    -&gt; TemporalFilterPostFilterSharpening)
+-&gt; Generic TemporalFilterPostFilterSharpening
+forall x.
+Rep TemporalFilterPostFilterSharpening x
+-&gt; TemporalFilterPostFilterSharpening
+forall x.
+TemporalFilterPostFilterSharpening
+-&gt; Rep TemporalFilterPostFilterSharpening x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TemporalFilterPostFilterSharpening x
+-&gt; TemporalFilterPostFilterSharpening
+$cfrom :: forall x.
+TemporalFilterPostFilterSharpening
+-&gt; Rep TemporalFilterPostFilterSharpening x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679917862"><span id="local-6989586621679917864"><span class="annot"><span class="annottext">Int -&gt; TemporalFilterPostFilterSharpening -&gt; Int
+TemporalFilterPostFilterSharpening -&gt; Int
+(Int -&gt; TemporalFilterPostFilterSharpening -&gt; Int)
+-&gt; (TemporalFilterPostFilterSharpening -&gt; Int)
+-&gt; Hashable TemporalFilterPostFilterSharpening
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TemporalFilterPostFilterSharpening -&gt; Int
+$chash :: TemporalFilterPostFilterSharpening -&gt; Int
+hashWithSalt :: Int -&gt; TemporalFilterPostFilterSharpening -&gt; Int
+$chashWithSalt :: Int -&gt; TemporalFilterPostFilterSharpening -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679917859"><span class="annot"><span class="annottext">TemporalFilterPostFilterSharpening -&gt; ()
+(TemporalFilterPostFilterSharpening -&gt; ())
+-&gt; NFData TemporalFilterPostFilterSharpening
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TemporalFilterPostFilterSharpening -&gt; ()
+$crnf :: TemporalFilterPostFilterSharpening -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679917856"><span class="annot"><span class="annottext">Text -&gt; Either String TemporalFilterPostFilterSharpening
+(Text -&gt; Either String TemporalFilterPostFilterSharpening)
+-&gt; FromText TemporalFilterPostFilterSharpening
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TemporalFilterPostFilterSharpening
+$cfromText :: Text -&gt; Either String TemporalFilterPostFilterSharpening
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679917853"><span class="annot"><span class="annottext">TemporalFilterPostFilterSharpening -&gt; Text
+(TemporalFilterPostFilterSharpening -&gt; Text)
+-&gt; ToText TemporalFilterPostFilterSharpening
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TemporalFilterPostFilterSharpening -&gt; Text
+$ctoText :: TemporalFilterPostFilterSharpening -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679917850"><span class="annot"><span class="annottext">TemporalFilterPostFilterSharpening -&gt; ByteString
+(TemporalFilterPostFilterSharpening -&gt; ByteString)
+-&gt; ToByteString TemporalFilterPostFilterSharpening
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TemporalFilterPostFilterSharpening -&gt; ByteString
+$ctoBS :: TemporalFilterPostFilterSharpening -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679917847"><span class="annot"><span class="annottext">TemporalFilterPostFilterSharpening -&gt; ByteStringBuilder
+(TemporalFilterPostFilterSharpening -&gt; ByteStringBuilder)
+-&gt; ToLog TemporalFilterPostFilterSharpening
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TemporalFilterPostFilterSharpening -&gt; ByteStringBuilder
+$cbuild :: TemporalFilterPostFilterSharpening -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679917844"><span class="annot"><span class="annottext">HeaderName -&gt; TemporalFilterPostFilterSharpening -&gt; [Header]
+(HeaderName -&gt; TemporalFilterPostFilterSharpening -&gt; [Header])
+-&gt; ToHeader TemporalFilterPostFilterSharpening
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TemporalFilterPostFilterSharpening -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TemporalFilterPostFilterSharpening -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679917841"><span class="annot"><span class="annottext">TemporalFilterPostFilterSharpening -&gt; QueryString
+(TemporalFilterPostFilterSharpening -&gt; QueryString)
+-&gt; ToQuery TemporalFilterPostFilterSharpening
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TemporalFilterPostFilterSharpening -&gt; QueryString
+$ctoQuery :: TemporalFilterPostFilterSharpening -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679917836"><span id="local-6989586621679917838"><span class="annot"><span class="annottext">Value -&gt; Parser [TemporalFilterPostFilterSharpening]
+Value -&gt; Parser TemporalFilterPostFilterSharpening
+(Value -&gt; Parser TemporalFilterPostFilterSharpening)
+-&gt; (Value -&gt; Parser [TemporalFilterPostFilterSharpening])
+-&gt; FromJSON TemporalFilterPostFilterSharpening
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TemporalFilterPostFilterSharpening]
+$cparseJSONList :: Value -&gt; Parser [TemporalFilterPostFilterSharpening]
+parseJSON :: Value -&gt; Parser TemporalFilterPostFilterSharpening
+$cparseJSON :: Value -&gt; Parser TemporalFilterPostFilterSharpening
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679917831"><span id="local-6989586621679917833"><span class="annot"><span class="annottext">FromJSONKeyFunction [TemporalFilterPostFilterSharpening]
+FromJSONKeyFunction TemporalFilterPostFilterSharpening
+FromJSONKeyFunction TemporalFilterPostFilterSharpening
+-&gt; FromJSONKeyFunction [TemporalFilterPostFilterSharpening]
+-&gt; FromJSONKey TemporalFilterPostFilterSharpening
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TemporalFilterPostFilterSharpening]
+$cfromJSONKeyList :: FromJSONKeyFunction [TemporalFilterPostFilterSharpening]
+fromJSONKey :: FromJSONKeyFunction TemporalFilterPostFilterSharpening
+$cfromJSONKey :: FromJSONKeyFunction TemporalFilterPostFilterSharpening
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679917822"><span id="local-6989586621679917824"><span id="local-6989586621679917826"><span id="local-6989586621679917828"><span class="annot"><span class="annottext">[TemporalFilterPostFilterSharpening] -&gt; Encoding
+[TemporalFilterPostFilterSharpening] -&gt; Value
+TemporalFilterPostFilterSharpening -&gt; Encoding
+TemporalFilterPostFilterSharpening -&gt; Value
+(TemporalFilterPostFilterSharpening -&gt; Value)
+-&gt; (TemporalFilterPostFilterSharpening -&gt; Encoding)
+-&gt; ([TemporalFilterPostFilterSharpening] -&gt; Value)
+-&gt; ([TemporalFilterPostFilterSharpening] -&gt; Encoding)
+-&gt; ToJSON TemporalFilterPostFilterSharpening
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TemporalFilterPostFilterSharpening] -&gt; Encoding
+$ctoEncodingList :: [TemporalFilterPostFilterSharpening] -&gt; Encoding
+toJSONList :: [TemporalFilterPostFilterSharpening] -&gt; Value
+$ctoJSONList :: [TemporalFilterPostFilterSharpening] -&gt; Value
+toEncoding :: TemporalFilterPostFilterSharpening -&gt; Encoding
+$ctoEncoding :: TemporalFilterPostFilterSharpening -&gt; Encoding
+toJSON :: TemporalFilterPostFilterSharpening -&gt; Value
+$ctoJSON :: TemporalFilterPostFilterSharpening -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679917817"><span id="local-6989586621679917819"><span class="annot"><span class="annottext">ToJSONKeyFunction [TemporalFilterPostFilterSharpening]
+ToJSONKeyFunction TemporalFilterPostFilterSharpening
+ToJSONKeyFunction TemporalFilterPostFilterSharpening
+-&gt; ToJSONKeyFunction [TemporalFilterPostFilterSharpening]
+-&gt; ToJSONKey TemporalFilterPostFilterSharpening
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TemporalFilterPostFilterSharpening]
+$ctoJSONKeyList :: ToJSONKeyFunction [TemporalFilterPostFilterSharpening]
+toJSONKey :: ToJSONKeyFunction TemporalFilterPostFilterSharpening
+$ctoJSONKey :: ToJSONKeyFunction TemporalFilterPostFilterSharpening
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679917814"><span class="annot"><span class="annottext">[Node] -&gt; Either String TemporalFilterPostFilterSharpening
+([Node] -&gt; Either String TemporalFilterPostFilterSharpening)
+-&gt; FromXML TemporalFilterPostFilterSharpening
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TemporalFilterPostFilterSharpening
+$cparseXML :: [Node] -&gt; Either String TemporalFilterPostFilterSharpening
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679917811"><span class="annot"><span class="annottext">TemporalFilterPostFilterSharpening -&gt; XML
+(TemporalFilterPostFilterSharpening -&gt; XML)
+-&gt; ToXML TemporalFilterPostFilterSharpening
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TemporalFilterPostFilterSharpening -&gt; XML
+$ctoXML :: TemporalFilterPostFilterSharpening -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening_AUTO"><span class="hs-identifier hs-type">TemporalFilterPostFilterSharpening_AUTO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening"><span class="hs-identifier hs-type">TemporalFilterPostFilterSharpening</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterPostFilterSharpening_AUTO"><span id="%24mTemporalFilterPostFilterSharpening_AUTO"><span id="TemporalFilterPostFilterSharpening_AUTO"><span class="annot"><span class="annottext">$bTemporalFilterPostFilterSharpening_AUTO :: TemporalFilterPostFilterSharpening
+$mTemporalFilterPostFilterSharpening_AUTO :: forall r.
+TemporalFilterPostFilterSharpening
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#%24bTemporalFilterPostFilterSharpening_AUTO"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterPostFilterSharpening_AUTO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening%27"><span class="hs-identifier hs-type">TemporalFilterPostFilterSharpening'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTO&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening_DISABLED"><span class="hs-identifier hs-type">TemporalFilterPostFilterSharpening_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening"><span class="hs-identifier hs-type">TemporalFilterPostFilterSharpening</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterPostFilterSharpening_DISABLED"><span id="%24mTemporalFilterPostFilterSharpening_DISABLED"><span id="TemporalFilterPostFilterSharpening_DISABLED"><span class="annot"><span class="annottext">$bTemporalFilterPostFilterSharpening_DISABLED :: TemporalFilterPostFilterSharpening
+$mTemporalFilterPostFilterSharpening_DISABLED :: forall r.
+TemporalFilterPostFilterSharpening
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#%24bTemporalFilterPostFilterSharpening_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterPostFilterSharpening_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening%27"><span class="hs-identifier hs-type">TemporalFilterPostFilterSharpening'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening_ENABLED"><span class="hs-identifier hs-type">TemporalFilterPostFilterSharpening_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening"><span class="hs-identifier hs-type">TemporalFilterPostFilterSharpening</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterPostFilterSharpening_ENABLED"><span id="%24mTemporalFilterPostFilterSharpening_ENABLED"><span id="TemporalFilterPostFilterSharpening_ENABLED"><span class="annot"><span class="annottext">$bTemporalFilterPostFilterSharpening_ENABLED :: TemporalFilterPostFilterSharpening
+$mTemporalFilterPostFilterSharpening_ENABLED :: forall r.
+TemporalFilterPostFilterSharpening
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#%24bTemporalFilterPostFilterSharpening_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterPostFilterSharpening_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening%27"><span class="hs-identifier hs-type">TemporalFilterPostFilterSharpening'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening_AUTO"><span class="hs-pragma hs-type">TemporalFilterPostFilterSharpening_AUTO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening_DISABLED"><span class="hs-pragma hs-type">TemporalFilterPostFilterSharpening_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening_ENABLED"><span class="hs-pragma hs-type">TemporalFilterPostFilterSharpening_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening%27"><span class="hs-pragma hs-type">TemporalFilterPostFilterSharpening'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.Types.DeviceCertificateUpdateAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.Types.DeviceCertificateUpdateAction</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DeviceCertificateUpdateAction.html#DeviceCertificateUpdateAction"><span class="hs-identifier">DeviceCertificateUpdateAction</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoT.Types.DeviceCertificateUpdateAction.html#DeviceCertificateUpdateAction_DEACTIVATE"><span class="hs-identifier">DeviceCertificateUpdateAction_DEACTIVATE</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679782453"><span id="local-6989586621679782454"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeviceCertificateUpdateAction"><span class="annot"><a href="Network.AWS.IoT.Types.DeviceCertificateUpdateAction.html#DeviceCertificateUpdateAction"><span class="hs-identifier hs-var">DeviceCertificateUpdateAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceCertificateUpdateAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.DeviceCertificateUpdateAction.html#DeviceCertificateUpdateAction%27"><span class="hs-identifier hs-var">DeviceCertificateUpdateAction'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeviceCertificateUpdateAction"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction -&gt; Text
+</span><a href="Network.AWS.IoT.Types.DeviceCertificateUpdateAction.html#fromDeviceCertificateUpdateAction"><span class="hs-identifier hs-var hs-var">fromDeviceCertificateUpdateAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679782445"><span id="local-6989586621679782447"><span id="local-6989586621679782449"><span class="annot"><span class="annottext">Int -&gt; DeviceCertificateUpdateAction -&gt; ShowS
+[DeviceCertificateUpdateAction] -&gt; ShowS
+DeviceCertificateUpdateAction -&gt; String
+(Int -&gt; DeviceCertificateUpdateAction -&gt; ShowS)
+-&gt; (DeviceCertificateUpdateAction -&gt; String)
+-&gt; ([DeviceCertificateUpdateAction] -&gt; ShowS)
+-&gt; Show DeviceCertificateUpdateAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeviceCertificateUpdateAction] -&gt; ShowS
+$cshowList :: [DeviceCertificateUpdateAction] -&gt; ShowS
+show :: DeviceCertificateUpdateAction -&gt; String
+$cshow :: DeviceCertificateUpdateAction -&gt; String
+showsPrec :: Int -&gt; DeviceCertificateUpdateAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeviceCertificateUpdateAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679782436"><span id="local-6989586621679782438"><span id="local-6989586621679782440"><span id="local-6989586621679782442"><span class="annot"><span class="annottext">ReadPrec [DeviceCertificateUpdateAction]
+ReadPrec DeviceCertificateUpdateAction
+Int -&gt; ReadS DeviceCertificateUpdateAction
+ReadS [DeviceCertificateUpdateAction]
+(Int -&gt; ReadS DeviceCertificateUpdateAction)
+-&gt; ReadS [DeviceCertificateUpdateAction]
+-&gt; ReadPrec DeviceCertificateUpdateAction
+-&gt; ReadPrec [DeviceCertificateUpdateAction]
+-&gt; Read DeviceCertificateUpdateAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeviceCertificateUpdateAction]
+$creadListPrec :: ReadPrec [DeviceCertificateUpdateAction]
+readPrec :: ReadPrec DeviceCertificateUpdateAction
+$creadPrec :: ReadPrec DeviceCertificateUpdateAction
+readList :: ReadS [DeviceCertificateUpdateAction]
+$creadList :: ReadS [DeviceCertificateUpdateAction]
+readsPrec :: Int -&gt; ReadS DeviceCertificateUpdateAction
+$creadsPrec :: Int -&gt; ReadS DeviceCertificateUpdateAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679782431"><span id="local-6989586621679782433"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Bool
+(DeviceCertificateUpdateAction
+ -&gt; DeviceCertificateUpdateAction -&gt; Bool)
+-&gt; (DeviceCertificateUpdateAction
+    -&gt; DeviceCertificateUpdateAction -&gt; Bool)
+-&gt; Eq DeviceCertificateUpdateAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Bool
+$c/= :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Bool
+== :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Bool
+$c== :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679782415"><span id="local-6989586621679782417"><span id="local-6989586621679782419"><span id="local-6989586621679782421"><span id="local-6989586621679782423"><span id="local-6989586621679782425"><span id="local-6989586621679782427"><span class="annot"><span class="annottext">Eq DeviceCertificateUpdateAction
+Eq DeviceCertificateUpdateAction
+-&gt; (DeviceCertificateUpdateAction
+    -&gt; DeviceCertificateUpdateAction -&gt; Ordering)
+-&gt; (DeviceCertificateUpdateAction
+    -&gt; DeviceCertificateUpdateAction -&gt; Bool)
+-&gt; (DeviceCertificateUpdateAction
+    -&gt; DeviceCertificateUpdateAction -&gt; Bool)
+-&gt; (DeviceCertificateUpdateAction
+    -&gt; DeviceCertificateUpdateAction -&gt; Bool)
+-&gt; (DeviceCertificateUpdateAction
+    -&gt; DeviceCertificateUpdateAction -&gt; Bool)
+-&gt; (DeviceCertificateUpdateAction
+    -&gt; DeviceCertificateUpdateAction -&gt; DeviceCertificateUpdateAction)
+-&gt; (DeviceCertificateUpdateAction
+    -&gt; DeviceCertificateUpdateAction -&gt; DeviceCertificateUpdateAction)
+-&gt; Ord DeviceCertificateUpdateAction
+DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Bool
+DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Ordering
+DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; DeviceCertificateUpdateAction
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; DeviceCertificateUpdateAction
+$cmin :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; DeviceCertificateUpdateAction
+max :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; DeviceCertificateUpdateAction
+$cmax :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; DeviceCertificateUpdateAction
+&gt;= :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Bool
+$c&gt;= :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Bool
+&gt; :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Bool
+$c&gt; :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Bool
+&lt;= :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Bool
+$c&lt;= :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Bool
+&lt; :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Bool
+$c&lt; :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Bool
+compare :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Ordering
+$ccompare :: DeviceCertificateUpdateAction
+-&gt; DeviceCertificateUpdateAction -&gt; Ordering
+$cp1Ord :: Eq DeviceCertificateUpdateAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DeviceCertificateUpdateAction
+ -&gt; Rep DeviceCertificateUpdateAction x)
+-&gt; (forall x.
+    Rep DeviceCertificateUpdateAction x
+    -&gt; DeviceCertificateUpdateAction)
+-&gt; Generic DeviceCertificateUpdateAction
+forall x.
+Rep DeviceCertificateUpdateAction x
+-&gt; DeviceCertificateUpdateAction
+forall x.
+DeviceCertificateUpdateAction
+-&gt; Rep DeviceCertificateUpdateAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeviceCertificateUpdateAction x
+-&gt; DeviceCertificateUpdateAction
+$cfrom :: forall x.
+DeviceCertificateUpdateAction
+-&gt; Rep DeviceCertificateUpdateAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679782407"><span id="local-6989586621679782409"><span class="annot"><span class="annottext">Int -&gt; DeviceCertificateUpdateAction -&gt; Int
+DeviceCertificateUpdateAction -&gt; Int
+(Int -&gt; DeviceCertificateUpdateAction -&gt; Int)
+-&gt; (DeviceCertificateUpdateAction -&gt; Int)
+-&gt; Hashable DeviceCertificateUpdateAction
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeviceCertificateUpdateAction -&gt; Int
+$chash :: DeviceCertificateUpdateAction -&gt; Int
+hashWithSalt :: Int -&gt; DeviceCertificateUpdateAction -&gt; Int
+$chashWithSalt :: Int -&gt; DeviceCertificateUpdateAction -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679782404"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction -&gt; ()
+(DeviceCertificateUpdateAction -&gt; ())
+-&gt; NFData DeviceCertificateUpdateAction
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeviceCertificateUpdateAction -&gt; ()
+$crnf :: DeviceCertificateUpdateAction -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679782401"><span class="annot"><span class="annottext">Text -&gt; Either String DeviceCertificateUpdateAction
+(Text -&gt; Either String DeviceCertificateUpdateAction)
+-&gt; FromText DeviceCertificateUpdateAction
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeviceCertificateUpdateAction
+$cfromText :: Text -&gt; Either String DeviceCertificateUpdateAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679782398"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction -&gt; Text
+(DeviceCertificateUpdateAction -&gt; Text)
+-&gt; ToText DeviceCertificateUpdateAction
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeviceCertificateUpdateAction -&gt; Text
+$ctoText :: DeviceCertificateUpdateAction -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679782395"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction -&gt; ByteString
+(DeviceCertificateUpdateAction -&gt; ByteString)
+-&gt; ToByteString DeviceCertificateUpdateAction
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeviceCertificateUpdateAction -&gt; ByteString
+$ctoBS :: DeviceCertificateUpdateAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679782392"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction -&gt; ByteStringBuilder
+(DeviceCertificateUpdateAction -&gt; ByteStringBuilder)
+-&gt; ToLog DeviceCertificateUpdateAction
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeviceCertificateUpdateAction -&gt; ByteStringBuilder
+$cbuild :: DeviceCertificateUpdateAction -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679782389"><span class="annot"><span class="annottext">HeaderName -&gt; DeviceCertificateUpdateAction -&gt; [Header]
+(HeaderName -&gt; DeviceCertificateUpdateAction -&gt; [Header])
+-&gt; ToHeader DeviceCertificateUpdateAction
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeviceCertificateUpdateAction -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeviceCertificateUpdateAction -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679782386"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction -&gt; QueryString
+(DeviceCertificateUpdateAction -&gt; QueryString)
+-&gt; ToQuery DeviceCertificateUpdateAction
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeviceCertificateUpdateAction -&gt; QueryString
+$ctoQuery :: DeviceCertificateUpdateAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679782381"><span id="local-6989586621679782383"><span class="annot"><span class="annottext">Value -&gt; Parser [DeviceCertificateUpdateAction]
+Value -&gt; Parser DeviceCertificateUpdateAction
+(Value -&gt; Parser DeviceCertificateUpdateAction)
+-&gt; (Value -&gt; Parser [DeviceCertificateUpdateAction])
+-&gt; FromJSON DeviceCertificateUpdateAction
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeviceCertificateUpdateAction]
+$cparseJSONList :: Value -&gt; Parser [DeviceCertificateUpdateAction]
+parseJSON :: Value -&gt; Parser DeviceCertificateUpdateAction
+$cparseJSON :: Value -&gt; Parser DeviceCertificateUpdateAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679782376"><span id="local-6989586621679782378"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeviceCertificateUpdateAction]
+FromJSONKeyFunction DeviceCertificateUpdateAction
+FromJSONKeyFunction DeviceCertificateUpdateAction
+-&gt; FromJSONKeyFunction [DeviceCertificateUpdateAction]
+-&gt; FromJSONKey DeviceCertificateUpdateAction
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeviceCertificateUpdateAction]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeviceCertificateUpdateAction]
+fromJSONKey :: FromJSONKeyFunction DeviceCertificateUpdateAction
+$cfromJSONKey :: FromJSONKeyFunction DeviceCertificateUpdateAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679782367"><span id="local-6989586621679782369"><span id="local-6989586621679782371"><span id="local-6989586621679782373"><span class="annot"><span class="annottext">[DeviceCertificateUpdateAction] -&gt; Encoding
+[DeviceCertificateUpdateAction] -&gt; Value
+DeviceCertificateUpdateAction -&gt; Encoding
+DeviceCertificateUpdateAction -&gt; Value
+(DeviceCertificateUpdateAction -&gt; Value)
+-&gt; (DeviceCertificateUpdateAction -&gt; Encoding)
+-&gt; ([DeviceCertificateUpdateAction] -&gt; Value)
+-&gt; ([DeviceCertificateUpdateAction] -&gt; Encoding)
+-&gt; ToJSON DeviceCertificateUpdateAction
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeviceCertificateUpdateAction] -&gt; Encoding
+$ctoEncodingList :: [DeviceCertificateUpdateAction] -&gt; Encoding
+toJSONList :: [DeviceCertificateUpdateAction] -&gt; Value
+$ctoJSONList :: [DeviceCertificateUpdateAction] -&gt; Value
+toEncoding :: DeviceCertificateUpdateAction -&gt; Encoding
+$ctoEncoding :: DeviceCertificateUpdateAction -&gt; Encoding
+toJSON :: DeviceCertificateUpdateAction -&gt; Value
+$ctoJSON :: DeviceCertificateUpdateAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679782362"><span id="local-6989586621679782364"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeviceCertificateUpdateAction]
+ToJSONKeyFunction DeviceCertificateUpdateAction
+ToJSONKeyFunction DeviceCertificateUpdateAction
+-&gt; ToJSONKeyFunction [DeviceCertificateUpdateAction]
+-&gt; ToJSONKey DeviceCertificateUpdateAction
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeviceCertificateUpdateAction]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeviceCertificateUpdateAction]
+toJSONKey :: ToJSONKeyFunction DeviceCertificateUpdateAction
+$ctoJSONKey :: ToJSONKeyFunction DeviceCertificateUpdateAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679782359"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeviceCertificateUpdateAction
+([Node] -&gt; Either String DeviceCertificateUpdateAction)
+-&gt; FromXML DeviceCertificateUpdateAction
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeviceCertificateUpdateAction
+$cparseXML :: [Node] -&gt; Either String DeviceCertificateUpdateAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679782356"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction -&gt; XML
+(DeviceCertificateUpdateAction -&gt; XML)
+-&gt; ToXML DeviceCertificateUpdateAction
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeviceCertificateUpdateAction -&gt; XML
+$ctoXML :: DeviceCertificateUpdateAction -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DeviceCertificateUpdateAction.html#DeviceCertificateUpdateAction_DEACTIVATE"><span class="hs-identifier hs-type">DeviceCertificateUpdateAction_DEACTIVATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DeviceCertificateUpdateAction.html#DeviceCertificateUpdateAction"><span class="hs-identifier hs-type">DeviceCertificateUpdateAction</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceCertificateUpdateAction_DEACTIVATE"><span id="%24mDeviceCertificateUpdateAction_DEACTIVATE"><span id="DeviceCertificateUpdateAction_DEACTIVATE"><span class="annot"><span class="annottext">$bDeviceCertificateUpdateAction_DEACTIVATE :: DeviceCertificateUpdateAction
+$mDeviceCertificateUpdateAction_DEACTIVATE :: forall r.
+DeviceCertificateUpdateAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoT.Types.DeviceCertificateUpdateAction.html#%24bDeviceCertificateUpdateAction_DEACTIVATE"><span class="hs-identifier hs-var hs-var hs-var">DeviceCertificateUpdateAction_DEACTIVATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DeviceCertificateUpdateAction.html#DeviceCertificateUpdateAction%27"><span class="hs-identifier hs-type">DeviceCertificateUpdateAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEACTIVATE&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.DeviceCertificateUpdateAction.html#DeviceCertificateUpdateAction_DEACTIVATE"><span class="hs-pragma hs-type">DeviceCertificateUpdateAction_DEACTIVATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.DeviceCertificateUpdateAction.html#DeviceCertificateUpdateAction%27"><span class="hs-pragma hs-type">DeviceCertificateUpdateAction'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

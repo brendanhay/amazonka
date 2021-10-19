@@ -5,11 +5,7 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lens
-  ( module Export,
-    _Coerce,
-  )
-where
+module Network.AWS.Lens (module Export) where
 
 import Control.Exception.Lens as Export
   ( catching,
@@ -34,6 +30,7 @@ import Control.Lens as Export
     Traversal',
     allOf,
     anyOf,
+    coerced,
     concatOf,
     filtered,
     folding,
@@ -62,7 +59,3 @@ import Control.Lens as Export
     _Just,
     _last,
   )
-import Data.Coerce (Coercible, coerce)
-
-_Coerce :: (Coercible a b, Coercible b a) => Iso' a b
-_Coerce = iso coerce coerce

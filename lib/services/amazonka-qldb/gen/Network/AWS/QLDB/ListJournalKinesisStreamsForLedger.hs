@@ -47,8 +47,8 @@ module Network.AWS.QLDB.ListJournalKinesisStreamsForLedger
     newListJournalKinesisStreamsForLedgerResponse,
 
     -- * Response Lenses
-    listJournalKinesisStreamsForLedgerResponse_streams,
     listJournalKinesisStreamsForLedgerResponse_nextToken,
+    listJournalKinesisStreamsForLedgerResponse_streams,
     listJournalKinesisStreamsForLedgerResponse_httpStatus,
   )
 where
@@ -135,8 +135,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListJournalKinesisStreamsForLedgerResponse'
-            Prelude.<$> (x Core..?> "Streams" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> (x Core..?> "Streams" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,16 +185,16 @@ instance
 
 -- | /See:/ 'newListJournalKinesisStreamsForLedgerResponse' smart constructor.
 data ListJournalKinesisStreamsForLedgerResponse = ListJournalKinesisStreamsForLedgerResponse'
-  { -- | The array of QLDB journal stream descriptors that are associated with
-    -- the given ledger.
-    streams :: Prelude.Maybe [JournalKinesisStreamDescription],
-    -- | -   If @NextToken@ is empty, the last page of results has been processed
+  { -- | -   If @NextToken@ is empty, the last page of results has been processed
     --     and there are no more results to be retrieved.
     --
     -- -   If @NextToken@ is /not/ empty, more results are available. To
     --     retrieve the next page of results, use the value of @NextToken@ in a
     --     subsequent @ListJournalKinesisStreamsForLedger@ call.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The array of QLDB journal stream descriptors that are associated with
+    -- the given ledger.
+    streams :: Prelude.Maybe [JournalKinesisStreamDescription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,15 +208,15 @@ data ListJournalKinesisStreamsForLedgerResponse = ListJournalKinesisStreamsForLe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streams', 'listJournalKinesisStreamsForLedgerResponse_streams' - The array of QLDB journal stream descriptors that are associated with
--- the given ledger.
---
 -- 'nextToken', 'listJournalKinesisStreamsForLedgerResponse_nextToken' - -   If @NextToken@ is empty, the last page of results has been processed
 --     and there are no more results to be retrieved.
 --
 -- -   If @NextToken@ is /not/ empty, more results are available. To
 --     retrieve the next page of results, use the value of @NextToken@ in a
 --     subsequent @ListJournalKinesisStreamsForLedger@ call.
+--
+-- 'streams', 'listJournalKinesisStreamsForLedgerResponse_streams' - The array of QLDB journal stream descriptors that are associated with
+-- the given ledger.
 --
 -- 'httpStatus', 'listJournalKinesisStreamsForLedgerResponse_httpStatus' - The response's http status code.
 newListJournalKinesisStreamsForLedgerResponse ::
@@ -226,16 +226,11 @@ newListJournalKinesisStreamsForLedgerResponse ::
 newListJournalKinesisStreamsForLedgerResponse
   pHttpStatus_ =
     ListJournalKinesisStreamsForLedgerResponse'
-      { streams =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        streams = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The array of QLDB journal stream descriptors that are associated with
--- the given ledger.
-listJournalKinesisStreamsForLedgerResponse_streams :: Lens.Lens' ListJournalKinesisStreamsForLedgerResponse (Prelude.Maybe [JournalKinesisStreamDescription])
-listJournalKinesisStreamsForLedgerResponse_streams = Lens.lens (\ListJournalKinesisStreamsForLedgerResponse' {streams} -> streams) (\s@ListJournalKinesisStreamsForLedgerResponse' {} a -> s {streams = a} :: ListJournalKinesisStreamsForLedgerResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | -   If @NextToken@ is empty, the last page of results has been processed
 --     and there are no more results to be retrieved.
@@ -245,6 +240,11 @@ listJournalKinesisStreamsForLedgerResponse_streams = Lens.lens (\ListJournalKine
 --     subsequent @ListJournalKinesisStreamsForLedger@ call.
 listJournalKinesisStreamsForLedgerResponse_nextToken :: Lens.Lens' ListJournalKinesisStreamsForLedgerResponse (Prelude.Maybe Prelude.Text)
 listJournalKinesisStreamsForLedgerResponse_nextToken = Lens.lens (\ListJournalKinesisStreamsForLedgerResponse' {nextToken} -> nextToken) (\s@ListJournalKinesisStreamsForLedgerResponse' {} a -> s {nextToken = a} :: ListJournalKinesisStreamsForLedgerResponse)
+
+-- | The array of QLDB journal stream descriptors that are associated with
+-- the given ledger.
+listJournalKinesisStreamsForLedgerResponse_streams :: Lens.Lens' ListJournalKinesisStreamsForLedgerResponse (Prelude.Maybe [JournalKinesisStreamDescription])
+listJournalKinesisStreamsForLedgerResponse_streams = Lens.lens (\ListJournalKinesisStreamsForLedgerResponse' {streams} -> streams) (\s@ListJournalKinesisStreamsForLedgerResponse' {} a -> s {streams = a} :: ListJournalKinesisStreamsForLedgerResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listJournalKinesisStreamsForLedgerResponse_httpStatus :: Lens.Lens' ListJournalKinesisStreamsForLedgerResponse Prelude.Int

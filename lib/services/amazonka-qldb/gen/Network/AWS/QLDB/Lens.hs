@@ -14,92 +14,33 @@
 module Network.AWS.QLDB.Lens
   ( -- * Operations
 
-    -- ** UpdateLedgerPermissionsMode
-    updateLedgerPermissionsMode_name,
-    updateLedgerPermissionsMode_permissionsMode,
-    updateLedgerPermissionsModeResponse_permissionsMode,
-    updateLedgerPermissionsModeResponse_arn,
-    updateLedgerPermissionsModeResponse_name,
-    updateLedgerPermissionsModeResponse_httpStatus,
-
     -- ** UpdateLedger
     updateLedger_deletionProtection,
     updateLedger_kmsKey,
     updateLedger_name,
+    updateLedgerResponse_state,
     updateLedgerResponse_deletionProtection,
     updateLedgerResponse_arn,
-    updateLedgerResponse_name,
-    updateLedgerResponse_state,
     updateLedgerResponse_encryptionDescription,
+    updateLedgerResponse_name,
     updateLedgerResponse_creationDateTime,
     updateLedgerResponse_httpStatus,
 
     -- ** DeleteLedger
     deleteLedger_name,
 
-    -- ** ListLedgers
-    listLedgers_nextToken,
-    listLedgers_maxResults,
-    listLedgersResponse_nextToken,
-    listLedgersResponse_ledgers,
-    listLedgersResponse_httpStatus,
+    -- ** ListJournalKinesisStreamsForLedger
+    listJournalKinesisStreamsForLedger_nextToken,
+    listJournalKinesisStreamsForLedger_maxResults,
+    listJournalKinesisStreamsForLedger_ledgerName,
+    listJournalKinesisStreamsForLedgerResponse_nextToken,
+    listJournalKinesisStreamsForLedgerResponse_streams,
+    listJournalKinesisStreamsForLedgerResponse_httpStatus,
 
-    -- ** CreateLedger
-    createLedger_deletionProtection,
-    createLedger_kmsKey,
-    createLedger_tags,
-    createLedger_name,
-    createLedger_permissionsMode,
-    createLedgerResponse_deletionProtection,
-    createLedgerResponse_permissionsMode,
-    createLedgerResponse_arn,
-    createLedgerResponse_name,
-    createLedgerResponse_kmsKeyArn,
-    createLedgerResponse_state,
-    createLedgerResponse_creationDateTime,
-    createLedgerResponse_httpStatus,
-
-    -- ** ExportJournalToS
-    exportJournalToS_name,
-    exportJournalToS_inclusiveStartTime,
-    exportJournalToS_exclusiveEndTime,
-    exportJournalToS_s3ExportConfiguration,
-    exportJournalToS_roleArn,
-    exportJournalToSResponse_httpStatus,
-    exportJournalToSResponse_exportId,
-
-    -- ** CancelJournalKinesisStream
-    cancelJournalKinesisStream_ledgerName,
-    cancelJournalKinesisStream_streamId,
-    cancelJournalKinesisStreamResponse_streamId,
-    cancelJournalKinesisStreamResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** DescribeLedger
-    describeLedger_name,
-    describeLedgerResponse_deletionProtection,
-    describeLedgerResponse_permissionsMode,
-    describeLedgerResponse_arn,
-    describeLedgerResponse_name,
-    describeLedgerResponse_state,
-    describeLedgerResponse_encryptionDescription,
-    describeLedgerResponse_creationDateTime,
-    describeLedgerResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** DescribeJournalS3Export
-    describeJournalS3Export_name,
-    describeJournalS3Export_exportId,
-    describeJournalS3ExportResponse_httpStatus,
-    describeJournalS3ExportResponse_exportDescription,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** GetRevision
     getRevision_digestTipAddress,
@@ -110,36 +51,31 @@ module Network.AWS.QLDB.Lens
     getRevisionResponse_httpStatus,
     getRevisionResponse_revision,
 
-    -- ** ListJournalS3ExportsForLedger
-    listJournalS3ExportsForLedger_nextToken,
-    listJournalS3ExportsForLedger_maxResults,
-    listJournalS3ExportsForLedger_name,
-    listJournalS3ExportsForLedgerResponse_nextToken,
-    listJournalS3ExportsForLedgerResponse_journalS3Exports,
-    listJournalS3ExportsForLedgerResponse_httpStatus,
+    -- ** DescribeLedger
+    describeLedger_name,
+    describeLedgerResponse_state,
+    describeLedgerResponse_deletionProtection,
+    describeLedgerResponse_arn,
+    describeLedgerResponse_encryptionDescription,
+    describeLedgerResponse_name,
+    describeLedgerResponse_creationDateTime,
+    describeLedgerResponse_permissionsMode,
+    describeLedgerResponse_httpStatus,
 
-    -- ** ListJournalKinesisStreamsForLedger
-    listJournalKinesisStreamsForLedger_nextToken,
-    listJournalKinesisStreamsForLedger_maxResults,
-    listJournalKinesisStreamsForLedger_ledgerName,
-    listJournalKinesisStreamsForLedgerResponse_streams,
-    listJournalKinesisStreamsForLedgerResponse_nextToken,
-    listJournalKinesisStreamsForLedgerResponse_httpStatus,
+    -- ** CancelJournalKinesisStream
+    cancelJournalKinesisStream_ledgerName,
+    cancelJournalKinesisStream_streamId,
+    cancelJournalKinesisStreamResponse_streamId,
+    cancelJournalKinesisStreamResponse_httpStatus,
 
-    -- ** GetBlock
-    getBlock_digestTipAddress,
-    getBlock_name,
-    getBlock_blockAddress,
-    getBlockResponse_proof,
-    getBlockResponse_httpStatus,
-    getBlockResponse_block,
-
-    -- ** ListJournalS3Exports
-    listJournalS3Exports_nextToken,
-    listJournalS3Exports_maxResults,
-    listJournalS3ExportsResponse_nextToken,
-    listJournalS3ExportsResponse_journalS3Exports,
-    listJournalS3ExportsResponse_httpStatus,
+    -- ** ExportJournalToS
+    exportJournalToS_name,
+    exportJournalToS_inclusiveStartTime,
+    exportJournalToS_exclusiveEndTime,
+    exportJournalToS_s3ExportConfiguration,
+    exportJournalToS_roleArn,
+    exportJournalToSResponse_httpStatus,
+    exportJournalToSResponse_exportId,
 
     -- ** StreamJournalToKinesis
     streamJournalToKinesis_exclusiveEndTime,
@@ -152,11 +88,58 @@ module Network.AWS.QLDB.Lens
     streamJournalToKinesisResponse_streamId,
     streamJournalToKinesisResponse_httpStatus,
 
-    -- ** GetDigest
-    getDigest_name,
-    getDigestResponse_httpStatus,
-    getDigestResponse_digest,
-    getDigestResponse_digestTipAddress,
+    -- ** CreateLedger
+    createLedger_deletionProtection,
+    createLedger_kmsKey,
+    createLedger_tags,
+    createLedger_name,
+    createLedger_permissionsMode,
+    createLedgerResponse_state,
+    createLedgerResponse_deletionProtection,
+    createLedgerResponse_kmsKeyArn,
+    createLedgerResponse_arn,
+    createLedgerResponse_name,
+    createLedgerResponse_creationDateTime,
+    createLedgerResponse_permissionsMode,
+    createLedgerResponse_httpStatus,
+
+    -- ** ListLedgers
+    listLedgers_nextToken,
+    listLedgers_maxResults,
+    listLedgersResponse_ledgers,
+    listLedgersResponse_nextToken,
+    listLedgersResponse_httpStatus,
+
+    -- ** ListJournalS3Exports
+    listJournalS3Exports_nextToken,
+    listJournalS3Exports_maxResults,
+    listJournalS3ExportsResponse_journalS3Exports,
+    listJournalS3ExportsResponse_nextToken,
+    listJournalS3ExportsResponse_httpStatus,
+
+    -- ** UpdateLedgerPermissionsMode
+    updateLedgerPermissionsMode_name,
+    updateLedgerPermissionsMode_permissionsMode,
+    updateLedgerPermissionsModeResponse_arn,
+    updateLedgerPermissionsModeResponse_name,
+    updateLedgerPermissionsModeResponse_permissionsMode,
+    updateLedgerPermissionsModeResponse_httpStatus,
+
+    -- ** GetBlock
+    getBlock_digestTipAddress,
+    getBlock_name,
+    getBlock_blockAddress,
+    getBlockResponse_proof,
+    getBlockResponse_httpStatus,
+    getBlockResponse_block,
+
+    -- ** ListJournalS3ExportsForLedger
+    listJournalS3ExportsForLedger_nextToken,
+    listJournalS3ExportsForLedger_maxResults,
+    listJournalS3ExportsForLedger_name,
+    listJournalS3ExportsForLedgerResponse_journalS3Exports,
+    listJournalS3ExportsForLedgerResponse_nextToken,
+    listJournalS3ExportsForLedgerResponse_httpStatus,
 
     -- ** DescribeJournalKinesisStream
     describeJournalKinesisStream_ledgerName,
@@ -164,18 +147,35 @@ module Network.AWS.QLDB.Lens
     describeJournalKinesisStreamResponse_stream,
     describeJournalKinesisStreamResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** DescribeJournalS3Export
+    describeJournalS3Export_name,
+    describeJournalS3Export_exportId,
+    describeJournalS3ExportResponse_httpStatus,
+    describeJournalS3ExportResponse_exportDescription,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** GetDigest
+    getDigest_name,
+    getDigestResponse_httpStatus,
+    getDigestResponse_digest,
+    getDigestResponse_digestTipAddress,
 
     -- * Types
 
     -- ** JournalKinesisStreamDescription
     journalKinesisStreamDescription_creationTime,
-    journalKinesisStreamDescription_errorCause,
-    journalKinesisStreamDescription_inclusiveStartTime,
     journalKinesisStreamDescription_arn,
+    journalKinesisStreamDescription_inclusiveStartTime,
+    journalKinesisStreamDescription_errorCause,
     journalKinesisStreamDescription_exclusiveEndTime,
     journalKinesisStreamDescription_ledgerName,
     journalKinesisStreamDescription_roleArn,
@@ -204,8 +204,8 @@ module Network.AWS.QLDB.Lens
     ledgerEncryptionDescription_encryptionStatus,
 
     -- ** LedgerSummary
-    ledgerSummary_name,
     ledgerSummary_state,
+    ledgerSummary_name,
     ledgerSummary_creationDateTime,
 
     -- ** S3EncryptionConfiguration

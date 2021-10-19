@@ -36,15 +36,15 @@ data JournalKinesisStreamDescription = JournalKinesisStreamDescription'
     -- was created. (Epoch time format is the number of seconds elapsed since
     -- 12:00:00 AM January 1, 1970 UTC.)
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the QLDB journal stream.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The inclusive start date and time from which to start streaming journal
+    -- data.
+    inclusiveStartTime :: Prelude.Maybe Core.POSIX,
     -- | The error message that describes the reason that a stream has a status
     -- of @IMPAIRED@ or @FAILED@. This is not applicable to streams that have
     -- other status values.
     errorCause :: Prelude.Maybe ErrorCause,
-    -- | The inclusive start date and time from which to start streaming journal
-    -- data.
-    inclusiveStartTime :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) of the QLDB journal stream.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The exclusive date and time that specifies when the stream ends. If this
     -- parameter is undefined, the stream runs indefinitely until you cancel
     -- it.
@@ -80,14 +80,14 @@ data JournalKinesisStreamDescription = JournalKinesisStreamDescription'
 -- was created. (Epoch time format is the number of seconds elapsed since
 -- 12:00:00 AM January 1, 1970 UTC.)
 --
--- 'errorCause', 'journalKinesisStreamDescription_errorCause' - The error message that describes the reason that a stream has a status
--- of @IMPAIRED@ or @FAILED@. This is not applicable to streams that have
--- other status values.
+-- 'arn', 'journalKinesisStreamDescription_arn' - The Amazon Resource Name (ARN) of the QLDB journal stream.
 --
 -- 'inclusiveStartTime', 'journalKinesisStreamDescription_inclusiveStartTime' - The inclusive start date and time from which to start streaming journal
 -- data.
 --
--- 'arn', 'journalKinesisStreamDescription_arn' - The Amazon Resource Name (ARN) of the QLDB journal stream.
+-- 'errorCause', 'journalKinesisStreamDescription_errorCause' - The error message that describes the reason that a stream has a status
+-- of @IMPAIRED@ or @FAILED@. This is not applicable to streams that have
+-- other status values.
 --
 -- 'exclusiveEndTime', 'journalKinesisStreamDescription_exclusiveEndTime' - The exclusive date and time that specifies when the stream ends. If this
 -- parameter is undefined, the stream runs indefinitely until you cancel
@@ -132,9 +132,9 @@ newJournalKinesisStreamDescription
     JournalKinesisStreamDescription'
       { creationTime =
           Prelude.Nothing,
-        errorCause = Prelude.Nothing,
-        inclusiveStartTime = Prelude.Nothing,
         arn = Prelude.Nothing,
+        inclusiveStartTime = Prelude.Nothing,
+        errorCause = Prelude.Nothing,
         exclusiveEndTime = Prelude.Nothing,
         ledgerName = pLedgerName_,
         roleArn = pRoleArn_,
@@ -151,20 +151,20 @@ newJournalKinesisStreamDescription
 journalKinesisStreamDescription_creationTime :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe Prelude.UTCTime)
 journalKinesisStreamDescription_creationTime = Lens.lens (\JournalKinesisStreamDescription' {creationTime} -> creationTime) (\s@JournalKinesisStreamDescription' {} a -> s {creationTime = a} :: JournalKinesisStreamDescription) Prelude.. Lens.mapping Core._Time
 
--- | The error message that describes the reason that a stream has a status
--- of @IMPAIRED@ or @FAILED@. This is not applicable to streams that have
--- other status values.
-journalKinesisStreamDescription_errorCause :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe ErrorCause)
-journalKinesisStreamDescription_errorCause = Lens.lens (\JournalKinesisStreamDescription' {errorCause} -> errorCause) (\s@JournalKinesisStreamDescription' {} a -> s {errorCause = a} :: JournalKinesisStreamDescription)
+-- | The Amazon Resource Name (ARN) of the QLDB journal stream.
+journalKinesisStreamDescription_arn :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe Prelude.Text)
+journalKinesisStreamDescription_arn = Lens.lens (\JournalKinesisStreamDescription' {arn} -> arn) (\s@JournalKinesisStreamDescription' {} a -> s {arn = a} :: JournalKinesisStreamDescription)
 
 -- | The inclusive start date and time from which to start streaming journal
 -- data.
 journalKinesisStreamDescription_inclusiveStartTime :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe Prelude.UTCTime)
 journalKinesisStreamDescription_inclusiveStartTime = Lens.lens (\JournalKinesisStreamDescription' {inclusiveStartTime} -> inclusiveStartTime) (\s@JournalKinesisStreamDescription' {} a -> s {inclusiveStartTime = a} :: JournalKinesisStreamDescription) Prelude.. Lens.mapping Core._Time
 
--- | The Amazon Resource Name (ARN) of the QLDB journal stream.
-journalKinesisStreamDescription_arn :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe Prelude.Text)
-journalKinesisStreamDescription_arn = Lens.lens (\JournalKinesisStreamDescription' {arn} -> arn) (\s@JournalKinesisStreamDescription' {} a -> s {arn = a} :: JournalKinesisStreamDescription)
+-- | The error message that describes the reason that a stream has a status
+-- of @IMPAIRED@ or @FAILED@. This is not applicable to streams that have
+-- other status values.
+journalKinesisStreamDescription_errorCause :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe ErrorCause)
+journalKinesisStreamDescription_errorCause = Lens.lens (\JournalKinesisStreamDescription' {errorCause} -> errorCause) (\s@JournalKinesisStreamDescription' {} a -> s {errorCause = a} :: JournalKinesisStreamDescription)
 
 -- | The exclusive date and time that specifies when the stream ends. If this
 -- parameter is undefined, the stream runs indefinitely until you cancel
@@ -210,9 +210,9 @@ instance
       ( \x ->
           JournalKinesisStreamDescription'
             Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ErrorCause")
-            Prelude.<*> (x Core..:? "InclusiveStartTime")
             Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "InclusiveStartTime")
+            Prelude.<*> (x Core..:? "ErrorCause")
             Prelude.<*> (x Core..:? "ExclusiveEndTime")
             Prelude.<*> (x Core..: "LedgerName")
             Prelude.<*> (x Core..: "RoleArn")

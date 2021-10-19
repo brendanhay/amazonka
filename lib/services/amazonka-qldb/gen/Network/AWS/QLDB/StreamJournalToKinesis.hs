@@ -192,7 +192,7 @@ streamJournalToKinesis_exclusiveEndTime = Lens.lens (\StreamJournalToKinesis' {e
 -- create. Tag keys are case sensitive. Tag values are case sensitive and
 -- can be null.
 streamJournalToKinesis_tags :: Lens.Lens' StreamJournalToKinesis (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-streamJournalToKinesis_tags = Lens.lens (\StreamJournalToKinesis' {tags} -> tags) (\s@StreamJournalToKinesis' {} a -> s {tags = a} :: StreamJournalToKinesis) Prelude.. Lens.mapping Lens._Coerce
+streamJournalToKinesis_tags = Lens.lens (\StreamJournalToKinesis' {tags} -> tags) (\s@StreamJournalToKinesis' {} a -> s {tags = a} :: StreamJournalToKinesis) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the ledger.
 streamJournalToKinesis_ledgerName :: Lens.Lens' StreamJournalToKinesis Prelude.Text

@@ -28,10 +28,10 @@ import Network.AWS.WorkDocs.Types.StorageType
 --
 -- /See:/ 'newStorageRuleType' smart constructor.
 data StorageRuleType = StorageRuleType'
-  { -- | The type of storage.
-    storageType :: Prelude.Maybe StorageType,
-    -- | The amount of storage allocated, in bytes.
-    storageAllocatedInBytes :: Prelude.Maybe Prelude.Natural
+  { -- | The amount of storage allocated, in bytes.
+    storageAllocatedInBytes :: Prelude.Maybe Prelude.Natural,
+    -- | The type of storage.
+    storageType :: Prelude.Maybe StorageType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,25 @@ data StorageRuleType = StorageRuleType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'storageType', 'storageRuleType_storageType' - The type of storage.
---
 -- 'storageAllocatedInBytes', 'storageRuleType_storageAllocatedInBytes' - The amount of storage allocated, in bytes.
+--
+-- 'storageType', 'storageRuleType_storageType' - The type of storage.
 newStorageRuleType ::
   StorageRuleType
 newStorageRuleType =
   StorageRuleType'
-    { storageType = Prelude.Nothing,
-      storageAllocatedInBytes = Prelude.Nothing
+    { storageAllocatedInBytes =
+        Prelude.Nothing,
+      storageType = Prelude.Nothing
     }
-
--- | The type of storage.
-storageRuleType_storageType :: Lens.Lens' StorageRuleType (Prelude.Maybe StorageType)
-storageRuleType_storageType = Lens.lens (\StorageRuleType' {storageType} -> storageType) (\s@StorageRuleType' {} a -> s {storageType = a} :: StorageRuleType)
 
 -- | The amount of storage allocated, in bytes.
 storageRuleType_storageAllocatedInBytes :: Lens.Lens' StorageRuleType (Prelude.Maybe Prelude.Natural)
 storageRuleType_storageAllocatedInBytes = Lens.lens (\StorageRuleType' {storageAllocatedInBytes} -> storageAllocatedInBytes) (\s@StorageRuleType' {} a -> s {storageAllocatedInBytes = a} :: StorageRuleType)
+
+-- | The type of storage.
+storageRuleType_storageType :: Lens.Lens' StorageRuleType (Prelude.Maybe StorageType)
+storageRuleType_storageType = Lens.lens (\StorageRuleType' {storageType} -> storageType) (\s@StorageRuleType' {} a -> s {storageType = a} :: StorageRuleType)
 
 instance Core.FromJSON StorageRuleType where
   parseJSON =
@@ -68,8 +69,8 @@ instance Core.FromJSON StorageRuleType where
       "StorageRuleType"
       ( \x ->
           StorageRuleType'
-            Prelude.<$> (x Core..:? "StorageType")
-            Prelude.<*> (x Core..:? "StorageAllocatedInBytes")
+            Prelude.<$> (x Core..:? "StorageAllocatedInBytes")
+            Prelude.<*> (x Core..:? "StorageType")
       )
 
 instance Prelude.Hashable StorageRuleType
@@ -80,8 +81,8 @@ instance Core.ToJSON StorageRuleType where
   toJSON StorageRuleType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StorageType" Core..=) Prelude.<$> storageType,
-            ("StorageAllocatedInBytes" Core..=)
-              Prelude.<$> storageAllocatedInBytes
+          [ ("StorageAllocatedInBytes" Core..=)
+              Prelude.<$> storageAllocatedInBytes,
+            ("StorageType" Core..=) Prelude.<$> storageType
           ]
       )

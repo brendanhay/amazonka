@@ -57,11 +57,11 @@ newParticipants =
 
 -- | The list of user groups.
 participants_groups :: Lens.Lens' Participants (Prelude.Maybe [GroupMetadata])
-participants_groups = Lens.lens (\Participants' {groups} -> groups) (\s@Participants' {} a -> s {groups = a} :: Participants) Prelude.. Lens.mapping Lens._Coerce
+participants_groups = Lens.lens (\Participants' {groups} -> groups) (\s@Participants' {} a -> s {groups = a} :: Participants) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of users.
 participants_users :: Lens.Lens' Participants (Prelude.Maybe [UserMetadata])
-participants_users = Lens.lens (\Participants' {users} -> users) (\s@Participants' {} a -> s {users = a} :: Participants) Prelude.. Lens.mapping Lens._Coerce
+participants_users = Lens.lens (\Participants' {users} -> users) (\s@Participants' {} a -> s {users = a} :: Participants) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Participants where
   parseJSON =

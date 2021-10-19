@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGroupMetadata' smart constructor.
 data GroupMetadata = GroupMetadata'
-  { -- | The ID of the user group.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The name of the group.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the group.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the user group.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data GroupMetadata = GroupMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'groupMetadata_id' - The ID of the user group.
---
 -- 'name', 'groupMetadata_name' - The name of the group.
+--
+-- 'id', 'groupMetadata_id' - The ID of the user group.
 newGroupMetadata ::
   GroupMetadata
 newGroupMetadata =
   GroupMetadata'
-    { id = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      id = Prelude.Nothing
     }
-
--- | The ID of the user group.
-groupMetadata_id :: Lens.Lens' GroupMetadata (Prelude.Maybe Prelude.Text)
-groupMetadata_id = Lens.lens (\GroupMetadata' {id} -> id) (\s@GroupMetadata' {} a -> s {id = a} :: GroupMetadata)
 
 -- | The name of the group.
 groupMetadata_name :: Lens.Lens' GroupMetadata (Prelude.Maybe Prelude.Text)
 groupMetadata_name = Lens.lens (\GroupMetadata' {name} -> name) (\s@GroupMetadata' {} a -> s {name = a} :: GroupMetadata)
+
+-- | The ID of the user group.
+groupMetadata_id :: Lens.Lens' GroupMetadata (Prelude.Maybe Prelude.Text)
+groupMetadata_id = Lens.lens (\GroupMetadata' {id} -> id) (\s@GroupMetadata' {} a -> s {id = a} :: GroupMetadata)
 
 instance Core.FromJSON GroupMetadata where
   parseJSON =
@@ -67,7 +67,7 @@ instance Core.FromJSON GroupMetadata where
       "GroupMetadata"
       ( \x ->
           GroupMetadata'
-            Prelude.<$> (x Core..:? "Id") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable GroupMetadata

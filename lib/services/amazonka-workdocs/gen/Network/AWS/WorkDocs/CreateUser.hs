@@ -28,11 +28,11 @@ module Network.AWS.WorkDocs.CreateUser
     newCreateUser,
 
     -- * Request Lenses
-    createUser_storageRule,
-    createUser_organizationId,
-    createUser_timeZoneId,
     createUser_authenticationToken,
+    createUser_storageRule,
     createUser_emailAddress,
+    createUser_timeZoneId,
+    createUser_organizationId,
     createUser_username,
     createUser_givenName,
     createUser_surname,
@@ -57,17 +57,17 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { -- | The amount of storage for the user.
-    storageRule :: Prelude.Maybe StorageRuleType,
-    -- | The ID of the organization.
-    organizationId :: Prelude.Maybe Prelude.Text,
-    -- | The time zone ID of the user.
-    timeZoneId :: Prelude.Maybe Prelude.Text,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The amount of storage for the user.
+    storageRule :: Prelude.Maybe StorageRuleType,
     -- | The email address of the user.
     emailAddress :: Prelude.Maybe Prelude.Text,
+    -- | The time zone ID of the user.
+    timeZoneId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the organization.
+    organizationId :: Prelude.Maybe Prelude.Text,
     -- | The login name of the user.
     username :: Prelude.Text,
     -- | The given name of the user.
@@ -87,16 +87,16 @@ data CreateUser = CreateUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'storageRule', 'createUser_storageRule' - The amount of storage for the user.
---
--- 'organizationId', 'createUser_organizationId' - The ID of the organization.
---
--- 'timeZoneId', 'createUser_timeZoneId' - The time zone ID of the user.
---
 -- 'authenticationToken', 'createUser_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 --
+-- 'storageRule', 'createUser_storageRule' - The amount of storage for the user.
+--
 -- 'emailAddress', 'createUser_emailAddress' - The email address of the user.
+--
+-- 'timeZoneId', 'createUser_timeZoneId' - The time zone ID of the user.
+--
+-- 'organizationId', 'createUser_organizationId' - The ID of the organization.
 --
 -- 'username', 'createUser_username' - The login name of the user.
 --
@@ -121,37 +121,37 @@ newCreateUser
   pSurname_
   pPassword_ =
     CreateUser'
-      { storageRule = Prelude.Nothing,
-        organizationId = Prelude.Nothing,
-        timeZoneId = Prelude.Nothing,
-        authenticationToken = Prelude.Nothing,
+      { authenticationToken = Prelude.Nothing,
+        storageRule = Prelude.Nothing,
         emailAddress = Prelude.Nothing,
+        timeZoneId = Prelude.Nothing,
+        organizationId = Prelude.Nothing,
         username = pUsername_,
         givenName = pGivenName_,
         surname = pSurname_,
         password = Core._Sensitive Lens.# pPassword_
       }
 
--- | The amount of storage for the user.
-createUser_storageRule :: Lens.Lens' CreateUser (Prelude.Maybe StorageRuleType)
-createUser_storageRule = Lens.lens (\CreateUser' {storageRule} -> storageRule) (\s@CreateUser' {} a -> s {storageRule = a} :: CreateUser)
-
--- | The ID of the organization.
-createUser_organizationId :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_organizationId = Lens.lens (\CreateUser' {organizationId} -> organizationId) (\s@CreateUser' {} a -> s {organizationId = a} :: CreateUser)
-
--- | The time zone ID of the user.
-createUser_timeZoneId :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_timeZoneId = Lens.lens (\CreateUser' {timeZoneId} -> timeZoneId) (\s@CreateUser' {} a -> s {timeZoneId = a} :: CreateUser)
-
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 createUser_authenticationToken :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_authenticationToken = Lens.lens (\CreateUser' {authenticationToken} -> authenticationToken) (\s@CreateUser' {} a -> s {authenticationToken = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
 
+-- | The amount of storage for the user.
+createUser_storageRule :: Lens.Lens' CreateUser (Prelude.Maybe StorageRuleType)
+createUser_storageRule = Lens.lens (\CreateUser' {storageRule} -> storageRule) (\s@CreateUser' {} a -> s {storageRule = a} :: CreateUser)
+
 -- | The email address of the user.
 createUser_emailAddress :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_emailAddress = Lens.lens (\CreateUser' {emailAddress} -> emailAddress) (\s@CreateUser' {} a -> s {emailAddress = a} :: CreateUser)
+
+-- | The time zone ID of the user.
+createUser_timeZoneId :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_timeZoneId = Lens.lens (\CreateUser' {timeZoneId} -> timeZoneId) (\s@CreateUser' {} a -> s {timeZoneId = a} :: CreateUser)
+
+-- | The ID of the organization.
+createUser_organizationId :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_organizationId = Lens.lens (\CreateUser' {organizationId} -> organizationId) (\s@CreateUser' {} a -> s {organizationId = a} :: CreateUser)
 
 -- | The login name of the user.
 createUser_username :: Lens.Lens' CreateUser Prelude.Text
@@ -197,10 +197,10 @@ instance Core.ToJSON CreateUser where
     Core.object
       ( Prelude.catMaybes
           [ ("StorageRule" Core..=) Prelude.<$> storageRule,
+            ("EmailAddress" Core..=) Prelude.<$> emailAddress,
+            ("TimeZoneId" Core..=) Prelude.<$> timeZoneId,
             ("OrganizationId" Core..=)
               Prelude.<$> organizationId,
-            ("TimeZoneId" Core..=) Prelude.<$> timeZoneId,
-            ("EmailAddress" Core..=) Prelude.<$> emailAddress,
             Prelude.Just ("Username" Core..= username),
             Prelude.Just ("GivenName" Core..= givenName),
             Prelude.Just ("Surname" Core..= surname),

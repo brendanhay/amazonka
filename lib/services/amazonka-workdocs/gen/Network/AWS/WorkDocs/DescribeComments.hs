@@ -30,8 +30,8 @@ module Network.AWS.WorkDocs.DescribeComments
 
     -- * Request Lenses
     describeComments_authenticationToken,
-    describeComments_limit,
     describeComments_marker,
+    describeComments_limit,
     describeComments_documentId,
     describeComments_versionId,
 
@@ -40,8 +40,8 @@ module Network.AWS.WorkDocs.DescribeComments
     newDescribeCommentsResponse,
 
     -- * Response Lenses
-    describeCommentsResponse_comments,
     describeCommentsResponse_marker,
+    describeCommentsResponse_comments,
     describeCommentsResponse_httpStatus,
   )
 where
@@ -58,11 +58,11 @@ data DescribeComments = DescribeComments'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The maximum number of items to return.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The marker for the next set of results. This marker was received from a
     -- previous call.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the document.
     documentId :: Prelude.Text,
     -- | The ID of the document version.
@@ -81,10 +81,10 @@ data DescribeComments = DescribeComments'
 -- 'authenticationToken', 'describeComments_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 --
--- 'limit', 'describeComments_limit' - The maximum number of items to return.
---
 -- 'marker', 'describeComments_marker' - The marker for the next set of results. This marker was received from a
 -- previous call.
+--
+-- 'limit', 'describeComments_limit' - The maximum number of items to return.
 --
 -- 'documentId', 'describeComments_documentId' - The ID of the document.
 --
@@ -99,8 +99,8 @@ newDescribeComments pDocumentId_ pVersionId_ =
   DescribeComments'
     { authenticationToken =
         Prelude.Nothing,
-      limit = Prelude.Nothing,
       marker = Prelude.Nothing,
+      limit = Prelude.Nothing,
       documentId = pDocumentId_,
       versionId = pVersionId_
     }
@@ -110,14 +110,14 @@ newDescribeComments pDocumentId_ pVersionId_ =
 describeComments_authenticationToken :: Lens.Lens' DescribeComments (Prelude.Maybe Prelude.Text)
 describeComments_authenticationToken = Lens.lens (\DescribeComments' {authenticationToken} -> authenticationToken) (\s@DescribeComments' {} a -> s {authenticationToken = a} :: DescribeComments) Prelude.. Lens.mapping Core._Sensitive
 
--- | The maximum number of items to return.
-describeComments_limit :: Lens.Lens' DescribeComments (Prelude.Maybe Prelude.Natural)
-describeComments_limit = Lens.lens (\DescribeComments' {limit} -> limit) (\s@DescribeComments' {} a -> s {limit = a} :: DescribeComments)
-
 -- | The marker for the next set of results. This marker was received from a
 -- previous call.
 describeComments_marker :: Lens.Lens' DescribeComments (Prelude.Maybe Prelude.Text)
 describeComments_marker = Lens.lens (\DescribeComments' {marker} -> marker) (\s@DescribeComments' {} a -> s {marker = a} :: DescribeComments)
+
+-- | The maximum number of items to return.
+describeComments_limit :: Lens.Lens' DescribeComments (Prelude.Maybe Prelude.Natural)
+describeComments_limit = Lens.lens (\DescribeComments' {limit} -> limit) (\s@DescribeComments' {} a -> s {limit = a} :: DescribeComments)
 
 -- | The ID of the document.
 describeComments_documentId :: Lens.Lens' DescribeComments Prelude.Text
@@ -156,8 +156,8 @@ instance Core.AWSRequest DescribeComments where
     Response.receiveJSON
       ( \s h x ->
           DescribeCommentsResponse'
-            Prelude.<$> (x Core..?> "Comments" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "Comments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,15 +186,15 @@ instance Core.ToPath DescribeComments where
 instance Core.ToQuery DescribeComments where
   toQuery DescribeComments' {..} =
     Prelude.mconcat
-      ["limit" Core.=: limit, "marker" Core.=: marker]
+      ["marker" Core.=: marker, "limit" Core.=: limit]
 
 -- | /See:/ 'newDescribeCommentsResponse' smart constructor.
 data DescribeCommentsResponse = DescribeCommentsResponse'
-  { -- | The list of comments for the specified document version.
-    comments :: Prelude.Maybe [Comment],
-    -- | The marker for the next set of results. This marker was received from a
+  { -- | The marker for the next set of results. This marker was received from a
     -- previous call.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The list of comments for the specified document version.
+    comments :: Prelude.Maybe [Comment],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,10 +208,10 @@ data DescribeCommentsResponse = DescribeCommentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comments', 'describeCommentsResponse_comments' - The list of comments for the specified document version.
---
 -- 'marker', 'describeCommentsResponse_marker' - The marker for the next set of results. This marker was received from a
 -- previous call.
+--
+-- 'comments', 'describeCommentsResponse_comments' - The list of comments for the specified document version.
 --
 -- 'httpStatus', 'describeCommentsResponse_httpStatus' - The response's http status code.
 newDescribeCommentsResponse ::
@@ -220,20 +220,19 @@ newDescribeCommentsResponse ::
   DescribeCommentsResponse
 newDescribeCommentsResponse pHttpStatus_ =
   DescribeCommentsResponse'
-    { comments =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      comments = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of comments for the specified document version.
-describeCommentsResponse_comments :: Lens.Lens' DescribeCommentsResponse (Prelude.Maybe [Comment])
-describeCommentsResponse_comments = Lens.lens (\DescribeCommentsResponse' {comments} -> comments) (\s@DescribeCommentsResponse' {} a -> s {comments = a} :: DescribeCommentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The marker for the next set of results. This marker was received from a
 -- previous call.
 describeCommentsResponse_marker :: Lens.Lens' DescribeCommentsResponse (Prelude.Maybe Prelude.Text)
 describeCommentsResponse_marker = Lens.lens (\DescribeCommentsResponse' {marker} -> marker) (\s@DescribeCommentsResponse' {} a -> s {marker = a} :: DescribeCommentsResponse)
+
+-- | The list of comments for the specified document version.
+describeCommentsResponse_comments :: Lens.Lens' DescribeCommentsResponse (Prelude.Maybe [Comment])
+describeCommentsResponse_comments = Lens.lens (\DescribeCommentsResponse' {comments} -> comments) (\s@DescribeCommentsResponse' {} a -> s {comments = a} :: DescribeCommentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeCommentsResponse_httpStatus :: Lens.Lens' DescribeCommentsResponse Prelude.Int

@@ -29,10 +29,10 @@ import Network.AWS.WorkDocs.Types.PrincipalType
 --
 -- /See:/ 'newPrincipal' smart constructor.
 data Principal = Principal'
-  { -- | The ID of the resource.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The permission information for the resource.
+  { -- | The permission information for the resource.
     roles :: Prelude.Maybe [PermissionInfo],
+    -- | The ID of the resource.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The type of resource.
     type' :: Prelude.Maybe PrincipalType
   }
@@ -46,27 +46,27 @@ data Principal = Principal'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'principal_id' - The ID of the resource.
---
 -- 'roles', 'principal_roles' - The permission information for the resource.
+--
+-- 'id', 'principal_id' - The ID of the resource.
 --
 -- 'type'', 'principal_type' - The type of resource.
 newPrincipal ::
   Principal
 newPrincipal =
   Principal'
-    { id = Prelude.Nothing,
-      roles = Prelude.Nothing,
+    { roles = Prelude.Nothing,
+      id = Prelude.Nothing,
       type' = Prelude.Nothing
     }
+
+-- | The permission information for the resource.
+principal_roles :: Lens.Lens' Principal (Prelude.Maybe [PermissionInfo])
+principal_roles = Lens.lens (\Principal' {roles} -> roles) (\s@Principal' {} a -> s {roles = a} :: Principal) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the resource.
 principal_id :: Lens.Lens' Principal (Prelude.Maybe Prelude.Text)
 principal_id = Lens.lens (\Principal' {id} -> id) (\s@Principal' {} a -> s {id = a} :: Principal)
-
--- | The permission information for the resource.
-principal_roles :: Lens.Lens' Principal (Prelude.Maybe [PermissionInfo])
-principal_roles = Lens.lens (\Principal' {roles} -> roles) (\s@Principal' {} a -> s {roles = a} :: Principal) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of resource.
 principal_type :: Lens.Lens' Principal (Prelude.Maybe PrincipalType)
@@ -78,8 +78,8 @@ instance Core.FromJSON Principal where
       "Principal"
       ( \x ->
           Principal'
-            Prelude.<$> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Roles" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Roles" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Type")
       )
 

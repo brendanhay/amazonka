@@ -27,8 +27,8 @@ module Network.AWS.WorkDocs.CreateFolder
     newCreateFolder,
 
     -- * Request Lenses
-    createFolder_name,
     createFolder_authenticationToken,
+    createFolder_name,
     createFolder_parentFolderId,
 
     -- * Destructuring the Response
@@ -50,11 +50,11 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'newCreateFolder' smart constructor.
 data CreateFolder = CreateFolder'
-  { -- | The name of the new folder.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The name of the new folder.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ID of the parent folder.
     parentFolderId :: Prelude.Text
   }
@@ -68,10 +68,10 @@ data CreateFolder = CreateFolder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createFolder_name' - The name of the new folder.
---
 -- 'authenticationToken', 'createFolder_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
+--
+-- 'name', 'createFolder_name' - The name of the new folder.
 --
 -- 'parentFolderId', 'createFolder_parentFolderId' - The ID of the parent folder.
 newCreateFolder ::
@@ -80,19 +80,20 @@ newCreateFolder ::
   CreateFolder
 newCreateFolder pParentFolderId_ =
   CreateFolder'
-    { name = Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
+    { authenticationToken =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       parentFolderId = pParentFolderId_
     }
-
--- | The name of the new folder.
-createFolder_name :: Lens.Lens' CreateFolder (Prelude.Maybe Prelude.Text)
-createFolder_name = Lens.lens (\CreateFolder' {name} -> name) (\s@CreateFolder' {} a -> s {name = a} :: CreateFolder)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 createFolder_authenticationToken :: Lens.Lens' CreateFolder (Prelude.Maybe Prelude.Text)
 createFolder_authenticationToken = Lens.lens (\CreateFolder' {authenticationToken} -> authenticationToken) (\s@CreateFolder' {} a -> s {authenticationToken = a} :: CreateFolder) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The name of the new folder.
+createFolder_name :: Lens.Lens' CreateFolder (Prelude.Maybe Prelude.Text)
+createFolder_name = Lens.lens (\CreateFolder' {name} -> name) (\s@CreateFolder' {} a -> s {name = a} :: CreateFolder)
 
 -- | The ID of the parent folder.
 createFolder_parentFolderId :: Lens.Lens' CreateFolder Prelude.Text

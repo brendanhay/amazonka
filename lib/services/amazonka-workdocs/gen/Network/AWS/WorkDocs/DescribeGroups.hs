@@ -30,10 +30,10 @@ module Network.AWS.WorkDocs.DescribeGroups
     newDescribeGroups,
 
     -- * Request Lenses
-    describeGroups_organizationId,
     describeGroups_authenticationToken,
-    describeGroups_limit,
     describeGroups_marker,
+    describeGroups_limit,
+    describeGroups_organizationId,
     describeGroups_searchQuery,
 
     -- * Destructuring the Response
@@ -56,16 +56,16 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'newDescribeGroups' smart constructor.
 data DescribeGroups = DescribeGroups'
-  { -- | The ID of the organization.
-    organizationId :: Prelude.Maybe Prelude.Text,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The maximum number of items to return with this call.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the organization.
+    organizationId :: Prelude.Maybe Prelude.Text,
     -- | A query to describe groups by group name.
     searchQuery :: Core.Sensitive Prelude.Text
   }
@@ -79,15 +79,15 @@ data DescribeGroups = DescribeGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationId', 'describeGroups_organizationId' - The ID of the organization.
---
 -- 'authenticationToken', 'describeGroups_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 --
--- 'limit', 'describeGroups_limit' - The maximum number of items to return with this call.
---
 -- 'marker', 'describeGroups_marker' - The marker for the next set of results. (You received this marker from a
 -- previous call.)
+--
+-- 'limit', 'describeGroups_limit' - The maximum number of items to return with this call.
+--
+-- 'organizationId', 'describeGroups_organizationId' - The ID of the organization.
 --
 -- 'searchQuery', 'describeGroups_searchQuery' - A query to describe groups by group name.
 newDescribeGroups ::
@@ -96,30 +96,31 @@ newDescribeGroups ::
   DescribeGroups
 newDescribeGroups pSearchQuery_ =
   DescribeGroups'
-    { organizationId = Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { authenticationToken =
+        Prelude.Nothing,
       marker = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      organizationId = Prelude.Nothing,
       searchQuery = Core._Sensitive Lens.# pSearchQuery_
     }
-
--- | The ID of the organization.
-describeGroups_organizationId :: Lens.Lens' DescribeGroups (Prelude.Maybe Prelude.Text)
-describeGroups_organizationId = Lens.lens (\DescribeGroups' {organizationId} -> organizationId) (\s@DescribeGroups' {} a -> s {organizationId = a} :: DescribeGroups)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 describeGroups_authenticationToken :: Lens.Lens' DescribeGroups (Prelude.Maybe Prelude.Text)
 describeGroups_authenticationToken = Lens.lens (\DescribeGroups' {authenticationToken} -> authenticationToken) (\s@DescribeGroups' {} a -> s {authenticationToken = a} :: DescribeGroups) Prelude.. Lens.mapping Core._Sensitive
 
--- | The maximum number of items to return with this call.
-describeGroups_limit :: Lens.Lens' DescribeGroups (Prelude.Maybe Prelude.Natural)
-describeGroups_limit = Lens.lens (\DescribeGroups' {limit} -> limit) (\s@DescribeGroups' {} a -> s {limit = a} :: DescribeGroups)
-
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
 describeGroups_marker :: Lens.Lens' DescribeGroups (Prelude.Maybe Prelude.Text)
 describeGroups_marker = Lens.lens (\DescribeGroups' {marker} -> marker) (\s@DescribeGroups' {} a -> s {marker = a} :: DescribeGroups)
+
+-- | The maximum number of items to return with this call.
+describeGroups_limit :: Lens.Lens' DescribeGroups (Prelude.Maybe Prelude.Natural)
+describeGroups_limit = Lens.lens (\DescribeGroups' {limit} -> limit) (\s@DescribeGroups' {} a -> s {limit = a} :: DescribeGroups)
+
+-- | The ID of the organization.
+describeGroups_organizationId :: Lens.Lens' DescribeGroups (Prelude.Maybe Prelude.Text)
+describeGroups_organizationId = Lens.lens (\DescribeGroups' {organizationId} -> organizationId) (\s@DescribeGroups' {} a -> s {organizationId = a} :: DescribeGroups)
 
 -- | A query to describe groups by group name.
 describeGroups_searchQuery :: Lens.Lens' DescribeGroups Prelude.Text
@@ -176,9 +177,9 @@ instance Core.ToPath DescribeGroups where
 instance Core.ToQuery DescribeGroups where
   toQuery DescribeGroups' {..} =
     Prelude.mconcat
-      [ "organizationId" Core.=: organizationId,
+      [ "marker" Core.=: marker,
         "limit" Core.=: limit,
-        "marker" Core.=: marker,
+        "organizationId" Core.=: organizationId,
         "searchQuery" Core.=: searchQuery
       ]
 
@@ -221,7 +222,7 @@ newDescribeGroupsResponse pHttpStatus_ =
 
 -- | The list of groups.
 describeGroupsResponse_groups :: Lens.Lens' DescribeGroupsResponse (Prelude.Maybe [GroupMetadata])
-describeGroupsResponse_groups = Lens.lens (\DescribeGroupsResponse' {groups} -> groups) (\s@DescribeGroupsResponse' {} a -> s {groups = a} :: DescribeGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeGroupsResponse_groups = Lens.lens (\DescribeGroupsResponse' {groups} -> groups) (\s@DescribeGroupsResponse' {} a -> s {groups = a} :: DescribeGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.

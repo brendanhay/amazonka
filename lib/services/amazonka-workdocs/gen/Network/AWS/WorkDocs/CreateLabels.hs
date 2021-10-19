@@ -97,7 +97,7 @@ createLabels_resourceId = Lens.lens (\CreateLabels' {resourceId} -> resourceId) 
 
 -- | List of labels to add to the resource.
 createLabels_labels :: Lens.Lens' CreateLabels [Prelude.Text]
-createLabels_labels = Lens.lens (\CreateLabels' {labels} -> labels) (\s@CreateLabels' {} a -> s {labels = a} :: CreateLabels) Prelude.. Lens._Coerce
+createLabels_labels = Lens.lens (\CreateLabels' {labels} -> labels) (\s@CreateLabels' {} a -> s {labels = a} :: CreateLabels) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateLabels where
   type AWSResponse CreateLabels = CreateLabelsResponse

@@ -109,7 +109,7 @@ createCustomMetadata_resourceId = Lens.lens (\CreateCustomMetadata' {resourceId}
 
 -- | Custom metadata in the form of name-value pairs.
 createCustomMetadata_customMetadata :: Lens.Lens' CreateCustomMetadata (Prelude.HashMap Prelude.Text Prelude.Text)
-createCustomMetadata_customMetadata = Lens.lens (\CreateCustomMetadata' {customMetadata} -> customMetadata) (\s@CreateCustomMetadata' {} a -> s {customMetadata = a} :: CreateCustomMetadata) Prelude.. Lens._Coerce
+createCustomMetadata_customMetadata = Lens.lens (\CreateCustomMetadata' {customMetadata} -> customMetadata) (\s@CreateCustomMetadata' {} a -> s {customMetadata = a} :: CreateCustomMetadata) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateCustomMetadata where
   type

@@ -38,8 +38,8 @@ module Network.AWS.WorkDocs.DescribeRootFolders
     newDescribeRootFolders,
 
     -- * Request Lenses
-    describeRootFolders_limit,
     describeRootFolders_marker,
+    describeRootFolders_limit,
     describeRootFolders_authenticationToken,
 
     -- * Destructuring the Response
@@ -62,11 +62,11 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'newDescribeRootFolders' smart constructor.
 data DescribeRootFolders = DescribeRootFolders'
-  { -- | The maximum number of items to return.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | The marker for the next set of results. (You received this marker from a
+  { -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | Amazon WorkDocs authentication token.
     authenticationToken :: Core.Sensitive Prelude.Text
   }
@@ -80,10 +80,10 @@ data DescribeRootFolders = DescribeRootFolders'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'limit', 'describeRootFolders_limit' - The maximum number of items to return.
---
 -- 'marker', 'describeRootFolders_marker' - The marker for the next set of results. (You received this marker from a
 -- previous call.)
+--
+-- 'limit', 'describeRootFolders_limit' - The maximum number of items to return.
 --
 -- 'authenticationToken', 'describeRootFolders_authenticationToken' - Amazon WorkDocs authentication token.
 newDescribeRootFolders ::
@@ -92,20 +92,20 @@ newDescribeRootFolders ::
   DescribeRootFolders
 newDescribeRootFolders pAuthenticationToken_ =
   DescribeRootFolders'
-    { limit = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      limit = Prelude.Nothing,
       authenticationToken =
         Core._Sensitive Lens.# pAuthenticationToken_
     }
-
--- | The maximum number of items to return.
-describeRootFolders_limit :: Lens.Lens' DescribeRootFolders (Prelude.Maybe Prelude.Natural)
-describeRootFolders_limit = Lens.lens (\DescribeRootFolders' {limit} -> limit) (\s@DescribeRootFolders' {} a -> s {limit = a} :: DescribeRootFolders)
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
 describeRootFolders_marker :: Lens.Lens' DescribeRootFolders (Prelude.Maybe Prelude.Text)
 describeRootFolders_marker = Lens.lens (\DescribeRootFolders' {marker} -> marker) (\s@DescribeRootFolders' {} a -> s {marker = a} :: DescribeRootFolders)
+
+-- | The maximum number of items to return.
+describeRootFolders_limit :: Lens.Lens' DescribeRootFolders (Prelude.Maybe Prelude.Natural)
+describeRootFolders_limit = Lens.lens (\DescribeRootFolders' {limit} -> limit) (\s@DescribeRootFolders' {} a -> s {limit = a} :: DescribeRootFolders)
 
 -- | Amazon WorkDocs authentication token.
 describeRootFolders_authenticationToken :: Lens.Lens' DescribeRootFolders Prelude.Text
@@ -165,7 +165,7 @@ instance Core.ToPath DescribeRootFolders where
 instance Core.ToQuery DescribeRootFolders where
   toQuery DescribeRootFolders' {..} =
     Prelude.mconcat
-      ["limit" Core.=: limit, "marker" Core.=: marker]
+      ["marker" Core.=: marker, "limit" Core.=: limit]
 
 -- | /See:/ 'newDescribeRootFoldersResponse' smart constructor.
 data DescribeRootFoldersResponse = DescribeRootFoldersResponse'
@@ -205,7 +205,7 @@ newDescribeRootFoldersResponse pHttpStatus_ =
 
 -- | The user\'s special folders.
 describeRootFoldersResponse_folders :: Lens.Lens' DescribeRootFoldersResponse (Prelude.Maybe [FolderMetadata])
-describeRootFoldersResponse_folders = Lens.lens (\DescribeRootFoldersResponse' {folders} -> folders) (\s@DescribeRootFoldersResponse' {} a -> s {folders = a} :: DescribeRootFoldersResponse) Prelude.. Lens.mapping Lens._Coerce
+describeRootFoldersResponse_folders = Lens.lens (\DescribeRootFoldersResponse' {folders} -> folders) (\s@DescribeRootFoldersResponse' {} a -> s {folders = a} :: DescribeRootFoldersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The marker for the next set of results.
 describeRootFoldersResponse_marker :: Lens.Lens' DescribeRootFoldersResponse (Prelude.Maybe Prelude.Text)

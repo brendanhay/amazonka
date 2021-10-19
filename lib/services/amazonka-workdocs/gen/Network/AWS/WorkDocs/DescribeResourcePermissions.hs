@@ -31,8 +31,8 @@ module Network.AWS.WorkDocs.DescribeResourcePermissions
     -- * Request Lenses
     describeResourcePermissions_principalId,
     describeResourcePermissions_authenticationToken,
-    describeResourcePermissions_limit,
     describeResourcePermissions_marker,
+    describeResourcePermissions_limit,
     describeResourcePermissions_resourceId,
 
     -- * Destructuring the Response
@@ -60,11 +60,11 @@ data DescribeResourcePermissions = DescribeResourcePermissions'
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The maximum number of items to return with this call.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call)
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the resource.
     resourceId :: Prelude.Text
   }
@@ -83,10 +83,10 @@ data DescribeResourcePermissions = DescribeResourcePermissions'
 -- 'authenticationToken', 'describeResourcePermissions_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 --
--- 'limit', 'describeResourcePermissions_limit' - The maximum number of items to return with this call.
---
 -- 'marker', 'describeResourcePermissions_marker' - The marker for the next set of results. (You received this marker from a
 -- previous call)
+--
+-- 'limit', 'describeResourcePermissions_limit' - The maximum number of items to return with this call.
 --
 -- 'resourceId', 'describeResourcePermissions_resourceId' - The ID of the resource.
 newDescribeResourcePermissions ::
@@ -98,8 +98,8 @@ newDescribeResourcePermissions pResourceId_ =
     { principalId =
         Prelude.Nothing,
       authenticationToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
       marker = Prelude.Nothing,
+      limit = Prelude.Nothing,
       resourceId = pResourceId_
     }
 
@@ -112,14 +112,14 @@ describeResourcePermissions_principalId = Lens.lens (\DescribeResourcePermission
 describeResourcePermissions_authenticationToken :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Text)
 describeResourcePermissions_authenticationToken = Lens.lens (\DescribeResourcePermissions' {authenticationToken} -> authenticationToken) (\s@DescribeResourcePermissions' {} a -> s {authenticationToken = a} :: DescribeResourcePermissions) Prelude.. Lens.mapping Core._Sensitive
 
--- | The maximum number of items to return with this call.
-describeResourcePermissions_limit :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Natural)
-describeResourcePermissions_limit = Lens.lens (\DescribeResourcePermissions' {limit} -> limit) (\s@DescribeResourcePermissions' {} a -> s {limit = a} :: DescribeResourcePermissions)
-
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call)
 describeResourcePermissions_marker :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Text)
 describeResourcePermissions_marker = Lens.lens (\DescribeResourcePermissions' {marker} -> marker) (\s@DescribeResourcePermissions' {} a -> s {marker = a} :: DescribeResourcePermissions)
+
+-- | The maximum number of items to return with this call.
+describeResourcePermissions_limit :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Natural)
+describeResourcePermissions_limit = Lens.lens (\DescribeResourcePermissions' {limit} -> limit) (\s@DescribeResourcePermissions' {} a -> s {limit = a} :: DescribeResourcePermissions)
 
 -- | The ID of the resource.
 describeResourcePermissions_resourceId :: Lens.Lens' DescribeResourcePermissions Prelude.Text
@@ -185,8 +185,8 @@ instance Core.ToQuery DescribeResourcePermissions where
   toQuery DescribeResourcePermissions' {..} =
     Prelude.mconcat
       [ "principalId" Core.=: principalId,
-        "limit" Core.=: limit,
-        "marker" Core.=: marker
+        "marker" Core.=: marker,
+        "limit" Core.=: limit
       ]
 
 -- | /See:/ 'newDescribeResourcePermissionsResponse' smart constructor.
@@ -229,7 +229,7 @@ newDescribeResourcePermissionsResponse pHttpStatus_ =
 
 -- | The principals.
 describeResourcePermissionsResponse_principals :: Lens.Lens' DescribeResourcePermissionsResponse (Prelude.Maybe [Principal])
-describeResourcePermissionsResponse_principals = Lens.lens (\DescribeResourcePermissionsResponse' {principals} -> principals) (\s@DescribeResourcePermissionsResponse' {} a -> s {principals = a} :: DescribeResourcePermissionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeResourcePermissionsResponse_principals = Lens.lens (\DescribeResourcePermissionsResponse' {principals} -> principals) (\s@DescribeResourcePermissionsResponse' {} a -> s {principals = a} :: DescribeResourcePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.

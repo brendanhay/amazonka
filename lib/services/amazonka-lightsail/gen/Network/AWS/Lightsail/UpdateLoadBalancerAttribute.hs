@@ -201,7 +201,7 @@ newUpdateLoadBalancerAttributeResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 updateLoadBalancerAttributeResponse_operations :: Lens.Lens' UpdateLoadBalancerAttributeResponse (Prelude.Maybe [Operation])
-updateLoadBalancerAttributeResponse_operations = Lens.lens (\UpdateLoadBalancerAttributeResponse' {operations} -> operations) (\s@UpdateLoadBalancerAttributeResponse' {} a -> s {operations = a} :: UpdateLoadBalancerAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
+updateLoadBalancerAttributeResponse_operations = Lens.lens (\UpdateLoadBalancerAttributeResponse' {operations} -> operations) (\s@UpdateLoadBalancerAttributeResponse' {} a -> s {operations = a} :: UpdateLoadBalancerAttributeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 updateLoadBalancerAttributeResponse_httpStatus :: Lens.Lens' UpdateLoadBalancerAttributeResponse Prelude.Int

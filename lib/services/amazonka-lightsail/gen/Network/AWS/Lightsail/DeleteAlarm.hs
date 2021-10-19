@@ -160,7 +160,7 @@ newDeleteAlarmResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 deleteAlarmResponse_operations :: Lens.Lens' DeleteAlarmResponse (Prelude.Maybe [Operation])
-deleteAlarmResponse_operations = Lens.lens (\DeleteAlarmResponse' {operations} -> operations) (\s@DeleteAlarmResponse' {} a -> s {operations = a} :: DeleteAlarmResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteAlarmResponse_operations = Lens.lens (\DeleteAlarmResponse' {operations} -> operations) (\s@DeleteAlarmResponse' {} a -> s {operations = a} :: DeleteAlarmResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteAlarmResponse_httpStatus :: Lens.Lens' DeleteAlarmResponse Prelude.Int

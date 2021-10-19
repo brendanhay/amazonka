@@ -135,7 +135,7 @@ newGetDistributionBundlesResponse pHttpStatus_ =
 
 -- | An object that describes a distribution bundle.
 getDistributionBundlesResponse_bundles :: Lens.Lens' GetDistributionBundlesResponse (Prelude.Maybe [DistributionBundle])
-getDistributionBundlesResponse_bundles = Lens.lens (\GetDistributionBundlesResponse' {bundles} -> bundles) (\s@GetDistributionBundlesResponse' {} a -> s {bundles = a} :: GetDistributionBundlesResponse) Prelude.. Lens.mapping Lens._Coerce
+getDistributionBundlesResponse_bundles = Lens.lens (\GetDistributionBundlesResponse' {bundles} -> bundles) (\s@GetDistributionBundlesResponse' {} a -> s {bundles = a} :: GetDistributionBundlesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDistributionBundlesResponse_httpStatus :: Lens.Lens' GetDistributionBundlesResponse Prelude.Int

@@ -194,7 +194,7 @@ newStopInstanceResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 stopInstanceResponse_operations :: Lens.Lens' StopInstanceResponse (Prelude.Maybe [Operation])
-stopInstanceResponse_operations = Lens.lens (\StopInstanceResponse' {operations} -> operations) (\s@StopInstanceResponse' {} a -> s {operations = a} :: StopInstanceResponse) Prelude.. Lens.mapping Lens._Coerce
+stopInstanceResponse_operations = Lens.lens (\StopInstanceResponse' {operations} -> operations) (\s@StopInstanceResponse' {} a -> s {operations = a} :: StopInstanceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 stopInstanceResponse_httpStatus :: Lens.Lens' StopInstanceResponse Prelude.Int

@@ -109,7 +109,7 @@ createContainerServiceDeployment_publicEndpoint = Lens.lens (\CreateContainerSer
 -- | An object that describes the settings of the containers that will be
 -- launched on the container service.
 createContainerServiceDeployment_containers :: Lens.Lens' CreateContainerServiceDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text Container))
-createContainerServiceDeployment_containers = Lens.lens (\CreateContainerServiceDeployment' {containers} -> containers) (\s@CreateContainerServiceDeployment' {} a -> s {containers = a} :: CreateContainerServiceDeployment) Prelude.. Lens.mapping Lens._Coerce
+createContainerServiceDeployment_containers = Lens.lens (\CreateContainerServiceDeployment' {containers} -> containers) (\s@CreateContainerServiceDeployment' {} a -> s {containers = a} :: CreateContainerServiceDeployment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the container service for which to create the deployment.
 createContainerServiceDeployment_serviceName :: Lens.Lens' CreateContainerServiceDeployment Prelude.Text

@@ -228,7 +228,7 @@ newDeleteBucketResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 deleteBucketResponse_operations :: Lens.Lens' DeleteBucketResponse (Prelude.Maybe [Operation])
-deleteBucketResponse_operations = Lens.lens (\DeleteBucketResponse' {operations} -> operations) (\s@DeleteBucketResponse' {} a -> s {operations = a} :: DeleteBucketResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteBucketResponse_operations = Lens.lens (\DeleteBucketResponse' {operations} -> operations) (\s@DeleteBucketResponse' {} a -> s {operations = a} :: DeleteBucketResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteBucketResponse_httpStatus :: Lens.Lens' DeleteBucketResponse Prelude.Int

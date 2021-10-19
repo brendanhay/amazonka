@@ -116,7 +116,7 @@ attachInstancesToLoadBalancer_loadBalancerName = Lens.lens (\AttachInstancesToLo
 -- to your load balancer, aside from the limit of Lightsail instances you
 -- can create in your account (20).
 attachInstancesToLoadBalancer_instanceNames :: Lens.Lens' AttachInstancesToLoadBalancer [Prelude.Text]
-attachInstancesToLoadBalancer_instanceNames = Lens.lens (\AttachInstancesToLoadBalancer' {instanceNames} -> instanceNames) (\s@AttachInstancesToLoadBalancer' {} a -> s {instanceNames = a} :: AttachInstancesToLoadBalancer) Prelude.. Lens._Coerce
+attachInstancesToLoadBalancer_instanceNames = Lens.lens (\AttachInstancesToLoadBalancer' {instanceNames} -> instanceNames) (\s@AttachInstancesToLoadBalancer' {} a -> s {instanceNames = a} :: AttachInstancesToLoadBalancer) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -211,7 +211,7 @@ newAttachInstancesToLoadBalancerResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 attachInstancesToLoadBalancerResponse_operations :: Lens.Lens' AttachInstancesToLoadBalancerResponse (Prelude.Maybe [Operation])
-attachInstancesToLoadBalancerResponse_operations = Lens.lens (\AttachInstancesToLoadBalancerResponse' {operations} -> operations) (\s@AttachInstancesToLoadBalancerResponse' {} a -> s {operations = a} :: AttachInstancesToLoadBalancerResponse) Prelude.. Lens.mapping Lens._Coerce
+attachInstancesToLoadBalancerResponse_operations = Lens.lens (\AttachInstancesToLoadBalancerResponse' {operations} -> operations) (\s@AttachInstancesToLoadBalancerResponse' {} a -> s {operations = a} :: AttachInstancesToLoadBalancerResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 attachInstancesToLoadBalancerResponse_httpStatus :: Lens.Lens' AttachInstancesToLoadBalancerResponse Prelude.Int

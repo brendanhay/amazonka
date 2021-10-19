@@ -233,7 +233,7 @@ newGetRelationalDatabaseBlueprintsResponse
 -- | An object describing the result of your get relational database
 -- blueprints request.
 getRelationalDatabaseBlueprintsResponse_blueprints :: Lens.Lens' GetRelationalDatabaseBlueprintsResponse (Prelude.Maybe [RelationalDatabaseBlueprint])
-getRelationalDatabaseBlueprintsResponse_blueprints = Lens.lens (\GetRelationalDatabaseBlueprintsResponse' {blueprints} -> blueprints) (\s@GetRelationalDatabaseBlueprintsResponse' {} a -> s {blueprints = a} :: GetRelationalDatabaseBlueprintsResponse) Prelude.. Lens.mapping Lens._Coerce
+getRelationalDatabaseBlueprintsResponse_blueprints = Lens.lens (\GetRelationalDatabaseBlueprintsResponse' {blueprints} -> blueprints) (\s@GetRelationalDatabaseBlueprintsResponse' {} a -> s {blueprints = a} :: GetRelationalDatabaseBlueprintsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to advance to the next page of results from your request.
 --

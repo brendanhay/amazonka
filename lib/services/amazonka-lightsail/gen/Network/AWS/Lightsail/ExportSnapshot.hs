@@ -181,7 +181,7 @@ newExportSnapshotResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 exportSnapshotResponse_operations :: Lens.Lens' ExportSnapshotResponse (Prelude.Maybe [Operation])
-exportSnapshotResponse_operations = Lens.lens (\ExportSnapshotResponse' {operations} -> operations) (\s@ExportSnapshotResponse' {} a -> s {operations = a} :: ExportSnapshotResponse) Prelude.. Lens.mapping Lens._Coerce
+exportSnapshotResponse_operations = Lens.lens (\ExportSnapshotResponse' {operations} -> operations) (\s@ExportSnapshotResponse' {} a -> s {operations = a} :: ExportSnapshotResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 exportSnapshotResponse_httpStatus :: Lens.Lens' ExportSnapshotResponse Prelude.Int

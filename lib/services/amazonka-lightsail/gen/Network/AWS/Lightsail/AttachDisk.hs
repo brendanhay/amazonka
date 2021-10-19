@@ -192,7 +192,7 @@ newAttachDiskResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 attachDiskResponse_operations :: Lens.Lens' AttachDiskResponse (Prelude.Maybe [Operation])
-attachDiskResponse_operations = Lens.lens (\AttachDiskResponse' {operations} -> operations) (\s@AttachDiskResponse' {} a -> s {operations = a} :: AttachDiskResponse) Prelude.. Lens.mapping Lens._Coerce
+attachDiskResponse_operations = Lens.lens (\AttachDiskResponse' {operations} -> operations) (\s@AttachDiskResponse' {} a -> s {operations = a} :: AttachDiskResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 attachDiskResponse_httpStatus :: Lens.Lens' AttachDiskResponse Prelude.Int

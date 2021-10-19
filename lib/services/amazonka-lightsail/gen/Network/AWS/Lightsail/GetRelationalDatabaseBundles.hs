@@ -232,7 +232,7 @@ getRelationalDatabaseBundlesResponse_nextPageToken = Lens.lens (\GetRelationalDa
 -- | An object describing the result of your get relational database bundles
 -- request.
 getRelationalDatabaseBundlesResponse_bundles :: Lens.Lens' GetRelationalDatabaseBundlesResponse (Prelude.Maybe [RelationalDatabaseBundle])
-getRelationalDatabaseBundlesResponse_bundles = Lens.lens (\GetRelationalDatabaseBundlesResponse' {bundles} -> bundles) (\s@GetRelationalDatabaseBundlesResponse' {} a -> s {bundles = a} :: GetRelationalDatabaseBundlesResponse) Prelude.. Lens.mapping Lens._Coerce
+getRelationalDatabaseBundlesResponse_bundles = Lens.lens (\GetRelationalDatabaseBundlesResponse' {bundles} -> bundles) (\s@GetRelationalDatabaseBundlesResponse' {} a -> s {bundles = a} :: GetRelationalDatabaseBundlesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRelationalDatabaseBundlesResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseBundlesResponse Prelude.Int

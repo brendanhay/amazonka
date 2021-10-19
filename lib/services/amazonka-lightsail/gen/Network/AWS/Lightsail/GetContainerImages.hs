@@ -165,7 +165,7 @@ newGetContainerImagesResponse pHttpStatus_ =
 -- | An array of objects that describe container images that are registered
 -- to the container service.
 getContainerImagesResponse_containerImages :: Lens.Lens' GetContainerImagesResponse (Prelude.Maybe [ContainerImage])
-getContainerImagesResponse_containerImages = Lens.lens (\GetContainerImagesResponse' {containerImages} -> containerImages) (\s@GetContainerImagesResponse' {} a -> s {containerImages = a} :: GetContainerImagesResponse) Prelude.. Lens.mapping Lens._Coerce
+getContainerImagesResponse_containerImages = Lens.lens (\GetContainerImagesResponse' {containerImages} -> containerImages) (\s@GetContainerImagesResponse' {} a -> s {containerImages = a} :: GetContainerImagesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getContainerImagesResponse_httpStatus :: Lens.Lens' GetContainerImagesResponse Prelude.Int

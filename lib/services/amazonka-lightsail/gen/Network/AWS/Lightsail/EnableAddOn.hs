@@ -175,7 +175,7 @@ newEnableAddOnResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 enableAddOnResponse_operations :: Lens.Lens' EnableAddOnResponse (Prelude.Maybe [Operation])
-enableAddOnResponse_operations = Lens.lens (\EnableAddOnResponse' {operations} -> operations) (\s@EnableAddOnResponse' {} a -> s {operations = a} :: EnableAddOnResponse) Prelude.. Lens.mapping Lens._Coerce
+enableAddOnResponse_operations = Lens.lens (\EnableAddOnResponse' {operations} -> operations) (\s@EnableAddOnResponse' {} a -> s {operations = a} :: EnableAddOnResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 enableAddOnResponse_httpStatus :: Lens.Lens' EnableAddOnResponse Prelude.Int

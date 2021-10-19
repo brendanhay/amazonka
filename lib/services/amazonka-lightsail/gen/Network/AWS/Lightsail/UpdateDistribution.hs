@@ -31,11 +31,11 @@ module Network.AWS.Lightsail.UpdateDistribution
     newUpdateDistribution,
 
     -- * Request Lenses
-    updateDistribution_isEnabled,
     updateDistribution_origin,
     updateDistribution_cacheBehaviorSettings,
-    updateDistribution_cacheBehaviors,
+    updateDistribution_isEnabled,
     updateDistribution_defaultCacheBehavior,
+    updateDistribution_cacheBehaviors,
     updateDistribution_distributionName,
 
     -- * Destructuring the Response
@@ -57,9 +57,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDistribution' smart constructor.
 data UpdateDistribution = UpdateDistribution'
-  { -- | Indicates whether to enable the distribution.
-    isEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | An object that describes the origin resource for the distribution, such
+  { -- | An object that describes the origin resource for the distribution, such
     -- as a Lightsail instance or load balancer.
     --
     -- The distribution pulls, caches, and serves content from the origin.
@@ -71,12 +69,14 @@ data UpdateDistribution = UpdateDistribution'
     -- @UpdateDistributionRequest@ will replace your distribution\'s existing
     -- settings.
     cacheBehaviorSettings :: Prelude.Maybe CacheSettings,
-    -- | An array of objects that describe the per-path cache behavior for the
-    -- distribution.
-    cacheBehaviors :: Prelude.Maybe [CacheBehaviorPerPath],
+    -- | Indicates whether to enable the distribution.
+    isEnabled :: Prelude.Maybe Prelude.Bool,
     -- | An object that describes the default cache behavior for the
     -- distribution.
     defaultCacheBehavior :: Prelude.Maybe CacheBehavior,
+    -- | An array of objects that describe the per-path cache behavior for the
+    -- distribution.
+    cacheBehaviors :: Prelude.Maybe [CacheBehaviorPerPath],
     -- | The name of the distribution to update.
     --
     -- Use the @GetDistributions@ action to get a list of distribution names
@@ -93,8 +93,6 @@ data UpdateDistribution = UpdateDistribution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isEnabled', 'updateDistribution_isEnabled' - Indicates whether to enable the distribution.
---
 -- 'origin', 'updateDistribution_origin' - An object that describes the origin resource for the distribution, such
 -- as a Lightsail instance or load balancer.
 --
@@ -107,10 +105,12 @@ data UpdateDistribution = UpdateDistribution'
 -- @UpdateDistributionRequest@ will replace your distribution\'s existing
 -- settings.
 --
--- 'cacheBehaviors', 'updateDistribution_cacheBehaviors' - An array of objects that describe the per-path cache behavior for the
--- distribution.
+-- 'isEnabled', 'updateDistribution_isEnabled' - Indicates whether to enable the distribution.
 --
 -- 'defaultCacheBehavior', 'updateDistribution_defaultCacheBehavior' - An object that describes the default cache behavior for the
+-- distribution.
+--
+-- 'cacheBehaviors', 'updateDistribution_cacheBehaviors' - An array of objects that describe the per-path cache behavior for the
 -- distribution.
 --
 -- 'distributionName', 'updateDistribution_distributionName' - The name of the distribution to update.
@@ -123,17 +123,13 @@ newUpdateDistribution ::
   UpdateDistribution
 newUpdateDistribution pDistributionName_ =
   UpdateDistribution'
-    { isEnabled = Prelude.Nothing,
-      origin = Prelude.Nothing,
+    { origin = Prelude.Nothing,
       cacheBehaviorSettings = Prelude.Nothing,
-      cacheBehaviors = Prelude.Nothing,
+      isEnabled = Prelude.Nothing,
       defaultCacheBehavior = Prelude.Nothing,
+      cacheBehaviors = Prelude.Nothing,
       distributionName = pDistributionName_
     }
-
--- | Indicates whether to enable the distribution.
-updateDistribution_isEnabled :: Lens.Lens' UpdateDistribution (Prelude.Maybe Prelude.Bool)
-updateDistribution_isEnabled = Lens.lens (\UpdateDistribution' {isEnabled} -> isEnabled) (\s@UpdateDistribution' {} a -> s {isEnabled = a} :: UpdateDistribution)
 
 -- | An object that describes the origin resource for the distribution, such
 -- as a Lightsail instance or load balancer.
@@ -151,15 +147,19 @@ updateDistribution_origin = Lens.lens (\UpdateDistribution' {origin} -> origin) 
 updateDistribution_cacheBehaviorSettings :: Lens.Lens' UpdateDistribution (Prelude.Maybe CacheSettings)
 updateDistribution_cacheBehaviorSettings = Lens.lens (\UpdateDistribution' {cacheBehaviorSettings} -> cacheBehaviorSettings) (\s@UpdateDistribution' {} a -> s {cacheBehaviorSettings = a} :: UpdateDistribution)
 
--- | An array of objects that describe the per-path cache behavior for the
--- distribution.
-updateDistribution_cacheBehaviors :: Lens.Lens' UpdateDistribution (Prelude.Maybe [CacheBehaviorPerPath])
-updateDistribution_cacheBehaviors = Lens.lens (\UpdateDistribution' {cacheBehaviors} -> cacheBehaviors) (\s@UpdateDistribution' {} a -> s {cacheBehaviors = a} :: UpdateDistribution) Prelude.. Lens.mapping Lens._Coerce
+-- | Indicates whether to enable the distribution.
+updateDistribution_isEnabled :: Lens.Lens' UpdateDistribution (Prelude.Maybe Prelude.Bool)
+updateDistribution_isEnabled = Lens.lens (\UpdateDistribution' {isEnabled} -> isEnabled) (\s@UpdateDistribution' {} a -> s {isEnabled = a} :: UpdateDistribution)
 
 -- | An object that describes the default cache behavior for the
 -- distribution.
 updateDistribution_defaultCacheBehavior :: Lens.Lens' UpdateDistribution (Prelude.Maybe CacheBehavior)
 updateDistribution_defaultCacheBehavior = Lens.lens (\UpdateDistribution' {defaultCacheBehavior} -> defaultCacheBehavior) (\s@UpdateDistribution' {} a -> s {defaultCacheBehavior = a} :: UpdateDistribution)
+
+-- | An array of objects that describe the per-path cache behavior for the
+-- distribution.
+updateDistribution_cacheBehaviors :: Lens.Lens' UpdateDistribution (Prelude.Maybe [CacheBehaviorPerPath])
+updateDistribution_cacheBehaviors = Lens.lens (\UpdateDistribution' {cacheBehaviors} -> cacheBehaviors) (\s@UpdateDistribution' {} a -> s {cacheBehaviors = a} :: UpdateDistribution) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the distribution to update.
 --
@@ -204,14 +204,14 @@ instance Core.ToJSON UpdateDistribution where
   toJSON UpdateDistribution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("isEnabled" Core..=) Prelude.<$> isEnabled,
-            ("origin" Core..=) Prelude.<$> origin,
+          [ ("origin" Core..=) Prelude.<$> origin,
             ("cacheBehaviorSettings" Core..=)
               Prelude.<$> cacheBehaviorSettings,
-            ("cacheBehaviors" Core..=)
-              Prelude.<$> cacheBehaviors,
+            ("isEnabled" Core..=) Prelude.<$> isEnabled,
             ("defaultCacheBehavior" Core..=)
               Prelude.<$> defaultCacheBehavior,
+            ("cacheBehaviors" Core..=)
+              Prelude.<$> cacheBehaviors,
             Prelude.Just
               ("distributionName" Core..= distributionName)
           ]

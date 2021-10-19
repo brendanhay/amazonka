@@ -66,7 +66,7 @@ instanceNetworking_monthlyTransfer = Lens.lens (\InstanceNetworking' {monthlyTra
 -- | An array of key-value pairs containing information about the ports on
 -- the instance.
 instanceNetworking_ports :: Lens.Lens' InstanceNetworking (Prelude.Maybe [InstancePortInfo])
-instanceNetworking_ports = Lens.lens (\InstanceNetworking' {ports} -> ports) (\s@InstanceNetworking' {} a -> s {ports = a} :: InstanceNetworking) Prelude.. Lens.mapping Lens._Coerce
+instanceNetworking_ports = Lens.lens (\InstanceNetworking' {ports} -> ports) (\s@InstanceNetworking' {} a -> s {ports = a} :: InstanceNetworking) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON InstanceNetworking where
   parseJSON =

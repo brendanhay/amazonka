@@ -47,13 +47,13 @@ data AccessKey = AccessKey'
     -- A status of @Active@ means that the key is valid, while @Inactive@ means
     -- it is not.
     status :: Prelude.Maybe StatusType,
+    -- | The timestamp when the access key was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The secret access key used to sign requests.
     --
     -- You should store the secret access key in a safe location. We recommend
     -- that you delete the access key if the secret access key is compromised.
     secretAccessKey :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the access key was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
     -- | An object that describes the last time the access key was used.
     --
     -- This object does not include data in the response of a
@@ -79,12 +79,12 @@ data AccessKey = AccessKey'
 -- A status of @Active@ means that the key is valid, while @Inactive@ means
 -- it is not.
 --
+-- 'createdAt', 'accessKey_createdAt' - The timestamp when the access key was created.
+--
 -- 'secretAccessKey', 'accessKey_secretAccessKey' - The secret access key used to sign requests.
 --
 -- You should store the secret access key in a safe location. We recommend
 -- that you delete the access key if the secret access key is compromised.
---
--- 'createdAt', 'accessKey_createdAt' - The timestamp when the access key was created.
 --
 -- 'lastUsed', 'accessKey_lastUsed' - An object that describes the last time the access key was used.
 --
@@ -99,8 +99,8 @@ newAccessKey ::
 newAccessKey =
   AccessKey'
     { status = Prelude.Nothing,
-      secretAccessKey = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      secretAccessKey = Prelude.Nothing,
       lastUsed = Prelude.Nothing,
       accessKeyId = Prelude.Nothing
     }
@@ -112,16 +112,16 @@ newAccessKey =
 accessKey_status :: Lens.Lens' AccessKey (Prelude.Maybe StatusType)
 accessKey_status = Lens.lens (\AccessKey' {status} -> status) (\s@AccessKey' {} a -> s {status = a} :: AccessKey)
 
+-- | The timestamp when the access key was created.
+accessKey_createdAt :: Lens.Lens' AccessKey (Prelude.Maybe Prelude.UTCTime)
+accessKey_createdAt = Lens.lens (\AccessKey' {createdAt} -> createdAt) (\s@AccessKey' {} a -> s {createdAt = a} :: AccessKey) Prelude.. Lens.mapping Core._Time
+
 -- | The secret access key used to sign requests.
 --
 -- You should store the secret access key in a safe location. We recommend
 -- that you delete the access key if the secret access key is compromised.
 accessKey_secretAccessKey :: Lens.Lens' AccessKey (Prelude.Maybe Prelude.Text)
 accessKey_secretAccessKey = Lens.lens (\AccessKey' {secretAccessKey} -> secretAccessKey) (\s@AccessKey' {} a -> s {secretAccessKey = a} :: AccessKey)
-
--- | The timestamp when the access key was created.
-accessKey_createdAt :: Lens.Lens' AccessKey (Prelude.Maybe Prelude.UTCTime)
-accessKey_createdAt = Lens.lens (\AccessKey' {createdAt} -> createdAt) (\s@AccessKey' {} a -> s {createdAt = a} :: AccessKey) Prelude.. Lens.mapping Core._Time
 
 -- | An object that describes the last time the access key was used.
 --
@@ -143,8 +143,8 @@ instance Core.FromJSON AccessKey where
       ( \x ->
           AccessKey'
             Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "secretAccessKey")
             Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "secretAccessKey")
             Prelude.<*> (x Core..:? "lastUsed")
             Prelude.<*> (x Core..:? "accessKeyId")
       )

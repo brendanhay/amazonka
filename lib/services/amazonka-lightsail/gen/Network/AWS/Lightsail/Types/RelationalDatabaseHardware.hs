@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRelationalDatabaseHardware' smart constructor.
 data RelationalDatabaseHardware = RelationalDatabaseHardware'
-  { -- | The amount of RAM in GB for the database.
-    ramSizeInGb :: Prelude.Maybe Prelude.Double,
-    -- | The number of vCPUs for the database.
+  { -- | The number of vCPUs for the database.
     cpuCount :: Prelude.Maybe Prelude.Int,
     -- | The size of the disk for the database.
-    diskSizeInGb :: Prelude.Maybe Prelude.Int
+    diskSizeInGb :: Prelude.Maybe Prelude.Int,
+    -- | The amount of RAM in GB for the database.
+    ramSizeInGb :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,20 @@ data RelationalDatabaseHardware = RelationalDatabaseHardware'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ramSizeInGb', 'relationalDatabaseHardware_ramSizeInGb' - The amount of RAM in GB for the database.
---
 -- 'cpuCount', 'relationalDatabaseHardware_cpuCount' - The number of vCPUs for the database.
 --
 -- 'diskSizeInGb', 'relationalDatabaseHardware_diskSizeInGb' - The size of the disk for the database.
+--
+-- 'ramSizeInGb', 'relationalDatabaseHardware_ramSizeInGb' - The amount of RAM in GB for the database.
 newRelationalDatabaseHardware ::
   RelationalDatabaseHardware
 newRelationalDatabaseHardware =
   RelationalDatabaseHardware'
-    { ramSizeInGb =
+    { cpuCount =
         Prelude.Nothing,
-      cpuCount = Prelude.Nothing,
-      diskSizeInGb = Prelude.Nothing
+      diskSizeInGb = Prelude.Nothing,
+      ramSizeInGb = Prelude.Nothing
     }
-
--- | The amount of RAM in GB for the database.
-relationalDatabaseHardware_ramSizeInGb :: Lens.Lens' RelationalDatabaseHardware (Prelude.Maybe Prelude.Double)
-relationalDatabaseHardware_ramSizeInGb = Lens.lens (\RelationalDatabaseHardware' {ramSizeInGb} -> ramSizeInGb) (\s@RelationalDatabaseHardware' {} a -> s {ramSizeInGb = a} :: RelationalDatabaseHardware)
 
 -- | The number of vCPUs for the database.
 relationalDatabaseHardware_cpuCount :: Lens.Lens' RelationalDatabaseHardware (Prelude.Maybe Prelude.Int)
@@ -71,15 +67,19 @@ relationalDatabaseHardware_cpuCount = Lens.lens (\RelationalDatabaseHardware' {c
 relationalDatabaseHardware_diskSizeInGb :: Lens.Lens' RelationalDatabaseHardware (Prelude.Maybe Prelude.Int)
 relationalDatabaseHardware_diskSizeInGb = Lens.lens (\RelationalDatabaseHardware' {diskSizeInGb} -> diskSizeInGb) (\s@RelationalDatabaseHardware' {} a -> s {diskSizeInGb = a} :: RelationalDatabaseHardware)
 
+-- | The amount of RAM in GB for the database.
+relationalDatabaseHardware_ramSizeInGb :: Lens.Lens' RelationalDatabaseHardware (Prelude.Maybe Prelude.Double)
+relationalDatabaseHardware_ramSizeInGb = Lens.lens (\RelationalDatabaseHardware' {ramSizeInGb} -> ramSizeInGb) (\s@RelationalDatabaseHardware' {} a -> s {ramSizeInGb = a} :: RelationalDatabaseHardware)
+
 instance Core.FromJSON RelationalDatabaseHardware where
   parseJSON =
     Core.withObject
       "RelationalDatabaseHardware"
       ( \x ->
           RelationalDatabaseHardware'
-            Prelude.<$> (x Core..:? "ramSizeInGb")
-            Prelude.<*> (x Core..:? "cpuCount")
+            Prelude.<$> (x Core..:? "cpuCount")
             Prelude.<*> (x Core..:? "diskSizeInGb")
+            Prelude.<*> (x Core..:? "ramSizeInGb")
       )
 
 instance Prelude.Hashable RelationalDatabaseHardware

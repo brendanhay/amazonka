@@ -28,10 +28,10 @@ module Network.AWS.Lightsail.UpdateContainerService
     newUpdateContainerService,
 
     -- * Request Lenses
-    updateContainerService_power,
     updateContainerService_scale,
-    updateContainerService_publicDomainNames,
+    updateContainerService_power,
     updateContainerService_isDisabled,
+    updateContainerService_publicDomainNames,
     updateContainerService_serviceName,
 
     -- * Destructuring the Response
@@ -53,7 +53,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateContainerService' smart constructor.
 data UpdateContainerService = UpdateContainerService'
-  { -- | The power for the container service.
+  { -- | The scale for the container service.
+    --
+    -- The scale specifies the allocated compute nodes of the container
+    -- service. The @power@ and @scale@ of a container service makes up its
+    -- configured capacity. To determine the monthly price of your container
+    -- service, multiply the base price of the @power@ with the @scale@ (the
+    -- number of nodes) of the service.
+    scale :: Prelude.Maybe Prelude.Natural,
+    -- | The power for the container service.
     --
     -- The power specifies the amount of memory, vCPUs, and base monthly cost
     -- of each node of the container service. The @power@ and @scale@ of a
@@ -64,14 +72,8 @@ data UpdateContainerService = UpdateContainerService'
     -- Use the @GetContainerServicePowers@ action to view the specifications of
     -- each power option.
     power :: Prelude.Maybe ContainerServicePowerName,
-    -- | The scale for the container service.
-    --
-    -- The scale specifies the allocated compute nodes of the container
-    -- service. The @power@ and @scale@ of a container service makes up its
-    -- configured capacity. To determine the monthly price of your container
-    -- service, multiply the base price of the @power@ with the @scale@ (the
-    -- number of nodes) of the service.
-    scale :: Prelude.Maybe Prelude.Natural,
+    -- | A Boolean value to indicate whether the container service is disabled.
+    isDisabled :: Prelude.Maybe Prelude.Bool,
     -- | The public domain names to use with the container service, such as
     -- @example.com@ and @www.example.com@.
     --
@@ -91,8 +93,6 @@ data UpdateContainerService = UpdateContainerService'
     -- You can specify public domain names using a string to array map as shown
     -- in the example later on this page.
     publicDomainNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | A Boolean value to indicate whether the container service is disabled.
-    isDisabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the container service to update.
     serviceName :: Prelude.Text
   }
@@ -106,6 +106,14 @@ data UpdateContainerService = UpdateContainerService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'scale', 'updateContainerService_scale' - The scale for the container service.
+--
+-- The scale specifies the allocated compute nodes of the container
+-- service. The @power@ and @scale@ of a container service makes up its
+-- configured capacity. To determine the monthly price of your container
+-- service, multiply the base price of the @power@ with the @scale@ (the
+-- number of nodes) of the service.
+--
 -- 'power', 'updateContainerService_power' - The power for the container service.
 --
 -- The power specifies the amount of memory, vCPUs, and base monthly cost
@@ -117,13 +125,7 @@ data UpdateContainerService = UpdateContainerService'
 -- Use the @GetContainerServicePowers@ action to view the specifications of
 -- each power option.
 --
--- 'scale', 'updateContainerService_scale' - The scale for the container service.
---
--- The scale specifies the allocated compute nodes of the container
--- service. The @power@ and @scale@ of a container service makes up its
--- configured capacity. To determine the monthly price of your container
--- service, multiply the base price of the @power@ with the @scale@ (the
--- number of nodes) of the service.
+-- 'isDisabled', 'updateContainerService_isDisabled' - A Boolean value to indicate whether the container service is disabled.
 --
 -- 'publicDomainNames', 'updateContainerService_publicDomainNames' - The public domain names to use with the container service, such as
 -- @example.com@ and @www.example.com@.
@@ -144,8 +146,6 @@ data UpdateContainerService = UpdateContainerService'
 -- You can specify public domain names using a string to array map as shown
 -- in the example later on this page.
 --
--- 'isDisabled', 'updateContainerService_isDisabled' - A Boolean value to indicate whether the container service is disabled.
---
 -- 'serviceName', 'updateContainerService_serviceName' - The name of the container service to update.
 newUpdateContainerService ::
   -- | 'serviceName'
@@ -153,12 +153,22 @@ newUpdateContainerService ::
   UpdateContainerService
 newUpdateContainerService pServiceName_ =
   UpdateContainerService'
-    { power = Prelude.Nothing,
-      scale = Prelude.Nothing,
-      publicDomainNames = Prelude.Nothing,
+    { scale = Prelude.Nothing,
+      power = Prelude.Nothing,
       isDisabled = Prelude.Nothing,
+      publicDomainNames = Prelude.Nothing,
       serviceName = pServiceName_
     }
+
+-- | The scale for the container service.
+--
+-- The scale specifies the allocated compute nodes of the container
+-- service. The @power@ and @scale@ of a container service makes up its
+-- configured capacity. To determine the monthly price of your container
+-- service, multiply the base price of the @power@ with the @scale@ (the
+-- number of nodes) of the service.
+updateContainerService_scale :: Lens.Lens' UpdateContainerService (Prelude.Maybe Prelude.Natural)
+updateContainerService_scale = Lens.lens (\UpdateContainerService' {scale} -> scale) (\s@UpdateContainerService' {} a -> s {scale = a} :: UpdateContainerService)
 
 -- | The power for the container service.
 --
@@ -173,15 +183,9 @@ newUpdateContainerService pServiceName_ =
 updateContainerService_power :: Lens.Lens' UpdateContainerService (Prelude.Maybe ContainerServicePowerName)
 updateContainerService_power = Lens.lens (\UpdateContainerService' {power} -> power) (\s@UpdateContainerService' {} a -> s {power = a} :: UpdateContainerService)
 
--- | The scale for the container service.
---
--- The scale specifies the allocated compute nodes of the container
--- service. The @power@ and @scale@ of a container service makes up its
--- configured capacity. To determine the monthly price of your container
--- service, multiply the base price of the @power@ with the @scale@ (the
--- number of nodes) of the service.
-updateContainerService_scale :: Lens.Lens' UpdateContainerService (Prelude.Maybe Prelude.Natural)
-updateContainerService_scale = Lens.lens (\UpdateContainerService' {scale} -> scale) (\s@UpdateContainerService' {} a -> s {scale = a} :: UpdateContainerService)
+-- | A Boolean value to indicate whether the container service is disabled.
+updateContainerService_isDisabled :: Lens.Lens' UpdateContainerService (Prelude.Maybe Prelude.Bool)
+updateContainerService_isDisabled = Lens.lens (\UpdateContainerService' {isDisabled} -> isDisabled) (\s@UpdateContainerService' {} a -> s {isDisabled = a} :: UpdateContainerService)
 
 -- | The public domain names to use with the container service, such as
 -- @example.com@ and @www.example.com@.
@@ -202,11 +206,7 @@ updateContainerService_scale = Lens.lens (\UpdateContainerService' {scale} -> sc
 -- You can specify public domain names using a string to array map as shown
 -- in the example later on this page.
 updateContainerService_publicDomainNames :: Lens.Lens' UpdateContainerService (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-updateContainerService_publicDomainNames = Lens.lens (\UpdateContainerService' {publicDomainNames} -> publicDomainNames) (\s@UpdateContainerService' {} a -> s {publicDomainNames = a} :: UpdateContainerService) Prelude.. Lens.mapping Lens._Coerce
-
--- | A Boolean value to indicate whether the container service is disabled.
-updateContainerService_isDisabled :: Lens.Lens' UpdateContainerService (Prelude.Maybe Prelude.Bool)
-updateContainerService_isDisabled = Lens.lens (\UpdateContainerService' {isDisabled} -> isDisabled) (\s@UpdateContainerService' {} a -> s {isDisabled = a} :: UpdateContainerService)
+updateContainerService_publicDomainNames = Lens.lens (\UpdateContainerService' {publicDomainNames} -> publicDomainNames) (\s@UpdateContainerService' {} a -> s {publicDomainNames = a} :: UpdateContainerService) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the container service to update.
 updateContainerService_serviceName :: Lens.Lens' UpdateContainerService Prelude.Text
@@ -248,11 +248,11 @@ instance Core.ToJSON UpdateContainerService where
   toJSON UpdateContainerService' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("power" Core..=) Prelude.<$> power,
-            ("scale" Core..=) Prelude.<$> scale,
+          [ ("scale" Core..=) Prelude.<$> scale,
+            ("power" Core..=) Prelude.<$> power,
+            ("isDisabled" Core..=) Prelude.<$> isDisabled,
             ("publicDomainNames" Core..=)
               Prelude.<$> publicDomainNames,
-            ("isDisabled" Core..=) Prelude.<$> isDisabled,
             Prelude.Just ("serviceName" Core..= serviceName)
           ]
       )

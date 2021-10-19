@@ -30,8 +30,8 @@ module Network.AWS.Lightsail.GetBundles
     newGetBundles,
 
     -- * Request Lenses
-    getBundles_pageToken,
     getBundles_includeInactive,
+    getBundles_pageToken,
 
     -- * Destructuring the Response
     GetBundlesResponse (..),
@@ -53,15 +53,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetBundles' smart constructor.
 data GetBundles = GetBundles'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | A Boolean value that indicates whether to include inactive bundle
+    -- results in your request.
+    includeInactive :: Prelude.Maybe Prelude.Bool,
+    -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetBundles@ request. If your
     -- results are paginated, the response will return a next page token that
     -- you can specify as the page token in a subsequent request.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | A Boolean value that indicates whether to include inactive bundle
-    -- results in your request.
-    includeInactive :: Prelude.Maybe Prelude.Bool
+    pageToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,21 +73,26 @@ data GetBundles = GetBundles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'includeInactive', 'getBundles_includeInactive' - A Boolean value that indicates whether to include inactive bundle
+-- results in your request.
+--
 -- 'pageToken', 'getBundles_pageToken' - The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetBundles@ request. If your
 -- results are paginated, the response will return a next page token that
 -- you can specify as the page token in a subsequent request.
---
--- 'includeInactive', 'getBundles_includeInactive' - A Boolean value that indicates whether to include inactive bundle
--- results in your request.
 newGetBundles ::
   GetBundles
 newGetBundles =
   GetBundles'
-    { pageToken = Prelude.Nothing,
-      includeInactive = Prelude.Nothing
+    { includeInactive = Prelude.Nothing,
+      pageToken = Prelude.Nothing
     }
+
+-- | A Boolean value that indicates whether to include inactive bundle
+-- results in your request.
+getBundles_includeInactive :: Lens.Lens' GetBundles (Prelude.Maybe Prelude.Bool)
+getBundles_includeInactive = Lens.lens (\GetBundles' {includeInactive} -> includeInactive) (\s@GetBundles' {} a -> s {includeInactive = a} :: GetBundles)
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -96,11 +101,6 @@ newGetBundles =
 -- you can specify as the page token in a subsequent request.
 getBundles_pageToken :: Lens.Lens' GetBundles (Prelude.Maybe Prelude.Text)
 getBundles_pageToken = Lens.lens (\GetBundles' {pageToken} -> pageToken) (\s@GetBundles' {} a -> s {pageToken = a} :: GetBundles)
-
--- | A Boolean value that indicates whether to include inactive bundle
--- results in your request.
-getBundles_includeInactive :: Lens.Lens' GetBundles (Prelude.Maybe Prelude.Bool)
-getBundles_includeInactive = Lens.lens (\GetBundles' {includeInactive} -> includeInactive) (\s@GetBundles' {} a -> s {includeInactive = a} :: GetBundles)
 
 instance Core.AWSPager GetBundles where
   page rq rs
@@ -157,9 +157,9 @@ instance Core.ToJSON GetBundles where
   toJSON GetBundles' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("pageToken" Core..=) Prelude.<$> pageToken,
-            ("includeInactive" Core..=)
-              Prelude.<$> includeInactive
+          [ ("includeInactive" Core..=)
+              Prelude.<$> includeInactive,
+            ("pageToken" Core..=) Prelude.<$> pageToken
           ]
       )
 
@@ -232,7 +232,7 @@ getBundlesResponse_nextPageToken = Lens.lens (\GetBundlesResponse' {nextPageToke
 -- | An array of key-value pairs that contains information about the
 -- available bundles.
 getBundlesResponse_bundles :: Lens.Lens' GetBundlesResponse (Prelude.Maybe [Bundle])
-getBundlesResponse_bundles = Lens.lens (\GetBundlesResponse' {bundles} -> bundles) (\s@GetBundlesResponse' {} a -> s {bundles = a} :: GetBundlesResponse) Prelude.. Lens.mapping Lens._Coerce
+getBundlesResponse_bundles = Lens.lens (\GetBundlesResponse' {bundles} -> bundles) (\s@GetBundlesResponse' {} a -> s {bundles = a} :: GetBundlesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getBundlesResponse_httpStatus :: Lens.Lens' GetBundlesResponse Prelude.Int

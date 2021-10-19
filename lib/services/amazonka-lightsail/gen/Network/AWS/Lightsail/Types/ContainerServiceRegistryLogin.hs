@@ -35,15 +35,15 @@ data ContainerServiceRegistryLogin = ContainerServiceRegistryLogin'
     -- point you will need to create a new set of log in credentials using the
     -- @CreateContainerServiceRegistryLogin@ action.
     expiresAt :: Prelude.Maybe Core.POSIX,
-    -- | The address to use to push container images to the container image
-    -- registry of a Lightsail account.
-    registry :: Prelude.Maybe Prelude.Text,
+    -- | The container service registry username to use to push container images
+    -- to the container image registry of a Lightsail account.
+    username :: Prelude.Maybe Prelude.Text,
     -- | The container service registry password to use to push container images
     -- to the container image registry of a Lightsail account
     password :: Prelude.Maybe Prelude.Text,
-    -- | The container service registry username to use to push container images
-    -- to the container image registry of a Lightsail account.
-    username :: Prelude.Maybe Prelude.Text
+    -- | The address to use to push container images to the container image
+    -- registry of a Lightsail account.
+    registry :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,23 +62,23 @@ data ContainerServiceRegistryLogin = ContainerServiceRegistryLogin'
 -- point you will need to create a new set of log in credentials using the
 -- @CreateContainerServiceRegistryLogin@ action.
 --
--- 'registry', 'containerServiceRegistryLogin_registry' - The address to use to push container images to the container image
--- registry of a Lightsail account.
+-- 'username', 'containerServiceRegistryLogin_username' - The container service registry username to use to push container images
+-- to the container image registry of a Lightsail account.
 --
 -- 'password', 'containerServiceRegistryLogin_password' - The container service registry password to use to push container images
 -- to the container image registry of a Lightsail account
 --
--- 'username', 'containerServiceRegistryLogin_username' - The container service registry username to use to push container images
--- to the container image registry of a Lightsail account.
+-- 'registry', 'containerServiceRegistryLogin_registry' - The address to use to push container images to the container image
+-- registry of a Lightsail account.
 newContainerServiceRegistryLogin ::
   ContainerServiceRegistryLogin
 newContainerServiceRegistryLogin =
   ContainerServiceRegistryLogin'
     { expiresAt =
         Prelude.Nothing,
-      registry = Prelude.Nothing,
+      username = Prelude.Nothing,
       password = Prelude.Nothing,
-      username = Prelude.Nothing
+      registry = Prelude.Nothing
     }
 
 -- | The timestamp of when the container image registry username and password
@@ -90,20 +90,20 @@ newContainerServiceRegistryLogin =
 containerServiceRegistryLogin_expiresAt :: Lens.Lens' ContainerServiceRegistryLogin (Prelude.Maybe Prelude.UTCTime)
 containerServiceRegistryLogin_expiresAt = Lens.lens (\ContainerServiceRegistryLogin' {expiresAt} -> expiresAt) (\s@ContainerServiceRegistryLogin' {} a -> s {expiresAt = a} :: ContainerServiceRegistryLogin) Prelude.. Lens.mapping Core._Time
 
--- | The address to use to push container images to the container image
--- registry of a Lightsail account.
-containerServiceRegistryLogin_registry :: Lens.Lens' ContainerServiceRegistryLogin (Prelude.Maybe Prelude.Text)
-containerServiceRegistryLogin_registry = Lens.lens (\ContainerServiceRegistryLogin' {registry} -> registry) (\s@ContainerServiceRegistryLogin' {} a -> s {registry = a} :: ContainerServiceRegistryLogin)
+-- | The container service registry username to use to push container images
+-- to the container image registry of a Lightsail account.
+containerServiceRegistryLogin_username :: Lens.Lens' ContainerServiceRegistryLogin (Prelude.Maybe Prelude.Text)
+containerServiceRegistryLogin_username = Lens.lens (\ContainerServiceRegistryLogin' {username} -> username) (\s@ContainerServiceRegistryLogin' {} a -> s {username = a} :: ContainerServiceRegistryLogin)
 
 -- | The container service registry password to use to push container images
 -- to the container image registry of a Lightsail account
 containerServiceRegistryLogin_password :: Lens.Lens' ContainerServiceRegistryLogin (Prelude.Maybe Prelude.Text)
 containerServiceRegistryLogin_password = Lens.lens (\ContainerServiceRegistryLogin' {password} -> password) (\s@ContainerServiceRegistryLogin' {} a -> s {password = a} :: ContainerServiceRegistryLogin)
 
--- | The container service registry username to use to push container images
--- to the container image registry of a Lightsail account.
-containerServiceRegistryLogin_username :: Lens.Lens' ContainerServiceRegistryLogin (Prelude.Maybe Prelude.Text)
-containerServiceRegistryLogin_username = Lens.lens (\ContainerServiceRegistryLogin' {username} -> username) (\s@ContainerServiceRegistryLogin' {} a -> s {username = a} :: ContainerServiceRegistryLogin)
+-- | The address to use to push container images to the container image
+-- registry of a Lightsail account.
+containerServiceRegistryLogin_registry :: Lens.Lens' ContainerServiceRegistryLogin (Prelude.Maybe Prelude.Text)
+containerServiceRegistryLogin_registry = Lens.lens (\ContainerServiceRegistryLogin' {registry} -> registry) (\s@ContainerServiceRegistryLogin' {} a -> s {registry = a} :: ContainerServiceRegistryLogin)
 
 instance Core.FromJSON ContainerServiceRegistryLogin where
   parseJSON =
@@ -112,9 +112,9 @@ instance Core.FromJSON ContainerServiceRegistryLogin where
       ( \x ->
           ContainerServiceRegistryLogin'
             Prelude.<$> (x Core..:? "expiresAt")
-            Prelude.<*> (x Core..:? "registry")
-            Prelude.<*> (x Core..:? "password")
             Prelude.<*> (x Core..:? "username")
+            Prelude.<*> (x Core..:? "password")
+            Prelude.<*> (x Core..:? "registry")
       )
 
 instance

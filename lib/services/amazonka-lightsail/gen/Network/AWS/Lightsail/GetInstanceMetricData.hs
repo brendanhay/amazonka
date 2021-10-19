@@ -534,7 +534,7 @@ getInstanceMetricData_unit = Lens.lens (\GetInstanceMetricData' {unit} -> unit) 
 -- -   @SampleCount@ - The count, or number, of data points used for the
 --     statistical calculation.
 getInstanceMetricData_statistics :: Lens.Lens' GetInstanceMetricData [MetricStatistic]
-getInstanceMetricData_statistics = Lens.lens (\GetInstanceMetricData' {statistics} -> statistics) (\s@GetInstanceMetricData' {} a -> s {statistics = a} :: GetInstanceMetricData) Prelude.. Lens._Coerce
+getInstanceMetricData_statistics = Lens.lens (\GetInstanceMetricData' {statistics} -> statistics) (\s@GetInstanceMetricData' {} a -> s {statistics = a} :: GetInstanceMetricData) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetInstanceMetricData where
   type
@@ -631,7 +631,7 @@ getInstanceMetricDataResponse_metricName = Lens.lens (\GetInstanceMetricDataResp
 
 -- | An array of objects that describe the metric data returned.
 getInstanceMetricDataResponse_metricData :: Lens.Lens' GetInstanceMetricDataResponse (Prelude.Maybe [MetricDatapoint])
-getInstanceMetricDataResponse_metricData = Lens.lens (\GetInstanceMetricDataResponse' {metricData} -> metricData) (\s@GetInstanceMetricDataResponse' {} a -> s {metricData = a} :: GetInstanceMetricDataResponse) Prelude.. Lens.mapping Lens._Coerce
+getInstanceMetricDataResponse_metricData = Lens.lens (\GetInstanceMetricDataResponse' {metricData} -> metricData) (\s@GetInstanceMetricDataResponse' {} a -> s {metricData = a} :: GetInstanceMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getInstanceMetricDataResponse_httpStatus :: Lens.Lens' GetInstanceMetricDataResponse Prelude.Int

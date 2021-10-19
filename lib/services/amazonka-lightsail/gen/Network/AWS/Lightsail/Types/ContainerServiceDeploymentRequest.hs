@@ -69,7 +69,7 @@ containerServiceDeploymentRequest_publicEndpoint = Lens.lens (\ContainerServiceD
 -- | An object that describes the configuration for the containers of the
 -- deployment.
 containerServiceDeploymentRequest_containers :: Lens.Lens' ContainerServiceDeploymentRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Container))
-containerServiceDeploymentRequest_containers = Lens.lens (\ContainerServiceDeploymentRequest' {containers} -> containers) (\s@ContainerServiceDeploymentRequest' {} a -> s {containers = a} :: ContainerServiceDeploymentRequest) Prelude.. Lens.mapping Lens._Coerce
+containerServiceDeploymentRequest_containers = Lens.lens (\ContainerServiceDeploymentRequest' {containers} -> containers) (\s@ContainerServiceDeploymentRequest' {} a -> s {containers = a} :: ContainerServiceDeploymentRequest) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable

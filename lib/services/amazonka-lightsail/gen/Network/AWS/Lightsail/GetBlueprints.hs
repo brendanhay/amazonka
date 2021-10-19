@@ -39,8 +39,8 @@ module Network.AWS.Lightsail.GetBlueprints
     newGetBlueprints,
 
     -- * Request Lenses
-    getBlueprints_pageToken,
     getBlueprints_includeInactive,
+    getBlueprints_pageToken,
 
     -- * Destructuring the Response
     GetBlueprintsResponse (..),
@@ -62,15 +62,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetBlueprints' smart constructor.
 data GetBlueprints = GetBlueprints'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | A Boolean value indicating whether to include inactive results in your
+    -- request.
+    includeInactive :: Prelude.Maybe Prelude.Bool,
+    -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetBlueprints@ request. If your
     -- results are paginated, the response will return a next page token that
     -- you can specify as the page token in a subsequent request.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | A Boolean value indicating whether to include inactive results in your
-    -- request.
-    includeInactive :: Prelude.Maybe Prelude.Bool
+    pageToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,21 +82,26 @@ data GetBlueprints = GetBlueprints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'includeInactive', 'getBlueprints_includeInactive' - A Boolean value indicating whether to include inactive results in your
+-- request.
+--
 -- 'pageToken', 'getBlueprints_pageToken' - The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetBlueprints@ request. If your
 -- results are paginated, the response will return a next page token that
 -- you can specify as the page token in a subsequent request.
---
--- 'includeInactive', 'getBlueprints_includeInactive' - A Boolean value indicating whether to include inactive results in your
--- request.
 newGetBlueprints ::
   GetBlueprints
 newGetBlueprints =
   GetBlueprints'
-    { pageToken = Prelude.Nothing,
-      includeInactive = Prelude.Nothing
+    { includeInactive = Prelude.Nothing,
+      pageToken = Prelude.Nothing
     }
+
+-- | A Boolean value indicating whether to include inactive results in your
+-- request.
+getBlueprints_includeInactive :: Lens.Lens' GetBlueprints (Prelude.Maybe Prelude.Bool)
+getBlueprints_includeInactive = Lens.lens (\GetBlueprints' {includeInactive} -> includeInactive) (\s@GetBlueprints' {} a -> s {includeInactive = a} :: GetBlueprints)
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -105,11 +110,6 @@ newGetBlueprints =
 -- you can specify as the page token in a subsequent request.
 getBlueprints_pageToken :: Lens.Lens' GetBlueprints (Prelude.Maybe Prelude.Text)
 getBlueprints_pageToken = Lens.lens (\GetBlueprints' {pageToken} -> pageToken) (\s@GetBlueprints' {} a -> s {pageToken = a} :: GetBlueprints)
-
--- | A Boolean value indicating whether to include inactive results in your
--- request.
-getBlueprints_includeInactive :: Lens.Lens' GetBlueprints (Prelude.Maybe Prelude.Bool)
-getBlueprints_includeInactive = Lens.lens (\GetBlueprints' {includeInactive} -> includeInactive) (\s@GetBlueprints' {} a -> s {includeInactive = a} :: GetBlueprints)
 
 instance Core.AWSPager GetBlueprints where
   page rq rs
@@ -170,9 +170,9 @@ instance Core.ToJSON GetBlueprints where
   toJSON GetBlueprints' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("pageToken" Core..=) Prelude.<$> pageToken,
-            ("includeInactive" Core..=)
-              Prelude.<$> includeInactive
+          [ ("includeInactive" Core..=)
+              Prelude.<$> includeInactive,
+            ("pageToken" Core..=) Prelude.<$> pageToken
           ]
       )
 
@@ -235,7 +235,7 @@ newGetBlueprintsResponse pHttpStatus_ =
 -- | An array of key-value pairs that contains information about the
 -- available blueprints.
 getBlueprintsResponse_blueprints :: Lens.Lens' GetBlueprintsResponse (Prelude.Maybe [Blueprint])
-getBlueprintsResponse_blueprints = Lens.lens (\GetBlueprintsResponse' {blueprints} -> blueprints) (\s@GetBlueprintsResponse' {} a -> s {blueprints = a} :: GetBlueprintsResponse) Prelude.. Lens.mapping Lens._Coerce
+getBlueprintsResponse_blueprints = Lens.lens (\GetBlueprintsResponse' {blueprints} -> blueprints) (\s@GetBlueprintsResponse' {} a -> s {blueprints = a} :: GetBlueprintsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to advance to the next page of results from your request.
 --

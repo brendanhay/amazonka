@@ -573,7 +573,7 @@ getLoadBalancerMetricData_unit = Lens.lens (\GetLoadBalancerMetricData' {unit} -
 -- -   @SampleCount@ - The count, or number, of data points used for the
 --     statistical calculation.
 getLoadBalancerMetricData_statistics :: Lens.Lens' GetLoadBalancerMetricData [MetricStatistic]
-getLoadBalancerMetricData_statistics = Lens.lens (\GetLoadBalancerMetricData' {statistics} -> statistics) (\s@GetLoadBalancerMetricData' {} a -> s {statistics = a} :: GetLoadBalancerMetricData) Prelude.. Lens._Coerce
+getLoadBalancerMetricData_statistics = Lens.lens (\GetLoadBalancerMetricData' {statistics} -> statistics) (\s@GetLoadBalancerMetricData' {} a -> s {statistics = a} :: GetLoadBalancerMetricData) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetLoadBalancerMetricData where
   type
@@ -671,7 +671,7 @@ getLoadBalancerMetricDataResponse_metricName = Lens.lens (\GetLoadBalancerMetric
 
 -- | An array of objects that describe the metric data returned.
 getLoadBalancerMetricDataResponse_metricData :: Lens.Lens' GetLoadBalancerMetricDataResponse (Prelude.Maybe [MetricDatapoint])
-getLoadBalancerMetricDataResponse_metricData = Lens.lens (\GetLoadBalancerMetricDataResponse' {metricData} -> metricData) (\s@GetLoadBalancerMetricDataResponse' {} a -> s {metricData = a} :: GetLoadBalancerMetricDataResponse) Prelude.. Lens.mapping Lens._Coerce
+getLoadBalancerMetricDataResponse_metricData = Lens.lens (\GetLoadBalancerMetricDataResponse' {metricData} -> metricData) (\s@GetLoadBalancerMetricDataResponse' {} a -> s {metricData = a} :: GetLoadBalancerMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getLoadBalancerMetricDataResponse_httpStatus :: Lens.Lens' GetLoadBalancerMetricDataResponse Prelude.Int

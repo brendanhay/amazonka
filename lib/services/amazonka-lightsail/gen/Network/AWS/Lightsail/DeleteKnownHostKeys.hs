@@ -168,7 +168,7 @@ newDeleteKnownHostKeysResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 deleteKnownHostKeysResponse_operations :: Lens.Lens' DeleteKnownHostKeysResponse (Prelude.Maybe [Operation])
-deleteKnownHostKeysResponse_operations = Lens.lens (\DeleteKnownHostKeysResponse' {operations} -> operations) (\s@DeleteKnownHostKeysResponse' {} a -> s {operations = a} :: DeleteKnownHostKeysResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteKnownHostKeysResponse_operations = Lens.lens (\DeleteKnownHostKeysResponse' {operations} -> operations) (\s@DeleteKnownHostKeysResponse' {} a -> s {operations = a} :: DeleteKnownHostKeysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteKnownHostKeysResponse_httpStatus :: Lens.Lens' DeleteKnownHostKeysResponse Prelude.Int

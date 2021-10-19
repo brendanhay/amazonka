@@ -101,7 +101,7 @@ newCreateInstanceSnapshot
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
 createInstanceSnapshot_tags :: Lens.Lens' CreateInstanceSnapshot (Prelude.Maybe [Tag])
-createInstanceSnapshot_tags = Lens.lens (\CreateInstanceSnapshot' {tags} -> tags) (\s@CreateInstanceSnapshot' {} a -> s {tags = a} :: CreateInstanceSnapshot) Prelude.. Lens.mapping Lens._Coerce
+createInstanceSnapshot_tags = Lens.lens (\CreateInstanceSnapshot' {tags} -> tags) (\s@CreateInstanceSnapshot' {} a -> s {tags = a} :: CreateInstanceSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for your new snapshot.
 createInstanceSnapshot_instanceSnapshotName :: Lens.Lens' CreateInstanceSnapshot Prelude.Text
@@ -201,7 +201,7 @@ newCreateInstanceSnapshotResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 createInstanceSnapshotResponse_operations :: Lens.Lens' CreateInstanceSnapshotResponse (Prelude.Maybe [Operation])
-createInstanceSnapshotResponse_operations = Lens.lens (\CreateInstanceSnapshotResponse' {operations} -> operations) (\s@CreateInstanceSnapshotResponse' {} a -> s {operations = a} :: CreateInstanceSnapshotResponse) Prelude.. Lens.mapping Lens._Coerce
+createInstanceSnapshotResponse_operations = Lens.lens (\CreateInstanceSnapshotResponse' {operations} -> operations) (\s@CreateInstanceSnapshotResponse' {} a -> s {operations = a} :: CreateInstanceSnapshotResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createInstanceSnapshotResponse_httpStatus :: Lens.Lens' CreateInstanceSnapshotResponse Prelude.Int

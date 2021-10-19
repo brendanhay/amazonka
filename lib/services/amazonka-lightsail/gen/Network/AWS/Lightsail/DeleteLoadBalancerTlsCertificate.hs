@@ -224,7 +224,7 @@ newDeleteLoadBalancerTlsCertificateResponse
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 deleteLoadBalancerTlsCertificateResponse_operations :: Lens.Lens' DeleteLoadBalancerTlsCertificateResponse (Prelude.Maybe [Operation])
-deleteLoadBalancerTlsCertificateResponse_operations = Lens.lens (\DeleteLoadBalancerTlsCertificateResponse' {operations} -> operations) (\s@DeleteLoadBalancerTlsCertificateResponse' {} a -> s {operations = a} :: DeleteLoadBalancerTlsCertificateResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteLoadBalancerTlsCertificateResponse_operations = Lens.lens (\DeleteLoadBalancerTlsCertificateResponse' {operations} -> operations) (\s@DeleteLoadBalancerTlsCertificateResponse' {} a -> s {operations = a} :: DeleteLoadBalancerTlsCertificateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteLoadBalancerTlsCertificateResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerTlsCertificateResponse Prelude.Int

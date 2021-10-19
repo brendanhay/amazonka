@@ -102,7 +102,7 @@ untagResource_resourceName = Lens.lens (\UntagResource' {resourceName} -> resour
 
 -- | The tag keys to delete from the specified resource.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagResource where
   type
@@ -191,7 +191,7 @@ newUntagResourceResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 untagResourceResponse_operations :: Lens.Lens' UntagResourceResponse (Prelude.Maybe [Operation])
-untagResourceResponse_operations = Lens.lens (\UntagResourceResponse' {operations} -> operations) (\s@UntagResourceResponse' {} a -> s {operations = a} :: UntagResourceResponse) Prelude.. Lens.mapping Lens._Coerce
+untagResourceResponse_operations = Lens.lens (\UntagResourceResponse' {operations} -> operations) (\s@UntagResourceResponse' {} a -> s {operations = a} :: UntagResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens.Lens' UntagResourceResponse Prelude.Int

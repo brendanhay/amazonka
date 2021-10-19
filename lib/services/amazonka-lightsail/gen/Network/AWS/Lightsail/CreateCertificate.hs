@@ -50,8 +50,8 @@ module Network.AWS.Lightsail.CreateCertificate
     newCreateCertificateResponse,
 
     -- * Response Lenses
-    createCertificateResponse_operations,
     createCertificateResponse_certificate,
+    createCertificateResponse_operations,
     createCertificateResponse_httpStatus,
   )
 where
@@ -135,14 +135,14 @@ newCreateCertificate pCertificateName_ pDomainName_ =
 --
 -- Wildcard domain entries (e.g., @*.example.com@) are not supported.
 createCertificate_subjectAlternativeNames :: Lens.Lens' CreateCertificate (Prelude.Maybe [Prelude.Text])
-createCertificate_subjectAlternativeNames = Lens.lens (\CreateCertificate' {subjectAlternativeNames} -> subjectAlternativeNames) (\s@CreateCertificate' {} a -> s {subjectAlternativeNames = a} :: CreateCertificate) Prelude.. Lens.mapping Lens._Coerce
+createCertificate_subjectAlternativeNames = Lens.lens (\CreateCertificate' {subjectAlternativeNames} -> subjectAlternativeNames) (\s@CreateCertificate' {} a -> s {subjectAlternativeNames = a} :: CreateCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tag keys and optional values to add to the certificate during
 -- create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
 createCertificate_tags :: Lens.Lens' CreateCertificate (Prelude.Maybe [Tag])
-createCertificate_tags = Lens.lens (\CreateCertificate' {tags} -> tags) (\s@CreateCertificate' {} a -> s {tags = a} :: CreateCertificate) Prelude.. Lens.mapping Lens._Coerce
+createCertificate_tags = Lens.lens (\CreateCertificate' {tags} -> tags) (\s@CreateCertificate' {} a -> s {tags = a} :: CreateCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the certificate.
 createCertificate_certificateName :: Lens.Lens' CreateCertificate Prelude.Text
@@ -161,8 +161,8 @@ instance Core.AWSRequest CreateCertificate where
     Response.receiveJSON
       ( \s h x ->
           CreateCertificateResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "certificate")
+            Prelude.<$> (x Core..?> "certificate")
+            Prelude.<*> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,12 +206,12 @@ instance Core.ToQuery CreateCertificate where
 
 -- | /See:/ 'newCreateCertificateResponse' smart constructor.
 data CreateCertificateResponse = CreateCertificateResponse'
-  { -- | An array of objects that describe the result of the action, such as the
+  { -- | An object that describes the certificate created.
+    certificate :: Prelude.Maybe CertificateSummary,
+    -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
     operations :: Prelude.Maybe [Operation],
-    -- | An object that describes the certificate created.
-    certificate :: Prelude.Maybe CertificateSummary,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,11 +225,11 @@ data CreateCertificateResponse = CreateCertificateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'certificate', 'createCertificateResponse_certificate' - An object that describes the certificate created.
+--
 -- 'operations', 'createCertificateResponse_operations' - An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
---
--- 'certificate', 'createCertificateResponse_certificate' - An object that describes the certificate created.
 --
 -- 'httpStatus', 'createCertificateResponse_httpStatus' - The response's http status code.
 newCreateCertificateResponse ::
@@ -238,21 +238,21 @@ newCreateCertificateResponse ::
   CreateCertificateResponse
 newCreateCertificateResponse pHttpStatus_ =
   CreateCertificateResponse'
-    { operations =
+    { certificate =
         Prelude.Nothing,
-      certificate = Prelude.Nothing,
+      operations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An object that describes the certificate created.
+createCertificateResponse_certificate :: Lens.Lens' CreateCertificateResponse (Prelude.Maybe CertificateSummary)
+createCertificateResponse_certificate = Lens.lens (\CreateCertificateResponse' {certificate} -> certificate) (\s@CreateCertificateResponse' {} a -> s {certificate = a} :: CreateCertificateResponse)
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 createCertificateResponse_operations :: Lens.Lens' CreateCertificateResponse (Prelude.Maybe [Operation])
-createCertificateResponse_operations = Lens.lens (\CreateCertificateResponse' {operations} -> operations) (\s@CreateCertificateResponse' {} a -> s {operations = a} :: CreateCertificateResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | An object that describes the certificate created.
-createCertificateResponse_certificate :: Lens.Lens' CreateCertificateResponse (Prelude.Maybe CertificateSummary)
-createCertificateResponse_certificate = Lens.lens (\CreateCertificateResponse' {certificate} -> certificate) (\s@CreateCertificateResponse' {} a -> s {certificate = a} :: CreateCertificateResponse)
+createCertificateResponse_operations = Lens.lens (\CreateCertificateResponse' {operations} -> operations) (\s@CreateCertificateResponse' {} a -> s {operations = a} :: CreateCertificateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createCertificateResponse_httpStatus :: Lens.Lens' CreateCertificateResponse Prelude.Int

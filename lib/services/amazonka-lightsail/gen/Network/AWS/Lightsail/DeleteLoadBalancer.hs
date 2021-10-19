@@ -170,7 +170,7 @@ newDeleteLoadBalancerResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 deleteLoadBalancerResponse_operations :: Lens.Lens' DeleteLoadBalancerResponse (Prelude.Maybe [Operation])
-deleteLoadBalancerResponse_operations = Lens.lens (\DeleteLoadBalancerResponse' {operations} -> operations) (\s@DeleteLoadBalancerResponse' {} a -> s {operations = a} :: DeleteLoadBalancerResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteLoadBalancerResponse_operations = Lens.lens (\DeleteLoadBalancerResponse' {operations} -> operations) (\s@DeleteLoadBalancerResponse' {} a -> s {operations = a} :: DeleteLoadBalancerResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteLoadBalancerResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerResponse Prelude.Int

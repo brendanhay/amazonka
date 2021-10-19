@@ -182,7 +182,7 @@ newGetLoadBalancerTlsCertificatesResponse
 -- | An array of LoadBalancerTlsCertificate objects describing your SSL\/TLS
 -- certificates.
 getLoadBalancerTlsCertificatesResponse_tlsCertificates :: Lens.Lens' GetLoadBalancerTlsCertificatesResponse (Prelude.Maybe [LoadBalancerTlsCertificate])
-getLoadBalancerTlsCertificatesResponse_tlsCertificates = Lens.lens (\GetLoadBalancerTlsCertificatesResponse' {tlsCertificates} -> tlsCertificates) (\s@GetLoadBalancerTlsCertificatesResponse' {} a -> s {tlsCertificates = a} :: GetLoadBalancerTlsCertificatesResponse) Prelude.. Lens.mapping Lens._Coerce
+getLoadBalancerTlsCertificatesResponse_tlsCertificates = Lens.lens (\GetLoadBalancerTlsCertificatesResponse' {tlsCertificates} -> tlsCertificates) (\s@GetLoadBalancerTlsCertificatesResponse' {} a -> s {tlsCertificates = a} :: GetLoadBalancerTlsCertificatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getLoadBalancerTlsCertificatesResponse_httpStatus :: Lens.Lens' GetLoadBalancerTlsCertificatesResponse Prelude.Int

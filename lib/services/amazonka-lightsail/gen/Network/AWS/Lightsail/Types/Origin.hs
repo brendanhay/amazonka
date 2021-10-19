@@ -37,13 +37,13 @@ import qualified Network.AWS.Prelude as Prelude
 data Origin = Origin'
   { -- | The AWS Region name of the origin resource.
     regionName :: Prelude.Maybe RegionName,
-    -- | The protocol that your Amazon Lightsail distribution uses when
-    -- establishing a connection with your origin to pull content.
-    protocolPolicy :: Prelude.Maybe OriginProtocolPolicyEnum,
     -- | The resource type of the origin resource (e.g., /Instance/).
     resourceType :: Prelude.Maybe ResourceType,
     -- | The name of the origin resource.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The protocol that your Amazon Lightsail distribution uses when
+    -- establishing a connection with your origin to pull content.
+    protocolPolicy :: Prelude.Maybe OriginProtocolPolicyEnum
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,30 +57,25 @@ data Origin = Origin'
 --
 -- 'regionName', 'origin_regionName' - The AWS Region name of the origin resource.
 --
--- 'protocolPolicy', 'origin_protocolPolicy' - The protocol that your Amazon Lightsail distribution uses when
--- establishing a connection with your origin to pull content.
---
 -- 'resourceType', 'origin_resourceType' - The resource type of the origin resource (e.g., /Instance/).
 --
 -- 'name', 'origin_name' - The name of the origin resource.
+--
+-- 'protocolPolicy', 'origin_protocolPolicy' - The protocol that your Amazon Lightsail distribution uses when
+-- establishing a connection with your origin to pull content.
 newOrigin ::
   Origin
 newOrigin =
   Origin'
     { regionName = Prelude.Nothing,
-      protocolPolicy = Prelude.Nothing,
       resourceType = Prelude.Nothing,
-      name = Prelude.Nothing
+      name = Prelude.Nothing,
+      protocolPolicy = Prelude.Nothing
     }
 
 -- | The AWS Region name of the origin resource.
 origin_regionName :: Lens.Lens' Origin (Prelude.Maybe RegionName)
 origin_regionName = Lens.lens (\Origin' {regionName} -> regionName) (\s@Origin' {} a -> s {regionName = a} :: Origin)
-
--- | The protocol that your Amazon Lightsail distribution uses when
--- establishing a connection with your origin to pull content.
-origin_protocolPolicy :: Lens.Lens' Origin (Prelude.Maybe OriginProtocolPolicyEnum)
-origin_protocolPolicy = Lens.lens (\Origin' {protocolPolicy} -> protocolPolicy) (\s@Origin' {} a -> s {protocolPolicy = a} :: Origin)
 
 -- | The resource type of the origin resource (e.g., /Instance/).
 origin_resourceType :: Lens.Lens' Origin (Prelude.Maybe ResourceType)
@@ -90,6 +85,11 @@ origin_resourceType = Lens.lens (\Origin' {resourceType} -> resourceType) (\s@Or
 origin_name :: Lens.Lens' Origin (Prelude.Maybe Prelude.Text)
 origin_name = Lens.lens (\Origin' {name} -> name) (\s@Origin' {} a -> s {name = a} :: Origin)
 
+-- | The protocol that your Amazon Lightsail distribution uses when
+-- establishing a connection with your origin to pull content.
+origin_protocolPolicy :: Lens.Lens' Origin (Prelude.Maybe OriginProtocolPolicyEnum)
+origin_protocolPolicy = Lens.lens (\Origin' {protocolPolicy} -> protocolPolicy) (\s@Origin' {} a -> s {protocolPolicy = a} :: Origin)
+
 instance Core.FromJSON Origin where
   parseJSON =
     Core.withObject
@@ -97,9 +97,9 @@ instance Core.FromJSON Origin where
       ( \x ->
           Origin'
             Prelude.<$> (x Core..:? "regionName")
-            Prelude.<*> (x Core..:? "protocolPolicy")
             Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "protocolPolicy")
       )
 
 instance Prelude.Hashable Origin

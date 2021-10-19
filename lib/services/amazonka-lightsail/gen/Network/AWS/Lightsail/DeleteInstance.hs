@@ -181,7 +181,7 @@ newDeleteInstanceResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 deleteInstanceResponse_operations :: Lens.Lens' DeleteInstanceResponse (Prelude.Maybe [Operation])
-deleteInstanceResponse_operations = Lens.lens (\DeleteInstanceResponse' {operations} -> operations) (\s@DeleteInstanceResponse' {} a -> s {operations = a} :: DeleteInstanceResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteInstanceResponse_operations = Lens.lens (\DeleteInstanceResponse' {operations} -> operations) (\s@DeleteInstanceResponse' {} a -> s {operations = a} :: DeleteInstanceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteInstanceResponse_httpStatus :: Lens.Lens' DeleteInstanceResponse Prelude.Int

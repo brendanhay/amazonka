@@ -290,7 +290,7 @@ getContainerServiceMetricData_period = Lens.lens (\GetContainerServiceMetricData
 -- -   @SampleCount@ - The count, or number, of data points used for the
 --     statistical calculation.
 getContainerServiceMetricData_statistics :: Lens.Lens' GetContainerServiceMetricData [MetricStatistic]
-getContainerServiceMetricData_statistics = Lens.lens (\GetContainerServiceMetricData' {statistics} -> statistics) (\s@GetContainerServiceMetricData' {} a -> s {statistics = a} :: GetContainerServiceMetricData) Prelude.. Lens._Coerce
+getContainerServiceMetricData_statistics = Lens.lens (\GetContainerServiceMetricData' {statistics} -> statistics) (\s@GetContainerServiceMetricData' {} a -> s {statistics = a} :: GetContainerServiceMetricData) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -391,7 +391,7 @@ getContainerServiceMetricDataResponse_metricName = Lens.lens (\GetContainerServi
 
 -- | An array of objects that describe the metric data returned.
 getContainerServiceMetricDataResponse_metricData :: Lens.Lens' GetContainerServiceMetricDataResponse (Prelude.Maybe [MetricDatapoint])
-getContainerServiceMetricDataResponse_metricData = Lens.lens (\GetContainerServiceMetricDataResponse' {metricData} -> metricData) (\s@GetContainerServiceMetricDataResponse' {} a -> s {metricData = a} :: GetContainerServiceMetricDataResponse) Prelude.. Lens.mapping Lens._Coerce
+getContainerServiceMetricDataResponse_metricData = Lens.lens (\GetContainerServiceMetricDataResponse' {metricData} -> metricData) (\s@GetContainerServiceMetricDataResponse' {} a -> s {metricData = a} :: GetContainerServiceMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getContainerServiceMetricDataResponse_httpStatus :: Lens.Lens' GetContainerServiceMetricDataResponse Prelude.Int

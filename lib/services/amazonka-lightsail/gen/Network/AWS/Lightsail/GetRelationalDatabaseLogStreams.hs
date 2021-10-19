@@ -174,7 +174,7 @@ newGetRelationalDatabaseLogStreamsResponse
 -- | An object describing the result of your get relational database log
 -- streams request.
 getRelationalDatabaseLogStreamsResponse_logStreams :: Lens.Lens' GetRelationalDatabaseLogStreamsResponse (Prelude.Maybe [Prelude.Text])
-getRelationalDatabaseLogStreamsResponse_logStreams = Lens.lens (\GetRelationalDatabaseLogStreamsResponse' {logStreams} -> logStreams) (\s@GetRelationalDatabaseLogStreamsResponse' {} a -> s {logStreams = a} :: GetRelationalDatabaseLogStreamsResponse) Prelude.. Lens.mapping Lens._Coerce
+getRelationalDatabaseLogStreamsResponse_logStreams = Lens.lens (\GetRelationalDatabaseLogStreamsResponse' {logStreams} -> logStreams) (\s@GetRelationalDatabaseLogStreamsResponse' {} a -> s {logStreams = a} :: GetRelationalDatabaseLogStreamsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRelationalDatabaseLogStreamsResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseLogStreamsResponse Prelude.Int

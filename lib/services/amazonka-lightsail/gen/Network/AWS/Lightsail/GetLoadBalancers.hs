@@ -214,7 +214,7 @@ getLoadBalancersResponse_nextPageToken = Lens.lens (\GetLoadBalancersResponse' {
 
 -- | An array of LoadBalancer objects describing your load balancers.
 getLoadBalancersResponse_loadBalancers :: Lens.Lens' GetLoadBalancersResponse (Prelude.Maybe [LoadBalancer])
-getLoadBalancersResponse_loadBalancers = Lens.lens (\GetLoadBalancersResponse' {loadBalancers} -> loadBalancers) (\s@GetLoadBalancersResponse' {} a -> s {loadBalancers = a} :: GetLoadBalancersResponse) Prelude.. Lens.mapping Lens._Coerce
+getLoadBalancersResponse_loadBalancers = Lens.lens (\GetLoadBalancersResponse' {loadBalancers} -> loadBalancers) (\s@GetLoadBalancersResponse' {} a -> s {loadBalancers = a} :: GetLoadBalancersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getLoadBalancersResponse_httpStatus :: Lens.Lens' GetLoadBalancersResponse Prelude.Int

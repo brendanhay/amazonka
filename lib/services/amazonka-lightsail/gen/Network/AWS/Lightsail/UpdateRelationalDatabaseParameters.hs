@@ -99,7 +99,7 @@ updateRelationalDatabaseParameters_relationalDatabaseName = Lens.lens (\UpdateRe
 
 -- | The database parameters to update.
 updateRelationalDatabaseParameters_parameters :: Lens.Lens' UpdateRelationalDatabaseParameters [RelationalDatabaseParameter]
-updateRelationalDatabaseParameters_parameters = Lens.lens (\UpdateRelationalDatabaseParameters' {parameters} -> parameters) (\s@UpdateRelationalDatabaseParameters' {} a -> s {parameters = a} :: UpdateRelationalDatabaseParameters) Prelude.. Lens._Coerce
+updateRelationalDatabaseParameters_parameters = Lens.lens (\UpdateRelationalDatabaseParameters' {parameters} -> parameters) (\s@UpdateRelationalDatabaseParameters' {} a -> s {parameters = a} :: UpdateRelationalDatabaseParameters) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -210,7 +210,7 @@ newUpdateRelationalDatabaseParametersResponse
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 updateRelationalDatabaseParametersResponse_operations :: Lens.Lens' UpdateRelationalDatabaseParametersResponse (Prelude.Maybe [Operation])
-updateRelationalDatabaseParametersResponse_operations = Lens.lens (\UpdateRelationalDatabaseParametersResponse' {operations} -> operations) (\s@UpdateRelationalDatabaseParametersResponse' {} a -> s {operations = a} :: UpdateRelationalDatabaseParametersResponse) Prelude.. Lens.mapping Lens._Coerce
+updateRelationalDatabaseParametersResponse_operations = Lens.lens (\UpdateRelationalDatabaseParametersResponse' {operations} -> operations) (\s@UpdateRelationalDatabaseParametersResponse' {} a -> s {operations = a} :: UpdateRelationalDatabaseParametersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 updateRelationalDatabaseParametersResponse_httpStatus :: Lens.Lens' UpdateRelationalDatabaseParametersResponse Prelude.Int

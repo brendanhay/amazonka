@@ -221,7 +221,7 @@ newSetIpAddressTypeResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 setIpAddressTypeResponse_operations :: Lens.Lens' SetIpAddressTypeResponse (Prelude.Maybe [Operation])
-setIpAddressTypeResponse_operations = Lens.lens (\SetIpAddressTypeResponse' {operations} -> operations) (\s@SetIpAddressTypeResponse' {} a -> s {operations = a} :: SetIpAddressTypeResponse) Prelude.. Lens.mapping Lens._Coerce
+setIpAddressTypeResponse_operations = Lens.lens (\SetIpAddressTypeResponse' {operations} -> operations) (\s@SetIpAddressTypeResponse' {} a -> s {operations = a} :: SetIpAddressTypeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 setIpAddressTypeResponse_httpStatus :: Lens.Lens' SetIpAddressTypeResponse Prelude.Int

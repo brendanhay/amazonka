@@ -84,7 +84,7 @@ newQueryStringObject =
 -- query strings, regardless of what you specify using the
 -- @queryStringsAllowList@ parameter.
 queryStringObject_queryStringsAllowList :: Lens.Lens' QueryStringObject (Prelude.Maybe [Prelude.Text])
-queryStringObject_queryStringsAllowList = Lens.lens (\QueryStringObject' {queryStringsAllowList} -> queryStringsAllowList) (\s@QueryStringObject' {} a -> s {queryStringsAllowList = a} :: QueryStringObject) Prelude.. Lens.mapping Lens._Coerce
+queryStringObject_queryStringsAllowList = Lens.lens (\QueryStringObject' {queryStringsAllowList} -> queryStringsAllowList) (\s@QueryStringObject' {} a -> s {queryStringsAllowList = a} :: QueryStringObject) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether the distribution forwards and caches based on query
 -- strings.

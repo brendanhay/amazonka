@@ -99,7 +99,7 @@ newCreateDomain pDomainName_ =
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
 createDomain_tags :: Lens.Lens' CreateDomain (Prelude.Maybe [Tag])
-createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' {} a -> s {tags = a} :: CreateDomain) Prelude.. Lens.mapping Lens._Coerce
+createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' {} a -> s {tags = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | The domain name to manage (e.g., @example.com@).
 --

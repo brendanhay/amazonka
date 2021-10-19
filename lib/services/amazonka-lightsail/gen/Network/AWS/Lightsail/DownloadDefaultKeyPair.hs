@@ -31,8 +31,8 @@ module Network.AWS.Lightsail.DownloadDefaultKeyPair
     newDownloadDefaultKeyPairResponse,
 
     -- * Response Lenses
-    downloadDefaultKeyPairResponse_privateKeyBase64,
     downloadDefaultKeyPairResponse_publicKeyBase64,
+    downloadDefaultKeyPairResponse_privateKeyBase64,
     downloadDefaultKeyPairResponse_httpStatus,
   )
 where
@@ -67,8 +67,8 @@ instance Core.AWSRequest DownloadDefaultKeyPair where
     Response.receiveJSON
       ( \s h x ->
           DownloadDefaultKeyPairResponse'
-            Prelude.<$> (x Core..?> "privateKeyBase64")
-            Prelude.<*> (x Core..?> "publicKeyBase64")
+            Prelude.<$> (x Core..?> "publicKeyBase64")
+            Prelude.<*> (x Core..?> "privateKeyBase64")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,10 +102,10 @@ instance Core.ToQuery DownloadDefaultKeyPair where
 
 -- | /See:/ 'newDownloadDefaultKeyPairResponse' smart constructor.
 data DownloadDefaultKeyPairResponse = DownloadDefaultKeyPairResponse'
-  { -- | A base64-encoded RSA private key.
-    privateKeyBase64 :: Prelude.Maybe Prelude.Text,
-    -- | A base64-encoded public key of the @ssh-rsa@ type.
+  { -- | A base64-encoded public key of the @ssh-rsa@ type.
     publicKeyBase64 :: Prelude.Maybe Prelude.Text,
+    -- | A base64-encoded RSA private key.
+    privateKeyBase64 :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -119,9 +119,9 @@ data DownloadDefaultKeyPairResponse = DownloadDefaultKeyPairResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'privateKeyBase64', 'downloadDefaultKeyPairResponse_privateKeyBase64' - A base64-encoded RSA private key.
---
 -- 'publicKeyBase64', 'downloadDefaultKeyPairResponse_publicKeyBase64' - A base64-encoded public key of the @ssh-rsa@ type.
+--
+-- 'privateKeyBase64', 'downloadDefaultKeyPairResponse_privateKeyBase64' - A base64-encoded RSA private key.
 --
 -- 'httpStatus', 'downloadDefaultKeyPairResponse_httpStatus' - The response's http status code.
 newDownloadDefaultKeyPairResponse ::
@@ -130,19 +130,19 @@ newDownloadDefaultKeyPairResponse ::
   DownloadDefaultKeyPairResponse
 newDownloadDefaultKeyPairResponse pHttpStatus_ =
   DownloadDefaultKeyPairResponse'
-    { privateKeyBase64 =
+    { publicKeyBase64 =
         Prelude.Nothing,
-      publicKeyBase64 = Prelude.Nothing,
+      privateKeyBase64 = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A base64-encoded RSA private key.
-downloadDefaultKeyPairResponse_privateKeyBase64 :: Lens.Lens' DownloadDefaultKeyPairResponse (Prelude.Maybe Prelude.Text)
-downloadDefaultKeyPairResponse_privateKeyBase64 = Lens.lens (\DownloadDefaultKeyPairResponse' {privateKeyBase64} -> privateKeyBase64) (\s@DownloadDefaultKeyPairResponse' {} a -> s {privateKeyBase64 = a} :: DownloadDefaultKeyPairResponse)
 
 -- | A base64-encoded public key of the @ssh-rsa@ type.
 downloadDefaultKeyPairResponse_publicKeyBase64 :: Lens.Lens' DownloadDefaultKeyPairResponse (Prelude.Maybe Prelude.Text)
 downloadDefaultKeyPairResponse_publicKeyBase64 = Lens.lens (\DownloadDefaultKeyPairResponse' {publicKeyBase64} -> publicKeyBase64) (\s@DownloadDefaultKeyPairResponse' {} a -> s {publicKeyBase64 = a} :: DownloadDefaultKeyPairResponse)
+
+-- | A base64-encoded RSA private key.
+downloadDefaultKeyPairResponse_privateKeyBase64 :: Lens.Lens' DownloadDefaultKeyPairResponse (Prelude.Maybe Prelude.Text)
+downloadDefaultKeyPairResponse_privateKeyBase64 = Lens.lens (\DownloadDefaultKeyPairResponse' {privateKeyBase64} -> privateKeyBase64) (\s@DownloadDefaultKeyPairResponse' {} a -> s {privateKeyBase64 = a} :: DownloadDefaultKeyPairResponse)
 
 -- | The response's http status code.
 downloadDefaultKeyPairResponse_httpStatus :: Lens.Lens' DownloadDefaultKeyPairResponse Prelude.Int

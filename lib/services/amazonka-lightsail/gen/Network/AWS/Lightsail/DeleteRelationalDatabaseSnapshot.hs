@@ -184,7 +184,7 @@ newDeleteRelationalDatabaseSnapshotResponse
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 deleteRelationalDatabaseSnapshotResponse_operations :: Lens.Lens' DeleteRelationalDatabaseSnapshotResponse (Prelude.Maybe [Operation])
-deleteRelationalDatabaseSnapshotResponse_operations = Lens.lens (\DeleteRelationalDatabaseSnapshotResponse' {operations} -> operations) (\s@DeleteRelationalDatabaseSnapshotResponse' {} a -> s {operations = a} :: DeleteRelationalDatabaseSnapshotResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteRelationalDatabaseSnapshotResponse_operations = Lens.lens (\DeleteRelationalDatabaseSnapshotResponse' {operations} -> operations) (\s@DeleteRelationalDatabaseSnapshotResponse' {} a -> s {operations = a} :: DeleteRelationalDatabaseSnapshotResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteRelationalDatabaseSnapshotResponse_httpStatus :: Lens.Lens' DeleteRelationalDatabaseSnapshotResponse Prelude.Int

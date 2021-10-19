@@ -157,7 +157,7 @@ newAllocateStaticIpResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 allocateStaticIpResponse_operations :: Lens.Lens' AllocateStaticIpResponse (Prelude.Maybe [Operation])
-allocateStaticIpResponse_operations = Lens.lens (\AllocateStaticIpResponse' {operations} -> operations) (\s@AllocateStaticIpResponse' {} a -> s {operations = a} :: AllocateStaticIpResponse) Prelude.. Lens.mapping Lens._Coerce
+allocateStaticIpResponse_operations = Lens.lens (\AllocateStaticIpResponse' {operations} -> operations) (\s@AllocateStaticIpResponse' {} a -> s {operations = a} :: AllocateStaticIpResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 allocateStaticIpResponse_httpStatus :: Lens.Lens' AllocateStaticIpResponse Prelude.Int

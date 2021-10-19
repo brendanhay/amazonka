@@ -307,7 +307,7 @@ getBucketMetricData_period = Lens.lens (\GetBucketMetricData' {period} -> period
 -- -   @SampleCount@ - The count, or number, of data points used for the
 --     statistical calculation.
 getBucketMetricData_statistics :: Lens.Lens' GetBucketMetricData [MetricStatistic]
-getBucketMetricData_statistics = Lens.lens (\GetBucketMetricData' {statistics} -> statistics) (\s@GetBucketMetricData' {} a -> s {statistics = a} :: GetBucketMetricData) Prelude.. Lens._Coerce
+getBucketMetricData_statistics = Lens.lens (\GetBucketMetricData' {statistics} -> statistics) (\s@GetBucketMetricData' {} a -> s {statistics = a} :: GetBucketMetricData) Prelude.. Lens.coerced
 
 -- | The unit for the metric data request.
 --
@@ -411,7 +411,7 @@ getBucketMetricDataResponse_metricName = Lens.lens (\GetBucketMetricDataResponse
 
 -- | An array of objects that describe the metric data returned.
 getBucketMetricDataResponse_metricData :: Lens.Lens' GetBucketMetricDataResponse (Prelude.Maybe [MetricDatapoint])
-getBucketMetricDataResponse_metricData = Lens.lens (\GetBucketMetricDataResponse' {metricData} -> metricData) (\s@GetBucketMetricDataResponse' {} a -> s {metricData = a} :: GetBucketMetricDataResponse) Prelude.. Lens.mapping Lens._Coerce
+getBucketMetricDataResponse_metricData = Lens.lens (\GetBucketMetricDataResponse' {metricData} -> metricData) (\s@GetBucketMetricDataResponse' {} a -> s {metricData = a} :: GetBucketMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getBucketMetricDataResponse_httpStatus :: Lens.Lens' GetBucketMetricDataResponse Prelude.Int

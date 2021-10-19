@@ -43,11 +43,11 @@ module Network.AWS.Lightsail.PutAlarm
     newPutAlarm,
 
     -- * Request Lenses
-    putAlarm_datapointsToAlarm,
-    putAlarm_notificationTriggers,
-    putAlarm_notificationEnabled,
     putAlarm_treatMissingData,
     putAlarm_contactProtocols,
+    putAlarm_datapointsToAlarm,
+    putAlarm_notificationEnabled,
+    putAlarm_notificationTriggers,
     putAlarm_alarmName,
     putAlarm_metricName,
     putAlarm_monitoredResourceName,
@@ -74,44 +74,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutAlarm' smart constructor.
 data PutAlarm = PutAlarm'
-  { -- | The number of data points that must be not within the specified
-    -- threshold to trigger the alarm. If you are setting an \"M out of N\"
-    -- alarm, this value (@datapointsToAlarm@) is the M.
-    datapointsToAlarm :: Prelude.Maybe Prelude.Int,
-    -- | The alarm states that trigger a notification.
-    --
-    -- An alarm has the following possible states:
-    --
-    -- -   @ALARM@ - The metric is outside of the defined threshold.
-    --
-    -- -   @INSUFFICIENT_DATA@ - The alarm has just started, the metric is not
-    --     available, or not enough data is available for the metric to
-    --     determine the alarm state.
-    --
-    -- -   @OK@ - The metric is within the defined threshold.
-    --
-    -- When you specify a notification trigger, the @ALARM@ state must be
-    -- specified. The @INSUFFICIENT_DATA@ and @OK@ states can be specified in
-    -- addition to the @ALARM@ state.
-    --
-    -- -   If you specify @OK@ as an alarm trigger, a notification is sent when
-    --     the alarm switches from an @ALARM@ or @INSUFFICIENT_DATA@ alarm
-    --     state to an @OK@ state. This can be thought of as an /all clear/
-    --     alarm notification.
-    --
-    -- -   If you specify @INSUFFICIENT_DATA@ as the alarm trigger, a
-    --     notification is sent when the alarm switches from an @OK@ or @ALARM@
-    --     alarm state to an @INSUFFICIENT_DATA@ state.
-    --
-    -- The notification trigger defaults to @ALARM@ if you don\'t specify this
-    -- parameter.
-    notificationTriggers :: Prelude.Maybe [AlarmState],
-    -- | Indicates whether the alarm is enabled.
-    --
-    -- Notifications are enabled by default if you don\'t specify this
-    -- parameter.
-    notificationEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Sets how this alarm will handle missing data points.
+  { -- | Sets how this alarm will handle missing data points.
     --
     -- An alarm can treat missing data in the following ways:
     --
@@ -146,6 +109,43 @@ data PutAlarm = PutAlarm'
     -- Use the @CreateContactMethod@ action to configure a contact protocol in
     -- an AWS Region.
     contactProtocols :: Prelude.Maybe [ContactProtocol],
+    -- | The number of data points that must be not within the specified
+    -- threshold to trigger the alarm. If you are setting an \"M out of N\"
+    -- alarm, this value (@datapointsToAlarm@) is the M.
+    datapointsToAlarm :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether the alarm is enabled.
+    --
+    -- Notifications are enabled by default if you don\'t specify this
+    -- parameter.
+    notificationEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The alarm states that trigger a notification.
+    --
+    -- An alarm has the following possible states:
+    --
+    -- -   @ALARM@ - The metric is outside of the defined threshold.
+    --
+    -- -   @INSUFFICIENT_DATA@ - The alarm has just started, the metric is not
+    --     available, or not enough data is available for the metric to
+    --     determine the alarm state.
+    --
+    -- -   @OK@ - The metric is within the defined threshold.
+    --
+    -- When you specify a notification trigger, the @ALARM@ state must be
+    -- specified. The @INSUFFICIENT_DATA@ and @OK@ states can be specified in
+    -- addition to the @ALARM@ state.
+    --
+    -- -   If you specify @OK@ as an alarm trigger, a notification is sent when
+    --     the alarm switches from an @ALARM@ or @INSUFFICIENT_DATA@ alarm
+    --     state to an @OK@ state. This can be thought of as an /all clear/
+    --     alarm notification.
+    --
+    -- -   If you specify @INSUFFICIENT_DATA@ as the alarm trigger, a
+    --     notification is sent when the alarm switches from an @OK@ or @ALARM@
+    --     alarm state to an @INSUFFICIENT_DATA@ state.
+    --
+    -- The notification trigger defaults to @ALARM@ if you don\'t specify this
+    -- parameter.
+    notificationTriggers :: Prelude.Maybe [AlarmState],
     -- | The name for the alarm. Specify the name of an existing alarm to update,
     -- and overwrite the previous configuration of the alarm.
     alarmName :: Prelude.Text,
@@ -210,43 +210,6 @@ data PutAlarm = PutAlarm'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'datapointsToAlarm', 'putAlarm_datapointsToAlarm' - The number of data points that must be not within the specified
--- threshold to trigger the alarm. If you are setting an \"M out of N\"
--- alarm, this value (@datapointsToAlarm@) is the M.
---
--- 'notificationTriggers', 'putAlarm_notificationTriggers' - The alarm states that trigger a notification.
---
--- An alarm has the following possible states:
---
--- -   @ALARM@ - The metric is outside of the defined threshold.
---
--- -   @INSUFFICIENT_DATA@ - The alarm has just started, the metric is not
---     available, or not enough data is available for the metric to
---     determine the alarm state.
---
--- -   @OK@ - The metric is within the defined threshold.
---
--- When you specify a notification trigger, the @ALARM@ state must be
--- specified. The @INSUFFICIENT_DATA@ and @OK@ states can be specified in
--- addition to the @ALARM@ state.
---
--- -   If you specify @OK@ as an alarm trigger, a notification is sent when
---     the alarm switches from an @ALARM@ or @INSUFFICIENT_DATA@ alarm
---     state to an @OK@ state. This can be thought of as an /all clear/
---     alarm notification.
---
--- -   If you specify @INSUFFICIENT_DATA@ as the alarm trigger, a
---     notification is sent when the alarm switches from an @OK@ or @ALARM@
---     alarm state to an @INSUFFICIENT_DATA@ state.
---
--- The notification trigger defaults to @ALARM@ if you don\'t specify this
--- parameter.
---
--- 'notificationEnabled', 'putAlarm_notificationEnabled' - Indicates whether the alarm is enabled.
---
--- Notifications are enabled by default if you don\'t specify this
--- parameter.
---
 -- 'treatMissingData', 'putAlarm_treatMissingData' - Sets how this alarm will handle missing data points.
 --
 -- An alarm can treat missing data in the following ways:
@@ -281,6 +244,43 @@ data PutAlarm = PutAlarm'
 --
 -- Use the @CreateContactMethod@ action to configure a contact protocol in
 -- an AWS Region.
+--
+-- 'datapointsToAlarm', 'putAlarm_datapointsToAlarm' - The number of data points that must be not within the specified
+-- threshold to trigger the alarm. If you are setting an \"M out of N\"
+-- alarm, this value (@datapointsToAlarm@) is the M.
+--
+-- 'notificationEnabled', 'putAlarm_notificationEnabled' - Indicates whether the alarm is enabled.
+--
+-- Notifications are enabled by default if you don\'t specify this
+-- parameter.
+--
+-- 'notificationTriggers', 'putAlarm_notificationTriggers' - The alarm states that trigger a notification.
+--
+-- An alarm has the following possible states:
+--
+-- -   @ALARM@ - The metric is outside of the defined threshold.
+--
+-- -   @INSUFFICIENT_DATA@ - The alarm has just started, the metric is not
+--     available, or not enough data is available for the metric to
+--     determine the alarm state.
+--
+-- -   @OK@ - The metric is within the defined threshold.
+--
+-- When you specify a notification trigger, the @ALARM@ state must be
+-- specified. The @INSUFFICIENT_DATA@ and @OK@ states can be specified in
+-- addition to the @ALARM@ state.
+--
+-- -   If you specify @OK@ as an alarm trigger, a notification is sent when
+--     the alarm switches from an @ALARM@ or @INSUFFICIENT_DATA@ alarm
+--     state to an @OK@ state. This can be thought of as an /all clear/
+--     alarm notification.
+--
+-- -   If you specify @INSUFFICIENT_DATA@ as the alarm trigger, a
+--     notification is sent when the alarm switches from an @OK@ or @ALARM@
+--     alarm state to an @INSUFFICIENT_DATA@ state.
+--
+-- The notification trigger defaults to @ALARM@ if you don\'t specify this
+-- parameter.
 --
 -- 'alarmName', 'putAlarm_alarmName' - The name for the alarm. Specify the name of an existing alarm to update,
 -- and overwrite the previous configuration of the alarm.
@@ -356,11 +356,11 @@ newPutAlarm
   pThreshold_
   pEvaluationPeriods_ =
     PutAlarm'
-      { datapointsToAlarm = Prelude.Nothing,
-        notificationTriggers = Prelude.Nothing,
-        notificationEnabled = Prelude.Nothing,
-        treatMissingData = Prelude.Nothing,
+      { treatMissingData = Prelude.Nothing,
         contactProtocols = Prelude.Nothing,
+        datapointsToAlarm = Prelude.Nothing,
+        notificationEnabled = Prelude.Nothing,
+        notificationTriggers = Prelude.Nothing,
         alarmName = pAlarmName_,
         metricName = pMetricName_,
         monitoredResourceName = pMonitoredResourceName_,
@@ -368,49 +368,6 @@ newPutAlarm
         threshold = pThreshold_,
         evaluationPeriods = pEvaluationPeriods_
       }
-
--- | The number of data points that must be not within the specified
--- threshold to trigger the alarm. If you are setting an \"M out of N\"
--- alarm, this value (@datapointsToAlarm@) is the M.
-putAlarm_datapointsToAlarm :: Lens.Lens' PutAlarm (Prelude.Maybe Prelude.Int)
-putAlarm_datapointsToAlarm = Lens.lens (\PutAlarm' {datapointsToAlarm} -> datapointsToAlarm) (\s@PutAlarm' {} a -> s {datapointsToAlarm = a} :: PutAlarm)
-
--- | The alarm states that trigger a notification.
---
--- An alarm has the following possible states:
---
--- -   @ALARM@ - The metric is outside of the defined threshold.
---
--- -   @INSUFFICIENT_DATA@ - The alarm has just started, the metric is not
---     available, or not enough data is available for the metric to
---     determine the alarm state.
---
--- -   @OK@ - The metric is within the defined threshold.
---
--- When you specify a notification trigger, the @ALARM@ state must be
--- specified. The @INSUFFICIENT_DATA@ and @OK@ states can be specified in
--- addition to the @ALARM@ state.
---
--- -   If you specify @OK@ as an alarm trigger, a notification is sent when
---     the alarm switches from an @ALARM@ or @INSUFFICIENT_DATA@ alarm
---     state to an @OK@ state. This can be thought of as an /all clear/
---     alarm notification.
---
--- -   If you specify @INSUFFICIENT_DATA@ as the alarm trigger, a
---     notification is sent when the alarm switches from an @OK@ or @ALARM@
---     alarm state to an @INSUFFICIENT_DATA@ state.
---
--- The notification trigger defaults to @ALARM@ if you don\'t specify this
--- parameter.
-putAlarm_notificationTriggers :: Lens.Lens' PutAlarm (Prelude.Maybe [AlarmState])
-putAlarm_notificationTriggers = Lens.lens (\PutAlarm' {notificationTriggers} -> notificationTriggers) (\s@PutAlarm' {} a -> s {notificationTriggers = a} :: PutAlarm) Prelude.. Lens.mapping Lens._Coerce
-
--- | Indicates whether the alarm is enabled.
---
--- Notifications are enabled by default if you don\'t specify this
--- parameter.
-putAlarm_notificationEnabled :: Lens.Lens' PutAlarm (Prelude.Maybe Prelude.Bool)
-putAlarm_notificationEnabled = Lens.lens (\PutAlarm' {notificationEnabled} -> notificationEnabled) (\s@PutAlarm' {} a -> s {notificationEnabled = a} :: PutAlarm)
 
 -- | Sets how this alarm will handle missing data points.
 --
@@ -449,7 +406,50 @@ putAlarm_treatMissingData = Lens.lens (\PutAlarm' {treatMissingData} -> treatMis
 -- Use the @CreateContactMethod@ action to configure a contact protocol in
 -- an AWS Region.
 putAlarm_contactProtocols :: Lens.Lens' PutAlarm (Prelude.Maybe [ContactProtocol])
-putAlarm_contactProtocols = Lens.lens (\PutAlarm' {contactProtocols} -> contactProtocols) (\s@PutAlarm' {} a -> s {contactProtocols = a} :: PutAlarm) Prelude.. Lens.mapping Lens._Coerce
+putAlarm_contactProtocols = Lens.lens (\PutAlarm' {contactProtocols} -> contactProtocols) (\s@PutAlarm' {} a -> s {contactProtocols = a} :: PutAlarm) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of data points that must be not within the specified
+-- threshold to trigger the alarm. If you are setting an \"M out of N\"
+-- alarm, this value (@datapointsToAlarm@) is the M.
+putAlarm_datapointsToAlarm :: Lens.Lens' PutAlarm (Prelude.Maybe Prelude.Int)
+putAlarm_datapointsToAlarm = Lens.lens (\PutAlarm' {datapointsToAlarm} -> datapointsToAlarm) (\s@PutAlarm' {} a -> s {datapointsToAlarm = a} :: PutAlarm)
+
+-- | Indicates whether the alarm is enabled.
+--
+-- Notifications are enabled by default if you don\'t specify this
+-- parameter.
+putAlarm_notificationEnabled :: Lens.Lens' PutAlarm (Prelude.Maybe Prelude.Bool)
+putAlarm_notificationEnabled = Lens.lens (\PutAlarm' {notificationEnabled} -> notificationEnabled) (\s@PutAlarm' {} a -> s {notificationEnabled = a} :: PutAlarm)
+
+-- | The alarm states that trigger a notification.
+--
+-- An alarm has the following possible states:
+--
+-- -   @ALARM@ - The metric is outside of the defined threshold.
+--
+-- -   @INSUFFICIENT_DATA@ - The alarm has just started, the metric is not
+--     available, or not enough data is available for the metric to
+--     determine the alarm state.
+--
+-- -   @OK@ - The metric is within the defined threshold.
+--
+-- When you specify a notification trigger, the @ALARM@ state must be
+-- specified. The @INSUFFICIENT_DATA@ and @OK@ states can be specified in
+-- addition to the @ALARM@ state.
+--
+-- -   If you specify @OK@ as an alarm trigger, a notification is sent when
+--     the alarm switches from an @ALARM@ or @INSUFFICIENT_DATA@ alarm
+--     state to an @OK@ state. This can be thought of as an /all clear/
+--     alarm notification.
+--
+-- -   If you specify @INSUFFICIENT_DATA@ as the alarm trigger, a
+--     notification is sent when the alarm switches from an @OK@ or @ALARM@
+--     alarm state to an @INSUFFICIENT_DATA@ state.
+--
+-- The notification trigger defaults to @ALARM@ if you don\'t specify this
+-- parameter.
+putAlarm_notificationTriggers :: Lens.Lens' PutAlarm (Prelude.Maybe [AlarmState])
+putAlarm_notificationTriggers = Lens.lens (\PutAlarm' {notificationTriggers} -> notificationTriggers) (\s@PutAlarm' {} a -> s {notificationTriggers = a} :: PutAlarm) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the alarm. Specify the name of an existing alarm to update,
 -- and overwrite the previous configuration of the alarm.
@@ -550,16 +550,16 @@ instance Core.ToJSON PutAlarm where
   toJSON PutAlarm' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("datapointsToAlarm" Core..=)
-              Prelude.<$> datapointsToAlarm,
-            ("notificationTriggers" Core..=)
-              Prelude.<$> notificationTriggers,
-            ("notificationEnabled" Core..=)
-              Prelude.<$> notificationEnabled,
-            ("treatMissingData" Core..=)
+          [ ("treatMissingData" Core..=)
               Prelude.<$> treatMissingData,
             ("contactProtocols" Core..=)
               Prelude.<$> contactProtocols,
+            ("datapointsToAlarm" Core..=)
+              Prelude.<$> datapointsToAlarm,
+            ("notificationEnabled" Core..=)
+              Prelude.<$> notificationEnabled,
+            ("notificationTriggers" Core..=)
+              Prelude.<$> notificationTriggers,
             Prelude.Just ("alarmName" Core..= alarmName),
             Prelude.Just ("metricName" Core..= metricName),
             Prelude.Just
@@ -618,7 +618,7 @@ newPutAlarmResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 putAlarmResponse_operations :: Lens.Lens' PutAlarmResponse (Prelude.Maybe [Operation])
-putAlarmResponse_operations = Lens.lens (\PutAlarmResponse' {operations} -> operations) (\s@PutAlarmResponse' {} a -> s {operations = a} :: PutAlarmResponse) Prelude.. Lens.mapping Lens._Coerce
+putAlarmResponse_operations = Lens.lens (\PutAlarmResponse' {operations} -> operations) (\s@PutAlarmResponse' {} a -> s {operations = a} :: PutAlarmResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putAlarmResponse_httpStatus :: Lens.Lens' PutAlarmResponse Prelude.Int

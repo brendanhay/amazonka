@@ -87,7 +87,7 @@ newHeaderObject =
 
 -- | The specific headers to forward to your distribution\'s origin.
 headerObject_headersAllowList :: Lens.Lens' HeaderObject (Prelude.Maybe [HeaderEnum])
-headerObject_headersAllowList = Lens.lens (\HeaderObject' {headersAllowList} -> headersAllowList) (\s@HeaderObject' {} a -> s {headersAllowList = a} :: HeaderObject) Prelude.. Lens.mapping Lens._Coerce
+headerObject_headersAllowList = Lens.lens (\HeaderObject' {headersAllowList} -> headersAllowList) (\s@HeaderObject' {} a -> s {headersAllowList = a} :: HeaderObject) Prelude.. Lens.mapping Lens.coerced
 
 -- | The headers that you want your distribution to forward to your origin
 -- and base caching on.

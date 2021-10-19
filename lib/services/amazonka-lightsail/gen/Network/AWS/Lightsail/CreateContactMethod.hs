@@ -277,7 +277,7 @@ newCreateContactMethodResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 createContactMethodResponse_operations :: Lens.Lens' CreateContactMethodResponse (Prelude.Maybe [Operation])
-createContactMethodResponse_operations = Lens.lens (\CreateContactMethodResponse' {operations} -> operations) (\s@CreateContactMethodResponse' {} a -> s {operations = a} :: CreateContactMethodResponse) Prelude.. Lens.mapping Lens._Coerce
+createContactMethodResponse_operations = Lens.lens (\CreateContactMethodResponse' {operations} -> operations) (\s@CreateContactMethodResponse' {} a -> s {operations = a} :: CreateContactMethodResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createContactMethodResponse_httpStatus :: Lens.Lens' CreateContactMethodResponse Prelude.Int

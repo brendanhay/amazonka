@@ -139,7 +139,7 @@ newGetContainerServicePowersResponse pHttpStatus_ =
 -- | An array of objects that describe the powers that can be specified for a
 -- container service.
 getContainerServicePowersResponse_powers :: Lens.Lens' GetContainerServicePowersResponse (Prelude.Maybe [ContainerServicePower])
-getContainerServicePowersResponse_powers = Lens.lens (\GetContainerServicePowersResponse' {powers} -> powers) (\s@GetContainerServicePowersResponse' {} a -> s {powers = a} :: GetContainerServicePowersResponse) Prelude.. Lens.mapping Lens._Coerce
+getContainerServicePowersResponse_powers = Lens.lens (\GetContainerServicePowersResponse' {powers} -> powers) (\s@GetContainerServicePowersResponse' {} a -> s {powers = a} :: GetContainerServicePowersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getContainerServicePowersResponse_httpStatus :: Lens.Lens' GetContainerServicePowersResponse Prelude.Int

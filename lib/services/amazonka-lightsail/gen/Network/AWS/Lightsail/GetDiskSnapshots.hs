@@ -218,7 +218,7 @@ getDiskSnapshotsResponse_nextPageToken = Lens.lens (\GetDiskSnapshotsResponse' {
 -- | An array of objects containing information about all block storage disk
 -- snapshots.
 getDiskSnapshotsResponse_diskSnapshots :: Lens.Lens' GetDiskSnapshotsResponse (Prelude.Maybe [DiskSnapshot])
-getDiskSnapshotsResponse_diskSnapshots = Lens.lens (\GetDiskSnapshotsResponse' {diskSnapshots} -> diskSnapshots) (\s@GetDiskSnapshotsResponse' {} a -> s {diskSnapshots = a} :: GetDiskSnapshotsResponse) Prelude.. Lens.mapping Lens._Coerce
+getDiskSnapshotsResponse_diskSnapshots = Lens.lens (\GetDiskSnapshotsResponse' {diskSnapshots} -> diskSnapshots) (\s@GetDiskSnapshotsResponse' {} a -> s {diskSnapshots = a} :: GetDiskSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDiskSnapshotsResponse_httpStatus :: Lens.Lens' GetDiskSnapshotsResponse Prelude.Int

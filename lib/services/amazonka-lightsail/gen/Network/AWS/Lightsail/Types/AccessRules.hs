@@ -35,16 +35,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAccessRules' smart constructor.
 data AccessRules = AccessRules'
-  { -- | A Boolean value that indicates whether the access control list (ACL)
-    -- permissions that are applied to individual objects override the
-    -- @getObject@ option that is currently specified.
-    --
-    -- When this is true, you can use the
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html PutObjectAcl>
-    -- Amazon S3 API action to set individual objects to public (read-only)
-    -- using the @public-read@ ACL, or to private using the @private@ ACL.
-    allowPublicOverrides :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the anonymous access to all objects in a bucket.
+  { -- | Specifies the anonymous access to all objects in a bucket.
     --
     -- The following options can be specified:
     --
@@ -63,7 +54,16 @@ data AccessRules = AccessRules'
     --     the bucket default to private unless they are configured with a
     --     @public-read@ ACL. Individual objects with a @public-read@ ACL are
     --     readable by anyone in the world.
-    getObject :: Prelude.Maybe AccessType
+    getObject :: Prelude.Maybe AccessType,
+    -- | A Boolean value that indicates whether the access control list (ACL)
+    -- permissions that are applied to individual objects override the
+    -- @getObject@ option that is currently specified.
+    --
+    -- When this is true, you can use the
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html PutObjectAcl>
+    -- Amazon S3 API action to set individual objects to public (read-only)
+    -- using the @public-read@ ACL, or to private using the @private@ ACL.
+    allowPublicOverrides :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,15 +74,6 @@ data AccessRules = AccessRules'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'allowPublicOverrides', 'accessRules_allowPublicOverrides' - A Boolean value that indicates whether the access control list (ACL)
--- permissions that are applied to individual objects override the
--- @getObject@ option that is currently specified.
---
--- When this is true, you can use the
--- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html PutObjectAcl>
--- Amazon S3 API action to set individual objects to public (read-only)
--- using the @public-read@ ACL, or to private using the @private@ ACL.
 --
 -- 'getObject', 'accessRules_getObject' - Specifies the anonymous access to all objects in a bucket.
 --
@@ -103,16 +94,8 @@ data AccessRules = AccessRules'
 --     the bucket default to private unless they are configured with a
 --     @public-read@ ACL. Individual objects with a @public-read@ ACL are
 --     readable by anyone in the world.
-newAccessRules ::
-  AccessRules
-newAccessRules =
-  AccessRules'
-    { allowPublicOverrides =
-        Prelude.Nothing,
-      getObject = Prelude.Nothing
-    }
-
--- | A Boolean value that indicates whether the access control list (ACL)
+--
+-- 'allowPublicOverrides', 'accessRules_allowPublicOverrides' - A Boolean value that indicates whether the access control list (ACL)
 -- permissions that are applied to individual objects override the
 -- @getObject@ option that is currently specified.
 --
@@ -120,8 +103,13 @@ newAccessRules =
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html PutObjectAcl>
 -- Amazon S3 API action to set individual objects to public (read-only)
 -- using the @public-read@ ACL, or to private using the @private@ ACL.
-accessRules_allowPublicOverrides :: Lens.Lens' AccessRules (Prelude.Maybe Prelude.Bool)
-accessRules_allowPublicOverrides = Lens.lens (\AccessRules' {allowPublicOverrides} -> allowPublicOverrides) (\s@AccessRules' {} a -> s {allowPublicOverrides = a} :: AccessRules)
+newAccessRules ::
+  AccessRules
+newAccessRules =
+  AccessRules'
+    { getObject = Prelude.Nothing,
+      allowPublicOverrides = Prelude.Nothing
+    }
 
 -- | Specifies the anonymous access to all objects in a bucket.
 --
@@ -145,14 +133,25 @@ accessRules_allowPublicOverrides = Lens.lens (\AccessRules' {allowPublicOverride
 accessRules_getObject :: Lens.Lens' AccessRules (Prelude.Maybe AccessType)
 accessRules_getObject = Lens.lens (\AccessRules' {getObject} -> getObject) (\s@AccessRules' {} a -> s {getObject = a} :: AccessRules)
 
+-- | A Boolean value that indicates whether the access control list (ACL)
+-- permissions that are applied to individual objects override the
+-- @getObject@ option that is currently specified.
+--
+-- When this is true, you can use the
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html PutObjectAcl>
+-- Amazon S3 API action to set individual objects to public (read-only)
+-- using the @public-read@ ACL, or to private using the @private@ ACL.
+accessRules_allowPublicOverrides :: Lens.Lens' AccessRules (Prelude.Maybe Prelude.Bool)
+accessRules_allowPublicOverrides = Lens.lens (\AccessRules' {allowPublicOverrides} -> allowPublicOverrides) (\s@AccessRules' {} a -> s {allowPublicOverrides = a} :: AccessRules)
+
 instance Core.FromJSON AccessRules where
   parseJSON =
     Core.withObject
       "AccessRules"
       ( \x ->
           AccessRules'
-            Prelude.<$> (x Core..:? "allowPublicOverrides")
-            Prelude.<*> (x Core..:? "getObject")
+            Prelude.<$> (x Core..:? "getObject")
+            Prelude.<*> (x Core..:? "allowPublicOverrides")
       )
 
 instance Prelude.Hashable AccessRules
@@ -163,8 +162,8 @@ instance Core.ToJSON AccessRules where
   toJSON AccessRules' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("allowPublicOverrides" Core..=)
-              Prelude.<$> allowPublicOverrides,
-            ("getObject" Core..=) Prelude.<$> getObject
+          [ ("getObject" Core..=) Prelude.<$> getObject,
+            ("allowPublicOverrides" Core..=)
+              Prelude.<$> allowPublicOverrides
           ]
       )

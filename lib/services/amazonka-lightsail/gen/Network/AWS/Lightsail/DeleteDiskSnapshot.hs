@@ -178,7 +178,7 @@ newDeleteDiskSnapshotResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 deleteDiskSnapshotResponse_operations :: Lens.Lens' DeleteDiskSnapshotResponse (Prelude.Maybe [Operation])
-deleteDiskSnapshotResponse_operations = Lens.lens (\DeleteDiskSnapshotResponse' {operations} -> operations) (\s@DeleteDiskSnapshotResponse' {} a -> s {operations = a} :: DeleteDiskSnapshotResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteDiskSnapshotResponse_operations = Lens.lens (\DeleteDiskSnapshotResponse' {operations} -> operations) (\s@DeleteDiskSnapshotResponse' {} a -> s {operations = a} :: DeleteDiskSnapshotResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteDiskSnapshotResponse_httpStatus :: Lens.Lens' DeleteDiskSnapshotResponse Prelude.Int

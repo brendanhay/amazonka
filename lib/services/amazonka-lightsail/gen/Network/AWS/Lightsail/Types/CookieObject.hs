@@ -65,7 +65,7 @@ newCookieObject =
 
 -- | The specific cookies to forward to your distribution\'s origin.
 cookieObject_cookiesAllowList :: Lens.Lens' CookieObject (Prelude.Maybe [Prelude.Text])
-cookieObject_cookiesAllowList = Lens.lens (\CookieObject' {cookiesAllowList} -> cookiesAllowList) (\s@CookieObject' {} a -> s {cookiesAllowList = a} :: CookieObject) Prelude.. Lens.mapping Lens._Coerce
+cookieObject_cookiesAllowList = Lens.lens (\CookieObject' {cookiesAllowList} -> cookiesAllowList) (\s@CookieObject' {} a -> s {cookiesAllowList = a} :: CookieObject) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies which cookies to forward to the distribution\'s origin for a
 -- cache behavior: @all@, @none@, or @allow-list@ to forward only the

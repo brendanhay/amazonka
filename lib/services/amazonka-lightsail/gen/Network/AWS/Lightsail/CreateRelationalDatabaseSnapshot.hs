@@ -116,7 +116,7 @@ newCreateRelationalDatabaseSnapshot
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
 createRelationalDatabaseSnapshot_tags :: Lens.Lens' CreateRelationalDatabaseSnapshot (Prelude.Maybe [Tag])
-createRelationalDatabaseSnapshot_tags = Lens.lens (\CreateRelationalDatabaseSnapshot' {tags} -> tags) (\s@CreateRelationalDatabaseSnapshot' {} a -> s {tags = a} :: CreateRelationalDatabaseSnapshot) Prelude.. Lens.mapping Lens._Coerce
+createRelationalDatabaseSnapshot_tags = Lens.lens (\CreateRelationalDatabaseSnapshot' {tags} -> tags) (\s@CreateRelationalDatabaseSnapshot' {} a -> s {tags = a} :: CreateRelationalDatabaseSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the database on which to base your new snapshot.
 createRelationalDatabaseSnapshot_relationalDatabaseName :: Lens.Lens' CreateRelationalDatabaseSnapshot Prelude.Text
@@ -239,7 +239,7 @@ newCreateRelationalDatabaseSnapshotResponse
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 createRelationalDatabaseSnapshotResponse_operations :: Lens.Lens' CreateRelationalDatabaseSnapshotResponse (Prelude.Maybe [Operation])
-createRelationalDatabaseSnapshotResponse_operations = Lens.lens (\CreateRelationalDatabaseSnapshotResponse' {operations} -> operations) (\s@CreateRelationalDatabaseSnapshotResponse' {} a -> s {operations = a} :: CreateRelationalDatabaseSnapshotResponse) Prelude.. Lens.mapping Lens._Coerce
+createRelationalDatabaseSnapshotResponse_operations = Lens.lens (\CreateRelationalDatabaseSnapshotResponse' {operations} -> operations) (\s@CreateRelationalDatabaseSnapshotResponse' {} a -> s {operations = a} :: CreateRelationalDatabaseSnapshotResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createRelationalDatabaseSnapshotResponse_httpStatus :: Lens.Lens' CreateRelationalDatabaseSnapshotResponse Prelude.Int

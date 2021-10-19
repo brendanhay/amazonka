@@ -184,7 +184,7 @@ newStopRelationalDatabaseResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 stopRelationalDatabaseResponse_operations :: Lens.Lens' StopRelationalDatabaseResponse (Prelude.Maybe [Operation])
-stopRelationalDatabaseResponse_operations = Lens.lens (\StopRelationalDatabaseResponse' {operations} -> operations) (\s@StopRelationalDatabaseResponse' {} a -> s {operations = a} :: StopRelationalDatabaseResponse) Prelude.. Lens.mapping Lens._Coerce
+stopRelationalDatabaseResponse_operations = Lens.lens (\StopRelationalDatabaseResponse' {operations} -> operations) (\s@StopRelationalDatabaseResponse' {} a -> s {operations = a} :: StopRelationalDatabaseResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 stopRelationalDatabaseResponse_httpStatus :: Lens.Lens' StopRelationalDatabaseResponse Prelude.Int

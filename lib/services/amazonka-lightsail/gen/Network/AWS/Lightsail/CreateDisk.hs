@@ -126,13 +126,13 @@ newCreateDisk
 -- | An array of objects that represent the add-ons to enable for the new
 -- disk.
 createDisk_addOns :: Lens.Lens' CreateDisk (Prelude.Maybe [AddOnRequest])
-createDisk_addOns = Lens.lens (\CreateDisk' {addOns} -> addOns) (\s@CreateDisk' {} a -> s {addOns = a} :: CreateDisk) Prelude.. Lens.mapping Lens._Coerce
+createDisk_addOns = Lens.lens (\CreateDisk' {addOns} -> addOns) (\s@CreateDisk' {} a -> s {addOns = a} :: CreateDisk) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
 createDisk_tags :: Lens.Lens' CreateDisk (Prelude.Maybe [Tag])
-createDisk_tags = Lens.lens (\CreateDisk' {tags} -> tags) (\s@CreateDisk' {} a -> s {tags = a} :: CreateDisk) Prelude.. Lens.mapping Lens._Coerce
+createDisk_tags = Lens.lens (\CreateDisk' {tags} -> tags) (\s@CreateDisk' {} a -> s {tags = a} :: CreateDisk) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique Lightsail disk name (e.g., @my-disk@).
 createDisk_diskName :: Lens.Lens' CreateDisk Prelude.Text
@@ -238,7 +238,7 @@ newCreateDiskResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 createDiskResponse_operations :: Lens.Lens' CreateDiskResponse (Prelude.Maybe [Operation])
-createDiskResponse_operations = Lens.lens (\CreateDiskResponse' {operations} -> operations) (\s@CreateDiskResponse' {} a -> s {operations = a} :: CreateDiskResponse) Prelude.. Lens.mapping Lens._Coerce
+createDiskResponse_operations = Lens.lens (\CreateDiskResponse' {operations} -> operations) (\s@CreateDiskResponse' {} a -> s {operations = a} :: CreateDiskResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createDiskResponse_httpStatus :: Lens.Lens' CreateDiskResponse Prelude.Int

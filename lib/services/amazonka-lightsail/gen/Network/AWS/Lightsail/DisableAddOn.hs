@@ -172,7 +172,7 @@ newDisableAddOnResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 disableAddOnResponse_operations :: Lens.Lens' DisableAddOnResponse (Prelude.Maybe [Operation])
-disableAddOnResponse_operations = Lens.lens (\DisableAddOnResponse' {operations} -> operations) (\s@DisableAddOnResponse' {} a -> s {operations = a} :: DisableAddOnResponse) Prelude.. Lens.mapping Lens._Coerce
+disableAddOnResponse_operations = Lens.lens (\DisableAddOnResponse' {operations} -> operations) (\s@DisableAddOnResponse' {} a -> s {operations = a} :: DisableAddOnResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 disableAddOnResponse_httpStatus :: Lens.Lens' DisableAddOnResponse Prelude.Int

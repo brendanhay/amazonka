@@ -157,7 +157,7 @@ newGetBucketAccessKeysResponse pHttpStatus_ =
 
 -- | An object that describes the access keys for the specified bucket.
 getBucketAccessKeysResponse_accessKeys :: Lens.Lens' GetBucketAccessKeysResponse (Prelude.Maybe [AccessKey])
-getBucketAccessKeysResponse_accessKeys = Lens.lens (\GetBucketAccessKeysResponse' {accessKeys} -> accessKeys) (\s@GetBucketAccessKeysResponse' {} a -> s {accessKeys = a} :: GetBucketAccessKeysResponse) Prelude.. Lens.mapping Lens._Coerce
+getBucketAccessKeysResponse_accessKeys = Lens.lens (\GetBucketAccessKeysResponse' {accessKeys} -> accessKeys) (\s@GetBucketAccessKeysResponse' {} a -> s {accessKeys = a} :: GetBucketAccessKeysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getBucketAccessKeysResponse_httpStatus :: Lens.Lens' GetBucketAccessKeysResponse Prelude.Int

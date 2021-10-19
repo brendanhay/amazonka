@@ -90,7 +90,7 @@ newGetContactMethods =
 -- Specify a protocol in your request to return information about a
 -- specific contact method protocol.
 getContactMethods_protocols :: Lens.Lens' GetContactMethods (Prelude.Maybe [ContactProtocol])
-getContactMethods_protocols = Lens.lens (\GetContactMethods' {protocols} -> protocols) (\s@GetContactMethods' {} a -> s {protocols = a} :: GetContactMethods) Prelude.. Lens.mapping Lens._Coerce
+getContactMethods_protocols = Lens.lens (\GetContactMethods' {protocols} -> protocols) (\s@GetContactMethods' {} a -> s {protocols = a} :: GetContactMethods) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest GetContactMethods where
   type
@@ -170,7 +170,7 @@ newGetContactMethodsResponse pHttpStatus_ =
 
 -- | An array of objects that describe the contact methods.
 getContactMethodsResponse_contactMethods :: Lens.Lens' GetContactMethodsResponse (Prelude.Maybe [ContactMethod])
-getContactMethodsResponse_contactMethods = Lens.lens (\GetContactMethodsResponse' {contactMethods} -> contactMethods) (\s@GetContactMethodsResponse' {} a -> s {contactMethods = a} :: GetContactMethodsResponse) Prelude.. Lens.mapping Lens._Coerce
+getContactMethodsResponse_contactMethods = Lens.lens (\GetContactMethodsResponse' {contactMethods} -> contactMethods) (\s@GetContactMethodsResponse' {} a -> s {contactMethods = a} :: GetContactMethodsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getContactMethodsResponse_httpStatus :: Lens.Lens' GetContactMethodsResponse Prelude.Int

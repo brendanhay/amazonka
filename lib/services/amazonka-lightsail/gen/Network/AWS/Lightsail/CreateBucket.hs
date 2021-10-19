@@ -43,8 +43,8 @@ module Network.AWS.Lightsail.CreateBucket
     newCreateBucketResponse,
 
     -- * Response Lenses
-    createBucketResponse_operations,
     createBucketResponse_bucket,
+    createBucketResponse_operations,
     createBucketResponse_httpStatus,
   )
 where
@@ -152,7 +152,7 @@ createBucket_enableObjectVersioning = Lens.lens (\CreateBucket' {enableObjectVer
 --
 -- Use the TagResource action to tag the bucket after it\'s created.
 createBucket_tags :: Lens.Lens' CreateBucket (Prelude.Maybe [Tag])
-createBucket_tags = Lens.lens (\CreateBucket' {tags} -> tags) (\s@CreateBucket' {} a -> s {tags = a} :: CreateBucket) Prelude.. Lens.mapping Lens._Coerce
+createBucket_tags = Lens.lens (\CreateBucket' {tags} -> tags) (\s@CreateBucket' {} a -> s {tags = a} :: CreateBucket) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the bucket.
 --
@@ -182,8 +182,8 @@ instance Core.AWSRequest CreateBucket where
     Response.receiveJSON
       ( \s h x ->
           CreateBucketResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "bucket")
+            Prelude.<$> (x Core..?> "bucket")
+            Prelude.<*> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -226,12 +226,12 @@ instance Core.ToQuery CreateBucket where
 
 -- | /See:/ 'newCreateBucketResponse' smart constructor.
 data CreateBucketResponse = CreateBucketResponse'
-  { -- | An array of objects that describe the result of the action, such as the
+  { -- | An object that describes the bucket that is created.
+    bucket :: Prelude.Maybe Bucket,
+    -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
     operations :: Prelude.Maybe [Operation],
-    -- | An object that describes the bucket that is created.
-    bucket :: Prelude.Maybe Bucket,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -245,11 +245,11 @@ data CreateBucketResponse = CreateBucketResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bucket', 'createBucketResponse_bucket' - An object that describes the bucket that is created.
+--
 -- 'operations', 'createBucketResponse_operations' - An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
---
--- 'bucket', 'createBucketResponse_bucket' - An object that describes the bucket that is created.
 --
 -- 'httpStatus', 'createBucketResponse_httpStatus' - The response's http status code.
 newCreateBucketResponse ::
@@ -258,20 +258,20 @@ newCreateBucketResponse ::
   CreateBucketResponse
 newCreateBucketResponse pHttpStatus_ =
   CreateBucketResponse'
-    { operations = Prelude.Nothing,
-      bucket = Prelude.Nothing,
+    { bucket = Prelude.Nothing,
+      operations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An object that describes the bucket that is created.
+createBucketResponse_bucket :: Lens.Lens' CreateBucketResponse (Prelude.Maybe Bucket)
+createBucketResponse_bucket = Lens.lens (\CreateBucketResponse' {bucket} -> bucket) (\s@CreateBucketResponse' {} a -> s {bucket = a} :: CreateBucketResponse)
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 createBucketResponse_operations :: Lens.Lens' CreateBucketResponse (Prelude.Maybe [Operation])
-createBucketResponse_operations = Lens.lens (\CreateBucketResponse' {operations} -> operations) (\s@CreateBucketResponse' {} a -> s {operations = a} :: CreateBucketResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | An object that describes the bucket that is created.
-createBucketResponse_bucket :: Lens.Lens' CreateBucketResponse (Prelude.Maybe Bucket)
-createBucketResponse_bucket = Lens.lens (\CreateBucketResponse' {bucket} -> bucket) (\s@CreateBucketResponse' {} a -> s {bucket = a} :: CreateBucketResponse)
+createBucketResponse_operations = Lens.lens (\CreateBucketResponse' {operations} -> operations) (\s@CreateBucketResponse' {} a -> s {operations = a} :: CreateBucketResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createBucketResponse_httpStatus :: Lens.Lens' CreateBucketResponse Prelude.Int

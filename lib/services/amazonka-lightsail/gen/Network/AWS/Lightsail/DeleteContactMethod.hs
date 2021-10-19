@@ -176,7 +176,7 @@ newDeleteContactMethodResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 deleteContactMethodResponse_operations :: Lens.Lens' DeleteContactMethodResponse (Prelude.Maybe [Operation])
-deleteContactMethodResponse_operations = Lens.lens (\DeleteContactMethodResponse' {operations} -> operations) (\s@DeleteContactMethodResponse' {} a -> s {operations = a} :: DeleteContactMethodResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteContactMethodResponse_operations = Lens.lens (\DeleteContactMethodResponse' {operations} -> operations) (\s@DeleteContactMethodResponse' {} a -> s {operations = a} :: DeleteContactMethodResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteContactMethodResponse_httpStatus :: Lens.Lens' DeleteContactMethodResponse Prelude.Int

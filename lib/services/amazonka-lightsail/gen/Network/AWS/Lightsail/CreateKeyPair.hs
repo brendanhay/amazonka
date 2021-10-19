@@ -40,9 +40,9 @@ module Network.AWS.Lightsail.CreateKeyPair
 
     -- * Response Lenses
     createKeyPairResponse_keyPair,
-    createKeyPairResponse_privateKeyBase64,
     createKeyPairResponse_operation,
     createKeyPairResponse_publicKeyBase64,
+    createKeyPairResponse_privateKeyBase64,
     createKeyPairResponse_httpStatus,
   )
 where
@@ -92,7 +92,7 @@ newCreateKeyPair pKeyPairName_ =
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
 createKeyPair_tags :: Lens.Lens' CreateKeyPair (Prelude.Maybe [Tag])
-createKeyPair_tags = Lens.lens (\CreateKeyPair' {tags} -> tags) (\s@CreateKeyPair' {} a -> s {tags = a} :: CreateKeyPair) Prelude.. Lens.mapping Lens._Coerce
+createKeyPair_tags = Lens.lens (\CreateKeyPair' {tags} -> tags) (\s@CreateKeyPair' {} a -> s {tags = a} :: CreateKeyPair) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for your new key pair.
 createKeyPair_keyPairName :: Lens.Lens' CreateKeyPair Prelude.Text
@@ -108,9 +108,9 @@ instance Core.AWSRequest CreateKeyPair where
       ( \s h x ->
           CreateKeyPairResponse'
             Prelude.<$> (x Core..?> "keyPair")
-            Prelude.<*> (x Core..?> "privateKeyBase64")
             Prelude.<*> (x Core..?> "operation")
             Prelude.<*> (x Core..?> "publicKeyBase64")
+            Prelude.<*> (x Core..?> "privateKeyBase64")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,14 +153,14 @@ data CreateKeyPairResponse = CreateKeyPairResponse'
   { -- | An array of key-value pairs containing information about the new key
     -- pair you just created.
     keyPair :: Prelude.Maybe KeyPair,
-    -- | A base64-encoded RSA private key.
-    privateKeyBase64 :: Prelude.Maybe Prelude.Text,
     -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
     operation :: Prelude.Maybe Operation,
     -- | A base64-encoded public key of the @ssh-rsa@ type.
     publicKeyBase64 :: Prelude.Maybe Prelude.Text,
+    -- | A base64-encoded RSA private key.
+    privateKeyBase64 :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,13 +177,13 @@ data CreateKeyPairResponse = CreateKeyPairResponse'
 -- 'keyPair', 'createKeyPairResponse_keyPair' - An array of key-value pairs containing information about the new key
 -- pair you just created.
 --
--- 'privateKeyBase64', 'createKeyPairResponse_privateKeyBase64' - A base64-encoded RSA private key.
---
 -- 'operation', 'createKeyPairResponse_operation' - An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 --
 -- 'publicKeyBase64', 'createKeyPairResponse_publicKeyBase64' - A base64-encoded public key of the @ssh-rsa@ type.
+--
+-- 'privateKeyBase64', 'createKeyPairResponse_privateKeyBase64' - A base64-encoded RSA private key.
 --
 -- 'httpStatus', 'createKeyPairResponse_httpStatus' - The response's http status code.
 newCreateKeyPairResponse ::
@@ -193,9 +193,9 @@ newCreateKeyPairResponse ::
 newCreateKeyPairResponse pHttpStatus_ =
   CreateKeyPairResponse'
     { keyPair = Prelude.Nothing,
-      privateKeyBase64 = Prelude.Nothing,
       operation = Prelude.Nothing,
       publicKeyBase64 = Prelude.Nothing,
+      privateKeyBase64 = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -203,10 +203,6 @@ newCreateKeyPairResponse pHttpStatus_ =
 -- pair you just created.
 createKeyPairResponse_keyPair :: Lens.Lens' CreateKeyPairResponse (Prelude.Maybe KeyPair)
 createKeyPairResponse_keyPair = Lens.lens (\CreateKeyPairResponse' {keyPair} -> keyPair) (\s@CreateKeyPairResponse' {} a -> s {keyPair = a} :: CreateKeyPairResponse)
-
--- | A base64-encoded RSA private key.
-createKeyPairResponse_privateKeyBase64 :: Lens.Lens' CreateKeyPairResponse (Prelude.Maybe Prelude.Text)
-createKeyPairResponse_privateKeyBase64 = Lens.lens (\CreateKeyPairResponse' {privateKeyBase64} -> privateKeyBase64) (\s@CreateKeyPairResponse' {} a -> s {privateKeyBase64 = a} :: CreateKeyPairResponse)
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
@@ -217,6 +213,10 @@ createKeyPairResponse_operation = Lens.lens (\CreateKeyPairResponse' {operation}
 -- | A base64-encoded public key of the @ssh-rsa@ type.
 createKeyPairResponse_publicKeyBase64 :: Lens.Lens' CreateKeyPairResponse (Prelude.Maybe Prelude.Text)
 createKeyPairResponse_publicKeyBase64 = Lens.lens (\CreateKeyPairResponse' {publicKeyBase64} -> publicKeyBase64) (\s@CreateKeyPairResponse' {} a -> s {publicKeyBase64 = a} :: CreateKeyPairResponse)
+
+-- | A base64-encoded RSA private key.
+createKeyPairResponse_privateKeyBase64 :: Lens.Lens' CreateKeyPairResponse (Prelude.Maybe Prelude.Text)
+createKeyPairResponse_privateKeyBase64 = Lens.lens (\CreateKeyPairResponse' {privateKeyBase64} -> privateKeyBase64) (\s@CreateKeyPairResponse' {} a -> s {privateKeyBase64 = a} :: CreateKeyPairResponse)
 
 -- | The response's http status code.
 createKeyPairResponse_httpStatus :: Lens.Lens' CreateKeyPairResponse Prelude.Int

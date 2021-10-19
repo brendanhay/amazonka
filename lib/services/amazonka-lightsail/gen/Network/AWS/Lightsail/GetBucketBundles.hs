@@ -162,7 +162,7 @@ newGetBucketBundlesResponse pHttpStatus_ =
 
 -- | An object that describes bucket bundles.
 getBucketBundlesResponse_bundles :: Lens.Lens' GetBucketBundlesResponse (Prelude.Maybe [BucketBundle])
-getBucketBundlesResponse_bundles = Lens.lens (\GetBucketBundlesResponse' {bundles} -> bundles) (\s@GetBucketBundlesResponse' {} a -> s {bundles = a} :: GetBucketBundlesResponse) Prelude.. Lens.mapping Lens._Coerce
+getBucketBundlesResponse_bundles = Lens.lens (\GetBucketBundlesResponse' {bundles} -> bundles) (\s@GetBucketBundlesResponse' {} a -> s {bundles = a} :: GetBucketBundlesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getBucketBundlesResponse_httpStatus :: Lens.Lens' GetBucketBundlesResponse Prelude.Int

@@ -38,12 +38,12 @@ module Network.AWS.Lightsail.CreateLoadBalancer
     newCreateLoadBalancer,
 
     -- * Request Lenses
-    createLoadBalancer_ipAddressType,
-    createLoadBalancer_certificateAlternativeNames,
     createLoadBalancer_healthCheckPath,
-    createLoadBalancer_tags,
     createLoadBalancer_certificateName,
     createLoadBalancer_certificateDomainName,
+    createLoadBalancer_certificateAlternativeNames,
+    createLoadBalancer_ipAddressType,
+    createLoadBalancer_tags,
     createLoadBalancer_loadBalancerName,
     createLoadBalancer_instancePort,
 
@@ -66,18 +66,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
-  { -- | The IP address type for the load balancer.
-    --
-    -- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4
-    -- and IPv6.
-    --
-    -- The default value is @dualstack@.
-    ipAddressType :: Prelude.Maybe IpAddressType,
-    -- | The optional alternative domains and subdomains to use with your
-    -- SSL\/TLS certificate (e.g., @www.example.com@, @example.com@,
-    -- @m.example.com@, @blog.example.com@).
-    certificateAlternativeNames :: Prelude.Maybe [Prelude.Text],
-    -- | The path you provided to perform the load balancer health check. If you
+  { -- | The path you provided to perform the load balancer health check. If you
     -- didn\'t specify a health check path, Lightsail uses the root path of
     -- your website (e.g., @\"\/\"@).
     --
@@ -85,10 +74,6 @@ data CreateLoadBalancer = CreateLoadBalancer'
     -- of your application if your home page loads slowly or has a lot of media
     -- or scripting on it.
     healthCheckPath :: Prelude.Maybe Prelude.Text,
-    -- | The tag keys and optional values to add to the resource during create.
-    --
-    -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the SSL\/TLS certificate.
     --
     -- If you specify @certificateName@, then @certificateDomainName@ is
@@ -100,6 +85,21 @@ data CreateLoadBalancer = CreateLoadBalancer'
     -- If you specify @certificateDomainName@, then @certificateName@ is
     -- required (and vice-versa).
     certificateDomainName :: Prelude.Maybe Prelude.Text,
+    -- | The optional alternative domains and subdomains to use with your
+    -- SSL\/TLS certificate (e.g., @www.example.com@, @example.com@,
+    -- @m.example.com@, @blog.example.com@).
+    certificateAlternativeNames :: Prelude.Maybe [Prelude.Text],
+    -- | The IP address type for the load balancer.
+    --
+    -- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4
+    -- and IPv6.
+    --
+    -- The default value is @dualstack@.
+    ipAddressType :: Prelude.Maybe IpAddressType,
+    -- | The tag keys and optional values to add to the resource during create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it\'s created.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of your load balancer.
     loadBalancerName :: Prelude.Text,
     -- | The instance port where you\'re creating your load balancer.
@@ -115,17 +115,6 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipAddressType', 'createLoadBalancer_ipAddressType' - The IP address type for the load balancer.
---
--- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4
--- and IPv6.
---
--- The default value is @dualstack@.
---
--- 'certificateAlternativeNames', 'createLoadBalancer_certificateAlternativeNames' - The optional alternative domains and subdomains to use with your
--- SSL\/TLS certificate (e.g., @www.example.com@, @example.com@,
--- @m.example.com@, @blog.example.com@).
---
 -- 'healthCheckPath', 'createLoadBalancer_healthCheckPath' - The path you provided to perform the load balancer health check. If you
 -- didn\'t specify a health check path, Lightsail uses the root path of
 -- your website (e.g., @\"\/\"@).
@@ -133,10 +122,6 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- You may want to specify a custom health check path other than the root
 -- of your application if your home page loads slowly or has a lot of media
 -- or scripting on it.
---
--- 'tags', 'createLoadBalancer_tags' - The tag keys and optional values to add to the resource during create.
---
--- Use the @TagResource@ action to tag a resource after it\'s created.
 --
 -- 'certificateName', 'createLoadBalancer_certificateName' - The name of the SSL\/TLS certificate.
 --
@@ -148,6 +133,21 @@ data CreateLoadBalancer = CreateLoadBalancer'
 --
 -- If you specify @certificateDomainName@, then @certificateName@ is
 -- required (and vice-versa).
+--
+-- 'certificateAlternativeNames', 'createLoadBalancer_certificateAlternativeNames' - The optional alternative domains and subdomains to use with your
+-- SSL\/TLS certificate (e.g., @www.example.com@, @example.com@,
+-- @m.example.com@, @blog.example.com@).
+--
+-- 'ipAddressType', 'createLoadBalancer_ipAddressType' - The IP address type for the load balancer.
+--
+-- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4
+-- and IPv6.
+--
+-- The default value is @dualstack@.
+--
+-- 'tags', 'createLoadBalancer_tags' - The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
 --
 -- 'loadBalancerName', 'createLoadBalancer_loadBalancerName' - The name of your load balancer.
 --
@@ -162,31 +162,16 @@ newCreateLoadBalancer
   pLoadBalancerName_
   pInstancePort_ =
     CreateLoadBalancer'
-      { ipAddressType =
+      { healthCheckPath =
           Prelude.Nothing,
-        certificateAlternativeNames = Prelude.Nothing,
-        healthCheckPath = Prelude.Nothing,
-        tags = Prelude.Nothing,
         certificateName = Prelude.Nothing,
         certificateDomainName = Prelude.Nothing,
+        certificateAlternativeNames = Prelude.Nothing,
+        ipAddressType = Prelude.Nothing,
+        tags = Prelude.Nothing,
         loadBalancerName = pLoadBalancerName_,
         instancePort = pInstancePort_
       }
-
--- | The IP address type for the load balancer.
---
--- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4
--- and IPv6.
---
--- The default value is @dualstack@.
-createLoadBalancer_ipAddressType :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe IpAddressType)
-createLoadBalancer_ipAddressType = Lens.lens (\CreateLoadBalancer' {ipAddressType} -> ipAddressType) (\s@CreateLoadBalancer' {} a -> s {ipAddressType = a} :: CreateLoadBalancer)
-
--- | The optional alternative domains and subdomains to use with your
--- SSL\/TLS certificate (e.g., @www.example.com@, @example.com@,
--- @m.example.com@, @blog.example.com@).
-createLoadBalancer_certificateAlternativeNames :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
-createLoadBalancer_certificateAlternativeNames = Lens.lens (\CreateLoadBalancer' {certificateAlternativeNames} -> certificateAlternativeNames) (\s@CreateLoadBalancer' {} a -> s {certificateAlternativeNames = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The path you provided to perform the load balancer health check. If you
 -- didn\'t specify a health check path, Lightsail uses the root path of
@@ -197,12 +182,6 @@ createLoadBalancer_certificateAlternativeNames = Lens.lens (\CreateLoadBalancer'
 -- or scripting on it.
 createLoadBalancer_healthCheckPath :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
 createLoadBalancer_healthCheckPath = Lens.lens (\CreateLoadBalancer' {healthCheckPath} -> healthCheckPath) (\s@CreateLoadBalancer' {} a -> s {healthCheckPath = a} :: CreateLoadBalancer)
-
--- | The tag keys and optional values to add to the resource during create.
---
--- Use the @TagResource@ action to tag a resource after it\'s created.
-createLoadBalancer_tags :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Tag])
-createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@CreateLoadBalancer' {} a -> s {tags = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the SSL\/TLS certificate.
 --
@@ -218,6 +197,27 @@ createLoadBalancer_certificateName = Lens.lens (\CreateLoadBalancer' {certificat
 -- required (and vice-versa).
 createLoadBalancer_certificateDomainName :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
 createLoadBalancer_certificateDomainName = Lens.lens (\CreateLoadBalancer' {certificateDomainName} -> certificateDomainName) (\s@CreateLoadBalancer' {} a -> s {certificateDomainName = a} :: CreateLoadBalancer)
+
+-- | The optional alternative domains and subdomains to use with your
+-- SSL\/TLS certificate (e.g., @www.example.com@, @example.com@,
+-- @m.example.com@, @blog.example.com@).
+createLoadBalancer_certificateAlternativeNames :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
+createLoadBalancer_certificateAlternativeNames = Lens.lens (\CreateLoadBalancer' {certificateAlternativeNames} -> certificateAlternativeNames) (\s@CreateLoadBalancer' {} a -> s {certificateAlternativeNames = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
+
+-- | The IP address type for the load balancer.
+--
+-- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4
+-- and IPv6.
+--
+-- The default value is @dualstack@.
+createLoadBalancer_ipAddressType :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe IpAddressType)
+createLoadBalancer_ipAddressType = Lens.lens (\CreateLoadBalancer' {ipAddressType} -> ipAddressType) (\s@CreateLoadBalancer' {} a -> s {ipAddressType = a} :: CreateLoadBalancer)
+
+-- | The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+createLoadBalancer_tags :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Tag])
+createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@CreateLoadBalancer' {} a -> s {tags = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of your load balancer.
 createLoadBalancer_loadBalancerName :: Lens.Lens' CreateLoadBalancer Prelude.Text
@@ -263,16 +263,16 @@ instance Core.ToJSON CreateLoadBalancer where
   toJSON CreateLoadBalancer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ipAddressType" Core..=) Prelude.<$> ipAddressType,
-            ("certificateAlternativeNames" Core..=)
-              Prelude.<$> certificateAlternativeNames,
-            ("healthCheckPath" Core..=)
+          [ ("healthCheckPath" Core..=)
               Prelude.<$> healthCheckPath,
-            ("tags" Core..=) Prelude.<$> tags,
             ("certificateName" Core..=)
               Prelude.<$> certificateName,
             ("certificateDomainName" Core..=)
               Prelude.<$> certificateDomainName,
+            ("certificateAlternativeNames" Core..=)
+              Prelude.<$> certificateAlternativeNames,
+            ("ipAddressType" Core..=) Prelude.<$> ipAddressType,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("loadBalancerName" Core..= loadBalancerName),
             Prelude.Just ("instancePort" Core..= instancePort)
@@ -324,7 +324,7 @@ newCreateLoadBalancerResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 createLoadBalancerResponse_operations :: Lens.Lens' CreateLoadBalancerResponse (Prelude.Maybe [Operation])
-createLoadBalancerResponse_operations = Lens.lens (\CreateLoadBalancerResponse' {operations} -> operations) (\s@CreateLoadBalancerResponse' {} a -> s {operations = a} :: CreateLoadBalancerResponse) Prelude.. Lens.mapping Lens._Coerce
+createLoadBalancerResponse_operations = Lens.lens (\CreateLoadBalancerResponse' {operations} -> operations) (\s@CreateLoadBalancerResponse' {} a -> s {operations = a} :: CreateLoadBalancerResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createLoadBalancerResponse_httpStatus :: Lens.Lens' CreateLoadBalancerResponse Prelude.Int

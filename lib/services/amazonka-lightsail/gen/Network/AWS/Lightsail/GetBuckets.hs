@@ -32,16 +32,16 @@ module Network.AWS.Lightsail.GetBuckets
 
     -- * Request Lenses
     getBuckets_bucketName,
-    getBuckets_pageToken,
     getBuckets_includeConnectedResources,
+    getBuckets_pageToken,
 
     -- * Destructuring the Response
     GetBucketsResponse (..),
     newGetBucketsResponse,
 
     -- * Response Lenses
-    getBucketsResponse_buckets,
     getBucketsResponse_nextPageToken,
+    getBucketsResponse_buckets,
     getBucketsResponse_httpStatus,
   )
 where
@@ -60,16 +60,16 @@ data GetBuckets = GetBuckets'
     -- When omitted, the response includes all of your buckets in the AWS
     -- Region where the request is made.
     bucketName :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean value that indicates whether to include Lightsail instances
+    -- that were given access to the bucket using the
+    -- SetResourceAccessForBucket action.
+    includeConnectedResources :: Prelude.Maybe Prelude.Bool,
     -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetBuckets@ request. If your
     -- results are paginated, the response will return a next page token that
     -- you can specify as the page token in a subsequent request.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | A Boolean value that indicates whether to include Lightsail instances
-    -- that were given access to the bucket using the
-    -- SetResourceAccessForBucket action.
-    includeConnectedResources :: Prelude.Maybe Prelude.Bool
+    pageToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,22 +86,22 @@ data GetBuckets = GetBuckets'
 -- When omitted, the response includes all of your buckets in the AWS
 -- Region where the request is made.
 --
+-- 'includeConnectedResources', 'getBuckets_includeConnectedResources' - A Boolean value that indicates whether to include Lightsail instances
+-- that were given access to the bucket using the
+-- SetResourceAccessForBucket action.
+--
 -- 'pageToken', 'getBuckets_pageToken' - The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetBuckets@ request. If your
 -- results are paginated, the response will return a next page token that
 -- you can specify as the page token in a subsequent request.
---
--- 'includeConnectedResources', 'getBuckets_includeConnectedResources' - A Boolean value that indicates whether to include Lightsail instances
--- that were given access to the bucket using the
--- SetResourceAccessForBucket action.
 newGetBuckets ::
   GetBuckets
 newGetBuckets =
   GetBuckets'
     { bucketName = Prelude.Nothing,
-      pageToken = Prelude.Nothing,
-      includeConnectedResources = Prelude.Nothing
+      includeConnectedResources = Prelude.Nothing,
+      pageToken = Prelude.Nothing
     }
 
 -- | The name of the bucket for which to return information.
@@ -111,6 +111,12 @@ newGetBuckets =
 getBuckets_bucketName :: Lens.Lens' GetBuckets (Prelude.Maybe Prelude.Text)
 getBuckets_bucketName = Lens.lens (\GetBuckets' {bucketName} -> bucketName) (\s@GetBuckets' {} a -> s {bucketName = a} :: GetBuckets)
 
+-- | A Boolean value that indicates whether to include Lightsail instances
+-- that were given access to the bucket using the
+-- SetResourceAccessForBucket action.
+getBuckets_includeConnectedResources :: Lens.Lens' GetBuckets (Prelude.Maybe Prelude.Bool)
+getBuckets_includeConnectedResources = Lens.lens (\GetBuckets' {includeConnectedResources} -> includeConnectedResources) (\s@GetBuckets' {} a -> s {includeConnectedResources = a} :: GetBuckets)
+
 -- | The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetBuckets@ request. If your
@@ -119,12 +125,6 @@ getBuckets_bucketName = Lens.lens (\GetBuckets' {bucketName} -> bucketName) (\s@
 getBuckets_pageToken :: Lens.Lens' GetBuckets (Prelude.Maybe Prelude.Text)
 getBuckets_pageToken = Lens.lens (\GetBuckets' {pageToken} -> pageToken) (\s@GetBuckets' {} a -> s {pageToken = a} :: GetBuckets)
 
--- | A Boolean value that indicates whether to include Lightsail instances
--- that were given access to the bucket using the
--- SetResourceAccessForBucket action.
-getBuckets_includeConnectedResources :: Lens.Lens' GetBuckets (Prelude.Maybe Prelude.Bool)
-getBuckets_includeConnectedResources = Lens.lens (\GetBuckets' {includeConnectedResources} -> includeConnectedResources) (\s@GetBuckets' {} a -> s {includeConnectedResources = a} :: GetBuckets)
-
 instance Core.AWSRequest GetBuckets where
   type AWSResponse GetBuckets = GetBucketsResponse
   request = Request.postJSON defaultService
@@ -132,8 +132,8 @@ instance Core.AWSRequest GetBuckets where
     Response.receiveJSON
       ( \s h x ->
           GetBucketsResponse'
-            Prelude.<$> (x Core..?> "buckets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<$> (x Core..?> "nextPageToken")
+            Prelude.<*> (x Core..?> "buckets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,9 +161,9 @@ instance Core.ToJSON GetBuckets where
     Core.object
       ( Prelude.catMaybes
           [ ("bucketName" Core..=) Prelude.<$> bucketName,
-            ("pageToken" Core..=) Prelude.<$> pageToken,
             ("includeConnectedResources" Core..=)
-              Prelude.<$> includeConnectedResources
+              Prelude.<$> includeConnectedResources,
+            ("pageToken" Core..=) Prelude.<$> pageToken
           ]
       )
 
@@ -175,9 +175,7 @@ instance Core.ToQuery GetBuckets where
 
 -- | /See:/ 'newGetBucketsResponse' smart constructor.
 data GetBucketsResponse = GetBucketsResponse'
-  { -- | An array of objects that describe buckets.
-    buckets :: Prelude.Maybe [Bucket],
-    -- | The token to advance to the next page of results from your request.
+  { -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
     -- display.
@@ -185,6 +183,8 @@ data GetBucketsResponse = GetBucketsResponse'
     -- To get the next page of results, perform another @GetBuckets@ request
     -- and specify the next page token using the @pageToken@ parameter.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that describe buckets.
+    buckets :: Prelude.Maybe [Bucket],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,8 +198,6 @@ data GetBucketsResponse = GetBucketsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'buckets', 'getBucketsResponse_buckets' - An array of objects that describe buckets.
---
 -- 'nextPageToken', 'getBucketsResponse_nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to
@@ -208,6 +206,8 @@ data GetBucketsResponse = GetBucketsResponse'
 -- To get the next page of results, perform another @GetBuckets@ request
 -- and specify the next page token using the @pageToken@ parameter.
 --
+-- 'buckets', 'getBucketsResponse_buckets' - An array of objects that describe buckets.
+--
 -- 'httpStatus', 'getBucketsResponse_httpStatus' - The response's http status code.
 newGetBucketsResponse ::
   -- | 'httpStatus'
@@ -215,14 +215,11 @@ newGetBucketsResponse ::
   GetBucketsResponse
 newGetBucketsResponse pHttpStatus_ =
   GetBucketsResponse'
-    { buckets = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+    { nextPageToken =
+        Prelude.Nothing,
+      buckets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of objects that describe buckets.
-getBucketsResponse_buckets :: Lens.Lens' GetBucketsResponse (Prelude.Maybe [Bucket])
-getBucketsResponse_buckets = Lens.lens (\GetBucketsResponse' {buckets} -> buckets) (\s@GetBucketsResponse' {} a -> s {buckets = a} :: GetBucketsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -233,6 +230,10 @@ getBucketsResponse_buckets = Lens.lens (\GetBucketsResponse' {buckets} -> bucket
 -- and specify the next page token using the @pageToken@ parameter.
 getBucketsResponse_nextPageToken :: Lens.Lens' GetBucketsResponse (Prelude.Maybe Prelude.Text)
 getBucketsResponse_nextPageToken = Lens.lens (\GetBucketsResponse' {nextPageToken} -> nextPageToken) (\s@GetBucketsResponse' {} a -> s {nextPageToken = a} :: GetBucketsResponse)
+
+-- | An array of objects that describe buckets.
+getBucketsResponse_buckets :: Lens.Lens' GetBucketsResponse (Prelude.Maybe [Bucket])
+getBucketsResponse_buckets = Lens.lens (\GetBucketsResponse' {buckets} -> buckets) (\s@GetBucketsResponse' {} a -> s {buckets = a} :: GetBucketsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getBucketsResponse_httpStatus :: Lens.Lens' GetBucketsResponse Prelude.Int

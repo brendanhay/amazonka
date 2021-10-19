@@ -42,7 +42,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPortMapping' smart constructor.
 data PortMapping = PortMapping'
-  { -- | The port number on the container instance to reserve for your container.
+  { -- | The protocol used for the port mapping. Valid values are @tcp@ and
+    -- @udp@. The default is @tcp@.
+    protocol :: Prelude.Maybe TransportProtocol,
+    -- | The port number on the container instance to reserve for your container.
     --
     -- If you are using containers in a task with the @awsvpc@ or @host@
     -- network mode, the @hostPort@ can either be left blank or set to the same
@@ -76,9 +79,6 @@ data PortMapping = PortMapping'
     -- default reserved ports. Automatically assigned ports don\'t count toward
     -- the 100 reserved ports limit.
     hostPort :: Prelude.Maybe Prelude.Int,
-    -- | The protocol used for the port mapping. Valid values are @tcp@ and
-    -- @udp@. The default is @tcp@.
-    protocol :: Prelude.Maybe TransportProtocol,
     -- | The port number on the container that is bound to the user-specified or
     -- automatically assigned host port.
     --
@@ -102,6 +102,9 @@ data PortMapping = PortMapping'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'protocol', 'portMapping_protocol' - The protocol used for the port mapping. Valid values are @tcp@ and
+-- @udp@. The default is @tcp@.
 --
 -- 'hostPort', 'portMapping_hostPort' - The port number on the container instance to reserve for your container.
 --
@@ -137,9 +140,6 @@ data PortMapping = PortMapping'
 -- default reserved ports. Automatically assigned ports don\'t count toward
 -- the 100 reserved ports limit.
 --
--- 'protocol', 'portMapping_protocol' - The protocol used for the port mapping. Valid values are @tcp@ and
--- @udp@. The default is @tcp@.
---
 -- 'containerPort', 'portMapping_containerPort' - The port number on the container that is bound to the user-specified or
 -- automatically assigned host port.
 --
@@ -156,10 +156,15 @@ newPortMapping ::
   PortMapping
 newPortMapping =
   PortMapping'
-    { hostPort = Prelude.Nothing,
-      protocol = Prelude.Nothing,
+    { protocol = Prelude.Nothing,
+      hostPort = Prelude.Nothing,
       containerPort = Prelude.Nothing
     }
+
+-- | The protocol used for the port mapping. Valid values are @tcp@ and
+-- @udp@. The default is @tcp@.
+portMapping_protocol :: Lens.Lens' PortMapping (Prelude.Maybe TransportProtocol)
+portMapping_protocol = Lens.lens (\PortMapping' {protocol} -> protocol) (\s@PortMapping' {} a -> s {protocol = a} :: PortMapping)
 
 -- | The port number on the container instance to reserve for your container.
 --
@@ -197,11 +202,6 @@ newPortMapping =
 portMapping_hostPort :: Lens.Lens' PortMapping (Prelude.Maybe Prelude.Int)
 portMapping_hostPort = Lens.lens (\PortMapping' {hostPort} -> hostPort) (\s@PortMapping' {} a -> s {hostPort = a} :: PortMapping)
 
--- | The protocol used for the port mapping. Valid values are @tcp@ and
--- @udp@. The default is @tcp@.
-portMapping_protocol :: Lens.Lens' PortMapping (Prelude.Maybe TransportProtocol)
-portMapping_protocol = Lens.lens (\PortMapping' {protocol} -> protocol) (\s@PortMapping' {} a -> s {protocol = a} :: PortMapping)
-
 -- | The port number on the container that is bound to the user-specified or
 -- automatically assigned host port.
 --
@@ -223,8 +223,8 @@ instance Core.FromJSON PortMapping where
       "PortMapping"
       ( \x ->
           PortMapping'
-            Prelude.<$> (x Core..:? "hostPort")
-            Prelude.<*> (x Core..:? "protocol")
+            Prelude.<$> (x Core..:? "protocol")
+            Prelude.<*> (x Core..:? "hostPort")
             Prelude.<*> (x Core..:? "containerPort")
       )
 
@@ -236,8 +236,8 @@ instance Core.ToJSON PortMapping where
   toJSON PortMapping' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("hostPort" Core..=) Prelude.<$> hostPort,
-            ("protocol" Core..=) Prelude.<$> protocol,
+          [ ("protocol" Core..=) Prelude.<$> protocol,
+            ("hostPort" Core..=) Prelude.<$> hostPort,
             ("containerPort" Core..=) Prelude.<$> containerPort
           ]
       )

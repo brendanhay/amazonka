@@ -102,7 +102,7 @@ newDescribeContainerInstances =
 -- instance. If @TAGS@ is specified, the tags are included in the response.
 -- If this field is omitted, tags are not included in the response.
 describeContainerInstances_include :: Lens.Lens' DescribeContainerInstances (Prelude.Maybe [ContainerInstanceField])
-describeContainerInstances_include = Lens.lens (\DescribeContainerInstances' {include} -> include) (\s@DescribeContainerInstances' {} a -> s {include = a} :: DescribeContainerInstances) Prelude.. Lens.mapping Lens._Coerce
+describeContainerInstances_include = Lens.lens (\DescribeContainerInstances' {include} -> include) (\s@DescribeContainerInstances' {} a -> s {include = a} :: DescribeContainerInstances) Prelude.. Lens.mapping Lens.coerced
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the container instances to describe. If you do not specify a
@@ -115,7 +115,7 @@ describeContainerInstances_cluster = Lens.lens (\DescribeContainerInstances' {cl
 -- | A list of up to 100 container instance IDs or full Amazon Resource Name
 -- (ARN) entries.
 describeContainerInstances_containerInstances :: Lens.Lens' DescribeContainerInstances [Prelude.Text]
-describeContainerInstances_containerInstances = Lens.lens (\DescribeContainerInstances' {containerInstances} -> containerInstances) (\s@DescribeContainerInstances' {} a -> s {containerInstances = a} :: DescribeContainerInstances) Prelude.. Lens._Coerce
+describeContainerInstances_containerInstances = Lens.lens (\DescribeContainerInstances' {containerInstances} -> containerInstances) (\s@DescribeContainerInstances' {} a -> s {containerInstances = a} :: DescribeContainerInstances) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeContainerInstances where
   type
@@ -207,11 +207,11 @@ newDescribeContainerInstancesResponse pHttpStatus_ =
 
 -- | Any failures associated with the call.
 describeContainerInstancesResponse_failures :: Lens.Lens' DescribeContainerInstancesResponse (Prelude.Maybe [Failure])
-describeContainerInstancesResponse_failures = Lens.lens (\DescribeContainerInstancesResponse' {failures} -> failures) (\s@DescribeContainerInstancesResponse' {} a -> s {failures = a} :: DescribeContainerInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeContainerInstancesResponse_failures = Lens.lens (\DescribeContainerInstancesResponse' {failures} -> failures) (\s@DescribeContainerInstancesResponse' {} a -> s {failures = a} :: DescribeContainerInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of container instances.
 describeContainerInstancesResponse_containerInstances :: Lens.Lens' DescribeContainerInstancesResponse (Prelude.Maybe [ContainerInstance])
-describeContainerInstancesResponse_containerInstances = Lens.lens (\DescribeContainerInstancesResponse' {containerInstances} -> containerInstances) (\s@DescribeContainerInstancesResponse' {} a -> s {containerInstances = a} :: DescribeContainerInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeContainerInstancesResponse_containerInstances = Lens.lens (\DescribeContainerInstancesResponse' {containerInstances} -> containerInstances) (\s@DescribeContainerInstancesResponse' {} a -> s {containerInstances = a} :: DescribeContainerInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeContainerInstancesResponse_httpStatus :: Lens.Lens' DescribeContainerInstancesResponse Prelude.Int

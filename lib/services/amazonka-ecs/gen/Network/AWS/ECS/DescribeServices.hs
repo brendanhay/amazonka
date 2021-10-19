@@ -36,8 +36,8 @@ module Network.AWS.ECS.DescribeServices
     newDescribeServicesResponse,
 
     -- * Response Lenses
-    describeServicesResponse_services,
     describeServicesResponse_failures,
+    describeServicesResponse_services,
     describeServicesResponse_httpStatus,
   )
 where
@@ -100,7 +100,7 @@ newDescribeServices =
 -- @TAGS@ is specified, the tags are included in the response. If this
 -- field is omitted, tags are not included in the response.
 describeServices_include :: Lens.Lens' DescribeServices (Prelude.Maybe [ServiceField])
-describeServices_include = Lens.lens (\DescribeServices' {include} -> include) (\s@DescribeServices' {} a -> s {include = a} :: DescribeServices) Prelude.. Lens.mapping Lens._Coerce
+describeServices_include = Lens.lens (\DescribeServices' {include} -> include) (\s@DescribeServices' {} a -> s {include = a} :: DescribeServices) Prelude.. Lens.mapping Lens.coerced
 
 -- | The short name or full Amazon Resource Name (ARN)the cluster that hosts
 -- the service to describe. If you do not specify a cluster, the default
@@ -113,7 +113,7 @@ describeServices_cluster = Lens.lens (\DescribeServices' {cluster} -> cluster) (
 -- | A list of services to describe. You may specify up to 10 services to
 -- describe in a single operation.
 describeServices_services :: Lens.Lens' DescribeServices [Prelude.Text]
-describeServices_services = Lens.lens (\DescribeServices' {services} -> services) (\s@DescribeServices' {} a -> s {services = a} :: DescribeServices) Prelude.. Lens._Coerce
+describeServices_services = Lens.lens (\DescribeServices' {services} -> services) (\s@DescribeServices' {} a -> s {services = a} :: DescribeServices) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeServices where
   type
@@ -124,8 +124,8 @@ instance Core.AWSRequest DescribeServices where
     Response.receiveJSON
       ( \s h x ->
           DescribeServicesResponse'
-            Prelude.<$> (x Core..?> "services" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "services" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,10 +166,10 @@ instance Core.ToQuery DescribeServices where
 
 -- | /See:/ 'newDescribeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-  { -- | The list of services described.
-    services :: Prelude.Maybe [ContainerService],
-    -- | Any failures associated with the call.
+  { -- | Any failures associated with the call.
     failures :: Prelude.Maybe [Failure],
+    -- | The list of services described.
+    services :: Prelude.Maybe [ContainerService],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,9 +183,9 @@ data DescribeServicesResponse = DescribeServicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'services', 'describeServicesResponse_services' - The list of services described.
---
 -- 'failures', 'describeServicesResponse_failures' - Any failures associated with the call.
+--
+-- 'services', 'describeServicesResponse_services' - The list of services described.
 --
 -- 'httpStatus', 'describeServicesResponse_httpStatus' - The response's http status code.
 newDescribeServicesResponse ::
@@ -194,19 +194,19 @@ newDescribeServicesResponse ::
   DescribeServicesResponse
 newDescribeServicesResponse pHttpStatus_ =
   DescribeServicesResponse'
-    { services =
+    { failures =
         Prelude.Nothing,
-      failures = Prelude.Nothing,
+      services = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The list of services described.
-describeServicesResponse_services :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe [ContainerService])
-describeServicesResponse_services = Lens.lens (\DescribeServicesResponse' {services} -> services) (\s@DescribeServicesResponse' {} a -> s {services = a} :: DescribeServicesResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Any failures associated with the call.
 describeServicesResponse_failures :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe [Failure])
-describeServicesResponse_failures = Lens.lens (\DescribeServicesResponse' {failures} -> failures) (\s@DescribeServicesResponse' {} a -> s {failures = a} :: DescribeServicesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeServicesResponse_failures = Lens.lens (\DescribeServicesResponse' {failures} -> failures) (\s@DescribeServicesResponse' {} a -> s {failures = a} :: DescribeServicesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of services described.
+describeServicesResponse_services :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe [ContainerService])
+describeServicesResponse_services = Lens.lens (\DescribeServicesResponse' {services} -> services) (\s@DescribeServicesResponse' {} a -> s {services = a} :: DescribeServicesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeServicesResponse_httpStatus :: Lens.Lens' DescribeServicesResponse Prelude.Int

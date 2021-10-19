@@ -106,13 +106,13 @@ newDescribeTaskSets pCluster_ pService_ =
 
 -- | The ID or full Amazon Resource Name (ARN) of task sets to describe.
 describeTaskSets_taskSets :: Lens.Lens' DescribeTaskSets (Prelude.Maybe [Prelude.Text])
-describeTaskSets_taskSets = Lens.lens (\DescribeTaskSets' {taskSets} -> taskSets) (\s@DescribeTaskSets' {} a -> s {taskSets = a} :: DescribeTaskSets) Prelude.. Lens.mapping Lens._Coerce
+describeTaskSets_taskSets = Lens.lens (\DescribeTaskSets' {taskSets} -> taskSets) (\s@DescribeTaskSets' {} a -> s {taskSets = a} :: DescribeTaskSets) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether to see the resource tags for the task set. If @TAGS@
 -- is specified, the tags are included in the response. If this field is
 -- omitted, tags are not included in the response.
 describeTaskSets_include :: Lens.Lens' DescribeTaskSets (Prelude.Maybe [TaskSetField])
-describeTaskSets_include = Lens.lens (\DescribeTaskSets' {include} -> include) (\s@DescribeTaskSets' {} a -> s {include = a} :: DescribeTaskSets) Prelude.. Lens.mapping Lens._Coerce
+describeTaskSets_include = Lens.lens (\DescribeTaskSets' {include} -> include) (\s@DescribeTaskSets' {} a -> s {include = a} :: DescribeTaskSets) Prelude.. Lens.mapping Lens.coerced
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the service that the task sets exist in.
@@ -212,11 +212,11 @@ newDescribeTaskSetsResponse pHttpStatus_ =
 
 -- | The list of task sets described.
 describeTaskSetsResponse_taskSets :: Lens.Lens' DescribeTaskSetsResponse (Prelude.Maybe [TaskSet])
-describeTaskSetsResponse_taskSets = Lens.lens (\DescribeTaskSetsResponse' {taskSets} -> taskSets) (\s@DescribeTaskSetsResponse' {} a -> s {taskSets = a} :: DescribeTaskSetsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTaskSetsResponse_taskSets = Lens.lens (\DescribeTaskSetsResponse' {taskSets} -> taskSets) (\s@DescribeTaskSetsResponse' {} a -> s {taskSets = a} :: DescribeTaskSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Any failures associated with the call.
 describeTaskSetsResponse_failures :: Lens.Lens' DescribeTaskSetsResponse (Prelude.Maybe [Failure])
-describeTaskSetsResponse_failures = Lens.lens (\DescribeTaskSetsResponse' {failures} -> failures) (\s@DescribeTaskSetsResponse' {} a -> s {failures = a} :: DescribeTaskSetsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTaskSetsResponse_failures = Lens.lens (\DescribeTaskSetsResponse' {failures} -> failures) (\s@DescribeTaskSetsResponse' {} a -> s {failures = a} :: DescribeTaskSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTaskSetsResponse_httpStatus :: Lens.Lens' DescribeTaskSetsResponse Prelude.Int

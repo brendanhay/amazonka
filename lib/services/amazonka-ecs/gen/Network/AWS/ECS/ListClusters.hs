@@ -37,8 +37,8 @@ module Network.AWS.ECS.ListClusters
     newListClustersResponse,
 
     -- * Response Lenses
-    listClustersResponse_nextToken,
     listClustersResponse_clusterArns,
+    listClustersResponse_nextToken,
     listClustersResponse_httpStatus,
   )
 where
@@ -155,8 +155,8 @@ instance Core.AWSRequest ListClusters where
     Response.receiveJSON
       ( \s h x ->
           ListClustersResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "clusterArns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "clusterArns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,14 +196,14 @@ instance Core.ToQuery ListClusters where
 
 -- | /See:/ 'newListClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'
-  { -- | The @nextToken@ value to include in a future @ListClusters@ request.
+  { -- | The list of full Amazon Resource Name (ARN) entries for each cluster
+    -- associated with your account.
+    clusterArns :: Prelude.Maybe [Prelude.Text],
+    -- | The @nextToken@ value to include in a future @ListClusters@ request.
     -- When the results of a @ListClusters@ request exceed @maxResults@, this
     -- value can be used to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of full Amazon Resource Name (ARN) entries for each cluster
-    -- associated with your account.
-    clusterArns :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -217,13 +217,13 @@ data ListClustersResponse = ListClustersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clusterArns', 'listClustersResponse_clusterArns' - The list of full Amazon Resource Name (ARN) entries for each cluster
+-- associated with your account.
+--
 -- 'nextToken', 'listClustersResponse_nextToken' - The @nextToken@ value to include in a future @ListClusters@ request.
 -- When the results of a @ListClusters@ request exceed @maxResults@, this
 -- value can be used to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'clusterArns', 'listClustersResponse_clusterArns' - The list of full Amazon Resource Name (ARN) entries for each cluster
--- associated with your account.
 --
 -- 'httpStatus', 'listClustersResponse_httpStatus' - The response's http status code.
 newListClustersResponse ::
@@ -232,10 +232,16 @@ newListClustersResponse ::
   ListClustersResponse
 newListClustersResponse pHttpStatus_ =
   ListClustersResponse'
-    { nextToken = Prelude.Nothing,
-      clusterArns = Prelude.Nothing,
+    { clusterArns =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of full Amazon Resource Name (ARN) entries for each cluster
+-- associated with your account.
+listClustersResponse_clusterArns :: Lens.Lens' ListClustersResponse (Prelude.Maybe [Prelude.Text])
+listClustersResponse_clusterArns = Lens.lens (\ListClustersResponse' {clusterArns} -> clusterArns) (\s@ListClustersResponse' {} a -> s {clusterArns = a} :: ListClustersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ value to include in a future @ListClusters@ request.
 -- When the results of a @ListClusters@ request exceed @maxResults@, this
@@ -243,11 +249,6 @@ newListClustersResponse pHttpStatus_ =
 -- @null@ when there are no more results to return.
 listClustersResponse_nextToken :: Lens.Lens' ListClustersResponse (Prelude.Maybe Prelude.Text)
 listClustersResponse_nextToken = Lens.lens (\ListClustersResponse' {nextToken} -> nextToken) (\s@ListClustersResponse' {} a -> s {nextToken = a} :: ListClustersResponse)
-
--- | The list of full Amazon Resource Name (ARN) entries for each cluster
--- associated with your account.
-listClustersResponse_clusterArns :: Lens.Lens' ListClustersResponse (Prelude.Maybe [Prelude.Text])
-listClustersResponse_clusterArns = Lens.lens (\ListClustersResponse' {clusterArns} -> clusterArns) (\s@ListClustersResponse' {} a -> s {clusterArns = a} :: ListClustersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listClustersResponse_httpStatus :: Lens.Lens' ListClustersResponse Prelude.Int

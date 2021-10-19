@@ -35,16 +35,16 @@ data Attribute = Attribute'
   { -- | The ID of the target. You can specify the short form ID for a resource
     -- or the full Amazon Resource Name (ARN).
     targetId :: Prelude.Maybe Prelude.Text,
-    -- | The type of the target with which to attach the attribute. This
-    -- parameter is required if you use the short form ID for a resource
-    -- instead of the full ARN.
-    targetType :: Prelude.Maybe TargetType,
     -- | The value of the attribute. The @value@ must contain between 1 and 128
     -- characters and may contain letters (uppercase and lowercase), numbers,
     -- hyphens, underscores, periods, at signs (\@), forward slashes, back
     -- slashes, colons, or spaces. The value cannot contain any leading or
     -- trailing whitespace.
     value :: Prelude.Maybe Prelude.Text,
+    -- | The type of the target with which to attach the attribute. This
+    -- parameter is required if you use the short form ID for a resource
+    -- instead of the full ARN.
+    targetType :: Prelude.Maybe TargetType,
     -- | The name of the attribute. The @name@ must contain between 1 and 128
     -- characters and name may contain letters (uppercase and lowercase),
     -- numbers, hyphens, underscores, forward slashes, back slashes, or
@@ -64,15 +64,15 @@ data Attribute = Attribute'
 -- 'targetId', 'attribute_targetId' - The ID of the target. You can specify the short form ID for a resource
 -- or the full Amazon Resource Name (ARN).
 --
--- 'targetType', 'attribute_targetType' - The type of the target with which to attach the attribute. This
--- parameter is required if you use the short form ID for a resource
--- instead of the full ARN.
---
 -- 'value', 'attribute_value' - The value of the attribute. The @value@ must contain between 1 and 128
 -- characters and may contain letters (uppercase and lowercase), numbers,
 -- hyphens, underscores, periods, at signs (\@), forward slashes, back
 -- slashes, colons, or spaces. The value cannot contain any leading or
 -- trailing whitespace.
+--
+-- 'targetType', 'attribute_targetType' - The type of the target with which to attach the attribute. This
+-- parameter is required if you use the short form ID for a resource
+-- instead of the full ARN.
 --
 -- 'name', 'attribute_name' - The name of the attribute. The @name@ must contain between 1 and 128
 -- characters and name may contain letters (uppercase and lowercase),
@@ -85,8 +85,8 @@ newAttribute ::
 newAttribute pName_ =
   Attribute'
     { targetId = Prelude.Nothing,
-      targetType = Prelude.Nothing,
       value = Prelude.Nothing,
+      targetType = Prelude.Nothing,
       name = pName_
     }
 
@@ -95,12 +95,6 @@ newAttribute pName_ =
 attribute_targetId :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_targetId = Lens.lens (\Attribute' {targetId} -> targetId) (\s@Attribute' {} a -> s {targetId = a} :: Attribute)
 
--- | The type of the target with which to attach the attribute. This
--- parameter is required if you use the short form ID for a resource
--- instead of the full ARN.
-attribute_targetType :: Lens.Lens' Attribute (Prelude.Maybe TargetType)
-attribute_targetType = Lens.lens (\Attribute' {targetType} -> targetType) (\s@Attribute' {} a -> s {targetType = a} :: Attribute)
-
 -- | The value of the attribute. The @value@ must contain between 1 and 128
 -- characters and may contain letters (uppercase and lowercase), numbers,
 -- hyphens, underscores, periods, at signs (\@), forward slashes, back
@@ -108,6 +102,12 @@ attribute_targetType = Lens.lens (\Attribute' {targetType} -> targetType) (\s@At
 -- trailing whitespace.
 attribute_value :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
+
+-- | The type of the target with which to attach the attribute. This
+-- parameter is required if you use the short form ID for a resource
+-- instead of the full ARN.
+attribute_targetType :: Lens.Lens' Attribute (Prelude.Maybe TargetType)
+attribute_targetType = Lens.lens (\Attribute' {targetType} -> targetType) (\s@Attribute' {} a -> s {targetType = a} :: Attribute)
 
 -- | The name of the attribute. The @name@ must contain between 1 and 128
 -- characters and name may contain letters (uppercase and lowercase),
@@ -123,8 +123,8 @@ instance Core.FromJSON Attribute where
       ( \x ->
           Attribute'
             Prelude.<$> (x Core..:? "targetId")
-            Prelude.<*> (x Core..:? "targetType")
             Prelude.<*> (x Core..:? "value")
+            Prelude.<*> (x Core..:? "targetType")
             Prelude.<*> (x Core..: "name")
       )
 
@@ -137,8 +137,8 @@ instance Core.ToJSON Attribute where
     Core.object
       ( Prelude.catMaybes
           [ ("targetId" Core..=) Prelude.<$> targetId,
-            ("targetType" Core..=) Prelude.<$> targetType,
             ("value" Core..=) Prelude.<$> value,
+            ("targetType" Core..=) Prelude.<$> targetType,
             Prelude.Just ("name" Core..= name)
           ]
       )

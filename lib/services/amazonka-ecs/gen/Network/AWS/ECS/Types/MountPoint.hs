@@ -27,15 +27,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMountPoint' smart constructor.
 data MountPoint = MountPoint'
-  { -- | If this value is @true@, the container has read-only access to the
-    -- volume. If this value is @false@, then the container can write to the
-    -- volume. The default value is @false@.
-    readOnly :: Prelude.Maybe Prelude.Bool,
+  { -- | The path on the container to mount the host volume at.
+    containerPath :: Prelude.Maybe Prelude.Text,
     -- | The name of the volume to mount. Must be a volume name referenced in the
     -- @name@ parameter of task definition @volume@.
     sourceVolume :: Prelude.Maybe Prelude.Text,
-    -- | The path on the container to mount the host volume at.
-    containerPath :: Prelude.Maybe Prelude.Text
+    -- | If this value is @true@, the container has read-only access to the
+    -- volume. If this value is @false@, then the container can write to the
+    -- volume. The default value is @false@.
+    readOnly :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,22 +47,31 @@ data MountPoint = MountPoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'readOnly', 'mountPoint_readOnly' - If this value is @true@, the container has read-only access to the
--- volume. If this value is @false@, then the container can write to the
--- volume. The default value is @false@.
+-- 'containerPath', 'mountPoint_containerPath' - The path on the container to mount the host volume at.
 --
 -- 'sourceVolume', 'mountPoint_sourceVolume' - The name of the volume to mount. Must be a volume name referenced in the
 -- @name@ parameter of task definition @volume@.
 --
--- 'containerPath', 'mountPoint_containerPath' - The path on the container to mount the host volume at.
+-- 'readOnly', 'mountPoint_readOnly' - If this value is @true@, the container has read-only access to the
+-- volume. If this value is @false@, then the container can write to the
+-- volume. The default value is @false@.
 newMountPoint ::
   MountPoint
 newMountPoint =
   MountPoint'
-    { readOnly = Prelude.Nothing,
+    { containerPath = Prelude.Nothing,
       sourceVolume = Prelude.Nothing,
-      containerPath = Prelude.Nothing
+      readOnly = Prelude.Nothing
     }
+
+-- | The path on the container to mount the host volume at.
+mountPoint_containerPath :: Lens.Lens' MountPoint (Prelude.Maybe Prelude.Text)
+mountPoint_containerPath = Lens.lens (\MountPoint' {containerPath} -> containerPath) (\s@MountPoint' {} a -> s {containerPath = a} :: MountPoint)
+
+-- | The name of the volume to mount. Must be a volume name referenced in the
+-- @name@ parameter of task definition @volume@.
+mountPoint_sourceVolume :: Lens.Lens' MountPoint (Prelude.Maybe Prelude.Text)
+mountPoint_sourceVolume = Lens.lens (\MountPoint' {sourceVolume} -> sourceVolume) (\s@MountPoint' {} a -> s {sourceVolume = a} :: MountPoint)
 
 -- | If this value is @true@, the container has read-only access to the
 -- volume. If this value is @false@, then the container can write to the
@@ -70,24 +79,15 @@ newMountPoint =
 mountPoint_readOnly :: Lens.Lens' MountPoint (Prelude.Maybe Prelude.Bool)
 mountPoint_readOnly = Lens.lens (\MountPoint' {readOnly} -> readOnly) (\s@MountPoint' {} a -> s {readOnly = a} :: MountPoint)
 
--- | The name of the volume to mount. Must be a volume name referenced in the
--- @name@ parameter of task definition @volume@.
-mountPoint_sourceVolume :: Lens.Lens' MountPoint (Prelude.Maybe Prelude.Text)
-mountPoint_sourceVolume = Lens.lens (\MountPoint' {sourceVolume} -> sourceVolume) (\s@MountPoint' {} a -> s {sourceVolume = a} :: MountPoint)
-
--- | The path on the container to mount the host volume at.
-mountPoint_containerPath :: Lens.Lens' MountPoint (Prelude.Maybe Prelude.Text)
-mountPoint_containerPath = Lens.lens (\MountPoint' {containerPath} -> containerPath) (\s@MountPoint' {} a -> s {containerPath = a} :: MountPoint)
-
 instance Core.FromJSON MountPoint where
   parseJSON =
     Core.withObject
       "MountPoint"
       ( \x ->
           MountPoint'
-            Prelude.<$> (x Core..:? "readOnly")
+            Prelude.<$> (x Core..:? "containerPath")
             Prelude.<*> (x Core..:? "sourceVolume")
-            Prelude.<*> (x Core..:? "containerPath")
+            Prelude.<*> (x Core..:? "readOnly")
       )
 
 instance Prelude.Hashable MountPoint
@@ -98,8 +98,8 @@ instance Core.ToJSON MountPoint where
   toJSON MountPoint' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("readOnly" Core..=) Prelude.<$> readOnly,
+          [ ("containerPath" Core..=) Prelude.<$> containerPath,
             ("sourceVolume" Core..=) Prelude.<$> sourceVolume,
-            ("containerPath" Core..=) Prelude.<$> containerPath
+            ("readOnly" Core..=) Prelude.<$> readOnly
           ]
       )

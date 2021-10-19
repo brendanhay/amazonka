@@ -92,7 +92,7 @@ updateClusterSettings_cluster = Lens.lens (\UpdateClusterSettings' {cluster} -> 
 -- specified, it will override the @containerInsights@ value set with
 -- PutAccountSetting or PutAccountSettingDefault.
 updateClusterSettings_settings :: Lens.Lens' UpdateClusterSettings [ClusterSetting]
-updateClusterSettings_settings = Lens.lens (\UpdateClusterSettings' {settings} -> settings) (\s@UpdateClusterSettings' {} a -> s {settings = a} :: UpdateClusterSettings) Prelude.. Lens._Coerce
+updateClusterSettings_settings = Lens.lens (\UpdateClusterSettings' {settings} -> settings) (\s@UpdateClusterSettings' {} a -> s {settings = a} :: UpdateClusterSettings) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateClusterSettings where
   type

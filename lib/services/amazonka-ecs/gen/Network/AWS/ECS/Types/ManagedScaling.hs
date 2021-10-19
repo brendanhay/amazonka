@@ -46,6 +46,11 @@ data ManagedScaling = ManagedScaling'
     -- or scale out at one time. If this parameter is omitted, the default
     -- value of @10000@ is used.
     maximumScalingStepSize :: Prelude.Maybe Prelude.Natural,
+    -- | The target capacity value for the capacity provider. The specified value
+    -- must be greater than @0@ and less than or equal to @100@. A value of
+    -- @100@ will result in the Amazon EC2 instances in your Auto Scaling group
+    -- being completely utilized.
+    targetCapacity :: Prelude.Maybe Prelude.Natural,
     -- | The minimum number of container instances that Amazon ECS will scale in
     -- or scale out at one time. If this parameter is omitted, the default
     -- value of @1@ is used.
@@ -53,12 +58,7 @@ data ManagedScaling = ManagedScaling'
     -- | The period of time, in seconds, after a newly launched Amazon EC2
     -- instance can contribute to CloudWatch metrics for Auto Scaling group. If
     -- this parameter is omitted, the default value of @300@ seconds is used.
-    instanceWarmupPeriod :: Prelude.Maybe Prelude.Natural,
-    -- | The target capacity value for the capacity provider. The specified value
-    -- must be greater than @0@ and less than or equal to @100@. A value of
-    -- @100@ will result in the Amazon EC2 instances in your Auto Scaling group
-    -- being completely utilized.
-    targetCapacity :: Prelude.Maybe Prelude.Natural
+    instanceWarmupPeriod :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,6 +76,11 @@ data ManagedScaling = ManagedScaling'
 -- or scale out at one time. If this parameter is omitted, the default
 -- value of @10000@ is used.
 --
+-- 'targetCapacity', 'managedScaling_targetCapacity' - The target capacity value for the capacity provider. The specified value
+-- must be greater than @0@ and less than or equal to @100@. A value of
+-- @100@ will result in the Amazon EC2 instances in your Auto Scaling group
+-- being completely utilized.
+--
 -- 'minimumScalingStepSize', 'managedScaling_minimumScalingStepSize' - The minimum number of container instances that Amazon ECS will scale in
 -- or scale out at one time. If this parameter is omitted, the default
 -- value of @1@ is used.
@@ -83,20 +88,15 @@ data ManagedScaling = ManagedScaling'
 -- 'instanceWarmupPeriod', 'managedScaling_instanceWarmupPeriod' - The period of time, in seconds, after a newly launched Amazon EC2
 -- instance can contribute to CloudWatch metrics for Auto Scaling group. If
 -- this parameter is omitted, the default value of @300@ seconds is used.
---
--- 'targetCapacity', 'managedScaling_targetCapacity' - The target capacity value for the capacity provider. The specified value
--- must be greater than @0@ and less than or equal to @100@. A value of
--- @100@ will result in the Amazon EC2 instances in your Auto Scaling group
--- being completely utilized.
 newManagedScaling ::
   ManagedScaling
 newManagedScaling =
   ManagedScaling'
     { status = Prelude.Nothing,
       maximumScalingStepSize = Prelude.Nothing,
+      targetCapacity = Prelude.Nothing,
       minimumScalingStepSize = Prelude.Nothing,
-      instanceWarmupPeriod = Prelude.Nothing,
-      targetCapacity = Prelude.Nothing
+      instanceWarmupPeriod = Prelude.Nothing
     }
 
 -- | Whether or not to enable managed scaling for the capacity provider.
@@ -108,6 +108,13 @@ managedScaling_status = Lens.lens (\ManagedScaling' {status} -> status) (\s@Mana
 -- value of @10000@ is used.
 managedScaling_maximumScalingStepSize :: Lens.Lens' ManagedScaling (Prelude.Maybe Prelude.Natural)
 managedScaling_maximumScalingStepSize = Lens.lens (\ManagedScaling' {maximumScalingStepSize} -> maximumScalingStepSize) (\s@ManagedScaling' {} a -> s {maximumScalingStepSize = a} :: ManagedScaling)
+
+-- | The target capacity value for the capacity provider. The specified value
+-- must be greater than @0@ and less than or equal to @100@. A value of
+-- @100@ will result in the Amazon EC2 instances in your Auto Scaling group
+-- being completely utilized.
+managedScaling_targetCapacity :: Lens.Lens' ManagedScaling (Prelude.Maybe Prelude.Natural)
+managedScaling_targetCapacity = Lens.lens (\ManagedScaling' {targetCapacity} -> targetCapacity) (\s@ManagedScaling' {} a -> s {targetCapacity = a} :: ManagedScaling)
 
 -- | The minimum number of container instances that Amazon ECS will scale in
 -- or scale out at one time. If this parameter is omitted, the default
@@ -121,13 +128,6 @@ managedScaling_minimumScalingStepSize = Lens.lens (\ManagedScaling' {minimumScal
 managedScaling_instanceWarmupPeriod :: Lens.Lens' ManagedScaling (Prelude.Maybe Prelude.Natural)
 managedScaling_instanceWarmupPeriod = Lens.lens (\ManagedScaling' {instanceWarmupPeriod} -> instanceWarmupPeriod) (\s@ManagedScaling' {} a -> s {instanceWarmupPeriod = a} :: ManagedScaling)
 
--- | The target capacity value for the capacity provider. The specified value
--- must be greater than @0@ and less than or equal to @100@. A value of
--- @100@ will result in the Amazon EC2 instances in your Auto Scaling group
--- being completely utilized.
-managedScaling_targetCapacity :: Lens.Lens' ManagedScaling (Prelude.Maybe Prelude.Natural)
-managedScaling_targetCapacity = Lens.lens (\ManagedScaling' {targetCapacity} -> targetCapacity) (\s@ManagedScaling' {} a -> s {targetCapacity = a} :: ManagedScaling)
-
 instance Core.FromJSON ManagedScaling where
   parseJSON =
     Core.withObject
@@ -136,9 +136,9 @@ instance Core.FromJSON ManagedScaling where
           ManagedScaling'
             Prelude.<$> (x Core..:? "status")
             Prelude.<*> (x Core..:? "maximumScalingStepSize")
+            Prelude.<*> (x Core..:? "targetCapacity")
             Prelude.<*> (x Core..:? "minimumScalingStepSize")
             Prelude.<*> (x Core..:? "instanceWarmupPeriod")
-            Prelude.<*> (x Core..:? "targetCapacity")
       )
 
 instance Prelude.Hashable ManagedScaling
@@ -152,11 +152,11 @@ instance Core.ToJSON ManagedScaling where
           [ ("status" Core..=) Prelude.<$> status,
             ("maximumScalingStepSize" Core..=)
               Prelude.<$> maximumScalingStepSize,
+            ("targetCapacity" Core..=)
+              Prelude.<$> targetCapacity,
             ("minimumScalingStepSize" Core..=)
               Prelude.<$> minimumScalingStepSize,
             ("instanceWarmupPeriod" Core..=)
-              Prelude.<$> instanceWarmupPeriod,
-            ("targetCapacity" Core..=)
-              Prelude.<$> targetCapacity
+              Prelude.<$> instanceWarmupPeriod
           ]
       )

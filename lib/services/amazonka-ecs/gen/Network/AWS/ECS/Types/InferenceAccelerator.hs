@@ -24,7 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Details on a Elastic Inference accelerator. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-eia.html Working with Amazon Elastic Inference on Amazon ECS>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html Working with Amazon Elastic Inference on Amazon ECS>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- /See:/ 'newInferenceAccelerator' smart constructor.

@@ -183,7 +183,7 @@ putClusterCapacityProviders_cluster = Lens.lens (\PutClusterCapacityProviders' {
 -- available to all accounts and only need to be associated with a cluster
 -- to be used.
 putClusterCapacityProviders_capacityProviders :: Lens.Lens' PutClusterCapacityProviders [Prelude.Text]
-putClusterCapacityProviders_capacityProviders = Lens.lens (\PutClusterCapacityProviders' {capacityProviders} -> capacityProviders) (\s@PutClusterCapacityProviders' {} a -> s {capacityProviders = a} :: PutClusterCapacityProviders) Prelude.. Lens._Coerce
+putClusterCapacityProviders_capacityProviders = Lens.lens (\PutClusterCapacityProviders' {capacityProviders} -> capacityProviders) (\s@PutClusterCapacityProviders' {} a -> s {capacityProviders = a} :: PutClusterCapacityProviders) Prelude.. Lens.coerced
 
 -- | The capacity provider strategy to use by default for the cluster.
 --
@@ -207,7 +207,7 @@ putClusterCapacityProviders_capacityProviders = Lens.lens (\PutClusterCapacityPr
 -- available to all accounts and only need to be associated with a cluster
 -- to be used.
 putClusterCapacityProviders_defaultCapacityProviderStrategy :: Lens.Lens' PutClusterCapacityProviders [CapacityProviderStrategyItem]
-putClusterCapacityProviders_defaultCapacityProviderStrategy = Lens.lens (\PutClusterCapacityProviders' {defaultCapacityProviderStrategy} -> defaultCapacityProviderStrategy) (\s@PutClusterCapacityProviders' {} a -> s {defaultCapacityProviderStrategy = a} :: PutClusterCapacityProviders) Prelude.. Lens._Coerce
+putClusterCapacityProviders_defaultCapacityProviderStrategy = Lens.lens (\PutClusterCapacityProviders' {defaultCapacityProviderStrategy} -> defaultCapacityProviderStrategy) (\s@PutClusterCapacityProviders' {} a -> s {defaultCapacityProviderStrategy = a} :: PutClusterCapacityProviders) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutClusterCapacityProviders where
   type

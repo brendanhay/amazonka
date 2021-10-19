@@ -30,8 +30,8 @@ module Network.AWS.ECS.DiscoverPollEndpoint
     newDiscoverPollEndpoint,
 
     -- * Request Lenses
-    discoverPollEndpoint_containerInstance,
     discoverPollEndpoint_cluster,
+    discoverPollEndpoint_containerInstance,
 
     -- * Destructuring the Response
     DiscoverPollEndpointResponse (..),
@@ -53,16 +53,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDiscoverPollEndpoint' smart constructor.
 data DiscoverPollEndpoint = DiscoverPollEndpoint'
-  { -- | The container instance ID or full ARN of the container instance. The ARN
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster to
+    -- which the container instance belongs.
+    cluster :: Prelude.Maybe Prelude.Text,
+    -- | The container instance ID or full ARN of the container instance. The ARN
     -- contains the @arn:aws:ecs@ namespace, followed by the Region of the
     -- container instance, the Amazon Web Services account ID of the container
     -- instance owner, the @container-instance@ namespace, and then the
     -- container instance ID. For example,
     -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
-    containerInstance :: Prelude.Maybe Prelude.Text,
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster to
-    -- which the container instance belongs.
-    cluster :: Prelude.Maybe Prelude.Text
+    containerInstance :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,23 +74,27 @@ data DiscoverPollEndpoint = DiscoverPollEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cluster', 'discoverPollEndpoint_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster to
+-- which the container instance belongs.
+--
 -- 'containerInstance', 'discoverPollEndpoint_containerInstance' - The container instance ID or full ARN of the container instance. The ARN
 -- contains the @arn:aws:ecs@ namespace, followed by the Region of the
 -- container instance, the Amazon Web Services account ID of the container
 -- instance owner, the @container-instance@ namespace, and then the
 -- container instance ID. For example,
 -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
---
--- 'cluster', 'discoverPollEndpoint_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster to
--- which the container instance belongs.
 newDiscoverPollEndpoint ::
   DiscoverPollEndpoint
 newDiscoverPollEndpoint =
   DiscoverPollEndpoint'
-    { containerInstance =
-        Prelude.Nothing,
-      cluster = Prelude.Nothing
+    { cluster = Prelude.Nothing,
+      containerInstance = Prelude.Nothing
     }
+
+-- | The short name or full Amazon Resource Name (ARN) of the cluster to
+-- which the container instance belongs.
+discoverPollEndpoint_cluster :: Lens.Lens' DiscoverPollEndpoint (Prelude.Maybe Prelude.Text)
+discoverPollEndpoint_cluster = Lens.lens (\DiscoverPollEndpoint' {cluster} -> cluster) (\s@DiscoverPollEndpoint' {} a -> s {cluster = a} :: DiscoverPollEndpoint)
 
 -- | The container instance ID or full ARN of the container instance. The ARN
 -- contains the @arn:aws:ecs@ namespace, followed by the Region of the
@@ -100,11 +104,6 @@ newDiscoverPollEndpoint =
 -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
 discoverPollEndpoint_containerInstance :: Lens.Lens' DiscoverPollEndpoint (Prelude.Maybe Prelude.Text)
 discoverPollEndpoint_containerInstance = Lens.lens (\DiscoverPollEndpoint' {containerInstance} -> containerInstance) (\s@DiscoverPollEndpoint' {} a -> s {containerInstance = a} :: DiscoverPollEndpoint)
-
--- | The short name or full Amazon Resource Name (ARN) of the cluster to
--- which the container instance belongs.
-discoverPollEndpoint_cluster :: Lens.Lens' DiscoverPollEndpoint (Prelude.Maybe Prelude.Text)
-discoverPollEndpoint_cluster = Lens.lens (\DiscoverPollEndpoint' {cluster} -> cluster) (\s@DiscoverPollEndpoint' {} a -> s {cluster = a} :: DiscoverPollEndpoint)
 
 instance Core.AWSRequest DiscoverPollEndpoint where
   type
@@ -143,9 +142,9 @@ instance Core.ToJSON DiscoverPollEndpoint where
   toJSON DiscoverPollEndpoint' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("containerInstance" Core..=)
-              Prelude.<$> containerInstance,
-            ("cluster" Core..=) Prelude.<$> cluster
+          [ ("cluster" Core..=) Prelude.<$> cluster,
+            ("containerInstance" Core..=)
+              Prelude.<$> containerInstance
           ]
       )
 

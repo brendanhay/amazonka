@@ -32,14 +32,14 @@ data ExecuteCommandLogConfiguration = ExecuteCommandLogConfiguration'
     --
     -- The CloudWatch log group must already be created.
     cloudWatchLogGroupName :: Prelude.Maybe Prelude.Text,
+    -- | An optional folder in the S3 bucket to place logs in.
+    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | Whether or not to enable encryption on the CloudWatch logs. If not
     -- specified, encryption will be disabled.
     cloudWatchEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether or not to enable encryption on the CloudWatch logs. If not
     -- specified, encryption will be disabled.
     s3EncryptionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | An optional folder in the S3 bucket to place logs in.
-    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The name of the S3 bucket to send logs to.
     --
     -- The S3 bucket must already be created.
@@ -59,13 +59,13 @@ data ExecuteCommandLogConfiguration = ExecuteCommandLogConfiguration'
 --
 -- The CloudWatch log group must already be created.
 --
+-- 's3KeyPrefix', 'executeCommandLogConfiguration_s3KeyPrefix' - An optional folder in the S3 bucket to place logs in.
+--
 -- 'cloudWatchEncryptionEnabled', 'executeCommandLogConfiguration_cloudWatchEncryptionEnabled' - Whether or not to enable encryption on the CloudWatch logs. If not
 -- specified, encryption will be disabled.
 --
 -- 's3EncryptionEnabled', 'executeCommandLogConfiguration_s3EncryptionEnabled' - Whether or not to enable encryption on the CloudWatch logs. If not
 -- specified, encryption will be disabled.
---
--- 's3KeyPrefix', 'executeCommandLogConfiguration_s3KeyPrefix' - An optional folder in the S3 bucket to place logs in.
 --
 -- 's3BucketName', 'executeCommandLogConfiguration_s3BucketName' - The name of the S3 bucket to send logs to.
 --
@@ -76,10 +76,10 @@ newExecuteCommandLogConfiguration =
   ExecuteCommandLogConfiguration'
     { cloudWatchLogGroupName =
         Prelude.Nothing,
+      s3KeyPrefix = Prelude.Nothing,
       cloudWatchEncryptionEnabled =
         Prelude.Nothing,
       s3EncryptionEnabled = Prelude.Nothing,
-      s3KeyPrefix = Prelude.Nothing,
       s3BucketName = Prelude.Nothing
     }
 
@@ -88,6 +88,10 @@ newExecuteCommandLogConfiguration =
 -- The CloudWatch log group must already be created.
 executeCommandLogConfiguration_cloudWatchLogGroupName :: Lens.Lens' ExecuteCommandLogConfiguration (Prelude.Maybe Prelude.Text)
 executeCommandLogConfiguration_cloudWatchLogGroupName = Lens.lens (\ExecuteCommandLogConfiguration' {cloudWatchLogGroupName} -> cloudWatchLogGroupName) (\s@ExecuteCommandLogConfiguration' {} a -> s {cloudWatchLogGroupName = a} :: ExecuteCommandLogConfiguration)
+
+-- | An optional folder in the S3 bucket to place logs in.
+executeCommandLogConfiguration_s3KeyPrefix :: Lens.Lens' ExecuteCommandLogConfiguration (Prelude.Maybe Prelude.Text)
+executeCommandLogConfiguration_s3KeyPrefix = Lens.lens (\ExecuteCommandLogConfiguration' {s3KeyPrefix} -> s3KeyPrefix) (\s@ExecuteCommandLogConfiguration' {} a -> s {s3KeyPrefix = a} :: ExecuteCommandLogConfiguration)
 
 -- | Whether or not to enable encryption on the CloudWatch logs. If not
 -- specified, encryption will be disabled.
@@ -98,10 +102,6 @@ executeCommandLogConfiguration_cloudWatchEncryptionEnabled = Lens.lens (\Execute
 -- specified, encryption will be disabled.
 executeCommandLogConfiguration_s3EncryptionEnabled :: Lens.Lens' ExecuteCommandLogConfiguration (Prelude.Maybe Prelude.Bool)
 executeCommandLogConfiguration_s3EncryptionEnabled = Lens.lens (\ExecuteCommandLogConfiguration' {s3EncryptionEnabled} -> s3EncryptionEnabled) (\s@ExecuteCommandLogConfiguration' {} a -> s {s3EncryptionEnabled = a} :: ExecuteCommandLogConfiguration)
-
--- | An optional folder in the S3 bucket to place logs in.
-executeCommandLogConfiguration_s3KeyPrefix :: Lens.Lens' ExecuteCommandLogConfiguration (Prelude.Maybe Prelude.Text)
-executeCommandLogConfiguration_s3KeyPrefix = Lens.lens (\ExecuteCommandLogConfiguration' {s3KeyPrefix} -> s3KeyPrefix) (\s@ExecuteCommandLogConfiguration' {} a -> s {s3KeyPrefix = a} :: ExecuteCommandLogConfiguration)
 
 -- | The name of the S3 bucket to send logs to.
 --
@@ -116,9 +116,9 @@ instance Core.FromJSON ExecuteCommandLogConfiguration where
       ( \x ->
           ExecuteCommandLogConfiguration'
             Prelude.<$> (x Core..:? "cloudWatchLogGroupName")
+            Prelude.<*> (x Core..:? "s3KeyPrefix")
             Prelude.<*> (x Core..:? "cloudWatchEncryptionEnabled")
             Prelude.<*> (x Core..:? "s3EncryptionEnabled")
-            Prelude.<*> (x Core..:? "s3KeyPrefix")
             Prelude.<*> (x Core..:? "s3BucketName")
       )
 
@@ -136,11 +136,11 @@ instance Core.ToJSON ExecuteCommandLogConfiguration where
       ( Prelude.catMaybes
           [ ("cloudWatchLogGroupName" Core..=)
               Prelude.<$> cloudWatchLogGroupName,
+            ("s3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
             ("cloudWatchEncryptionEnabled" Core..=)
               Prelude.<$> cloudWatchEncryptionEnabled,
             ("s3EncryptionEnabled" Core..=)
               Prelude.<$> s3EncryptionEnabled,
-            ("s3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
             ("s3BucketName" Core..=) Prelude.<$> s3BucketName
           ]
       )

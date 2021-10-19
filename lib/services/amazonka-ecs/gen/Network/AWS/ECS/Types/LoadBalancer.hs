@@ -31,7 +31,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLoadBalancer' smart constructor.
 data LoadBalancer = LoadBalancer'
-  { -- | The full Amazon Resource Name (ARN) of the Elastic Load Balancing target
+  { -- | The name of the load balancer to associate with the Amazon ECS service
+    -- or task set.
+    --
+    -- A load balancer name is only specified when using a Classic Load
+    -- Balancer. If you are using an Application Load Balancer or a Network
+    -- Load Balancer the load balancer name parameter should be omitted.
+    loadBalancerName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the container (as it appears in a container definition) to
+    -- associate with the load balancer.
+    containerName :: Prelude.Maybe Prelude.Text,
+    -- | The full Amazon Resource Name (ARN) of the Elastic Load Balancing target
     -- group or groups associated with a service or task set.
     --
     -- A target group ARN is only specified when using an Application Load
@@ -60,17 +70,7 @@ data LoadBalancer = LoadBalancer'
     -- the service are using. For tasks that use the EC2 launch type, the
     -- container instance they are launched on must allow ingress traffic on
     -- the @hostPort@ of the port mapping.
-    containerPort :: Prelude.Maybe Prelude.Int,
-    -- | The name of the container (as it appears in a container definition) to
-    -- associate with the load balancer.
-    containerName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the load balancer to associate with the Amazon ECS service
-    -- or task set.
-    --
-    -- A load balancer name is only specified when using a Classic Load
-    -- Balancer. If you are using an Application Load Balancer or a Network
-    -- Load Balancer the load balancer name parameter should be omitted.
-    loadBalancerName :: Prelude.Maybe Prelude.Text
+    containerPort :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,6 +81,16 @@ data LoadBalancer = LoadBalancer'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'loadBalancerName', 'loadBalancer_loadBalancerName' - The name of the load balancer to associate with the Amazon ECS service
+-- or task set.
+--
+-- A load balancer name is only specified when using a Classic Load
+-- Balancer. If you are using an Application Load Balancer or a Network
+-- Load Balancer the load balancer name parameter should be omitted.
+--
+-- 'containerName', 'loadBalancer_containerName' - The name of the container (as it appears in a container definition) to
+-- associate with the load balancer.
 --
 -- 'targetGroupArn', 'loadBalancer_targetGroupArn' - The full Amazon Resource Name (ARN) of the Elastic Load Balancing target
 -- group or groups associated with a service or task set.
@@ -111,25 +121,29 @@ data LoadBalancer = LoadBalancer'
 -- the service are using. For tasks that use the EC2 launch type, the
 -- container instance they are launched on must allow ingress traffic on
 -- the @hostPort@ of the port mapping.
---
--- 'containerName', 'loadBalancer_containerName' - The name of the container (as it appears in a container definition) to
--- associate with the load balancer.
---
--- 'loadBalancerName', 'loadBalancer_loadBalancerName' - The name of the load balancer to associate with the Amazon ECS service
+newLoadBalancer ::
+  LoadBalancer
+newLoadBalancer =
+  LoadBalancer'
+    { loadBalancerName = Prelude.Nothing,
+      containerName = Prelude.Nothing,
+      targetGroupArn = Prelude.Nothing,
+      containerPort = Prelude.Nothing
+    }
+
+-- | The name of the load balancer to associate with the Amazon ECS service
 -- or task set.
 --
 -- A load balancer name is only specified when using a Classic Load
 -- Balancer. If you are using an Application Load Balancer or a Network
 -- Load Balancer the load balancer name parameter should be omitted.
-newLoadBalancer ::
-  LoadBalancer
-newLoadBalancer =
-  LoadBalancer'
-    { targetGroupArn = Prelude.Nothing,
-      containerPort = Prelude.Nothing,
-      containerName = Prelude.Nothing,
-      loadBalancerName = Prelude.Nothing
-    }
+loadBalancer_loadBalancerName :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
+loadBalancer_loadBalancerName = Lens.lens (\LoadBalancer' {loadBalancerName} -> loadBalancerName) (\s@LoadBalancer' {} a -> s {loadBalancerName = a} :: LoadBalancer)
+
+-- | The name of the container (as it appears in a container definition) to
+-- associate with the load balancer.
+loadBalancer_containerName :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
+loadBalancer_containerName = Lens.lens (\LoadBalancer' {containerName} -> containerName) (\s@LoadBalancer' {} a -> s {containerName = a} :: LoadBalancer)
 
 -- | The full Amazon Resource Name (ARN) of the Elastic Load Balancing target
 -- group or groups associated with a service or task set.
@@ -165,30 +179,16 @@ loadBalancer_targetGroupArn = Lens.lens (\LoadBalancer' {targetGroupArn} -> targ
 loadBalancer_containerPort :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Int)
 loadBalancer_containerPort = Lens.lens (\LoadBalancer' {containerPort} -> containerPort) (\s@LoadBalancer' {} a -> s {containerPort = a} :: LoadBalancer)
 
--- | The name of the container (as it appears in a container definition) to
--- associate with the load balancer.
-loadBalancer_containerName :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
-loadBalancer_containerName = Lens.lens (\LoadBalancer' {containerName} -> containerName) (\s@LoadBalancer' {} a -> s {containerName = a} :: LoadBalancer)
-
--- | The name of the load balancer to associate with the Amazon ECS service
--- or task set.
---
--- A load balancer name is only specified when using a Classic Load
--- Balancer. If you are using an Application Load Balancer or a Network
--- Load Balancer the load balancer name parameter should be omitted.
-loadBalancer_loadBalancerName :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
-loadBalancer_loadBalancerName = Lens.lens (\LoadBalancer' {loadBalancerName} -> loadBalancerName) (\s@LoadBalancer' {} a -> s {loadBalancerName = a} :: LoadBalancer)
-
 instance Core.FromJSON LoadBalancer where
   parseJSON =
     Core.withObject
       "LoadBalancer"
       ( \x ->
           LoadBalancer'
-            Prelude.<$> (x Core..:? "targetGroupArn")
-            Prelude.<*> (x Core..:? "containerPort")
+            Prelude.<$> (x Core..:? "loadBalancerName")
             Prelude.<*> (x Core..:? "containerName")
-            Prelude.<*> (x Core..:? "loadBalancerName")
+            Prelude.<*> (x Core..:? "targetGroupArn")
+            Prelude.<*> (x Core..:? "containerPort")
       )
 
 instance Prelude.Hashable LoadBalancer
@@ -199,11 +199,11 @@ instance Core.ToJSON LoadBalancer where
   toJSON LoadBalancer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("targetGroupArn" Core..=)
-              Prelude.<$> targetGroupArn,
-            ("containerPort" Core..=) Prelude.<$> containerPort,
+          [ ("loadBalancerName" Core..=)
+              Prelude.<$> loadBalancerName,
             ("containerName" Core..=) Prelude.<$> containerName,
-            ("loadBalancerName" Core..=)
-              Prelude.<$> loadBalancerName
+            ("targetGroupArn" Core..=)
+              Prelude.<$> targetGroupArn,
+            ("containerPort" Core..=) Prelude.<$> containerPort
           ]
       )

@@ -31,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNetworkBinding' smart constructor.
 data NetworkBinding = NetworkBinding'
-  { -- | The port number on the host that is used with the network binding.
-    hostPort :: Prelude.Maybe Prelude.Int,
-    -- | The IP address that the container is bound to on the container instance.
+  { -- | The IP address that the container is bound to on the container instance.
     bindIP :: Prelude.Maybe Prelude.Text,
     -- | The protocol used for the network binding.
     protocol :: Prelude.Maybe TransportProtocol,
+    -- | The port number on the host that is used with the network binding.
+    hostPort :: Prelude.Maybe Prelude.Int,
     -- | The port number on the container that is used with the network binding.
     containerPort :: Prelude.Maybe Prelude.Int
   }
@@ -50,26 +50,22 @@ data NetworkBinding = NetworkBinding'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostPort', 'networkBinding_hostPort' - The port number on the host that is used with the network binding.
---
 -- 'bindIP', 'networkBinding_bindIP' - The IP address that the container is bound to on the container instance.
 --
 -- 'protocol', 'networkBinding_protocol' - The protocol used for the network binding.
+--
+-- 'hostPort', 'networkBinding_hostPort' - The port number on the host that is used with the network binding.
 --
 -- 'containerPort', 'networkBinding_containerPort' - The port number on the container that is used with the network binding.
 newNetworkBinding ::
   NetworkBinding
 newNetworkBinding =
   NetworkBinding'
-    { hostPort = Prelude.Nothing,
-      bindIP = Prelude.Nothing,
+    { bindIP = Prelude.Nothing,
       protocol = Prelude.Nothing,
+      hostPort = Prelude.Nothing,
       containerPort = Prelude.Nothing
     }
-
--- | The port number on the host that is used with the network binding.
-networkBinding_hostPort :: Lens.Lens' NetworkBinding (Prelude.Maybe Prelude.Int)
-networkBinding_hostPort = Lens.lens (\NetworkBinding' {hostPort} -> hostPort) (\s@NetworkBinding' {} a -> s {hostPort = a} :: NetworkBinding)
 
 -- | The IP address that the container is bound to on the container instance.
 networkBinding_bindIP :: Lens.Lens' NetworkBinding (Prelude.Maybe Prelude.Text)
@@ -78,6 +74,10 @@ networkBinding_bindIP = Lens.lens (\NetworkBinding' {bindIP} -> bindIP) (\s@Netw
 -- | The protocol used for the network binding.
 networkBinding_protocol :: Lens.Lens' NetworkBinding (Prelude.Maybe TransportProtocol)
 networkBinding_protocol = Lens.lens (\NetworkBinding' {protocol} -> protocol) (\s@NetworkBinding' {} a -> s {protocol = a} :: NetworkBinding)
+
+-- | The port number on the host that is used with the network binding.
+networkBinding_hostPort :: Lens.Lens' NetworkBinding (Prelude.Maybe Prelude.Int)
+networkBinding_hostPort = Lens.lens (\NetworkBinding' {hostPort} -> hostPort) (\s@NetworkBinding' {} a -> s {hostPort = a} :: NetworkBinding)
 
 -- | The port number on the container that is used with the network binding.
 networkBinding_containerPort :: Lens.Lens' NetworkBinding (Prelude.Maybe Prelude.Int)
@@ -89,9 +89,9 @@ instance Core.FromJSON NetworkBinding where
       "NetworkBinding"
       ( \x ->
           NetworkBinding'
-            Prelude.<$> (x Core..:? "hostPort")
-            Prelude.<*> (x Core..:? "bindIP")
+            Prelude.<$> (x Core..:? "bindIP")
             Prelude.<*> (x Core..:? "protocol")
+            Prelude.<*> (x Core..:? "hostPort")
             Prelude.<*> (x Core..:? "containerPort")
       )
 
@@ -103,9 +103,9 @@ instance Core.ToJSON NetworkBinding where
   toJSON NetworkBinding' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("hostPort" Core..=) Prelude.<$> hostPort,
-            ("bindIP" Core..=) Prelude.<$> bindIP,
+          [ ("bindIP" Core..=) Prelude.<$> bindIP,
             ("protocol" Core..=) Prelude.<$> protocol,
+            ("hostPort" Core..=) Prelude.<$> hostPort,
             ("containerPort" Core..=) Prelude.<$> containerPort
           ]
       )

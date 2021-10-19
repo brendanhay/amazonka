@@ -37,7 +37,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newProxyConfiguration' smart constructor.
 data ProxyConfiguration = ProxyConfiguration'
-  { -- | The set of network configuration parameters to provide the Container
+  { -- | The proxy type. The only supported value is @APPMESH@.
+    type' :: Prelude.Maybe ProxyConfigurationType,
+    -- | The set of network configuration parameters to provide the Container
     -- Network Interface (CNI) plugin, specified as key-value pairs.
     --
     -- -   @IgnoredUID@ - (Required) The user ID (UID) of the proxy container
@@ -68,8 +70,6 @@ data ProxyConfiguration = ProxyConfiguration'
     --     specified IP addresses is ignored and not redirected to the
     --     @ProxyEgressPort@. It can be an empty list.
     properties :: Prelude.Maybe [KeyValuePair],
-    -- | The proxy type. The only supported value is @APPMESH@.
-    type' :: Prelude.Maybe ProxyConfigurationType,
     -- | The name of the container that will serve as the App Mesh proxy.
     containerName :: Prelude.Text
   }
@@ -82,6 +82,8 @@ data ProxyConfiguration = ProxyConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'type'', 'proxyConfiguration_type' - The proxy type. The only supported value is @APPMESH@.
 --
 -- 'properties', 'proxyConfiguration_properties' - The set of network configuration parameters to provide the Container
 -- Network Interface (CNI) plugin, specified as key-value pairs.
@@ -114,8 +116,6 @@ data ProxyConfiguration = ProxyConfiguration'
 --     specified IP addresses is ignored and not redirected to the
 --     @ProxyEgressPort@. It can be an empty list.
 --
--- 'type'', 'proxyConfiguration_type' - The proxy type. The only supported value is @APPMESH@.
---
 -- 'containerName', 'proxyConfiguration_containerName' - The name of the container that will serve as the App Mesh proxy.
 newProxyConfiguration ::
   -- | 'containerName'
@@ -123,10 +123,14 @@ newProxyConfiguration ::
   ProxyConfiguration
 newProxyConfiguration pContainerName_ =
   ProxyConfiguration'
-    { properties = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { type' = Prelude.Nothing,
+      properties = Prelude.Nothing,
       containerName = pContainerName_
     }
+
+-- | The proxy type. The only supported value is @APPMESH@.
+proxyConfiguration_type :: Lens.Lens' ProxyConfiguration (Prelude.Maybe ProxyConfigurationType)
+proxyConfiguration_type = Lens.lens (\ProxyConfiguration' {type'} -> type') (\s@ProxyConfiguration' {} a -> s {type' = a} :: ProxyConfiguration)
 
 -- | The set of network configuration parameters to provide the Container
 -- Network Interface (CNI) plugin, specified as key-value pairs.
@@ -159,11 +163,7 @@ newProxyConfiguration pContainerName_ =
 --     specified IP addresses is ignored and not redirected to the
 --     @ProxyEgressPort@. It can be an empty list.
 proxyConfiguration_properties :: Lens.Lens' ProxyConfiguration (Prelude.Maybe [KeyValuePair])
-proxyConfiguration_properties = Lens.lens (\ProxyConfiguration' {properties} -> properties) (\s@ProxyConfiguration' {} a -> s {properties = a} :: ProxyConfiguration) Prelude.. Lens.mapping Lens._Coerce
-
--- | The proxy type. The only supported value is @APPMESH@.
-proxyConfiguration_type :: Lens.Lens' ProxyConfiguration (Prelude.Maybe ProxyConfigurationType)
-proxyConfiguration_type = Lens.lens (\ProxyConfiguration' {type'} -> type') (\s@ProxyConfiguration' {} a -> s {type' = a} :: ProxyConfiguration)
+proxyConfiguration_properties = Lens.lens (\ProxyConfiguration' {properties} -> properties) (\s@ProxyConfiguration' {} a -> s {properties = a} :: ProxyConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the container that will serve as the App Mesh proxy.
 proxyConfiguration_containerName :: Lens.Lens' ProxyConfiguration Prelude.Text
@@ -175,8 +175,8 @@ instance Core.FromJSON ProxyConfiguration where
       "ProxyConfiguration"
       ( \x ->
           ProxyConfiguration'
-            Prelude.<$> (x Core..:? "properties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "properties" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "containerName")
       )
 
@@ -188,8 +188,8 @@ instance Core.ToJSON ProxyConfiguration where
   toJSON ProxyConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("properties" Core..=) Prelude.<$> properties,
-            ("type" Core..=) Prelude.<$> type',
+          [ ("type" Core..=) Prelude.<$> type',
+            ("properties" Core..=) Prelude.<$> properties,
             Prelude.Just
               ("containerName" Core..= containerName)
           ]

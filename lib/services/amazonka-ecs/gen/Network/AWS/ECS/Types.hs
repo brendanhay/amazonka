@@ -17,30 +17,30 @@ module Network.AWS.ECS.Types
     defaultService,
 
     -- * Errors
-    _UpdateInProgressException,
-    _TargetNotConnectedException,
-    _PlatformTaskDefinitionIncompatibilityException,
-    _ServiceNotFoundException,
-    _UnsupportedFeatureException,
+    _AccessDeniedException,
+    _InvalidParameterException,
+    _ServerException,
+    _ClusterContainsTasksException,
+    _PlatformUnknownException,
+    _ClusterContainsServicesException,
     _TaskSetNotFoundException,
     _ClusterContainsContainerInstancesException,
-    _ClusterContainsServicesException,
-    _PlatformUnknownException,
-    _InvalidParameterException,
-    _BlockedException,
-    _AccessDeniedException,
+    _ServiceNotActiveException,
+    _ClusterNotFoundException,
+    _NoUpdateAvailableException,
+    _UnsupportedFeatureException,
+    _ServiceNotFoundException,
+    _PlatformTaskDefinitionIncompatibilityException,
     _MissingVersionException,
+    _UpdateInProgressException,
+    _TargetNotConnectedException,
+    _BlockedException,
+    _TargetNotFoundException,
+    _AttributeLimitExceededException,
+    _ClientException,
+    _ResourceNotFoundException,
     _LimitExceededException,
     _ResourceInUseException,
-    _ClusterNotFoundException,
-    _ResourceNotFoundException,
-    _ClientException,
-    _NoUpdateAvailableException,
-    _ServiceNotActiveException,
-    _ClusterContainsTasksException,
-    _AttributeLimitExceededException,
-    _TargetNotFoundException,
-    _ServerException,
 
     -- * AgentUpdateStatus
     AgentUpdateStatus (..),
@@ -205,8 +205,8 @@ module Network.AWS.ECS.Types
     Attachment (..),
     newAttachment,
     attachment_status,
-    attachment_id,
     attachment_details,
+    attachment_id,
     attachment_type,
 
     -- * AttachmentStateChange
@@ -219,8 +219,8 @@ module Network.AWS.ECS.Types
     Attribute (..),
     newAttribute,
     attribute_targetId,
-    attribute_targetType,
     attribute_value,
+    attribute_targetType,
     attribute_name,
 
     -- * AutoScalingGroupProvider
@@ -239,8 +239,8 @@ module Network.AWS.ECS.Types
     -- * AwsVpcConfiguration
     AwsVpcConfiguration (..),
     newAwsVpcConfiguration,
-    awsVpcConfiguration_assignPublicIp,
     awsVpcConfiguration_securityGroups,
+    awsVpcConfiguration_assignPublicIp,
     awsVpcConfiguration_subnets,
 
     -- * CapacityProvider
@@ -248,37 +248,37 @@ module Network.AWS.ECS.Types
     newCapacityProvider,
     capacityProvider_status,
     capacityProvider_updateStatusReason,
-    capacityProvider_capacityProviderArn,
-    capacityProvider_updateStatus,
-    capacityProvider_name,
     capacityProvider_autoScalingGroupProvider,
+    capacityProvider_name,
+    capacityProvider_updateStatus,
+    capacityProvider_capacityProviderArn,
     capacityProvider_tags,
 
     -- * CapacityProviderStrategyItem
     CapacityProviderStrategyItem (..),
     newCapacityProviderStrategyItem,
-    capacityProviderStrategyItem_weight,
     capacityProviderStrategyItem_base,
+    capacityProviderStrategyItem_weight,
     capacityProviderStrategyItem_capacityProvider,
 
     -- * Cluster
     Cluster (..),
     newCluster,
-    cluster_clusterArn,
     cluster_status,
-    cluster_activeServicesCount,
-    cluster_registeredContainerInstancesCount,
-    cluster_configuration,
-    cluster_statistics,
-    cluster_defaultCapacityProviderStrategy,
-    cluster_pendingTasksCount,
-    cluster_tags,
-    cluster_capacityProviders,
-    cluster_attachmentsStatus,
-    cluster_clusterName,
-    cluster_settings,
-    cluster_runningTasksCount,
+    cluster_clusterArn,
     cluster_attachments,
+    cluster_runningTasksCount,
+    cluster_defaultCapacityProviderStrategy,
+    cluster_settings,
+    cluster_registeredContainerInstancesCount,
+    cluster_pendingTasksCount,
+    cluster_clusterName,
+    cluster_statistics,
+    cluster_configuration,
+    cluster_attachmentsStatus,
+    cluster_capacityProviders,
+    cluster_activeServicesCount,
+    cluster_tags,
 
     -- * ClusterConfiguration
     ClusterConfiguration (..),
@@ -288,72 +288,72 @@ module Network.AWS.ECS.Types
     -- * ClusterSetting
     ClusterSetting (..),
     newClusterSetting,
-    clusterSetting_name,
     clusterSetting_value,
+    clusterSetting_name,
 
     -- * Container
     Container (..),
     newContainer,
-    container_imageDigest,
     container_gpuIds,
-    container_memoryReservation,
-    container_memory,
-    container_runtimeId,
-    container_exitCode,
-    container_containerArn,
-    container_name,
-    container_image,
-    container_managedAgents,
     container_networkBindings,
-    container_reason,
-    container_lastStatus,
-    container_cpu,
+    container_managedAgents,
+    container_image,
+    container_containerArn,
     container_networkInterfaces,
-    container_healthStatus,
     container_taskArn,
+    container_lastStatus,
+    container_memory,
+    container_reason,
+    container_name,
+    container_imageDigest,
+    container_exitCode,
+    container_healthStatus,
+    container_cpu,
+    container_runtimeId,
+    container_memoryReservation,
 
     -- * ContainerDefinition
     ContainerDefinition (..),
     newContainerDefinition,
+    containerDefinition_image,
+    containerDefinition_command,
     containerDefinition_hostname,
-    containerDefinition_linuxParameters,
-    containerDefinition_firelensConfiguration,
-    containerDefinition_dependsOn,
-    containerDefinition_memoryReservation,
-    containerDefinition_dockerLabels,
-    containerDefinition_memory,
-    containerDefinition_extraHosts,
-    containerDefinition_user,
-    containerDefinition_systemControls,
-    containerDefinition_privileged,
-    containerDefinition_links,
-    containerDefinition_interactive,
+    containerDefinition_repositoryCredentials,
+    containerDefinition_dockerSecurityOptions,
+    containerDefinition_healthCheck,
+    containerDefinition_disableNetworking,
+    containerDefinition_secrets,
+    containerDefinition_volumesFrom,
+    containerDefinition_environment,
     containerDefinition_environmentFiles,
     containerDefinition_entryPoint,
     containerDefinition_workingDirectory,
-    containerDefinition_environment,
-    containerDefinition_secrets,
-    containerDefinition_volumesFrom,
-    containerDefinition_mountPoints,
-    containerDefinition_command,
-    containerDefinition_dnsServers,
-    containerDefinition_name,
-    containerDefinition_image,
-    containerDefinition_dnsSearchDomains,
-    containerDefinition_pseudoTerminal,
-    containerDefinition_logConfiguration,
+    containerDefinition_ulimits,
+    containerDefinition_stopTimeout,
+    containerDefinition_privileged,
     containerDefinition_portMappings,
+    containerDefinition_resourceRequirements,
+    containerDefinition_dockerLabels,
+    containerDefinition_extraHosts,
+    containerDefinition_memory,
+    containerDefinition_systemControls,
+    containerDefinition_user,
+    containerDefinition_firelensConfiguration,
+    containerDefinition_dnsSearchDomains,
+    containerDefinition_logConfiguration,
+    containerDefinition_linuxParameters,
+    containerDefinition_pseudoTerminal,
+    containerDefinition_dependsOn,
+    containerDefinition_name,
+    containerDefinition_dnsServers,
+    containerDefinition_mountPoints,
+    containerDefinition_interactive,
+    containerDefinition_startTimeout,
+    containerDefinition_links,
+    containerDefinition_readonlyRootFilesystem,
     containerDefinition_essential,
     containerDefinition_cpu,
-    containerDefinition_resourceRequirements,
-    containerDefinition_ulimits,
-    containerDefinition_startTimeout,
-    containerDefinition_readonlyRootFilesystem,
-    containerDefinition_stopTimeout,
-    containerDefinition_healthCheck,
-    containerDefinition_dockerSecurityOptions,
-    containerDefinition_disableNetworking,
-    containerDefinition_repositoryCredentials,
+    containerDefinition_memoryReservation,
 
     -- * ContainerDependency
     ContainerDependency (..),
@@ -364,80 +364,80 @@ module Network.AWS.ECS.Types
     -- * ContainerInstance
     ContainerInstance (..),
     newContainerInstance,
-    containerInstance_agentUpdateStatus,
-    containerInstance_versionInfo,
     containerInstance_status,
-    containerInstance_registeredResources,
-    containerInstance_containerInstanceArn,
-    containerInstance_registeredAt,
-    containerInstance_pendingTasksCount,
-    containerInstance_version,
-    containerInstance_attributes,
-    containerInstance_tags,
-    containerInstance_agentConnected,
-    containerInstance_ec2InstanceId,
-    containerInstance_statusReason,
-    containerInstance_remainingResources,
-    containerInstance_runningTasksCount,
-    containerInstance_capacityProviderName,
     containerInstance_attachments,
+    containerInstance_runningTasksCount,
+    containerInstance_remainingResources,
+    containerInstance_ec2InstanceId,
+    containerInstance_containerInstanceArn,
+    containerInstance_agentConnected,
+    containerInstance_versionInfo,
+    containerInstance_agentUpdateStatus,
+    containerInstance_attributes,
+    containerInstance_version,
+    containerInstance_pendingTasksCount,
+    containerInstance_capacityProviderName,
+    containerInstance_registeredAt,
+    containerInstance_statusReason,
+    containerInstance_tags,
+    containerInstance_registeredResources,
 
     -- * ContainerOverride
     ContainerOverride (..),
     newContainerOverride,
-    containerOverride_memoryReservation,
-    containerOverride_memory,
-    containerOverride_environmentFiles,
-    containerOverride_environment,
     containerOverride_command,
+    containerOverride_environment,
+    containerOverride_environmentFiles,
+    containerOverride_resourceRequirements,
+    containerOverride_memory,
     containerOverride_name,
     containerOverride_cpu,
-    containerOverride_resourceRequirements,
+    containerOverride_memoryReservation,
 
     -- * ContainerService
     ContainerService (..),
     newContainerService,
-    containerService_clusterArn,
     containerService_taskSets,
     containerService_runningCount,
     containerService_status,
-    containerService_roleArn,
-    containerService_deploymentConfiguration,
-    containerService_capacityProviderStrategy,
-    containerService_networkConfiguration,
-    containerService_desiredCount,
-    containerService_enableECSManagedTags,
-    containerService_deploymentController,
-    containerService_launchType,
+    containerService_clusterArn,
+    containerService_propagateTags,
     containerService_createdAt,
     containerService_platformVersion,
-    containerService_deployments,
-    containerService_placementStrategy,
-    containerService_serviceName,
+    containerService_enableECSManagedTags,
+    containerService_createdBy,
+    containerService_desiredCount,
+    containerService_loadBalancers,
+    containerService_pendingCount,
     containerService_placementConstraints,
     containerService_events,
-    containerService_pendingCount,
-    containerService_enableExecuteCommand,
-    containerService_loadBalancers,
-    containerService_tags,
-    containerService_healthCheckGracePeriodSeconds,
-    containerService_serviceRegistries,
-    containerService_createdBy,
-    containerService_schedulingStrategy,
-    containerService_taskDefinition,
+    containerService_placementStrategy,
+    containerService_deployments,
+    containerService_serviceName,
+    containerService_deploymentController,
+    containerService_launchType,
     containerService_serviceArn,
-    containerService_propagateTags,
+    containerService_taskDefinition,
+    containerService_schedulingStrategy,
+    containerService_healthCheckGracePeriodSeconds,
+    containerService_networkConfiguration,
+    containerService_serviceRegistries,
+    containerService_capacityProviderStrategy,
+    containerService_enableExecuteCommand,
+    containerService_tags,
+    containerService_roleArn,
+    containerService_deploymentConfiguration,
 
     -- * ContainerStateChange
     ContainerStateChange (..),
     newContainerStateChange,
-    containerStateChange_imageDigest,
-    containerStateChange_status,
-    containerStateChange_runtimeId,
-    containerStateChange_exitCode,
     containerStateChange_networkBindings,
-    containerStateChange_reason,
+    containerStateChange_status,
     containerStateChange_containerName,
+    containerStateChange_reason,
+    containerStateChange_imageDigest,
+    containerStateChange_exitCode,
+    containerStateChange_runtimeId,
 
     -- * Deployment
     Deployment (..),
@@ -445,18 +445,18 @@ module Network.AWS.ECS.Types
     deployment_rolloutState,
     deployment_runningCount,
     deployment_status,
-    deployment_capacityProviderStrategy,
-    deployment_networkConfiguration,
-    deployment_desiredCount,
-    deployment_updatedAt,
-    deployment_launchType,
-    deployment_id,
     deployment_createdAt,
     deployment_platformVersion,
+    deployment_desiredCount,
     deployment_pendingCount,
+    deployment_id,
+    deployment_failedTasks,
+    deployment_launchType,
+    deployment_updatedAt,
     deployment_taskDefinition,
     deployment_rolloutStateReason,
-    deployment_failedTasks,
+    deployment_networkConfiguration,
+    deployment_capacityProviderStrategy,
 
     -- * DeploymentCircuitBreaker
     DeploymentCircuitBreaker (..),
@@ -467,8 +467,8 @@ module Network.AWS.ECS.Types
     -- * DeploymentConfiguration
     DeploymentConfiguration (..),
     newDeploymentConfiguration,
-    deploymentConfiguration_maximumPercent,
     deploymentConfiguration_minimumHealthyPercent,
+    deploymentConfiguration_maximumPercent,
     deploymentConfiguration_deploymentCircuitBreaker,
 
     -- * DeploymentController
@@ -479,18 +479,18 @@ module Network.AWS.ECS.Types
     -- * Device
     Device (..),
     newDevice,
-    device_permissions,
     device_containerPath,
+    device_permissions,
     device_hostPath,
 
     -- * DockerVolumeConfiguration
     DockerVolumeConfiguration (..),
     newDockerVolumeConfiguration,
-    dockerVolumeConfiguration_labels,
-    dockerVolumeConfiguration_scope,
     dockerVolumeConfiguration_driverOpts,
-    dockerVolumeConfiguration_autoprovision,
     dockerVolumeConfiguration_driver,
+    dockerVolumeConfiguration_scope,
+    dockerVolumeConfiguration_labels,
+    dockerVolumeConfiguration_autoprovision,
 
     -- * EFSAuthorizationConfig
     EFSAuthorizationConfig (..),
@@ -501,10 +501,10 @@ module Network.AWS.ECS.Types
     -- * EFSVolumeConfiguration
     EFSVolumeConfiguration (..),
     newEFSVolumeConfiguration,
-    eFSVolumeConfiguration_transitEncryptionPort,
     eFSVolumeConfiguration_rootDirectory,
-    eFSVolumeConfiguration_authorizationConfig,
     eFSVolumeConfiguration_transitEncryption,
+    eFSVolumeConfiguration_authorizationConfig,
+    eFSVolumeConfiguration_transitEncryptionPort,
     eFSVolumeConfiguration_fileSystemId,
 
     -- * EnvironmentFile
@@ -521,17 +521,17 @@ module Network.AWS.ECS.Types
     -- * ExecuteCommandConfiguration
     ExecuteCommandConfiguration (..),
     newExecuteCommandConfiguration,
-    executeCommandConfiguration_logging,
-    executeCommandConfiguration_kmsKeyId,
     executeCommandConfiguration_logConfiguration,
+    executeCommandConfiguration_kmsKeyId,
+    executeCommandConfiguration_logging,
 
     -- * ExecuteCommandLogConfiguration
     ExecuteCommandLogConfiguration (..),
     newExecuteCommandLogConfiguration,
     executeCommandLogConfiguration_cloudWatchLogGroupName,
+    executeCommandLogConfiguration_s3KeyPrefix,
     executeCommandLogConfiguration_cloudWatchEncryptionEnabled,
     executeCommandLogConfiguration_s3EncryptionEnabled,
-    executeCommandLogConfiguration_s3KeyPrefix,
     executeCommandLogConfiguration_s3BucketName,
 
     -- * FSxWindowsFileServerAuthorizationConfig
@@ -563,10 +563,10 @@ module Network.AWS.ECS.Types
     -- * HealthCheck
     HealthCheck (..),
     newHealthCheck,
-    healthCheck_retries,
-    healthCheck_timeout,
     healthCheck_startPeriod,
+    healthCheck_retries,
     healthCheck_interval,
+    healthCheck_timeout,
     healthCheck_command,
 
     -- * HostEntry
@@ -601,27 +601,27 @@ module Network.AWS.ECS.Types
     -- * KeyValuePair
     KeyValuePair (..),
     newKeyValuePair,
-    keyValuePair_name,
     keyValuePair_value,
+    keyValuePair_name,
 
     -- * LinuxParameters
     LinuxParameters (..),
     newLinuxParameters,
-    linuxParameters_tmpfs,
-    linuxParameters_maxSwap,
-    linuxParameters_capabilities,
-    linuxParameters_devices,
-    linuxParameters_swappiness,
-    linuxParameters_initProcessEnabled,
     linuxParameters_sharedMemorySize,
+    linuxParameters_initProcessEnabled,
+    linuxParameters_tmpfs,
+    linuxParameters_swappiness,
+    linuxParameters_devices,
+    linuxParameters_capabilities,
+    linuxParameters_maxSwap,
 
     -- * LoadBalancer
     LoadBalancer (..),
     newLoadBalancer,
+    loadBalancer_loadBalancerName,
+    loadBalancer_containerName,
     loadBalancer_targetGroupArn,
     loadBalancer_containerPort,
-    loadBalancer_containerName,
-    loadBalancer_loadBalancerName,
 
     -- * LogConfiguration
     LogConfiguration (..),
@@ -633,9 +633,9 @@ module Network.AWS.ECS.Types
     -- * ManagedAgent
     ManagedAgent (..),
     newManagedAgent,
-    managedAgent_name,
-    managedAgent_reason,
     managedAgent_lastStatus,
+    managedAgent_reason,
+    managedAgent_name,
     managedAgent_lastStartedAt,
 
     -- * ManagedAgentStateChange
@@ -651,23 +651,23 @@ module Network.AWS.ECS.Types
     newManagedScaling,
     managedScaling_status,
     managedScaling_maximumScalingStepSize,
+    managedScaling_targetCapacity,
     managedScaling_minimumScalingStepSize,
     managedScaling_instanceWarmupPeriod,
-    managedScaling_targetCapacity,
 
     -- * MountPoint
     MountPoint (..),
     newMountPoint,
-    mountPoint_readOnly,
-    mountPoint_sourceVolume,
     mountPoint_containerPath,
+    mountPoint_sourceVolume,
+    mountPoint_readOnly,
 
     -- * NetworkBinding
     NetworkBinding (..),
     newNetworkBinding,
-    networkBinding_hostPort,
     networkBinding_bindIP,
     networkBinding_protocol,
+    networkBinding_hostPort,
     networkBinding_containerPort,
 
     -- * NetworkConfiguration
@@ -678,21 +678,21 @@ module Network.AWS.ECS.Types
     -- * NetworkInterface
     NetworkInterface (..),
     newNetworkInterface,
-    networkInterface_privateIpv4Address,
     networkInterface_ipv6Address,
+    networkInterface_privateIpv4Address,
     networkInterface_attachmentId,
 
     -- * PlacementConstraint
     PlacementConstraint (..),
     newPlacementConstraint,
-    placementConstraint_type,
     placementConstraint_expression,
+    placementConstraint_type,
 
     -- * PlacementStrategy
     PlacementStrategy (..),
     newPlacementStrategy,
-    placementStrategy_type,
     placementStrategy_field,
+    placementStrategy_type,
 
     -- * PlatformDevice
     PlatformDevice (..),
@@ -703,15 +703,15 @@ module Network.AWS.ECS.Types
     -- * PortMapping
     PortMapping (..),
     newPortMapping,
-    portMapping_hostPort,
     portMapping_protocol,
+    portMapping_hostPort,
     portMapping_containerPort,
 
     -- * ProxyConfiguration
     ProxyConfiguration (..),
     newProxyConfiguration,
-    proxyConfiguration_properties,
     proxyConfiguration_type,
+    proxyConfiguration_properties,
     proxyConfiguration_containerName,
 
     -- * RepositoryCredentials
@@ -723,11 +723,11 @@ module Network.AWS.ECS.Types
     Resource (..),
     newResource,
     resource_stringSetValue,
-    resource_doubleValue,
-    resource_name,
-    resource_longValue,
-    resource_type,
     resource_integerValue,
+    resource_doubleValue,
+    resource_longValue,
+    resource_name,
+    resource_type,
 
     -- * ResourceRequirement
     ResourceRequirement (..),
@@ -738,8 +738,8 @@ module Network.AWS.ECS.Types
     -- * Scale
     Scale (..),
     newScale,
-    scale_unit,
     scale_value,
+    scale_unit,
 
     -- * Secret
     Secret (..),
@@ -750,31 +750,31 @@ module Network.AWS.ECS.Types
     -- * ServiceEvent
     ServiceEvent (..),
     newServiceEvent,
-    serviceEvent_message,
-    serviceEvent_id,
     serviceEvent_createdAt,
+    serviceEvent_id,
+    serviceEvent_message,
 
     -- * ServiceRegistry
     ServiceRegistry (..),
     newServiceRegistry,
-    serviceRegistry_port,
-    serviceRegistry_containerPort,
-    serviceRegistry_containerName,
     serviceRegistry_registryArn,
+    serviceRegistry_containerName,
+    serviceRegistry_containerPort,
+    serviceRegistry_port,
 
     -- * Session
     Session (..),
     newSession,
-    session_sessionId,
     session_streamUrl,
     session_tokenValue,
+    session_sessionId,
 
     -- * Setting
     Setting (..),
     newSetting,
+    setting_value,
     setting_name,
     setting_principalArn,
-    setting_value,
 
     -- * SystemControl
     SystemControl (..),
@@ -785,118 +785,118 @@ module Network.AWS.ECS.Types
     -- * Tag
     Tag (..),
     newTag,
-    tag_key,
     tag_value,
+    tag_key,
 
     -- * Task
     Task (..),
     newTask,
-    task_clusterArn,
-    task_startedAt,
-    task_memory,
-    task_pullStartedAt,
-    task_containerInstanceArn,
-    task_launchType,
-    task_createdAt,
-    task_platformVersion,
-    task_connectivity,
-    task_stoppingAt,
-    task_startedBy,
-    task_version,
-    task_group,
-    task_availabilityZone,
-    task_inferenceAccelerators,
-    task_attributes,
-    task_overrides,
-    task_desiredStatus,
     task_stoppedAt,
-    task_containers,
-    task_enableExecuteCommand,
-    task_tags,
-    task_pullStoppedAt,
+    task_desiredStatus,
+    task_overrides,
+    task_inferenceAccelerators,
+    task_clusterArn,
+    task_group,
+    task_attachments,
+    task_createdAt,
+    task_stopCode,
+    task_platformVersion,
+    task_taskArn,
+    task_containerInstanceArn,
+    task_executionStoppedAt,
     task_ephemeralStorage,
     task_lastStatus,
-    task_executionStoppedAt,
-    task_cpu,
+    task_memory,
+    task_pullStoppedAt,
+    task_containers,
+    task_startedAt,
+    task_availabilityZone,
+    task_attributes,
+    task_version,
+    task_capacityProviderName,
+    task_startedBy,
+    task_stoppedReason,
+    task_connectivity,
+    task_stoppingAt,
+    task_launchType,
+    task_taskDefinitionArn,
     task_healthStatus,
     task_connectivityAt,
-    task_taskArn,
-    task_taskDefinitionArn,
-    task_stopCode,
-    task_stoppedReason,
-    task_capacityProviderName,
-    task_attachments,
+    task_cpu,
+    task_enableExecuteCommand,
+    task_pullStartedAt,
+    task_tags,
 
     -- * TaskDefinition
     TaskDefinition (..),
     newTaskDefinition,
-    taskDefinition_taskRoleArn,
     taskDefinition_status,
-    taskDefinition_memory,
-    taskDefinition_containerDefinitions,
-    taskDefinition_requiresCompatibilities,
-    taskDefinition_pidMode,
-    taskDefinition_volumes,
-    taskDefinition_executionRoleArn,
-    taskDefinition_compatibilities,
-    taskDefinition_registeredAt,
-    taskDefinition_placementConstraints,
     taskDefinition_inferenceAccelerators,
-    taskDefinition_deregisteredAt,
-    taskDefinition_proxyConfiguration,
-    taskDefinition_requiresAttributes,
-    taskDefinition_ipcMode,
-    taskDefinition_family,
+    taskDefinition_executionRoleArn,
+    taskDefinition_requiresCompatibilities,
     taskDefinition_ephemeralStorage,
-    taskDefinition_cpu,
-    taskDefinition_registeredBy,
-    taskDefinition_revision,
+    taskDefinition_pidMode,
+    taskDefinition_family,
+    taskDefinition_ipcMode,
+    taskDefinition_containerDefinitions,
+    taskDefinition_memory,
+    taskDefinition_proxyConfiguration,
+    taskDefinition_taskRoleArn,
+    taskDefinition_deregisteredAt,
+    taskDefinition_placementConstraints,
+    taskDefinition_registeredAt,
     taskDefinition_networkMode,
     taskDefinition_taskDefinitionArn,
+    taskDefinition_compatibilities,
+    taskDefinition_registeredBy,
+    taskDefinition_revision,
+    taskDefinition_volumes,
+    taskDefinition_cpu,
+    taskDefinition_requiresAttributes,
 
     -- * TaskDefinitionPlacementConstraint
     TaskDefinitionPlacementConstraint (..),
     newTaskDefinitionPlacementConstraint,
-    taskDefinitionPlacementConstraint_type,
     taskDefinitionPlacementConstraint_expression,
+    taskDefinitionPlacementConstraint_type,
 
     -- * TaskOverride
     TaskOverride (..),
     newTaskOverride,
-    taskOverride_taskRoleArn,
-    taskOverride_memory,
-    taskOverride_inferenceAcceleratorOverrides,
-    taskOverride_executionRoleArn,
     taskOverride_containerOverrides,
+    taskOverride_executionRoleArn,
     taskOverride_ephemeralStorage,
+    taskOverride_memory,
+    taskOverride_taskRoleArn,
+    taskOverride_inferenceAcceleratorOverrides,
     taskOverride_cpu,
 
     -- * TaskSet
     TaskSet (..),
     newTaskSet,
-    taskSet_clusterArn,
-    taskSet_stabilityStatusAt,
     taskSet_runningCount,
     taskSet_status,
-    taskSet_stabilityStatus,
-    taskSet_capacityProviderStrategy,
-    taskSet_networkConfiguration,
-    taskSet_updatedAt,
-    taskSet_launchType,
-    taskSet_id,
+    taskSet_clusterArn,
+    taskSet_computedDesiredCount,
     taskSet_createdAt,
     taskSet_platformVersion,
-    taskSet_startedBy,
-    taskSet_computedDesiredCount,
-    taskSet_pendingCount,
-    taskSet_loadBalancers,
-    taskSet_tags,
-    taskSet_serviceRegistries,
     taskSet_scale,
-    taskSet_taskDefinition,
-    taskSet_serviceArn,
-    taskSet_externalId,
+    taskSet_loadBalancers,
+    taskSet_stabilityStatusAt,
+    taskSet_pendingCount,
     taskSet_taskSetArn,
+    taskSet_startedBy,
+    taskSet_id,
+    taskSet_launchType,
+    taskSet_updatedAt,
+    taskSet_serviceArn,
+    taskSet_taskDefinition,
+    taskSet_externalId,
+    taskSet_networkConfiguration,
+    taskSet_serviceRegistries,
+    taskSet_capacityProviderStrategy,
+    taskSet_stabilityStatus,
+    taskSet_tags,
 
     -- * Tmpfs
     Tmpfs (..),
@@ -915,24 +915,24 @@ module Network.AWS.ECS.Types
     -- * VersionInfo
     VersionInfo (..),
     newVersionInfo,
+    versionInfo_agentHash,
     versionInfo_agentVersion,
     versionInfo_dockerVersion,
-    versionInfo_agentHash,
 
     -- * Volume
     Volume (..),
     newVolume,
-    volume_name,
     volume_dockerVolumeConfiguration,
     volume_fsxWindowsFileServerVolumeConfiguration,
-    volume_host,
+    volume_name,
     volume_efsVolumeConfiguration,
+    volume_host,
 
     -- * VolumeFrom
     VolumeFrom (..),
     newVolumeFrom,
-    volumeFrom_readOnly,
     volumeFrom_sourceContainer,
+    volumeFrom_readOnly,
   )
 where
 
@@ -1096,37 +1096,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -1139,7 +1116,154 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | You do not have authorization to perform the requested action.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
+
+-- | The specified parameter is invalid. Review the available parameters for
+-- the API request.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterException"
+
+-- | These errors are usually caused by a server issue.
+_ServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServerException =
+  Core._MatchServiceError
+    defaultService
+    "ServerException"
+
+-- | You cannot delete a cluster that has active tasks.
+_ClusterContainsTasksException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterContainsTasksException =
+  Core._MatchServiceError
+    defaultService
+    "ClusterContainsTasksException"
+
+-- | The specified platform version does not exist.
+_PlatformUnknownException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PlatformUnknownException =
+  Core._MatchServiceError
+    defaultService
+    "PlatformUnknownException"
+
+-- | You cannot delete a cluster that contains services. First, update the
+-- service to reduce its desired task count to 0 and then delete the
+-- service. For more information, see UpdateService and DeleteService.
+_ClusterContainsServicesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterContainsServicesException =
+  Core._MatchServiceError
+    defaultService
+    "ClusterContainsServicesException"
+
+-- | The specified task set could not be found. You can view your available
+-- task sets with DescribeTaskSets. Task sets are specific to each cluster,
+-- service and Region.
+_TaskSetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TaskSetNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "TaskSetNotFoundException"
+
+-- | You cannot delete a cluster that has registered container instances.
+-- First, deregister the container instances before you can delete the
+-- cluster. For more information, see DeregisterContainerInstance.
+_ClusterContainsContainerInstancesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterContainsContainerInstancesException =
+  Core._MatchServiceError
+    defaultService
+    "ClusterContainsContainerInstancesException"
+
+-- | The specified service is not active. You can\'t update a service that is
+-- inactive. If you have previously deleted a service, you can re-create it
+-- with CreateService.
+_ServiceNotActiveException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceNotActiveException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceNotActiveException"
+
+-- | The specified cluster could not be found. You can view your available
+-- clusters with ListClusters. Amazon ECS clusters are Region-specific.
+_ClusterNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ClusterNotFoundException"
+
+-- | There is no update available for this Amazon ECS container agent. This
+-- could be because the agent is already running the latest version, or it
+-- is so old that there is no update path to the current version.
+_NoUpdateAvailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoUpdateAvailableException =
+  Core._MatchServiceError
+    defaultService
+    "NoUpdateAvailableException"
+
+-- | The specified task is not supported in this Region.
+_UnsupportedFeatureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedFeatureException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedFeatureException"
+
+-- | The specified service could not be found. You can view your available
+-- services with ListServices. Amazon ECS services are cluster-specific and
+-- Region-specific.
+_ServiceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceNotFoundException"
+
+-- | The specified platform version does not satisfy the task definition\'s
+-- required capabilities.
+_PlatformTaskDefinitionIncompatibilityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PlatformTaskDefinitionIncompatibilityException =
+  Core._MatchServiceError
+    defaultService
+    "PlatformTaskDefinitionIncompatibilityException"
+
+-- | Amazon ECS is unable to determine the current version of the Amazon ECS
+-- container agent on the container instance and does not have enough
+-- information to proceed with an update. This could be because the agent
+-- running on the container instance is an older or custom version that
+-- does not use our version information.
+_MissingVersionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingVersionException =
+  Core._MatchServiceError
+    defaultService
+    "MissingVersionException"
 
 -- | There is already a current Amazon ECS container agent update in progress
 -- on the specified container instance. If the container agent becomes
@@ -1160,72 +1284,6 @@ _TargetNotConnectedException =
     defaultService
     "TargetNotConnectedException"
 
--- | The specified platform version does not satisfy the task definition\'s
--- required capabilities.
-_PlatformTaskDefinitionIncompatibilityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PlatformTaskDefinitionIncompatibilityException =
-  Core._MatchServiceError
-    defaultService
-    "PlatformTaskDefinitionIncompatibilityException"
-
--- | The specified service could not be found. You can view your available
--- services with ListServices. Amazon ECS services are cluster-specific and
--- Region-specific.
-_ServiceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceNotFoundException"
-
--- | The specified task is not supported in this Region.
-_UnsupportedFeatureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedFeatureException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedFeatureException"
-
--- | The specified task set could not be found. You can view your available
--- task sets with DescribeTaskSets. Task sets are specific to each cluster,
--- service and Region.
-_TaskSetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TaskSetNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "TaskSetNotFoundException"
-
--- | You cannot delete a cluster that has registered container instances.
--- First, deregister the container instances before you can delete the
--- cluster. For more information, see DeregisterContainerInstance.
-_ClusterContainsContainerInstancesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterContainsContainerInstancesException =
-  Core._MatchServiceError
-    defaultService
-    "ClusterContainsContainerInstancesException"
-
--- | You cannot delete a cluster that contains services. First, update the
--- service to reduce its desired task count to 0 and then delete the
--- service. For more information, see UpdateService and DeleteService.
-_ClusterContainsServicesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterContainsServicesException =
-  Core._MatchServiceError
-    defaultService
-    "ClusterContainsServicesException"
-
--- | The specified platform version does not exist.
-_PlatformUnknownException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PlatformUnknownException =
-  Core._MatchServiceError
-    defaultService
-    "PlatformUnknownException"
-
--- | The specified parameter is invalid. Review the available parameters for
--- the API request.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterException"
-
 -- | Your Amazon Web Services account has been blocked. For more information,
 -- contact <http://aws.amazon.com/contact-us/ Amazon Web Services Support>.
 _BlockedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1234,23 +1292,40 @@ _BlockedException =
     defaultService
     "BlockedException"
 
--- | You do not have authorization to perform the requested action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
+-- | The specified target could not be found. You can view your available
+-- container instances with ListContainerInstances. Amazon ECS container
+-- instances are cluster-specific and Region-specific.
+_TargetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TargetNotFoundException =
   Core._MatchServiceError
     defaultService
-    "AccessDeniedException"
+    "TargetNotFoundException"
 
--- | Amazon ECS is unable to determine the current version of the Amazon ECS
--- container agent on the container instance and does not have enough
--- information to proceed with an update. This could be because the agent
--- running on the container instance is an older or custom version that
--- does not use our version information.
-_MissingVersionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MissingVersionException =
+-- | You can apply up to 10 custom attributes per resource. You can view the
+-- attributes of a resource with ListAttributes. You can remove existing
+-- attributes on a resource with DeleteAttributes.
+_AttributeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AttributeLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "MissingVersionException"
+    "AttributeLimitExceededException"
+
+-- | These errors are usually caused by a client action, such as using an
+-- action or resource on behalf of a user that doesn\'t have permissions to
+-- use the action or resource, or specifying an identifier that is not
+-- valid.
+_ClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClientException =
+  Core._MatchServiceError
+    defaultService
+    "ClientException"
+
+-- | The specified resource could not be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
 
 -- | The limit for the resource has been exceeded.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1265,78 +1340,3 @@ _ResourceInUseException =
   Core._MatchServiceError
     defaultService
     "ResourceInUseException"
-
--- | The specified cluster could not be found. You can view your available
--- clusters with ListClusters. Amazon ECS clusters are Region-specific.
-_ClusterNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ClusterNotFoundException"
-
--- | The specified resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | These errors are usually caused by a client action, such as using an
--- action or resource on behalf of a user that doesn\'t have permissions to
--- use the action or resource, or specifying an identifier that is not
--- valid.
-_ClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClientException =
-  Core._MatchServiceError
-    defaultService
-    "ClientException"
-
--- | There is no update available for this Amazon ECS container agent. This
--- could be because the agent is already running the latest version, or it
--- is so old that there is no update path to the current version.
-_NoUpdateAvailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoUpdateAvailableException =
-  Core._MatchServiceError
-    defaultService
-    "NoUpdateAvailableException"
-
--- | The specified service is not active. You can\'t update a service that is
--- inactive. If you have previously deleted a service, you can re-create it
--- with CreateService.
-_ServiceNotActiveException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceNotActiveException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceNotActiveException"
-
--- | You cannot delete a cluster that has active tasks.
-_ClusterContainsTasksException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterContainsTasksException =
-  Core._MatchServiceError
-    defaultService
-    "ClusterContainsTasksException"
-
--- | You can apply up to 10 custom attributes per resource. You can view the
--- attributes of a resource with ListAttributes. You can remove existing
--- attributes on a resource with DeleteAttributes.
-_AttributeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AttributeLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "AttributeLimitExceededException"
-
--- | The specified target could not be found. You can view your available
--- container instances with ListContainerInstances. Amazon ECS container
--- instances are cluster-specific and Region-specific.
-_TargetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TargetNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "TargetNotFoundException"
-
--- | These errors are usually caused by a server issue.
-_ServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServerException =
-  Core._MatchServiceError
-    defaultService
-    "ServerException"

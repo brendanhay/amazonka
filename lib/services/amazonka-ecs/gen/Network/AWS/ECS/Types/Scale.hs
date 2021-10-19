@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newScale' smart constructor.
 data Scale = Scale'
-  { -- | The unit of measure for the scale value.
-    unit :: Prelude.Maybe ScaleUnit,
-    -- | The value, specified as a percent total of a service\'s @desiredCount@,
+  { -- | The value, specified as a percent total of a service\'s @desiredCount@,
     -- to scale the task set. Accepted values are numbers between 0 and 100.
-    value :: Prelude.Maybe Prelude.Double
+    value :: Prelude.Maybe Prelude.Double,
+    -- | The unit of measure for the scale value.
+    unit :: Prelude.Maybe ScaleUnit
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data Scale = Scale'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unit', 'scale_unit' - The unit of measure for the scale value.
---
 -- 'value', 'scale_value' - The value, specified as a percent total of a service\'s @desiredCount@,
 -- to scale the task set. Accepted values are numbers between 0 and 100.
+--
+-- 'unit', 'scale_unit' - The unit of measure for the scale value.
 newScale ::
   Scale
 newScale =
   Scale'
-    { unit = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      unit = Prelude.Nothing
     }
-
--- | The unit of measure for the scale value.
-scale_unit :: Lens.Lens' Scale (Prelude.Maybe ScaleUnit)
-scale_unit = Lens.lens (\Scale' {unit} -> unit) (\s@Scale' {} a -> s {unit = a} :: Scale)
 
 -- | The value, specified as a percent total of a service\'s @desiredCount@,
 -- to scale the task set. Accepted values are numbers between 0 and 100.
 scale_value :: Lens.Lens' Scale (Prelude.Maybe Prelude.Double)
 scale_value = Lens.lens (\Scale' {value} -> value) (\s@Scale' {} a -> s {value = a} :: Scale)
+
+-- | The unit of measure for the scale value.
+scale_unit :: Lens.Lens' Scale (Prelude.Maybe ScaleUnit)
+scale_unit = Lens.lens (\Scale' {unit} -> unit) (\s@Scale' {} a -> s {unit = a} :: Scale)
 
 instance Core.FromJSON Scale where
   parseJSON =
@@ -72,7 +72,7 @@ instance Core.FromJSON Scale where
       "Scale"
       ( \x ->
           Scale'
-            Prelude.<$> (x Core..:? "unit") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "unit")
       )
 
 instance Prelude.Hashable Scale
@@ -83,7 +83,7 @@ instance Core.ToJSON Scale where
   toJSON Scale' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("unit" Core..=) Prelude.<$> unit,
-            ("value" Core..=) Prelude.<$> value
+          [ ("value" Core..=) Prelude.<$> value,
+            ("unit" Core..=) Prelude.<$> unit
           ]
       )

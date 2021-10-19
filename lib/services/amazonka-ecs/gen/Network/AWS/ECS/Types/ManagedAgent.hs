@@ -28,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newManagedAgent' smart constructor.
 data ManagedAgent = ManagedAgent'
-  { -- | The name of the managed agent. When the execute command feature is
-    -- enabled, the managed agent name is @ExecuteCommandAgent@.
-    name :: Prelude.Maybe ManagedAgentName,
+  { -- | The last known status of the managed agent.
+    lastStatus :: Prelude.Maybe Prelude.Text,
     -- | The reason for why the managed agent is in the state it is in.
     reason :: Prelude.Maybe Prelude.Text,
-    -- | The last known status of the managed agent.
-    lastStatus :: Prelude.Maybe Prelude.Text,
+    -- | The name of the managed agent. When the execute command feature is
+    -- enabled, the managed agent name is @ExecuteCommandAgent@.
+    name :: Prelude.Maybe ManagedAgentName,
     -- | The Unix timestamp for when the managed agent was last started.
     lastStartedAt :: Prelude.Maybe Core.POSIX
   }
@@ -48,36 +48,36 @@ data ManagedAgent = ManagedAgent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'managedAgent_name' - The name of the managed agent. When the execute command feature is
--- enabled, the managed agent name is @ExecuteCommandAgent@.
+-- 'lastStatus', 'managedAgent_lastStatus' - The last known status of the managed agent.
 --
 -- 'reason', 'managedAgent_reason' - The reason for why the managed agent is in the state it is in.
 --
--- 'lastStatus', 'managedAgent_lastStatus' - The last known status of the managed agent.
+-- 'name', 'managedAgent_name' - The name of the managed agent. When the execute command feature is
+-- enabled, the managed agent name is @ExecuteCommandAgent@.
 --
 -- 'lastStartedAt', 'managedAgent_lastStartedAt' - The Unix timestamp for when the managed agent was last started.
 newManagedAgent ::
   ManagedAgent
 newManagedAgent =
   ManagedAgent'
-    { name = Prelude.Nothing,
+    { lastStatus = Prelude.Nothing,
       reason = Prelude.Nothing,
-      lastStatus = Prelude.Nothing,
+      name = Prelude.Nothing,
       lastStartedAt = Prelude.Nothing
     }
 
--- | The name of the managed agent. When the execute command feature is
--- enabled, the managed agent name is @ExecuteCommandAgent@.
-managedAgent_name :: Lens.Lens' ManagedAgent (Prelude.Maybe ManagedAgentName)
-managedAgent_name = Lens.lens (\ManagedAgent' {name} -> name) (\s@ManagedAgent' {} a -> s {name = a} :: ManagedAgent)
+-- | The last known status of the managed agent.
+managedAgent_lastStatus :: Lens.Lens' ManagedAgent (Prelude.Maybe Prelude.Text)
+managedAgent_lastStatus = Lens.lens (\ManagedAgent' {lastStatus} -> lastStatus) (\s@ManagedAgent' {} a -> s {lastStatus = a} :: ManagedAgent)
 
 -- | The reason for why the managed agent is in the state it is in.
 managedAgent_reason :: Lens.Lens' ManagedAgent (Prelude.Maybe Prelude.Text)
 managedAgent_reason = Lens.lens (\ManagedAgent' {reason} -> reason) (\s@ManagedAgent' {} a -> s {reason = a} :: ManagedAgent)
 
--- | The last known status of the managed agent.
-managedAgent_lastStatus :: Lens.Lens' ManagedAgent (Prelude.Maybe Prelude.Text)
-managedAgent_lastStatus = Lens.lens (\ManagedAgent' {lastStatus} -> lastStatus) (\s@ManagedAgent' {} a -> s {lastStatus = a} :: ManagedAgent)
+-- | The name of the managed agent. When the execute command feature is
+-- enabled, the managed agent name is @ExecuteCommandAgent@.
+managedAgent_name :: Lens.Lens' ManagedAgent (Prelude.Maybe ManagedAgentName)
+managedAgent_name = Lens.lens (\ManagedAgent' {name} -> name) (\s@ManagedAgent' {} a -> s {name = a} :: ManagedAgent)
 
 -- | The Unix timestamp for when the managed agent was last started.
 managedAgent_lastStartedAt :: Lens.Lens' ManagedAgent (Prelude.Maybe Prelude.UTCTime)
@@ -89,9 +89,9 @@ instance Core.FromJSON ManagedAgent where
       "ManagedAgent"
       ( \x ->
           ManagedAgent'
-            Prelude.<$> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "lastStatus")
             Prelude.<*> (x Core..:? "reason")
-            Prelude.<*> (x Core..:? "lastStatus")
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "lastStartedAt")
       )
 

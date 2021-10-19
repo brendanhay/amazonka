@@ -29,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTemplateVersionsResponse' smart constructor.
 data TemplateVersionsResponse = TemplateVersionsResponse'
-  { -- | The string to use in a subsequent request to get the next page of
+  { -- | The unique identifier for the request to retrieve information about all
+    -- the versions of the message template.
+    requestID :: Prelude.Maybe Prelude.Text,
+    -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The message that\'s returned from the API for the request to retrieve
     -- information about all the versions of the message template.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the request to retrieve information about all
-    -- the versions of the message template.
-    requestID :: Prelude.Maybe Prelude.Text,
     -- | An array of responses, one for each version of the message template.
     item :: [TemplateVersionResponse]
   }
@@ -52,6 +52,9 @@ data TemplateVersionsResponse = TemplateVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'requestID', 'templateVersionsResponse_requestID' - The unique identifier for the request to retrieve information about all
+-- the versions of the message template.
+--
 -- 'nextToken', 'templateVersionsResponse_nextToken' - The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
@@ -59,20 +62,22 @@ data TemplateVersionsResponse = TemplateVersionsResponse'
 -- 'message', 'templateVersionsResponse_message' - The message that\'s returned from the API for the request to retrieve
 -- information about all the versions of the message template.
 --
--- 'requestID', 'templateVersionsResponse_requestID' - The unique identifier for the request to retrieve information about all
--- the versions of the message template.
---
 -- 'item', 'templateVersionsResponse_item' - An array of responses, one for each version of the message template.
 newTemplateVersionsResponse ::
   TemplateVersionsResponse
 newTemplateVersionsResponse =
   TemplateVersionsResponse'
-    { nextToken =
+    { requestID =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       message = Prelude.Nothing,
-      requestID = Prelude.Nothing,
       item = Prelude.mempty
     }
+
+-- | The unique identifier for the request to retrieve information about all
+-- the versions of the message template.
+templateVersionsResponse_requestID :: Lens.Lens' TemplateVersionsResponse (Prelude.Maybe Prelude.Text)
+templateVersionsResponse_requestID = Lens.lens (\TemplateVersionsResponse' {requestID} -> requestID) (\s@TemplateVersionsResponse' {} a -> s {requestID = a} :: TemplateVersionsResponse)
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
@@ -85,14 +90,9 @@ templateVersionsResponse_nextToken = Lens.lens (\TemplateVersionsResponse' {next
 templateVersionsResponse_message :: Lens.Lens' TemplateVersionsResponse (Prelude.Maybe Prelude.Text)
 templateVersionsResponse_message = Lens.lens (\TemplateVersionsResponse' {message} -> message) (\s@TemplateVersionsResponse' {} a -> s {message = a} :: TemplateVersionsResponse)
 
--- | The unique identifier for the request to retrieve information about all
--- the versions of the message template.
-templateVersionsResponse_requestID :: Lens.Lens' TemplateVersionsResponse (Prelude.Maybe Prelude.Text)
-templateVersionsResponse_requestID = Lens.lens (\TemplateVersionsResponse' {requestID} -> requestID) (\s@TemplateVersionsResponse' {} a -> s {requestID = a} :: TemplateVersionsResponse)
-
 -- | An array of responses, one for each version of the message template.
 templateVersionsResponse_item :: Lens.Lens' TemplateVersionsResponse [TemplateVersionResponse]
-templateVersionsResponse_item = Lens.lens (\TemplateVersionsResponse' {item} -> item) (\s@TemplateVersionsResponse' {} a -> s {item = a} :: TemplateVersionsResponse) Prelude.. Lens._Coerce
+templateVersionsResponse_item = Lens.lens (\TemplateVersionsResponse' {item} -> item) (\s@TemplateVersionsResponse' {} a -> s {item = a} :: TemplateVersionsResponse) Prelude.. Lens.coerced
 
 instance Core.FromJSON TemplateVersionsResponse where
   parseJSON =
@@ -100,9 +100,9 @@ instance Core.FromJSON TemplateVersionsResponse where
       "TemplateVersionsResponse"
       ( \x ->
           TemplateVersionsResponse'
-            Prelude.<$> (x Core..:? "NextToken")
+            Prelude.<$> (x Core..:? "RequestID")
+            Prelude.<*> (x Core..:? "NextToken")
             Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "RequestID")
             Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
       )
 

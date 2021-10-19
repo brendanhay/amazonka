@@ -28,8 +28,8 @@ module Network.AWS.Pinpoint.GetSegments
     newGetSegments,
 
     -- * Request Lenses
-    getSegments_pageSize,
     getSegments_token,
+    getSegments_pageSize,
     getSegments_applicationId,
 
     -- * Destructuring the Response
@@ -51,13 +51,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetSegments' smart constructor.
 data GetSegments = GetSegments'
-  { -- | The maximum number of items to include in each page of a paginated
+  { -- | The NextToken string that specifies which page of results to return in a
+    -- paginated response.
+    token :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
     pageSize :: Prelude.Maybe Prelude.Text,
-    -- | The NextToken string that specifies which page of results to return in a
-    -- paginated response.
-    token :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
     applicationId :: Prelude.Text
@@ -72,12 +72,12 @@ data GetSegments = GetSegments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'token', 'getSegments_token' - The NextToken string that specifies which page of results to return in a
+-- paginated response.
+--
 -- 'pageSize', 'getSegments_pageSize' - The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
---
--- 'token', 'getSegments_token' - The NextToken string that specifies which page of results to return in a
--- paginated response.
 --
 -- 'applicationId', 'getSegments_applicationId' - The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -87,21 +87,21 @@ newGetSegments ::
   GetSegments
 newGetSegments pApplicationId_ =
   GetSegments'
-    { pageSize = Prelude.Nothing,
-      token = Prelude.Nothing,
+    { token = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
       applicationId = pApplicationId_
     }
+
+-- | The NextToken string that specifies which page of results to return in a
+-- paginated response.
+getSegments_token :: Lens.Lens' GetSegments (Prelude.Maybe Prelude.Text)
+getSegments_token = Lens.lens (\GetSegments' {token} -> token) (\s@GetSegments' {} a -> s {token = a} :: GetSegments)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
 getSegments_pageSize :: Lens.Lens' GetSegments (Prelude.Maybe Prelude.Text)
 getSegments_pageSize = Lens.lens (\GetSegments' {pageSize} -> pageSize) (\s@GetSegments' {} a -> s {pageSize = a} :: GetSegments)
-
--- | The NextToken string that specifies which page of results to return in a
--- paginated response.
-getSegments_token :: Lens.Lens' GetSegments (Prelude.Maybe Prelude.Text)
-getSegments_token = Lens.lens (\GetSegments' {token} -> token) (\s@GetSegments' {} a -> s {token = a} :: GetSegments)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -142,7 +142,7 @@ instance Core.ToPath GetSegments where
 instance Core.ToQuery GetSegments where
   toQuery GetSegments' {..} =
     Prelude.mconcat
-      ["page-size" Core.=: pageSize, "token" Core.=: token]
+      ["token" Core.=: token, "page-size" Core.=: pageSize]
 
 -- | /See:/ 'newGetSegmentsResponse' smart constructor.
 data GetSegmentsResponse = GetSegmentsResponse'

@@ -81,7 +81,7 @@ newApplicationResponse pId_ pArn_ pName_ =
 -- are associated with the application. Each tag consists of a required tag
 -- key and an associated tag value.
 applicationResponse_tags :: Lens.Lens' ApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-applicationResponse_tags = Lens.lens (\ApplicationResponse' {tags} -> tags) (\s@ApplicationResponse' {} a -> s {tags = a} :: ApplicationResponse) Prelude.. Lens.mapping Lens._Coerce
+applicationResponse_tags = Lens.lens (\ApplicationResponse' {tags} -> tags) (\s@ApplicationResponse' {} a -> s {tags = a} :: ApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.

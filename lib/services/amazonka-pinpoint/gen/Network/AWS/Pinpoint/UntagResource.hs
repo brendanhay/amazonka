@@ -82,7 +82,7 @@ newUntagResource pResourceArn_ =
 -- append the tagKeys parameter and argument for each additional tag to
 -- remove, separated by an ampersand (&).
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the resource.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text

@@ -38,14 +38,13 @@ data Message = Message'
     -- | The URL of the image to display as the push-notification icon, such as
     -- the icon for the app.
     imageIconUrl :: Prelude.Maybe Prelude.Text,
+    -- | The raw, JSON-formatted string to use as the payload for the
+    -- notification message. If specified, this value overrides all other
+    -- content for the message.
+    rawContent :: Prelude.Maybe Prelude.Text,
     -- | The body of the notification message. The maximum number of characters
     -- is 200.
     body :: Prelude.Maybe Prelude.Text,
-    -- | The JSON payload to use for a silent push notification.
-    jsonBody :: Prelude.Maybe Prelude.Text,
-    -- | The title to display above the notification message on a recipient\'s
-    -- device.
-    title :: Prelude.Maybe Prelude.Text,
     -- | The number of seconds that the push-notification service should keep the
     -- message, if the service is unable to deliver the notification the first
     -- time. This value is converted to an expiration value when it\'s sent to
@@ -56,10 +55,14 @@ data Message = Message'
     -- This value doesn\'t apply to messages that are sent through the Amazon
     -- Device Messaging (ADM) service.
     timeToLive :: Prelude.Maybe Prelude.Int,
-    -- | The URL of the image or video to display in the push notification.
-    mediaUrl :: Prelude.Maybe Prelude.Text,
-    -- | The URL of an image to display in the push notification.
-    imageUrl :: Prelude.Maybe Prelude.Text,
+    -- | The URL of the image to display as the small, push-notification icon,
+    -- such as a small version of the icon for the app.
+    imageSmallIconUrl :: Prelude.Maybe Prelude.Text,
+    -- | The JSON payload to use for a silent push notification.
+    jsonBody :: Prelude.Maybe Prelude.Text,
+    -- | The URL to open in a recipient\'s default mobile browser, if a recipient
+    -- taps the push notification and the value of the Action property is URL.
+    url :: Prelude.Maybe Prelude.Text,
     -- | The action to occur if a recipient taps the push notification. Valid
     -- values are:
     --
@@ -73,16 +76,13 @@ data Message = Message'
     -- -   URL - The default mobile browser on the recipient\'s device opens
     --     and loads the web page at a URL that you specify.
     action :: Prelude.Maybe Action,
-    -- | The URL to open in a recipient\'s default mobile browser, if a recipient
-    -- taps the push notification and the value of the Action property is URL.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | The URL of the image to display as the small, push-notification icon,
-    -- such as a small version of the icon for the app.
-    imageSmallIconUrl :: Prelude.Maybe Prelude.Text,
-    -- | The raw, JSON-formatted string to use as the payload for the
-    -- notification message. If specified, this value overrides all other
-    -- content for the message.
-    rawContent :: Prelude.Maybe Prelude.Text
+    -- | The URL of an image to display in the push notification.
+    imageUrl :: Prelude.Maybe Prelude.Text,
+    -- | The URL of the image or video to display in the push notification.
+    mediaUrl :: Prelude.Maybe Prelude.Text,
+    -- | The title to display above the notification message on a recipient\'s
+    -- device.
+    title :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,13 +103,12 @@ data Message = Message'
 -- 'imageIconUrl', 'message_imageIconUrl' - The URL of the image to display as the push-notification icon, such as
 -- the icon for the app.
 --
+-- 'rawContent', 'message_rawContent' - The raw, JSON-formatted string to use as the payload for the
+-- notification message. If specified, this value overrides all other
+-- content for the message.
+--
 -- 'body', 'message_body' - The body of the notification message. The maximum number of characters
 -- is 200.
---
--- 'jsonBody', 'message_jsonBody' - The JSON payload to use for a silent push notification.
---
--- 'title', 'message_title' - The title to display above the notification message on a recipient\'s
--- device.
 --
 -- 'timeToLive', 'message_timeToLive' - The number of seconds that the push-notification service should keep the
 -- message, if the service is unable to deliver the notification the first
@@ -121,9 +120,13 @@ data Message = Message'
 -- This value doesn\'t apply to messages that are sent through the Amazon
 -- Device Messaging (ADM) service.
 --
--- 'mediaUrl', 'message_mediaUrl' - The URL of the image or video to display in the push notification.
+-- 'imageSmallIconUrl', 'message_imageSmallIconUrl' - The URL of the image to display as the small, push-notification icon,
+-- such as a small version of the icon for the app.
 --
--- 'imageUrl', 'message_imageUrl' - The URL of an image to display in the push notification.
+-- 'jsonBody', 'message_jsonBody' - The JSON payload to use for a silent push notification.
+--
+-- 'url', 'message_url' - The URL to open in a recipient\'s default mobile browser, if a recipient
+-- taps the push notification and the value of the Action property is URL.
 --
 -- 'action', 'message_action' - The action to occur if a recipient taps the push notification. Valid
 -- values are:
@@ -138,31 +141,28 @@ data Message = Message'
 -- -   URL - The default mobile browser on the recipient\'s device opens
 --     and loads the web page at a URL that you specify.
 --
--- 'url', 'message_url' - The URL to open in a recipient\'s default mobile browser, if a recipient
--- taps the push notification and the value of the Action property is URL.
+-- 'imageUrl', 'message_imageUrl' - The URL of an image to display in the push notification.
 --
--- 'imageSmallIconUrl', 'message_imageSmallIconUrl' - The URL of the image to display as the small, push-notification icon,
--- such as a small version of the icon for the app.
+-- 'mediaUrl', 'message_mediaUrl' - The URL of the image or video to display in the push notification.
 --
--- 'rawContent', 'message_rawContent' - The raw, JSON-formatted string to use as the payload for the
--- notification message. If specified, this value overrides all other
--- content for the message.
+-- 'title', 'message_title' - The title to display above the notification message on a recipient\'s
+-- device.
 newMessage ::
   Message
 newMessage =
   Message'
     { silentPush = Prelude.Nothing,
       imageIconUrl = Prelude.Nothing,
+      rawContent = Prelude.Nothing,
       body = Prelude.Nothing,
-      jsonBody = Prelude.Nothing,
-      title = Prelude.Nothing,
       timeToLive = Prelude.Nothing,
-      mediaUrl = Prelude.Nothing,
-      imageUrl = Prelude.Nothing,
-      action = Prelude.Nothing,
-      url = Prelude.Nothing,
       imageSmallIconUrl = Prelude.Nothing,
-      rawContent = Prelude.Nothing
+      jsonBody = Prelude.Nothing,
+      url = Prelude.Nothing,
+      action = Prelude.Nothing,
+      imageUrl = Prelude.Nothing,
+      mediaUrl = Prelude.Nothing,
+      title = Prelude.Nothing
     }
 
 -- | Specifies whether the notification is a silent push notification, which
@@ -178,19 +178,16 @@ message_silentPush = Lens.lens (\Message' {silentPush} -> silentPush) (\s@Messag
 message_imageIconUrl :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
 message_imageIconUrl = Lens.lens (\Message' {imageIconUrl} -> imageIconUrl) (\s@Message' {} a -> s {imageIconUrl = a} :: Message)
 
+-- | The raw, JSON-formatted string to use as the payload for the
+-- notification message. If specified, this value overrides all other
+-- content for the message.
+message_rawContent :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
+message_rawContent = Lens.lens (\Message' {rawContent} -> rawContent) (\s@Message' {} a -> s {rawContent = a} :: Message)
+
 -- | The body of the notification message. The maximum number of characters
 -- is 200.
 message_body :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
 message_body = Lens.lens (\Message' {body} -> body) (\s@Message' {} a -> s {body = a} :: Message)
-
--- | The JSON payload to use for a silent push notification.
-message_jsonBody :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
-message_jsonBody = Lens.lens (\Message' {jsonBody} -> jsonBody) (\s@Message' {} a -> s {jsonBody = a} :: Message)
-
--- | The title to display above the notification message on a recipient\'s
--- device.
-message_title :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
-message_title = Lens.lens (\Message' {title} -> title) (\s@Message' {} a -> s {title = a} :: Message)
 
 -- | The number of seconds that the push-notification service should keep the
 -- message, if the service is unable to deliver the notification the first
@@ -204,13 +201,19 @@ message_title = Lens.lens (\Message' {title} -> title) (\s@Message' {} a -> s {t
 message_timeToLive :: Lens.Lens' Message (Prelude.Maybe Prelude.Int)
 message_timeToLive = Lens.lens (\Message' {timeToLive} -> timeToLive) (\s@Message' {} a -> s {timeToLive = a} :: Message)
 
--- | The URL of the image or video to display in the push notification.
-message_mediaUrl :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
-message_mediaUrl = Lens.lens (\Message' {mediaUrl} -> mediaUrl) (\s@Message' {} a -> s {mediaUrl = a} :: Message)
+-- | The URL of the image to display as the small, push-notification icon,
+-- such as a small version of the icon for the app.
+message_imageSmallIconUrl :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
+message_imageSmallIconUrl = Lens.lens (\Message' {imageSmallIconUrl} -> imageSmallIconUrl) (\s@Message' {} a -> s {imageSmallIconUrl = a} :: Message)
 
--- | The URL of an image to display in the push notification.
-message_imageUrl :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
-message_imageUrl = Lens.lens (\Message' {imageUrl} -> imageUrl) (\s@Message' {} a -> s {imageUrl = a} :: Message)
+-- | The JSON payload to use for a silent push notification.
+message_jsonBody :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
+message_jsonBody = Lens.lens (\Message' {jsonBody} -> jsonBody) (\s@Message' {} a -> s {jsonBody = a} :: Message)
+
+-- | The URL to open in a recipient\'s default mobile browser, if a recipient
+-- taps the push notification and the value of the Action property is URL.
+message_url :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
+message_url = Lens.lens (\Message' {url} -> url) (\s@Message' {} a -> s {url = a} :: Message)
 
 -- | The action to occur if a recipient taps the push notification. Valid
 -- values are:
@@ -227,21 +230,18 @@ message_imageUrl = Lens.lens (\Message' {imageUrl} -> imageUrl) (\s@Message' {} 
 message_action :: Lens.Lens' Message (Prelude.Maybe Action)
 message_action = Lens.lens (\Message' {action} -> action) (\s@Message' {} a -> s {action = a} :: Message)
 
--- | The URL to open in a recipient\'s default mobile browser, if a recipient
--- taps the push notification and the value of the Action property is URL.
-message_url :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
-message_url = Lens.lens (\Message' {url} -> url) (\s@Message' {} a -> s {url = a} :: Message)
+-- | The URL of an image to display in the push notification.
+message_imageUrl :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
+message_imageUrl = Lens.lens (\Message' {imageUrl} -> imageUrl) (\s@Message' {} a -> s {imageUrl = a} :: Message)
 
--- | The URL of the image to display as the small, push-notification icon,
--- such as a small version of the icon for the app.
-message_imageSmallIconUrl :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
-message_imageSmallIconUrl = Lens.lens (\Message' {imageSmallIconUrl} -> imageSmallIconUrl) (\s@Message' {} a -> s {imageSmallIconUrl = a} :: Message)
+-- | The URL of the image or video to display in the push notification.
+message_mediaUrl :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
+message_mediaUrl = Lens.lens (\Message' {mediaUrl} -> mediaUrl) (\s@Message' {} a -> s {mediaUrl = a} :: Message)
 
--- | The raw, JSON-formatted string to use as the payload for the
--- notification message. If specified, this value overrides all other
--- content for the message.
-message_rawContent :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
-message_rawContent = Lens.lens (\Message' {rawContent} -> rawContent) (\s@Message' {} a -> s {rawContent = a} :: Message)
+-- | The title to display above the notification message on a recipient\'s
+-- device.
+message_title :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
+message_title = Lens.lens (\Message' {title} -> title) (\s@Message' {} a -> s {title = a} :: Message)
 
 instance Core.FromJSON Message where
   parseJSON =
@@ -251,16 +251,16 @@ instance Core.FromJSON Message where
           Message'
             Prelude.<$> (x Core..:? "SilentPush")
             Prelude.<*> (x Core..:? "ImageIconUrl")
-            Prelude.<*> (x Core..:? "Body")
-            Prelude.<*> (x Core..:? "JsonBody")
-            Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "TimeToLive")
-            Prelude.<*> (x Core..:? "MediaUrl")
-            Prelude.<*> (x Core..:? "ImageUrl")
-            Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "ImageSmallIconUrl")
             Prelude.<*> (x Core..:? "RawContent")
+            Prelude.<*> (x Core..:? "Body")
+            Prelude.<*> (x Core..:? "TimeToLive")
+            Prelude.<*> (x Core..:? "ImageSmallIconUrl")
+            Prelude.<*> (x Core..:? "JsonBody")
+            Prelude.<*> (x Core..:? "Url")
+            Prelude.<*> (x Core..:? "Action")
+            Prelude.<*> (x Core..:? "ImageUrl")
+            Prelude.<*> (x Core..:? "MediaUrl")
+            Prelude.<*> (x Core..:? "Title")
       )
 
 instance Prelude.Hashable Message
@@ -273,16 +273,16 @@ instance Core.ToJSON Message where
       ( Prelude.catMaybes
           [ ("SilentPush" Core..=) Prelude.<$> silentPush,
             ("ImageIconUrl" Core..=) Prelude.<$> imageIconUrl,
+            ("RawContent" Core..=) Prelude.<$> rawContent,
             ("Body" Core..=) Prelude.<$> body,
-            ("JsonBody" Core..=) Prelude.<$> jsonBody,
-            ("Title" Core..=) Prelude.<$> title,
             ("TimeToLive" Core..=) Prelude.<$> timeToLive,
-            ("MediaUrl" Core..=) Prelude.<$> mediaUrl,
-            ("ImageUrl" Core..=) Prelude.<$> imageUrl,
-            ("Action" Core..=) Prelude.<$> action,
-            ("Url" Core..=) Prelude.<$> url,
             ("ImageSmallIconUrl" Core..=)
               Prelude.<$> imageSmallIconUrl,
-            ("RawContent" Core..=) Prelude.<$> rawContent
+            ("JsonBody" Core..=) Prelude.<$> jsonBody,
+            ("Url" Core..=) Prelude.<$> url,
+            ("Action" Core..=) Prelude.<$> action,
+            ("ImageUrl" Core..=) Prelude.<$> imageUrl,
+            ("MediaUrl" Core..=) Prelude.<$> mediaUrl,
+            ("Title" Core..=) Prelude.<$> title
           ]
       )

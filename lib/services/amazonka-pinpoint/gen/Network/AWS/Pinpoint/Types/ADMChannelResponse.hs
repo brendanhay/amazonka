@@ -28,26 +28,26 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newADMChannelResponse' smart constructor.
 data ADMChannelResponse = ADMChannelResponse'
-  { -- | The unique identifier for the application that the ADM channel applies
-    -- to.
-    applicationId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the ADM channel was last modified.
+  { -- | The date and time when the ADM channel was last modified.
     lastModifiedDate :: Prelude.Maybe Prelude.Text,
-    -- | (Not used) This property is retained only for backward compatibility.
-    hasCredential :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether the ADM channel is enabled for the application.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The date and time when the ADM channel was enabled.
-    creationDate :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the ADM channel is archived.
+    isArchived :: Prelude.Maybe Prelude.Bool,
+    -- | The unique identifier for the application that the ADM channel applies
+    -- to.
+    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The current version of the ADM channel.
+    version :: Prelude.Maybe Prelude.Int,
     -- | (Deprecated) An identifier for the ADM channel. This property is
     -- retained only for backward compatibility.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The current version of the ADM channel.
-    version :: Prelude.Maybe Prelude.Int,
-    -- | Specifies whether the ADM channel is archived.
-    isArchived :: Prelude.Maybe Prelude.Bool,
+    -- | The date and time when the ADM channel was enabled.
+    creationDate :: Prelude.Maybe Prelude.Text,
     -- | The user who last modified the ADM channel.
     lastModifiedBy :: Prelude.Maybe Prelude.Text,
+    -- | (Not used) This property is retained only for backward compatibility.
+    hasCredential :: Prelude.Maybe Prelude.Bool,
     -- | The type of messaging or notification platform for the channel. For the
     -- ADM channel, this value is ADM.
     platform :: Prelude.Text
@@ -62,25 +62,25 @@ data ADMChannelResponse = ADMChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationId', 'aDMChannelResponse_applicationId' - The unique identifier for the application that the ADM channel applies
--- to.
---
 -- 'lastModifiedDate', 'aDMChannelResponse_lastModifiedDate' - The date and time when the ADM channel was last modified.
---
--- 'hasCredential', 'aDMChannelResponse_hasCredential' - (Not used) This property is retained only for backward compatibility.
 --
 -- 'enabled', 'aDMChannelResponse_enabled' - Specifies whether the ADM channel is enabled for the application.
 --
--- 'creationDate', 'aDMChannelResponse_creationDate' - The date and time when the ADM channel was enabled.
+-- 'isArchived', 'aDMChannelResponse_isArchived' - Specifies whether the ADM channel is archived.
+--
+-- 'applicationId', 'aDMChannelResponse_applicationId' - The unique identifier for the application that the ADM channel applies
+-- to.
+--
+-- 'version', 'aDMChannelResponse_version' - The current version of the ADM channel.
 --
 -- 'id', 'aDMChannelResponse_id' - (Deprecated) An identifier for the ADM channel. This property is
 -- retained only for backward compatibility.
 --
--- 'version', 'aDMChannelResponse_version' - The current version of the ADM channel.
---
--- 'isArchived', 'aDMChannelResponse_isArchived' - Specifies whether the ADM channel is archived.
+-- 'creationDate', 'aDMChannelResponse_creationDate' - The date and time when the ADM channel was enabled.
 --
 -- 'lastModifiedBy', 'aDMChannelResponse_lastModifiedBy' - The user who last modified the ADM channel.
+--
+-- 'hasCredential', 'aDMChannelResponse_hasCredential' - (Not used) This property is retained only for backward compatibility.
 --
 -- 'platform', 'aDMChannelResponse_platform' - The type of messaging or notification platform for the channel. For the
 -- ADM channel, this value is ADM.
@@ -90,56 +90,56 @@ newADMChannelResponse ::
   ADMChannelResponse
 newADMChannelResponse pPlatform_ =
   ADMChannelResponse'
-    { applicationId =
+    { lastModifiedDate =
         Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
-      hasCredential = Prelude.Nothing,
       enabled = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      id = Prelude.Nothing,
-      version = Prelude.Nothing,
       isArchived = Prelude.Nothing,
+      applicationId = Prelude.Nothing,
+      version = Prelude.Nothing,
+      id = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
       lastModifiedBy = Prelude.Nothing,
+      hasCredential = Prelude.Nothing,
       platform = pPlatform_
     }
+
+-- | The date and time when the ADM channel was last modified.
+aDMChannelResponse_lastModifiedDate :: Lens.Lens' ADMChannelResponse (Prelude.Maybe Prelude.Text)
+aDMChannelResponse_lastModifiedDate = Lens.lens (\ADMChannelResponse' {lastModifiedDate} -> lastModifiedDate) (\s@ADMChannelResponse' {} a -> s {lastModifiedDate = a} :: ADMChannelResponse)
+
+-- | Specifies whether the ADM channel is enabled for the application.
+aDMChannelResponse_enabled :: Lens.Lens' ADMChannelResponse (Prelude.Maybe Prelude.Bool)
+aDMChannelResponse_enabled = Lens.lens (\ADMChannelResponse' {enabled} -> enabled) (\s@ADMChannelResponse' {} a -> s {enabled = a} :: ADMChannelResponse)
+
+-- | Specifies whether the ADM channel is archived.
+aDMChannelResponse_isArchived :: Lens.Lens' ADMChannelResponse (Prelude.Maybe Prelude.Bool)
+aDMChannelResponse_isArchived = Lens.lens (\ADMChannelResponse' {isArchived} -> isArchived) (\s@ADMChannelResponse' {} a -> s {isArchived = a} :: ADMChannelResponse)
 
 -- | The unique identifier for the application that the ADM channel applies
 -- to.
 aDMChannelResponse_applicationId :: Lens.Lens' ADMChannelResponse (Prelude.Maybe Prelude.Text)
 aDMChannelResponse_applicationId = Lens.lens (\ADMChannelResponse' {applicationId} -> applicationId) (\s@ADMChannelResponse' {} a -> s {applicationId = a} :: ADMChannelResponse)
 
--- | The date and time when the ADM channel was last modified.
-aDMChannelResponse_lastModifiedDate :: Lens.Lens' ADMChannelResponse (Prelude.Maybe Prelude.Text)
-aDMChannelResponse_lastModifiedDate = Lens.lens (\ADMChannelResponse' {lastModifiedDate} -> lastModifiedDate) (\s@ADMChannelResponse' {} a -> s {lastModifiedDate = a} :: ADMChannelResponse)
-
--- | (Not used) This property is retained only for backward compatibility.
-aDMChannelResponse_hasCredential :: Lens.Lens' ADMChannelResponse (Prelude.Maybe Prelude.Bool)
-aDMChannelResponse_hasCredential = Lens.lens (\ADMChannelResponse' {hasCredential} -> hasCredential) (\s@ADMChannelResponse' {} a -> s {hasCredential = a} :: ADMChannelResponse)
-
--- | Specifies whether the ADM channel is enabled for the application.
-aDMChannelResponse_enabled :: Lens.Lens' ADMChannelResponse (Prelude.Maybe Prelude.Bool)
-aDMChannelResponse_enabled = Lens.lens (\ADMChannelResponse' {enabled} -> enabled) (\s@ADMChannelResponse' {} a -> s {enabled = a} :: ADMChannelResponse)
-
--- | The date and time when the ADM channel was enabled.
-aDMChannelResponse_creationDate :: Lens.Lens' ADMChannelResponse (Prelude.Maybe Prelude.Text)
-aDMChannelResponse_creationDate = Lens.lens (\ADMChannelResponse' {creationDate} -> creationDate) (\s@ADMChannelResponse' {} a -> s {creationDate = a} :: ADMChannelResponse)
+-- | The current version of the ADM channel.
+aDMChannelResponse_version :: Lens.Lens' ADMChannelResponse (Prelude.Maybe Prelude.Int)
+aDMChannelResponse_version = Lens.lens (\ADMChannelResponse' {version} -> version) (\s@ADMChannelResponse' {} a -> s {version = a} :: ADMChannelResponse)
 
 -- | (Deprecated) An identifier for the ADM channel. This property is
 -- retained only for backward compatibility.
 aDMChannelResponse_id :: Lens.Lens' ADMChannelResponse (Prelude.Maybe Prelude.Text)
 aDMChannelResponse_id = Lens.lens (\ADMChannelResponse' {id} -> id) (\s@ADMChannelResponse' {} a -> s {id = a} :: ADMChannelResponse)
 
--- | The current version of the ADM channel.
-aDMChannelResponse_version :: Lens.Lens' ADMChannelResponse (Prelude.Maybe Prelude.Int)
-aDMChannelResponse_version = Lens.lens (\ADMChannelResponse' {version} -> version) (\s@ADMChannelResponse' {} a -> s {version = a} :: ADMChannelResponse)
-
--- | Specifies whether the ADM channel is archived.
-aDMChannelResponse_isArchived :: Lens.Lens' ADMChannelResponse (Prelude.Maybe Prelude.Bool)
-aDMChannelResponse_isArchived = Lens.lens (\ADMChannelResponse' {isArchived} -> isArchived) (\s@ADMChannelResponse' {} a -> s {isArchived = a} :: ADMChannelResponse)
+-- | The date and time when the ADM channel was enabled.
+aDMChannelResponse_creationDate :: Lens.Lens' ADMChannelResponse (Prelude.Maybe Prelude.Text)
+aDMChannelResponse_creationDate = Lens.lens (\ADMChannelResponse' {creationDate} -> creationDate) (\s@ADMChannelResponse' {} a -> s {creationDate = a} :: ADMChannelResponse)
 
 -- | The user who last modified the ADM channel.
 aDMChannelResponse_lastModifiedBy :: Lens.Lens' ADMChannelResponse (Prelude.Maybe Prelude.Text)
 aDMChannelResponse_lastModifiedBy = Lens.lens (\ADMChannelResponse' {lastModifiedBy} -> lastModifiedBy) (\s@ADMChannelResponse' {} a -> s {lastModifiedBy = a} :: ADMChannelResponse)
+
+-- | (Not used) This property is retained only for backward compatibility.
+aDMChannelResponse_hasCredential :: Lens.Lens' ADMChannelResponse (Prelude.Maybe Prelude.Bool)
+aDMChannelResponse_hasCredential = Lens.lens (\ADMChannelResponse' {hasCredential} -> hasCredential) (\s@ADMChannelResponse' {} a -> s {hasCredential = a} :: ADMChannelResponse)
 
 -- | The type of messaging or notification platform for the channel. For the
 -- ADM channel, this value is ADM.
@@ -152,15 +152,15 @@ instance Core.FromJSON ADMChannelResponse where
       "ADMChannelResponse"
       ( \x ->
           ADMChannelResponse'
-            Prelude.<$> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "HasCredential")
+            Prelude.<$> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "IsArchived")
+            Prelude.<*> (x Core..:? "ApplicationId")
+            Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "LastModifiedBy")
+            Prelude.<*> (x Core..:? "HasCredential")
             Prelude.<*> (x Core..: "Platform")
       )
 

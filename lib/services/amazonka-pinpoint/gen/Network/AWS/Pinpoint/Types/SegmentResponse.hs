@@ -32,24 +32,24 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSegmentResponse' smart constructor.
 data SegmentResponse = SegmentResponse'
-  { -- | A list of one or more segment groups that apply to the segment. Each
+  { -- | The date and time when the segment was last modified.
+    lastModifiedDate :: Prelude.Maybe Prelude.Text,
+    -- | A list of one or more segment groups that apply to the segment. Each
     -- segment group consists of zero or more base segments and the dimensions
     -- that are applied to those base segments.
     segmentGroups :: Prelude.Maybe SegmentGroupList,
-    -- | The date and time when the segment was last modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the segment.
-    version :: Prelude.Maybe Prelude.Int,
     -- | The name of the segment.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The version number of the segment.
+    version :: Prelude.Maybe Prelude.Int,
+    -- | The settings for the import job that\'s associated with the segment.
+    importDefinition :: Prelude.Maybe SegmentImportResource,
+    -- | The dimension settings for the segment.
+    dimensions :: Prelude.Maybe SegmentDimensions,
     -- | A string-to-string map of key-value pairs that identifies the tags that
     -- are associated with the segment. Each tag consists of a required tag key
     -- and an associated tag value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The dimension settings for the segment.
-    dimensions :: Prelude.Maybe SegmentDimensions,
-    -- | The settings for the import job that\'s associated with the segment.
-    importDefinition :: Prelude.Maybe SegmentImportResource,
     -- | The segment type. Valid values are:
     --
     -- -   DIMENSIONAL - A dynamic segment, which is a segment that uses
@@ -81,23 +81,23 @@ data SegmentResponse = SegmentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastModifiedDate', 'segmentResponse_lastModifiedDate' - The date and time when the segment was last modified.
+--
 -- 'segmentGroups', 'segmentResponse_segmentGroups' - A list of one or more segment groups that apply to the segment. Each
 -- segment group consists of zero or more base segments and the dimensions
 -- that are applied to those base segments.
 --
--- 'lastModifiedDate', 'segmentResponse_lastModifiedDate' - The date and time when the segment was last modified.
+-- 'name', 'segmentResponse_name' - The name of the segment.
 --
 -- 'version', 'segmentResponse_version' - The version number of the segment.
 --
--- 'name', 'segmentResponse_name' - The name of the segment.
+-- 'importDefinition', 'segmentResponse_importDefinition' - The settings for the import job that\'s associated with the segment.
+--
+-- 'dimensions', 'segmentResponse_dimensions' - The dimension settings for the segment.
 --
 -- 'tags', 'segmentResponse_tags' - A string-to-string map of key-value pairs that identifies the tags that
 -- are associated with the segment. Each tag consists of a required tag key
 -- and an associated tag value.
---
--- 'dimensions', 'segmentResponse_dimensions' - The dimension settings for the segment.
---
--- 'importDefinition', 'segmentResponse_importDefinition' - The settings for the import job that\'s associated with the segment.
 --
 -- 'segmentType', 'segmentResponse_segmentType' - The segment type. Valid values are:
 --
@@ -137,13 +137,14 @@ newSegmentResponse
   pArn_
   pApplicationId_ =
     SegmentResponse'
-      { segmentGroups = Prelude.Nothing,
-        lastModifiedDate = Prelude.Nothing,
-        version = Prelude.Nothing,
+      { lastModifiedDate =
+          Prelude.Nothing,
+        segmentGroups = Prelude.Nothing,
         name = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        dimensions = Prelude.Nothing,
+        version = Prelude.Nothing,
         importDefinition = Prelude.Nothing,
+        dimensions = Prelude.Nothing,
+        tags = Prelude.Nothing,
         segmentType = pSegmentType_,
         creationDate = pCreationDate_,
         id = pId_,
@@ -151,37 +152,37 @@ newSegmentResponse
         applicationId = pApplicationId_
       }
 
+-- | The date and time when the segment was last modified.
+segmentResponse_lastModifiedDate :: Lens.Lens' SegmentResponse (Prelude.Maybe Prelude.Text)
+segmentResponse_lastModifiedDate = Lens.lens (\SegmentResponse' {lastModifiedDate} -> lastModifiedDate) (\s@SegmentResponse' {} a -> s {lastModifiedDate = a} :: SegmentResponse)
+
 -- | A list of one or more segment groups that apply to the segment. Each
 -- segment group consists of zero or more base segments and the dimensions
 -- that are applied to those base segments.
 segmentResponse_segmentGroups :: Lens.Lens' SegmentResponse (Prelude.Maybe SegmentGroupList)
 segmentResponse_segmentGroups = Lens.lens (\SegmentResponse' {segmentGroups} -> segmentGroups) (\s@SegmentResponse' {} a -> s {segmentGroups = a} :: SegmentResponse)
 
--- | The date and time when the segment was last modified.
-segmentResponse_lastModifiedDate :: Lens.Lens' SegmentResponse (Prelude.Maybe Prelude.Text)
-segmentResponse_lastModifiedDate = Lens.lens (\SegmentResponse' {lastModifiedDate} -> lastModifiedDate) (\s@SegmentResponse' {} a -> s {lastModifiedDate = a} :: SegmentResponse)
+-- | The name of the segment.
+segmentResponse_name :: Lens.Lens' SegmentResponse (Prelude.Maybe Prelude.Text)
+segmentResponse_name = Lens.lens (\SegmentResponse' {name} -> name) (\s@SegmentResponse' {} a -> s {name = a} :: SegmentResponse)
 
 -- | The version number of the segment.
 segmentResponse_version :: Lens.Lens' SegmentResponse (Prelude.Maybe Prelude.Int)
 segmentResponse_version = Lens.lens (\SegmentResponse' {version} -> version) (\s@SegmentResponse' {} a -> s {version = a} :: SegmentResponse)
 
--- | The name of the segment.
-segmentResponse_name :: Lens.Lens' SegmentResponse (Prelude.Maybe Prelude.Text)
-segmentResponse_name = Lens.lens (\SegmentResponse' {name} -> name) (\s@SegmentResponse' {} a -> s {name = a} :: SegmentResponse)
-
--- | A string-to-string map of key-value pairs that identifies the tags that
--- are associated with the segment. Each tag consists of a required tag key
--- and an associated tag value.
-segmentResponse_tags :: Lens.Lens' SegmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-segmentResponse_tags = Lens.lens (\SegmentResponse' {tags} -> tags) (\s@SegmentResponse' {} a -> s {tags = a} :: SegmentResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | The settings for the import job that\'s associated with the segment.
+segmentResponse_importDefinition :: Lens.Lens' SegmentResponse (Prelude.Maybe SegmentImportResource)
+segmentResponse_importDefinition = Lens.lens (\SegmentResponse' {importDefinition} -> importDefinition) (\s@SegmentResponse' {} a -> s {importDefinition = a} :: SegmentResponse)
 
 -- | The dimension settings for the segment.
 segmentResponse_dimensions :: Lens.Lens' SegmentResponse (Prelude.Maybe SegmentDimensions)
 segmentResponse_dimensions = Lens.lens (\SegmentResponse' {dimensions} -> dimensions) (\s@SegmentResponse' {} a -> s {dimensions = a} :: SegmentResponse)
 
--- | The settings for the import job that\'s associated with the segment.
-segmentResponse_importDefinition :: Lens.Lens' SegmentResponse (Prelude.Maybe SegmentImportResource)
-segmentResponse_importDefinition = Lens.lens (\SegmentResponse' {importDefinition} -> importDefinition) (\s@SegmentResponse' {} a -> s {importDefinition = a} :: SegmentResponse)
+-- | A string-to-string map of key-value pairs that identifies the tags that
+-- are associated with the segment. Each tag consists of a required tag key
+-- and an associated tag value.
+segmentResponse_tags :: Lens.Lens' SegmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+segmentResponse_tags = Lens.lens (\SegmentResponse' {tags} -> tags) (\s@SegmentResponse' {} a -> s {tags = a} :: SegmentResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The segment type. Valid values are:
 --
@@ -219,13 +220,13 @@ instance Core.FromJSON SegmentResponse where
       "SegmentResponse"
       ( \x ->
           SegmentResponse'
-            Prelude.<$> (x Core..:? "SegmentGroups")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Core..:? "LastModifiedDate")
+            Prelude.<*> (x Core..:? "SegmentGroups")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Dimensions")
+            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "ImportDefinition")
+            Prelude.<*> (x Core..:? "Dimensions")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "SegmentType")
             Prelude.<*> (x Core..: "CreationDate")
             Prelude.<*> (x Core..: "Id")

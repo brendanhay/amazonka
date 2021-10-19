@@ -29,7 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCampaignHook' smart constructor.
 data CampaignHook = CampaignHook'
-  { -- | The mode that Amazon Pinpoint uses to invoke the AWS Lambda function.
+  { -- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that
+    -- Amazon Pinpoint invokes to customize a segment for a campaign.
+    lambdaFunctionName :: Prelude.Maybe Prelude.Text,
+    -- | The mode that Amazon Pinpoint uses to invoke the AWS Lambda function.
     -- Possible values are:
     --
     -- -   FILTER - Invoke the function to customize the segment that\'s used
@@ -41,9 +44,6 @@ data CampaignHook = CampaignHook'
     --     the CustomDeliveryConfiguration and CampaignCustomMessage objects of
     --     the campaign.
     mode :: Prelude.Maybe Mode,
-    -- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that
-    -- Amazon Pinpoint invokes to customize a segment for a campaign.
-    lambdaFunctionName :: Prelude.Maybe Prelude.Text,
     -- | The web URL that Amazon Pinpoint calls to invoke the AWS Lambda function
     -- over HTTPS.
     webUrl :: Prelude.Maybe Prelude.Text
@@ -58,6 +58,9 @@ data CampaignHook = CampaignHook'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lambdaFunctionName', 'campaignHook_lambdaFunctionName' - The name or Amazon Resource Name (ARN) of the AWS Lambda function that
+-- Amazon Pinpoint invokes to customize a segment for a campaign.
+--
 -- 'mode', 'campaignHook_mode' - The mode that Amazon Pinpoint uses to invoke the AWS Lambda function.
 -- Possible values are:
 --
@@ -70,19 +73,21 @@ data CampaignHook = CampaignHook'
 --     the CustomDeliveryConfiguration and CampaignCustomMessage objects of
 --     the campaign.
 --
--- 'lambdaFunctionName', 'campaignHook_lambdaFunctionName' - The name or Amazon Resource Name (ARN) of the AWS Lambda function that
--- Amazon Pinpoint invokes to customize a segment for a campaign.
---
 -- 'webUrl', 'campaignHook_webUrl' - The web URL that Amazon Pinpoint calls to invoke the AWS Lambda function
 -- over HTTPS.
 newCampaignHook ::
   CampaignHook
 newCampaignHook =
   CampaignHook'
-    { mode = Prelude.Nothing,
-      lambdaFunctionName = Prelude.Nothing,
+    { lambdaFunctionName = Prelude.Nothing,
+      mode = Prelude.Nothing,
       webUrl = Prelude.Nothing
     }
+
+-- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that
+-- Amazon Pinpoint invokes to customize a segment for a campaign.
+campaignHook_lambdaFunctionName :: Lens.Lens' CampaignHook (Prelude.Maybe Prelude.Text)
+campaignHook_lambdaFunctionName = Lens.lens (\CampaignHook' {lambdaFunctionName} -> lambdaFunctionName) (\s@CampaignHook' {} a -> s {lambdaFunctionName = a} :: CampaignHook)
 
 -- | The mode that Amazon Pinpoint uses to invoke the AWS Lambda function.
 -- Possible values are:
@@ -98,11 +103,6 @@ newCampaignHook =
 campaignHook_mode :: Lens.Lens' CampaignHook (Prelude.Maybe Mode)
 campaignHook_mode = Lens.lens (\CampaignHook' {mode} -> mode) (\s@CampaignHook' {} a -> s {mode = a} :: CampaignHook)
 
--- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that
--- Amazon Pinpoint invokes to customize a segment for a campaign.
-campaignHook_lambdaFunctionName :: Lens.Lens' CampaignHook (Prelude.Maybe Prelude.Text)
-campaignHook_lambdaFunctionName = Lens.lens (\CampaignHook' {lambdaFunctionName} -> lambdaFunctionName) (\s@CampaignHook' {} a -> s {lambdaFunctionName = a} :: CampaignHook)
-
 -- | The web URL that Amazon Pinpoint calls to invoke the AWS Lambda function
 -- over HTTPS.
 campaignHook_webUrl :: Lens.Lens' CampaignHook (Prelude.Maybe Prelude.Text)
@@ -114,8 +114,8 @@ instance Core.FromJSON CampaignHook where
       "CampaignHook"
       ( \x ->
           CampaignHook'
-            Prelude.<$> (x Core..:? "Mode")
-            Prelude.<*> (x Core..:? "LambdaFunctionName")
+            Prelude.<$> (x Core..:? "LambdaFunctionName")
+            Prelude.<*> (x Core..:? "Mode")
             Prelude.<*> (x Core..:? "WebUrl")
       )
 
@@ -127,9 +127,9 @@ instance Core.ToJSON CampaignHook where
   toJSON CampaignHook' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Mode" Core..=) Prelude.<$> mode,
-            ("LambdaFunctionName" Core..=)
+          [ ("LambdaFunctionName" Core..=)
               Prelude.<$> lambdaFunctionName,
+            ("Mode" Core..=) Prelude.<$> mode,
             ("WebUrl" Core..=) Prelude.<$> webUrl
           ]
       )

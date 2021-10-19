@@ -30,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSimpleCondition' smart constructor.
 data SimpleCondition = SimpleCondition'
-  { -- | The dimension settings for the event that\'s associated with the
-    -- activity.
-    eventCondition :: Prelude.Maybe EventCondition,
-    -- | The dimension settings for the segment that\'s associated with the
+  { -- | The dimension settings for the segment that\'s associated with the
     -- activity.
     segmentDimensions :: Prelude.Maybe SegmentDimensions,
+    -- | The dimension settings for the event that\'s associated with the
+    -- activity.
+    eventCondition :: Prelude.Maybe EventCondition,
     -- | The segment that\'s associated with the activity.
     segmentCondition :: Prelude.Maybe SegmentCondition
   }
@@ -49,10 +49,10 @@ data SimpleCondition = SimpleCondition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventCondition', 'simpleCondition_eventCondition' - The dimension settings for the event that\'s associated with the
+-- 'segmentDimensions', 'simpleCondition_segmentDimensions' - The dimension settings for the segment that\'s associated with the
 -- activity.
 --
--- 'segmentDimensions', 'simpleCondition_segmentDimensions' - The dimension settings for the segment that\'s associated with the
+-- 'eventCondition', 'simpleCondition_eventCondition' - The dimension settings for the event that\'s associated with the
 -- activity.
 --
 -- 'segmentCondition', 'simpleCondition_segmentCondition' - The segment that\'s associated with the activity.
@@ -60,20 +60,21 @@ newSimpleCondition ::
   SimpleCondition
 newSimpleCondition =
   SimpleCondition'
-    { eventCondition = Prelude.Nothing,
-      segmentDimensions = Prelude.Nothing,
+    { segmentDimensions =
+        Prelude.Nothing,
+      eventCondition = Prelude.Nothing,
       segmentCondition = Prelude.Nothing
     }
-
--- | The dimension settings for the event that\'s associated with the
--- activity.
-simpleCondition_eventCondition :: Lens.Lens' SimpleCondition (Prelude.Maybe EventCondition)
-simpleCondition_eventCondition = Lens.lens (\SimpleCondition' {eventCondition} -> eventCondition) (\s@SimpleCondition' {} a -> s {eventCondition = a} :: SimpleCondition)
 
 -- | The dimension settings for the segment that\'s associated with the
 -- activity.
 simpleCondition_segmentDimensions :: Lens.Lens' SimpleCondition (Prelude.Maybe SegmentDimensions)
 simpleCondition_segmentDimensions = Lens.lens (\SimpleCondition' {segmentDimensions} -> segmentDimensions) (\s@SimpleCondition' {} a -> s {segmentDimensions = a} :: SimpleCondition)
+
+-- | The dimension settings for the event that\'s associated with the
+-- activity.
+simpleCondition_eventCondition :: Lens.Lens' SimpleCondition (Prelude.Maybe EventCondition)
+simpleCondition_eventCondition = Lens.lens (\SimpleCondition' {eventCondition} -> eventCondition) (\s@SimpleCondition' {} a -> s {eventCondition = a} :: SimpleCondition)
 
 -- | The segment that\'s associated with the activity.
 simpleCondition_segmentCondition :: Lens.Lens' SimpleCondition (Prelude.Maybe SegmentCondition)
@@ -85,8 +86,8 @@ instance Core.FromJSON SimpleCondition where
       "SimpleCondition"
       ( \x ->
           SimpleCondition'
-            Prelude.<$> (x Core..:? "EventCondition")
-            Prelude.<*> (x Core..:? "segmentDimensions")
+            Prelude.<$> (x Core..:? "segmentDimensions")
+            Prelude.<*> (x Core..:? "EventCondition")
             Prelude.<*> (x Core..:? "SegmentCondition")
       )
 
@@ -98,10 +99,10 @@ instance Core.ToJSON SimpleCondition where
   toJSON SimpleCondition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EventCondition" Core..=)
-              Prelude.<$> eventCondition,
-            ("segmentDimensions" Core..=)
+          [ ("segmentDimensions" Core..=)
               Prelude.<$> segmentDimensions,
+            ("EventCondition" Core..=)
+              Prelude.<$> eventCondition,
             ("SegmentCondition" Core..=)
               Prelude.<$> segmentCondition
           ]

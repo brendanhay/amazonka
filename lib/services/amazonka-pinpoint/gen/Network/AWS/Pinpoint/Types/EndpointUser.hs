@@ -28,9 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEndpointUser' smart constructor.
 data EndpointUser = EndpointUser'
-  { -- | The unique identifier for the user.
-    userId :: Prelude.Maybe Prelude.Text,
-    -- | One or more custom attributes that describe the user by associating a
+  { -- | One or more custom attributes that describe the user by associating a
     -- name with an array of values. For example, the value of an attribute
     -- named Interests might be: [\"Science\", \"Music\", \"Travel\"]. You can
     -- use these attributes as filter criteria when you create segments.
@@ -42,7 +40,9 @@ data EndpointUser = EndpointUser'
     -- (:), question mark (?), backslash (\\), and slash (\/). The Amazon
     -- Pinpoint console can\'t display attribute names that contain these
     -- characters. This restriction doesn\'t apply to attribute values.
-    userAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
+    userAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The unique identifier for the user.
+    userId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,8 +53,6 @@ data EndpointUser = EndpointUser'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'userId', 'endpointUser_userId' - The unique identifier for the user.
 --
 -- 'userAttributes', 'endpointUser_userAttributes' - One or more custom attributes that describe the user by associating a
 -- name with an array of values. For example, the value of an attribute
@@ -68,17 +66,15 @@ data EndpointUser = EndpointUser'
 -- (:), question mark (?), backslash (\\), and slash (\/). The Amazon
 -- Pinpoint console can\'t display attribute names that contain these
 -- characters. This restriction doesn\'t apply to attribute values.
+--
+-- 'userId', 'endpointUser_userId' - The unique identifier for the user.
 newEndpointUser ::
   EndpointUser
 newEndpointUser =
   EndpointUser'
-    { userId = Prelude.Nothing,
-      userAttributes = Prelude.Nothing
+    { userAttributes = Prelude.Nothing,
+      userId = Prelude.Nothing
     }
-
--- | The unique identifier for the user.
-endpointUser_userId :: Lens.Lens' EndpointUser (Prelude.Maybe Prelude.Text)
-endpointUser_userId = Lens.lens (\EndpointUser' {userId} -> userId) (\s@EndpointUser' {} a -> s {userId = a} :: EndpointUser)
 
 -- | One or more custom attributes that describe the user by associating a
 -- name with an array of values. For example, the value of an attribute
@@ -93,7 +89,11 @@ endpointUser_userId = Lens.lens (\EndpointUser' {userId} -> userId) (\s@Endpoint
 -- Pinpoint console can\'t display attribute names that contain these
 -- characters. This restriction doesn\'t apply to attribute values.
 endpointUser_userAttributes :: Lens.Lens' EndpointUser (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-endpointUser_userAttributes = Lens.lens (\EndpointUser' {userAttributes} -> userAttributes) (\s@EndpointUser' {} a -> s {userAttributes = a} :: EndpointUser) Prelude.. Lens.mapping Lens._Coerce
+endpointUser_userAttributes = Lens.lens (\EndpointUser' {userAttributes} -> userAttributes) (\s@EndpointUser' {} a -> s {userAttributes = a} :: EndpointUser) Prelude.. Lens.mapping Lens.coerced
+
+-- | The unique identifier for the user.
+endpointUser_userId :: Lens.Lens' EndpointUser (Prelude.Maybe Prelude.Text)
+endpointUser_userId = Lens.lens (\EndpointUser' {userId} -> userId) (\s@EndpointUser' {} a -> s {userId = a} :: EndpointUser)
 
 instance Core.FromJSON EndpointUser where
   parseJSON =
@@ -101,10 +101,8 @@ instance Core.FromJSON EndpointUser where
       "EndpointUser"
       ( \x ->
           EndpointUser'
-            Prelude.<$> (x Core..:? "UserId")
-            Prelude.<*> ( x Core..:? "UserAttributes"
-                            Core..!= Prelude.mempty
-                        )
+            Prelude.<$> (x Core..:? "UserAttributes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "UserId")
       )
 
 instance Prelude.Hashable EndpointUser
@@ -115,8 +113,8 @@ instance Core.ToJSON EndpointUser where
   toJSON EndpointUser' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("UserId" Core..=) Prelude.<$> userId,
-            ("UserAttributes" Core..=)
-              Prelude.<$> userAttributes
+          [ ("UserAttributes" Core..=)
+              Prelude.<$> userAttributes,
+            ("UserId" Core..=) Prelude.<$> userId
           ]
       )

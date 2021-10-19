@@ -30,17 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSchedule' smart constructor.
 data Schedule = Schedule'
-  { -- | The type of event that causes the campaign to be sent, if the value of
-    -- the Frequency property is EVENT.
-    eventFilter :: Prelude.Maybe CampaignEventFilter,
-    -- | Specifies whether the start and end times for the campaign schedule use
-    -- each recipient\'s local time. To base the schedule on each recipient\'s
-    -- local time, set this value to true.
-    isLocalTime :: Prelude.Maybe Prelude.Bool,
-    -- | The scheduled time, in ISO 8601 format, when the campaign ended or will
-    -- end.
-    endTime :: Prelude.Maybe Prelude.Text,
-    -- | Specifies how often the campaign is sent or whether the campaign is sent
+  { -- | Specifies how often the campaign is sent or whether the campaign is sent
     -- in response to a specific event.
     frequency :: Prelude.Maybe Frequency,
     -- | The default quiet time for the campaign. Quiet time is a specific time
@@ -61,6 +51,16 @@ data Schedule = Schedule'
     -- If any of the preceding conditions isn\'t met, the endpoint will receive
     -- messages from the campaign, even if quiet time is enabled.
     quietTime :: Prelude.Maybe QuietTime,
+    -- | The type of event that causes the campaign to be sent, if the value of
+    -- the Frequency property is EVENT.
+    eventFilter :: Prelude.Maybe CampaignEventFilter,
+    -- | Specifies whether the start and end times for the campaign schedule use
+    -- each recipient\'s local time. To base the schedule on each recipient\'s
+    -- local time, set this value to true.
+    isLocalTime :: Prelude.Maybe Prelude.Bool,
+    -- | The scheduled time, in ISO 8601 format, when the campaign ended or will
+    -- end.
+    endTime :: Prelude.Maybe Prelude.Text,
     -- | The starting UTC offset for the campaign schedule, if the value of the
     -- IsLocalTime property is true. Valid values are: UTC, UTC+01, UTC+02,
     -- UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05, UTC+05:30, UTC+05:45,
@@ -83,16 +83,6 @@ data Schedule = Schedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventFilter', 'schedule_eventFilter' - The type of event that causes the campaign to be sent, if the value of
--- the Frequency property is EVENT.
---
--- 'isLocalTime', 'schedule_isLocalTime' - Specifies whether the start and end times for the campaign schedule use
--- each recipient\'s local time. To base the schedule on each recipient\'s
--- local time, set this value to true.
---
--- 'endTime', 'schedule_endTime' - The scheduled time, in ISO 8601 format, when the campaign ended or will
--- end.
---
 -- 'frequency', 'schedule_frequency' - Specifies how often the campaign is sent or whether the campaign is sent
 -- in response to a specific event.
 --
@@ -114,6 +104,16 @@ data Schedule = Schedule'
 -- If any of the preceding conditions isn\'t met, the endpoint will receive
 -- messages from the campaign, even if quiet time is enabled.
 --
+-- 'eventFilter', 'schedule_eventFilter' - The type of event that causes the campaign to be sent, if the value of
+-- the Frequency property is EVENT.
+--
+-- 'isLocalTime', 'schedule_isLocalTime' - Specifies whether the start and end times for the campaign schedule use
+-- each recipient\'s local time. To base the schedule on each recipient\'s
+-- local time, set this value to true.
+--
+-- 'endTime', 'schedule_endTime' - The scheduled time, in ISO 8601 format, when the campaign ended or will
+-- end.
+--
 -- 'timezone', 'schedule_timezone' - The starting UTC offset for the campaign schedule, if the value of the
 -- IsLocalTime property is true. Valid values are: UTC, UTC+01, UTC+02,
 -- UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05, UTC+05:30, UTC+05:45,
@@ -130,30 +130,14 @@ newSchedule ::
   Schedule
 newSchedule pStartTime_ =
   Schedule'
-    { eventFilter = Prelude.Nothing,
+    { frequency = Prelude.Nothing,
+      quietTime = Prelude.Nothing,
+      eventFilter = Prelude.Nothing,
       isLocalTime = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      frequency = Prelude.Nothing,
-      quietTime = Prelude.Nothing,
       timezone = Prelude.Nothing,
       startTime = pStartTime_
     }
-
--- | The type of event that causes the campaign to be sent, if the value of
--- the Frequency property is EVENT.
-schedule_eventFilter :: Lens.Lens' Schedule (Prelude.Maybe CampaignEventFilter)
-schedule_eventFilter = Lens.lens (\Schedule' {eventFilter} -> eventFilter) (\s@Schedule' {} a -> s {eventFilter = a} :: Schedule)
-
--- | Specifies whether the start and end times for the campaign schedule use
--- each recipient\'s local time. To base the schedule on each recipient\'s
--- local time, set this value to true.
-schedule_isLocalTime :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Bool)
-schedule_isLocalTime = Lens.lens (\Schedule' {isLocalTime} -> isLocalTime) (\s@Schedule' {} a -> s {isLocalTime = a} :: Schedule)
-
--- | The scheduled time, in ISO 8601 format, when the campaign ended or will
--- end.
-schedule_endTime :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
-schedule_endTime = Lens.lens (\Schedule' {endTime} -> endTime) (\s@Schedule' {} a -> s {endTime = a} :: Schedule)
 
 -- | Specifies how often the campaign is sent or whether the campaign is sent
 -- in response to a specific event.
@@ -180,6 +164,22 @@ schedule_frequency = Lens.lens (\Schedule' {frequency} -> frequency) (\s@Schedul
 schedule_quietTime :: Lens.Lens' Schedule (Prelude.Maybe QuietTime)
 schedule_quietTime = Lens.lens (\Schedule' {quietTime} -> quietTime) (\s@Schedule' {} a -> s {quietTime = a} :: Schedule)
 
+-- | The type of event that causes the campaign to be sent, if the value of
+-- the Frequency property is EVENT.
+schedule_eventFilter :: Lens.Lens' Schedule (Prelude.Maybe CampaignEventFilter)
+schedule_eventFilter = Lens.lens (\Schedule' {eventFilter} -> eventFilter) (\s@Schedule' {} a -> s {eventFilter = a} :: Schedule)
+
+-- | Specifies whether the start and end times for the campaign schedule use
+-- each recipient\'s local time. To base the schedule on each recipient\'s
+-- local time, set this value to true.
+schedule_isLocalTime :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Bool)
+schedule_isLocalTime = Lens.lens (\Schedule' {isLocalTime} -> isLocalTime) (\s@Schedule' {} a -> s {isLocalTime = a} :: Schedule)
+
+-- | The scheduled time, in ISO 8601 format, when the campaign ended or will
+-- end.
+schedule_endTime :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
+schedule_endTime = Lens.lens (\Schedule' {endTime} -> endTime) (\s@Schedule' {} a -> s {endTime = a} :: Schedule)
+
 -- | The starting UTC offset for the campaign schedule, if the value of the
 -- IsLocalTime property is true. Valid values are: UTC, UTC+01, UTC+02,
 -- UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05, UTC+05:30, UTC+05:45,
@@ -201,11 +201,11 @@ instance Core.FromJSON Schedule where
       "Schedule"
       ( \x ->
           Schedule'
-            Prelude.<$> (x Core..:? "EventFilter")
+            Prelude.<$> (x Core..:? "Frequency")
+            Prelude.<*> (x Core..:? "QuietTime")
+            Prelude.<*> (x Core..:? "EventFilter")
             Prelude.<*> (x Core..:? "IsLocalTime")
             Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "Frequency")
-            Prelude.<*> (x Core..:? "QuietTime")
             Prelude.<*> (x Core..:? "Timezone")
             Prelude.<*> (x Core..: "StartTime")
       )
@@ -218,11 +218,11 @@ instance Core.ToJSON Schedule where
   toJSON Schedule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EventFilter" Core..=) Prelude.<$> eventFilter,
+          [ ("Frequency" Core..=) Prelude.<$> frequency,
+            ("QuietTime" Core..=) Prelude.<$> quietTime,
+            ("EventFilter" Core..=) Prelude.<$> eventFilter,
             ("IsLocalTime" Core..=) Prelude.<$> isLocalTime,
             ("EndTime" Core..=) Prelude.<$> endTime,
-            ("Frequency" Core..=) Prelude.<$> frequency,
-            ("QuietTime" Core..=) Prelude.<$> quietTime,
             ("Timezone" Core..=) Prelude.<$> timezone,
             Prelude.Just ("StartTime" Core..= startTime)
           ]

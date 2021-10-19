@@ -55,7 +55,7 @@ newRandomSplitActivity =
 -- | The paths for the activity, including the percentage of participants to
 -- enter each path and the activity to perform for each path.
 randomSplitActivity_branches :: Lens.Lens' RandomSplitActivity (Prelude.Maybe [RandomSplitEntry])
-randomSplitActivity_branches = Lens.lens (\RandomSplitActivity' {branches} -> branches) (\s@RandomSplitActivity' {} a -> s {branches = a} :: RandomSplitActivity) Prelude.. Lens.mapping Lens._Coerce
+randomSplitActivity_branches = Lens.lens (\RandomSplitActivity' {branches} -> branches) (\s@RandomSplitActivity' {} a -> s {branches = a} :: RandomSplitActivity) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON RandomSplitActivity where
   parseJSON =

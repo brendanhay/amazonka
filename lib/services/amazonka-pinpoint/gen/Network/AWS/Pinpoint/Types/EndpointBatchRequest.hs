@@ -56,7 +56,7 @@ newEndpointBatchRequest =
 -- endpoint, the property values to set or change. An array can contain a
 -- maximum of 100 items.
 endpointBatchRequest_item :: Lens.Lens' EndpointBatchRequest [EndpointBatchItem]
-endpointBatchRequest_item = Lens.lens (\EndpointBatchRequest' {item} -> item) (\s@EndpointBatchRequest' {} a -> s {item = a} :: EndpointBatchRequest) Prelude.. Lens._Coerce
+endpointBatchRequest_item = Lens.lens (\EndpointBatchRequest' {item} -> item) (\s@EndpointBatchRequest' {} a -> s {item = a} :: EndpointBatchRequest) Prelude.. Lens.coerced
 
 instance Prelude.Hashable EndpointBatchRequest
 

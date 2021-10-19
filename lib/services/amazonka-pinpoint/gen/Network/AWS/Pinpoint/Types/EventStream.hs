@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEventStream' smart constructor.
 data EventStream = EventStream'
-  { -- | The date, in ISO 8601 format, when the event stream was last modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.Text,
-    -- | The IAM user who last modified the event stream.
+  { -- | The IAM user who last modified the event stream.
     lastUpdatedBy :: Prelude.Maybe Prelude.Text,
+    -- | The date, in ISO 8601 format, when the event stream was last modified.
+    lastModifiedDate :: Prelude.Maybe Prelude.Text,
     -- | (Deprecated) Your AWS account ID, which you assigned to an external ID
     -- key in an IAM trust policy. Amazon Pinpoint previously used this value
     -- to assume an IAM role when publishing event data, but we removed this
@@ -63,9 +63,9 @@ data EventStream = EventStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedDate', 'eventStream_lastModifiedDate' - The date, in ISO 8601 format, when the event stream was last modified.
---
 -- 'lastUpdatedBy', 'eventStream_lastUpdatedBy' - The IAM user who last modified the event stream.
+--
+-- 'lastModifiedDate', 'eventStream_lastModifiedDate' - The date, in ISO 8601 format, when the event stream was last modified.
 --
 -- 'externalId', 'eventStream_externalId' - (Deprecated) Your AWS account ID, which you assigned to an external ID
 -- key in an IAM trust policy. Amazon Pinpoint previously used this value
@@ -99,21 +99,21 @@ newEventStream
   pRoleArn_
   pDestinationStreamArn_ =
     EventStream'
-      { lastModifiedDate = Prelude.Nothing,
-        lastUpdatedBy = Prelude.Nothing,
+      { lastUpdatedBy = Prelude.Nothing,
+        lastModifiedDate = Prelude.Nothing,
         externalId = Prelude.Nothing,
         applicationId = pApplicationId_,
         roleArn = pRoleArn_,
         destinationStreamArn = pDestinationStreamArn_
       }
 
--- | The date, in ISO 8601 format, when the event stream was last modified.
-eventStream_lastModifiedDate :: Lens.Lens' EventStream (Prelude.Maybe Prelude.Text)
-eventStream_lastModifiedDate = Lens.lens (\EventStream' {lastModifiedDate} -> lastModifiedDate) (\s@EventStream' {} a -> s {lastModifiedDate = a} :: EventStream)
-
 -- | The IAM user who last modified the event stream.
 eventStream_lastUpdatedBy :: Lens.Lens' EventStream (Prelude.Maybe Prelude.Text)
 eventStream_lastUpdatedBy = Lens.lens (\EventStream' {lastUpdatedBy} -> lastUpdatedBy) (\s@EventStream' {} a -> s {lastUpdatedBy = a} :: EventStream)
+
+-- | The date, in ISO 8601 format, when the event stream was last modified.
+eventStream_lastModifiedDate :: Lens.Lens' EventStream (Prelude.Maybe Prelude.Text)
+eventStream_lastModifiedDate = Lens.lens (\EventStream' {lastModifiedDate} -> lastModifiedDate) (\s@EventStream' {} a -> s {lastModifiedDate = a} :: EventStream)
 
 -- | (Deprecated) Your AWS account ID, which you assigned to an external ID
 -- key in an IAM trust policy. Amazon Pinpoint previously used this value
@@ -149,8 +149,8 @@ instance Core.FromJSON EventStream where
       "EventStream"
       ( \x ->
           EventStream'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "LastUpdatedBy")
+            Prelude.<$> (x Core..:? "LastUpdatedBy")
+            Prelude.<*> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "ExternalId")
             Prelude.<*> (x Core..: "ApplicationId")
             Prelude.<*> (x Core..: "RoleArn")

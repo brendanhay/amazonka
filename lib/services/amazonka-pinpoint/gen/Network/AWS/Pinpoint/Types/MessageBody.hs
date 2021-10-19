@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMessageBody' smart constructor.
 data MessageBody = MessageBody'
-  { -- | The message that\'s returned from the API.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the request or response.
-    requestID :: Prelude.Maybe Prelude.Text
+  { -- | The unique identifier for the request or response.
+    requestID :: Prelude.Maybe Prelude.Text,
+    -- | The message that\'s returned from the API.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data MessageBody = MessageBody'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'messageBody_message' - The message that\'s returned from the API.
---
 -- 'requestID', 'messageBody_requestID' - The unique identifier for the request or response.
+--
+-- 'message', 'messageBody_message' - The message that\'s returned from the API.
 newMessageBody ::
   MessageBody
 newMessageBody =
   MessageBody'
-    { message = Prelude.Nothing,
-      requestID = Prelude.Nothing
+    { requestID = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The message that\'s returned from the API.
-messageBody_message :: Lens.Lens' MessageBody (Prelude.Maybe Prelude.Text)
-messageBody_message = Lens.lens (\MessageBody' {message} -> message) (\s@MessageBody' {} a -> s {message = a} :: MessageBody)
 
 -- | The unique identifier for the request or response.
 messageBody_requestID :: Lens.Lens' MessageBody (Prelude.Maybe Prelude.Text)
 messageBody_requestID = Lens.lens (\MessageBody' {requestID} -> requestID) (\s@MessageBody' {} a -> s {requestID = a} :: MessageBody)
+
+-- | The message that\'s returned from the API.
+messageBody_message :: Lens.Lens' MessageBody (Prelude.Maybe Prelude.Text)
+messageBody_message = Lens.lens (\MessageBody' {message} -> message) (\s@MessageBody' {} a -> s {message = a} :: MessageBody)
 
 instance Core.FromJSON MessageBody where
   parseJSON =
@@ -67,8 +67,8 @@ instance Core.FromJSON MessageBody where
       "MessageBody"
       ( \x ->
           MessageBody'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "RequestID")
+            Prelude.<$> (x Core..:? "RequestID")
+            Prelude.<*> (x Core..:? "Message")
       )
 
 instance Prelude.Hashable MessageBody

@@ -39,16 +39,16 @@ data TreatmentResource = TreatmentResource'
     customDeliveryConfiguration :: Prelude.Maybe CustomDeliveryConfiguration,
     -- | The current status of the treatment.
     state :: Prelude.Maybe CampaignState,
-    -- | The message configuration settings for the treatment.
-    messageConfiguration :: Prelude.Maybe MessageConfiguration,
-    -- | The custom name of the treatment.
-    treatmentName :: Prelude.Maybe Prelude.Text,
-    -- | The message template to use for the treatment.
-    templateConfiguration :: Prelude.Maybe TemplateConfiguration,
     -- | The schedule settings for the treatment.
     schedule :: Prelude.Maybe Schedule,
+    -- | The message template to use for the treatment.
+    templateConfiguration :: Prelude.Maybe TemplateConfiguration,
+    -- | The custom name of the treatment.
+    treatmentName :: Prelude.Maybe Prelude.Text,
     -- | The custom description of the treatment.
     treatmentDescription :: Prelude.Maybe Prelude.Text,
+    -- | The message configuration settings for the treatment.
+    messageConfiguration :: Prelude.Maybe MessageConfiguration,
     -- | The unique identifier for the treatment.
     id :: Prelude.Text,
     -- | The allocated percentage of users (segment members) that the treatment
@@ -71,15 +71,15 @@ data TreatmentResource = TreatmentResource'
 --
 -- 'state', 'treatmentResource_state' - The current status of the treatment.
 --
--- 'messageConfiguration', 'treatmentResource_messageConfiguration' - The message configuration settings for the treatment.
---
--- 'treatmentName', 'treatmentResource_treatmentName' - The custom name of the treatment.
+-- 'schedule', 'treatmentResource_schedule' - The schedule settings for the treatment.
 --
 -- 'templateConfiguration', 'treatmentResource_templateConfiguration' - The message template to use for the treatment.
 --
--- 'schedule', 'treatmentResource_schedule' - The schedule settings for the treatment.
+-- 'treatmentName', 'treatmentResource_treatmentName' - The custom name of the treatment.
 --
 -- 'treatmentDescription', 'treatmentResource_treatmentDescription' - The custom description of the treatment.
+--
+-- 'messageConfiguration', 'treatmentResource_messageConfiguration' - The message configuration settings for the treatment.
 --
 -- 'id', 'treatmentResource_id' - The unique identifier for the treatment.
 --
@@ -96,11 +96,11 @@ newTreatmentResource pId_ pSizePercent_ =
     { customDeliveryConfiguration =
         Prelude.Nothing,
       state = Prelude.Nothing,
-      messageConfiguration = Prelude.Nothing,
-      treatmentName = Prelude.Nothing,
-      templateConfiguration = Prelude.Nothing,
       schedule = Prelude.Nothing,
+      templateConfiguration = Prelude.Nothing,
+      treatmentName = Prelude.Nothing,
       treatmentDescription = Prelude.Nothing,
+      messageConfiguration = Prelude.Nothing,
       id = pId_,
       sizePercent = pSizePercent_
     }
@@ -115,25 +115,25 @@ treatmentResource_customDeliveryConfiguration = Lens.lens (\TreatmentResource' {
 treatmentResource_state :: Lens.Lens' TreatmentResource (Prelude.Maybe CampaignState)
 treatmentResource_state = Lens.lens (\TreatmentResource' {state} -> state) (\s@TreatmentResource' {} a -> s {state = a} :: TreatmentResource)
 
--- | The message configuration settings for the treatment.
-treatmentResource_messageConfiguration :: Lens.Lens' TreatmentResource (Prelude.Maybe MessageConfiguration)
-treatmentResource_messageConfiguration = Lens.lens (\TreatmentResource' {messageConfiguration} -> messageConfiguration) (\s@TreatmentResource' {} a -> s {messageConfiguration = a} :: TreatmentResource)
-
--- | The custom name of the treatment.
-treatmentResource_treatmentName :: Lens.Lens' TreatmentResource (Prelude.Maybe Prelude.Text)
-treatmentResource_treatmentName = Lens.lens (\TreatmentResource' {treatmentName} -> treatmentName) (\s@TreatmentResource' {} a -> s {treatmentName = a} :: TreatmentResource)
+-- | The schedule settings for the treatment.
+treatmentResource_schedule :: Lens.Lens' TreatmentResource (Prelude.Maybe Schedule)
+treatmentResource_schedule = Lens.lens (\TreatmentResource' {schedule} -> schedule) (\s@TreatmentResource' {} a -> s {schedule = a} :: TreatmentResource)
 
 -- | The message template to use for the treatment.
 treatmentResource_templateConfiguration :: Lens.Lens' TreatmentResource (Prelude.Maybe TemplateConfiguration)
 treatmentResource_templateConfiguration = Lens.lens (\TreatmentResource' {templateConfiguration} -> templateConfiguration) (\s@TreatmentResource' {} a -> s {templateConfiguration = a} :: TreatmentResource)
 
--- | The schedule settings for the treatment.
-treatmentResource_schedule :: Lens.Lens' TreatmentResource (Prelude.Maybe Schedule)
-treatmentResource_schedule = Lens.lens (\TreatmentResource' {schedule} -> schedule) (\s@TreatmentResource' {} a -> s {schedule = a} :: TreatmentResource)
+-- | The custom name of the treatment.
+treatmentResource_treatmentName :: Lens.Lens' TreatmentResource (Prelude.Maybe Prelude.Text)
+treatmentResource_treatmentName = Lens.lens (\TreatmentResource' {treatmentName} -> treatmentName) (\s@TreatmentResource' {} a -> s {treatmentName = a} :: TreatmentResource)
 
 -- | The custom description of the treatment.
 treatmentResource_treatmentDescription :: Lens.Lens' TreatmentResource (Prelude.Maybe Prelude.Text)
 treatmentResource_treatmentDescription = Lens.lens (\TreatmentResource' {treatmentDescription} -> treatmentDescription) (\s@TreatmentResource' {} a -> s {treatmentDescription = a} :: TreatmentResource)
+
+-- | The message configuration settings for the treatment.
+treatmentResource_messageConfiguration :: Lens.Lens' TreatmentResource (Prelude.Maybe MessageConfiguration)
+treatmentResource_messageConfiguration = Lens.lens (\TreatmentResource' {messageConfiguration} -> messageConfiguration) (\s@TreatmentResource' {} a -> s {messageConfiguration = a} :: TreatmentResource)
 
 -- | The unique identifier for the treatment.
 treatmentResource_id :: Lens.Lens' TreatmentResource Prelude.Text
@@ -152,11 +152,11 @@ instance Core.FromJSON TreatmentResource where
           TreatmentResource'
             Prelude.<$> (x Core..:? "CustomDeliveryConfiguration")
             Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "MessageConfiguration")
-            Prelude.<*> (x Core..:? "TreatmentName")
-            Prelude.<*> (x Core..:? "TemplateConfiguration")
             Prelude.<*> (x Core..:? "Schedule")
+            Prelude.<*> (x Core..:? "TemplateConfiguration")
+            Prelude.<*> (x Core..:? "TreatmentName")
             Prelude.<*> (x Core..:? "TreatmentDescription")
+            Prelude.<*> (x Core..:? "MessageConfiguration")
             Prelude.<*> (x Core..: "Id")
             Prelude.<*> (x Core..: "SizePercent")
       )

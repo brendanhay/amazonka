@@ -66,7 +66,7 @@ newTagsModel = TagsModel' {tags = Prelude.mempty}
 -- maximum length of a tag key is 128 characters. The maximum length of a
 -- tag value is 256 characters.
 tagsModel_tags :: Lens.Lens' TagsModel (Prelude.HashMap Prelude.Text Prelude.Text)
-tagsModel_tags = Lens.lens (\TagsModel' {tags} -> tags) (\s@TagsModel' {} a -> s {tags = a} :: TagsModel) Prelude.. Lens._Coerce
+tagsModel_tags = Lens.lens (\TagsModel' {tags} -> tags) (\s@TagsModel' {} a -> s {tags = a} :: TagsModel) Prelude.. Lens.coerced
 
 instance Core.FromJSON TagsModel where
   parseJSON =

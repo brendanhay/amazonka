@@ -68,7 +68,7 @@ condition_operator = Lens.lens (\Condition' {operator} -> operator) (\s@Conditio
 
 -- | The conditions to evaluate for the activity.
 condition_conditions :: Lens.Lens' Condition (Prelude.Maybe [SimpleCondition])
-condition_conditions = Lens.lens (\Condition' {conditions} -> conditions) (\s@Condition' {} a -> s {conditions = a} :: Condition) Prelude.. Lens.mapping Lens._Coerce
+condition_conditions = Lens.lens (\Condition' {conditions} -> conditions) (\s@Condition' {} a -> s {conditions = a} :: Condition) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Condition where
   parseJSON =

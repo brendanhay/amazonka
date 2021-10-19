@@ -70,7 +70,7 @@ activitiesResponse_nextToken = Lens.lens (\ActivitiesResponse' {nextToken} -> ne
 -- | An array of responses, one for each activity that was performed by the
 -- campaign.
 activitiesResponse_item :: Lens.Lens' ActivitiesResponse [ActivityResponse]
-activitiesResponse_item = Lens.lens (\ActivitiesResponse' {item} -> item) (\s@ActivitiesResponse' {} a -> s {item = a} :: ActivitiesResponse) Prelude.. Lens._Coerce
+activitiesResponse_item = Lens.lens (\ActivitiesResponse' {item} -> item) (\s@ActivitiesResponse' {} a -> s {item = a} :: ActivitiesResponse) Prelude.. Lens.coerced
 
 instance Core.FromJSON ActivitiesResponse where
   parseJSON =

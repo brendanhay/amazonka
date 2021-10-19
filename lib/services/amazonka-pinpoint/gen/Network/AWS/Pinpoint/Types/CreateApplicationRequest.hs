@@ -66,7 +66,7 @@ newCreateApplicationRequest pName_ =
 -- associate with the application. Each tag consists of a required tag key
 -- and an associated tag value.
 createApplicationRequest_tags :: Lens.Lens' CreateApplicationRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createApplicationRequest_tags = Lens.lens (\CreateApplicationRequest' {tags} -> tags) (\s@CreateApplicationRequest' {} a -> s {tags = a} :: CreateApplicationRequest) Prelude.. Lens.mapping Lens._Coerce
+createApplicationRequest_tags = Lens.lens (\CreateApplicationRequest' {tags} -> tags) (\s@CreateApplicationRequest' {} a -> s {tags = a} :: CreateApplicationRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The display name of the application. This name is displayed as the
 -- __Project name__ on the Amazon Pinpoint console.

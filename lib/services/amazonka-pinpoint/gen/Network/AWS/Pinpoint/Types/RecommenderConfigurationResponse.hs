@@ -28,7 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRecommenderConfigurationResponse' smart constructor.
 data RecommenderConfigurationResponse = RecommenderConfigurationResponse'
-  { -- | The custom display name for the standard endpoint or user attribute
+  { -- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that
+    -- Amazon Pinpoint invokes to perform additional processing of
+    -- recommendation data that it retrieves from the recommender model.
+    recommendationTransformerUri :: Prelude.Maybe Prelude.Text,
+    -- | The custom display name for the standard endpoint or user attribute
     -- (RecommendationItems) that temporarily stores recommended items for each
     -- endpoint or user, depending on the value for the
     -- RecommendationProviderIdType property. This name appears in the
@@ -39,30 +43,6 @@ data RecommenderConfigurationResponse = RecommenderConfigurationResponse'
     -- function (RecommendationTransformerUri) to perform additional processing
     -- of recommendation data.
     recommendationsDisplayName :: Prelude.Maybe Prelude.Text,
-    -- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that
-    -- Amazon Pinpoint invokes to perform additional processing of
-    -- recommendation data that it retrieves from the recommender model.
-    recommendationTransformerUri :: Prelude.Maybe Prelude.Text,
-    -- | The custom name of the configuration for the recommender model.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A map that defines 1-10 custom endpoint or user attributes, depending on
-    -- the value for the RecommendationProviderIdType property. Each of these
-    -- attributes temporarily stores a recommended item that\'s retrieved from
-    -- the recommender model and sent to an AWS Lambda function for additional
-    -- processing. Each attribute can be used as a message variable in a
-    -- message template.
-    --
-    -- This value is null if the configuration doesn\'t invoke an AWS Lambda
-    -- function (RecommendationTransformerUri) to perform additional processing
-    -- of recommendation data.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The custom description of the configuration for the recommender model.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The number of recommended items that are retrieved from the model for
-    -- each endpoint or user, depending on the value for the
-    -- RecommendationProviderIdType property. This number determines how many
-    -- recommended items are available for use in message variables.
-    recommendationsPerMessage :: Prelude.Maybe Prelude.Int,
     -- | The type of Amazon Pinpoint ID that\'s associated with unique user IDs
     -- in the recommender model. This value enables the model to use attribute
     -- and event data that’s specific to a particular endpoint or user in an
@@ -79,6 +59,26 @@ data RecommenderConfigurationResponse = RecommenderConfigurationResponse'
     --     both a user ID (UserId) and an endpoint ID. Otherwise, messages
     --     won’t be sent to the user\'s endpoint.
     recommendationProviderIdType :: Prelude.Maybe Prelude.Text,
+    -- | A map that defines 1-10 custom endpoint or user attributes, depending on
+    -- the value for the RecommendationProviderIdType property. Each of these
+    -- attributes temporarily stores a recommended item that\'s retrieved from
+    -- the recommender model and sent to an AWS Lambda function for additional
+    -- processing. Each attribute can be used as a message variable in a
+    -- message template.
+    --
+    -- This value is null if the configuration doesn\'t invoke an AWS Lambda
+    -- function (RecommendationTransformerUri) to perform additional processing
+    -- of recommendation data.
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The custom name of the configuration for the recommender model.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The custom description of the configuration for the recommender model.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The number of recommended items that are retrieved from the model for
+    -- each endpoint or user, depending on the value for the
+    -- RecommendationProviderIdType property. This number determines how many
+    -- recommended items are available for use in message variables.
+    recommendationsPerMessage :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the recommender model that Amazon
     -- Pinpoint retrieves the recommendation data from. This value is the ARN
     -- of an Amazon Personalize campaign.
@@ -106,6 +106,10 @@ data RecommenderConfigurationResponse = RecommenderConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'recommendationTransformerUri', 'recommenderConfigurationResponse_recommendationTransformerUri' - The name or Amazon Resource Name (ARN) of the AWS Lambda function that
+-- Amazon Pinpoint invokes to perform additional processing of
+-- recommendation data that it retrieves from the recommender model.
+--
 -- 'recommendationsDisplayName', 'recommenderConfigurationResponse_recommendationsDisplayName' - The custom display name for the standard endpoint or user attribute
 -- (RecommendationItems) that temporarily stores recommended items for each
 -- endpoint or user, depending on the value for the
@@ -116,30 +120,6 @@ data RecommenderConfigurationResponse = RecommenderConfigurationResponse'
 -- This value is null if the configuration doesn\'t invoke an AWS Lambda
 -- function (RecommendationTransformerUri) to perform additional processing
 -- of recommendation data.
---
--- 'recommendationTransformerUri', 'recommenderConfigurationResponse_recommendationTransformerUri' - The name or Amazon Resource Name (ARN) of the AWS Lambda function that
--- Amazon Pinpoint invokes to perform additional processing of
--- recommendation data that it retrieves from the recommender model.
---
--- 'name', 'recommenderConfigurationResponse_name' - The custom name of the configuration for the recommender model.
---
--- 'attributes', 'recommenderConfigurationResponse_attributes' - A map that defines 1-10 custom endpoint or user attributes, depending on
--- the value for the RecommendationProviderIdType property. Each of these
--- attributes temporarily stores a recommended item that\'s retrieved from
--- the recommender model and sent to an AWS Lambda function for additional
--- processing. Each attribute can be used as a message variable in a
--- message template.
---
--- This value is null if the configuration doesn\'t invoke an AWS Lambda
--- function (RecommendationTransformerUri) to perform additional processing
--- of recommendation data.
---
--- 'description', 'recommenderConfigurationResponse_description' - The custom description of the configuration for the recommender model.
---
--- 'recommendationsPerMessage', 'recommenderConfigurationResponse_recommendationsPerMessage' - The number of recommended items that are retrieved from the model for
--- each endpoint or user, depending on the value for the
--- RecommendationProviderIdType property. This number determines how many
--- recommended items are available for use in message variables.
 --
 -- 'recommendationProviderIdType', 'recommenderConfigurationResponse_recommendationProviderIdType' - The type of Amazon Pinpoint ID that\'s associated with unique user IDs
 -- in the recommender model. This value enables the model to use attribute
@@ -156,6 +136,26 @@ data RecommenderConfigurationResponse = RecommenderConfigurationResponse'
 --     specified, an endpoint definition in Amazon Pinpoint has to specify
 --     both a user ID (UserId) and an endpoint ID. Otherwise, messages
 --     won’t be sent to the user\'s endpoint.
+--
+-- 'attributes', 'recommenderConfigurationResponse_attributes' - A map that defines 1-10 custom endpoint or user attributes, depending on
+-- the value for the RecommendationProviderIdType property. Each of these
+-- attributes temporarily stores a recommended item that\'s retrieved from
+-- the recommender model and sent to an AWS Lambda function for additional
+-- processing. Each attribute can be used as a message variable in a
+-- message template.
+--
+-- This value is null if the configuration doesn\'t invoke an AWS Lambda
+-- function (RecommendationTransformerUri) to perform additional processing
+-- of recommendation data.
+--
+-- 'name', 'recommenderConfigurationResponse_name' - The custom name of the configuration for the recommender model.
+--
+-- 'description', 'recommenderConfigurationResponse_description' - The custom description of the configuration for the recommender model.
+--
+-- 'recommendationsPerMessage', 'recommenderConfigurationResponse_recommendationsPerMessage' - The number of recommended items that are retrieved from the model for
+-- each endpoint or user, depending on the value for the
+-- RecommendationProviderIdType property. This number determines how many
+-- recommended items are available for use in message variables.
 --
 -- 'recommendationProviderUri', 'recommenderConfigurationResponse_recommendationProviderUri' - The Amazon Resource Name (ARN) of the recommender model that Amazon
 -- Pinpoint retrieves the recommendation data from. This value is the ARN
@@ -191,16 +191,16 @@ newRecommenderConfigurationResponse
   pRecommendationProviderRoleArn_
   pId_ =
     RecommenderConfigurationResponse'
-      { recommendationsDisplayName =
+      { recommendationTransformerUri =
           Prelude.Nothing,
-        recommendationTransformerUri =
-          Prelude.Nothing,
-        name = Prelude.Nothing,
-        attributes = Prelude.Nothing,
-        description = Prelude.Nothing,
-        recommendationsPerMessage =
+        recommendationsDisplayName =
           Prelude.Nothing,
         recommendationProviderIdType =
+          Prelude.Nothing,
+        attributes = Prelude.Nothing,
+        name = Prelude.Nothing,
+        description = Prelude.Nothing,
+        recommendationsPerMessage =
           Prelude.Nothing,
         recommendationProviderUri =
           pRecommendationProviderUri_,
@@ -210,6 +210,12 @@ newRecommenderConfigurationResponse
           pRecommendationProviderRoleArn_,
         id = pId_
       }
+
+-- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that
+-- Amazon Pinpoint invokes to perform additional processing of
+-- recommendation data that it retrieves from the recommender model.
+recommenderConfigurationResponse_recommendationTransformerUri :: Lens.Lens' RecommenderConfigurationResponse (Prelude.Maybe Prelude.Text)
+recommenderConfigurationResponse_recommendationTransformerUri = Lens.lens (\RecommenderConfigurationResponse' {recommendationTransformerUri} -> recommendationTransformerUri) (\s@RecommenderConfigurationResponse' {} a -> s {recommendationTransformerUri = a} :: RecommenderConfigurationResponse)
 
 -- | The custom display name for the standard endpoint or user attribute
 -- (RecommendationItems) that temporarily stores recommended items for each
@@ -223,40 +229,6 @@ newRecommenderConfigurationResponse
 -- of recommendation data.
 recommenderConfigurationResponse_recommendationsDisplayName :: Lens.Lens' RecommenderConfigurationResponse (Prelude.Maybe Prelude.Text)
 recommenderConfigurationResponse_recommendationsDisplayName = Lens.lens (\RecommenderConfigurationResponse' {recommendationsDisplayName} -> recommendationsDisplayName) (\s@RecommenderConfigurationResponse' {} a -> s {recommendationsDisplayName = a} :: RecommenderConfigurationResponse)
-
--- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that
--- Amazon Pinpoint invokes to perform additional processing of
--- recommendation data that it retrieves from the recommender model.
-recommenderConfigurationResponse_recommendationTransformerUri :: Lens.Lens' RecommenderConfigurationResponse (Prelude.Maybe Prelude.Text)
-recommenderConfigurationResponse_recommendationTransformerUri = Lens.lens (\RecommenderConfigurationResponse' {recommendationTransformerUri} -> recommendationTransformerUri) (\s@RecommenderConfigurationResponse' {} a -> s {recommendationTransformerUri = a} :: RecommenderConfigurationResponse)
-
--- | The custom name of the configuration for the recommender model.
-recommenderConfigurationResponse_name :: Lens.Lens' RecommenderConfigurationResponse (Prelude.Maybe Prelude.Text)
-recommenderConfigurationResponse_name = Lens.lens (\RecommenderConfigurationResponse' {name} -> name) (\s@RecommenderConfigurationResponse' {} a -> s {name = a} :: RecommenderConfigurationResponse)
-
--- | A map that defines 1-10 custom endpoint or user attributes, depending on
--- the value for the RecommendationProviderIdType property. Each of these
--- attributes temporarily stores a recommended item that\'s retrieved from
--- the recommender model and sent to an AWS Lambda function for additional
--- processing. Each attribute can be used as a message variable in a
--- message template.
---
--- This value is null if the configuration doesn\'t invoke an AWS Lambda
--- function (RecommendationTransformerUri) to perform additional processing
--- of recommendation data.
-recommenderConfigurationResponse_attributes :: Lens.Lens' RecommenderConfigurationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-recommenderConfigurationResponse_attributes = Lens.lens (\RecommenderConfigurationResponse' {attributes} -> attributes) (\s@RecommenderConfigurationResponse' {} a -> s {attributes = a} :: RecommenderConfigurationResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The custom description of the configuration for the recommender model.
-recommenderConfigurationResponse_description :: Lens.Lens' RecommenderConfigurationResponse (Prelude.Maybe Prelude.Text)
-recommenderConfigurationResponse_description = Lens.lens (\RecommenderConfigurationResponse' {description} -> description) (\s@RecommenderConfigurationResponse' {} a -> s {description = a} :: RecommenderConfigurationResponse)
-
--- | The number of recommended items that are retrieved from the model for
--- each endpoint or user, depending on the value for the
--- RecommendationProviderIdType property. This number determines how many
--- recommended items are available for use in message variables.
-recommenderConfigurationResponse_recommendationsPerMessage :: Lens.Lens' RecommenderConfigurationResponse (Prelude.Maybe Prelude.Int)
-recommenderConfigurationResponse_recommendationsPerMessage = Lens.lens (\RecommenderConfigurationResponse' {recommendationsPerMessage} -> recommendationsPerMessage) (\s@RecommenderConfigurationResponse' {} a -> s {recommendationsPerMessage = a} :: RecommenderConfigurationResponse)
 
 -- | The type of Amazon Pinpoint ID that\'s associated with unique user IDs
 -- in the recommender model. This value enables the model to use attribute
@@ -275,6 +247,34 @@ recommenderConfigurationResponse_recommendationsPerMessage = Lens.lens (\Recomme
 --     won’t be sent to the user\'s endpoint.
 recommenderConfigurationResponse_recommendationProviderIdType :: Lens.Lens' RecommenderConfigurationResponse (Prelude.Maybe Prelude.Text)
 recommenderConfigurationResponse_recommendationProviderIdType = Lens.lens (\RecommenderConfigurationResponse' {recommendationProviderIdType} -> recommendationProviderIdType) (\s@RecommenderConfigurationResponse' {} a -> s {recommendationProviderIdType = a} :: RecommenderConfigurationResponse)
+
+-- | A map that defines 1-10 custom endpoint or user attributes, depending on
+-- the value for the RecommendationProviderIdType property. Each of these
+-- attributes temporarily stores a recommended item that\'s retrieved from
+-- the recommender model and sent to an AWS Lambda function for additional
+-- processing. Each attribute can be used as a message variable in a
+-- message template.
+--
+-- This value is null if the configuration doesn\'t invoke an AWS Lambda
+-- function (RecommendationTransformerUri) to perform additional processing
+-- of recommendation data.
+recommenderConfigurationResponse_attributes :: Lens.Lens' RecommenderConfigurationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+recommenderConfigurationResponse_attributes = Lens.lens (\RecommenderConfigurationResponse' {attributes} -> attributes) (\s@RecommenderConfigurationResponse' {} a -> s {attributes = a} :: RecommenderConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The custom name of the configuration for the recommender model.
+recommenderConfigurationResponse_name :: Lens.Lens' RecommenderConfigurationResponse (Prelude.Maybe Prelude.Text)
+recommenderConfigurationResponse_name = Lens.lens (\RecommenderConfigurationResponse' {name} -> name) (\s@RecommenderConfigurationResponse' {} a -> s {name = a} :: RecommenderConfigurationResponse)
+
+-- | The custom description of the configuration for the recommender model.
+recommenderConfigurationResponse_description :: Lens.Lens' RecommenderConfigurationResponse (Prelude.Maybe Prelude.Text)
+recommenderConfigurationResponse_description = Lens.lens (\RecommenderConfigurationResponse' {description} -> description) (\s@RecommenderConfigurationResponse' {} a -> s {description = a} :: RecommenderConfigurationResponse)
+
+-- | The number of recommended items that are retrieved from the model for
+-- each endpoint or user, depending on the value for the
+-- RecommendationProviderIdType property. This number determines how many
+-- recommended items are available for use in message variables.
+recommenderConfigurationResponse_recommendationsPerMessage :: Lens.Lens' RecommenderConfigurationResponse (Prelude.Maybe Prelude.Int)
+recommenderConfigurationResponse_recommendationsPerMessage = Lens.lens (\RecommenderConfigurationResponse' {recommendationsPerMessage} -> recommendationsPerMessage) (\s@RecommenderConfigurationResponse' {} a -> s {recommendationsPerMessage = a} :: RecommenderConfigurationResponse)
 
 -- | The Amazon Resource Name (ARN) of the recommender model that Amazon
 -- Pinpoint retrieves the recommendation data from. This value is the ARN
@@ -311,13 +311,13 @@ instance
       "RecommenderConfigurationResponse"
       ( \x ->
           RecommenderConfigurationResponse'
-            Prelude.<$> (x Core..:? "RecommendationsDisplayName")
-            Prelude.<*> (x Core..:? "RecommendationTransformerUri")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "RecommendationTransformerUri")
+            Prelude.<*> (x Core..:? "RecommendationsDisplayName")
+            Prelude.<*> (x Core..:? "RecommendationProviderIdType")
             Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "RecommendationsPerMessage")
-            Prelude.<*> (x Core..:? "RecommendationProviderIdType")
             Prelude.<*> (x Core..: "RecommendationProviderUri")
             Prelude.<*> (x Core..: "LastModifiedDate")
             Prelude.<*> (x Core..: "CreationDate")

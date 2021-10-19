@@ -29,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 data TemplateVersionResponse = TemplateVersionResponse'
   { -- | The custom description of the version of the message template.
     templateDescription :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the version of the message template. This
-    -- value is an integer that Amazon Pinpoint automatically increments and
-    -- assigns to each new version of a template.
-    version :: Prelude.Maybe Prelude.Text,
     -- | A JSON object that specifies the default values that are used for
     -- message variables in the version of the message template. This object is
     -- a set of key-value pairs. Each key defines a message variable in the
     -- template. The corresponding value defines the default value for that
     -- variable.
     defaultSubstitutions :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the version of the message template. This
+    -- value is an integer that Amazon Pinpoint automatically increments and
+    -- assigns to each new version of a template.
+    version :: Prelude.Maybe Prelude.Text,
     -- | The date, in ISO 8601 format, when the version of the message template
     -- was last modified.
     lastModifiedDate :: Prelude.Text,
@@ -63,15 +63,15 @@ data TemplateVersionResponse = TemplateVersionResponse'
 --
 -- 'templateDescription', 'templateVersionResponse_templateDescription' - The custom description of the version of the message template.
 --
--- 'version', 'templateVersionResponse_version' - The unique identifier for the version of the message template. This
--- value is an integer that Amazon Pinpoint automatically increments and
--- assigns to each new version of a template.
---
 -- 'defaultSubstitutions', 'templateVersionResponse_defaultSubstitutions' - A JSON object that specifies the default values that are used for
 -- message variables in the version of the message template. This object is
 -- a set of key-value pairs. Each key defines a message variable in the
 -- template. The corresponding value defines the default value for that
 -- variable.
+--
+-- 'version', 'templateVersionResponse_version' - The unique identifier for the version of the message template. This
+-- value is an integer that Amazon Pinpoint automatically increments and
+-- assigns to each new version of a template.
 --
 -- 'lastModifiedDate', 'templateVersionResponse_lastModifiedDate' - The date, in ISO 8601 format, when the version of the message template
 -- was last modified.
@@ -101,8 +101,8 @@ newTemplateVersionResponse
     TemplateVersionResponse'
       { templateDescription =
           Prelude.Nothing,
-        version = Prelude.Nothing,
         defaultSubstitutions = Prelude.Nothing,
+        version = Prelude.Nothing,
         lastModifiedDate = pLastModifiedDate_,
         creationDate = pCreationDate_,
         templateName = pTemplateName_,
@@ -113,12 +113,6 @@ newTemplateVersionResponse
 templateVersionResponse_templateDescription :: Lens.Lens' TemplateVersionResponse (Prelude.Maybe Prelude.Text)
 templateVersionResponse_templateDescription = Lens.lens (\TemplateVersionResponse' {templateDescription} -> templateDescription) (\s@TemplateVersionResponse' {} a -> s {templateDescription = a} :: TemplateVersionResponse)
 
--- | The unique identifier for the version of the message template. This
--- value is an integer that Amazon Pinpoint automatically increments and
--- assigns to each new version of a template.
-templateVersionResponse_version :: Lens.Lens' TemplateVersionResponse (Prelude.Maybe Prelude.Text)
-templateVersionResponse_version = Lens.lens (\TemplateVersionResponse' {version} -> version) (\s@TemplateVersionResponse' {} a -> s {version = a} :: TemplateVersionResponse)
-
 -- | A JSON object that specifies the default values that are used for
 -- message variables in the version of the message template. This object is
 -- a set of key-value pairs. Each key defines a message variable in the
@@ -126,6 +120,12 @@ templateVersionResponse_version = Lens.lens (\TemplateVersionResponse' {version}
 -- variable.
 templateVersionResponse_defaultSubstitutions :: Lens.Lens' TemplateVersionResponse (Prelude.Maybe Prelude.Text)
 templateVersionResponse_defaultSubstitutions = Lens.lens (\TemplateVersionResponse' {defaultSubstitutions} -> defaultSubstitutions) (\s@TemplateVersionResponse' {} a -> s {defaultSubstitutions = a} :: TemplateVersionResponse)
+
+-- | The unique identifier for the version of the message template. This
+-- value is an integer that Amazon Pinpoint automatically increments and
+-- assigns to each new version of a template.
+templateVersionResponse_version :: Lens.Lens' TemplateVersionResponse (Prelude.Maybe Prelude.Text)
+templateVersionResponse_version = Lens.lens (\TemplateVersionResponse' {version} -> version) (\s@TemplateVersionResponse' {} a -> s {version = a} :: TemplateVersionResponse)
 
 -- | The date, in ISO 8601 format, when the version of the message template
 -- was last modified.
@@ -153,8 +153,8 @@ instance Core.FromJSON TemplateVersionResponse where
       ( \x ->
           TemplateVersionResponse'
             Prelude.<$> (x Core..:? "TemplateDescription")
-            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "DefaultSubstitutions")
+            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..: "LastModifiedDate")
             Prelude.<*> (x Core..: "CreationDate")
             Prelude.<*> (x Core..: "TemplateName")

@@ -28,8 +28,8 @@ module Network.AWS.Pinpoint.GetExportJobs
     newGetExportJobs,
 
     -- * Request Lenses
-    getExportJobs_pageSize,
     getExportJobs_token,
+    getExportJobs_pageSize,
     getExportJobs_applicationId,
 
     -- * Destructuring the Response
@@ -51,13 +51,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetExportJobs' smart constructor.
 data GetExportJobs = GetExportJobs'
-  { -- | The maximum number of items to include in each page of a paginated
+  { -- | The NextToken string that specifies which page of results to return in a
+    -- paginated response.
+    token :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
     pageSize :: Prelude.Maybe Prelude.Text,
-    -- | The NextToken string that specifies which page of results to return in a
-    -- paginated response.
-    token :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
     applicationId :: Prelude.Text
@@ -72,12 +72,12 @@ data GetExportJobs = GetExportJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'token', 'getExportJobs_token' - The NextToken string that specifies which page of results to return in a
+-- paginated response.
+--
 -- 'pageSize', 'getExportJobs_pageSize' - The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
---
--- 'token', 'getExportJobs_token' - The NextToken string that specifies which page of results to return in a
--- paginated response.
 --
 -- 'applicationId', 'getExportJobs_applicationId' - The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -87,21 +87,21 @@ newGetExportJobs ::
   GetExportJobs
 newGetExportJobs pApplicationId_ =
   GetExportJobs'
-    { pageSize = Prelude.Nothing,
-      token = Prelude.Nothing,
+    { token = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
       applicationId = pApplicationId_
     }
+
+-- | The NextToken string that specifies which page of results to return in a
+-- paginated response.
+getExportJobs_token :: Lens.Lens' GetExportJobs (Prelude.Maybe Prelude.Text)
+getExportJobs_token = Lens.lens (\GetExportJobs' {token} -> token) (\s@GetExportJobs' {} a -> s {token = a} :: GetExportJobs)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
 getExportJobs_pageSize :: Lens.Lens' GetExportJobs (Prelude.Maybe Prelude.Text)
 getExportJobs_pageSize = Lens.lens (\GetExportJobs' {pageSize} -> pageSize) (\s@GetExportJobs' {} a -> s {pageSize = a} :: GetExportJobs)
-
--- | The NextToken string that specifies which page of results to return in a
--- paginated response.
-getExportJobs_token :: Lens.Lens' GetExportJobs (Prelude.Maybe Prelude.Text)
-getExportJobs_token = Lens.lens (\GetExportJobs' {token} -> token) (\s@GetExportJobs' {} a -> s {token = a} :: GetExportJobs)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -147,7 +147,7 @@ instance Core.ToPath GetExportJobs where
 instance Core.ToQuery GetExportJobs where
   toQuery GetExportJobs' {..} =
     Prelude.mconcat
-      ["page-size" Core.=: pageSize, "token" Core.=: token]
+      ["token" Core.=: token, "page-size" Core.=: pageSize]
 
 -- | /See:/ 'newGetExportJobsResponse' smart constructor.
 data GetExportJobsResponse = GetExportJobsResponse'

@@ -28,10 +28,10 @@ module Network.AWS.Pinpoint.GetJourneyDateRangeKpi
     newGetJourneyDateRangeKpi,
 
     -- * Request Lenses
-    getJourneyDateRangeKpi_nextToken,
-    getJourneyDateRangeKpi_pageSize,
     getJourneyDateRangeKpi_startTime,
+    getJourneyDateRangeKpi_nextToken,
     getJourneyDateRangeKpi_endTime,
+    getJourneyDateRangeKpi_pageSize,
     getJourneyDateRangeKpi_journeyId,
     getJourneyDateRangeKpi_applicationId,
     getJourneyDateRangeKpi_kpiName,
@@ -55,25 +55,25 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetJourneyDateRangeKpi' smart constructor.
 data GetJourneyDateRangeKpi = GetJourneyDateRangeKpi'
-  { -- | The string that specifies which page of results to return in a paginated
-    -- response. This parameter is not supported for application, campaign, and
-    -- journey metrics.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to include in each page of a paginated
-    -- response. This parameter is not supported for application, campaign, and
-    -- journey metrics.
-    pageSize :: Prelude.Maybe Prelude.Text,
-    -- | The first date and time to retrieve data for, as part of an inclusive
+  { -- | The first date and time to retrieve data for, as part of an inclusive
     -- date range that filters the query results. This value should be in
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value
     -- should also be fewer than 90 days from the current day.
     startTime :: Prelude.Maybe Core.POSIX,
+    -- | The string that specifies which page of results to return in a paginated
+    -- response. This parameter is not supported for application, campaign, and
+    -- journey metrics.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The last date and time to retrieve data for, as part of an inclusive
     -- date range that filters the query results. This value should be in
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The maximum number of items to include in each page of a paginated
+    -- response. This parameter is not supported for application, campaign, and
+    -- journey metrics.
+    pageSize :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the journey.
     journeyId :: Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
@@ -98,24 +98,24 @@ data GetJourneyDateRangeKpi = GetJourneyDateRangeKpi'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getJourneyDateRangeKpi_nextToken' - The string that specifies which page of results to return in a paginated
--- response. This parameter is not supported for application, campaign, and
--- journey metrics.
---
--- 'pageSize', 'getJourneyDateRangeKpi_pageSize' - The maximum number of items to include in each page of a paginated
--- response. This parameter is not supported for application, campaign, and
--- journey metrics.
---
 -- 'startTime', 'getJourneyDateRangeKpi_startTime' - The first date and time to retrieve data for, as part of an inclusive
 -- date range that filters the query results. This value should be in
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value
 -- should also be fewer than 90 days from the current day.
 --
+-- 'nextToken', 'getJourneyDateRangeKpi_nextToken' - The string that specifies which page of results to return in a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
+--
 -- 'endTime', 'getJourneyDateRangeKpi_endTime' - The last date and time to retrieve data for, as part of an inclusive
 -- date range that filters the query results. This value should be in
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+--
+-- 'pageSize', 'getJourneyDateRangeKpi_pageSize' - The maximum number of items to include in each page of a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
 --
 -- 'journeyId', 'getJourneyDateRangeKpi_journeyId' - The unique identifier for the journey.
 --
@@ -142,27 +142,15 @@ newGetJourneyDateRangeKpi
   pApplicationId_
   pKpiName_ =
     GetJourneyDateRangeKpi'
-      { nextToken =
+      { startTime =
           Prelude.Nothing,
-        pageSize = Prelude.Nothing,
-        startTime = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         endTime = Prelude.Nothing,
+        pageSize = Prelude.Nothing,
         journeyId = pJourneyId_,
         applicationId = pApplicationId_,
         kpiName = pKpiName_
       }
-
--- | The string that specifies which page of results to return in a paginated
--- response. This parameter is not supported for application, campaign, and
--- journey metrics.
-getJourneyDateRangeKpi_nextToken :: Lens.Lens' GetJourneyDateRangeKpi (Prelude.Maybe Prelude.Text)
-getJourneyDateRangeKpi_nextToken = Lens.lens (\GetJourneyDateRangeKpi' {nextToken} -> nextToken) (\s@GetJourneyDateRangeKpi' {} a -> s {nextToken = a} :: GetJourneyDateRangeKpi)
-
--- | The maximum number of items to include in each page of a paginated
--- response. This parameter is not supported for application, campaign, and
--- journey metrics.
-getJourneyDateRangeKpi_pageSize :: Lens.Lens' GetJourneyDateRangeKpi (Prelude.Maybe Prelude.Text)
-getJourneyDateRangeKpi_pageSize = Lens.lens (\GetJourneyDateRangeKpi' {pageSize} -> pageSize) (\s@GetJourneyDateRangeKpi' {} a -> s {pageSize = a} :: GetJourneyDateRangeKpi)
 
 -- | The first date and time to retrieve data for, as part of an inclusive
 -- date range that filters the query results. This value should be in
@@ -172,12 +160,24 @@ getJourneyDateRangeKpi_pageSize = Lens.lens (\GetJourneyDateRangeKpi' {pageSize}
 getJourneyDateRangeKpi_startTime :: Lens.Lens' GetJourneyDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
 getJourneyDateRangeKpi_startTime = Lens.lens (\GetJourneyDateRangeKpi' {startTime} -> startTime) (\s@GetJourneyDateRangeKpi' {} a -> s {startTime = a} :: GetJourneyDateRangeKpi) Prelude.. Lens.mapping Core._Time
 
+-- | The string that specifies which page of results to return in a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
+getJourneyDateRangeKpi_nextToken :: Lens.Lens' GetJourneyDateRangeKpi (Prelude.Maybe Prelude.Text)
+getJourneyDateRangeKpi_nextToken = Lens.lens (\GetJourneyDateRangeKpi' {nextToken} -> nextToken) (\s@GetJourneyDateRangeKpi' {} a -> s {nextToken = a} :: GetJourneyDateRangeKpi)
+
 -- | The last date and time to retrieve data for, as part of an inclusive
 -- date range that filters the query results. This value should be in
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
 getJourneyDateRangeKpi_endTime :: Lens.Lens' GetJourneyDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
 getJourneyDateRangeKpi_endTime = Lens.lens (\GetJourneyDateRangeKpi' {endTime} -> endTime) (\s@GetJourneyDateRangeKpi' {} a -> s {endTime = a} :: GetJourneyDateRangeKpi) Prelude.. Lens.mapping Core._Time
+
+-- | The maximum number of items to include in each page of a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
+getJourneyDateRangeKpi_pageSize :: Lens.Lens' GetJourneyDateRangeKpi (Prelude.Maybe Prelude.Text)
+getJourneyDateRangeKpi_pageSize = Lens.lens (\GetJourneyDateRangeKpi' {pageSize} -> pageSize) (\s@GetJourneyDateRangeKpi' {} a -> s {pageSize = a} :: GetJourneyDateRangeKpi)
 
 -- | The unique identifier for the journey.
 getJourneyDateRangeKpi_journeyId :: Lens.Lens' GetJourneyDateRangeKpi Prelude.Text
@@ -240,10 +240,10 @@ instance Core.ToPath GetJourneyDateRangeKpi where
 instance Core.ToQuery GetJourneyDateRangeKpi where
   toQuery GetJourneyDateRangeKpi' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "page-size" Core.=: pageSize,
-        "start-time" Core.=: startTime,
-        "end-time" Core.=: endTime
+      [ "start-time" Core.=: startTime,
+        "next-token" Core.=: nextToken,
+        "end-time" Core.=: endTime,
+        "page-size" Core.=: pageSize
       ]
 
 -- | /See:/ 'newGetJourneyDateRangeKpiResponse' smart constructor.

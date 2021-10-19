@@ -28,16 +28,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newQuietTime' smart constructor.
 data QuietTime = QuietTime'
-  { -- | The specific time when quiet time ends. This value has to use 24-hour
+  { -- | The specific time when quiet time begins. This value has to use 24-hour
     -- notation and be in HH:MM format, where HH is the hour (with a leading
     -- zero, if applicable) and MM is the minutes. For example, use 02:30 to
     -- represent 2:30 AM, or 14:30 to represent 2:30 PM.
-    end :: Prelude.Maybe Prelude.Text,
-    -- | The specific time when quiet time begins. This value has to use 24-hour
+    start :: Prelude.Maybe Prelude.Text,
+    -- | The specific time when quiet time ends. This value has to use 24-hour
     -- notation and be in HH:MM format, where HH is the hour (with a leading
     -- zero, if applicable) and MM is the minutes. For example, use 02:30 to
     -- represent 2:30 AM, or 14:30 to represent 2:30 PM.
-    start :: Prelude.Maybe Prelude.Text
+    end :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,12 +49,12 @@ data QuietTime = QuietTime'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'end', 'quietTime_end' - The specific time when quiet time ends. This value has to use 24-hour
+-- 'start', 'quietTime_start' - The specific time when quiet time begins. This value has to use 24-hour
 -- notation and be in HH:MM format, where HH is the hour (with a leading
 -- zero, if applicable) and MM is the minutes. For example, use 02:30 to
 -- represent 2:30 AM, or 14:30 to represent 2:30 PM.
 --
--- 'start', 'quietTime_start' - The specific time when quiet time begins. This value has to use 24-hour
+-- 'end', 'quietTime_end' - The specific time when quiet time ends. This value has to use 24-hour
 -- notation and be in HH:MM format, where HH is the hour (with a leading
 -- zero, if applicable) and MM is the minutes. For example, use 02:30 to
 -- represent 2:30 AM, or 14:30 to represent 2:30 PM.
@@ -62,16 +62,9 @@ newQuietTime ::
   QuietTime
 newQuietTime =
   QuietTime'
-    { end = Prelude.Nothing,
-      start = Prelude.Nothing
+    { start = Prelude.Nothing,
+      end = Prelude.Nothing
     }
-
--- | The specific time when quiet time ends. This value has to use 24-hour
--- notation and be in HH:MM format, where HH is the hour (with a leading
--- zero, if applicable) and MM is the minutes. For example, use 02:30 to
--- represent 2:30 AM, or 14:30 to represent 2:30 PM.
-quietTime_end :: Lens.Lens' QuietTime (Prelude.Maybe Prelude.Text)
-quietTime_end = Lens.lens (\QuietTime' {end} -> end) (\s@QuietTime' {} a -> s {end = a} :: QuietTime)
 
 -- | The specific time when quiet time begins. This value has to use 24-hour
 -- notation and be in HH:MM format, where HH is the hour (with a leading
@@ -80,13 +73,20 @@ quietTime_end = Lens.lens (\QuietTime' {end} -> end) (\s@QuietTime' {} a -> s {e
 quietTime_start :: Lens.Lens' QuietTime (Prelude.Maybe Prelude.Text)
 quietTime_start = Lens.lens (\QuietTime' {start} -> start) (\s@QuietTime' {} a -> s {start = a} :: QuietTime)
 
+-- | The specific time when quiet time ends. This value has to use 24-hour
+-- notation and be in HH:MM format, where HH is the hour (with a leading
+-- zero, if applicable) and MM is the minutes. For example, use 02:30 to
+-- represent 2:30 AM, or 14:30 to represent 2:30 PM.
+quietTime_end :: Lens.Lens' QuietTime (Prelude.Maybe Prelude.Text)
+quietTime_end = Lens.lens (\QuietTime' {end} -> end) (\s@QuietTime' {} a -> s {end = a} :: QuietTime)
+
 instance Core.FromJSON QuietTime where
   parseJSON =
     Core.withObject
       "QuietTime"
       ( \x ->
           QuietTime'
-            Prelude.<$> (x Core..:? "End") Prelude.<*> (x Core..:? "Start")
+            Prelude.<$> (x Core..:? "Start") Prelude.<*> (x Core..:? "End")
       )
 
 instance Prelude.Hashable QuietTime
@@ -97,7 +97,7 @@ instance Core.ToJSON QuietTime where
   toJSON QuietTime' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("End" Core..=) Prelude.<$> end,
-            ("Start" Core..=) Prelude.<$> start
+          [ ("Start" Core..=) Prelude.<$> start,
+            ("End" Core..=) Prelude.<$> end
           ]
       )

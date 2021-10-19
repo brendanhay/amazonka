@@ -28,28 +28,28 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVoiceChannelResponse' smart constructor.
 data VoiceChannelResponse = VoiceChannelResponse'
-  { -- | The unique identifier for the application that the voice channel applies
-    -- to.
-    applicationId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in ISO 8601 format, when the voice channel was last
+  { -- | The date and time, in ISO 8601 format, when the voice channel was last
     -- modified.
     lastModifiedDate :: Prelude.Maybe Prelude.Text,
-    -- | (Not used) This property is retained only for backward compatibility.
-    hasCredential :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether the voice channel is enabled for the application.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The date and time, in ISO 8601 format, when the voice channel was
-    -- enabled.
-    creationDate :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the voice channel is archived.
+    isArchived :: Prelude.Maybe Prelude.Bool,
+    -- | The unique identifier for the application that the voice channel applies
+    -- to.
+    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The current version of the voice channel.
+    version :: Prelude.Maybe Prelude.Int,
     -- | (Deprecated) An identifier for the voice channel. This property is
     -- retained only for backward compatibility.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The current version of the voice channel.
-    version :: Prelude.Maybe Prelude.Int,
-    -- | Specifies whether the voice channel is archived.
-    isArchived :: Prelude.Maybe Prelude.Bool,
+    -- | The date and time, in ISO 8601 format, when the voice channel was
+    -- enabled.
+    creationDate :: Prelude.Maybe Prelude.Text,
     -- | The user who last modified the voice channel.
     lastModifiedBy :: Prelude.Maybe Prelude.Text,
+    -- | (Not used) This property is retained only for backward compatibility.
+    hasCredential :: Prelude.Maybe Prelude.Bool,
     -- | The type of messaging or notification platform for the channel. For the
     -- voice channel, this value is VOICE.
     platform :: Prelude.Text
@@ -64,27 +64,27 @@ data VoiceChannelResponse = VoiceChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationId', 'voiceChannelResponse_applicationId' - The unique identifier for the application that the voice channel applies
--- to.
---
 -- 'lastModifiedDate', 'voiceChannelResponse_lastModifiedDate' - The date and time, in ISO 8601 format, when the voice channel was last
 -- modified.
 --
--- 'hasCredential', 'voiceChannelResponse_hasCredential' - (Not used) This property is retained only for backward compatibility.
---
 -- 'enabled', 'voiceChannelResponse_enabled' - Specifies whether the voice channel is enabled for the application.
 --
--- 'creationDate', 'voiceChannelResponse_creationDate' - The date and time, in ISO 8601 format, when the voice channel was
--- enabled.
+-- 'isArchived', 'voiceChannelResponse_isArchived' - Specifies whether the voice channel is archived.
+--
+-- 'applicationId', 'voiceChannelResponse_applicationId' - The unique identifier for the application that the voice channel applies
+-- to.
+--
+-- 'version', 'voiceChannelResponse_version' - The current version of the voice channel.
 --
 -- 'id', 'voiceChannelResponse_id' - (Deprecated) An identifier for the voice channel. This property is
 -- retained only for backward compatibility.
 --
--- 'version', 'voiceChannelResponse_version' - The current version of the voice channel.
---
--- 'isArchived', 'voiceChannelResponse_isArchived' - Specifies whether the voice channel is archived.
+-- 'creationDate', 'voiceChannelResponse_creationDate' - The date and time, in ISO 8601 format, when the voice channel was
+-- enabled.
 --
 -- 'lastModifiedBy', 'voiceChannelResponse_lastModifiedBy' - The user who last modified the voice channel.
+--
+-- 'hasCredential', 'voiceChannelResponse_hasCredential' - (Not used) This property is retained only for backward compatibility.
 --
 -- 'platform', 'voiceChannelResponse_platform' - The type of messaging or notification platform for the channel. For the
 -- voice channel, this value is VOICE.
@@ -94,58 +94,58 @@ newVoiceChannelResponse ::
   VoiceChannelResponse
 newVoiceChannelResponse pPlatform_ =
   VoiceChannelResponse'
-    { applicationId =
+    { lastModifiedDate =
         Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
-      hasCredential = Prelude.Nothing,
       enabled = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      id = Prelude.Nothing,
-      version = Prelude.Nothing,
       isArchived = Prelude.Nothing,
+      applicationId = Prelude.Nothing,
+      version = Prelude.Nothing,
+      id = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
       lastModifiedBy = Prelude.Nothing,
+      hasCredential = Prelude.Nothing,
       platform = pPlatform_
     }
-
--- | The unique identifier for the application that the voice channel applies
--- to.
-voiceChannelResponse_applicationId :: Lens.Lens' VoiceChannelResponse (Prelude.Maybe Prelude.Text)
-voiceChannelResponse_applicationId = Lens.lens (\VoiceChannelResponse' {applicationId} -> applicationId) (\s@VoiceChannelResponse' {} a -> s {applicationId = a} :: VoiceChannelResponse)
 
 -- | The date and time, in ISO 8601 format, when the voice channel was last
 -- modified.
 voiceChannelResponse_lastModifiedDate :: Lens.Lens' VoiceChannelResponse (Prelude.Maybe Prelude.Text)
 voiceChannelResponse_lastModifiedDate = Lens.lens (\VoiceChannelResponse' {lastModifiedDate} -> lastModifiedDate) (\s@VoiceChannelResponse' {} a -> s {lastModifiedDate = a} :: VoiceChannelResponse)
 
--- | (Not used) This property is retained only for backward compatibility.
-voiceChannelResponse_hasCredential :: Lens.Lens' VoiceChannelResponse (Prelude.Maybe Prelude.Bool)
-voiceChannelResponse_hasCredential = Lens.lens (\VoiceChannelResponse' {hasCredential} -> hasCredential) (\s@VoiceChannelResponse' {} a -> s {hasCredential = a} :: VoiceChannelResponse)
-
 -- | Specifies whether the voice channel is enabled for the application.
 voiceChannelResponse_enabled :: Lens.Lens' VoiceChannelResponse (Prelude.Maybe Prelude.Bool)
 voiceChannelResponse_enabled = Lens.lens (\VoiceChannelResponse' {enabled} -> enabled) (\s@VoiceChannelResponse' {} a -> s {enabled = a} :: VoiceChannelResponse)
 
--- | The date and time, in ISO 8601 format, when the voice channel was
--- enabled.
-voiceChannelResponse_creationDate :: Lens.Lens' VoiceChannelResponse (Prelude.Maybe Prelude.Text)
-voiceChannelResponse_creationDate = Lens.lens (\VoiceChannelResponse' {creationDate} -> creationDate) (\s@VoiceChannelResponse' {} a -> s {creationDate = a} :: VoiceChannelResponse)
+-- | Specifies whether the voice channel is archived.
+voiceChannelResponse_isArchived :: Lens.Lens' VoiceChannelResponse (Prelude.Maybe Prelude.Bool)
+voiceChannelResponse_isArchived = Lens.lens (\VoiceChannelResponse' {isArchived} -> isArchived) (\s@VoiceChannelResponse' {} a -> s {isArchived = a} :: VoiceChannelResponse)
+
+-- | The unique identifier for the application that the voice channel applies
+-- to.
+voiceChannelResponse_applicationId :: Lens.Lens' VoiceChannelResponse (Prelude.Maybe Prelude.Text)
+voiceChannelResponse_applicationId = Lens.lens (\VoiceChannelResponse' {applicationId} -> applicationId) (\s@VoiceChannelResponse' {} a -> s {applicationId = a} :: VoiceChannelResponse)
+
+-- | The current version of the voice channel.
+voiceChannelResponse_version :: Lens.Lens' VoiceChannelResponse (Prelude.Maybe Prelude.Int)
+voiceChannelResponse_version = Lens.lens (\VoiceChannelResponse' {version} -> version) (\s@VoiceChannelResponse' {} a -> s {version = a} :: VoiceChannelResponse)
 
 -- | (Deprecated) An identifier for the voice channel. This property is
 -- retained only for backward compatibility.
 voiceChannelResponse_id :: Lens.Lens' VoiceChannelResponse (Prelude.Maybe Prelude.Text)
 voiceChannelResponse_id = Lens.lens (\VoiceChannelResponse' {id} -> id) (\s@VoiceChannelResponse' {} a -> s {id = a} :: VoiceChannelResponse)
 
--- | The current version of the voice channel.
-voiceChannelResponse_version :: Lens.Lens' VoiceChannelResponse (Prelude.Maybe Prelude.Int)
-voiceChannelResponse_version = Lens.lens (\VoiceChannelResponse' {version} -> version) (\s@VoiceChannelResponse' {} a -> s {version = a} :: VoiceChannelResponse)
-
--- | Specifies whether the voice channel is archived.
-voiceChannelResponse_isArchived :: Lens.Lens' VoiceChannelResponse (Prelude.Maybe Prelude.Bool)
-voiceChannelResponse_isArchived = Lens.lens (\VoiceChannelResponse' {isArchived} -> isArchived) (\s@VoiceChannelResponse' {} a -> s {isArchived = a} :: VoiceChannelResponse)
+-- | The date and time, in ISO 8601 format, when the voice channel was
+-- enabled.
+voiceChannelResponse_creationDate :: Lens.Lens' VoiceChannelResponse (Prelude.Maybe Prelude.Text)
+voiceChannelResponse_creationDate = Lens.lens (\VoiceChannelResponse' {creationDate} -> creationDate) (\s@VoiceChannelResponse' {} a -> s {creationDate = a} :: VoiceChannelResponse)
 
 -- | The user who last modified the voice channel.
 voiceChannelResponse_lastModifiedBy :: Lens.Lens' VoiceChannelResponse (Prelude.Maybe Prelude.Text)
 voiceChannelResponse_lastModifiedBy = Lens.lens (\VoiceChannelResponse' {lastModifiedBy} -> lastModifiedBy) (\s@VoiceChannelResponse' {} a -> s {lastModifiedBy = a} :: VoiceChannelResponse)
+
+-- | (Not used) This property is retained only for backward compatibility.
+voiceChannelResponse_hasCredential :: Lens.Lens' VoiceChannelResponse (Prelude.Maybe Prelude.Bool)
+voiceChannelResponse_hasCredential = Lens.lens (\VoiceChannelResponse' {hasCredential} -> hasCredential) (\s@VoiceChannelResponse' {} a -> s {hasCredential = a} :: VoiceChannelResponse)
 
 -- | The type of messaging or notification platform for the channel. For the
 -- voice channel, this value is VOICE.
@@ -158,15 +158,15 @@ instance Core.FromJSON VoiceChannelResponse where
       "VoiceChannelResponse"
       ( \x ->
           VoiceChannelResponse'
-            Prelude.<$> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "HasCredential")
+            Prelude.<$> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "IsArchived")
+            Prelude.<*> (x Core..:? "ApplicationId")
+            Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "LastModifiedBy")
+            Prelude.<*> (x Core..:? "HasCredential")
             Prelude.<*> (x Core..: "Platform")
       )
 

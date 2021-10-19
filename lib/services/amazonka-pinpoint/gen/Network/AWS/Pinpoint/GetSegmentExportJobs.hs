@@ -28,8 +28,8 @@ module Network.AWS.Pinpoint.GetSegmentExportJobs
     newGetSegmentExportJobs,
 
     -- * Request Lenses
-    getSegmentExportJobs_pageSize,
     getSegmentExportJobs_token,
+    getSegmentExportJobs_pageSize,
     getSegmentExportJobs_segmentId,
     getSegmentExportJobs_applicationId,
 
@@ -52,13 +52,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetSegmentExportJobs' smart constructor.
 data GetSegmentExportJobs = GetSegmentExportJobs'
-  { -- | The maximum number of items to include in each page of a paginated
+  { -- | The NextToken string that specifies which page of results to return in a
+    -- paginated response.
+    token :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
     pageSize :: Prelude.Maybe Prelude.Text,
-    -- | The NextToken string that specifies which page of results to return in a
-    -- paginated response.
-    token :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the segment.
     segmentId :: Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
@@ -75,12 +75,12 @@ data GetSegmentExportJobs = GetSegmentExportJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'token', 'getSegmentExportJobs_token' - The NextToken string that specifies which page of results to return in a
+-- paginated response.
+--
 -- 'pageSize', 'getSegmentExportJobs_pageSize' - The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
---
--- 'token', 'getSegmentExportJobs_token' - The NextToken string that specifies which page of results to return in a
--- paginated response.
 --
 -- 'segmentId', 'getSegmentExportJobs_segmentId' - The unique identifier for the segment.
 --
@@ -94,22 +94,22 @@ newGetSegmentExportJobs ::
   GetSegmentExportJobs
 newGetSegmentExportJobs pSegmentId_ pApplicationId_ =
   GetSegmentExportJobs'
-    { pageSize = Prelude.Nothing,
-      token = Prelude.Nothing,
+    { token = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
       segmentId = pSegmentId_,
       applicationId = pApplicationId_
     }
+
+-- | The NextToken string that specifies which page of results to return in a
+-- paginated response.
+getSegmentExportJobs_token :: Lens.Lens' GetSegmentExportJobs (Prelude.Maybe Prelude.Text)
+getSegmentExportJobs_token = Lens.lens (\GetSegmentExportJobs' {token} -> token) (\s@GetSegmentExportJobs' {} a -> s {token = a} :: GetSegmentExportJobs)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
 getSegmentExportJobs_pageSize :: Lens.Lens' GetSegmentExportJobs (Prelude.Maybe Prelude.Text)
 getSegmentExportJobs_pageSize = Lens.lens (\GetSegmentExportJobs' {pageSize} -> pageSize) (\s@GetSegmentExportJobs' {} a -> s {pageSize = a} :: GetSegmentExportJobs)
-
--- | The NextToken string that specifies which page of results to return in a
--- paginated response.
-getSegmentExportJobs_token :: Lens.Lens' GetSegmentExportJobs (Prelude.Maybe Prelude.Text)
-getSegmentExportJobs_token = Lens.lens (\GetSegmentExportJobs' {token} -> token) (\s@GetSegmentExportJobs' {} a -> s {token = a} :: GetSegmentExportJobs)
 
 -- | The unique identifier for the segment.
 getSegmentExportJobs_segmentId :: Lens.Lens' GetSegmentExportJobs Prelude.Text
@@ -161,7 +161,7 @@ instance Core.ToPath GetSegmentExportJobs where
 instance Core.ToQuery GetSegmentExportJobs where
   toQuery GetSegmentExportJobs' {..} =
     Prelude.mconcat
-      ["page-size" Core.=: pageSize, "token" Core.=: token]
+      ["token" Core.=: token, "page-size" Core.=: pageSize]
 
 -- | /See:/ 'newGetSegmentExportJobsResponse' smart constructor.
 data GetSegmentExportJobsResponse = GetSegmentExportJobsResponse'

@@ -29,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newWaitTime' smart constructor.
 data WaitTime = WaitTime'
-  { -- | The date and time, in ISO 8601 format, when Amazon Pinpoint determines
-    -- whether the activity\'s conditions have been met or the activity moves
-    -- participants to the next activity in the journey.
-    waitUntil :: Prelude.Maybe Prelude.Text,
-    -- | The amount of time to wait, as a duration in ISO 8601 format, before
+  { -- | The amount of time to wait, as a duration in ISO 8601 format, before
     -- determining whether the activity\'s conditions have been met or moving
     -- participants to the next activity in the journey.
-    waitFor :: Prelude.Maybe Prelude.Text
+    waitFor :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, in ISO 8601 format, when Amazon Pinpoint determines
+    -- whether the activity\'s conditions have been met or the activity moves
+    -- participants to the next activity in the journey.
+    waitUntil :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,20 @@ data WaitTime = WaitTime'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'waitUntil', 'waitTime_waitUntil' - The date and time, in ISO 8601 format, when Amazon Pinpoint determines
--- whether the activity\'s conditions have been met or the activity moves
--- participants to the next activity in the journey.
---
 -- 'waitFor', 'waitTime_waitFor' - The amount of time to wait, as a duration in ISO 8601 format, before
 -- determining whether the activity\'s conditions have been met or moving
+-- participants to the next activity in the journey.
+--
+-- 'waitUntil', 'waitTime_waitUntil' - The date and time, in ISO 8601 format, when Amazon Pinpoint determines
+-- whether the activity\'s conditions have been met or the activity moves
 -- participants to the next activity in the journey.
 newWaitTime ::
   WaitTime
 newWaitTime =
   WaitTime'
-    { waitUntil = Prelude.Nothing,
-      waitFor = Prelude.Nothing
+    { waitFor = Prelude.Nothing,
+      waitUntil = Prelude.Nothing
     }
-
--- | The date and time, in ISO 8601 format, when Amazon Pinpoint determines
--- whether the activity\'s conditions have been met or the activity moves
--- participants to the next activity in the journey.
-waitTime_waitUntil :: Lens.Lens' WaitTime (Prelude.Maybe Prelude.Text)
-waitTime_waitUntil = Lens.lens (\WaitTime' {waitUntil} -> waitUntil) (\s@WaitTime' {} a -> s {waitUntil = a} :: WaitTime)
 
 -- | The amount of time to wait, as a duration in ISO 8601 format, before
 -- determining whether the activity\'s conditions have been met or moving
@@ -75,14 +69,20 @@ waitTime_waitUntil = Lens.lens (\WaitTime' {waitUntil} -> waitUntil) (\s@WaitTim
 waitTime_waitFor :: Lens.Lens' WaitTime (Prelude.Maybe Prelude.Text)
 waitTime_waitFor = Lens.lens (\WaitTime' {waitFor} -> waitFor) (\s@WaitTime' {} a -> s {waitFor = a} :: WaitTime)
 
+-- | The date and time, in ISO 8601 format, when Amazon Pinpoint determines
+-- whether the activity\'s conditions have been met or the activity moves
+-- participants to the next activity in the journey.
+waitTime_waitUntil :: Lens.Lens' WaitTime (Prelude.Maybe Prelude.Text)
+waitTime_waitUntil = Lens.lens (\WaitTime' {waitUntil} -> waitUntil) (\s@WaitTime' {} a -> s {waitUntil = a} :: WaitTime)
+
 instance Core.FromJSON WaitTime where
   parseJSON =
     Core.withObject
       "WaitTime"
       ( \x ->
           WaitTime'
-            Prelude.<$> (x Core..:? "WaitUntil")
-            Prelude.<*> (x Core..:? "WaitFor")
+            Prelude.<$> (x Core..:? "WaitFor")
+            Prelude.<*> (x Core..:? "WaitUntil")
       )
 
 instance Prelude.Hashable WaitTime
@@ -93,7 +93,7 @@ instance Core.ToJSON WaitTime where
   toJSON WaitTime' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("WaitUntil" Core..=) Prelude.<$> waitUntil,
-            ("WaitFor" Core..=) Prelude.<$> waitFor
+          [ ("WaitFor" Core..=) Prelude.<$> waitFor,
+            ("WaitUntil" Core..=) Prelude.<$> waitUntil
           ]
       )

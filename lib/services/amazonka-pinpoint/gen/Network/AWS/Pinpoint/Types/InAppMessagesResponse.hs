@@ -52,7 +52,7 @@ newInAppMessagesResponse =
 
 -- | List of targeted in-app message campaigns.
 inAppMessagesResponse_inAppMessageCampaigns :: Lens.Lens' InAppMessagesResponse (Prelude.Maybe [InAppMessageCampaign])
-inAppMessagesResponse_inAppMessageCampaigns = Lens.lens (\InAppMessagesResponse' {inAppMessageCampaigns} -> inAppMessageCampaigns) (\s@InAppMessagesResponse' {} a -> s {inAppMessageCampaigns = a} :: InAppMessagesResponse) Prelude.. Lens.mapping Lens._Coerce
+inAppMessagesResponse_inAppMessageCampaigns = Lens.lens (\InAppMessagesResponse' {inAppMessageCampaigns} -> inAppMessageCampaigns) (\s@InAppMessagesResponse' {} a -> s {inAppMessageCampaigns = a} :: InAppMessagesResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON InAppMessagesResponse where
   parseJSON =

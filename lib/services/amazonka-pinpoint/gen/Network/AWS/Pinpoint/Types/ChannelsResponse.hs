@@ -54,7 +54,7 @@ newChannelsResponse =
 -- | A map that contains a multipart response for each channel. For each item
 -- in this object, the ChannelType is the key and the Channel is the value.
 channelsResponse_channels :: Lens.Lens' ChannelsResponse (Prelude.HashMap Prelude.Text ChannelResponse)
-channelsResponse_channels = Lens.lens (\ChannelsResponse' {channels} -> channels) (\s@ChannelsResponse' {} a -> s {channels = a} :: ChannelsResponse) Prelude.. Lens._Coerce
+channelsResponse_channels = Lens.lens (\ChannelsResponse' {channels} -> channels) (\s@ChannelsResponse' {} a -> s {channels = a} :: ChannelsResponse) Prelude.. Lens.coerced
 
 instance Core.FromJSON ChannelsResponse where
   parseJSON =

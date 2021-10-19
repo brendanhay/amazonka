@@ -87,7 +87,7 @@ newAttributesResource pAttributeType_ pApplicationId_ =
 -- | An array that specifies the names of the attributes that were removed
 -- from the endpoints.
 attributesResource_attributes :: Lens.Lens' AttributesResource (Prelude.Maybe [Prelude.Text])
-attributesResource_attributes = Lens.lens (\AttributesResource' {attributes} -> attributes) (\s@AttributesResource' {} a -> s {attributes = a} :: AttributesResource) Prelude.. Lens.mapping Lens._Coerce
+attributesResource_attributes = Lens.lens (\AttributesResource' {attributes} -> attributes) (\s@AttributesResource' {} a -> s {attributes = a} :: AttributesResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of attribute or attributes that were removed from the
 -- endpoints. Valid values are:

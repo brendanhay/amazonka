@@ -34,10 +34,8 @@ data ApplicationSettingsResource = ApplicationSettingsResource'
   { -- | The date and time, in ISO 8601 format, when the application\'s settings
     -- were last modified.
     lastModifiedDate :: Prelude.Maybe Prelude.Text,
-    -- | The settings for the AWS Lambda function to invoke by default as a code
-    -- hook for campaigns in the application. You can use this hook to
-    -- customize segments that are used by campaigns in the application.
-    campaignHook :: Prelude.Maybe CampaignHook,
+    -- | The default sending limits for campaigns in the application.
+    limits :: Prelude.Maybe CampaignLimits,
     -- | The default quiet time for campaigns in the application. Quiet time is a
     -- specific time range when messages aren\'t sent to endpoints, if all the
     -- following conditions are met:
@@ -58,8 +56,10 @@ data ApplicationSettingsResource = ApplicationSettingsResource'
     -- If any of the preceding conditions isn\'t met, the endpoint will receive
     -- messages from a campaign or journey, even if quiet time is enabled.
     quietTime :: Prelude.Maybe QuietTime,
-    -- | The default sending limits for campaigns in the application.
-    limits :: Prelude.Maybe CampaignLimits,
+    -- | The settings for the AWS Lambda function to invoke by default as a code
+    -- hook for campaigns in the application. You can use this hook to
+    -- customize segments that are used by campaigns in the application.
+    campaignHook :: Prelude.Maybe CampaignHook,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
     applicationId :: Prelude.Text
@@ -77,9 +77,7 @@ data ApplicationSettingsResource = ApplicationSettingsResource'
 -- 'lastModifiedDate', 'applicationSettingsResource_lastModifiedDate' - The date and time, in ISO 8601 format, when the application\'s settings
 -- were last modified.
 --
--- 'campaignHook', 'applicationSettingsResource_campaignHook' - The settings for the AWS Lambda function to invoke by default as a code
--- hook for campaigns in the application. You can use this hook to
--- customize segments that are used by campaigns in the application.
+-- 'limits', 'applicationSettingsResource_limits' - The default sending limits for campaigns in the application.
 --
 -- 'quietTime', 'applicationSettingsResource_quietTime' - The default quiet time for campaigns in the application. Quiet time is a
 -- specific time range when messages aren\'t sent to endpoints, if all the
@@ -101,7 +99,9 @@ data ApplicationSettingsResource = ApplicationSettingsResource'
 -- If any of the preceding conditions isn\'t met, the endpoint will receive
 -- messages from a campaign or journey, even if quiet time is enabled.
 --
--- 'limits', 'applicationSettingsResource_limits' - The default sending limits for campaigns in the application.
+-- 'campaignHook', 'applicationSettingsResource_campaignHook' - The settings for the AWS Lambda function to invoke by default as a code
+-- hook for campaigns in the application. You can use this hook to
+-- customize segments that are used by campaigns in the application.
 --
 -- 'applicationId', 'applicationSettingsResource_applicationId' - The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -113,9 +113,9 @@ newApplicationSettingsResource pApplicationId_ =
   ApplicationSettingsResource'
     { lastModifiedDate =
         Prelude.Nothing,
-      campaignHook = Prelude.Nothing,
-      quietTime = Prelude.Nothing,
       limits = Prelude.Nothing,
+      quietTime = Prelude.Nothing,
+      campaignHook = Prelude.Nothing,
       applicationId = pApplicationId_
     }
 
@@ -124,11 +124,9 @@ newApplicationSettingsResource pApplicationId_ =
 applicationSettingsResource_lastModifiedDate :: Lens.Lens' ApplicationSettingsResource (Prelude.Maybe Prelude.Text)
 applicationSettingsResource_lastModifiedDate = Lens.lens (\ApplicationSettingsResource' {lastModifiedDate} -> lastModifiedDate) (\s@ApplicationSettingsResource' {} a -> s {lastModifiedDate = a} :: ApplicationSettingsResource)
 
--- | The settings for the AWS Lambda function to invoke by default as a code
--- hook for campaigns in the application. You can use this hook to
--- customize segments that are used by campaigns in the application.
-applicationSettingsResource_campaignHook :: Lens.Lens' ApplicationSettingsResource (Prelude.Maybe CampaignHook)
-applicationSettingsResource_campaignHook = Lens.lens (\ApplicationSettingsResource' {campaignHook} -> campaignHook) (\s@ApplicationSettingsResource' {} a -> s {campaignHook = a} :: ApplicationSettingsResource)
+-- | The default sending limits for campaigns in the application.
+applicationSettingsResource_limits :: Lens.Lens' ApplicationSettingsResource (Prelude.Maybe CampaignLimits)
+applicationSettingsResource_limits = Lens.lens (\ApplicationSettingsResource' {limits} -> limits) (\s@ApplicationSettingsResource' {} a -> s {limits = a} :: ApplicationSettingsResource)
 
 -- | The default quiet time for campaigns in the application. Quiet time is a
 -- specific time range when messages aren\'t sent to endpoints, if all the
@@ -152,9 +150,11 @@ applicationSettingsResource_campaignHook = Lens.lens (\ApplicationSettingsResour
 applicationSettingsResource_quietTime :: Lens.Lens' ApplicationSettingsResource (Prelude.Maybe QuietTime)
 applicationSettingsResource_quietTime = Lens.lens (\ApplicationSettingsResource' {quietTime} -> quietTime) (\s@ApplicationSettingsResource' {} a -> s {quietTime = a} :: ApplicationSettingsResource)
 
--- | The default sending limits for campaigns in the application.
-applicationSettingsResource_limits :: Lens.Lens' ApplicationSettingsResource (Prelude.Maybe CampaignLimits)
-applicationSettingsResource_limits = Lens.lens (\ApplicationSettingsResource' {limits} -> limits) (\s@ApplicationSettingsResource' {} a -> s {limits = a} :: ApplicationSettingsResource)
+-- | The settings for the AWS Lambda function to invoke by default as a code
+-- hook for campaigns in the application. You can use this hook to
+-- customize segments that are used by campaigns in the application.
+applicationSettingsResource_campaignHook :: Lens.Lens' ApplicationSettingsResource (Prelude.Maybe CampaignHook)
+applicationSettingsResource_campaignHook = Lens.lens (\ApplicationSettingsResource' {campaignHook} -> campaignHook) (\s@ApplicationSettingsResource' {} a -> s {campaignHook = a} :: ApplicationSettingsResource)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -168,9 +168,9 @@ instance Core.FromJSON ApplicationSettingsResource where
       ( \x ->
           ApplicationSettingsResource'
             Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "CampaignHook")
-            Prelude.<*> (x Core..:? "QuietTime")
             Prelude.<*> (x Core..:? "Limits")
+            Prelude.<*> (x Core..:? "QuietTime")
+            Prelude.<*> (x Core..:? "CampaignHook")
             Prelude.<*> (x Core..: "ApplicationId")
       )
 

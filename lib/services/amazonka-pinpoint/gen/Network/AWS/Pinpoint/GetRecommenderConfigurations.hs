@@ -28,8 +28,8 @@ module Network.AWS.Pinpoint.GetRecommenderConfigurations
     newGetRecommenderConfigurations,
 
     -- * Request Lenses
-    getRecommenderConfigurations_pageSize,
     getRecommenderConfigurations_token,
+    getRecommenderConfigurations_pageSize,
 
     -- * Destructuring the Response
     GetRecommenderConfigurationsResponse (..),
@@ -50,13 +50,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetRecommenderConfigurations' smart constructor.
 data GetRecommenderConfigurations = GetRecommenderConfigurations'
-  { -- | The maximum number of items to include in each page of a paginated
+  { -- | The NextToken string that specifies which page of results to return in a
+    -- paginated response.
+    token :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Prelude.Maybe Prelude.Text,
-    -- | The NextToken string that specifies which page of results to return in a
-    -- paginated response.
-    token :: Prelude.Maybe Prelude.Text
+    pageSize :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,31 +68,31 @@ data GetRecommenderConfigurations = GetRecommenderConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'token', 'getRecommenderConfigurations_token' - The NextToken string that specifies which page of results to return in a
+-- paginated response.
+--
 -- 'pageSize', 'getRecommenderConfigurations_pageSize' - The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
---
--- 'token', 'getRecommenderConfigurations_token' - The NextToken string that specifies which page of results to return in a
--- paginated response.
 newGetRecommenderConfigurations ::
   GetRecommenderConfigurations
 newGetRecommenderConfigurations =
   GetRecommenderConfigurations'
-    { pageSize =
+    { token =
         Prelude.Nothing,
-      token = Prelude.Nothing
+      pageSize = Prelude.Nothing
     }
+
+-- | The NextToken string that specifies which page of results to return in a
+-- paginated response.
+getRecommenderConfigurations_token :: Lens.Lens' GetRecommenderConfigurations (Prelude.Maybe Prelude.Text)
+getRecommenderConfigurations_token = Lens.lens (\GetRecommenderConfigurations' {token} -> token) (\s@GetRecommenderConfigurations' {} a -> s {token = a} :: GetRecommenderConfigurations)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
 getRecommenderConfigurations_pageSize :: Lens.Lens' GetRecommenderConfigurations (Prelude.Maybe Prelude.Text)
 getRecommenderConfigurations_pageSize = Lens.lens (\GetRecommenderConfigurations' {pageSize} -> pageSize) (\s@GetRecommenderConfigurations' {} a -> s {pageSize = a} :: GetRecommenderConfigurations)
-
--- | The NextToken string that specifies which page of results to return in a
--- paginated response.
-getRecommenderConfigurations_token :: Lens.Lens' GetRecommenderConfigurations (Prelude.Maybe Prelude.Text)
-getRecommenderConfigurations_token = Lens.lens (\GetRecommenderConfigurations' {token} -> token) (\s@GetRecommenderConfigurations' {} a -> s {token = a} :: GetRecommenderConfigurations)
 
 instance Core.AWSRequest GetRecommenderConfigurations where
   type
@@ -130,7 +130,7 @@ instance Core.ToPath GetRecommenderConfigurations where
 instance Core.ToQuery GetRecommenderConfigurations where
   toQuery GetRecommenderConfigurations' {..} =
     Prelude.mconcat
-      ["page-size" Core.=: pageSize, "token" Core.=: token]
+      ["token" Core.=: token, "page-size" Core.=: pageSize]
 
 -- | /See:/ 'newGetRecommenderConfigurationsResponse' smart constructor.
 data GetRecommenderConfigurationsResponse = GetRecommenderConfigurationsResponse'

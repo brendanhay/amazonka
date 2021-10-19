@@ -66,7 +66,7 @@ eventsBatch_endpoint = Lens.lens (\EventsBatch' {endpoint} -> endpoint) (\s@Even
 
 -- | A set of properties that are associated with the event.
 eventsBatch_events :: Lens.Lens' EventsBatch (Prelude.HashMap Prelude.Text Event)
-eventsBatch_events = Lens.lens (\EventsBatch' {events} -> events) (\s@EventsBatch' {} a -> s {events = a} :: EventsBatch) Prelude.. Lens._Coerce
+eventsBatch_events = Lens.lens (\EventsBatch' {events} -> events) (\s@EventsBatch' {} a -> s {events = a} :: EventsBatch) Prelude.. Lens.coerced
 
 instance Prelude.Hashable EventsBatch
 

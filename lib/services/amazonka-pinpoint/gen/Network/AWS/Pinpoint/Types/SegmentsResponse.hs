@@ -73,7 +73,7 @@ segmentsResponse_nextToken = Lens.lens (\SegmentsResponse' {nextToken} -> nextTo
 -- application (Segments resource) or each version of a segment that\'s
 -- associated with the application (Segment Versions resource).
 segmentsResponse_item :: Lens.Lens' SegmentsResponse [SegmentResponse]
-segmentsResponse_item = Lens.lens (\SegmentsResponse' {item} -> item) (\s@SegmentsResponse' {} a -> s {item = a} :: SegmentsResponse) Prelude.. Lens._Coerce
+segmentsResponse_item = Lens.lens (\SegmentsResponse' {item} -> item) (\s@SegmentsResponse' {} a -> s {item = a} :: SegmentsResponse) Prelude.. Lens.coerced
 
 instance Core.FromJSON SegmentsResponse where
   parseJSON =

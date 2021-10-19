@@ -84,7 +84,7 @@ newCustomDeliveryConfiguration pDeliveryUri_ =
 -- value maps to a type of channel that you can associate with an endpoint
 -- by using the ChannelType property of an endpoint.
 customDeliveryConfiguration_endpointTypes :: Lens.Lens' CustomDeliveryConfiguration (Prelude.Maybe [EndpointTypesElement])
-customDeliveryConfiguration_endpointTypes = Lens.lens (\CustomDeliveryConfiguration' {endpointTypes} -> endpointTypes) (\s@CustomDeliveryConfiguration' {} a -> s {endpointTypes = a} :: CustomDeliveryConfiguration) Prelude.. Lens.mapping Lens._Coerce
+customDeliveryConfiguration_endpointTypes = Lens.lens (\CustomDeliveryConfiguration' {endpointTypes} -> endpointTypes) (\s@CustomDeliveryConfiguration' {} a -> s {endpointTypes = a} :: CustomDeliveryConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The destination to send the campaign or treatment to. This value can be
 -- one of the following:

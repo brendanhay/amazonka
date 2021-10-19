@@ -33,9 +33,6 @@ data PushMessageActivity = PushMessageActivity'
     -- specified, this value must match the name of an existing message
     -- template.
     templateName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the time to live (TTL) value for push notifications that are
-    -- sent to participants in a journey.
-    messageConfig :: Prelude.Maybe JourneyPushMessage,
     -- | The unique identifier for the version of the push notification template
     -- to use for the message. If specified, this value must match the
     -- identifier for an existing template version. To retrieve a list of
@@ -50,7 +47,10 @@ data PushMessageActivity = PushMessageActivity'
     templateVersion :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the next activity to perform, after the
     -- message is sent.
-    nextActivity :: Prelude.Maybe Prelude.Text
+    nextActivity :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the time to live (TTL) value for push notifications that are
+    -- sent to participants in a journey.
+    messageConfig :: Prelude.Maybe JourneyPushMessage
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,9 +66,6 @@ data PushMessageActivity = PushMessageActivity'
 -- specified, this value must match the name of an existing message
 -- template.
 --
--- 'messageConfig', 'pushMessageActivity_messageConfig' - Specifies the time to live (TTL) value for push notifications that are
--- sent to participants in a journey.
---
 -- 'templateVersion', 'pushMessageActivity_templateVersion' - The unique identifier for the version of the push notification template
 -- to use for the message. If specified, this value must match the
 -- identifier for an existing template version. To retrieve a list of
@@ -83,15 +80,18 @@ data PushMessageActivity = PushMessageActivity'
 --
 -- 'nextActivity', 'pushMessageActivity_nextActivity' - The unique identifier for the next activity to perform, after the
 -- message is sent.
+--
+-- 'messageConfig', 'pushMessageActivity_messageConfig' - Specifies the time to live (TTL) value for push notifications that are
+-- sent to participants in a journey.
 newPushMessageActivity ::
   PushMessageActivity
 newPushMessageActivity =
   PushMessageActivity'
     { templateName =
         Prelude.Nothing,
-      messageConfig = Prelude.Nothing,
       templateVersion = Prelude.Nothing,
-      nextActivity = Prelude.Nothing
+      nextActivity = Prelude.Nothing,
+      messageConfig = Prelude.Nothing
     }
 
 -- | The name of the push notification template to use for the message. If
@@ -99,11 +99,6 @@ newPushMessageActivity =
 -- template.
 pushMessageActivity_templateName :: Lens.Lens' PushMessageActivity (Prelude.Maybe Prelude.Text)
 pushMessageActivity_templateName = Lens.lens (\PushMessageActivity' {templateName} -> templateName) (\s@PushMessageActivity' {} a -> s {templateName = a} :: PushMessageActivity)
-
--- | Specifies the time to live (TTL) value for push notifications that are
--- sent to participants in a journey.
-pushMessageActivity_messageConfig :: Lens.Lens' PushMessageActivity (Prelude.Maybe JourneyPushMessage)
-pushMessageActivity_messageConfig = Lens.lens (\PushMessageActivity' {messageConfig} -> messageConfig) (\s@PushMessageActivity' {} a -> s {messageConfig = a} :: PushMessageActivity)
 
 -- | The unique identifier for the version of the push notification template
 -- to use for the message. If specified, this value must match the
@@ -124,6 +119,11 @@ pushMessageActivity_templateVersion = Lens.lens (\PushMessageActivity' {template
 pushMessageActivity_nextActivity :: Lens.Lens' PushMessageActivity (Prelude.Maybe Prelude.Text)
 pushMessageActivity_nextActivity = Lens.lens (\PushMessageActivity' {nextActivity} -> nextActivity) (\s@PushMessageActivity' {} a -> s {nextActivity = a} :: PushMessageActivity)
 
+-- | Specifies the time to live (TTL) value for push notifications that are
+-- sent to participants in a journey.
+pushMessageActivity_messageConfig :: Lens.Lens' PushMessageActivity (Prelude.Maybe JourneyPushMessage)
+pushMessageActivity_messageConfig = Lens.lens (\PushMessageActivity' {messageConfig} -> messageConfig) (\s@PushMessageActivity' {} a -> s {messageConfig = a} :: PushMessageActivity)
+
 instance Core.FromJSON PushMessageActivity where
   parseJSON =
     Core.withObject
@@ -131,9 +131,9 @@ instance Core.FromJSON PushMessageActivity where
       ( \x ->
           PushMessageActivity'
             Prelude.<$> (x Core..:? "TemplateName")
-            Prelude.<*> (x Core..:? "MessageConfig")
             Prelude.<*> (x Core..:? "TemplateVersion")
             Prelude.<*> (x Core..:? "NextActivity")
+            Prelude.<*> (x Core..:? "MessageConfig")
       )
 
 instance Prelude.Hashable PushMessageActivity
@@ -145,9 +145,9 @@ instance Core.ToJSON PushMessageActivity where
     Core.object
       ( Prelude.catMaybes
           [ ("TemplateName" Core..=) Prelude.<$> templateName,
-            ("MessageConfig" Core..=) Prelude.<$> messageConfig,
             ("TemplateVersion" Core..=)
               Prelude.<$> templateVersion,
-            ("NextActivity" Core..=) Prelude.<$> nextActivity
+            ("NextActivity" Core..=) Prelude.<$> nextActivity,
+            ("MessageConfig" Core..=) Prelude.<$> messageConfig
           ]
       )

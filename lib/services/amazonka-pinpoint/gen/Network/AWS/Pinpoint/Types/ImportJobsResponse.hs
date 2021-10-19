@@ -74,7 +74,7 @@ importJobsResponse_nextToken = Lens.lens (\ImportJobsResponse' {nextToken} -> ne
 -- the application (Import Jobs resource) or segment (Segment Import Jobs
 -- resource).
 importJobsResponse_item :: Lens.Lens' ImportJobsResponse [ImportJobResponse]
-importJobsResponse_item = Lens.lens (\ImportJobsResponse' {item} -> item) (\s@ImportJobsResponse' {} a -> s {item = a} :: ImportJobsResponse) Prelude.. Lens._Coerce
+importJobsResponse_item = Lens.lens (\ImportJobsResponse' {item} -> item) (\s@ImportJobsResponse' {} a -> s {item = a} :: ImportJobsResponse) Prelude.. Lens.coerced
 
 instance Core.FromJSON ImportJobsResponse where
   parseJSON =

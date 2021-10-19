@@ -39,16 +39,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMultiConditionalSplitActivity' smart constructor.
 data MultiConditionalSplitActivity = MultiConditionalSplitActivity'
-  { -- | The unique identifier for the activity to perform for participants who
-    -- don\'t meet any of the conditions specified for other paths in the
-    -- activity.
-    defaultActivity :: Prelude.Maybe Prelude.Text,
+  { -- | The paths for the activity, including the conditions for entering each
+    -- path and the activity to perform for each path.
+    branches :: Prelude.Maybe [MultiConditionalBranch],
     -- | The amount of time to wait or the date and time when Amazon Pinpoint
     -- determines whether the conditions are met.
     evaluationWaitTime :: Prelude.Maybe WaitTime,
-    -- | The paths for the activity, including the conditions for entering each
-    -- path and the activity to perform for each path.
-    branches :: Prelude.Maybe [MultiConditionalBranch]
+    -- | The unique identifier for the activity to perform for participants who
+    -- don\'t meet any of the conditions specified for other paths in the
+    -- activity.
+    defaultActivity :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,24 +60,34 @@ data MultiConditionalSplitActivity = MultiConditionalSplitActivity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultActivity', 'multiConditionalSplitActivity_defaultActivity' - The unique identifier for the activity to perform for participants who
--- don\'t meet any of the conditions specified for other paths in the
--- activity.
+-- 'branches', 'multiConditionalSplitActivity_branches' - The paths for the activity, including the conditions for entering each
+-- path and the activity to perform for each path.
 --
 -- 'evaluationWaitTime', 'multiConditionalSplitActivity_evaluationWaitTime' - The amount of time to wait or the date and time when Amazon Pinpoint
 -- determines whether the conditions are met.
 --
--- 'branches', 'multiConditionalSplitActivity_branches' - The paths for the activity, including the conditions for entering each
--- path and the activity to perform for each path.
+-- 'defaultActivity', 'multiConditionalSplitActivity_defaultActivity' - The unique identifier for the activity to perform for participants who
+-- don\'t meet any of the conditions specified for other paths in the
+-- activity.
 newMultiConditionalSplitActivity ::
   MultiConditionalSplitActivity
 newMultiConditionalSplitActivity =
   MultiConditionalSplitActivity'
-    { defaultActivity =
+    { branches =
         Prelude.Nothing,
       evaluationWaitTime = Prelude.Nothing,
-      branches = Prelude.Nothing
+      defaultActivity = Prelude.Nothing
     }
+
+-- | The paths for the activity, including the conditions for entering each
+-- path and the activity to perform for each path.
+multiConditionalSplitActivity_branches :: Lens.Lens' MultiConditionalSplitActivity (Prelude.Maybe [MultiConditionalBranch])
+multiConditionalSplitActivity_branches = Lens.lens (\MultiConditionalSplitActivity' {branches} -> branches) (\s@MultiConditionalSplitActivity' {} a -> s {branches = a} :: MultiConditionalSplitActivity) Prelude.. Lens.mapping Lens.coerced
+
+-- | The amount of time to wait or the date and time when Amazon Pinpoint
+-- determines whether the conditions are met.
+multiConditionalSplitActivity_evaluationWaitTime :: Lens.Lens' MultiConditionalSplitActivity (Prelude.Maybe WaitTime)
+multiConditionalSplitActivity_evaluationWaitTime = Lens.lens (\MultiConditionalSplitActivity' {evaluationWaitTime} -> evaluationWaitTime) (\s@MultiConditionalSplitActivity' {} a -> s {evaluationWaitTime = a} :: MultiConditionalSplitActivity)
 
 -- | The unique identifier for the activity to perform for participants who
 -- don\'t meet any of the conditions specified for other paths in the
@@ -85,25 +95,15 @@ newMultiConditionalSplitActivity =
 multiConditionalSplitActivity_defaultActivity :: Lens.Lens' MultiConditionalSplitActivity (Prelude.Maybe Prelude.Text)
 multiConditionalSplitActivity_defaultActivity = Lens.lens (\MultiConditionalSplitActivity' {defaultActivity} -> defaultActivity) (\s@MultiConditionalSplitActivity' {} a -> s {defaultActivity = a} :: MultiConditionalSplitActivity)
 
--- | The amount of time to wait or the date and time when Amazon Pinpoint
--- determines whether the conditions are met.
-multiConditionalSplitActivity_evaluationWaitTime :: Lens.Lens' MultiConditionalSplitActivity (Prelude.Maybe WaitTime)
-multiConditionalSplitActivity_evaluationWaitTime = Lens.lens (\MultiConditionalSplitActivity' {evaluationWaitTime} -> evaluationWaitTime) (\s@MultiConditionalSplitActivity' {} a -> s {evaluationWaitTime = a} :: MultiConditionalSplitActivity)
-
--- | The paths for the activity, including the conditions for entering each
--- path and the activity to perform for each path.
-multiConditionalSplitActivity_branches :: Lens.Lens' MultiConditionalSplitActivity (Prelude.Maybe [MultiConditionalBranch])
-multiConditionalSplitActivity_branches = Lens.lens (\MultiConditionalSplitActivity' {branches} -> branches) (\s@MultiConditionalSplitActivity' {} a -> s {branches = a} :: MultiConditionalSplitActivity) Prelude.. Lens.mapping Lens._Coerce
-
 instance Core.FromJSON MultiConditionalSplitActivity where
   parseJSON =
     Core.withObject
       "MultiConditionalSplitActivity"
       ( \x ->
           MultiConditionalSplitActivity'
-            Prelude.<$> (x Core..:? "DefaultActivity")
+            Prelude.<$> (x Core..:? "Branches" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "EvaluationWaitTime")
-            Prelude.<*> (x Core..:? "Branches" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "DefaultActivity")
       )
 
 instance
@@ -116,10 +116,10 @@ instance Core.ToJSON MultiConditionalSplitActivity where
   toJSON MultiConditionalSplitActivity' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DefaultActivity" Core..=)
-              Prelude.<$> defaultActivity,
+          [ ("Branches" Core..=) Prelude.<$> branches,
             ("EvaluationWaitTime" Core..=)
               Prelude.<$> evaluationWaitTime,
-            ("Branches" Core..=) Prelude.<$> branches
+            ("DefaultActivity" Core..=)
+              Prelude.<$> defaultActivity
           ]
       )

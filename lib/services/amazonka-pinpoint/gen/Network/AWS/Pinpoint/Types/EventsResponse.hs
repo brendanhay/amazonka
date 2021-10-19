@@ -62,7 +62,7 @@ newEventsResponse =
 -- following: 202, the request was processed successfully; or 400, the
 -- payload wasn\'t valid or required fields were missing.
 eventsResponse_results :: Lens.Lens' EventsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text ItemResponse))
-eventsResponse_results = Lens.lens (\EventsResponse' {results} -> results) (\s@EventsResponse' {} a -> s {results = a} :: EventsResponse) Prelude.. Lens.mapping Lens._Coerce
+eventsResponse_results = Lens.lens (\EventsResponse' {results} -> results) (\s@EventsResponse' {} a -> s {results = a} :: EventsResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON EventsResponse where
   parseJSON =

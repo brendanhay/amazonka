@@ -65,12 +65,12 @@ newResultRow =
 -- used to group data in a result set that contains multiple results. This
 -- value is null if the data in a result set isn’t grouped.
 resultRow_groupedBys :: Lens.Lens' ResultRow [ResultRowValue]
-resultRow_groupedBys = Lens.lens (\ResultRow' {groupedBys} -> groupedBys) (\s@ResultRow' {} a -> s {groupedBys = a} :: ResultRow) Prelude.. Lens._Coerce
+resultRow_groupedBys = Lens.lens (\ResultRow' {groupedBys} -> groupedBys) (\s@ResultRow' {} a -> s {groupedBys = a} :: ResultRow) Prelude.. Lens.coerced
 
 -- | An array of objects that provides pre-aggregated values for a standard
 -- metric that applies to an application, campaign, or journey.
 resultRow_values :: Lens.Lens' ResultRow [ResultRowValue]
-resultRow_values = Lens.lens (\ResultRow' {values} -> values) (\s@ResultRow' {} a -> s {values = a} :: ResultRow) Prelude.. Lens._Coerce
+resultRow_values = Lens.lens (\ResultRow' {values} -> values) (\s@ResultRow' {} a -> s {values = a} :: ResultRow) Prelude.. Lens.coerced
 
 instance Core.FromJSON ResultRow where
   parseJSON =

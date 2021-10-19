@@ -28,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRandomSplitEntry' smart constructor.
 data RandomSplitEntry = RandomSplitEntry'
-  { -- | The percentage of participants to send down the activity path.
+  { -- | The unique identifier for the next activity to perform, after completing
+    -- the activity for the path.
+    nextActivity :: Prelude.Maybe Prelude.Text,
+    -- | The percentage of participants to send down the activity path.
     --
     -- To determine which participants are sent down each path, Amazon Pinpoint
     -- applies a probability-based algorithm to the percentages that you
     -- specify for the paths. Therefore, the actual percentage of participants
     -- who are sent down a path may not be equal to the percentage that you
     -- specify.
-    percentage :: Prelude.Maybe Prelude.Int,
-    -- | The unique identifier for the next activity to perform, after completing
-    -- the activity for the path.
-    nextActivity :: Prelude.Maybe Prelude.Text
+    percentage :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,6 +50,9 @@ data RandomSplitEntry = RandomSplitEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextActivity', 'randomSplitEntry_nextActivity' - The unique identifier for the next activity to perform, after completing
+-- the activity for the path.
+--
 -- 'percentage', 'randomSplitEntry_percentage' - The percentage of participants to send down the activity path.
 --
 -- To determine which participants are sent down each path, Amazon Pinpoint
@@ -57,16 +60,18 @@ data RandomSplitEntry = RandomSplitEntry'
 -- specify for the paths. Therefore, the actual percentage of participants
 -- who are sent down a path may not be equal to the percentage that you
 -- specify.
---
--- 'nextActivity', 'randomSplitEntry_nextActivity' - The unique identifier for the next activity to perform, after completing
--- the activity for the path.
 newRandomSplitEntry ::
   RandomSplitEntry
 newRandomSplitEntry =
   RandomSplitEntry'
-    { percentage = Prelude.Nothing,
-      nextActivity = Prelude.Nothing
+    { nextActivity = Prelude.Nothing,
+      percentage = Prelude.Nothing
     }
+
+-- | The unique identifier for the next activity to perform, after completing
+-- the activity for the path.
+randomSplitEntry_nextActivity :: Lens.Lens' RandomSplitEntry (Prelude.Maybe Prelude.Text)
+randomSplitEntry_nextActivity = Lens.lens (\RandomSplitEntry' {nextActivity} -> nextActivity) (\s@RandomSplitEntry' {} a -> s {nextActivity = a} :: RandomSplitEntry)
 
 -- | The percentage of participants to send down the activity path.
 --
@@ -78,19 +83,14 @@ newRandomSplitEntry =
 randomSplitEntry_percentage :: Lens.Lens' RandomSplitEntry (Prelude.Maybe Prelude.Int)
 randomSplitEntry_percentage = Lens.lens (\RandomSplitEntry' {percentage} -> percentage) (\s@RandomSplitEntry' {} a -> s {percentage = a} :: RandomSplitEntry)
 
--- | The unique identifier for the next activity to perform, after completing
--- the activity for the path.
-randomSplitEntry_nextActivity :: Lens.Lens' RandomSplitEntry (Prelude.Maybe Prelude.Text)
-randomSplitEntry_nextActivity = Lens.lens (\RandomSplitEntry' {nextActivity} -> nextActivity) (\s@RandomSplitEntry' {} a -> s {nextActivity = a} :: RandomSplitEntry)
-
 instance Core.FromJSON RandomSplitEntry where
   parseJSON =
     Core.withObject
       "RandomSplitEntry"
       ( \x ->
           RandomSplitEntry'
-            Prelude.<$> (x Core..:? "Percentage")
-            Prelude.<*> (x Core..:? "NextActivity")
+            Prelude.<$> (x Core..:? "NextActivity")
+            Prelude.<*> (x Core..:? "Percentage")
       )
 
 instance Prelude.Hashable RandomSplitEntry
@@ -101,7 +101,7 @@ instance Core.ToJSON RandomSplitEntry where
   toJSON RandomSplitEntry' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Percentage" Core..=) Prelude.<$> percentage,
-            ("NextActivity" Core..=) Prelude.<$> nextActivity
+          [ ("NextActivity" Core..=) Prelude.<$> nextActivity,
+            ("Percentage" Core..=) Prelude.<$> percentage
           ]
       )

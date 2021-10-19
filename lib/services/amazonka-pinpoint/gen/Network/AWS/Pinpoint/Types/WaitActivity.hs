@@ -30,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newWaitActivity' smart constructor.
 data WaitActivity = WaitActivity'
-  { -- | The amount of time to wait or the date and time when the activity moves
-    -- participants to the next activity in the journey.
-    waitTime :: Prelude.Maybe WaitTime,
-    -- | The unique identifier for the next activity to perform, after performing
+  { -- | The unique identifier for the next activity to perform, after performing
     -- the wait activity.
-    nextActivity :: Prelude.Maybe Prelude.Text
+    nextActivity :: Prelude.Maybe Prelude.Text,
+    -- | The amount of time to wait or the date and time when the activity moves
+    -- participants to the next activity in the journey.
+    waitTime :: Prelude.Maybe WaitTime
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,28 +47,28 @@ data WaitActivity = WaitActivity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'waitTime', 'waitActivity_waitTime' - The amount of time to wait or the date and time when the activity moves
--- participants to the next activity in the journey.
---
 -- 'nextActivity', 'waitActivity_nextActivity' - The unique identifier for the next activity to perform, after performing
 -- the wait activity.
+--
+-- 'waitTime', 'waitActivity_waitTime' - The amount of time to wait or the date and time when the activity moves
+-- participants to the next activity in the journey.
 newWaitActivity ::
   WaitActivity
 newWaitActivity =
   WaitActivity'
-    { waitTime = Prelude.Nothing,
-      nextActivity = Prelude.Nothing
+    { nextActivity = Prelude.Nothing,
+      waitTime = Prelude.Nothing
     }
-
--- | The amount of time to wait or the date and time when the activity moves
--- participants to the next activity in the journey.
-waitActivity_waitTime :: Lens.Lens' WaitActivity (Prelude.Maybe WaitTime)
-waitActivity_waitTime = Lens.lens (\WaitActivity' {waitTime} -> waitTime) (\s@WaitActivity' {} a -> s {waitTime = a} :: WaitActivity)
 
 -- | The unique identifier for the next activity to perform, after performing
 -- the wait activity.
 waitActivity_nextActivity :: Lens.Lens' WaitActivity (Prelude.Maybe Prelude.Text)
 waitActivity_nextActivity = Lens.lens (\WaitActivity' {nextActivity} -> nextActivity) (\s@WaitActivity' {} a -> s {nextActivity = a} :: WaitActivity)
+
+-- | The amount of time to wait or the date and time when the activity moves
+-- participants to the next activity in the journey.
+waitActivity_waitTime :: Lens.Lens' WaitActivity (Prelude.Maybe WaitTime)
+waitActivity_waitTime = Lens.lens (\WaitActivity' {waitTime} -> waitTime) (\s@WaitActivity' {} a -> s {waitTime = a} :: WaitActivity)
 
 instance Core.FromJSON WaitActivity where
   parseJSON =
@@ -76,8 +76,8 @@ instance Core.FromJSON WaitActivity where
       "WaitActivity"
       ( \x ->
           WaitActivity'
-            Prelude.<$> (x Core..:? "WaitTime")
-            Prelude.<*> (x Core..:? "NextActivity")
+            Prelude.<$> (x Core..:? "NextActivity")
+            Prelude.<*> (x Core..:? "WaitTime")
       )
 
 instance Prelude.Hashable WaitActivity
@@ -88,7 +88,7 @@ instance Core.ToJSON WaitActivity where
   toJSON WaitActivity' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("WaitTime" Core..=) Prelude.<$> waitTime,
-            ("NextActivity" Core..=) Prelude.<$> nextActivity
+          [ ("NextActivity" Core..=) Prelude.<$> nextActivity,
+            ("WaitTime" Core..=) Prelude.<$> waitTime
           ]
       )

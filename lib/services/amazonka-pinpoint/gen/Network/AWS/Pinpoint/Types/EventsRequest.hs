@@ -52,7 +52,7 @@ newEventsRequest =
 -- | The batch of events to process. For each item in a batch, the endpoint
 -- ID acts as a key that has an EventsBatch object as its value.
 eventsRequest_batchItem :: Lens.Lens' EventsRequest (Prelude.HashMap Prelude.Text EventsBatch)
-eventsRequest_batchItem = Lens.lens (\EventsRequest' {batchItem} -> batchItem) (\s@EventsRequest' {} a -> s {batchItem = a} :: EventsRequest) Prelude.. Lens._Coerce
+eventsRequest_batchItem = Lens.lens (\EventsRequest' {batchItem} -> batchItem) (\s@EventsRequest' {} a -> s {batchItem = a} :: EventsRequest) Prelude.. Lens.coerced
 
 instance Prelude.Hashable EventsRequest
 

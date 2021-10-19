@@ -39,8 +39,8 @@ module Network.AWS.Snowball.DescribeAddresses
     newDescribeAddressesResponse,
 
     -- * Response Lenses
-    describeAddressesResponse_nextToken,
     describeAddressesResponse_addresses,
+    describeAddressesResponse_nextToken,
     describeAddressesResponse_httpStatus,
   )
 where
@@ -128,8 +128,8 @@ instance Core.AWSRequest DescribeAddresses where
     Response.receiveJSON
       ( \s h x ->
           DescribeAddressesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Addresses" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Addresses" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,12 +169,12 @@ instance Core.ToQuery DescribeAddresses where
 
 -- | /See:/ 'newDescribeAddressesResponse' smart constructor.
 data DescribeAddressesResponse = DescribeAddressesResponse'
-  { -- | HTTP requests are stateless. If you use the automatically generated
+  { -- | The Snow device shipping addresses that were created for this account.
+    addresses :: Prelude.Maybe [Address],
+    -- | HTTP requests are stateless. If you use the automatically generated
     -- @NextToken@ value in your next @DescribeAddresses@ call, your list of
     -- returned addresses will start from this point in the array.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Snow device shipping addresses that were created for this account.
-    addresses :: Prelude.Maybe [Address],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -188,11 +188,11 @@ data DescribeAddressesResponse = DescribeAddressesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'addresses', 'describeAddressesResponse_addresses' - The Snow device shipping addresses that were created for this account.
+--
 -- 'nextToken', 'describeAddressesResponse_nextToken' - HTTP requests are stateless. If you use the automatically generated
 -- @NextToken@ value in your next @DescribeAddresses@ call, your list of
 -- returned addresses will start from this point in the array.
---
--- 'addresses', 'describeAddressesResponse_addresses' - The Snow device shipping addresses that were created for this account.
 --
 -- 'httpStatus', 'describeAddressesResponse_httpStatus' - The response's http status code.
 newDescribeAddressesResponse ::
@@ -201,21 +201,21 @@ newDescribeAddressesResponse ::
   DescribeAddressesResponse
 newDescribeAddressesResponse pHttpStatus_ =
   DescribeAddressesResponse'
-    { nextToken =
+    { addresses =
         Prelude.Nothing,
-      addresses = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Snow device shipping addresses that were created for this account.
+describeAddressesResponse_addresses :: Lens.Lens' DescribeAddressesResponse (Prelude.Maybe [Address])
+describeAddressesResponse_addresses = Lens.lens (\DescribeAddressesResponse' {addresses} -> addresses) (\s@DescribeAddressesResponse' {} a -> s {addresses = a} :: DescribeAddressesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | HTTP requests are stateless. If you use the automatically generated
 -- @NextToken@ value in your next @DescribeAddresses@ call, your list of
 -- returned addresses will start from this point in the array.
 describeAddressesResponse_nextToken :: Lens.Lens' DescribeAddressesResponse (Prelude.Maybe Prelude.Text)
 describeAddressesResponse_nextToken = Lens.lens (\DescribeAddressesResponse' {nextToken} -> nextToken) (\s@DescribeAddressesResponse' {} a -> s {nextToken = a} :: DescribeAddressesResponse)
-
--- | The Snow device shipping addresses that were created for this account.
-describeAddressesResponse_addresses :: Lens.Lens' DescribeAddressesResponse (Prelude.Maybe [Address])
-describeAddressesResponse_addresses = Lens.lens (\DescribeAddressesResponse' {addresses} -> addresses) (\s@DescribeAddressesResponse' {} a -> s {addresses = a} :: DescribeAddressesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeAddressesResponse_httpStatus :: Lens.Lens' DescribeAddressesResponse Prelude.Int

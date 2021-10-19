@@ -209,7 +209,7 @@ newListJobsResponse pHttpStatus_ =
 -- value that indicates whether the job is a job part, in the case of
 -- export jobs.
 listJobsResponse_jobListEntries :: Lens.Lens' ListJobsResponse (Prelude.Maybe [JobListEntry])
-listJobsResponse_jobListEntries = Lens.lens (\ListJobsResponse' {jobListEntries} -> jobListEntries) (\s@ListJobsResponse' {} a -> s {jobListEntries = a} :: ListJobsResponse) Prelude.. Lens.mapping Lens._Coerce
+listJobsResponse_jobListEntries = Lens.lens (\ListJobsResponse' {jobListEntries} -> jobListEntries) (\s@ListJobsResponse' {} a -> s {jobListEntries = a} :: ListJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | HTTP requests are stateless. If you use this automatically generated
 -- @NextToken@ value in your next @ListJobs@ call, your returned

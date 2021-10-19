@@ -27,74 +27,11 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListClusterJobs $
---             newListClusterJobs
---
---         , requestUpdateJobShipmentState $
---             newUpdateJobShipmentState
---
---         , requestCancelJob $
---             newCancelJob
---
---         , requestUpdateJob $
---             newUpdateJob
---
---         , requestCreateCluster $
---             newCreateCluster
---
---         , requestListLongTermPricing $
---             newListLongTermPricing
---
---         , requestGetSoftwareUpdates $
---             newGetSoftwareUpdates
---
---         , requestDescribeReturnShippingLabel $
---             newDescribeReturnShippingLabel
---
---         , requestDescribeAddress $
---             newDescribeAddress
---
---         , requestListCompatibleImages $
---             newListCompatibleImages
---
---         , requestDescribeAddresses $
---             newDescribeAddresses
---
---         , requestDescribeJob $
---             newDescribeJob
+--         [ requestCancelCluster $
+--             newCancelCluster
 --
 --         , requestDescribeCluster $
 --             newDescribeCluster
---
---         , requestGetJobUnlockCode $
---             newGetJobUnlockCode
---
---         , requestCancelCluster $
---             newCancelCluster
---
---         , requestGetJobManifest $
---             newGetJobManifest
---
---         , requestListJobs $
---             newListJobs
---
---         , requestCreateJob $
---             newCreateJob
---
---         , requestListClusters $
---             newListClusters
---
---         , requestUpdateCluster $
---             newUpdateCluster
---
---         , requestCreateLongTermPricing $
---             newCreateLongTermPricing
---
---         , requestUpdateLongTermPricing $
---             newUpdateLongTermPricing
---
---         , requestGetSnowballUsage $
---             newGetSnowballUsage
 --
 --         , requestCreateAddress $
 --             newCreateAddress
@@ -102,77 +39,77 @@ import Test.Tasty
 --         , requestCreateReturnShippingLabel $
 --             newCreateReturnShippingLabel
 --
+--         , requestGetSnowballUsage $
+--             newGetSnowballUsage
+--
+--         , requestDescribeAddresses $
+--             newDescribeAddresses
+--
+--         , requestListCompatibleImages $
+--             newListCompatibleImages
+--
+--         , requestCreateLongTermPricing $
+--             newCreateLongTermPricing
+--
+--         , requestUpdateCluster $
+--             newUpdateCluster
+--
+--         , requestGetSoftwareUpdates $
+--             newGetSoftwareUpdates
+--
+--         , requestCreateJob $
+--             newCreateJob
+--
+--         , requestListLongTermPricing $
+--             newListLongTermPricing
+--
+--         , requestGetJobManifest $
+--             newGetJobManifest
+--
+--         , requestCreateCluster $
+--             newCreateCluster
+--
+--         , requestListJobs $
+--             newListJobs
+--
+--         , requestUpdateJob $
+--             newUpdateJob
+--
+--         , requestUpdateJobShipmentState $
+--             newUpdateJobShipmentState
+--
+--         , requestGetJobUnlockCode $
+--             newGetJobUnlockCode
+--
+--         , requestListClusterJobs $
+--             newListClusterJobs
+--
+--         , requestDescribeJob $
+--             newDescribeJob
+--
+--         , requestUpdateLongTermPricing $
+--             newUpdateLongTermPricing
+--
+--         , requestListClusters $
+--             newListClusters
+--
+--         , requestDescribeAddress $
+--             newDescribeAddress
+--
+--         , requestDescribeReturnShippingLabel $
+--             newDescribeReturnShippingLabel
+--
+--         , requestCancelJob $
+--             newCancelJob
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseListClusterJobs $
---             newListClusterJobsResponse
---
---         , responseUpdateJobShipmentState $
---             newUpdateJobShipmentStateResponse
---
---         , responseCancelJob $
---             newCancelJobResponse
---
---         , responseUpdateJob $
---             newUpdateJobResponse
---
---         , responseCreateCluster $
---             newCreateClusterResponse
---
---         , responseListLongTermPricing $
---             newListLongTermPricingResponse
---
---         , responseGetSoftwareUpdates $
---             newGetSoftwareUpdatesResponse
---
---         , responseDescribeReturnShippingLabel $
---             newDescribeReturnShippingLabelResponse
---
---         , responseDescribeAddress $
---             newDescribeAddressResponse
---
---         , responseListCompatibleImages $
---             newListCompatibleImagesResponse
---
---         , responseDescribeAddresses $
---             newDescribeAddressesResponse
---
---         , responseDescribeJob $
---             newDescribeJobResponse
+--         [ responseCancelCluster $
+--             newCancelClusterResponse
 --
 --         , responseDescribeCluster $
 --             newDescribeClusterResponse
---
---         , responseGetJobUnlockCode $
---             newGetJobUnlockCodeResponse
---
---         , responseCancelCluster $
---             newCancelClusterResponse
---
---         , responseGetJobManifest $
---             newGetJobManifestResponse
---
---         , responseListJobs $
---             newListJobsResponse
---
---         , responseCreateJob $
---             newCreateJobResponse
---
---         , responseListClusters $
---             newListClustersResponse
---
---         , responseUpdateCluster $
---             newUpdateClusterResponse
---
---         , responseCreateLongTermPricing $
---             newCreateLongTermPricingResponse
---
---         , responseUpdateLongTermPricing $
---             newUpdateLongTermPricingResponse
---
---         , responseGetSnowballUsage $
---             newGetSnowballUsageResponse
 --
 --         , responseCreateAddress $
 --             newCreateAddressResponse
@@ -180,94 +117,73 @@ import Test.Tasty
 --         , responseCreateReturnShippingLabel $
 --             newCreateReturnShippingLabelResponse
 --
+--         , responseGetSnowballUsage $
+--             newGetSnowballUsageResponse
+--
+--         , responseDescribeAddresses $
+--             newDescribeAddressesResponse
+--
+--         , responseListCompatibleImages $
+--             newListCompatibleImagesResponse
+--
+--         , responseCreateLongTermPricing $
+--             newCreateLongTermPricingResponse
+--
+--         , responseUpdateCluster $
+--             newUpdateClusterResponse
+--
+--         , responseGetSoftwareUpdates $
+--             newGetSoftwareUpdatesResponse
+--
+--         , responseCreateJob $
+--             newCreateJobResponse
+--
+--         , responseListLongTermPricing $
+--             newListLongTermPricingResponse
+--
+--         , responseGetJobManifest $
+--             newGetJobManifestResponse
+--
+--         , responseCreateCluster $
+--             newCreateClusterResponse
+--
+--         , responseListJobs $
+--             newListJobsResponse
+--
+--         , responseUpdateJob $
+--             newUpdateJobResponse
+--
+--         , responseUpdateJobShipmentState $
+--             newUpdateJobShipmentStateResponse
+--
+--         , responseGetJobUnlockCode $
+--             newGetJobUnlockCodeResponse
+--
+--         , responseListClusterJobs $
+--             newListClusterJobsResponse
+--
+--         , responseDescribeJob $
+--             newDescribeJobResponse
+--
+--         , responseUpdateLongTermPricing $
+--             newUpdateLongTermPricingResponse
+--
+--         , responseListClusters $
+--             newListClustersResponse
+--
+--         , responseDescribeAddress $
+--             newDescribeAddressResponse
+--
+--         , responseDescribeReturnShippingLabel $
+--             newDescribeReturnShippingLabelResponse
+--
+--         , responseCancelJob $
+--             newCancelJobResponse
+--
 --           ]
 --     ]
 
 -- Requests
-
-requestListClusterJobs :: ListClusterJobs -> TestTree
-requestListClusterJobs =
-  req
-    "ListClusterJobs"
-    "fixture/ListClusterJobs.yaml"
-
-requestUpdateJobShipmentState :: UpdateJobShipmentState -> TestTree
-requestUpdateJobShipmentState =
-  req
-    "UpdateJobShipmentState"
-    "fixture/UpdateJobShipmentState.yaml"
-
-requestCancelJob :: CancelJob -> TestTree
-requestCancelJob =
-  req
-    "CancelJob"
-    "fixture/CancelJob.yaml"
-
-requestUpdateJob :: UpdateJob -> TestTree
-requestUpdateJob =
-  req
-    "UpdateJob"
-    "fixture/UpdateJob.yaml"
-
-requestCreateCluster :: CreateCluster -> TestTree
-requestCreateCluster =
-  req
-    "CreateCluster"
-    "fixture/CreateCluster.yaml"
-
-requestListLongTermPricing :: ListLongTermPricing -> TestTree
-requestListLongTermPricing =
-  req
-    "ListLongTermPricing"
-    "fixture/ListLongTermPricing.yaml"
-
-requestGetSoftwareUpdates :: GetSoftwareUpdates -> TestTree
-requestGetSoftwareUpdates =
-  req
-    "GetSoftwareUpdates"
-    "fixture/GetSoftwareUpdates.yaml"
-
-requestDescribeReturnShippingLabel :: DescribeReturnShippingLabel -> TestTree
-requestDescribeReturnShippingLabel =
-  req
-    "DescribeReturnShippingLabel"
-    "fixture/DescribeReturnShippingLabel.yaml"
-
-requestDescribeAddress :: DescribeAddress -> TestTree
-requestDescribeAddress =
-  req
-    "DescribeAddress"
-    "fixture/DescribeAddress.yaml"
-
-requestListCompatibleImages :: ListCompatibleImages -> TestTree
-requestListCompatibleImages =
-  req
-    "ListCompatibleImages"
-    "fixture/ListCompatibleImages.yaml"
-
-requestDescribeAddresses :: DescribeAddresses -> TestTree
-requestDescribeAddresses =
-  req
-    "DescribeAddresses"
-    "fixture/DescribeAddresses.yaml"
-
-requestDescribeJob :: DescribeJob -> TestTree
-requestDescribeJob =
-  req
-    "DescribeJob"
-    "fixture/DescribeJob.yaml"
-
-requestDescribeCluster :: DescribeCluster -> TestTree
-requestDescribeCluster =
-  req
-    "DescribeCluster"
-    "fixture/DescribeCluster.yaml"
-
-requestGetJobUnlockCode :: GetJobUnlockCode -> TestTree
-requestGetJobUnlockCode =
-  req
-    "GetJobUnlockCode"
-    "fixture/GetJobUnlockCode.yaml"
 
 requestCancelCluster :: CancelCluster -> TestTree
 requestCancelCluster =
@@ -275,53 +191,11 @@ requestCancelCluster =
     "CancelCluster"
     "fixture/CancelCluster.yaml"
 
-requestGetJobManifest :: GetJobManifest -> TestTree
-requestGetJobManifest =
+requestDescribeCluster :: DescribeCluster -> TestTree
+requestDescribeCluster =
   req
-    "GetJobManifest"
-    "fixture/GetJobManifest.yaml"
-
-requestListJobs :: ListJobs -> TestTree
-requestListJobs =
-  req
-    "ListJobs"
-    "fixture/ListJobs.yaml"
-
-requestCreateJob :: CreateJob -> TestTree
-requestCreateJob =
-  req
-    "CreateJob"
-    "fixture/CreateJob.yaml"
-
-requestListClusters :: ListClusters -> TestTree
-requestListClusters =
-  req
-    "ListClusters"
-    "fixture/ListClusters.yaml"
-
-requestUpdateCluster :: UpdateCluster -> TestTree
-requestUpdateCluster =
-  req
-    "UpdateCluster"
-    "fixture/UpdateCluster.yaml"
-
-requestCreateLongTermPricing :: CreateLongTermPricing -> TestTree
-requestCreateLongTermPricing =
-  req
-    "CreateLongTermPricing"
-    "fixture/CreateLongTermPricing.yaml"
-
-requestUpdateLongTermPricing :: UpdateLongTermPricing -> TestTree
-requestUpdateLongTermPricing =
-  req
-    "UpdateLongTermPricing"
-    "fixture/UpdateLongTermPricing.yaml"
-
-requestGetSnowballUsage :: GetSnowballUsage -> TestTree
-requestGetSnowballUsage =
-  req
-    "GetSnowballUsage"
-    "fixture/GetSnowballUsage.yaml"
+    "DescribeCluster"
+    "fixture/DescribeCluster.yaml"
 
 requestCreateAddress :: CreateAddress -> TestTree
 requestCreateAddress =
@@ -335,119 +209,133 @@ requestCreateReturnShippingLabel =
     "CreateReturnShippingLabel"
     "fixture/CreateReturnShippingLabel.yaml"
 
+requestGetSnowballUsage :: GetSnowballUsage -> TestTree
+requestGetSnowballUsage =
+  req
+    "GetSnowballUsage"
+    "fixture/GetSnowballUsage.yaml"
+
+requestDescribeAddresses :: DescribeAddresses -> TestTree
+requestDescribeAddresses =
+  req
+    "DescribeAddresses"
+    "fixture/DescribeAddresses.yaml"
+
+requestListCompatibleImages :: ListCompatibleImages -> TestTree
+requestListCompatibleImages =
+  req
+    "ListCompatibleImages"
+    "fixture/ListCompatibleImages.yaml"
+
+requestCreateLongTermPricing :: CreateLongTermPricing -> TestTree
+requestCreateLongTermPricing =
+  req
+    "CreateLongTermPricing"
+    "fixture/CreateLongTermPricing.yaml"
+
+requestUpdateCluster :: UpdateCluster -> TestTree
+requestUpdateCluster =
+  req
+    "UpdateCluster"
+    "fixture/UpdateCluster.yaml"
+
+requestGetSoftwareUpdates :: GetSoftwareUpdates -> TestTree
+requestGetSoftwareUpdates =
+  req
+    "GetSoftwareUpdates"
+    "fixture/GetSoftwareUpdates.yaml"
+
+requestCreateJob :: CreateJob -> TestTree
+requestCreateJob =
+  req
+    "CreateJob"
+    "fixture/CreateJob.yaml"
+
+requestListLongTermPricing :: ListLongTermPricing -> TestTree
+requestListLongTermPricing =
+  req
+    "ListLongTermPricing"
+    "fixture/ListLongTermPricing.yaml"
+
+requestGetJobManifest :: GetJobManifest -> TestTree
+requestGetJobManifest =
+  req
+    "GetJobManifest"
+    "fixture/GetJobManifest.yaml"
+
+requestCreateCluster :: CreateCluster -> TestTree
+requestCreateCluster =
+  req
+    "CreateCluster"
+    "fixture/CreateCluster.yaml"
+
+requestListJobs :: ListJobs -> TestTree
+requestListJobs =
+  req
+    "ListJobs"
+    "fixture/ListJobs.yaml"
+
+requestUpdateJob :: UpdateJob -> TestTree
+requestUpdateJob =
+  req
+    "UpdateJob"
+    "fixture/UpdateJob.yaml"
+
+requestUpdateJobShipmentState :: UpdateJobShipmentState -> TestTree
+requestUpdateJobShipmentState =
+  req
+    "UpdateJobShipmentState"
+    "fixture/UpdateJobShipmentState.yaml"
+
+requestGetJobUnlockCode :: GetJobUnlockCode -> TestTree
+requestGetJobUnlockCode =
+  req
+    "GetJobUnlockCode"
+    "fixture/GetJobUnlockCode.yaml"
+
+requestListClusterJobs :: ListClusterJobs -> TestTree
+requestListClusterJobs =
+  req
+    "ListClusterJobs"
+    "fixture/ListClusterJobs.yaml"
+
+requestDescribeJob :: DescribeJob -> TestTree
+requestDescribeJob =
+  req
+    "DescribeJob"
+    "fixture/DescribeJob.yaml"
+
+requestUpdateLongTermPricing :: UpdateLongTermPricing -> TestTree
+requestUpdateLongTermPricing =
+  req
+    "UpdateLongTermPricing"
+    "fixture/UpdateLongTermPricing.yaml"
+
+requestListClusters :: ListClusters -> TestTree
+requestListClusters =
+  req
+    "ListClusters"
+    "fixture/ListClusters.yaml"
+
+requestDescribeAddress :: DescribeAddress -> TestTree
+requestDescribeAddress =
+  req
+    "DescribeAddress"
+    "fixture/DescribeAddress.yaml"
+
+requestDescribeReturnShippingLabel :: DescribeReturnShippingLabel -> TestTree
+requestDescribeReturnShippingLabel =
+  req
+    "DescribeReturnShippingLabel"
+    "fixture/DescribeReturnShippingLabel.yaml"
+
+requestCancelJob :: CancelJob -> TestTree
+requestCancelJob =
+  req
+    "CancelJob"
+    "fixture/CancelJob.yaml"
+
 -- Responses
-
-responseListClusterJobs :: ListClusterJobsResponse -> TestTree
-responseListClusterJobs =
-  res
-    "ListClusterJobsResponse"
-    "fixture/ListClusterJobsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListClusterJobs)
-
-responseUpdateJobShipmentState :: UpdateJobShipmentStateResponse -> TestTree
-responseUpdateJobShipmentState =
-  res
-    "UpdateJobShipmentStateResponse"
-    "fixture/UpdateJobShipmentStateResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateJobShipmentState)
-
-responseCancelJob :: CancelJobResponse -> TestTree
-responseCancelJob =
-  res
-    "CancelJobResponse"
-    "fixture/CancelJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy CancelJob)
-
-responseUpdateJob :: UpdateJobResponse -> TestTree
-responseUpdateJob =
-  res
-    "UpdateJobResponse"
-    "fixture/UpdateJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateJob)
-
-responseCreateCluster :: CreateClusterResponse -> TestTree
-responseCreateCluster =
-  res
-    "CreateClusterResponse"
-    "fixture/CreateClusterResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateCluster)
-
-responseListLongTermPricing :: ListLongTermPricingResponse -> TestTree
-responseListLongTermPricing =
-  res
-    "ListLongTermPricingResponse"
-    "fixture/ListLongTermPricingResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListLongTermPricing)
-
-responseGetSoftwareUpdates :: GetSoftwareUpdatesResponse -> TestTree
-responseGetSoftwareUpdates =
-  res
-    "GetSoftwareUpdatesResponse"
-    "fixture/GetSoftwareUpdatesResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetSoftwareUpdates)
-
-responseDescribeReturnShippingLabel :: DescribeReturnShippingLabelResponse -> TestTree
-responseDescribeReturnShippingLabel =
-  res
-    "DescribeReturnShippingLabelResponse"
-    "fixture/DescribeReturnShippingLabelResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeReturnShippingLabel)
-
-responseDescribeAddress :: DescribeAddressResponse -> TestTree
-responseDescribeAddress =
-  res
-    "DescribeAddressResponse"
-    "fixture/DescribeAddressResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeAddress)
-
-responseListCompatibleImages :: ListCompatibleImagesResponse -> TestTree
-responseListCompatibleImages =
-  res
-    "ListCompatibleImagesResponse"
-    "fixture/ListCompatibleImagesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListCompatibleImages)
-
-responseDescribeAddresses :: DescribeAddressesResponse -> TestTree
-responseDescribeAddresses =
-  res
-    "DescribeAddressesResponse"
-    "fixture/DescribeAddressesResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeAddresses)
-
-responseDescribeJob :: DescribeJobResponse -> TestTree
-responseDescribeJob =
-  res
-    "DescribeJobResponse"
-    "fixture/DescribeJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeJob)
-
-responseDescribeCluster :: DescribeClusterResponse -> TestTree
-responseDescribeCluster =
-  res
-    "DescribeClusterResponse"
-    "fixture/DescribeClusterResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeCluster)
-
-responseGetJobUnlockCode :: GetJobUnlockCodeResponse -> TestTree
-responseGetJobUnlockCode =
-  res
-    "GetJobUnlockCodeResponse"
-    "fixture/GetJobUnlockCodeResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetJobUnlockCode)
 
 responseCancelCluster :: CancelClusterResponse -> TestTree
 responseCancelCluster =
@@ -457,69 +345,13 @@ responseCancelCluster =
     defaultService
     (Proxy :: Proxy CancelCluster)
 
-responseGetJobManifest :: GetJobManifestResponse -> TestTree
-responseGetJobManifest =
+responseDescribeCluster :: DescribeClusterResponse -> TestTree
+responseDescribeCluster =
   res
-    "GetJobManifestResponse"
-    "fixture/GetJobManifestResponse.proto"
+    "DescribeClusterResponse"
+    "fixture/DescribeClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy GetJobManifest)
-
-responseListJobs :: ListJobsResponse -> TestTree
-responseListJobs =
-  res
-    "ListJobsResponse"
-    "fixture/ListJobsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListJobs)
-
-responseCreateJob :: CreateJobResponse -> TestTree
-responseCreateJob =
-  res
-    "CreateJobResponse"
-    "fixture/CreateJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateJob)
-
-responseListClusters :: ListClustersResponse -> TestTree
-responseListClusters =
-  res
-    "ListClustersResponse"
-    "fixture/ListClustersResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListClusters)
-
-responseUpdateCluster :: UpdateClusterResponse -> TestTree
-responseUpdateCluster =
-  res
-    "UpdateClusterResponse"
-    "fixture/UpdateClusterResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateCluster)
-
-responseCreateLongTermPricing :: CreateLongTermPricingResponse -> TestTree
-responseCreateLongTermPricing =
-  res
-    "CreateLongTermPricingResponse"
-    "fixture/CreateLongTermPricingResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateLongTermPricing)
-
-responseUpdateLongTermPricing :: UpdateLongTermPricingResponse -> TestTree
-responseUpdateLongTermPricing =
-  res
-    "UpdateLongTermPricingResponse"
-    "fixture/UpdateLongTermPricingResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateLongTermPricing)
-
-responseGetSnowballUsage :: GetSnowballUsageResponse -> TestTree
-responseGetSnowballUsage =
-  res
-    "GetSnowballUsageResponse"
-    "fixture/GetSnowballUsageResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetSnowballUsage)
+    (Proxy :: Proxy DescribeCluster)
 
 responseCreateAddress :: CreateAddressResponse -> TestTree
 responseCreateAddress =
@@ -536,3 +368,171 @@ responseCreateReturnShippingLabel =
     "fixture/CreateReturnShippingLabelResponse.proto"
     defaultService
     (Proxy :: Proxy CreateReturnShippingLabel)
+
+responseGetSnowballUsage :: GetSnowballUsageResponse -> TestTree
+responseGetSnowballUsage =
+  res
+    "GetSnowballUsageResponse"
+    "fixture/GetSnowballUsageResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSnowballUsage)
+
+responseDescribeAddresses :: DescribeAddressesResponse -> TestTree
+responseDescribeAddresses =
+  res
+    "DescribeAddressesResponse"
+    "fixture/DescribeAddressesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAddresses)
+
+responseListCompatibleImages :: ListCompatibleImagesResponse -> TestTree
+responseListCompatibleImages =
+  res
+    "ListCompatibleImagesResponse"
+    "fixture/ListCompatibleImagesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListCompatibleImages)
+
+responseCreateLongTermPricing :: CreateLongTermPricingResponse -> TestTree
+responseCreateLongTermPricing =
+  res
+    "CreateLongTermPricingResponse"
+    "fixture/CreateLongTermPricingResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateLongTermPricing)
+
+responseUpdateCluster :: UpdateClusterResponse -> TestTree
+responseUpdateCluster =
+  res
+    "UpdateClusterResponse"
+    "fixture/UpdateClusterResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateCluster)
+
+responseGetSoftwareUpdates :: GetSoftwareUpdatesResponse -> TestTree
+responseGetSoftwareUpdates =
+  res
+    "GetSoftwareUpdatesResponse"
+    "fixture/GetSoftwareUpdatesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSoftwareUpdates)
+
+responseCreateJob :: CreateJobResponse -> TestTree
+responseCreateJob =
+  res
+    "CreateJobResponse"
+    "fixture/CreateJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateJob)
+
+responseListLongTermPricing :: ListLongTermPricingResponse -> TestTree
+responseListLongTermPricing =
+  res
+    "ListLongTermPricingResponse"
+    "fixture/ListLongTermPricingResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListLongTermPricing)
+
+responseGetJobManifest :: GetJobManifestResponse -> TestTree
+responseGetJobManifest =
+  res
+    "GetJobManifestResponse"
+    "fixture/GetJobManifestResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetJobManifest)
+
+responseCreateCluster :: CreateClusterResponse -> TestTree
+responseCreateCluster =
+  res
+    "CreateClusterResponse"
+    "fixture/CreateClusterResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateCluster)
+
+responseListJobs :: ListJobsResponse -> TestTree
+responseListJobs =
+  res
+    "ListJobsResponse"
+    "fixture/ListJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListJobs)
+
+responseUpdateJob :: UpdateJobResponse -> TestTree
+responseUpdateJob =
+  res
+    "UpdateJobResponse"
+    "fixture/UpdateJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateJob)
+
+responseUpdateJobShipmentState :: UpdateJobShipmentStateResponse -> TestTree
+responseUpdateJobShipmentState =
+  res
+    "UpdateJobShipmentStateResponse"
+    "fixture/UpdateJobShipmentStateResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateJobShipmentState)
+
+responseGetJobUnlockCode :: GetJobUnlockCodeResponse -> TestTree
+responseGetJobUnlockCode =
+  res
+    "GetJobUnlockCodeResponse"
+    "fixture/GetJobUnlockCodeResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetJobUnlockCode)
+
+responseListClusterJobs :: ListClusterJobsResponse -> TestTree
+responseListClusterJobs =
+  res
+    "ListClusterJobsResponse"
+    "fixture/ListClusterJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListClusterJobs)
+
+responseDescribeJob :: DescribeJobResponse -> TestTree
+responseDescribeJob =
+  res
+    "DescribeJobResponse"
+    "fixture/DescribeJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeJob)
+
+responseUpdateLongTermPricing :: UpdateLongTermPricingResponse -> TestTree
+responseUpdateLongTermPricing =
+  res
+    "UpdateLongTermPricingResponse"
+    "fixture/UpdateLongTermPricingResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateLongTermPricing)
+
+responseListClusters :: ListClustersResponse -> TestTree
+responseListClusters =
+  res
+    "ListClustersResponse"
+    "fixture/ListClustersResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListClusters)
+
+responseDescribeAddress :: DescribeAddressResponse -> TestTree
+responseDescribeAddress =
+  res
+    "DescribeAddressResponse"
+    "fixture/DescribeAddressResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAddress)
+
+responseDescribeReturnShippingLabel :: DescribeReturnShippingLabelResponse -> TestTree
+responseDescribeReturnShippingLabel =
+  res
+    "DescribeReturnShippingLabelResponse"
+    "fixture/DescribeReturnShippingLabelResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeReturnShippingLabel)
+
+responseCancelJob :: CancelJobResponse -> TestTree
+responseCancelJob =
+  res
+    "CancelJobResponse"
+    "fixture/CancelJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy CancelJob)

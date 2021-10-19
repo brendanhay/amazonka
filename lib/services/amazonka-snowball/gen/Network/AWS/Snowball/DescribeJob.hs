@@ -35,8 +35,8 @@ module Network.AWS.Snowball.DescribeJob
     newDescribeJobResponse,
 
     -- * Response Lenses
-    describeJobResponse_subJobMetadata,
     describeJobResponse_jobMetadata,
+    describeJobResponse_subJobMetadata,
     describeJobResponse_httpStatus,
   )
 where
@@ -85,8 +85,8 @@ instance Core.AWSRequest DescribeJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobResponse'
-            Prelude.<$> (x Core..?> "SubJobMetadata" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "JobMetadata")
+            Prelude.<$> (x Core..?> "JobMetadata")
+            Prelude.<*> (x Core..?> "SubJobMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,13 +124,13 @@ instance Core.ToQuery DescribeJob where
 
 -- | /See:/ 'newDescribeJobResponse' smart constructor.
 data DescribeJobResponse = DescribeJobResponse'
-  { -- | Information about a specific job part (in the case of an export job),
+  { -- | Information about a specific job, including shipping information, job
+    -- status, and other important metadata.
+    jobMetadata :: Prelude.Maybe JobMetadata,
+    -- | Information about a specific job part (in the case of an export job),
     -- including shipping information, job status, and other important
     -- metadata.
     subJobMetadata :: Prelude.Maybe [JobMetadata],
-    -- | Information about a specific job, including shipping information, job
-    -- status, and other important metadata.
-    jobMetadata :: Prelude.Maybe JobMetadata,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -144,12 +144,12 @@ data DescribeJobResponse = DescribeJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobMetadata', 'describeJobResponse_jobMetadata' - Information about a specific job, including shipping information, job
+-- status, and other important metadata.
+--
 -- 'subJobMetadata', 'describeJobResponse_subJobMetadata' - Information about a specific job part (in the case of an export job),
 -- including shipping information, job status, and other important
 -- metadata.
---
--- 'jobMetadata', 'describeJobResponse_jobMetadata' - Information about a specific job, including shipping information, job
--- status, and other important metadata.
 --
 -- 'httpStatus', 'describeJobResponse_httpStatus' - The response's http status code.
 newDescribeJobResponse ::
@@ -158,22 +158,21 @@ newDescribeJobResponse ::
   DescribeJobResponse
 newDescribeJobResponse pHttpStatus_ =
   DescribeJobResponse'
-    { subJobMetadata =
-        Prelude.Nothing,
-      jobMetadata = Prelude.Nothing,
+    { jobMetadata = Prelude.Nothing,
+      subJobMetadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about a specific job part (in the case of an export job),
--- including shipping information, job status, and other important
--- metadata.
-describeJobResponse_subJobMetadata :: Lens.Lens' DescribeJobResponse (Prelude.Maybe [JobMetadata])
-describeJobResponse_subJobMetadata = Lens.lens (\DescribeJobResponse' {subJobMetadata} -> subJobMetadata) (\s@DescribeJobResponse' {} a -> s {subJobMetadata = a} :: DescribeJobResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about a specific job, including shipping information, job
 -- status, and other important metadata.
 describeJobResponse_jobMetadata :: Lens.Lens' DescribeJobResponse (Prelude.Maybe JobMetadata)
 describeJobResponse_jobMetadata = Lens.lens (\DescribeJobResponse' {jobMetadata} -> jobMetadata) (\s@DescribeJobResponse' {} a -> s {jobMetadata = a} :: DescribeJobResponse)
+
+-- | Information about a specific job part (in the case of an export job),
+-- including shipping information, job status, and other important
+-- metadata.
+describeJobResponse_subJobMetadata :: Lens.Lens' DescribeJobResponse (Prelude.Maybe [JobMetadata])
+describeJobResponse_subJobMetadata = Lens.lens (\DescribeJobResponse' {subJobMetadata} -> subJobMetadata) (\s@DescribeJobResponse' {} a -> s {subJobMetadata = a} :: DescribeJobResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeJobResponse_httpStatus :: Lens.Lens' DescribeJobResponse Prelude.Int

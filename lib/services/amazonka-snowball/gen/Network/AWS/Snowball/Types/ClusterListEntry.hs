@@ -29,17 +29,17 @@ import Network.AWS.Snowball.Types.ClusterState
 --
 -- /See:/ 'newClusterListEntry' smart constructor.
 data ClusterListEntry = ClusterListEntry'
-  { -- | The 39-character ID for the cluster that you want to list, for example
+  { -- | The current state of this cluster. For information about the state of a
+    -- specific node, see JobListEntry$JobState.
+    clusterState :: Prelude.Maybe ClusterState,
+    -- | The 39-character ID for the cluster that you want to list, for example
     -- @CID123e4567-e89b-12d3-a456-426655440000@.
     clusterId :: Prelude.Maybe Prelude.Text,
     -- | The creation date for this cluster.
     creationDate :: Prelude.Maybe Core.POSIX,
     -- | Defines an optional description of the cluster, for example
     -- @Environmental Data Cluster-01@.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The current state of this cluster. For information about the state of a
-    -- specific node, see JobListEntry$JobState.
-    clusterState :: Prelude.Maybe ClusterState
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,6 +51,9 @@ data ClusterListEntry = ClusterListEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clusterState', 'clusterListEntry_clusterState' - The current state of this cluster. For information about the state of a
+-- specific node, see JobListEntry$JobState.
+--
 -- 'clusterId', 'clusterListEntry_clusterId' - The 39-character ID for the cluster that you want to list, for example
 -- @CID123e4567-e89b-12d3-a456-426655440000@.
 --
@@ -58,18 +61,20 @@ data ClusterListEntry = ClusterListEntry'
 --
 -- 'description', 'clusterListEntry_description' - Defines an optional description of the cluster, for example
 -- @Environmental Data Cluster-01@.
---
--- 'clusterState', 'clusterListEntry_clusterState' - The current state of this cluster. For information about the state of a
--- specific node, see JobListEntry$JobState.
 newClusterListEntry ::
   ClusterListEntry
 newClusterListEntry =
   ClusterListEntry'
-    { clusterId = Prelude.Nothing,
+    { clusterState = Prelude.Nothing,
+      clusterId = Prelude.Nothing,
       creationDate = Prelude.Nothing,
-      description = Prelude.Nothing,
-      clusterState = Prelude.Nothing
+      description = Prelude.Nothing
     }
+
+-- | The current state of this cluster. For information about the state of a
+-- specific node, see JobListEntry$JobState.
+clusterListEntry_clusterState :: Lens.Lens' ClusterListEntry (Prelude.Maybe ClusterState)
+clusterListEntry_clusterState = Lens.lens (\ClusterListEntry' {clusterState} -> clusterState) (\s@ClusterListEntry' {} a -> s {clusterState = a} :: ClusterListEntry)
 
 -- | The 39-character ID for the cluster that you want to list, for example
 -- @CID123e4567-e89b-12d3-a456-426655440000@.
@@ -85,21 +90,16 @@ clusterListEntry_creationDate = Lens.lens (\ClusterListEntry' {creationDate} -> 
 clusterListEntry_description :: Lens.Lens' ClusterListEntry (Prelude.Maybe Prelude.Text)
 clusterListEntry_description = Lens.lens (\ClusterListEntry' {description} -> description) (\s@ClusterListEntry' {} a -> s {description = a} :: ClusterListEntry)
 
--- | The current state of this cluster. For information about the state of a
--- specific node, see JobListEntry$JobState.
-clusterListEntry_clusterState :: Lens.Lens' ClusterListEntry (Prelude.Maybe ClusterState)
-clusterListEntry_clusterState = Lens.lens (\ClusterListEntry' {clusterState} -> clusterState) (\s@ClusterListEntry' {} a -> s {clusterState = a} :: ClusterListEntry)
-
 instance Core.FromJSON ClusterListEntry where
   parseJSON =
     Core.withObject
       "ClusterListEntry"
       ( \x ->
           ClusterListEntry'
-            Prelude.<$> (x Core..:? "ClusterId")
+            Prelude.<$> (x Core..:? "ClusterState")
+            Prelude.<*> (x Core..:? "ClusterId")
             Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ClusterState")
       )
 
 instance Prelude.Hashable ClusterListEntry

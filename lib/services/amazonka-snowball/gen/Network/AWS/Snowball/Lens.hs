@@ -14,179 +14,14 @@
 module Network.AWS.Snowball.Lens
   ( -- * Operations
 
-    -- ** ListClusterJobs
-    listClusterJobs_nextToken,
-    listClusterJobs_maxResults,
-    listClusterJobs_clusterId,
-    listClusterJobsResponse_jobListEntries,
-    listClusterJobsResponse_nextToken,
-    listClusterJobsResponse_httpStatus,
-
-    -- ** UpdateJobShipmentState
-    updateJobShipmentState_jobId,
-    updateJobShipmentState_shipmentState,
-    updateJobShipmentStateResponse_httpStatus,
-
-    -- ** CancelJob
-    cancelJob_jobId,
-    cancelJobResponse_httpStatus,
-
-    -- ** UpdateJob
-    updateJob_roleARN,
-    updateJob_shippingOption,
-    updateJob_onDeviceServiceConfiguration,
-    updateJob_snowballCapacityPreference,
-    updateJob_resources,
-    updateJob_description,
-    updateJob_addressId,
-    updateJob_forwardingAddressId,
-    updateJob_notification,
-    updateJob_jobId,
-    updateJobResponse_httpStatus,
-
-    -- ** CreateCluster
-    createCluster_remoteManagement,
-    createCluster_kmsKeyARN,
-    createCluster_onDeviceServiceConfiguration,
-    createCluster_taxDocuments,
-    createCluster_description,
-    createCluster_forwardingAddressId,
-    createCluster_notification,
-    createCluster_jobType,
-    createCluster_resources,
-    createCluster_addressId,
-    createCluster_roleARN,
-    createCluster_snowballType,
-    createCluster_shippingOption,
-    createClusterResponse_clusterId,
-    createClusterResponse_httpStatus,
-
-    -- ** ListLongTermPricing
-    listLongTermPricing_nextToken,
-    listLongTermPricing_maxResults,
-    listLongTermPricingResponse_nextToken,
-    listLongTermPricingResponse_longTermPricingEntries,
-    listLongTermPricingResponse_httpStatus,
-
-    -- ** GetSoftwareUpdates
-    getSoftwareUpdates_jobId,
-    getSoftwareUpdatesResponse_updatesURI,
-    getSoftwareUpdatesResponse_httpStatus,
-
-    -- ** DescribeReturnShippingLabel
-    describeReturnShippingLabel_jobId,
-    describeReturnShippingLabelResponse_status,
-    describeReturnShippingLabelResponse_expirationDate,
-    describeReturnShippingLabelResponse_httpStatus,
-
-    -- ** DescribeAddress
-    describeAddress_addressId,
-    describeAddressResponse_address,
-    describeAddressResponse_httpStatus,
-
-    -- ** ListCompatibleImages
-    listCompatibleImages_nextToken,
-    listCompatibleImages_maxResults,
-    listCompatibleImagesResponse_nextToken,
-    listCompatibleImagesResponse_compatibleImages,
-    listCompatibleImagesResponse_httpStatus,
-
-    -- ** DescribeAddresses
-    describeAddresses_nextToken,
-    describeAddresses_maxResults,
-    describeAddressesResponse_nextToken,
-    describeAddressesResponse_addresses,
-    describeAddressesResponse_httpStatus,
-
-    -- ** DescribeJob
-    describeJob_jobId,
-    describeJobResponse_subJobMetadata,
-    describeJobResponse_jobMetadata,
-    describeJobResponse_httpStatus,
+    -- ** CancelCluster
+    cancelCluster_clusterId,
+    cancelClusterResponse_httpStatus,
 
     -- ** DescribeCluster
     describeCluster_clusterId,
     describeClusterResponse_clusterMetadata,
     describeClusterResponse_httpStatus,
-
-    -- ** GetJobUnlockCode
-    getJobUnlockCode_jobId,
-    getJobUnlockCodeResponse_unlockCode,
-    getJobUnlockCodeResponse_httpStatus,
-
-    -- ** CancelCluster
-    cancelCluster_clusterId,
-    cancelClusterResponse_httpStatus,
-
-    -- ** GetJobManifest
-    getJobManifest_jobId,
-    getJobManifestResponse_manifestURI,
-    getJobManifestResponse_httpStatus,
-
-    -- ** ListJobs
-    listJobs_nextToken,
-    listJobs_maxResults,
-    listJobsResponse_jobListEntries,
-    listJobsResponse_nextToken,
-    listJobsResponse_httpStatus,
-
-    -- ** CreateJob
-    createJob_clusterId,
-    createJob_remoteManagement,
-    createJob_roleARN,
-    createJob_shippingOption,
-    createJob_deviceConfiguration,
-    createJob_jobType,
-    createJob_kmsKeyARN,
-    createJob_onDeviceServiceConfiguration,
-    createJob_taxDocuments,
-    createJob_snowballCapacityPreference,
-    createJob_longTermPricingId,
-    createJob_resources,
-    createJob_snowballType,
-    createJob_description,
-    createJob_addressId,
-    createJob_forwardingAddressId,
-    createJob_notification,
-    createJobResponse_jobId,
-    createJobResponse_httpStatus,
-
-    -- ** ListClusters
-    listClusters_nextToken,
-    listClusters_maxResults,
-    listClustersResponse_nextToken,
-    listClustersResponse_clusterListEntries,
-    listClustersResponse_httpStatus,
-
-    -- ** UpdateCluster
-    updateCluster_roleARN,
-    updateCluster_shippingOption,
-    updateCluster_onDeviceServiceConfiguration,
-    updateCluster_resources,
-    updateCluster_description,
-    updateCluster_addressId,
-    updateCluster_forwardingAddressId,
-    updateCluster_notification,
-    updateCluster_clusterId,
-    updateClusterResponse_httpStatus,
-
-    -- ** CreateLongTermPricing
-    createLongTermPricing_snowballType,
-    createLongTermPricing_isLongTermPricingAutoRenew,
-    createLongTermPricing_longTermPricingType,
-    createLongTermPricingResponse_longTermPricingId,
-    createLongTermPricingResponse_httpStatus,
-
-    -- ** UpdateLongTermPricing
-    updateLongTermPricing_replacementJob,
-    updateLongTermPricing_isLongTermPricingAutoRenew,
-    updateLongTermPricing_longTermPricingId,
-    updateLongTermPricingResponse_httpStatus,
-
-    -- ** GetSnowballUsage
-    getSnowballUsageResponse_snowballsInUse,
-    getSnowballUsageResponse_snowballLimit,
-    getSnowballUsageResponse_httpStatus,
 
     -- ** CreateAddress
     createAddress_address,
@@ -199,56 +34,221 @@ module Network.AWS.Snowball.Lens
     createReturnShippingLabelResponse_status,
     createReturnShippingLabelResponse_httpStatus,
 
+    -- ** GetSnowballUsage
+    getSnowballUsageResponse_snowballsInUse,
+    getSnowballUsageResponse_snowballLimit,
+    getSnowballUsageResponse_httpStatus,
+
+    -- ** DescribeAddresses
+    describeAddresses_nextToken,
+    describeAddresses_maxResults,
+    describeAddressesResponse_addresses,
+    describeAddressesResponse_nextToken,
+    describeAddressesResponse_httpStatus,
+
+    -- ** ListCompatibleImages
+    listCompatibleImages_nextToken,
+    listCompatibleImages_maxResults,
+    listCompatibleImagesResponse_compatibleImages,
+    listCompatibleImagesResponse_nextToken,
+    listCompatibleImagesResponse_httpStatus,
+
+    -- ** CreateLongTermPricing
+    createLongTermPricing_snowballType,
+    createLongTermPricing_isLongTermPricingAutoRenew,
+    createLongTermPricing_longTermPricingType,
+    createLongTermPricingResponse_longTermPricingId,
+    createLongTermPricingResponse_httpStatus,
+
+    -- ** UpdateCluster
+    updateCluster_notification,
+    updateCluster_forwardingAddressId,
+    updateCluster_addressId,
+    updateCluster_shippingOption,
+    updateCluster_resources,
+    updateCluster_onDeviceServiceConfiguration,
+    updateCluster_description,
+    updateCluster_roleARN,
+    updateCluster_clusterId,
+    updateClusterResponse_httpStatus,
+
+    -- ** GetSoftwareUpdates
+    getSoftwareUpdates_jobId,
+    getSoftwareUpdatesResponse_updatesURI,
+    getSoftwareUpdatesResponse_httpStatus,
+
+    -- ** CreateJob
+    createJob_jobType,
+    createJob_kmsKeyARN,
+    createJob_remoteManagement,
+    createJob_notification,
+    createJob_forwardingAddressId,
+    createJob_addressId,
+    createJob_snowballType,
+    createJob_longTermPricingId,
+    createJob_shippingOption,
+    createJob_resources,
+    createJob_onDeviceServiceConfiguration,
+    createJob_clusterId,
+    createJob_deviceConfiguration,
+    createJob_description,
+    createJob_taxDocuments,
+    createJob_roleARN,
+    createJob_snowballCapacityPreference,
+    createJobResponse_jobId,
+    createJobResponse_httpStatus,
+
+    -- ** ListLongTermPricing
+    listLongTermPricing_nextToken,
+    listLongTermPricing_maxResults,
+    listLongTermPricingResponse_longTermPricingEntries,
+    listLongTermPricingResponse_nextToken,
+    listLongTermPricingResponse_httpStatus,
+
+    -- ** GetJobManifest
+    getJobManifest_jobId,
+    getJobManifestResponse_manifestURI,
+    getJobManifestResponse_httpStatus,
+
+    -- ** CreateCluster
+    createCluster_kmsKeyARN,
+    createCluster_remoteManagement,
+    createCluster_notification,
+    createCluster_forwardingAddressId,
+    createCluster_onDeviceServiceConfiguration,
+    createCluster_description,
+    createCluster_taxDocuments,
+    createCluster_jobType,
+    createCluster_resources,
+    createCluster_addressId,
+    createCluster_roleARN,
+    createCluster_snowballType,
+    createCluster_shippingOption,
+    createClusterResponse_clusterId,
+    createClusterResponse_httpStatus,
+
+    -- ** ListJobs
+    listJobs_nextToken,
+    listJobs_maxResults,
+    listJobsResponse_jobListEntries,
+    listJobsResponse_nextToken,
+    listJobsResponse_httpStatus,
+
+    -- ** UpdateJob
+    updateJob_notification,
+    updateJob_forwardingAddressId,
+    updateJob_addressId,
+    updateJob_shippingOption,
+    updateJob_resources,
+    updateJob_onDeviceServiceConfiguration,
+    updateJob_description,
+    updateJob_roleARN,
+    updateJob_snowballCapacityPreference,
+    updateJob_jobId,
+    updateJobResponse_httpStatus,
+
+    -- ** UpdateJobShipmentState
+    updateJobShipmentState_jobId,
+    updateJobShipmentState_shipmentState,
+    updateJobShipmentStateResponse_httpStatus,
+
+    -- ** GetJobUnlockCode
+    getJobUnlockCode_jobId,
+    getJobUnlockCodeResponse_unlockCode,
+    getJobUnlockCodeResponse_httpStatus,
+
+    -- ** ListClusterJobs
+    listClusterJobs_nextToken,
+    listClusterJobs_maxResults,
+    listClusterJobs_clusterId,
+    listClusterJobsResponse_jobListEntries,
+    listClusterJobsResponse_nextToken,
+    listClusterJobsResponse_httpStatus,
+
+    -- ** DescribeJob
+    describeJob_jobId,
+    describeJobResponse_jobMetadata,
+    describeJobResponse_subJobMetadata,
+    describeJobResponse_httpStatus,
+
+    -- ** UpdateLongTermPricing
+    updateLongTermPricing_isLongTermPricingAutoRenew,
+    updateLongTermPricing_replacementJob,
+    updateLongTermPricing_longTermPricingId,
+    updateLongTermPricingResponse_httpStatus,
+
+    -- ** ListClusters
+    listClusters_nextToken,
+    listClusters_maxResults,
+    listClustersResponse_clusterListEntries,
+    listClustersResponse_nextToken,
+    listClustersResponse_httpStatus,
+
+    -- ** DescribeAddress
+    describeAddress_addressId,
+    describeAddressResponse_address,
+    describeAddressResponse_httpStatus,
+
+    -- ** DescribeReturnShippingLabel
+    describeReturnShippingLabel_jobId,
+    describeReturnShippingLabelResponse_status,
+    describeReturnShippingLabelResponse_expirationDate,
+    describeReturnShippingLabelResponse_httpStatus,
+
+    -- ** CancelJob
+    cancelJob_jobId,
+    cancelJobResponse_httpStatus,
+
     -- * Types
 
     -- ** Address
-    address_company,
     address_isRestricted,
-    address_phoneNumber,
-    address_postalCode,
-    address_street1,
+    address_street3,
     address_landmark,
-    address_name,
-    address_city,
-    address_street2,
-    address_addressId,
+    address_postalCode,
     address_country,
     address_stateOrProvince,
+    address_street2,
+    address_addressId,
+    address_city,
+    address_phoneNumber,
+    address_company,
+    address_name,
     address_prefectureOrDistrict,
-    address_street3,
+    address_street1,
 
     -- ** ClusterListEntry
+    clusterListEntry_clusterState,
     clusterListEntry_clusterId,
     clusterListEntry_creationDate,
     clusterListEntry_description,
-    clusterListEntry_clusterState,
 
     -- ** ClusterMetadata
-    clusterMetadata_clusterId,
-    clusterMetadata_roleARN,
-    clusterMetadata_shippingOption,
-    clusterMetadata_creationDate,
     clusterMetadata_jobType,
     clusterMetadata_kmsKeyARN,
-    clusterMetadata_onDeviceServiceConfiguration,
-    clusterMetadata_taxDocuments,
-    clusterMetadata_resources,
-    clusterMetadata_snowballType,
-    clusterMetadata_description,
-    clusterMetadata_addressId,
-    clusterMetadata_forwardingAddressId,
     clusterMetadata_clusterState,
     clusterMetadata_notification,
+    clusterMetadata_forwardingAddressId,
+    clusterMetadata_addressId,
+    clusterMetadata_snowballType,
+    clusterMetadata_shippingOption,
+    clusterMetadata_resources,
+    clusterMetadata_onDeviceServiceConfiguration,
+    clusterMetadata_clusterId,
+    clusterMetadata_creationDate,
+    clusterMetadata_description,
+    clusterMetadata_taxDocuments,
+    clusterMetadata_roleARN,
 
     -- ** CompatibleImage
-    compatibleImage_amiId,
     compatibleImage_name,
+    compatibleImage_amiId,
 
     -- ** DataTransfer
     dataTransfer_totalObjects,
-    dataTransfer_bytesTransferred,
     dataTransfer_totalBytes,
     dataTransfer_objectsTransferred,
+    dataTransfer_bytesTransferred,
 
     -- ** DeviceConfiguration
     deviceConfiguration_snowconeDeviceConfiguration,
@@ -264,47 +264,47 @@ module Network.AWS.Snowball.Lens
     iNDTaxDocuments_gstin,
 
     -- ** JobListEntry
-    jobListEntry_isMaster,
-    jobListEntry_jobState,
-    jobListEntry_creationDate,
     jobListEntry_jobType,
-    jobListEntry_snowballType,
-    jobListEntry_description,
     jobListEntry_jobId,
+    jobListEntry_jobState,
+    jobListEntry_snowballType,
+    jobListEntry_creationDate,
+    jobListEntry_description,
+    jobListEntry_isMaster,
 
     -- ** JobLogs
+    jobLogs_jobFailureLogURI,
     jobLogs_jobCompletionReportURI,
     jobLogs_jobSuccessLogURI,
-    jobLogs_jobFailureLogURI,
 
     -- ** JobMetadata
-    jobMetadata_clusterId,
-    jobMetadata_remoteManagement,
-    jobMetadata_roleARN,
-    jobMetadata_jobState,
-    jobMetadata_deviceConfiguration,
-    jobMetadata_creationDate,
     jobMetadata_jobType,
     jobMetadata_kmsKeyARN,
-    jobMetadata_onDeviceServiceConfiguration,
-    jobMetadata_taxDocuments,
-    jobMetadata_snowballCapacityPreference,
-    jobMetadata_longTermPricingId,
-    jobMetadata_resources,
-    jobMetadata_dataTransferProgress,
-    jobMetadata_snowballType,
-    jobMetadata_description,
-    jobMetadata_addressId,
+    jobMetadata_remoteManagement,
+    jobMetadata_jobId,
+    jobMetadata_jobLogInfo,
+    jobMetadata_notification,
+    jobMetadata_jobState,
     jobMetadata_forwardingAddressId,
     jobMetadata_shippingDetails,
-    jobMetadata_notification,
-    jobMetadata_jobLogInfo,
-    jobMetadata_jobId,
+    jobMetadata_addressId,
+    jobMetadata_snowballType,
+    jobMetadata_dataTransferProgress,
+    jobMetadata_longTermPricingId,
+    jobMetadata_resources,
+    jobMetadata_onDeviceServiceConfiguration,
+    jobMetadata_clusterId,
+    jobMetadata_creationDate,
+    jobMetadata_deviceConfiguration,
+    jobMetadata_description,
+    jobMetadata_taxDocuments,
+    jobMetadata_roleARN,
+    jobMetadata_snowballCapacityPreference,
 
     -- ** JobResource
-    jobResource_s3Resources,
     jobResource_ec2AmiResources,
     jobResource_lambdaResources,
+    jobResource_s3Resources,
 
     -- ** KeyRange
     keyRange_endMarker,
@@ -315,37 +315,37 @@ module Network.AWS.Snowball.Lens
     lambdaResource_lambdaArn,
 
     -- ** LongTermPricingListEntry
-    longTermPricingListEntry_longTermPricingStartDate,
-    longTermPricingListEntry_longTermPricingStatus,
-    longTermPricingListEntry_longTermPricingEndDate,
     longTermPricingListEntry_longTermPricingType,
-    longTermPricingListEntry_jobIds,
-    longTermPricingListEntry_replacementJob,
-    longTermPricingListEntry_longTermPricingId,
+    longTermPricingListEntry_longTermPricingStartDate,
     longTermPricingListEntry_snowballType,
+    longTermPricingListEntry_longTermPricingId,
+    longTermPricingListEntry_longTermPricingEndDate,
     longTermPricingListEntry_currentActiveJob,
     longTermPricingListEntry_isLongTermPricingAutoRenew,
+    longTermPricingListEntry_longTermPricingStatus,
+    longTermPricingListEntry_jobIds,
+    longTermPricingListEntry_replacementJob,
 
     -- ** NFSOnDeviceServiceConfiguration
     nFSOnDeviceServiceConfiguration_storageLimit,
     nFSOnDeviceServiceConfiguration_storageUnit,
 
     -- ** Notification
-    notification_jobStatesToNotify,
-    notification_snsTopicARN,
     notification_notifyAll,
+    notification_snsTopicARN,
+    notification_jobStatesToNotify,
 
     -- ** OnDeviceServiceConfiguration
     onDeviceServiceConfiguration_nFSOnDeviceService,
 
     -- ** S3Resource
-    s3Resource_targetOnDeviceServices,
-    s3Resource_bucketArn,
     s3Resource_keyRange,
+    s3Resource_bucketArn,
+    s3Resource_targetOnDeviceServices,
 
     -- ** Shipment
-    shipment_trackingNumber,
     shipment_status,
+    shipment_trackingNumber,
 
     -- ** ShippingDetails
     shippingDetails_shippingOption,

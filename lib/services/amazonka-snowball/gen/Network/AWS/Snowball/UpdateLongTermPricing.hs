@@ -27,8 +27,8 @@ module Network.AWS.Snowball.UpdateLongTermPricing
     newUpdateLongTermPricing,
 
     -- * Request Lenses
-    updateLongTermPricing_replacementJob,
     updateLongTermPricing_isLongTermPricingAutoRenew,
+    updateLongTermPricing_replacementJob,
     updateLongTermPricing_longTermPricingId,
 
     -- * Destructuring the Response
@@ -49,13 +49,13 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'newUpdateLongTermPricing' smart constructor.
 data UpdateLongTermPricing = UpdateLongTermPricing'
-  { -- | Specifies that a device that is ordered with long-term pricing should be
-    -- replaced with a new device.
-    replacementJob :: Prelude.Maybe Prelude.Text,
-    -- | If set to @true@, specifies that the current long-term pricing type for
+  { -- | If set to @true@, specifies that the current long-term pricing type for
     -- the device should be automatically renewed before the long-term pricing
     -- contract expires.
     isLongTermPricingAutoRenew :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies that a device that is ordered with long-term pricing should be
+    -- replaced with a new device.
+    replacementJob :: Prelude.Maybe Prelude.Text,
     -- | The ID of the long-term pricing type for the device.
     longTermPricingId :: Prelude.Text
   }
@@ -69,12 +69,12 @@ data UpdateLongTermPricing = UpdateLongTermPricing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replacementJob', 'updateLongTermPricing_replacementJob' - Specifies that a device that is ordered with long-term pricing should be
--- replaced with a new device.
---
 -- 'isLongTermPricingAutoRenew', 'updateLongTermPricing_isLongTermPricingAutoRenew' - If set to @true@, specifies that the current long-term pricing type for
 -- the device should be automatically renewed before the long-term pricing
 -- contract expires.
+--
+-- 'replacementJob', 'updateLongTermPricing_replacementJob' - Specifies that a device that is ordered with long-term pricing should be
+-- replaced with a new device.
 --
 -- 'longTermPricingId', 'updateLongTermPricing_longTermPricingId' - The ID of the long-term pricing type for the device.
 newUpdateLongTermPricing ::
@@ -83,22 +83,22 @@ newUpdateLongTermPricing ::
   UpdateLongTermPricing
 newUpdateLongTermPricing pLongTermPricingId_ =
   UpdateLongTermPricing'
-    { replacementJob =
+    { isLongTermPricingAutoRenew =
         Prelude.Nothing,
-      isLongTermPricingAutoRenew = Prelude.Nothing,
+      replacementJob = Prelude.Nothing,
       longTermPricingId = pLongTermPricingId_
     }
-
--- | Specifies that a device that is ordered with long-term pricing should be
--- replaced with a new device.
-updateLongTermPricing_replacementJob :: Lens.Lens' UpdateLongTermPricing (Prelude.Maybe Prelude.Text)
-updateLongTermPricing_replacementJob = Lens.lens (\UpdateLongTermPricing' {replacementJob} -> replacementJob) (\s@UpdateLongTermPricing' {} a -> s {replacementJob = a} :: UpdateLongTermPricing)
 
 -- | If set to @true@, specifies that the current long-term pricing type for
 -- the device should be automatically renewed before the long-term pricing
 -- contract expires.
 updateLongTermPricing_isLongTermPricingAutoRenew :: Lens.Lens' UpdateLongTermPricing (Prelude.Maybe Prelude.Bool)
 updateLongTermPricing_isLongTermPricingAutoRenew = Lens.lens (\UpdateLongTermPricing' {isLongTermPricingAutoRenew} -> isLongTermPricingAutoRenew) (\s@UpdateLongTermPricing' {} a -> s {isLongTermPricingAutoRenew = a} :: UpdateLongTermPricing)
+
+-- | Specifies that a device that is ordered with long-term pricing should be
+-- replaced with a new device.
+updateLongTermPricing_replacementJob :: Lens.Lens' UpdateLongTermPricing (Prelude.Maybe Prelude.Text)
+updateLongTermPricing_replacementJob = Lens.lens (\UpdateLongTermPricing' {replacementJob} -> replacementJob) (\s@UpdateLongTermPricing' {} a -> s {replacementJob = a} :: UpdateLongTermPricing)
 
 -- | The ID of the long-term pricing type for the device.
 updateLongTermPricing_longTermPricingId :: Lens.Lens' UpdateLongTermPricing Prelude.Text
@@ -139,10 +139,10 @@ instance Core.ToJSON UpdateLongTermPricing where
   toJSON UpdateLongTermPricing' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ReplacementJob" Core..=)
-              Prelude.<$> replacementJob,
-            ("IsLongTermPricingAutoRenew" Core..=)
+          [ ("IsLongTermPricingAutoRenew" Core..=)
               Prelude.<$> isLongTermPricingAutoRenew,
+            ("ReplacementJob" Core..=)
+              Prelude.<$> replacementJob,
             Prelude.Just
               ("LongTermPricingId" Core..= longTermPricingId)
           ]

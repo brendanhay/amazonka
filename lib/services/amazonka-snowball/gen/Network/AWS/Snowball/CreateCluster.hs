@@ -29,13 +29,13 @@ module Network.AWS.Snowball.CreateCluster
     newCreateCluster,
 
     -- * Request Lenses
-    createCluster_remoteManagement,
     createCluster_kmsKeyARN,
-    createCluster_onDeviceServiceConfiguration,
-    createCluster_taxDocuments,
-    createCluster_description,
-    createCluster_forwardingAddressId,
+    createCluster_remoteManagement,
     createCluster_notification,
+    createCluster_forwardingAddressId,
+    createCluster_onDeviceServiceConfiguration,
+    createCluster_description,
+    createCluster_taxDocuments,
     createCluster_jobType,
     createCluster_resources,
     createCluster_addressId,
@@ -62,32 +62,32 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'newCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { -- | Allows you to securely operate and manage Snow devices in a cluster
+  { -- | The @KmsKeyARN@ value that you want to associate with this cluster.
+    -- @KmsKeyARN@ values are created by using the
+    -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
+    -- API action in AWS Key Management Service (AWS KMS).
+    kmsKeyARN :: Prelude.Maybe Prelude.Text,
+    -- | Allows you to securely operate and manage Snow devices in a cluster
     -- remotely from outside of your internal network. When set to
     -- @INSTALLED_AUTOSTART@, remote management will automatically be available
     -- when the device arrives at your location. Otherwise, you need to use the
     -- Snowball Client to manage the device.
     remoteManagement :: Prelude.Maybe RemoteManagement,
-    -- | The @KmsKeyARN@ value that you want to associate with this cluster.
-    -- @KmsKeyARN@ values are created by using the
-    -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
-    -- API action in AWS Key Management Service (AWS KMS).
-    kmsKeyARN :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Simple Notification Service (Amazon SNS) notification
+    -- settings for this cluster.
+    notification :: Prelude.Maybe Notification,
+    -- | The forwarding address ID for a cluster. This field is not supported in
+    -- most regions.
+    forwardingAddressId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the service or services on the Snow Family device that your
     -- transferred data will be exported from or imported into. AWS Snow Family
     -- supports Amazon S3 and NFS (Network File System).
     onDeviceServiceConfiguration :: Prelude.Maybe OnDeviceServiceConfiguration,
-    -- | The tax documents required in your AWS Region.
-    taxDocuments :: Prelude.Maybe TaxDocuments,
     -- | An optional description of this specific cluster, for example
     -- @Environmental Data Cluster-01@.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The forwarding address ID for a cluster. This field is not supported in
-    -- most regions.
-    forwardingAddressId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Simple Notification Service (Amazon SNS) notification
-    -- settings for this cluster.
-    notification :: Prelude.Maybe Notification,
+    -- | The tax documents required in your AWS Region.
+    taxDocuments :: Prelude.Maybe TaxDocuments,
     -- | The type of job for this cluster. Currently, the only job type supported
     -- for clusters is @LOCAL_USE@.
     --
@@ -160,31 +160,31 @@ data CreateCluster = CreateCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'kmsKeyARN', 'createCluster_kmsKeyARN' - The @KmsKeyARN@ value that you want to associate with this cluster.
+-- @KmsKeyARN@ values are created by using the
+-- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
+-- API action in AWS Key Management Service (AWS KMS).
+--
 -- 'remoteManagement', 'createCluster_remoteManagement' - Allows you to securely operate and manage Snow devices in a cluster
 -- remotely from outside of your internal network. When set to
 -- @INSTALLED_AUTOSTART@, remote management will automatically be available
 -- when the device arrives at your location. Otherwise, you need to use the
 -- Snowball Client to manage the device.
 --
--- 'kmsKeyARN', 'createCluster_kmsKeyARN' - The @KmsKeyARN@ value that you want to associate with this cluster.
--- @KmsKeyARN@ values are created by using the
--- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
--- API action in AWS Key Management Service (AWS KMS).
+-- 'notification', 'createCluster_notification' - The Amazon Simple Notification Service (Amazon SNS) notification
+-- settings for this cluster.
+--
+-- 'forwardingAddressId', 'createCluster_forwardingAddressId' - The forwarding address ID for a cluster. This field is not supported in
+-- most regions.
 --
 -- 'onDeviceServiceConfiguration', 'createCluster_onDeviceServiceConfiguration' - Specifies the service or services on the Snow Family device that your
 -- transferred data will be exported from or imported into. AWS Snow Family
 -- supports Amazon S3 and NFS (Network File System).
 --
--- 'taxDocuments', 'createCluster_taxDocuments' - The tax documents required in your AWS Region.
---
 -- 'description', 'createCluster_description' - An optional description of this specific cluster, for example
 -- @Environmental Data Cluster-01@.
 --
--- 'forwardingAddressId', 'createCluster_forwardingAddressId' - The forwarding address ID for a cluster. This field is not supported in
--- most regions.
---
--- 'notification', 'createCluster_notification' - The Amazon Simple Notification Service (Amazon SNS) notification
--- settings for this cluster.
+-- 'taxDocuments', 'createCluster_taxDocuments' - The tax documents required in your AWS Region.
 --
 -- 'jobType', 'createCluster_jobType' - The type of job for this cluster. Currently, the only job type supported
 -- for clusters is @LOCAL_USE@.
@@ -268,13 +268,13 @@ newCreateCluster
   pSnowballType_
   pShippingOption_ =
     CreateCluster'
-      { remoteManagement = Prelude.Nothing,
-        kmsKeyARN = Prelude.Nothing,
-        onDeviceServiceConfiguration = Prelude.Nothing,
-        taxDocuments = Prelude.Nothing,
-        description = Prelude.Nothing,
-        forwardingAddressId = Prelude.Nothing,
+      { kmsKeyARN = Prelude.Nothing,
+        remoteManagement = Prelude.Nothing,
         notification = Prelude.Nothing,
+        forwardingAddressId = Prelude.Nothing,
+        onDeviceServiceConfiguration = Prelude.Nothing,
+        description = Prelude.Nothing,
+        taxDocuments = Prelude.Nothing,
         jobType = pJobType_,
         resources = pResources_,
         addressId = pAddressId_,
@@ -282,6 +282,13 @@ newCreateCluster
         snowballType = pSnowballType_,
         shippingOption = pShippingOption_
       }
+
+-- | The @KmsKeyARN@ value that you want to associate with this cluster.
+-- @KmsKeyARN@ values are created by using the
+-- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
+-- API action in AWS Key Management Service (AWS KMS).
+createCluster_kmsKeyARN :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_kmsKeyARN = Lens.lens (\CreateCluster' {kmsKeyARN} -> kmsKeyARN) (\s@CreateCluster' {} a -> s {kmsKeyARN = a} :: CreateCluster)
 
 -- | Allows you to securely operate and manage Snow devices in a cluster
 -- remotely from outside of your internal network. When set to
@@ -291,12 +298,15 @@ newCreateCluster
 createCluster_remoteManagement :: Lens.Lens' CreateCluster (Prelude.Maybe RemoteManagement)
 createCluster_remoteManagement = Lens.lens (\CreateCluster' {remoteManagement} -> remoteManagement) (\s@CreateCluster' {} a -> s {remoteManagement = a} :: CreateCluster)
 
--- | The @KmsKeyARN@ value that you want to associate with this cluster.
--- @KmsKeyARN@ values are created by using the
--- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
--- API action in AWS Key Management Service (AWS KMS).
-createCluster_kmsKeyARN :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_kmsKeyARN = Lens.lens (\CreateCluster' {kmsKeyARN} -> kmsKeyARN) (\s@CreateCluster' {} a -> s {kmsKeyARN = a} :: CreateCluster)
+-- | The Amazon Simple Notification Service (Amazon SNS) notification
+-- settings for this cluster.
+createCluster_notification :: Lens.Lens' CreateCluster (Prelude.Maybe Notification)
+createCluster_notification = Lens.lens (\CreateCluster' {notification} -> notification) (\s@CreateCluster' {} a -> s {notification = a} :: CreateCluster)
+
+-- | The forwarding address ID for a cluster. This field is not supported in
+-- most regions.
+createCluster_forwardingAddressId :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_forwardingAddressId = Lens.lens (\CreateCluster' {forwardingAddressId} -> forwardingAddressId) (\s@CreateCluster' {} a -> s {forwardingAddressId = a} :: CreateCluster)
 
 -- | Specifies the service or services on the Snow Family device that your
 -- transferred data will be exported from or imported into. AWS Snow Family
@@ -304,24 +314,14 @@ createCluster_kmsKeyARN = Lens.lens (\CreateCluster' {kmsKeyARN} -> kmsKeyARN) (
 createCluster_onDeviceServiceConfiguration :: Lens.Lens' CreateCluster (Prelude.Maybe OnDeviceServiceConfiguration)
 createCluster_onDeviceServiceConfiguration = Lens.lens (\CreateCluster' {onDeviceServiceConfiguration} -> onDeviceServiceConfiguration) (\s@CreateCluster' {} a -> s {onDeviceServiceConfiguration = a} :: CreateCluster)
 
--- | The tax documents required in your AWS Region.
-createCluster_taxDocuments :: Lens.Lens' CreateCluster (Prelude.Maybe TaxDocuments)
-createCluster_taxDocuments = Lens.lens (\CreateCluster' {taxDocuments} -> taxDocuments) (\s@CreateCluster' {} a -> s {taxDocuments = a} :: CreateCluster)
-
 -- | An optional description of this specific cluster, for example
 -- @Environmental Data Cluster-01@.
 createCluster_description :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_description = Lens.lens (\CreateCluster' {description} -> description) (\s@CreateCluster' {} a -> s {description = a} :: CreateCluster)
 
--- | The forwarding address ID for a cluster. This field is not supported in
--- most regions.
-createCluster_forwardingAddressId :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_forwardingAddressId = Lens.lens (\CreateCluster' {forwardingAddressId} -> forwardingAddressId) (\s@CreateCluster' {} a -> s {forwardingAddressId = a} :: CreateCluster)
-
--- | The Amazon Simple Notification Service (Amazon SNS) notification
--- settings for this cluster.
-createCluster_notification :: Lens.Lens' CreateCluster (Prelude.Maybe Notification)
-createCluster_notification = Lens.lens (\CreateCluster' {notification} -> notification) (\s@CreateCluster' {} a -> s {notification = a} :: CreateCluster)
+-- | The tax documents required in your AWS Region.
+createCluster_taxDocuments :: Lens.Lens' CreateCluster (Prelude.Maybe TaxDocuments)
+createCluster_taxDocuments = Lens.lens (\CreateCluster' {taxDocuments} -> taxDocuments) (\s@CreateCluster' {} a -> s {taxDocuments = a} :: CreateCluster)
 
 -- | The type of job for this cluster. Currently, the only job type supported
 -- for clusters is @LOCAL_USE@.
@@ -432,16 +432,16 @@ instance Core.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RemoteManagement" Core..=)
+          [ ("KmsKeyARN" Core..=) Prelude.<$> kmsKeyARN,
+            ("RemoteManagement" Core..=)
               Prelude.<$> remoteManagement,
-            ("KmsKeyARN" Core..=) Prelude.<$> kmsKeyARN,
-            ("OnDeviceServiceConfiguration" Core..=)
-              Prelude.<$> onDeviceServiceConfiguration,
-            ("TaxDocuments" Core..=) Prelude.<$> taxDocuments,
-            ("Description" Core..=) Prelude.<$> description,
+            ("Notification" Core..=) Prelude.<$> notification,
             ("ForwardingAddressId" Core..=)
               Prelude.<$> forwardingAddressId,
-            ("Notification" Core..=) Prelude.<$> notification,
+            ("OnDeviceServiceConfiguration" Core..=)
+              Prelude.<$> onDeviceServiceConfiguration,
+            ("Description" Core..=) Prelude.<$> description,
+            ("TaxDocuments" Core..=) Prelude.<$> taxDocuments,
             Prelude.Just ("JobType" Core..= jobType),
             Prelude.Just ("Resources" Core..= resources),
             Prelude.Just ("AddressId" Core..= addressId),

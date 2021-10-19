@@ -17,14 +17,14 @@ module Network.AWS.S3.Types
     defaultService,
 
     -- * Errors
-    _ObjectNotInActiveTierError,
-    _NoSuchKey,
-    _ObjectAlreadyInActiveTierError,
-    _NoSuchUpload,
     _BucketAlreadyOwnedByYou,
-    _InvalidObjectState,
+    _ObjectAlreadyInActiveTierError,
     _BucketAlreadyExists,
+    _ObjectNotInActiveTierError,
+    _NoSuchUpload,
     _NoSuchBucket,
+    _NoSuchKey,
+    _InvalidObjectState,
 
     -- * Re-exported Types
     module Network.AWS.S3.Internal,
@@ -204,8 +204,8 @@ module Network.AWS.S3.Types
     -- * AccessControlPolicy
     AccessControlPolicy (..),
     newAccessControlPolicy,
-    accessControlPolicy_owner,
     accessControlPolicy_grants,
+    accessControlPolicy_owner,
 
     -- * AccessControlTranslation
     AccessControlTranslation (..),
@@ -233,15 +233,15 @@ module Network.AWS.S3.Types
     -- * AnalyticsFilter
     AnalyticsFilter (..),
     newAnalyticsFilter,
+    analyticsFilter_tag,
     analyticsFilter_prefix,
     analyticsFilter_and,
-    analyticsFilter_tag,
 
     -- * AnalyticsS3BucketDestination
     AnalyticsS3BucketDestination (..),
     newAnalyticsS3BucketDestination,
-    analyticsS3BucketDestination_prefix,
     analyticsS3BucketDestination_bucketAccountId,
+    analyticsS3BucketDestination_prefix,
     analyticsS3BucketDestination_format,
     analyticsS3BucketDestination_bucket,
 
@@ -269,32 +269,32 @@ module Network.AWS.S3.Types
     -- * CORSRule
     CORSRule (..),
     newCORSRule,
-    cORSRule_allowedHeaders,
-    cORSRule_id,
     cORSRule_maxAgeSeconds,
+    cORSRule_allowedHeaders,
     cORSRule_exposeHeaders,
+    cORSRule_id,
     cORSRule_allowedMethods,
     cORSRule_allowedOrigins,
 
     -- * CSVInput
     CSVInput (..),
     newCSVInput,
-    cSVInput_allowQuotedRecordDelimiter,
-    cSVInput_recordDelimiter,
     cSVInput_quoteCharacter,
+    cSVInput_recordDelimiter,
+    cSVInput_allowQuotedRecordDelimiter,
     cSVInput_fileHeaderInfo,
-    cSVInput_fieldDelimiter,
-    cSVInput_comments,
     cSVInput_quoteEscapeCharacter,
+    cSVInput_comments,
+    cSVInput_fieldDelimiter,
 
     -- * CSVOutput
     CSVOutput (..),
     newCSVOutput,
-    cSVOutput_recordDelimiter,
     cSVOutput_quoteCharacter,
-    cSVOutput_fieldDelimiter,
     cSVOutput_quoteFields,
+    cSVOutput_recordDelimiter,
     cSVOutput_quoteEscapeCharacter,
+    cSVOutput_fieldDelimiter,
 
     -- * CommonPrefix
     CommonPrefix (..),
@@ -315,8 +315,8 @@ module Network.AWS.S3.Types
     -- * Condition
     Condition (..),
     newCondition,
-    condition_httpErrorCodeReturnedEquals,
     condition_keyPrefixEquals,
+    condition_httpErrorCodeReturnedEquals,
 
     -- * ContinuationEvent
     ContinuationEvent (..),
@@ -343,8 +343,8 @@ module Network.AWS.S3.Types
     DefaultRetention (..),
     newDefaultRetention,
     defaultRetention_days,
-    defaultRetention_years,
     defaultRetention_mode,
+    defaultRetention_years,
 
     -- * Delete
     Delete (..),
@@ -355,10 +355,10 @@ module Network.AWS.S3.Types
     -- * DeleteMarkerEntry
     DeleteMarkerEntry (..),
     newDeleteMarkerEntry,
-    deleteMarkerEntry_key,
-    deleteMarkerEntry_isLatest,
     deleteMarkerEntry_versionId,
+    deleteMarkerEntry_isLatest,
     deleteMarkerEntry_owner,
+    deleteMarkerEntry_key,
     deleteMarkerEntry_lastModified,
 
     -- * DeleteMarkerReplication
@@ -369,20 +369,20 @@ module Network.AWS.S3.Types
     -- * DeletedObject
     DeletedObject (..),
     newDeletedObject,
-    deletedObject_key,
-    deletedObject_deleteMarkerVersionId,
-    deletedObject_deleteMarker,
     deletedObject_versionId,
+    deletedObject_deleteMarker,
+    deletedObject_deleteMarkerVersionId,
+    deletedObject_key,
 
     -- * Destination
     Destination (..),
     newDestination,
+    destination_metrics,
+    destination_accessControlTranslation,
+    destination_account,
+    destination_storageClass,
     destination_encryptionConfiguration,
     destination_replicationTime,
-    destination_accessControlTranslation,
-    destination_storageClass,
-    destination_metrics,
-    destination_account,
     destination_bucket,
 
     -- * Encryption
@@ -414,8 +414,8 @@ module Network.AWS.S3.Types
     -- * FilterRule
     FilterRule (..),
     newFilterRule,
-    filterRule_name,
     filterRule_value,
+    filterRule_name,
 
     -- * GlacierJobParameters
     GlacierJobParameters (..),
@@ -425,16 +425,16 @@ module Network.AWS.S3.Types
     -- * Grant
     Grant (..),
     newGrant,
-    grant_grantee,
     grant_permission,
+    grant_grantee,
 
     -- * Grantee
     Grantee (..),
     newGrantee,
     grantee_uri,
-    grantee_id,
-    grantee_displayName,
     grantee_emailAddress,
+    grantee_displayName,
+    grantee_id,
     grantee_type,
 
     -- * IndexDocument
@@ -445,15 +445,15 @@ module Network.AWS.S3.Types
     -- * Initiator
     Initiator (..),
     newInitiator,
-    initiator_id,
     initiator_displayName,
+    initiator_id,
 
     -- * InputSerialization
     InputSerialization (..),
     newInputSerialization,
-    inputSerialization_parquet,
-    inputSerialization_csv,
     inputSerialization_json,
+    inputSerialization_csv,
+    inputSerialization_parquet,
     inputSerialization_compressionType,
 
     -- * IntelligentTieringAndOperator
@@ -473,9 +473,9 @@ module Network.AWS.S3.Types
     -- * IntelligentTieringFilter
     IntelligentTieringFilter (..),
     newIntelligentTieringFilter,
+    intelligentTieringFilter_tag,
     intelligentTieringFilter_prefix,
     intelligentTieringFilter_and,
-    intelligentTieringFilter_tag,
 
     -- * InventoryConfiguration
     InventoryConfiguration (..),
@@ -496,8 +496,8 @@ module Network.AWS.S3.Types
     -- * InventoryEncryption
     InventoryEncryption (..),
     newInventoryEncryption,
-    inventoryEncryption_ssekms,
     inventoryEncryption_sses3,
+    inventoryEncryption_ssekms,
 
     -- * InventoryFilter
     InventoryFilter (..),
@@ -507,8 +507,8 @@ module Network.AWS.S3.Types
     -- * InventoryS3BucketDestination
     InventoryS3BucketDestination (..),
     newInventoryS3BucketDestination,
-    inventoryS3BucketDestination_accountId,
     inventoryS3BucketDestination_prefix,
+    inventoryS3BucketDestination_accountId,
     inventoryS3BucketDestination_encryption,
     inventoryS3BucketDestination_bucket,
     inventoryS3BucketDestination_format,
@@ -540,20 +540,20 @@ module Network.AWS.S3.Types
     LifecycleExpiration (..),
     newLifecycleExpiration,
     lifecycleExpiration_days,
-    lifecycleExpiration_expiredObjectDeleteMarker,
     lifecycleExpiration_date,
+    lifecycleExpiration_expiredObjectDeleteMarker,
 
     -- * LifecycleRule
     LifecycleRule (..),
     newLifecycleRule,
-    lifecycleRule_expiration,
+    lifecycleRule_transitions,
+    lifecycleRule_noncurrentVersionExpiration,
     lifecycleRule_prefix,
     lifecycleRule_noncurrentVersionTransitions,
+    lifecycleRule_expiration,
     lifecycleRule_id,
-    lifecycleRule_noncurrentVersionExpiration,
-    lifecycleRule_transitions,
-    lifecycleRule_abortIncompleteMultipartUpload,
     lifecycleRule_filter,
+    lifecycleRule_abortIncompleteMultipartUpload,
     lifecycleRule_status,
 
     -- * LifecycleRuleAndOperator
@@ -565,9 +565,9 @@ module Network.AWS.S3.Types
     -- * LifecycleRuleFilter
     LifecycleRuleFilter (..),
     newLifecycleRuleFilter,
+    lifecycleRuleFilter_tag,
     lifecycleRuleFilter_prefix,
     lifecycleRuleFilter_and,
-    lifecycleRuleFilter_tag,
 
     -- * LoggingEnabled
     LoggingEnabled (..),
@@ -579,8 +579,8 @@ module Network.AWS.S3.Types
     -- * MetadataEntry
     MetadataEntry (..),
     newMetadataEntry,
-    metadataEntry_name,
     metadataEntry_value,
+    metadataEntry_name,
 
     -- * Metrics
     Metrics (..),
@@ -604,20 +604,20 @@ module Network.AWS.S3.Types
     -- * MetricsFilter
     MetricsFilter (..),
     newMetricsFilter,
-    metricsFilter_prefix,
-    metricsFilter_accessPointArn,
-    metricsFilter_and,
     metricsFilter_tag,
+    metricsFilter_prefix,
+    metricsFilter_and,
+    metricsFilter_accessPointArn,
 
     -- * MultipartUpload
     MultipartUpload (..),
     newMultipartUpload,
-    multipartUpload_key,
-    multipartUpload_uploadId,
-    multipartUpload_storageClass,
     multipartUpload_initiated,
-    multipartUpload_owner,
     multipartUpload_initiator,
+    multipartUpload_owner,
+    multipartUpload_key,
+    multipartUpload_storageClass,
+    multipartUpload_uploadId,
 
     -- * NoncurrentVersionExpiration
     NoncurrentVersionExpiration (..),
@@ -633,9 +633,9 @@ module Network.AWS.S3.Types
     -- * NotificationConfiguration
     NotificationConfiguration (..),
     newNotificationConfiguration,
-    notificationConfiguration_lambdaFunctionConfigurations,
     notificationConfiguration_queueConfigurations,
     notificationConfiguration_topicConfigurations,
+    notificationConfiguration_lambdaFunctionConfigurations,
 
     -- * NotificationConfigurationFilter
     NotificationConfigurationFilter (..),
@@ -661,8 +661,8 @@ module Network.AWS.S3.Types
     -- * ObjectLockConfiguration
     ObjectLockConfiguration (..),
     newObjectLockConfiguration,
-    objectLockConfiguration_rule,
     objectLockConfiguration_objectLockEnabled,
+    objectLockConfiguration_rule,
 
     -- * ObjectLockLegalHold
     ObjectLockLegalHold (..),
@@ -672,8 +672,8 @@ module Network.AWS.S3.Types
     -- * ObjectLockRetention
     ObjectLockRetention (..),
     newObjectLockRetention,
-    objectLockRetention_retainUntilDate,
     objectLockRetention_mode,
+    objectLockRetention_retainUntilDate,
 
     -- * ObjectLockRule
     ObjectLockRule (..),
@@ -683,14 +683,14 @@ module Network.AWS.S3.Types
     -- * ObjectVersion
     ObjectVersion (..),
     newObjectVersion,
-    objectVersion_key,
     objectVersion_eTag,
-    objectVersion_isLatest,
     objectVersion_versionId,
-    objectVersion_storageClass,
-    objectVersion_owner,
-    objectVersion_lastModified,
     objectVersion_size,
+    objectVersion_isLatest,
+    objectVersion_owner,
+    objectVersion_key,
+    objectVersion_storageClass,
+    objectVersion_lastModified,
 
     -- * OutputLocation
     OutputLocation (..),
@@ -700,14 +700,14 @@ module Network.AWS.S3.Types
     -- * OutputSerialization
     OutputSerialization (..),
     newOutputSerialization,
-    outputSerialization_csv,
     outputSerialization_json,
+    outputSerialization_csv,
 
     -- * Owner
     Owner (..),
     newOwner,
-    owner_id,
     owner_displayName,
+    owner_id,
 
     -- * OwnershipControls
     OwnershipControls (..),
@@ -727,9 +727,9 @@ module Network.AWS.S3.Types
     Part (..),
     newPart,
     part_eTag,
+    part_size,
     part_partNumber,
     part_lastModified,
-    part_size,
 
     -- * PolicyStatus
     PolicyStatus (..),
@@ -739,9 +739,9 @@ module Network.AWS.S3.Types
     -- * Progress
     Progress (..),
     newProgress,
+    progress_bytesReturned,
     progress_bytesScanned,
     progress_bytesProcessed,
-    progress_bytesReturned,
 
     -- * ProgressEvent
     ProgressEvent (..),
@@ -773,10 +773,10 @@ module Network.AWS.S3.Types
     Redirect (..),
     newRedirect,
     redirect_hostName,
+    redirect_protocol,
     redirect_httpRedirectCode,
     redirect_replaceKeyWith,
     redirect_replaceKeyPrefixWith,
-    redirect_protocol,
 
     -- * RedirectAllRequestsTo
     RedirectAllRequestsTo (..),
@@ -798,13 +798,13 @@ module Network.AWS.S3.Types
     -- * ReplicationRule
     ReplicationRule (..),
     newReplicationRule,
-    replicationRule_prefix,
-    replicationRule_id,
-    replicationRule_existingObjectReplication,
-    replicationRule_priority,
     replicationRule_deleteMarkerReplication,
-    replicationRule_sourceSelectionCriteria,
+    replicationRule_priority,
+    replicationRule_prefix,
+    replicationRule_existingObjectReplication,
+    replicationRule_id,
     replicationRule_filter,
+    replicationRule_sourceSelectionCriteria,
     replicationRule_status,
     replicationRule_destination,
 
@@ -817,9 +817,9 @@ module Network.AWS.S3.Types
     -- * ReplicationRuleFilter
     ReplicationRuleFilter (..),
     newReplicationRuleFilter,
+    replicationRuleFilter_tag,
     replicationRuleFilter_prefix,
     replicationRuleFilter_and,
-    replicationRuleFilter_tag,
 
     -- * ReplicationTime
     ReplicationTime (..),
@@ -847,11 +847,11 @@ module Network.AWS.S3.Types
     newRestoreRequest,
     restoreRequest_days,
     restoreRequest_selectParameters,
-    restoreRequest_description,
-    restoreRequest_type,
-    restoreRequest_glacierJobParameters,
-    restoreRequest_tier,
     restoreRequest_outputLocation,
+    restoreRequest_tier,
+    restoreRequest_glacierJobParameters,
+    restoreRequest_type,
+    restoreRequest_description,
 
     -- * RoutingRule
     RoutingRule (..),
@@ -868,10 +868,10 @@ module Network.AWS.S3.Types
     S3Location (..),
     newS3Location,
     s3Location_cannedACL,
+    s3Location_accessControlList,
+    s3Location_userMetadata,
     s3Location_encryption,
     s3Location_storageClass,
-    s3Location_userMetadata,
-    s3Location_accessControlList,
     s3Location_tagging,
     s3Location_bucketName,
     s3Location_prefix,
@@ -879,10 +879,10 @@ module Network.AWS.S3.Types
     -- * S3ServiceError
     S3ServiceError (..),
     newS3ServiceError,
-    s3ServiceError_key,
-    s3ServiceError_message,
-    s3ServiceError_code,
     s3ServiceError_versionId,
+    s3ServiceError_key,
+    s3ServiceError_code,
+    s3ServiceError_message,
 
     -- * SSEKMS
     SSEKMS (..),
@@ -896,17 +896,17 @@ module Network.AWS.S3.Types
     -- * ScanRange
     ScanRange (..),
     newScanRange,
-    scanRange_end,
     scanRange_start,
+    scanRange_end,
 
     -- * SelectObjectContentEventStream
     SelectObjectContentEventStream (..),
     newSelectObjectContentEventStream,
-    selectObjectContentEventStream_end,
-    selectObjectContentEventStream_records,
-    selectObjectContentEventStream_stats,
-    selectObjectContentEventStream_cont,
     selectObjectContentEventStream_progress,
+    selectObjectContentEventStream_records,
+    selectObjectContentEventStream_cont,
+    selectObjectContentEventStream_stats,
+    selectObjectContentEventStream_end,
 
     -- * SelectParameters
     SelectParameters (..),
@@ -930,8 +930,8 @@ module Network.AWS.S3.Types
     -- * ServerSideEncryptionRule
     ServerSideEncryptionRule (..),
     newServerSideEncryptionRule,
-    serverSideEncryptionRule_bucketKeyEnabled,
     serverSideEncryptionRule_applyServerSideEncryptionByDefault,
+    serverSideEncryptionRule_bucketKeyEnabled,
 
     -- * SourceSelectionCriteria
     SourceSelectionCriteria (..),
@@ -947,9 +947,9 @@ module Network.AWS.S3.Types
     -- * Stats
     Stats (..),
     newStats,
+    stats_bytesReturned,
     stats_bytesScanned,
     stats_bytesProcessed,
-    stats_bytesReturned,
 
     -- * StatsEvent
     StatsEvent (..),
@@ -981,8 +981,8 @@ module Network.AWS.S3.Types
     -- * TargetGrant
     TargetGrant (..),
     newTargetGrant,
-    targetGrant_grantee,
     targetGrant_permission,
+    targetGrant_grantee,
 
     -- * Tiering
     Tiering (..),
@@ -1002,8 +1002,8 @@ module Network.AWS.S3.Types
     Transition (..),
     newTransition,
     transition_days,
-    transition_storageClass,
     transition_date,
+    transition_storageClass,
 
     -- * VersioningConfiguration
     VersioningConfiguration (..),
@@ -1014,10 +1014,10 @@ module Network.AWS.S3.Types
     -- * WebsiteConfiguration
     WebsiteConfiguration (..),
     newWebsiteConfiguration,
+    websiteConfiguration_redirectAllRequestsTo,
     websiteConfiguration_errorDocument,
     websiteConfiguration_indexDocument,
     websiteConfiguration_routingRules,
-    websiteConfiguration_redirectAllRequestsTo,
   )
 where
 
@@ -1233,49 +1233,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has
-          ( Core.hasCode "BadDigest"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "contentmd5"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "RequestTimeout"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "timeouts"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -1288,34 +1253,42 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "BadDigest"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "contentmd5"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has
+          ( Core.hasCode "RequestTimeout"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "timeouts"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The source object of the COPY action is not in the active tier and is
--- only stored in Amazon S3 Glacier.
-_ObjectNotInActiveTierError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ObjectNotInActiveTierError =
-  Core._MatchServiceError
-    defaultService
-    "ObjectNotInActiveTierError"
-
--- | The specified key does not exist.
-_NoSuchKey :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchKey =
-  Core._MatchServiceError defaultService "NoSuchKey"
-
--- | This action is not allowed against this storage tier.
-_ObjectAlreadyInActiveTierError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ObjectAlreadyInActiveTierError =
-  Core._MatchServiceError
-    defaultService
-    "ObjectAlreadyInActiveTierError"
-
--- | The specified multipart upload does not exist.
-_NoSuchUpload :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchUpload =
-  Core._MatchServiceError
-    defaultService
-    "NoSuchUpload"
 
 -- | The bucket you tried to create already exists, and you own it. Amazon S3
 -- returns this error in all Amazon Web Services Regions except in the
@@ -1329,12 +1302,12 @@ _BucketAlreadyOwnedByYou =
     defaultService
     "BucketAlreadyOwnedByYou"
 
--- | Object is archived and inaccessible until restored.
-_InvalidObjectState :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidObjectState =
+-- | This action is not allowed against this storage tier.
+_ObjectAlreadyInActiveTierError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectAlreadyInActiveTierError =
   Core._MatchServiceError
     defaultService
-    "InvalidObjectState"
+    "ObjectAlreadyInActiveTierError"
 
 -- | The requested bucket name is not available. The bucket namespace is
 -- shared by all users of the system. Select a different name and try
@@ -1345,9 +1318,36 @@ _BucketAlreadyExists =
     defaultService
     "BucketAlreadyExists"
 
+-- | The source object of the COPY action is not in the active tier and is
+-- only stored in Amazon S3 Glacier.
+_ObjectNotInActiveTierError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectNotInActiveTierError =
+  Core._MatchServiceError
+    defaultService
+    "ObjectNotInActiveTierError"
+
+-- | The specified multipart upload does not exist.
+_NoSuchUpload :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchUpload =
+  Core._MatchServiceError
+    defaultService
+    "NoSuchUpload"
+
 -- | The specified bucket does not exist.
 _NoSuchBucket :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchBucket =
   Core._MatchServiceError
     defaultService
     "NoSuchBucket"
+
+-- | The specified key does not exist.
+_NoSuchKey :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchKey =
+  Core._MatchServiceError defaultService "NoSuchKey"
+
+-- | Object is archived and inaccessible until restored.
+_InvalidObjectState :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidObjectState =
+  Core._MatchServiceError
+    defaultService
+    "InvalidObjectState"

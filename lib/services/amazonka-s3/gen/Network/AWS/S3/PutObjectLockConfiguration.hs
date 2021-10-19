@@ -41,11 +41,11 @@ module Network.AWS.S3.PutObjectLockConfiguration
     newPutObjectLockConfiguration,
 
     -- * Request Lenses
-    putObjectLockConfiguration_expectedBucketOwner,
-    putObjectLockConfiguration_objectLockConfiguration,
-    putObjectLockConfiguration_contentMD5,
-    putObjectLockConfiguration_requestPayer,
     putObjectLockConfiguration_token,
+    putObjectLockConfiguration_objectLockConfiguration,
+    putObjectLockConfiguration_requestPayer,
+    putObjectLockConfiguration_contentMD5,
+    putObjectLockConfiguration_expectedBucketOwner,
     putObjectLockConfiguration_bucket,
 
     -- * Destructuring the Response
@@ -67,22 +67,22 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutObjectLockConfiguration' smart constructor.
 data PutObjectLockConfiguration = PutObjectLockConfiguration'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+  { -- | A token to allow Object Lock to be enabled for an existing bucket.
+    token :: Prelude.Maybe Prelude.Text,
     -- | The Object Lock configuration that you want to apply to the specified
     -- bucket.
     objectLockConfiguration :: Prelude.Maybe ObjectLockConfiguration,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The MD5 hash for the request body.
     --
     -- For requests made using the Amazon Web Services Command Line Interface
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
-    requestPayer :: Prelude.Maybe RequestPayer,
-    -- | A token to allow Object Lock to be enabled for an existing bucket.
-    token :: Prelude.Maybe Prelude.Text,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket whose Object Lock configuration you want to create or
     -- replace.
     bucket :: BucketName
@@ -97,12 +97,12 @@ data PutObjectLockConfiguration = PutObjectLockConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putObjectLockConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- 'token', 'putObjectLockConfiguration_token' - A token to allow Object Lock to be enabled for an existing bucket.
 --
 -- 'objectLockConfiguration', 'putObjectLockConfiguration_objectLockConfiguration' - The Object Lock configuration that you want to apply to the specified
 -- bucket.
+--
+-- 'requestPayer', 'putObjectLockConfiguration_requestPayer' - Undocumented member.
 --
 -- 'contentMD5', 'putObjectLockConfiguration_contentMD5' - The MD5 hash for the request body.
 --
@@ -110,9 +110,9 @@ data PutObjectLockConfiguration = PutObjectLockConfiguration'
 -- (CLI) or Amazon Web Services SDKs, this field is calculated
 -- automatically.
 --
--- 'requestPayer', 'putObjectLockConfiguration_requestPayer' - Undocumented member.
---
--- 'token', 'putObjectLockConfiguration_token' - A token to allow Object Lock to be enabled for an existing bucket.
+-- 'expectedBucketOwner', 'putObjectLockConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'putObjectLockConfiguration_bucket' - The bucket whose Object Lock configuration you want to create or
 -- replace.
@@ -122,25 +122,27 @@ newPutObjectLockConfiguration ::
   PutObjectLockConfiguration
 newPutObjectLockConfiguration pBucket_ =
   PutObjectLockConfiguration'
-    { expectedBucketOwner =
+    { token =
         Prelude.Nothing,
       objectLockConfiguration = Prelude.Nothing,
-      contentMD5 = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
-      token = Prelude.Nothing,
+      contentMD5 = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_
     }
 
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-putObjectLockConfiguration_expectedBucketOwner :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe Prelude.Text)
-putObjectLockConfiguration_expectedBucketOwner = Lens.lens (\PutObjectLockConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectLockConfiguration' {} a -> s {expectedBucketOwner = a} :: PutObjectLockConfiguration)
+-- | A token to allow Object Lock to be enabled for an existing bucket.
+putObjectLockConfiguration_token :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe Prelude.Text)
+putObjectLockConfiguration_token = Lens.lens (\PutObjectLockConfiguration' {token} -> token) (\s@PutObjectLockConfiguration' {} a -> s {token = a} :: PutObjectLockConfiguration)
 
 -- | The Object Lock configuration that you want to apply to the specified
 -- bucket.
 putObjectLockConfiguration_objectLockConfiguration :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe ObjectLockConfiguration)
 putObjectLockConfiguration_objectLockConfiguration = Lens.lens (\PutObjectLockConfiguration' {objectLockConfiguration} -> objectLockConfiguration) (\s@PutObjectLockConfiguration' {} a -> s {objectLockConfiguration = a} :: PutObjectLockConfiguration)
+
+-- | Undocumented member.
+putObjectLockConfiguration_requestPayer :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe RequestPayer)
+putObjectLockConfiguration_requestPayer = Lens.lens (\PutObjectLockConfiguration' {requestPayer} -> requestPayer) (\s@PutObjectLockConfiguration' {} a -> s {requestPayer = a} :: PutObjectLockConfiguration)
 
 -- | The MD5 hash for the request body.
 --
@@ -150,13 +152,11 @@ putObjectLockConfiguration_objectLockConfiguration = Lens.lens (\PutObjectLockCo
 putObjectLockConfiguration_contentMD5 :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe Prelude.Text)
 putObjectLockConfiguration_contentMD5 = Lens.lens (\PutObjectLockConfiguration' {contentMD5} -> contentMD5) (\s@PutObjectLockConfiguration' {} a -> s {contentMD5 = a} :: PutObjectLockConfiguration)
 
--- | Undocumented member.
-putObjectLockConfiguration_requestPayer :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe RequestPayer)
-putObjectLockConfiguration_requestPayer = Lens.lens (\PutObjectLockConfiguration' {requestPayer} -> requestPayer) (\s@PutObjectLockConfiguration' {} a -> s {requestPayer = a} :: PutObjectLockConfiguration)
-
--- | A token to allow Object Lock to be enabled for an existing bucket.
-putObjectLockConfiguration_token :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe Prelude.Text)
-putObjectLockConfiguration_token = Lens.lens (\PutObjectLockConfiguration' {token} -> token) (\s@PutObjectLockConfiguration' {} a -> s {token = a} :: PutObjectLockConfiguration)
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+putObjectLockConfiguration_expectedBucketOwner :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe Prelude.Text)
+putObjectLockConfiguration_expectedBucketOwner = Lens.lens (\PutObjectLockConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectLockConfiguration' {} a -> s {expectedBucketOwner = a} :: PutObjectLockConfiguration)
 
 -- | The bucket whose Object Lock configuration you want to create or
 -- replace.
@@ -167,7 +167,9 @@ instance Core.AWSRequest PutObjectLockConfiguration where
   type
     AWSResponse PutObjectLockConfiguration =
       PutObjectLockConfigurationResponse
-  request = Request.putXML defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.putXML defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -189,11 +191,11 @@ instance Core.ToElement PutObjectLockConfiguration where
 instance Core.ToHeaders PutObjectLockConfiguration where
   toHeaders PutObjectLockConfiguration' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "Content-MD5" Core.=# contentMD5,
+      [ "x-amz-bucket-object-lock-token" Core.=# token,
         "x-amz-request-payer" Core.=# requestPayer,
-        "x-amz-bucket-object-lock-token" Core.=# token
+        "Content-MD5" Core.=# contentMD5,
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath PutObjectLockConfiguration where

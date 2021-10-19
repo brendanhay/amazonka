@@ -135,7 +135,9 @@ instance
   type
     AWSResponse GetBucketInventoryConfiguration =
       GetBucketInventoryConfigurationResponse
-  request = Request.get defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->

@@ -112,7 +112,9 @@ instance Core.AWSRequest DeleteBucketWebsite where
   type
     AWSResponse DeleteBucketWebsite =
       DeleteBucketWebsiteResponse
-  request = Request.delete defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.delete defaultService
   response =
     Response.receiveNull DeleteBucketWebsiteResponse'
 

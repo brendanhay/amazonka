@@ -116,7 +116,9 @@ instance Core.AWSRequest DeleteBucketPolicy where
   type
     AWSResponse DeleteBucketPolicy =
       DeleteBucketPolicyResponse
-  request = Request.delete defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.delete defaultService
   response =
     Response.receiveNull DeleteBucketPolicyResponse'
 

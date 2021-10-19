@@ -60,8 +60,8 @@ module Network.AWS.S3.ListBucketMetricsConfigurations
     newListBucketMetricsConfigurations,
 
     -- * Request Lenses
-    listBucketMetricsConfigurations_expectedBucketOwner,
     listBucketMetricsConfigurations_continuationToken,
+    listBucketMetricsConfigurations_expectedBucketOwner,
     listBucketMetricsConfigurations_bucket,
 
     -- * Destructuring the Response
@@ -69,10 +69,10 @@ module Network.AWS.S3.ListBucketMetricsConfigurations
     newListBucketMetricsConfigurationsResponse,
 
     -- * Response Lenses
-    listBucketMetricsConfigurationsResponse_isTruncated,
+    listBucketMetricsConfigurationsResponse_continuationToken,
     listBucketMetricsConfigurationsResponse_metricsConfigurationList,
     listBucketMetricsConfigurationsResponse_nextContinuationToken,
-    listBucketMetricsConfigurationsResponse_continuationToken,
+    listBucketMetricsConfigurationsResponse_isTruncated,
     listBucketMetricsConfigurationsResponse_httpStatus,
   )
 where
@@ -86,15 +86,15 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newListBucketMetricsConfigurations' smart constructor.
 data ListBucketMetricsConfigurations = ListBucketMetricsConfigurations'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | The marker that is used to continue a metrics configuration listing that
+  { -- | The marker that is used to continue a metrics configuration listing that
     -- has been truncated. Use the NextContinuationToken from a previously
     -- truncated list response to continue the listing. The continuation token
     -- is an opaque value that Amazon S3 understands.
     continuationToken :: Prelude.Maybe Prelude.Text,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket containing the metrics configurations to
     -- retrieve.
     bucket :: BucketName
@@ -109,14 +109,14 @@ data ListBucketMetricsConfigurations = ListBucketMetricsConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'listBucketMetricsConfigurations_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
---
 -- 'continuationToken', 'listBucketMetricsConfigurations_continuationToken' - The marker that is used to continue a metrics configuration listing that
 -- has been truncated. Use the NextContinuationToken from a previously
 -- truncated list response to continue the listing. The continuation token
 -- is an opaque value that Amazon S3 understands.
+--
+-- 'expectedBucketOwner', 'listBucketMetricsConfigurations_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'listBucketMetricsConfigurations_bucket' - The name of the bucket containing the metrics configurations to
 -- retrieve.
@@ -126,17 +126,11 @@ newListBucketMetricsConfigurations ::
   ListBucketMetricsConfigurations
 newListBucketMetricsConfigurations pBucket_ =
   ListBucketMetricsConfigurations'
-    { expectedBucketOwner =
+    { continuationToken =
         Prelude.Nothing,
-      continuationToken = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_
     }
-
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-listBucketMetricsConfigurations_expectedBucketOwner :: Lens.Lens' ListBucketMetricsConfigurations (Prelude.Maybe Prelude.Text)
-listBucketMetricsConfigurations_expectedBucketOwner = Lens.lens (\ListBucketMetricsConfigurations' {expectedBucketOwner} -> expectedBucketOwner) (\s@ListBucketMetricsConfigurations' {} a -> s {expectedBucketOwner = a} :: ListBucketMetricsConfigurations)
 
 -- | The marker that is used to continue a metrics configuration listing that
 -- has been truncated. Use the NextContinuationToken from a previously
@@ -144,6 +138,12 @@ listBucketMetricsConfigurations_expectedBucketOwner = Lens.lens (\ListBucketMetr
 -- is an opaque value that Amazon S3 understands.
 listBucketMetricsConfigurations_continuationToken :: Lens.Lens' ListBucketMetricsConfigurations (Prelude.Maybe Prelude.Text)
 listBucketMetricsConfigurations_continuationToken = Lens.lens (\ListBucketMetricsConfigurations' {continuationToken} -> continuationToken) (\s@ListBucketMetricsConfigurations' {} a -> s {continuationToken = a} :: ListBucketMetricsConfigurations)
+
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+listBucketMetricsConfigurations_expectedBucketOwner :: Lens.Lens' ListBucketMetricsConfigurations (Prelude.Maybe Prelude.Text)
+listBucketMetricsConfigurations_expectedBucketOwner = Lens.lens (\ListBucketMetricsConfigurations' {expectedBucketOwner} -> expectedBucketOwner) (\s@ListBucketMetricsConfigurations' {} a -> s {expectedBucketOwner = a} :: ListBucketMetricsConfigurations)
 
 -- | The name of the bucket containing the metrics configurations to
 -- retrieve.
@@ -157,18 +157,20 @@ instance
   type
     AWSResponse ListBucketMetricsConfigurations =
       ListBucketMetricsConfigurationsResponse
-  request = Request.get defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ListBucketMetricsConfigurationsResponse'
-            Prelude.<$> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Core..@? "ContinuationToken")
             Prelude.<*> ( Core.may
                             (Core.parseXMLList "MetricsConfiguration")
                             x
                         )
             Prelude.<*> (x Core..@? "NextContinuationToken")
-            Prelude.<*> (x Core..@? "ContinuationToken")
+            Prelude.<*> (x Core..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,10 +205,10 @@ instance Core.ToQuery ListBucketMetricsConfigurations where
 
 -- | /See:/ 'newListBucketMetricsConfigurationsResponse' smart constructor.
 data ListBucketMetricsConfigurationsResponse = ListBucketMetricsConfigurationsResponse'
-  { -- | Indicates whether the returned list of metrics configurations is
-    -- complete. A value of true indicates that the list is not complete and
-    -- the NextContinuationToken will be provided for a subsequent request.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+  { -- | The marker that is used as a starting point for this metrics
+    -- configuration list response. This value is present if it was sent in the
+    -- request.
+    continuationToken :: Prelude.Maybe Prelude.Text,
     -- | The list of metrics configurations for a bucket.
     metricsConfigurationList :: Prelude.Maybe [MetricsConfiguration],
     -- | The marker used to continue a metrics configuration listing that has
@@ -214,10 +216,10 @@ data ListBucketMetricsConfigurationsResponse = ListBucketMetricsConfigurationsRe
     -- truncated list response to continue the listing. The continuation token
     -- is an opaque value that Amazon S3 understands.
     nextContinuationToken :: Prelude.Maybe Prelude.Text,
-    -- | The marker that is used as a starting point for this metrics
-    -- configuration list response. This value is present if it was sent in the
-    -- request.
-    continuationToken :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the returned list of metrics configurations is
+    -- complete. A value of true indicates that the list is not complete and
+    -- the NextContinuationToken will be provided for a subsequent request.
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -231,9 +233,9 @@ data ListBucketMetricsConfigurationsResponse = ListBucketMetricsConfigurationsRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isTruncated', 'listBucketMetricsConfigurationsResponse_isTruncated' - Indicates whether the returned list of metrics configurations is
--- complete. A value of true indicates that the list is not complete and
--- the NextContinuationToken will be provided for a subsequent request.
+-- 'continuationToken', 'listBucketMetricsConfigurationsResponse_continuationToken' - The marker that is used as a starting point for this metrics
+-- configuration list response. This value is present if it was sent in the
+-- request.
 --
 -- 'metricsConfigurationList', 'listBucketMetricsConfigurationsResponse_metricsConfigurationList' - The list of metrics configurations for a bucket.
 --
@@ -242,9 +244,9 @@ data ListBucketMetricsConfigurationsResponse = ListBucketMetricsConfigurationsRe
 -- truncated list response to continue the listing. The continuation token
 -- is an opaque value that Amazon S3 understands.
 --
--- 'continuationToken', 'listBucketMetricsConfigurationsResponse_continuationToken' - The marker that is used as a starting point for this metrics
--- configuration list response. This value is present if it was sent in the
--- request.
+-- 'isTruncated', 'listBucketMetricsConfigurationsResponse_isTruncated' - Indicates whether the returned list of metrics configurations is
+-- complete. A value of true indicates that the list is not complete and
+-- the NextContinuationToken will be provided for a subsequent request.
 --
 -- 'httpStatus', 'listBucketMetricsConfigurationsResponse_httpStatus' - The response's http status code.
 newListBucketMetricsConfigurationsResponse ::
@@ -254,26 +256,25 @@ newListBucketMetricsConfigurationsResponse ::
 newListBucketMetricsConfigurationsResponse
   pHttpStatus_ =
     ListBucketMetricsConfigurationsResponse'
-      { isTruncated =
+      { continuationToken =
           Prelude.Nothing,
         metricsConfigurationList =
           Prelude.Nothing,
         nextContinuationToken =
           Prelude.Nothing,
-        continuationToken =
-          Prelude.Nothing,
+        isTruncated = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | Indicates whether the returned list of metrics configurations is
--- complete. A value of true indicates that the list is not complete and
--- the NextContinuationToken will be provided for a subsequent request.
-listBucketMetricsConfigurationsResponse_isTruncated :: Lens.Lens' ListBucketMetricsConfigurationsResponse (Prelude.Maybe Prelude.Bool)
-listBucketMetricsConfigurationsResponse_isTruncated = Lens.lens (\ListBucketMetricsConfigurationsResponse' {isTruncated} -> isTruncated) (\s@ListBucketMetricsConfigurationsResponse' {} a -> s {isTruncated = a} :: ListBucketMetricsConfigurationsResponse)
+-- | The marker that is used as a starting point for this metrics
+-- configuration list response. This value is present if it was sent in the
+-- request.
+listBucketMetricsConfigurationsResponse_continuationToken :: Lens.Lens' ListBucketMetricsConfigurationsResponse (Prelude.Maybe Prelude.Text)
+listBucketMetricsConfigurationsResponse_continuationToken = Lens.lens (\ListBucketMetricsConfigurationsResponse' {continuationToken} -> continuationToken) (\s@ListBucketMetricsConfigurationsResponse' {} a -> s {continuationToken = a} :: ListBucketMetricsConfigurationsResponse)
 
 -- | The list of metrics configurations for a bucket.
 listBucketMetricsConfigurationsResponse_metricsConfigurationList :: Lens.Lens' ListBucketMetricsConfigurationsResponse (Prelude.Maybe [MetricsConfiguration])
-listBucketMetricsConfigurationsResponse_metricsConfigurationList = Lens.lens (\ListBucketMetricsConfigurationsResponse' {metricsConfigurationList} -> metricsConfigurationList) (\s@ListBucketMetricsConfigurationsResponse' {} a -> s {metricsConfigurationList = a} :: ListBucketMetricsConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
+listBucketMetricsConfigurationsResponse_metricsConfigurationList = Lens.lens (\ListBucketMetricsConfigurationsResponse' {metricsConfigurationList} -> metricsConfigurationList) (\s@ListBucketMetricsConfigurationsResponse' {} a -> s {metricsConfigurationList = a} :: ListBucketMetricsConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The marker used to continue a metrics configuration listing that has
 -- been truncated. Use the @NextContinuationToken@ from a previously
@@ -282,11 +283,11 @@ listBucketMetricsConfigurationsResponse_metricsConfigurationList = Lens.lens (\L
 listBucketMetricsConfigurationsResponse_nextContinuationToken :: Lens.Lens' ListBucketMetricsConfigurationsResponse (Prelude.Maybe Prelude.Text)
 listBucketMetricsConfigurationsResponse_nextContinuationToken = Lens.lens (\ListBucketMetricsConfigurationsResponse' {nextContinuationToken} -> nextContinuationToken) (\s@ListBucketMetricsConfigurationsResponse' {} a -> s {nextContinuationToken = a} :: ListBucketMetricsConfigurationsResponse)
 
--- | The marker that is used as a starting point for this metrics
--- configuration list response. This value is present if it was sent in the
--- request.
-listBucketMetricsConfigurationsResponse_continuationToken :: Lens.Lens' ListBucketMetricsConfigurationsResponse (Prelude.Maybe Prelude.Text)
-listBucketMetricsConfigurationsResponse_continuationToken = Lens.lens (\ListBucketMetricsConfigurationsResponse' {continuationToken} -> continuationToken) (\s@ListBucketMetricsConfigurationsResponse' {} a -> s {continuationToken = a} :: ListBucketMetricsConfigurationsResponse)
+-- | Indicates whether the returned list of metrics configurations is
+-- complete. A value of true indicates that the list is not complete and
+-- the NextContinuationToken will be provided for a subsequent request.
+listBucketMetricsConfigurationsResponse_isTruncated :: Lens.Lens' ListBucketMetricsConfigurationsResponse (Prelude.Maybe Prelude.Bool)
+listBucketMetricsConfigurationsResponse_isTruncated = Lens.lens (\ListBucketMetricsConfigurationsResponse' {isTruncated} -> isTruncated) (\s@ListBucketMetricsConfigurationsResponse' {} a -> s {isTruncated = a} :: ListBucketMetricsConfigurationsResponse)
 
 -- | The response's http status code.
 listBucketMetricsConfigurationsResponse_httpStatus :: Lens.Lens' ListBucketMetricsConfigurationsResponse Prelude.Int

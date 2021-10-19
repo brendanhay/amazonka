@@ -137,7 +137,9 @@ instance
   type
     AWSResponse GetBucketLifecycleConfiguration =
       GetBucketLifecycleConfigurationResponse
-  request = Request.get defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
@@ -206,7 +208,7 @@ newGetBucketLifecycleConfigurationResponse
 
 -- | Container for a lifecycle rule.
 getBucketLifecycleConfigurationResponse_rules :: Lens.Lens' GetBucketLifecycleConfigurationResponse (Prelude.Maybe [LifecycleRule])
-getBucketLifecycleConfigurationResponse_rules = Lens.lens (\GetBucketLifecycleConfigurationResponse' {rules} -> rules) (\s@GetBucketLifecycleConfigurationResponse' {} a -> s {rules = a} :: GetBucketLifecycleConfigurationResponse) Prelude.. Lens.mapping Lens._Coerce
+getBucketLifecycleConfigurationResponse_rules = Lens.lens (\GetBucketLifecycleConfigurationResponse' {rules} -> rules) (\s@GetBucketLifecycleConfigurationResponse' {} a -> s {rules = a} :: GetBucketLifecycleConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getBucketLifecycleConfigurationResponse_httpStatus :: Lens.Lens' GetBucketLifecycleConfigurationResponse Prelude.Int

@@ -43,8 +43,8 @@ module Network.AWS.S3.GetBucketAcl
     newGetBucketAclResponse,
 
     -- * Response Lenses
-    getBucketAclResponse_owner,
     getBucketAclResponse_grants,
+    getBucketAclResponse_owner,
     getBucketAclResponse_httpStatus,
   )
 where
@@ -103,16 +103,18 @@ getBucketAcl_bucket = Lens.lens (\GetBucketAcl' {bucket} -> bucket) (\s@GetBucke
 
 instance Core.AWSRequest GetBucketAcl where
   type AWSResponse GetBucketAcl = GetBucketAclResponse
-  request = Request.get defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetBucketAclResponse'
-            Prelude.<$> (x Core..@? "Owner")
-            Prelude.<*> ( x Core..@? "AccessControlList"
+            Prelude.<$> ( x Core..@? "AccessControlList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "Grant")
                         )
+            Prelude.<*> (x Core..@? "Owner")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,10 +138,10 @@ instance Core.ToQuery GetBucketAcl where
 
 -- | /See:/ 'newGetBucketAclResponse' smart constructor.
 data GetBucketAclResponse = GetBucketAclResponse'
-  { -- | Container for the bucket owner\'s display name and ID.
-    owner :: Prelude.Maybe Owner,
-    -- | A list of grants.
+  { -- | A list of grants.
     grants :: Prelude.Maybe [Grant],
+    -- | Container for the bucket owner\'s display name and ID.
+    owner :: Prelude.Maybe Owner,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -153,9 +155,9 @@ data GetBucketAclResponse = GetBucketAclResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'owner', 'getBucketAclResponse_owner' - Container for the bucket owner\'s display name and ID.
---
 -- 'grants', 'getBucketAclResponse_grants' - A list of grants.
+--
+-- 'owner', 'getBucketAclResponse_owner' - Container for the bucket owner\'s display name and ID.
 --
 -- 'httpStatus', 'getBucketAclResponse_httpStatus' - The response's http status code.
 newGetBucketAclResponse ::
@@ -164,18 +166,18 @@ newGetBucketAclResponse ::
   GetBucketAclResponse
 newGetBucketAclResponse pHttpStatus_ =
   GetBucketAclResponse'
-    { owner = Prelude.Nothing,
-      grants = Prelude.Nothing,
+    { grants = Prelude.Nothing,
+      owner = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of grants.
+getBucketAclResponse_grants :: Lens.Lens' GetBucketAclResponse (Prelude.Maybe [Grant])
+getBucketAclResponse_grants = Lens.lens (\GetBucketAclResponse' {grants} -> grants) (\s@GetBucketAclResponse' {} a -> s {grants = a} :: GetBucketAclResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Container for the bucket owner\'s display name and ID.
 getBucketAclResponse_owner :: Lens.Lens' GetBucketAclResponse (Prelude.Maybe Owner)
 getBucketAclResponse_owner = Lens.lens (\GetBucketAclResponse' {owner} -> owner) (\s@GetBucketAclResponse' {} a -> s {owner = a} :: GetBucketAclResponse)
-
--- | A list of grants.
-getBucketAclResponse_grants :: Lens.Lens' GetBucketAclResponse (Prelude.Maybe [Grant])
-getBucketAclResponse_grants = Lens.lens (\GetBucketAclResponse' {grants} -> grants) (\s@GetBucketAclResponse' {} a -> s {grants = a} :: GetBucketAclResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getBucketAclResponse_httpStatus :: Lens.Lens' GetBucketAclResponse Prelude.Int

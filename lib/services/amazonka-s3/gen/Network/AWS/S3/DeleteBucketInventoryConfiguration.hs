@@ -127,7 +127,9 @@ instance
   type
     AWSResponse DeleteBucketInventoryConfiguration =
       DeleteBucketInventoryConfigurationResponse
-  request = Request.delete defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.delete defaultService
   response =
     Response.receiveNull
       DeleteBucketInventoryConfigurationResponse'

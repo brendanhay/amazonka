@@ -63,9 +63,9 @@ module Network.AWS.S3.PutBucketVersioning
     newPutBucketVersioning,
 
     -- * Request Lenses
-    putBucketVersioning_expectedBucketOwner,
-    putBucketVersioning_contentMD5,
     putBucketVersioning_mfa,
+    putBucketVersioning_contentMD5,
+    putBucketVersioning_expectedBucketOwner,
     putBucketVersioning_bucket,
     putBucketVersioning_versioningConfiguration,
 
@@ -84,10 +84,9 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketVersioning' smart constructor.
 data PutBucketVersioning = PutBucketVersioning'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+  { -- | The concatenation of the authentication device\'s serial number, a
+    -- space, and the value that is displayed on your authentication device.
+    mfa :: Prelude.Maybe Prelude.Text,
     -- | >The base64-encoded 128-bit MD5 digest of the data. You must use this
     -- header as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, see
@@ -97,9 +96,10 @@ data PutBucketVersioning = PutBucketVersioning'
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
-    -- | The concatenation of the authentication device\'s serial number, a
-    -- space, and the value that is displayed on your authentication device.
-    mfa :: Prelude.Maybe Prelude.Text,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
     bucket :: BucketName,
     -- | Container for setting the versioning state.
@@ -115,9 +115,8 @@ data PutBucketVersioning = PutBucketVersioning'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketVersioning_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- 'mfa', 'putBucketVersioning_mfa' - The concatenation of the authentication device\'s serial number, a
+-- space, and the value that is displayed on your authentication device.
 --
 -- 'contentMD5', 'putBucketVersioning_contentMD5' - >The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
@@ -128,8 +127,9 @@ data PutBucketVersioning = PutBucketVersioning'
 -- (CLI) or Amazon Web Services SDKs, this field is calculated
 -- automatically.
 --
--- 'mfa', 'putBucketVersioning_mfa' - The concatenation of the authentication device\'s serial number, a
--- space, and the value that is displayed on your authentication device.
+-- 'expectedBucketOwner', 'putBucketVersioning_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'putBucketVersioning_bucket' - The bucket name.
 --
@@ -144,19 +144,17 @@ newPutBucketVersioning
   pBucket_
   pVersioningConfiguration_ =
     PutBucketVersioning'
-      { expectedBucketOwner =
-          Prelude.Nothing,
+      { mfa = Prelude.Nothing,
         contentMD5 = Prelude.Nothing,
-        mfa = Prelude.Nothing,
+        expectedBucketOwner = Prelude.Nothing,
         bucket = pBucket_,
         versioningConfiguration = pVersioningConfiguration_
       }
 
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-putBucketVersioning_expectedBucketOwner :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
-putBucketVersioning_expectedBucketOwner = Lens.lens (\PutBucketVersioning' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketVersioning' {} a -> s {expectedBucketOwner = a} :: PutBucketVersioning)
+-- | The concatenation of the authentication device\'s serial number, a
+-- space, and the value that is displayed on your authentication device.
+putBucketVersioning_mfa :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
+putBucketVersioning_mfa = Lens.lens (\PutBucketVersioning' {mfa} -> mfa) (\s@PutBucketVersioning' {} a -> s {mfa = a} :: PutBucketVersioning)
 
 -- | >The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
@@ -169,10 +167,11 @@ putBucketVersioning_expectedBucketOwner = Lens.lens (\PutBucketVersioning' {expe
 putBucketVersioning_contentMD5 :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
 putBucketVersioning_contentMD5 = Lens.lens (\PutBucketVersioning' {contentMD5} -> contentMD5) (\s@PutBucketVersioning' {} a -> s {contentMD5 = a} :: PutBucketVersioning)
 
--- | The concatenation of the authentication device\'s serial number, a
--- space, and the value that is displayed on your authentication device.
-putBucketVersioning_mfa :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
-putBucketVersioning_mfa = Lens.lens (\PutBucketVersioning' {mfa} -> mfa) (\s@PutBucketVersioning' {} a -> s {mfa = a} :: PutBucketVersioning)
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+putBucketVersioning_expectedBucketOwner :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
+putBucketVersioning_expectedBucketOwner = Lens.lens (\PutBucketVersioning' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketVersioning' {} a -> s {expectedBucketOwner = a} :: PutBucketVersioning)
 
 -- | The bucket name.
 putBucketVersioning_bucket :: Lens.Lens' PutBucketVersioning BucketName
@@ -186,7 +185,9 @@ instance Core.AWSRequest PutBucketVersioning where
   type
     AWSResponse PutBucketVersioning =
       PutBucketVersioningResponse
-  request = Request.putXML defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.putXML defaultService
   response =
     Response.receiveNull PutBucketVersioningResponse'
 
@@ -203,10 +204,10 @@ instance Core.ToElement PutBucketVersioning where
 instance Core.ToHeaders PutBucketVersioning where
   toHeaders PutBucketVersioning' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
+      [ "x-amz-mfa" Core.=# mfa,
         "Content-MD5" Core.=# contentMD5,
-        "x-amz-mfa" Core.=# mfa
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath PutBucketVersioning where

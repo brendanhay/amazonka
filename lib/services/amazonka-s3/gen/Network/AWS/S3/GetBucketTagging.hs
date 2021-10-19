@@ -112,7 +112,9 @@ instance Core.AWSRequest GetBucketTagging where
   type
     AWSResponse GetBucketTagging =
       GetBucketTaggingResponse
-  request = Request.get defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
@@ -178,6 +180,6 @@ getBucketTaggingResponse_httpStatus = Lens.lens (\GetBucketTaggingResponse' {htt
 
 -- | Contains the tag set.
 getBucketTaggingResponse_tagSet :: Lens.Lens' GetBucketTaggingResponse [Tag]
-getBucketTaggingResponse_tagSet = Lens.lens (\GetBucketTaggingResponse' {tagSet} -> tagSet) (\s@GetBucketTaggingResponse' {} a -> s {tagSet = a} :: GetBucketTaggingResponse) Prelude.. Lens._Coerce
+getBucketTaggingResponse_tagSet = Lens.lens (\GetBucketTaggingResponse' {tagSet} -> tagSet) (\s@GetBucketTaggingResponse' {} a -> s {tagSet = a} :: GetBucketTaggingResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetBucketTaggingResponse

@@ -30,10 +30,10 @@ import Network.AWS.S3.Types.Grantee
 --
 -- /See:/ 'newTargetGrant' smart constructor.
 data TargetGrant = TargetGrant'
-  { -- | Container for the person being granted permissions.
-    grantee :: Prelude.Maybe Grantee,
-    -- | Logging permissions assigned to the grantee for the bucket.
-    permission :: Prelude.Maybe BucketLogsPermission
+  { -- | Logging permissions assigned to the grantee for the bucket.
+    permission :: Prelude.Maybe BucketLogsPermission,
+    -- | Container for the person being granted permissions.
+    grantee :: Prelude.Maybe Grantee
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,30 +45,30 @@ data TargetGrant = TargetGrant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'grantee', 'targetGrant_grantee' - Container for the person being granted permissions.
---
 -- 'permission', 'targetGrant_permission' - Logging permissions assigned to the grantee for the bucket.
+--
+-- 'grantee', 'targetGrant_grantee' - Container for the person being granted permissions.
 newTargetGrant ::
   TargetGrant
 newTargetGrant =
   TargetGrant'
-    { grantee = Prelude.Nothing,
-      permission = Prelude.Nothing
+    { permission = Prelude.Nothing,
+      grantee = Prelude.Nothing
     }
-
--- | Container for the person being granted permissions.
-targetGrant_grantee :: Lens.Lens' TargetGrant (Prelude.Maybe Grantee)
-targetGrant_grantee = Lens.lens (\TargetGrant' {grantee} -> grantee) (\s@TargetGrant' {} a -> s {grantee = a} :: TargetGrant)
 
 -- | Logging permissions assigned to the grantee for the bucket.
 targetGrant_permission :: Lens.Lens' TargetGrant (Prelude.Maybe BucketLogsPermission)
 targetGrant_permission = Lens.lens (\TargetGrant' {permission} -> permission) (\s@TargetGrant' {} a -> s {permission = a} :: TargetGrant)
 
+-- | Container for the person being granted permissions.
+targetGrant_grantee :: Lens.Lens' TargetGrant (Prelude.Maybe Grantee)
+targetGrant_grantee = Lens.lens (\TargetGrant' {grantee} -> grantee) (\s@TargetGrant' {} a -> s {grantee = a} :: TargetGrant)
+
 instance Core.FromXML TargetGrant where
   parseXML x =
     TargetGrant'
-      Prelude.<$> (x Core..@? "Grantee")
-      Prelude.<*> (x Core..@? "Permission")
+      Prelude.<$> (x Core..@? "Permission")
+      Prelude.<*> (x Core..@? "Grantee")
 
 instance Prelude.Hashable TargetGrant
 
@@ -77,6 +77,6 @@ instance Prelude.NFData TargetGrant
 instance Core.ToXML TargetGrant where
   toXML TargetGrant' {..} =
     Prelude.mconcat
-      [ "Grantee" Core.@= grantee,
-        "Permission" Core.@= permission
+      [ "Permission" Core.@= permission,
+        "Grantee" Core.@= grantee
       ]

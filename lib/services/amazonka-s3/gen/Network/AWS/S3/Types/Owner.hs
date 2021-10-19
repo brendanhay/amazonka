@@ -28,10 +28,10 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'newOwner' smart constructor.
 data Owner = Owner'
-  { -- | Container for the ID of the owner.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | Container for the display name of the owner.
-    displayName :: Prelude.Maybe Prelude.Text
+  { -- | Container for the display name of the owner.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | Container for the ID of the owner.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,30 +43,30 @@ data Owner = Owner'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'owner_id' - Container for the ID of the owner.
---
 -- 'displayName', 'owner_displayName' - Container for the display name of the owner.
+--
+-- 'id', 'owner_id' - Container for the ID of the owner.
 newOwner ::
   Owner
 newOwner =
   Owner'
-    { id = Prelude.Nothing,
-      displayName = Prelude.Nothing
+    { displayName = Prelude.Nothing,
+      id = Prelude.Nothing
     }
-
--- | Container for the ID of the owner.
-owner_id :: Lens.Lens' Owner (Prelude.Maybe Prelude.Text)
-owner_id = Lens.lens (\Owner' {id} -> id) (\s@Owner' {} a -> s {id = a} :: Owner)
 
 -- | Container for the display name of the owner.
 owner_displayName :: Lens.Lens' Owner (Prelude.Maybe Prelude.Text)
 owner_displayName = Lens.lens (\Owner' {displayName} -> displayName) (\s@Owner' {} a -> s {displayName = a} :: Owner)
 
+-- | Container for the ID of the owner.
+owner_id :: Lens.Lens' Owner (Prelude.Maybe Prelude.Text)
+owner_id = Lens.lens (\Owner' {id} -> id) (\s@Owner' {} a -> s {id = a} :: Owner)
+
 instance Core.FromXML Owner where
   parseXML x =
     Owner'
-      Prelude.<$> (x Core..@? "ID")
-      Prelude.<*> (x Core..@? "DisplayName")
+      Prelude.<$> (x Core..@? "DisplayName")
+      Prelude.<*> (x Core..@? "ID")
 
 instance Prelude.Hashable Owner
 
@@ -75,4 +75,4 @@ instance Prelude.NFData Owner
 instance Core.ToXML Owner where
   toXML Owner' {..} =
     Prelude.mconcat
-      ["ID" Core.@= id, "DisplayName" Core.@= displayName]
+      ["DisplayName" Core.@= displayName, "ID" Core.@= id]

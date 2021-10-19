@@ -50,10 +50,10 @@ module Network.AWS.S3.GetBucketWebsite
     newGetBucketWebsiteResponse,
 
     -- * Response Lenses
+    getBucketWebsiteResponse_redirectAllRequestsTo,
     getBucketWebsiteResponse_errorDocument,
     getBucketWebsiteResponse_indexDocument,
     getBucketWebsiteResponse_routingRules,
-    getBucketWebsiteResponse_redirectAllRequestsTo,
     getBucketWebsiteResponse_httpStatus,
   )
 where
@@ -114,17 +114,19 @@ instance Core.AWSRequest GetBucketWebsite where
   type
     AWSResponse GetBucketWebsite =
       GetBucketWebsiteResponse
-  request = Request.get defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetBucketWebsiteResponse'
-            Prelude.<$> (x Core..@? "ErrorDocument")
+            Prelude.<$> (x Core..@? "RedirectAllRequestsTo")
+            Prelude.<*> (x Core..@? "ErrorDocument")
             Prelude.<*> (x Core..@? "IndexDocument")
             Prelude.<*> ( x Core..@? "RoutingRules" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "RoutingRule")
                         )
-            Prelude.<*> (x Core..@? "RedirectAllRequestsTo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,7 +150,10 @@ instance Core.ToQuery GetBucketWebsite where
 
 -- | /See:/ 'newGetBucketWebsiteResponse' smart constructor.
 data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
-  { -- | The object key name of the website error document to use for 4XX class
+  { -- | Specifies the redirect behavior of all requests to a website endpoint of
+    -- an Amazon S3 bucket.
+    redirectAllRequestsTo :: Prelude.Maybe RedirectAllRequestsTo,
+    -- | The object key name of the website error document to use for 4XX class
     -- errors.
     errorDocument :: Prelude.Maybe ErrorDocument,
     -- | The name of the index document for the website (for example
@@ -156,9 +161,6 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
     indexDocument :: Prelude.Maybe IndexDocument,
     -- | Rules that define when a redirect is applied and the redirect behavior.
     routingRules :: Prelude.Maybe [RoutingRule],
-    -- | Specifies the redirect behavior of all requests to a website endpoint of
-    -- an Amazon S3 bucket.
-    redirectAllRequestsTo :: Prelude.Maybe RedirectAllRequestsTo,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,6 +174,9 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'redirectAllRequestsTo', 'getBucketWebsiteResponse_redirectAllRequestsTo' - Specifies the redirect behavior of all requests to a website endpoint of
+-- an Amazon S3 bucket.
+--
 -- 'errorDocument', 'getBucketWebsiteResponse_errorDocument' - The object key name of the website error document to use for 4XX class
 -- errors.
 --
@@ -180,9 +185,6 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
 --
 -- 'routingRules', 'getBucketWebsiteResponse_routingRules' - Rules that define when a redirect is applied and the redirect behavior.
 --
--- 'redirectAllRequestsTo', 'getBucketWebsiteResponse_redirectAllRequestsTo' - Specifies the redirect behavior of all requests to a website endpoint of
--- an Amazon S3 bucket.
---
 -- 'httpStatus', 'getBucketWebsiteResponse_httpStatus' - The response's http status code.
 newGetBucketWebsiteResponse ::
   -- | 'httpStatus'
@@ -190,13 +192,18 @@ newGetBucketWebsiteResponse ::
   GetBucketWebsiteResponse
 newGetBucketWebsiteResponse pHttpStatus_ =
   GetBucketWebsiteResponse'
-    { errorDocument =
+    { redirectAllRequestsTo =
         Prelude.Nothing,
+      errorDocument = Prelude.Nothing,
       indexDocument = Prelude.Nothing,
       routingRules = Prelude.Nothing,
-      redirectAllRequestsTo = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Specifies the redirect behavior of all requests to a website endpoint of
+-- an Amazon S3 bucket.
+getBucketWebsiteResponse_redirectAllRequestsTo :: Lens.Lens' GetBucketWebsiteResponse (Prelude.Maybe RedirectAllRequestsTo)
+getBucketWebsiteResponse_redirectAllRequestsTo = Lens.lens (\GetBucketWebsiteResponse' {redirectAllRequestsTo} -> redirectAllRequestsTo) (\s@GetBucketWebsiteResponse' {} a -> s {redirectAllRequestsTo = a} :: GetBucketWebsiteResponse)
 
 -- | The object key name of the website error document to use for 4XX class
 -- errors.
@@ -210,12 +217,7 @@ getBucketWebsiteResponse_indexDocument = Lens.lens (\GetBucketWebsiteResponse' {
 
 -- | Rules that define when a redirect is applied and the redirect behavior.
 getBucketWebsiteResponse_routingRules :: Lens.Lens' GetBucketWebsiteResponse (Prelude.Maybe [RoutingRule])
-getBucketWebsiteResponse_routingRules = Lens.lens (\GetBucketWebsiteResponse' {routingRules} -> routingRules) (\s@GetBucketWebsiteResponse' {} a -> s {routingRules = a} :: GetBucketWebsiteResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specifies the redirect behavior of all requests to a website endpoint of
--- an Amazon S3 bucket.
-getBucketWebsiteResponse_redirectAllRequestsTo :: Lens.Lens' GetBucketWebsiteResponse (Prelude.Maybe RedirectAllRequestsTo)
-getBucketWebsiteResponse_redirectAllRequestsTo = Lens.lens (\GetBucketWebsiteResponse' {redirectAllRequestsTo} -> redirectAllRequestsTo) (\s@GetBucketWebsiteResponse' {} a -> s {redirectAllRequestsTo = a} :: GetBucketWebsiteResponse)
+getBucketWebsiteResponse_routingRules = Lens.lens (\GetBucketWebsiteResponse' {routingRules} -> routingRules) (\s@GetBucketWebsiteResponse' {} a -> s {routingRules = a} :: GetBucketWebsiteResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getBucketWebsiteResponse_httpStatus :: Lens.Lens' GetBucketWebsiteResponse Prelude.Int

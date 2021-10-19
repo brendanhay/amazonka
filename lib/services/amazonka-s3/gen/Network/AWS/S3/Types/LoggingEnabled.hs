@@ -83,7 +83,7 @@ newLoggingEnabled pTargetBucket_ pTargetPrefix_ =
 
 -- | Container for granting information.
 loggingEnabled_targetGrants :: Lens.Lens' LoggingEnabled (Prelude.Maybe [TargetGrant])
-loggingEnabled_targetGrants = Lens.lens (\LoggingEnabled' {targetGrants} -> targetGrants) (\s@LoggingEnabled' {} a -> s {targetGrants = a} :: LoggingEnabled) Prelude.. Lens.mapping Lens._Coerce
+loggingEnabled_targetGrants = Lens.lens (\LoggingEnabled' {targetGrants} -> targetGrants) (\s@LoggingEnabled' {} a -> s {targetGrants = a} :: LoggingEnabled) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the bucket where you want Amazon S3 to store server access
 -- logs. You can have your logs delivered to any bucket that you own,

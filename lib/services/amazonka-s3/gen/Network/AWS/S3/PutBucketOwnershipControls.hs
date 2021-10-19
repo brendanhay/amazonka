@@ -39,8 +39,8 @@ module Network.AWS.S3.PutBucketOwnershipControls
     newPutBucketOwnershipControls,
 
     -- * Request Lenses
-    putBucketOwnershipControls_expectedBucketOwner,
     putBucketOwnershipControls_contentMD5,
+    putBucketOwnershipControls_expectedBucketOwner,
     putBucketOwnershipControls_bucket,
     putBucketOwnershipControls_ownershipControls,
 
@@ -59,16 +59,16 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketOwnershipControls' smart constructor.
 data PutBucketOwnershipControls = PutBucketOwnershipControls'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | The MD5 hash of the @OwnershipControls@ request body.
+  { -- | The MD5 hash of the @OwnershipControls@ request body.
     --
     -- For requests made using the Amazon Web Services Command Line Interface
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket whose @OwnershipControls@ you want to
     -- set.
     bucket :: BucketName,
@@ -86,15 +86,15 @@ data PutBucketOwnershipControls = PutBucketOwnershipControls'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketOwnershipControls_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
---
 -- 'contentMD5', 'putBucketOwnershipControls_contentMD5' - The MD5 hash of the @OwnershipControls@ request body.
 --
 -- For requests made using the Amazon Web Services Command Line Interface
 -- (CLI) or Amazon Web Services SDKs, this field is calculated
 -- automatically.
+--
+-- 'expectedBucketOwner', 'putBucketOwnershipControls_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'putBucketOwnershipControls_bucket' - The name of the Amazon S3 bucket whose @OwnershipControls@ you want to
 -- set.
@@ -111,18 +111,12 @@ newPutBucketOwnershipControls
   pBucket_
   pOwnershipControls_ =
     PutBucketOwnershipControls'
-      { expectedBucketOwner =
+      { contentMD5 =
           Prelude.Nothing,
-        contentMD5 = Prelude.Nothing,
+        expectedBucketOwner = Prelude.Nothing,
         bucket = pBucket_,
         ownershipControls = pOwnershipControls_
       }
-
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-putBucketOwnershipControls_expectedBucketOwner :: Lens.Lens' PutBucketOwnershipControls (Prelude.Maybe Prelude.Text)
-putBucketOwnershipControls_expectedBucketOwner = Lens.lens (\PutBucketOwnershipControls' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketOwnershipControls' {} a -> s {expectedBucketOwner = a} :: PutBucketOwnershipControls)
 
 -- | The MD5 hash of the @OwnershipControls@ request body.
 --
@@ -131,6 +125,12 @@ putBucketOwnershipControls_expectedBucketOwner = Lens.lens (\PutBucketOwnershipC
 -- automatically.
 putBucketOwnershipControls_contentMD5 :: Lens.Lens' PutBucketOwnershipControls (Prelude.Maybe Prelude.Text)
 putBucketOwnershipControls_contentMD5 = Lens.lens (\PutBucketOwnershipControls' {contentMD5} -> contentMD5) (\s@PutBucketOwnershipControls' {} a -> s {contentMD5 = a} :: PutBucketOwnershipControls)
+
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+putBucketOwnershipControls_expectedBucketOwner :: Lens.Lens' PutBucketOwnershipControls (Prelude.Maybe Prelude.Text)
+putBucketOwnershipControls_expectedBucketOwner = Lens.lens (\PutBucketOwnershipControls' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketOwnershipControls' {} a -> s {expectedBucketOwner = a} :: PutBucketOwnershipControls)
 
 -- | The name of the Amazon S3 bucket whose @OwnershipControls@ you want to
 -- set.
@@ -146,7 +146,9 @@ instance Core.AWSRequest PutBucketOwnershipControls where
   type
     AWSResponse PutBucketOwnershipControls =
       PutBucketOwnershipControlsResponse
-  request = Request.putXML defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.putXML defaultService
   response =
     Response.receiveNull
       PutBucketOwnershipControlsResponse'
@@ -164,9 +166,9 @@ instance Core.ToElement PutBucketOwnershipControls where
 instance Core.ToHeaders PutBucketOwnershipControls where
   toHeaders PutBucketOwnershipControls' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "Content-MD5" Core.=# contentMD5
+      [ "Content-MD5" Core.=# contentMD5,
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath PutBucketOwnershipControls where

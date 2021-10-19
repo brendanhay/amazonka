@@ -64,7 +64,7 @@ delete_quiet = Lens.lens (\Delete' {quiet} -> quiet) (\s@Delete' {} a -> s {quie
 
 -- | The objects to delete.
 delete_objects :: Lens.Lens' Delete [ObjectIdentifier]
-delete_objects = Lens.lens (\Delete' {objects} -> objects) (\s@Delete' {} a -> s {objects = a} :: Delete) Prelude.. Lens._Coerce
+delete_objects = Lens.lens (\Delete' {objects} -> objects) (\s@Delete' {} a -> s {objects = a} :: Delete) Prelude.. Lens.coerced
 
 instance Prelude.Hashable Delete
 

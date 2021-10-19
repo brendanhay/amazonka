@@ -95,8 +95,8 @@ module Network.AWS.S3.PutBucketWebsite
     newPutBucketWebsite,
 
     -- * Request Lenses
-    putBucketWebsite_expectedBucketOwner,
     putBucketWebsite_contentMD5,
+    putBucketWebsite_expectedBucketOwner,
     putBucketWebsite_bucket,
     putBucketWebsite_websiteConfiguration,
 
@@ -115,11 +115,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketWebsite' smart constructor.
 data PutBucketWebsite = PutBucketWebsite'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
+  { -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
     -- header as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, see
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
@@ -128,6 +124,10 @@ data PutBucketWebsite = PutBucketWebsite'
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
     bucket :: BucketName,
     -- | Container for the request.
@@ -143,10 +143,6 @@ data PutBucketWebsite = PutBucketWebsite'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketWebsite_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
---
 -- 'contentMD5', 'putBucketWebsite_contentMD5' - The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
 -- not corrupted in transit. For more information, see
@@ -155,6 +151,10 @@ data PutBucketWebsite = PutBucketWebsite'
 -- For requests made using the Amazon Web Services Command Line Interface
 -- (CLI) or Amazon Web Services SDKs, this field is calculated
 -- automatically.
+--
+-- 'expectedBucketOwner', 'putBucketWebsite_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'putBucketWebsite_bucket' - The bucket name.
 --
@@ -167,18 +167,11 @@ newPutBucketWebsite ::
   PutBucketWebsite
 newPutBucketWebsite pBucket_ pWebsiteConfiguration_ =
   PutBucketWebsite'
-    { expectedBucketOwner =
-        Prelude.Nothing,
-      contentMD5 = Prelude.Nothing,
+    { contentMD5 = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_,
       websiteConfiguration = pWebsiteConfiguration_
     }
-
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-putBucketWebsite_expectedBucketOwner :: Lens.Lens' PutBucketWebsite (Prelude.Maybe Prelude.Text)
-putBucketWebsite_expectedBucketOwner = Lens.lens (\PutBucketWebsite' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketWebsite' {} a -> s {expectedBucketOwner = a} :: PutBucketWebsite)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
@@ -190,6 +183,12 @@ putBucketWebsite_expectedBucketOwner = Lens.lens (\PutBucketWebsite' {expectedBu
 -- automatically.
 putBucketWebsite_contentMD5 :: Lens.Lens' PutBucketWebsite (Prelude.Maybe Prelude.Text)
 putBucketWebsite_contentMD5 = Lens.lens (\PutBucketWebsite' {contentMD5} -> contentMD5) (\s@PutBucketWebsite' {} a -> s {contentMD5 = a} :: PutBucketWebsite)
+
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+putBucketWebsite_expectedBucketOwner :: Lens.Lens' PutBucketWebsite (Prelude.Maybe Prelude.Text)
+putBucketWebsite_expectedBucketOwner = Lens.lens (\PutBucketWebsite' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketWebsite' {} a -> s {expectedBucketOwner = a} :: PutBucketWebsite)
 
 -- | The bucket name.
 putBucketWebsite_bucket :: Lens.Lens' PutBucketWebsite BucketName
@@ -203,7 +202,9 @@ instance Core.AWSRequest PutBucketWebsite where
   type
     AWSResponse PutBucketWebsite =
       PutBucketWebsiteResponse
-  request = Request.putXML defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.putXML defaultService
   response =
     Response.receiveNull PutBucketWebsiteResponse'
 
@@ -220,9 +221,9 @@ instance Core.ToElement PutBucketWebsite where
 instance Core.ToHeaders PutBucketWebsite where
   toHeaders PutBucketWebsite' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "Content-MD5" Core.=# contentMD5
+      [ "Content-MD5" Core.=# contentMD5,
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath PutBucketWebsite where

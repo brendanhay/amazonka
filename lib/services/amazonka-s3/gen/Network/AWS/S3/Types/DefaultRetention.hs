@@ -39,13 +39,13 @@ data DefaultRetention = DefaultRetention'
   { -- | The number of days that you want to specify for the default retention
     -- period. Must be used with @Mode@.
     days :: Prelude.Maybe Prelude.Int,
-    -- | The number of years that you want to specify for the default retention
-    -- period. Must be used with @Mode@.
-    years :: Prelude.Maybe Prelude.Int,
     -- | The default Object Lock retention mode you want to apply to new objects
     -- placed in the specified bucket. Must be used with either @Days@ or
     -- @Years@.
-    mode :: Prelude.Maybe ObjectLockRetentionMode
+    mode :: Prelude.Maybe ObjectLockRetentionMode,
+    -- | The number of years that you want to specify for the default retention
+    -- period. Must be used with @Mode@.
+    years :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,19 +60,19 @@ data DefaultRetention = DefaultRetention'
 -- 'days', 'defaultRetention_days' - The number of days that you want to specify for the default retention
 -- period. Must be used with @Mode@.
 --
--- 'years', 'defaultRetention_years' - The number of years that you want to specify for the default retention
--- period. Must be used with @Mode@.
---
 -- 'mode', 'defaultRetention_mode' - The default Object Lock retention mode you want to apply to new objects
 -- placed in the specified bucket. Must be used with either @Days@ or
 -- @Years@.
+--
+-- 'years', 'defaultRetention_years' - The number of years that you want to specify for the default retention
+-- period. Must be used with @Mode@.
 newDefaultRetention ::
   DefaultRetention
 newDefaultRetention =
   DefaultRetention'
     { days = Prelude.Nothing,
-      years = Prelude.Nothing,
-      mode = Prelude.Nothing
+      mode = Prelude.Nothing,
+      years = Prelude.Nothing
     }
 
 -- | The number of days that you want to specify for the default retention
@@ -80,23 +80,23 @@ newDefaultRetention =
 defaultRetention_days :: Lens.Lens' DefaultRetention (Prelude.Maybe Prelude.Int)
 defaultRetention_days = Lens.lens (\DefaultRetention' {days} -> days) (\s@DefaultRetention' {} a -> s {days = a} :: DefaultRetention)
 
--- | The number of years that you want to specify for the default retention
--- period. Must be used with @Mode@.
-defaultRetention_years :: Lens.Lens' DefaultRetention (Prelude.Maybe Prelude.Int)
-defaultRetention_years = Lens.lens (\DefaultRetention' {years} -> years) (\s@DefaultRetention' {} a -> s {years = a} :: DefaultRetention)
-
 -- | The default Object Lock retention mode you want to apply to new objects
 -- placed in the specified bucket. Must be used with either @Days@ or
 -- @Years@.
 defaultRetention_mode :: Lens.Lens' DefaultRetention (Prelude.Maybe ObjectLockRetentionMode)
 defaultRetention_mode = Lens.lens (\DefaultRetention' {mode} -> mode) (\s@DefaultRetention' {} a -> s {mode = a} :: DefaultRetention)
 
+-- | The number of years that you want to specify for the default retention
+-- period. Must be used with @Mode@.
+defaultRetention_years :: Lens.Lens' DefaultRetention (Prelude.Maybe Prelude.Int)
+defaultRetention_years = Lens.lens (\DefaultRetention' {years} -> years) (\s@DefaultRetention' {} a -> s {years = a} :: DefaultRetention)
+
 instance Core.FromXML DefaultRetention where
   parseXML x =
     DefaultRetention'
       Prelude.<$> (x Core..@? "Days")
-      Prelude.<*> (x Core..@? "Years")
       Prelude.<*> (x Core..@? "Mode")
+      Prelude.<*> (x Core..@? "Years")
 
 instance Prelude.Hashable DefaultRetention
 
@@ -106,6 +106,6 @@ instance Core.ToXML DefaultRetention where
   toXML DefaultRetention' {..} =
     Prelude.mconcat
       [ "Days" Core.@= days,
-        "Years" Core.@= years,
-        "Mode" Core.@= mode
+        "Mode" Core.@= mode,
+        "Years" Core.@= years
       ]

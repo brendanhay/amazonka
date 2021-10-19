@@ -50,9 +50,9 @@ module Network.AWS.S3.PutBucketPolicy
     newPutBucketPolicy,
 
     -- * Request Lenses
-    putBucketPolicy_expectedBucketOwner,
-    putBucketPolicy_contentMD5,
     putBucketPolicy_confirmRemoveSelfBucketAccess,
+    putBucketPolicy_contentMD5,
+    putBucketPolicy_expectedBucketOwner,
     putBucketPolicy_bucket,
     putBucketPolicy_policy,
 
@@ -71,19 +71,19 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketPolicy' smart constructor.
 data PutBucketPolicy = PutBucketPolicy'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+  { -- | Set this parameter to true to confirm that you want to remove your
+    -- permissions to change this bucket policy in the future.
+    confirmRemoveSelfBucketAccess :: Prelude.Maybe Prelude.Bool,
     -- | The MD5 hash of the request body.
     --
     -- For requests made using the Amazon Web Services Command Line Interface
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
-    -- | Set this parameter to true to confirm that you want to remove your
-    -- permissions to change this bucket policy in the future.
-    confirmRemoveSelfBucketAccess :: Prelude.Maybe Prelude.Bool,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket.
     bucket :: BucketName,
     -- | The bucket policy as a JSON document.
@@ -99,9 +99,8 @@ data PutBucketPolicy = PutBucketPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketPolicy_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- 'confirmRemoveSelfBucketAccess', 'putBucketPolicy_confirmRemoveSelfBucketAccess' - Set this parameter to true to confirm that you want to remove your
+-- permissions to change this bucket policy in the future.
 --
 -- 'contentMD5', 'putBucketPolicy_contentMD5' - The MD5 hash of the request body.
 --
@@ -109,8 +108,9 @@ data PutBucketPolicy = PutBucketPolicy'
 -- (CLI) or Amazon Web Services SDKs, this field is calculated
 -- automatically.
 --
--- 'confirmRemoveSelfBucketAccess', 'putBucketPolicy_confirmRemoveSelfBucketAccess' - Set this parameter to true to confirm that you want to remove your
--- permissions to change this bucket policy in the future.
+-- 'expectedBucketOwner', 'putBucketPolicy_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'putBucketPolicy_bucket' - The name of the bucket.
 --
@@ -123,19 +123,18 @@ newPutBucketPolicy ::
   PutBucketPolicy
 newPutBucketPolicy pBucket_ pPolicy_ =
   PutBucketPolicy'
-    { expectedBucketOwner =
+    { confirmRemoveSelfBucketAccess =
         Prelude.Nothing,
       contentMD5 = Prelude.Nothing,
-      confirmRemoveSelfBucketAccess = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_,
       policy = pPolicy_
     }
 
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-putBucketPolicy_expectedBucketOwner :: Lens.Lens' PutBucketPolicy (Prelude.Maybe Prelude.Text)
-putBucketPolicy_expectedBucketOwner = Lens.lens (\PutBucketPolicy' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketPolicy' {} a -> s {expectedBucketOwner = a} :: PutBucketPolicy)
+-- | Set this parameter to true to confirm that you want to remove your
+-- permissions to change this bucket policy in the future.
+putBucketPolicy_confirmRemoveSelfBucketAccess :: Lens.Lens' PutBucketPolicy (Prelude.Maybe Prelude.Bool)
+putBucketPolicy_confirmRemoveSelfBucketAccess = Lens.lens (\PutBucketPolicy' {confirmRemoveSelfBucketAccess} -> confirmRemoveSelfBucketAccess) (\s@PutBucketPolicy' {} a -> s {confirmRemoveSelfBucketAccess = a} :: PutBucketPolicy)
 
 -- | The MD5 hash of the request body.
 --
@@ -145,10 +144,11 @@ putBucketPolicy_expectedBucketOwner = Lens.lens (\PutBucketPolicy' {expectedBuck
 putBucketPolicy_contentMD5 :: Lens.Lens' PutBucketPolicy (Prelude.Maybe Prelude.Text)
 putBucketPolicy_contentMD5 = Lens.lens (\PutBucketPolicy' {contentMD5} -> contentMD5) (\s@PutBucketPolicy' {} a -> s {contentMD5 = a} :: PutBucketPolicy)
 
--- | Set this parameter to true to confirm that you want to remove your
--- permissions to change this bucket policy in the future.
-putBucketPolicy_confirmRemoveSelfBucketAccess :: Lens.Lens' PutBucketPolicy (Prelude.Maybe Prelude.Bool)
-putBucketPolicy_confirmRemoveSelfBucketAccess = Lens.lens (\PutBucketPolicy' {confirmRemoveSelfBucketAccess} -> confirmRemoveSelfBucketAccess) (\s@PutBucketPolicy' {} a -> s {confirmRemoveSelfBucketAccess = a} :: PutBucketPolicy)
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+putBucketPolicy_expectedBucketOwner :: Lens.Lens' PutBucketPolicy (Prelude.Maybe Prelude.Text)
+putBucketPolicy_expectedBucketOwner = Lens.lens (\PutBucketPolicy' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketPolicy' {} a -> s {expectedBucketOwner = a} :: PutBucketPolicy)
 
 -- | The name of the bucket.
 putBucketPolicy_bucket :: Lens.Lens' PutBucketPolicy BucketName
@@ -164,6 +164,7 @@ instance Core.AWSRequest PutBucketPolicy where
       PutBucketPolicyResponse
   request =
     Request.contentMD5Header
+      Prelude.. Request.s3vhost
       Prelude.. Request.putBody defaultService
   response =
     Response.receiveNull PutBucketPolicyResponse'
@@ -178,11 +179,11 @@ instance Core.ToBody PutBucketPolicy where
 instance Core.ToHeaders PutBucketPolicy where
   toHeaders PutBucketPolicy' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
+      [ "x-amz-confirm-remove-self-bucket-access"
+          Core.=# confirmRemoveSelfBucketAccess,
         "Content-MD5" Core.=# contentMD5,
-        "x-amz-confirm-remove-self-bucket-access"
-          Core.=# confirmRemoveSelfBucketAccess
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath PutBucketPolicy where

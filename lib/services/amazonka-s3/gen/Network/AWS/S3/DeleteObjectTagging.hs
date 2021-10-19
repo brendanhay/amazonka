@@ -43,8 +43,8 @@ module Network.AWS.S3.DeleteObjectTagging
     newDeleteObjectTagging,
 
     -- * Request Lenses
-    deleteObjectTagging_expectedBucketOwner,
     deleteObjectTagging_versionId,
+    deleteObjectTagging_expectedBucketOwner,
     deleteObjectTagging_bucket,
     deleteObjectTagging_key,
 
@@ -67,12 +67,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newDeleteObjectTagging' smart constructor.
 data DeleteObjectTagging = DeleteObjectTagging'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
+  { -- | The versionId of the object that the tag-set will be removed from.
+    versionId :: Prelude.Maybe ObjectVersionId,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | The versionId of the object that the tag-set will be removed from.
-    versionId :: Prelude.Maybe ObjectVersionId,
     -- | The bucket name containing the objects from which to remove the tags.
     --
     -- When using this action with an access point, you must direct requests to
@@ -108,11 +108,11 @@ data DeleteObjectTagging = DeleteObjectTagging'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'versionId', 'deleteObjectTagging_versionId' - The versionId of the object that the tag-set will be removed from.
+--
 -- 'expectedBucketOwner', 'deleteObjectTagging_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
---
--- 'versionId', 'deleteObjectTagging_versionId' - The versionId of the object that the tag-set will be removed from.
 --
 -- 'bucket', 'deleteObjectTagging_bucket' - The bucket name containing the objects from which to remove the tags.
 --
@@ -145,22 +145,21 @@ newDeleteObjectTagging ::
   DeleteObjectTagging
 newDeleteObjectTagging pBucket_ pKey_ =
   DeleteObjectTagging'
-    { expectedBucketOwner =
-        Prelude.Nothing,
-      versionId = Prelude.Nothing,
+    { versionId = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
+
+-- | The versionId of the object that the tag-set will be removed from.
+deleteObjectTagging_versionId :: Lens.Lens' DeleteObjectTagging (Prelude.Maybe ObjectVersionId)
+deleteObjectTagging_versionId = Lens.lens (\DeleteObjectTagging' {versionId} -> versionId) (\s@DeleteObjectTagging' {} a -> s {versionId = a} :: DeleteObjectTagging)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 deleteObjectTagging_expectedBucketOwner :: Lens.Lens' DeleteObjectTagging (Prelude.Maybe Prelude.Text)
 deleteObjectTagging_expectedBucketOwner = Lens.lens (\DeleteObjectTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteObjectTagging' {} a -> s {expectedBucketOwner = a} :: DeleteObjectTagging)
-
--- | The versionId of the object that the tag-set will be removed from.
-deleteObjectTagging_versionId :: Lens.Lens' DeleteObjectTagging (Prelude.Maybe ObjectVersionId)
-deleteObjectTagging_versionId = Lens.lens (\DeleteObjectTagging' {versionId} -> versionId) (\s@DeleteObjectTagging' {} a -> s {versionId = a} :: DeleteObjectTagging)
 
 -- | The bucket name containing the objects from which to remove the tags.
 --
@@ -194,7 +193,9 @@ instance Core.AWSRequest DeleteObjectTagging where
   type
     AWSResponse DeleteObjectTagging =
       DeleteObjectTaggingResponse
-  request = Request.delete defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->

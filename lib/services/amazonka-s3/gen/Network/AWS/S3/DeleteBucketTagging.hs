@@ -102,7 +102,9 @@ instance Core.AWSRequest DeleteBucketTagging where
   type
     AWSResponse DeleteBucketTagging =
       DeleteBucketTaggingResponse
-  request = Request.delete defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.delete defaultService
   response =
     Response.receiveNull DeleteBucketTaggingResponse'
 

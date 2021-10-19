@@ -85,7 +85,7 @@ queueConfiguration_queueArn = Lens.lens (\QueueConfiguration' {queueArn} -> queu
 
 -- | A collection of bucket events for which to send notifications
 queueConfiguration_events :: Lens.Lens' QueueConfiguration [Event]
-queueConfiguration_events = Lens.lens (\QueueConfiguration' {events} -> events) (\s@QueueConfiguration' {} a -> s {events = a} :: QueueConfiguration) Prelude.. Lens._Coerce
+queueConfiguration_events = Lens.lens (\QueueConfiguration' {events} -> events) (\s@QueueConfiguration' {} a -> s {events = a} :: QueueConfiguration) Prelude.. Lens.coerced
 
 instance Core.FromXML QueueConfiguration where
   parseXML x =

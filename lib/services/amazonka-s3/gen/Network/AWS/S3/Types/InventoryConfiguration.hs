@@ -117,7 +117,7 @@ newInventoryConfiguration
 
 -- | Contains the optional fields that are included in the inventory results.
 inventoryConfiguration_optionalFields :: Lens.Lens' InventoryConfiguration (Prelude.Maybe [InventoryOptionalField])
-inventoryConfiguration_optionalFields = Lens.lens (\InventoryConfiguration' {optionalFields} -> optionalFields) (\s@InventoryConfiguration' {} a -> s {optionalFields = a} :: InventoryConfiguration) Prelude.. Lens.mapping Lens._Coerce
+inventoryConfiguration_optionalFields = Lens.lens (\InventoryConfiguration' {optionalFields} -> optionalFields) (\s@InventoryConfiguration' {} a -> s {optionalFields = a} :: InventoryConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies an inventory filter. The inventory only includes objects that
 -- meet the filter\'s criteria.

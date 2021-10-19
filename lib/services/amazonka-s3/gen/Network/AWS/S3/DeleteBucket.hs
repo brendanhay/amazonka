@@ -98,7 +98,9 @@ deleteBucket_bucket = Lens.lens (\DeleteBucket' {bucket} -> bucket) (\s@DeleteBu
 
 instance Core.AWSRequest DeleteBucket where
   type AWSResponse DeleteBucket = DeleteBucketResponse
-  request = Request.delete defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.delete defaultService
   response = Response.receiveNull DeleteBucketResponse'
 
 instance Prelude.Hashable DeleteBucket

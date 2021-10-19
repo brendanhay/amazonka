@@ -42,8 +42,8 @@ module Network.AWS.S3.GetObjectTorrent
     newGetObjectTorrent,
 
     -- * Request Lenses
-    getObjectTorrent_expectedBucketOwner,
     getObjectTorrent_requestPayer,
+    getObjectTorrent_expectedBucketOwner,
     getObjectTorrent_bucket,
     getObjectTorrent_key,
 
@@ -67,11 +67,11 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetObjectTorrent' smart constructor.
 data GetObjectTorrent = GetObjectTorrent'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
+  { requestPayer :: Prelude.Maybe RequestPayer,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The name of the bucket containing the object for which to get the
     -- torrent files.
     bucket :: BucketName,
@@ -88,11 +88,11 @@ data GetObjectTorrent = GetObjectTorrent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'requestPayer', 'getObjectTorrent_requestPayer' - Undocumented member.
+--
 -- 'expectedBucketOwner', 'getObjectTorrent_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
---
--- 'requestPayer', 'getObjectTorrent_requestPayer' - Undocumented member.
 --
 -- 'bucket', 'getObjectTorrent_bucket' - The name of the bucket containing the object for which to get the
 -- torrent files.
@@ -106,22 +106,21 @@ newGetObjectTorrent ::
   GetObjectTorrent
 newGetObjectTorrent pBucket_ pKey_ =
   GetObjectTorrent'
-    { expectedBucketOwner =
-        Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
+    { requestPayer = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
+
+-- | Undocumented member.
+getObjectTorrent_requestPayer :: Lens.Lens' GetObjectTorrent (Prelude.Maybe RequestPayer)
+getObjectTorrent_requestPayer = Lens.lens (\GetObjectTorrent' {requestPayer} -> requestPayer) (\s@GetObjectTorrent' {} a -> s {requestPayer = a} :: GetObjectTorrent)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getObjectTorrent_expectedBucketOwner :: Lens.Lens' GetObjectTorrent (Prelude.Maybe Prelude.Text)
 getObjectTorrent_expectedBucketOwner = Lens.lens (\GetObjectTorrent' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectTorrent' {} a -> s {expectedBucketOwner = a} :: GetObjectTorrent)
-
--- | Undocumented member.
-getObjectTorrent_requestPayer :: Lens.Lens' GetObjectTorrent (Prelude.Maybe RequestPayer)
-getObjectTorrent_requestPayer = Lens.lens (\GetObjectTorrent' {requestPayer} -> requestPayer) (\s@GetObjectTorrent' {} a -> s {requestPayer = a} :: GetObjectTorrent)
 
 -- | The name of the bucket containing the object for which to get the
 -- torrent files.
@@ -136,7 +135,9 @@ instance Core.AWSRequest GetObjectTorrent where
   type
     AWSResponse GetObjectTorrent =
       GetObjectTorrentResponse
-  request = Request.get defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.get defaultService
   response =
     Response.receiveBody
       ( \s h x ->
@@ -153,9 +154,9 @@ instance Prelude.NFData GetObjectTorrent
 instance Core.ToHeaders GetObjectTorrent where
   toHeaders GetObjectTorrent' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+      [ "x-amz-request-payer" Core.=# requestPayer,
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath GetObjectTorrent where

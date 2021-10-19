@@ -75,7 +75,7 @@ replicationRuleAndOperator_prefix = Lens.lens (\ReplicationRuleAndOperator' {pre
 
 -- | An array of tags containing key and value pairs.
 replicationRuleAndOperator_tags :: Lens.Lens' ReplicationRuleAndOperator (Prelude.Maybe [Tag])
-replicationRuleAndOperator_tags = Lens.lens (\ReplicationRuleAndOperator' {tags} -> tags) (\s@ReplicationRuleAndOperator' {} a -> s {tags = a} :: ReplicationRuleAndOperator) Prelude.. Lens.mapping Lens._Coerce
+replicationRuleAndOperator_tags = Lens.lens (\ReplicationRuleAndOperator' {tags} -> tags) (\s@ReplicationRuleAndOperator' {} a -> s {tags = a} :: ReplicationRuleAndOperator) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML ReplicationRuleAndOperator where
   parseXML x =

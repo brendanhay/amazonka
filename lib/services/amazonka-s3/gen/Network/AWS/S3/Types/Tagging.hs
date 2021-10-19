@@ -49,7 +49,7 @@ newTagging = Tagging' {tagSet = Prelude.mempty}
 
 -- | A collection for a set of tags
 tagging_tagSet :: Lens.Lens' Tagging [Tag]
-tagging_tagSet = Lens.lens (\Tagging' {tagSet} -> tagSet) (\s@Tagging' {} a -> s {tagSet = a} :: Tagging) Prelude.. Lens._Coerce
+tagging_tagSet = Lens.lens (\Tagging' {tagSet} -> tagSet) (\s@Tagging' {} a -> s {tagSet = a} :: Tagging) Prelude.. Lens.coerced
 
 instance Prelude.Hashable Tagging
 

@@ -69,7 +69,7 @@ intelligentTieringAndOperator_prefix = Lens.lens (\IntelligentTieringAndOperator
 -- | All of these tags must exist in the object\'s tag set in order for the
 -- configuration to apply.
 intelligentTieringAndOperator_tags :: Lens.Lens' IntelligentTieringAndOperator (Prelude.Maybe [Tag])
-intelligentTieringAndOperator_tags = Lens.lens (\IntelligentTieringAndOperator' {tags} -> tags) (\s@IntelligentTieringAndOperator' {} a -> s {tags = a} :: IntelligentTieringAndOperator) Prelude.. Lens.mapping Lens._Coerce
+intelligentTieringAndOperator_tags = Lens.lens (\IntelligentTieringAndOperator' {tags} -> tags) (\s@IntelligentTieringAndOperator' {} a -> s {tags = a} :: IntelligentTieringAndOperator) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML IntelligentTieringAndOperator where
   parseXML x =

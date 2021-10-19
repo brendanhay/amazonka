@@ -32,7 +32,11 @@ import Network.AWS.S3.Types.Tag
 --
 -- /See:/ 'newReplicationRuleFilter' smart constructor.
 data ReplicationRuleFilter = ReplicationRuleFilter'
-  { -- | An object key name prefix that identifies the subset of objects to which
+  { -- | A container for specifying a tag key and value.
+    --
+    -- The rule applies only to objects that have the tag in their tag set.
+    tag :: Prelude.Maybe Tag,
+    -- | An object key name prefix that identifies the subset of objects to which
     -- the rule applies.
     --
     -- Replacement must be made for object keys containing special characters
@@ -49,11 +53,7 @@ data ReplicationRuleFilter = ReplicationRuleFilter'
     --
     -- -   If you specify a filter based on multiple tags, wrap the @Tag@
     --     elements in an @And@ tag.
-    and :: Prelude.Maybe ReplicationRuleAndOperator,
-    -- | A container for specifying a tag key and value.
-    --
-    -- The rule applies only to objects that have the tag in their tag set.
-    tag :: Prelude.Maybe Tag
+    and :: Prelude.Maybe ReplicationRuleAndOperator
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,6 +64,10 @@ data ReplicationRuleFilter = ReplicationRuleFilter'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tag', 'replicationRuleFilter_tag' - A container for specifying a tag key and value.
+--
+-- The rule applies only to objects that have the tag in their tag set.
 --
 -- 'prefix', 'replicationRuleFilter_prefix' - An object key name prefix that identifies the subset of objects to which
 -- the rule applies.
@@ -82,18 +86,20 @@ data ReplicationRuleFilter = ReplicationRuleFilter'
 --
 -- -   If you specify a filter based on multiple tags, wrap the @Tag@
 --     elements in an @And@ tag.
---
--- 'tag', 'replicationRuleFilter_tag' - A container for specifying a tag key and value.
---
--- The rule applies only to objects that have the tag in their tag set.
 newReplicationRuleFilter ::
   ReplicationRuleFilter
 newReplicationRuleFilter =
   ReplicationRuleFilter'
-    { prefix = Prelude.Nothing,
-      and = Prelude.Nothing,
-      tag = Prelude.Nothing
+    { tag = Prelude.Nothing,
+      prefix = Prelude.Nothing,
+      and = Prelude.Nothing
     }
+
+-- | A container for specifying a tag key and value.
+--
+-- The rule applies only to objects that have the tag in their tag set.
+replicationRuleFilter_tag :: Lens.Lens' ReplicationRuleFilter (Prelude.Maybe Tag)
+replicationRuleFilter_tag = Lens.lens (\ReplicationRuleFilter' {tag} -> tag) (\s@ReplicationRuleFilter' {} a -> s {tag = a} :: ReplicationRuleFilter)
 
 -- | An object key name prefix that identifies the subset of objects to which
 -- the rule applies.
@@ -117,18 +123,12 @@ replicationRuleFilter_prefix = Lens.lens (\ReplicationRuleFilter' {prefix} -> pr
 replicationRuleFilter_and :: Lens.Lens' ReplicationRuleFilter (Prelude.Maybe ReplicationRuleAndOperator)
 replicationRuleFilter_and = Lens.lens (\ReplicationRuleFilter' {and} -> and) (\s@ReplicationRuleFilter' {} a -> s {and = a} :: ReplicationRuleFilter)
 
--- | A container for specifying a tag key and value.
---
--- The rule applies only to objects that have the tag in their tag set.
-replicationRuleFilter_tag :: Lens.Lens' ReplicationRuleFilter (Prelude.Maybe Tag)
-replicationRuleFilter_tag = Lens.lens (\ReplicationRuleFilter' {tag} -> tag) (\s@ReplicationRuleFilter' {} a -> s {tag = a} :: ReplicationRuleFilter)
-
 instance Core.FromXML ReplicationRuleFilter where
   parseXML x =
     ReplicationRuleFilter'
-      Prelude.<$> (x Core..@? "Prefix")
+      Prelude.<$> (x Core..@? "Tag")
+      Prelude.<*> (x Core..@? "Prefix")
       Prelude.<*> (x Core..@? "And")
-      Prelude.<*> (x Core..@? "Tag")
 
 instance Prelude.Hashable ReplicationRuleFilter
 
@@ -137,7 +137,7 @@ instance Prelude.NFData ReplicationRuleFilter
 instance Core.ToXML ReplicationRuleFilter where
   toXML ReplicationRuleFilter' {..} =
     Prelude.mconcat
-      [ "Prefix" Core.@= prefix,
-        "And" Core.@= and,
-        "Tag" Core.@= tag
+      [ "Tag" Core.@= tag,
+        "Prefix" Core.@= prefix,
+        "And" Core.@= and
       ]

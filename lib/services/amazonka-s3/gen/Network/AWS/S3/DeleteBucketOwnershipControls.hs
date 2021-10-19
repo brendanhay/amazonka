@@ -107,7 +107,9 @@ instance
   type
     AWSResponse DeleteBucketOwnershipControls =
       DeleteBucketOwnershipControlsResponse
-  request = Request.delete defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.delete defaultService
   response =
     Response.receiveNull
       DeleteBucketOwnershipControlsResponse'

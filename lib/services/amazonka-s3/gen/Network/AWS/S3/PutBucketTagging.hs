@@ -82,8 +82,8 @@ module Network.AWS.S3.PutBucketTagging
     newPutBucketTagging,
 
     -- * Request Lenses
-    putBucketTagging_expectedBucketOwner,
     putBucketTagging_contentMD5,
+    putBucketTagging_expectedBucketOwner,
     putBucketTagging_bucket,
     putBucketTagging_tagging,
 
@@ -102,11 +102,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketTagging' smart constructor.
 data PutBucketTagging = PutBucketTagging'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
+  { -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
     -- header as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, see
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
@@ -115,6 +111,10 @@ data PutBucketTagging = PutBucketTagging'
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
     bucket :: BucketName,
     -- | Container for the @TagSet@ and @Tag@ elements.
@@ -130,10 +130,6 @@ data PutBucketTagging = PutBucketTagging'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketTagging_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
---
 -- 'contentMD5', 'putBucketTagging_contentMD5' - The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
 -- not corrupted in transit. For more information, see
@@ -142,6 +138,10 @@ data PutBucketTagging = PutBucketTagging'
 -- For requests made using the Amazon Web Services Command Line Interface
 -- (CLI) or Amazon Web Services SDKs, this field is calculated
 -- automatically.
+--
+-- 'expectedBucketOwner', 'putBucketTagging_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'putBucketTagging_bucket' - The bucket name.
 --
@@ -154,18 +154,11 @@ newPutBucketTagging ::
   PutBucketTagging
 newPutBucketTagging pBucket_ pTagging_ =
   PutBucketTagging'
-    { expectedBucketOwner =
-        Prelude.Nothing,
-      contentMD5 = Prelude.Nothing,
+    { contentMD5 = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_,
       tagging = pTagging_
     }
-
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-putBucketTagging_expectedBucketOwner :: Lens.Lens' PutBucketTagging (Prelude.Maybe Prelude.Text)
-putBucketTagging_expectedBucketOwner = Lens.lens (\PutBucketTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketTagging' {} a -> s {expectedBucketOwner = a} :: PutBucketTagging)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
@@ -177,6 +170,12 @@ putBucketTagging_expectedBucketOwner = Lens.lens (\PutBucketTagging' {expectedBu
 -- automatically.
 putBucketTagging_contentMD5 :: Lens.Lens' PutBucketTagging (Prelude.Maybe Prelude.Text)
 putBucketTagging_contentMD5 = Lens.lens (\PutBucketTagging' {contentMD5} -> contentMD5) (\s@PutBucketTagging' {} a -> s {contentMD5 = a} :: PutBucketTagging)
+
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+putBucketTagging_expectedBucketOwner :: Lens.Lens' PutBucketTagging (Prelude.Maybe Prelude.Text)
+putBucketTagging_expectedBucketOwner = Lens.lens (\PutBucketTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketTagging' {} a -> s {expectedBucketOwner = a} :: PutBucketTagging)
 
 -- | The bucket name.
 putBucketTagging_bucket :: Lens.Lens' PutBucketTagging BucketName
@@ -192,6 +191,7 @@ instance Core.AWSRequest PutBucketTagging where
       PutBucketTaggingResponse
   request =
     Request.contentMD5Header
+      Prelude.. Request.s3vhost
       Prelude.. Request.putXML defaultService
   response =
     Response.receiveNull PutBucketTaggingResponse'
@@ -209,9 +209,9 @@ instance Core.ToElement PutBucketTagging where
 instance Core.ToHeaders PutBucketTagging where
   toHeaders PutBucketTagging' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "Content-MD5" Core.=# contentMD5
+      [ "Content-MD5" Core.=# contentMD5,
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath PutBucketTagging where

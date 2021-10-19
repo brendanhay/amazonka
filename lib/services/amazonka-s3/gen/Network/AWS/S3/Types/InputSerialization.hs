@@ -32,12 +32,12 @@ import Network.AWS.S3.Types.ParquetInput
 --
 -- /See:/ 'newInputSerialization' smart constructor.
 data InputSerialization = InputSerialization'
-  { -- | Specifies Parquet as object\'s input serialization format.
-    parquet :: Prelude.Maybe ParquetInput,
+  { -- | Specifies JSON as object\'s input serialization format.
+    json :: Prelude.Maybe JSONInput,
     -- | Describes the serialization of a CSV-encoded object.
     csv :: Prelude.Maybe CSVInput,
-    -- | Specifies JSON as object\'s input serialization format.
-    json :: Prelude.Maybe JSONInput,
+    -- | Specifies Parquet as object\'s input serialization format.
+    parquet :: Prelude.Maybe ParquetInput,
     -- | Specifies object\'s compression format. Valid values: NONE, GZIP, BZIP2.
     -- Default Value: NONE.
     compressionType :: Prelude.Maybe CompressionType
@@ -52,11 +52,11 @@ data InputSerialization = InputSerialization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parquet', 'inputSerialization_parquet' - Specifies Parquet as object\'s input serialization format.
+-- 'json', 'inputSerialization_json' - Specifies JSON as object\'s input serialization format.
 --
 -- 'csv', 'inputSerialization_csv' - Describes the serialization of a CSV-encoded object.
 --
--- 'json', 'inputSerialization_json' - Specifies JSON as object\'s input serialization format.
+-- 'parquet', 'inputSerialization_parquet' - Specifies Parquet as object\'s input serialization format.
 --
 -- 'compressionType', 'inputSerialization_compressionType' - Specifies object\'s compression format. Valid values: NONE, GZIP, BZIP2.
 -- Default Value: NONE.
@@ -64,23 +64,23 @@ newInputSerialization ::
   InputSerialization
 newInputSerialization =
   InputSerialization'
-    { parquet = Prelude.Nothing,
+    { json = Prelude.Nothing,
       csv = Prelude.Nothing,
-      json = Prelude.Nothing,
+      parquet = Prelude.Nothing,
       compressionType = Prelude.Nothing
     }
 
--- | Specifies Parquet as object\'s input serialization format.
-inputSerialization_parquet :: Lens.Lens' InputSerialization (Prelude.Maybe ParquetInput)
-inputSerialization_parquet = Lens.lens (\InputSerialization' {parquet} -> parquet) (\s@InputSerialization' {} a -> s {parquet = a} :: InputSerialization)
+-- | Specifies JSON as object\'s input serialization format.
+inputSerialization_json :: Lens.Lens' InputSerialization (Prelude.Maybe JSONInput)
+inputSerialization_json = Lens.lens (\InputSerialization' {json} -> json) (\s@InputSerialization' {} a -> s {json = a} :: InputSerialization)
 
 -- | Describes the serialization of a CSV-encoded object.
 inputSerialization_csv :: Lens.Lens' InputSerialization (Prelude.Maybe CSVInput)
 inputSerialization_csv = Lens.lens (\InputSerialization' {csv} -> csv) (\s@InputSerialization' {} a -> s {csv = a} :: InputSerialization)
 
--- | Specifies JSON as object\'s input serialization format.
-inputSerialization_json :: Lens.Lens' InputSerialization (Prelude.Maybe JSONInput)
-inputSerialization_json = Lens.lens (\InputSerialization' {json} -> json) (\s@InputSerialization' {} a -> s {json = a} :: InputSerialization)
+-- | Specifies Parquet as object\'s input serialization format.
+inputSerialization_parquet :: Lens.Lens' InputSerialization (Prelude.Maybe ParquetInput)
+inputSerialization_parquet = Lens.lens (\InputSerialization' {parquet} -> parquet) (\s@InputSerialization' {} a -> s {parquet = a} :: InputSerialization)
 
 -- | Specifies object\'s compression format. Valid values: NONE, GZIP, BZIP2.
 -- Default Value: NONE.
@@ -94,8 +94,8 @@ instance Prelude.NFData InputSerialization
 instance Core.ToXML InputSerialization where
   toXML InputSerialization' {..} =
     Prelude.mconcat
-      [ "Parquet" Core.@= parquet,
+      [ "JSON" Core.@= json,
         "CSV" Core.@= csv,
-        "JSON" Core.@= json,
+        "Parquet" Core.@= parquet,
         "CompressionType" Core.@= compressionType
       ]

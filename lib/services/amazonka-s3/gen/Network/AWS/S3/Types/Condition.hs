@@ -32,13 +32,7 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'newCondition' smart constructor.
 data Condition = Condition'
-  { -- | The HTTP error code when the redirect is applied. In the event of an
-    -- error, if the error code equals this value, then the specified redirect
-    -- is applied. Required when parent element @Condition@ is specified and
-    -- sibling @KeyPrefixEquals@ is not specified. If both are specified, then
-    -- both must be true for the redirect to be applied.
-    httpErrorCodeReturnedEquals :: Prelude.Maybe Prelude.Text,
-    -- | The object key name prefix when the redirect is applied. For example, to
+  { -- | The object key name prefix when the redirect is applied. For example, to
     -- redirect requests for @ExamplePage.html@, the key prefix will be
     -- @ExamplePage.html@. To redirect request for all pages with the prefix
     -- @docs\/@, the key prefix will be @\/docs@, which identifies all objects
@@ -51,7 +45,13 @@ data Condition = Condition'
     -- (such as carriage returns) when using XML requests. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-    keyPrefixEquals :: Prelude.Maybe Prelude.Text
+    keyPrefixEquals :: Prelude.Maybe Prelude.Text,
+    -- | The HTTP error code when the redirect is applied. In the event of an
+    -- error, if the error code equals this value, then the specified redirect
+    -- is applied. Required when parent element @Condition@ is specified and
+    -- sibling @KeyPrefixEquals@ is not specified. If both are specified, then
+    -- both must be true for the redirect to be applied.
+    httpErrorCodeReturnedEquals :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,12 +62,6 @@ data Condition = Condition'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'httpErrorCodeReturnedEquals', 'condition_httpErrorCodeReturnedEquals' - The HTTP error code when the redirect is applied. In the event of an
--- error, if the error code equals this value, then the specified redirect
--- is applied. Required when parent element @Condition@ is specified and
--- sibling @KeyPrefixEquals@ is not specified. If both are specified, then
--- both must be true for the redirect to be applied.
 --
 -- 'keyPrefixEquals', 'condition_keyPrefixEquals' - The object key name prefix when the redirect is applied. For example, to
 -- redirect requests for @ExamplePage.html@, the key prefix will be
@@ -82,22 +76,19 @@ data Condition = Condition'
 -- (such as carriage returns) when using XML requests. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-newCondition ::
-  Condition
-newCondition =
-  Condition'
-    { httpErrorCodeReturnedEquals =
-        Prelude.Nothing,
-      keyPrefixEquals = Prelude.Nothing
-    }
-
--- | The HTTP error code when the redirect is applied. In the event of an
+--
+-- 'httpErrorCodeReturnedEquals', 'condition_httpErrorCodeReturnedEquals' - The HTTP error code when the redirect is applied. In the event of an
 -- error, if the error code equals this value, then the specified redirect
 -- is applied. Required when parent element @Condition@ is specified and
 -- sibling @KeyPrefixEquals@ is not specified. If both are specified, then
 -- both must be true for the redirect to be applied.
-condition_httpErrorCodeReturnedEquals :: Lens.Lens' Condition (Prelude.Maybe Prelude.Text)
-condition_httpErrorCodeReturnedEquals = Lens.lens (\Condition' {httpErrorCodeReturnedEquals} -> httpErrorCodeReturnedEquals) (\s@Condition' {} a -> s {httpErrorCodeReturnedEquals = a} :: Condition)
+newCondition ::
+  Condition
+newCondition =
+  Condition'
+    { keyPrefixEquals = Prelude.Nothing,
+      httpErrorCodeReturnedEquals = Prelude.Nothing
+    }
 
 -- | The object key name prefix when the redirect is applied. For example, to
 -- redirect requests for @ExamplePage.html@, the key prefix will be
@@ -115,11 +106,19 @@ condition_httpErrorCodeReturnedEquals = Lens.lens (\Condition' {httpErrorCodeRet
 condition_keyPrefixEquals :: Lens.Lens' Condition (Prelude.Maybe Prelude.Text)
 condition_keyPrefixEquals = Lens.lens (\Condition' {keyPrefixEquals} -> keyPrefixEquals) (\s@Condition' {} a -> s {keyPrefixEquals = a} :: Condition)
 
+-- | The HTTP error code when the redirect is applied. In the event of an
+-- error, if the error code equals this value, then the specified redirect
+-- is applied. Required when parent element @Condition@ is specified and
+-- sibling @KeyPrefixEquals@ is not specified. If both are specified, then
+-- both must be true for the redirect to be applied.
+condition_httpErrorCodeReturnedEquals :: Lens.Lens' Condition (Prelude.Maybe Prelude.Text)
+condition_httpErrorCodeReturnedEquals = Lens.lens (\Condition' {httpErrorCodeReturnedEquals} -> httpErrorCodeReturnedEquals) (\s@Condition' {} a -> s {httpErrorCodeReturnedEquals = a} :: Condition)
+
 instance Core.FromXML Condition where
   parseXML x =
     Condition'
-      Prelude.<$> (x Core..@? "HttpErrorCodeReturnedEquals")
-      Prelude.<*> (x Core..@? "KeyPrefixEquals")
+      Prelude.<$> (x Core..@? "KeyPrefixEquals")
+      Prelude.<*> (x Core..@? "HttpErrorCodeReturnedEquals")
 
 instance Prelude.Hashable Condition
 
@@ -128,7 +127,7 @@ instance Prelude.NFData Condition
 instance Core.ToXML Condition where
   toXML Condition' {..} =
     Prelude.mconcat
-      [ "HttpErrorCodeReturnedEquals"
-          Core.@= httpErrorCodeReturnedEquals,
-        "KeyPrefixEquals" Core.@= keyPrefixEquals
+      [ "KeyPrefixEquals" Core.@= keyPrefixEquals,
+        "HttpErrorCodeReturnedEquals"
+          Core.@= httpErrorCodeReturnedEquals
       ]

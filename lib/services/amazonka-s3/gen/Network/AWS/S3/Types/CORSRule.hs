@@ -28,21 +28,21 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'newCORSRule' smart constructor.
 data CORSRule = CORSRule'
-  { -- | Headers that are specified in the @Access-Control-Request-Headers@
+  { -- | The time in seconds that your browser is to cache the preflight response
+    -- for the specified resource.
+    maxAgeSeconds :: Prelude.Maybe Prelude.Int,
+    -- | Headers that are specified in the @Access-Control-Request-Headers@
     -- header. These headers are allowed in a preflight OPTIONS request. In
     -- response to any preflight OPTIONS request, Amazon S3 returns any
     -- requested headers that are allowed.
     allowedHeaders :: Prelude.Maybe [Prelude.Text],
-    -- | Unique identifier for the rule. The value cannot be longer than 255
-    -- characters.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The time in seconds that your browser is to cache the preflight response
-    -- for the specified resource.
-    maxAgeSeconds :: Prelude.Maybe Prelude.Int,
     -- | One or more headers in the response that you want customers to be able
     -- to access from their applications (for example, from a JavaScript
     -- @XMLHttpRequest@ object).
     exposeHeaders :: Prelude.Maybe [Prelude.Text],
+    -- | Unique identifier for the rule. The value cannot be longer than 255
+    -- characters.
+    id :: Prelude.Maybe Prelude.Text,
     -- | An HTTP method that you allow the origin to execute. Valid values are
     -- @GET@, @PUT@, @HEAD@, @POST@, and @DELETE@.
     allowedMethods :: [Prelude.Text],
@@ -60,20 +60,20 @@ data CORSRule = CORSRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxAgeSeconds', 'cORSRule_maxAgeSeconds' - The time in seconds that your browser is to cache the preflight response
+-- for the specified resource.
+--
 -- 'allowedHeaders', 'cORSRule_allowedHeaders' - Headers that are specified in the @Access-Control-Request-Headers@
 -- header. These headers are allowed in a preflight OPTIONS request. In
 -- response to any preflight OPTIONS request, Amazon S3 returns any
 -- requested headers that are allowed.
 --
--- 'id', 'cORSRule_id' - Unique identifier for the rule. The value cannot be longer than 255
--- characters.
---
--- 'maxAgeSeconds', 'cORSRule_maxAgeSeconds' - The time in seconds that your browser is to cache the preflight response
--- for the specified resource.
---
 -- 'exposeHeaders', 'cORSRule_exposeHeaders' - One or more headers in the response that you want customers to be able
 -- to access from their applications (for example, from a JavaScript
 -- @XMLHttpRequest@ object).
+--
+-- 'id', 'cORSRule_id' - Unique identifier for the rule. The value cannot be longer than 255
+-- characters.
 --
 -- 'allowedMethods', 'cORSRule_allowedMethods' - An HTTP method that you allow the origin to execute. Valid values are
 -- @GET@, @PUT@, @HEAD@, @POST@, and @DELETE@.
@@ -84,54 +84,54 @@ newCORSRule ::
   CORSRule
 newCORSRule =
   CORSRule'
-    { allowedHeaders = Prelude.Nothing,
-      id = Prelude.Nothing,
-      maxAgeSeconds = Prelude.Nothing,
+    { maxAgeSeconds = Prelude.Nothing,
+      allowedHeaders = Prelude.Nothing,
       exposeHeaders = Prelude.Nothing,
+      id = Prelude.Nothing,
       allowedMethods = Prelude.mempty,
       allowedOrigins = Prelude.mempty
     }
-
--- | Headers that are specified in the @Access-Control-Request-Headers@
--- header. These headers are allowed in a preflight OPTIONS request. In
--- response to any preflight OPTIONS request, Amazon S3 returns any
--- requested headers that are allowed.
-cORSRule_allowedHeaders :: Lens.Lens' CORSRule (Prelude.Maybe [Prelude.Text])
-cORSRule_allowedHeaders = Lens.lens (\CORSRule' {allowedHeaders} -> allowedHeaders) (\s@CORSRule' {} a -> s {allowedHeaders = a} :: CORSRule) Prelude.. Lens.mapping Lens._Coerce
-
--- | Unique identifier for the rule. The value cannot be longer than 255
--- characters.
-cORSRule_id :: Lens.Lens' CORSRule (Prelude.Maybe Prelude.Text)
-cORSRule_id = Lens.lens (\CORSRule' {id} -> id) (\s@CORSRule' {} a -> s {id = a} :: CORSRule)
 
 -- | The time in seconds that your browser is to cache the preflight response
 -- for the specified resource.
 cORSRule_maxAgeSeconds :: Lens.Lens' CORSRule (Prelude.Maybe Prelude.Int)
 cORSRule_maxAgeSeconds = Lens.lens (\CORSRule' {maxAgeSeconds} -> maxAgeSeconds) (\s@CORSRule' {} a -> s {maxAgeSeconds = a} :: CORSRule)
 
+-- | Headers that are specified in the @Access-Control-Request-Headers@
+-- header. These headers are allowed in a preflight OPTIONS request. In
+-- response to any preflight OPTIONS request, Amazon S3 returns any
+-- requested headers that are allowed.
+cORSRule_allowedHeaders :: Lens.Lens' CORSRule (Prelude.Maybe [Prelude.Text])
+cORSRule_allowedHeaders = Lens.lens (\CORSRule' {allowedHeaders} -> allowedHeaders) (\s@CORSRule' {} a -> s {allowedHeaders = a} :: CORSRule) Prelude.. Lens.mapping Lens.coerced
+
 -- | One or more headers in the response that you want customers to be able
 -- to access from their applications (for example, from a JavaScript
 -- @XMLHttpRequest@ object).
 cORSRule_exposeHeaders :: Lens.Lens' CORSRule (Prelude.Maybe [Prelude.Text])
-cORSRule_exposeHeaders = Lens.lens (\CORSRule' {exposeHeaders} -> exposeHeaders) (\s@CORSRule' {} a -> s {exposeHeaders = a} :: CORSRule) Prelude.. Lens.mapping Lens._Coerce
+cORSRule_exposeHeaders = Lens.lens (\CORSRule' {exposeHeaders} -> exposeHeaders) (\s@CORSRule' {} a -> s {exposeHeaders = a} :: CORSRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | Unique identifier for the rule. The value cannot be longer than 255
+-- characters.
+cORSRule_id :: Lens.Lens' CORSRule (Prelude.Maybe Prelude.Text)
+cORSRule_id = Lens.lens (\CORSRule' {id} -> id) (\s@CORSRule' {} a -> s {id = a} :: CORSRule)
 
 -- | An HTTP method that you allow the origin to execute. Valid values are
 -- @GET@, @PUT@, @HEAD@, @POST@, and @DELETE@.
 cORSRule_allowedMethods :: Lens.Lens' CORSRule [Prelude.Text]
-cORSRule_allowedMethods = Lens.lens (\CORSRule' {allowedMethods} -> allowedMethods) (\s@CORSRule' {} a -> s {allowedMethods = a} :: CORSRule) Prelude.. Lens._Coerce
+cORSRule_allowedMethods = Lens.lens (\CORSRule' {allowedMethods} -> allowedMethods) (\s@CORSRule' {} a -> s {allowedMethods = a} :: CORSRule) Prelude.. Lens.coerced
 
 -- | One or more origins you want customers to be able to access the bucket
 -- from.
 cORSRule_allowedOrigins :: Lens.Lens' CORSRule [Prelude.Text]
-cORSRule_allowedOrigins = Lens.lens (\CORSRule' {allowedOrigins} -> allowedOrigins) (\s@CORSRule' {} a -> s {allowedOrigins = a} :: CORSRule) Prelude.. Lens._Coerce
+cORSRule_allowedOrigins = Lens.lens (\CORSRule' {allowedOrigins} -> allowedOrigins) (\s@CORSRule' {} a -> s {allowedOrigins = a} :: CORSRule) Prelude.. Lens.coerced
 
 instance Core.FromXML CORSRule where
   parseXML x =
     CORSRule'
-      Prelude.<$> (Core.may (Core.parseXMLList "AllowedHeader") x)
-      Prelude.<*> (x Core..@? "ID")
-      Prelude.<*> (x Core..@? "MaxAgeSeconds")
+      Prelude.<$> (x Core..@? "MaxAgeSeconds")
+      Prelude.<*> (Core.may (Core.parseXMLList "AllowedHeader") x)
       Prelude.<*> (Core.may (Core.parseXMLList "ExposeHeader") x)
+      Prelude.<*> (x Core..@? "ID")
       Prelude.<*> (Core.parseXMLList "AllowedMethod" x)
       Prelude.<*> (Core.parseXMLList "AllowedOrigin" x)
 
@@ -142,16 +142,16 @@ instance Prelude.NFData CORSRule
 instance Core.ToXML CORSRule where
   toXML CORSRule' {..} =
     Prelude.mconcat
-      [ Core.toXML
+      [ "MaxAgeSeconds" Core.@= maxAgeSeconds,
+        Core.toXML
           ( Core.toXMLList "AllowedHeader"
               Prelude.<$> allowedHeaders
           ),
-        "ID" Core.@= id,
-        "MaxAgeSeconds" Core.@= maxAgeSeconds,
         Core.toXML
           ( Core.toXMLList "ExposeHeader"
               Prelude.<$> exposeHeaders
           ),
+        "ID" Core.@= id,
         Core.toXMLList "AllowedMethod" allowedMethods,
         Core.toXMLList "AllowedOrigin" allowedOrigins
       ]

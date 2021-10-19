@@ -82,7 +82,7 @@ replicationConfiguration_role = Lens.lens (\ReplicationConfiguration' {role'} ->
 -- configuration must have at least one rule and can contain a maximum of
 -- 1,000 rules.
 replicationConfiguration_rules :: Lens.Lens' ReplicationConfiguration [ReplicationRule]
-replicationConfiguration_rules = Lens.lens (\ReplicationConfiguration' {rules} -> rules) (\s@ReplicationConfiguration' {} a -> s {rules = a} :: ReplicationConfiguration) Prelude.. Lens._Coerce
+replicationConfiguration_rules = Lens.lens (\ReplicationConfiguration' {rules} -> rules) (\s@ReplicationConfiguration' {} a -> s {rules = a} :: ReplicationConfiguration) Prelude.. Lens.coerced
 
 instance Core.FromXML ReplicationConfiguration where
   parseXML x =

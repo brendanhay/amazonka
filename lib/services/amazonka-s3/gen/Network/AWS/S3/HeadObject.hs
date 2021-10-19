@@ -104,18 +104,18 @@ module Network.AWS.S3.HeadObject
     newHeadObject,
 
     -- * Request Lenses
-    headObject_ifUnmodifiedSince,
-    headObject_range,
-    headObject_ifModifiedSince,
-    headObject_expectedBucketOwner,
-    headObject_sSECustomerKeyMD5,
-    headObject_versionId,
     headObject_ifMatch,
-    headObject_partNumber,
-    headObject_sSECustomerKey,
+    headObject_versionId,
     headObject_sSECustomerAlgorithm,
-    headObject_ifNoneMatch,
+    headObject_sSECustomerKey,
     headObject_requestPayer,
+    headObject_ifModifiedSince,
+    headObject_partNumber,
+    headObject_range,
+    headObject_ifUnmodifiedSince,
+    headObject_sSECustomerKeyMD5,
+    headObject_ifNoneMatch,
+    headObject_expectedBucketOwner,
     headObject_bucket,
     headObject_key,
 
@@ -124,36 +124,36 @@ module Network.AWS.S3.HeadObject
     newHeadObjectResponse,
 
     -- * Response Lenses
-    headObjectResponse_partsCount,
     headObjectResponse_requestCharged,
+    headObjectResponse_partsCount,
     headObjectResponse_eTag,
-    headObjectResponse_websiteRedirectLocation,
-    headObjectResponse_contentType,
-    headObjectResponse_contentDisposition,
-    headObjectResponse_archiveStatus,
-    headObjectResponse_deleteMarker,
-    headObjectResponse_contentLanguage,
-    headObjectResponse_expiration,
-    headObjectResponse_replicationStatus,
+    headObjectResponse_versionId,
     headObjectResponse_contentLength,
-    headObjectResponse_metadata,
+    headObjectResponse_objectLockMode,
+    headObjectResponse_expires,
+    headObjectResponse_restore,
+    headObjectResponse_expiration,
+    headObjectResponse_deleteMarker,
+    headObjectResponse_archiveStatus,
+    headObjectResponse_sSECustomerAlgorithm,
+    headObjectResponse_missingMeta,
+    headObjectResponse_bucketKeyEnabled,
+    headObjectResponse_websiteRedirectLocation,
+    headObjectResponse_acceptRanges,
+    headObjectResponse_storageClass,
     headObjectResponse_sSECustomerKeyMD5,
     headObjectResponse_sSEKMSKeyId,
     headObjectResponse_contentEncoding,
-    headObjectResponse_versionId,
-    headObjectResponse_storageClass,
-    headObjectResponse_bucketKeyEnabled,
-    headObjectResponse_acceptRanges,
-    headObjectResponse_missingMeta,
-    headObjectResponse_serverSideEncryption,
-    headObjectResponse_sSECustomerAlgorithm,
-    headObjectResponse_objectLockLegalHoldStatus,
-    headObjectResponse_cacheControl,
-    headObjectResponse_lastModified,
-    headObjectResponse_expires,
-    headObjectResponse_restore,
-    headObjectResponse_objectLockMode,
     headObjectResponse_objectLockRetainUntilDate,
+    headObjectResponse_metadata,
+    headObjectResponse_replicationStatus,
+    headObjectResponse_cacheControl,
+    headObjectResponse_contentLanguage,
+    headObjectResponse_lastModified,
+    headObjectResponse_objectLockLegalHoldStatus,
+    headObjectResponse_contentDisposition,
+    headObjectResponse_serverSideEncryption,
+    headObjectResponse_contentType,
     headObjectResponse_httpStatus,
   )
 where
@@ -167,9 +167,29 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newHeadObject' smart constructor.
 data HeadObject = HeadObject'
-  { -- | Return the object only if it has not been modified since the specified
-    -- time, otherwise return a 412 (precondition failed).
-    ifUnmodifiedSince :: Prelude.Maybe Core.ISO8601,
+  { -- | Return the object only if its entity tag (ETag) is the same as the one
+    -- specified, otherwise return a 412 (precondition failed).
+    ifMatch :: Prelude.Maybe Prelude.Text,
+    -- | VersionId used to reference a specific version of the object.
+    versionId :: Prelude.Maybe ObjectVersionId,
+    -- | Specifies the algorithm to use to when encrypting the object (for
+    -- example, AES256).
+    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the customer-provided encryption key for Amazon S3 to use in
+    -- encrypting data. This value is used to store the object and then it is
+    -- discarded; Amazon S3 does not store the encryption key. The key must be
+    -- appropriate for use with the algorithm specified in the
+    -- @x-amz-server-side-encryption-customer-algorithm@ header.
+    sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    requestPayer :: Prelude.Maybe RequestPayer,
+    -- | Return the object only if it has been modified since the specified time,
+    -- otherwise return a 304 (not modified).
+    ifModifiedSince :: Prelude.Maybe Core.ISO8601,
+    -- | Part number of the object being read. This is a positive integer between
+    -- 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the
+    -- part specified. Useful querying about the size of the part and the
+    -- number of parts in this object.
+    partNumber :: Prelude.Maybe Prelude.Int,
     -- | Downloads the specified range bytes of an object. For more information
     -- about the HTTP Range header, see
     -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35>.
@@ -177,40 +197,20 @@ data HeadObject = HeadObject'
     -- Amazon S3 doesn\'t support retrieving multiple ranges of data per @GET@
     -- request.
     range :: Prelude.Maybe Prelude.Text,
-    -- | Return the object only if it has been modified since the specified time,
-    -- otherwise return a 304 (not modified).
-    ifModifiedSince :: Prelude.Maybe Core.ISO8601,
-    -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | Return the object only if it has not been modified since the specified
+    -- time, otherwise return a 412 (precondition failed).
+    ifUnmodifiedSince :: Prelude.Maybe Core.ISO8601,
     -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
     -- 1321. Amazon S3 uses this header for a message integrity check to ensure
     -- that the encryption key was transmitted without error.
     sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
-    -- | VersionId used to reference a specific version of the object.
-    versionId :: Prelude.Maybe ObjectVersionId,
-    -- | Return the object only if its entity tag (ETag) is the same as the one
-    -- specified, otherwise return a 412 (precondition failed).
-    ifMatch :: Prelude.Maybe Prelude.Text,
-    -- | Part number of the object being read. This is a positive integer between
-    -- 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the
-    -- part specified. Useful querying about the size of the part and the
-    -- number of parts in this object.
-    partNumber :: Prelude.Maybe Prelude.Int,
-    -- | Specifies the customer-provided encryption key for Amazon S3 to use in
-    -- encrypting data. This value is used to store the object and then it is
-    -- discarded; Amazon S3 does not store the encryption key. The key must be
-    -- appropriate for use with the algorithm specified in the
-    -- @x-amz-server-side-encryption-customer-algorithm@ header.
-    sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Specifies the algorithm to use to when encrypting the object (for
-    -- example, AES256).
-    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
     -- | Return the object only if its entity tag (ETag) is different from the
     -- one specified, otherwise return a 304 (not modified).
     ifNoneMatch :: Prelude.Maybe Prelude.Text,
-    requestPayer :: Prelude.Maybe RequestPayer,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket containing the object.
     --
     -- When using this action with an access point, you must direct requests to
@@ -245,8 +245,29 @@ data HeadObject = HeadObject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ifUnmodifiedSince', 'headObject_ifUnmodifiedSince' - Return the object only if it has not been modified since the specified
--- time, otherwise return a 412 (precondition failed).
+-- 'ifMatch', 'headObject_ifMatch' - Return the object only if its entity tag (ETag) is the same as the one
+-- specified, otherwise return a 412 (precondition failed).
+--
+-- 'versionId', 'headObject_versionId' - VersionId used to reference a specific version of the object.
+--
+-- 'sSECustomerAlgorithm', 'headObject_sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for
+-- example, AES256).
+--
+-- 'sSECustomerKey', 'headObject_sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in
+-- encrypting data. This value is used to store the object and then it is
+-- discarded; Amazon S3 does not store the encryption key. The key must be
+-- appropriate for use with the algorithm specified in the
+-- @x-amz-server-side-encryption-customer-algorithm@ header.
+--
+-- 'requestPayer', 'headObject_requestPayer' - Undocumented member.
+--
+-- 'ifModifiedSince', 'headObject_ifModifiedSince' - Return the object only if it has been modified since the specified time,
+-- otherwise return a 304 (not modified).
+--
+-- 'partNumber', 'headObject_partNumber' - Part number of the object being read. This is a positive integer between
+-- 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the
+-- part specified. Useful querying about the size of the part and the
+-- number of parts in this object.
 --
 -- 'range', 'headObject_range' - Downloads the specified range bytes of an object. For more information
 -- about the HTTP Range header, see
@@ -255,40 +276,19 @@ data HeadObject = HeadObject'
 -- Amazon S3 doesn\'t support retrieving multiple ranges of data per @GET@
 -- request.
 --
--- 'ifModifiedSince', 'headObject_ifModifiedSince' - Return the object only if it has been modified since the specified time,
--- otherwise return a 304 (not modified).
---
--- 'expectedBucketOwner', 'headObject_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- 'ifUnmodifiedSince', 'headObject_ifUnmodifiedSince' - Return the object only if it has not been modified since the specified
+-- time, otherwise return a 412 (precondition failed).
 --
 -- 'sSECustomerKeyMD5', 'headObject_sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- that the encryption key was transmitted without error.
 --
--- 'versionId', 'headObject_versionId' - VersionId used to reference a specific version of the object.
---
--- 'ifMatch', 'headObject_ifMatch' - Return the object only if its entity tag (ETag) is the same as the one
--- specified, otherwise return a 412 (precondition failed).
---
--- 'partNumber', 'headObject_partNumber' - Part number of the object being read. This is a positive integer between
--- 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the
--- part specified. Useful querying about the size of the part and the
--- number of parts in this object.
---
--- 'sSECustomerKey', 'headObject_sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in
--- encrypting data. This value is used to store the object and then it is
--- discarded; Amazon S3 does not store the encryption key. The key must be
--- appropriate for use with the algorithm specified in the
--- @x-amz-server-side-encryption-customer-algorithm@ header.
---
--- 'sSECustomerAlgorithm', 'headObject_sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for
--- example, AES256).
---
 -- 'ifNoneMatch', 'headObject_ifNoneMatch' - Return the object only if its entity tag (ETag) is different from the
 -- one specified, otherwise return a 304 (not modified).
 --
--- 'requestPayer', 'headObject_requestPayer' - Undocumented member.
+-- 'expectedBucketOwner', 'headObject_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'headObject_bucket' - The name of the bucket containing the object.
 --
@@ -320,26 +320,59 @@ newHeadObject ::
   HeadObject
 newHeadObject pBucket_ pKey_ =
   HeadObject'
-    { ifUnmodifiedSince = Prelude.Nothing,
-      range = Prelude.Nothing,
-      ifModifiedSince = Prelude.Nothing,
-      expectedBucketOwner = Prelude.Nothing,
-      sSECustomerKeyMD5 = Prelude.Nothing,
+    { ifMatch = Prelude.Nothing,
       versionId = Prelude.Nothing,
-      ifMatch = Prelude.Nothing,
-      partNumber = Prelude.Nothing,
-      sSECustomerKey = Prelude.Nothing,
       sSECustomerAlgorithm = Prelude.Nothing,
-      ifNoneMatch = Prelude.Nothing,
+      sSECustomerKey = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
+      ifModifiedSince = Prelude.Nothing,
+      partNumber = Prelude.Nothing,
+      range = Prelude.Nothing,
+      ifUnmodifiedSince = Prelude.Nothing,
+      sSECustomerKeyMD5 = Prelude.Nothing,
+      ifNoneMatch = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
 
--- | Return the object only if it has not been modified since the specified
--- time, otherwise return a 412 (precondition failed).
-headObject_ifUnmodifiedSince :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.UTCTime)
-headObject_ifUnmodifiedSince = Lens.lens (\HeadObject' {ifUnmodifiedSince} -> ifUnmodifiedSince) (\s@HeadObject' {} a -> s {ifUnmodifiedSince = a} :: HeadObject) Prelude.. Lens.mapping Core._Time
+-- | Return the object only if its entity tag (ETag) is the same as the one
+-- specified, otherwise return a 412 (precondition failed).
+headObject_ifMatch :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
+headObject_ifMatch = Lens.lens (\HeadObject' {ifMatch} -> ifMatch) (\s@HeadObject' {} a -> s {ifMatch = a} :: HeadObject)
+
+-- | VersionId used to reference a specific version of the object.
+headObject_versionId :: Lens.Lens' HeadObject (Prelude.Maybe ObjectVersionId)
+headObject_versionId = Lens.lens (\HeadObject' {versionId} -> versionId) (\s@HeadObject' {} a -> s {versionId = a} :: HeadObject)
+
+-- | Specifies the algorithm to use to when encrypting the object (for
+-- example, AES256).
+headObject_sSECustomerAlgorithm :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
+headObject_sSECustomerAlgorithm = Lens.lens (\HeadObject' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@HeadObject' {} a -> s {sSECustomerAlgorithm = a} :: HeadObject)
+
+-- | Specifies the customer-provided encryption key for Amazon S3 to use in
+-- encrypting data. This value is used to store the object and then it is
+-- discarded; Amazon S3 does not store the encryption key. The key must be
+-- appropriate for use with the algorithm specified in the
+-- @x-amz-server-side-encryption-customer-algorithm@ header.
+headObject_sSECustomerKey :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
+headObject_sSECustomerKey = Lens.lens (\HeadObject' {sSECustomerKey} -> sSECustomerKey) (\s@HeadObject' {} a -> s {sSECustomerKey = a} :: HeadObject) Prelude.. Lens.mapping Core._Sensitive
+
+-- | Undocumented member.
+headObject_requestPayer :: Lens.Lens' HeadObject (Prelude.Maybe RequestPayer)
+headObject_requestPayer = Lens.lens (\HeadObject' {requestPayer} -> requestPayer) (\s@HeadObject' {} a -> s {requestPayer = a} :: HeadObject)
+
+-- | Return the object only if it has been modified since the specified time,
+-- otherwise return a 304 (not modified).
+headObject_ifModifiedSince :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.UTCTime)
+headObject_ifModifiedSince = Lens.lens (\HeadObject' {ifModifiedSince} -> ifModifiedSince) (\s@HeadObject' {} a -> s {ifModifiedSince = a} :: HeadObject) Prelude.. Lens.mapping Core._Time
+
+-- | Part number of the object being read. This is a positive integer between
+-- 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the
+-- part specified. Useful querying about the size of the part and the
+-- number of parts in this object.
+headObject_partNumber :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Int)
+headObject_partNumber = Lens.lens (\HeadObject' {partNumber} -> partNumber) (\s@HeadObject' {} a -> s {partNumber = a} :: HeadObject)
 
 -- | Downloads the specified range bytes of an object. For more information
 -- about the HTTP Range header, see
@@ -350,16 +383,10 @@ headObject_ifUnmodifiedSince = Lens.lens (\HeadObject' {ifUnmodifiedSince} -> if
 headObject_range :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
 headObject_range = Lens.lens (\HeadObject' {range} -> range) (\s@HeadObject' {} a -> s {range = a} :: HeadObject)
 
--- | Return the object only if it has been modified since the specified time,
--- otherwise return a 304 (not modified).
-headObject_ifModifiedSince :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.UTCTime)
-headObject_ifModifiedSince = Lens.lens (\HeadObject' {ifModifiedSince} -> ifModifiedSince) (\s@HeadObject' {} a -> s {ifModifiedSince = a} :: HeadObject) Prelude.. Lens.mapping Core._Time
-
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-headObject_expectedBucketOwner :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
-headObject_expectedBucketOwner = Lens.lens (\HeadObject' {expectedBucketOwner} -> expectedBucketOwner) (\s@HeadObject' {} a -> s {expectedBucketOwner = a} :: HeadObject)
+-- | Return the object only if it has not been modified since the specified
+-- time, otherwise return a 412 (precondition failed).
+headObject_ifUnmodifiedSince :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.UTCTime)
+headObject_ifUnmodifiedSince = Lens.lens (\HeadObject' {ifUnmodifiedSince} -> ifUnmodifiedSince) (\s@HeadObject' {} a -> s {ifUnmodifiedSince = a} :: HeadObject) Prelude.. Lens.mapping Core._Time
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
@@ -367,43 +394,16 @@ headObject_expectedBucketOwner = Lens.lens (\HeadObject' {expectedBucketOwner} -
 headObject_sSECustomerKeyMD5 :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
 headObject_sSECustomerKeyMD5 = Lens.lens (\HeadObject' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@HeadObject' {} a -> s {sSECustomerKeyMD5 = a} :: HeadObject)
 
--- | VersionId used to reference a specific version of the object.
-headObject_versionId :: Lens.Lens' HeadObject (Prelude.Maybe ObjectVersionId)
-headObject_versionId = Lens.lens (\HeadObject' {versionId} -> versionId) (\s@HeadObject' {} a -> s {versionId = a} :: HeadObject)
-
--- | Return the object only if its entity tag (ETag) is the same as the one
--- specified, otherwise return a 412 (precondition failed).
-headObject_ifMatch :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
-headObject_ifMatch = Lens.lens (\HeadObject' {ifMatch} -> ifMatch) (\s@HeadObject' {} a -> s {ifMatch = a} :: HeadObject)
-
--- | Part number of the object being read. This is a positive integer between
--- 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the
--- part specified. Useful querying about the size of the part and the
--- number of parts in this object.
-headObject_partNumber :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Int)
-headObject_partNumber = Lens.lens (\HeadObject' {partNumber} -> partNumber) (\s@HeadObject' {} a -> s {partNumber = a} :: HeadObject)
-
--- | Specifies the customer-provided encryption key for Amazon S3 to use in
--- encrypting data. This value is used to store the object and then it is
--- discarded; Amazon S3 does not store the encryption key. The key must be
--- appropriate for use with the algorithm specified in the
--- @x-amz-server-side-encryption-customer-algorithm@ header.
-headObject_sSECustomerKey :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
-headObject_sSECustomerKey = Lens.lens (\HeadObject' {sSECustomerKey} -> sSECustomerKey) (\s@HeadObject' {} a -> s {sSECustomerKey = a} :: HeadObject) Prelude.. Lens.mapping Core._Sensitive
-
--- | Specifies the algorithm to use to when encrypting the object (for
--- example, AES256).
-headObject_sSECustomerAlgorithm :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
-headObject_sSECustomerAlgorithm = Lens.lens (\HeadObject' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@HeadObject' {} a -> s {sSECustomerAlgorithm = a} :: HeadObject)
-
 -- | Return the object only if its entity tag (ETag) is different from the
 -- one specified, otherwise return a 304 (not modified).
 headObject_ifNoneMatch :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
 headObject_ifNoneMatch = Lens.lens (\HeadObject' {ifNoneMatch} -> ifNoneMatch) (\s@HeadObject' {} a -> s {ifNoneMatch = a} :: HeadObject)
 
--- | Undocumented member.
-headObject_requestPayer :: Lens.Lens' HeadObject (Prelude.Maybe RequestPayer)
-headObject_requestPayer = Lens.lens (\HeadObject' {requestPayer} -> requestPayer) (\s@HeadObject' {} a -> s {requestPayer = a} :: HeadObject)
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+headObject_expectedBucketOwner :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
+headObject_expectedBucketOwner = Lens.lens (\HeadObject' {expectedBucketOwner} -> expectedBucketOwner) (\s@HeadObject' {} a -> s {expectedBucketOwner = a} :: HeadObject)
 
 -- | The name of the bucket containing the object.
 --
@@ -434,24 +434,34 @@ headObject_key = Lens.lens (\HeadObject' {key} -> key) (\s@HeadObject' {} a -> s
 
 instance Core.AWSRequest HeadObject where
   type AWSResponse HeadObject = HeadObjectResponse
-  request = Request.head' defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.head' defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           HeadObjectResponse'
-            Prelude.<$> (h Core..#? "x-amz-mp-parts-count")
-            Prelude.<*> (h Core..#? "x-amz-request-charged")
+            Prelude.<$> (h Core..#? "x-amz-request-charged")
+            Prelude.<*> (h Core..#? "x-amz-mp-parts-count")
             Prelude.<*> (h Core..#? "ETag")
-            Prelude.<*> (h Core..#? "x-amz-website-redirect-location")
-            Prelude.<*> (h Core..#? "Content-Type")
-            Prelude.<*> (h Core..#? "Content-Disposition")
-            Prelude.<*> (h Core..#? "x-amz-archive-status")
-            Prelude.<*> (h Core..#? "x-amz-delete-marker")
-            Prelude.<*> (h Core..#? "Content-Language")
-            Prelude.<*> (h Core..#? "x-amz-expiration")
-            Prelude.<*> (h Core..#? "x-amz-replication-status")
+            Prelude.<*> (h Core..#? "x-amz-version-id")
             Prelude.<*> (h Core..#? "Content-Length")
-            Prelude.<*> (Core.parseHeadersMap "x-amz-meta-" h)
+            Prelude.<*> (h Core..#? "x-amz-object-lock-mode")
+            Prelude.<*> (h Core..#? "Expires")
+            Prelude.<*> (h Core..#? "x-amz-restore")
+            Prelude.<*> (h Core..#? "x-amz-expiration")
+            Prelude.<*> (h Core..#? "x-amz-delete-marker")
+            Prelude.<*> (h Core..#? "x-amz-archive-status")
+            Prelude.<*> ( h
+                            Core..#? "x-amz-server-side-encryption-customer-algorithm"
+                        )
+            Prelude.<*> (h Core..#? "x-amz-missing-meta")
+            Prelude.<*> ( h
+                            Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
+                        )
+            Prelude.<*> (h Core..#? "x-amz-website-redirect-location")
+            Prelude.<*> (h Core..#? "accept-ranges")
+            Prelude.<*> (h Core..#? "x-amz-storage-class")
             Prelude.<*> ( h
                             Core..#? "x-amz-server-side-encryption-customer-key-MD5"
                         )
@@ -459,24 +469,16 @@ instance Core.AWSRequest HeadObject where
                             Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
                         )
             Prelude.<*> (h Core..#? "Content-Encoding")
-            Prelude.<*> (h Core..#? "x-amz-version-id")
-            Prelude.<*> (h Core..#? "x-amz-storage-class")
-            Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
-                        )
-            Prelude.<*> (h Core..#? "accept-ranges")
-            Prelude.<*> (h Core..#? "x-amz-missing-meta")
-            Prelude.<*> (h Core..#? "x-amz-server-side-encryption")
-            Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-customer-algorithm"
-                        )
-            Prelude.<*> (h Core..#? "x-amz-object-lock-legal-hold")
-            Prelude.<*> (h Core..#? "Cache-Control")
-            Prelude.<*> (h Core..#? "Last-Modified")
-            Prelude.<*> (h Core..#? "Expires")
-            Prelude.<*> (h Core..#? "x-amz-restore")
-            Prelude.<*> (h Core..#? "x-amz-object-lock-mode")
             Prelude.<*> (h Core..#? "x-amz-object-lock-retain-until-date")
+            Prelude.<*> (Core.parseHeadersMap "x-amz-meta-" h)
+            Prelude.<*> (h Core..#? "x-amz-replication-status")
+            Prelude.<*> (h Core..#? "Cache-Control")
+            Prelude.<*> (h Core..#? "Content-Language")
+            Prelude.<*> (h Core..#? "Last-Modified")
+            Prelude.<*> (h Core..#? "x-amz-object-lock-legal-hold")
+            Prelude.<*> (h Core..#? "Content-Disposition")
+            Prelude.<*> (h Core..#? "x-amz-server-side-encryption")
+            Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -487,20 +489,20 @@ instance Prelude.NFData HeadObject
 instance Core.ToHeaders HeadObject where
   toHeaders HeadObject' {..} =
     Prelude.mconcat
-      [ "If-Unmodified-Since" Core.=# ifUnmodifiedSince,
-        "Range" Core.=# range,
-        "If-Modified-Since" Core.=# ifModifiedSince,
-        "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-server-side-encryption-customer-key-MD5"
-          Core.=# sSECustomerKeyMD5,
-        "If-Match" Core.=# ifMatch,
-        "x-amz-server-side-encryption-customer-key"
-          Core.=# sSECustomerKey,
+      [ "If-Match" Core.=# ifMatch,
         "x-amz-server-side-encryption-customer-algorithm"
           Core.=# sSECustomerAlgorithm,
+        "x-amz-server-side-encryption-customer-key"
+          Core.=# sSECustomerKey,
+        "x-amz-request-payer" Core.=# requestPayer,
+        "If-Modified-Since" Core.=# ifModifiedSince,
+        "Range" Core.=# range,
+        "If-Unmodified-Since" Core.=# ifUnmodifiedSince,
+        "x-amz-server-side-encryption-customer-key-MD5"
+          Core.=# sSECustomerKeyMD5,
         "If-None-Match" Core.=# ifNoneMatch,
-        "x-amz-request-payer" Core.=# requestPayer
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath HeadObject where
@@ -517,33 +519,94 @@ instance Core.ToQuery HeadObject where
 
 -- | /See:/ 'newHeadObjectResponse' smart constructor.
 data HeadObjectResponse = HeadObjectResponse'
-  { -- | The count of parts this object has.
+  { requestCharged :: Prelude.Maybe RequestCharged,
+    -- | The count of parts this object has.
     partsCount :: Prelude.Maybe Prelude.Int,
-    requestCharged :: Prelude.Maybe RequestCharged,
     -- | An ETag is an opaque identifier assigned by a web server to a specific
     -- version of a resource found at a URL.
     eTag :: Prelude.Maybe ETag,
-    -- | If the bucket is configured as a website, redirects requests for this
-    -- object to another object in the same bucket or to an external URL.
-    -- Amazon S3 stores the value of this header in the object metadata.
-    websiteRedirectLocation :: Prelude.Maybe Prelude.Text,
-    -- | A standard MIME type describing the format of the object data.
-    contentType :: Prelude.Maybe Prelude.Text,
-    -- | Specifies presentational information for the object.
-    contentDisposition :: Prelude.Maybe Prelude.Text,
-    -- | The archive state of the head object.
-    archiveStatus :: Prelude.Maybe ArchiveStatus,
-    -- | Specifies whether the object retrieved was (true) or was not (false) a
-    -- Delete Marker. If false, this response header does not appear in the
-    -- response.
-    deleteMarker :: Prelude.Maybe Prelude.Bool,
-    -- | The language the content is in.
-    contentLanguage :: Prelude.Maybe Prelude.Text,
+    -- | Version of the object.
+    versionId :: Prelude.Maybe ObjectVersionId,
+    -- | Size of the body in bytes.
+    contentLength :: Prelude.Maybe Prelude.Integer,
+    -- | The Object Lock mode, if any, that\'s in effect for this object. This
+    -- header is only returned if the requester has the @s3:GetObjectRetention@
+    -- permission. For more information about S3 Object Lock, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock>.
+    objectLockMode :: Prelude.Maybe ObjectLockMode,
+    -- | The date and time at which the object is no longer cacheable.
+    expires :: Prelude.Maybe Core.ISO8601,
+    -- | If the object is an archived object (an object whose storage class is
+    -- GLACIER), the response includes this header if either the archive
+    -- restoration is in progress (see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html RestoreObject>
+    -- or an archive copy is already restored.
+    --
+    -- If an archive copy is already restored, the header value indicates when
+    -- Amazon S3 is scheduled to delete the object copy. For example:
+    --
+    -- @x-amz-restore: ongoing-request=\"false\", expiry-date=\"Fri, 21 Dec 2012 00:00:00 GMT\"@
+    --
+    -- If the object restoration is in progress, the header returns the value
+    -- @ongoing-request=\"true\"@.
+    --
+    -- For more information about archiving objects, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations Transitioning Objects: General Considerations>.
+    restore :: Prelude.Maybe Prelude.Text,
     -- | If the object expiration is configured (see PUT Bucket lifecycle), the
     -- response includes this header. It includes the expiry-date and rule-id
     -- key-value pairs providing object expiration information. The value of
     -- the rule-id is URL encoded.
     expiration :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the object retrieved was (true) or was not (false) a
+    -- Delete Marker. If false, this response header does not appear in the
+    -- response.
+    deleteMarker :: Prelude.Maybe Prelude.Bool,
+    -- | The archive state of the head object.
+    archiveStatus :: Prelude.Maybe ArchiveStatus,
+    -- | If server-side encryption with a customer-provided encryption key was
+    -- requested, the response will include this header confirming the
+    -- encryption algorithm used.
+    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
+    -- | This is set to the number of metadata entries not returned in
+    -- @x-amz-meta@ headers. This can happen if you create metadata using an
+    -- API like SOAP that supports more flexible metadata than the REST API.
+    -- For example, using SOAP, you can create metadata whose values are not
+    -- legal HTTP headers.
+    missingMeta :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether the object uses an S3 Bucket Key for server-side
+    -- encryption with Amazon Web Services KMS (SSE-KMS).
+    bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | If the bucket is configured as a website, redirects requests for this
+    -- object to another object in the same bucket or to an external URL.
+    -- Amazon S3 stores the value of this header in the object metadata.
+    websiteRedirectLocation :: Prelude.Maybe Prelude.Text,
+    -- | Indicates that a range of bytes was specified.
+    acceptRanges :: Prelude.Maybe Prelude.Text,
+    -- | Provides storage class information of the object. Amazon S3 returns this
+    -- header for all objects except for S3 Standard storage class objects.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>.
+    storageClass :: Prelude.Maybe StorageClass,
+    -- | If server-side encryption with a customer-provided encryption key was
+    -- requested, the response will include this header to provide round-trip
+    -- message integrity verification of the customer-provided encryption key.
+    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
+    -- | If present, specifies the ID of the Amazon Web Services Key Management
+    -- Service (Amazon Web Services KMS) symmetric customer managed key that
+    -- was used for the object.
+    sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Specifies what content encodings have been applied to the object and
+    -- thus what decoding mechanisms must be applied to obtain the media-type
+    -- referenced by the Content-Type header field.
+    contentEncoding :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when the Object Lock retention period expires. This
+    -- header is only returned if the requester has the @s3:GetObjectRetention@
+    -- permission.
+    objectLockRetainUntilDate :: Prelude.Maybe Core.ISO8601,
+    -- | A map of metadata to store with the object in S3.
+    metadata :: Prelude.HashMap Prelude.Text Prelude.Text,
     -- | Amazon S3 can return this header if your request involves a bucket that
     -- is either a source or a destination in a replication rule.
     --
@@ -582,51 +645,12 @@ data HeadObjectResponse = HeadObjectResponse'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Replication>.
     replicationStatus :: Prelude.Maybe ReplicationStatus,
-    -- | Size of the body in bytes.
-    contentLength :: Prelude.Maybe Prelude.Integer,
-    -- | A map of metadata to store with the object in S3.
-    metadata :: Prelude.HashMap Prelude.Text Prelude.Text,
-    -- | If server-side encryption with a customer-provided encryption key was
-    -- requested, the response will include this header to provide round-trip
-    -- message integrity verification of the customer-provided encryption key.
-    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
-    -- | If present, specifies the ID of the Amazon Web Services Key Management
-    -- Service (Amazon Web Services KMS) symmetric customer managed key that
-    -- was used for the object.
-    sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Specifies what content encodings have been applied to the object and
-    -- thus what decoding mechanisms must be applied to obtain the media-type
-    -- referenced by the Content-Type header field.
-    contentEncoding :: Prelude.Maybe Prelude.Text,
-    -- | Version of the object.
-    versionId :: Prelude.Maybe ObjectVersionId,
-    -- | Provides storage class information of the object. Amazon S3 returns this
-    -- header for all objects except for S3 Standard storage class objects.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>.
-    storageClass :: Prelude.Maybe StorageClass,
-    -- | Indicates whether the object uses an S3 Bucket Key for server-side
-    -- encryption with Amazon Web Services KMS (SSE-KMS).
-    bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates that a range of bytes was specified.
-    acceptRanges :: Prelude.Maybe Prelude.Text,
-    -- | This is set to the number of metadata entries not returned in
-    -- @x-amz-meta@ headers. This can happen if you create metadata using an
-    -- API like SOAP that supports more flexible metadata than the REST API.
-    -- For example, using SOAP, you can create metadata whose values are not
-    -- legal HTTP headers.
-    missingMeta :: Prelude.Maybe Prelude.Int,
-    -- | If the object is stored using server-side encryption either with an
-    -- Amazon Web Services KMS key or an Amazon S3-managed encryption key, the
-    -- response includes this header with the value of the server-side
-    -- encryption algorithm used when storing this object in Amazon S3 (for
-    -- example, AES256, aws:kms).
-    serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
-    -- | If server-side encryption with a customer-provided encryption key was
-    -- requested, the response will include this header confirming the
-    -- encryption algorithm used.
-    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
+    -- | Specifies caching behavior along the request\/reply chain.
+    cacheControl :: Prelude.Maybe Prelude.Text,
+    -- | The language the content is in.
+    contentLanguage :: Prelude.Maybe Prelude.Text,
+    -- | Creation date of the object.
+    lastModified :: Prelude.Maybe Core.ISO8601,
     -- | Specifies whether a legal hold is in effect for this object. This header
     -- is only returned if the requester has the @s3:GetObjectLegalHold@
     -- permission. This header is not returned if the specified version of this
@@ -634,38 +658,16 @@ data HeadObjectResponse = HeadObjectResponse'
     -- Object Lock, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock>.
     objectLockLegalHoldStatus :: Prelude.Maybe ObjectLockLegalHoldStatus,
-    -- | Specifies caching behavior along the request\/reply chain.
-    cacheControl :: Prelude.Maybe Prelude.Text,
-    -- | Creation date of the object.
-    lastModified :: Prelude.Maybe Core.ISO8601,
-    -- | The date and time at which the object is no longer cacheable.
-    expires :: Prelude.Maybe Core.ISO8601,
-    -- | If the object is an archived object (an object whose storage class is
-    -- GLACIER), the response includes this header if either the archive
-    -- restoration is in progress (see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html RestoreObject>
-    -- or an archive copy is already restored.
-    --
-    -- If an archive copy is already restored, the header value indicates when
-    -- Amazon S3 is scheduled to delete the object copy. For example:
-    --
-    -- @x-amz-restore: ongoing-request=\"false\", expiry-date=\"Fri, 21 Dec 2012 00:00:00 GMT\"@
-    --
-    -- If the object restoration is in progress, the header returns the value
-    -- @ongoing-request=\"true\"@.
-    --
-    -- For more information about archiving objects, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations Transitioning Objects: General Considerations>.
-    restore :: Prelude.Maybe Prelude.Text,
-    -- | The Object Lock mode, if any, that\'s in effect for this object. This
-    -- header is only returned if the requester has the @s3:GetObjectRetention@
-    -- permission. For more information about S3 Object Lock, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock>.
-    objectLockMode :: Prelude.Maybe ObjectLockMode,
-    -- | The date and time when the Object Lock retention period expires. This
-    -- header is only returned if the requester has the @s3:GetObjectRetention@
-    -- permission.
-    objectLockRetainUntilDate :: Prelude.Maybe Core.ISO8601,
+    -- | Specifies presentational information for the object.
+    contentDisposition :: Prelude.Maybe Prelude.Text,
+    -- | If the object is stored using server-side encryption either with an
+    -- Amazon Web Services KMS key or an Amazon S3-managed encryption key, the
+    -- response includes this header with the value of the server-side
+    -- encryption algorithm used when storing this object in Amazon S3 (for
+    -- example, AES256, aws:kms).
+    serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
+    -- | A standard MIME type describing the format of the object data.
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -679,33 +681,94 @@ data HeadObjectResponse = HeadObjectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'partsCount', 'headObjectResponse_partsCount' - The count of parts this object has.
---
 -- 'requestCharged', 'headObjectResponse_requestCharged' - Undocumented member.
+--
+-- 'partsCount', 'headObjectResponse_partsCount' - The count of parts this object has.
 --
 -- 'eTag', 'headObjectResponse_eTag' - An ETag is an opaque identifier assigned by a web server to a specific
 -- version of a resource found at a URL.
 --
--- 'websiteRedirectLocation', 'headObjectResponse_websiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this
--- object to another object in the same bucket or to an external URL.
--- Amazon S3 stores the value of this header in the object metadata.
+-- 'versionId', 'headObjectResponse_versionId' - Version of the object.
 --
--- 'contentType', 'headObjectResponse_contentType' - A standard MIME type describing the format of the object data.
+-- 'contentLength', 'headObjectResponse_contentLength' - Size of the body in bytes.
 --
--- 'contentDisposition', 'headObjectResponse_contentDisposition' - Specifies presentational information for the object.
+-- 'objectLockMode', 'headObjectResponse_objectLockMode' - The Object Lock mode, if any, that\'s in effect for this object. This
+-- header is only returned if the requester has the @s3:GetObjectRetention@
+-- permission. For more information about S3 Object Lock, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock>.
 --
--- 'archiveStatus', 'headObjectResponse_archiveStatus' - The archive state of the head object.
+-- 'expires', 'headObjectResponse_expires' - The date and time at which the object is no longer cacheable.
 --
--- 'deleteMarker', 'headObjectResponse_deleteMarker' - Specifies whether the object retrieved was (true) or was not (false) a
--- Delete Marker. If false, this response header does not appear in the
--- response.
+-- 'restore', 'headObjectResponse_restore' - If the object is an archived object (an object whose storage class is
+-- GLACIER), the response includes this header if either the archive
+-- restoration is in progress (see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html RestoreObject>
+-- or an archive copy is already restored.
 --
--- 'contentLanguage', 'headObjectResponse_contentLanguage' - The language the content is in.
+-- If an archive copy is already restored, the header value indicates when
+-- Amazon S3 is scheduled to delete the object copy. For example:
+--
+-- @x-amz-restore: ongoing-request=\"false\", expiry-date=\"Fri, 21 Dec 2012 00:00:00 GMT\"@
+--
+-- If the object restoration is in progress, the header returns the value
+-- @ongoing-request=\"true\"@.
+--
+-- For more information about archiving objects, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations Transitioning Objects: General Considerations>.
 --
 -- 'expiration', 'headObjectResponse_expiration' - If the object expiration is configured (see PUT Bucket lifecycle), the
 -- response includes this header. It includes the expiry-date and rule-id
 -- key-value pairs providing object expiration information. The value of
 -- the rule-id is URL encoded.
+--
+-- 'deleteMarker', 'headObjectResponse_deleteMarker' - Specifies whether the object retrieved was (true) or was not (false) a
+-- Delete Marker. If false, this response header does not appear in the
+-- response.
+--
+-- 'archiveStatus', 'headObjectResponse_archiveStatus' - The archive state of the head object.
+--
+-- 'sSECustomerAlgorithm', 'headObjectResponse_sSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header confirming the
+-- encryption algorithm used.
+--
+-- 'missingMeta', 'headObjectResponse_missingMeta' - This is set to the number of metadata entries not returned in
+-- @x-amz-meta@ headers. This can happen if you create metadata using an
+-- API like SOAP that supports more flexible metadata than the REST API.
+-- For example, using SOAP, you can create metadata whose values are not
+-- legal HTTP headers.
+--
+-- 'bucketKeyEnabled', 'headObjectResponse_bucketKeyEnabled' - Indicates whether the object uses an S3 Bucket Key for server-side
+-- encryption with Amazon Web Services KMS (SSE-KMS).
+--
+-- 'websiteRedirectLocation', 'headObjectResponse_websiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this
+-- object to another object in the same bucket or to an external URL.
+-- Amazon S3 stores the value of this header in the object metadata.
+--
+-- 'acceptRanges', 'headObjectResponse_acceptRanges' - Indicates that a range of bytes was specified.
+--
+-- 'storageClass', 'headObjectResponse_storageClass' - Provides storage class information of the object. Amazon S3 returns this
+-- header for all objects except for S3 Standard storage class objects.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>.
+--
+-- 'sSECustomerKeyMD5', 'headObjectResponse_sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header to provide round-trip
+-- message integrity verification of the customer-provided encryption key.
+--
+-- 'sSEKMSKeyId', 'headObjectResponse_sSEKMSKeyId' - If present, specifies the ID of the Amazon Web Services Key Management
+-- Service (Amazon Web Services KMS) symmetric customer managed key that
+-- was used for the object.
+--
+-- 'contentEncoding', 'headObjectResponse_contentEncoding' - Specifies what content encodings have been applied to the object and
+-- thus what decoding mechanisms must be applied to obtain the media-type
+-- referenced by the Content-Type header field.
+--
+-- 'objectLockRetainUntilDate', 'headObjectResponse_objectLockRetainUntilDate' - The date and time when the Object Lock retention period expires. This
+-- header is only returned if the requester has the @s3:GetObjectRetention@
+-- permission.
+--
+-- 'metadata', 'headObjectResponse_metadata' - A map of metadata to store with the object in S3.
 --
 -- 'replicationStatus', 'headObjectResponse_replicationStatus' - Amazon S3 can return this header if your request involves a bucket that
 -- is either a source or a destination in a replication rule.
@@ -745,50 +808,11 @@ data HeadObjectResponse = HeadObjectResponse'
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Replication>.
 --
--- 'contentLength', 'headObjectResponse_contentLength' - Size of the body in bytes.
+-- 'cacheControl', 'headObjectResponse_cacheControl' - Specifies caching behavior along the request\/reply chain.
 --
--- 'metadata', 'headObjectResponse_metadata' - A map of metadata to store with the object in S3.
+-- 'contentLanguage', 'headObjectResponse_contentLanguage' - The language the content is in.
 --
--- 'sSECustomerKeyMD5', 'headObjectResponse_sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header to provide round-trip
--- message integrity verification of the customer-provided encryption key.
---
--- 'sSEKMSKeyId', 'headObjectResponse_sSEKMSKeyId' - If present, specifies the ID of the Amazon Web Services Key Management
--- Service (Amazon Web Services KMS) symmetric customer managed key that
--- was used for the object.
---
--- 'contentEncoding', 'headObjectResponse_contentEncoding' - Specifies what content encodings have been applied to the object and
--- thus what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
---
--- 'versionId', 'headObjectResponse_versionId' - Version of the object.
---
--- 'storageClass', 'headObjectResponse_storageClass' - Provides storage class information of the object. Amazon S3 returns this
--- header for all objects except for S3 Standard storage class objects.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>.
---
--- 'bucketKeyEnabled', 'headObjectResponse_bucketKeyEnabled' - Indicates whether the object uses an S3 Bucket Key for server-side
--- encryption with Amazon Web Services KMS (SSE-KMS).
---
--- 'acceptRanges', 'headObjectResponse_acceptRanges' - Indicates that a range of bytes was specified.
---
--- 'missingMeta', 'headObjectResponse_missingMeta' - This is set to the number of metadata entries not returned in
--- @x-amz-meta@ headers. This can happen if you create metadata using an
--- API like SOAP that supports more flexible metadata than the REST API.
--- For example, using SOAP, you can create metadata whose values are not
--- legal HTTP headers.
---
--- 'serverSideEncryption', 'headObjectResponse_serverSideEncryption' - If the object is stored using server-side encryption either with an
--- Amazon Web Services KMS key or an Amazon S3-managed encryption key, the
--- response includes this header with the value of the server-side
--- encryption algorithm used when storing this object in Amazon S3 (for
--- example, AES256, aws:kms).
---
--- 'sSECustomerAlgorithm', 'headObjectResponse_sSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header confirming the
--- encryption algorithm used.
+-- 'lastModified', 'headObjectResponse_lastModified' - Creation date of the object.
 --
 -- 'objectLockLegalHoldStatus', 'headObjectResponse_objectLockLegalHoldStatus' - Specifies whether a legal hold is in effect for this object. This header
 -- is only returned if the requester has the @s3:GetObjectLegalHold@
@@ -797,13 +821,90 @@ data HeadObjectResponse = HeadObjectResponse'
 -- Object Lock, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock>.
 --
--- 'cacheControl', 'headObjectResponse_cacheControl' - Specifies caching behavior along the request\/reply chain.
+-- 'contentDisposition', 'headObjectResponse_contentDisposition' - Specifies presentational information for the object.
 --
--- 'lastModified', 'headObjectResponse_lastModified' - Creation date of the object.
+-- 'serverSideEncryption', 'headObjectResponse_serverSideEncryption' - If the object is stored using server-side encryption either with an
+-- Amazon Web Services KMS key or an Amazon S3-managed encryption key, the
+-- response includes this header with the value of the server-side
+-- encryption algorithm used when storing this object in Amazon S3 (for
+-- example, AES256, aws:kms).
 --
--- 'expires', 'headObjectResponse_expires' - The date and time at which the object is no longer cacheable.
+-- 'contentType', 'headObjectResponse_contentType' - A standard MIME type describing the format of the object data.
 --
--- 'restore', 'headObjectResponse_restore' - If the object is an archived object (an object whose storage class is
+-- 'httpStatus', 'headObjectResponse_httpStatus' - The response's http status code.
+newHeadObjectResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  HeadObjectResponse
+newHeadObjectResponse pHttpStatus_ =
+  HeadObjectResponse'
+    { requestCharged =
+        Prelude.Nothing,
+      partsCount = Prelude.Nothing,
+      eTag = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      contentLength = Prelude.Nothing,
+      objectLockMode = Prelude.Nothing,
+      expires = Prelude.Nothing,
+      restore = Prelude.Nothing,
+      expiration = Prelude.Nothing,
+      deleteMarker = Prelude.Nothing,
+      archiveStatus = Prelude.Nothing,
+      sSECustomerAlgorithm = Prelude.Nothing,
+      missingMeta = Prelude.Nothing,
+      bucketKeyEnabled = Prelude.Nothing,
+      websiteRedirectLocation = Prelude.Nothing,
+      acceptRanges = Prelude.Nothing,
+      storageClass = Prelude.Nothing,
+      sSECustomerKeyMD5 = Prelude.Nothing,
+      sSEKMSKeyId = Prelude.Nothing,
+      contentEncoding = Prelude.Nothing,
+      objectLockRetainUntilDate = Prelude.Nothing,
+      metadata = Prelude.mempty,
+      replicationStatus = Prelude.Nothing,
+      cacheControl = Prelude.Nothing,
+      contentLanguage = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
+      objectLockLegalHoldStatus = Prelude.Nothing,
+      contentDisposition = Prelude.Nothing,
+      serverSideEncryption = Prelude.Nothing,
+      contentType = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | Undocumented member.
+headObjectResponse_requestCharged :: Lens.Lens' HeadObjectResponse (Prelude.Maybe RequestCharged)
+headObjectResponse_requestCharged = Lens.lens (\HeadObjectResponse' {requestCharged} -> requestCharged) (\s@HeadObjectResponse' {} a -> s {requestCharged = a} :: HeadObjectResponse)
+
+-- | The count of parts this object has.
+headObjectResponse_partsCount :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Int)
+headObjectResponse_partsCount = Lens.lens (\HeadObjectResponse' {partsCount} -> partsCount) (\s@HeadObjectResponse' {} a -> s {partsCount = a} :: HeadObjectResponse)
+
+-- | An ETag is an opaque identifier assigned by a web server to a specific
+-- version of a resource found at a URL.
+headObjectResponse_eTag :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ETag)
+headObjectResponse_eTag = Lens.lens (\HeadObjectResponse' {eTag} -> eTag) (\s@HeadObjectResponse' {} a -> s {eTag = a} :: HeadObjectResponse)
+
+-- | Version of the object.
+headObjectResponse_versionId :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ObjectVersionId)
+headObjectResponse_versionId = Lens.lens (\HeadObjectResponse' {versionId} -> versionId) (\s@HeadObjectResponse' {} a -> s {versionId = a} :: HeadObjectResponse)
+
+-- | Size of the body in bytes.
+headObjectResponse_contentLength :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Integer)
+headObjectResponse_contentLength = Lens.lens (\HeadObjectResponse' {contentLength} -> contentLength) (\s@HeadObjectResponse' {} a -> s {contentLength = a} :: HeadObjectResponse)
+
+-- | The Object Lock mode, if any, that\'s in effect for this object. This
+-- header is only returned if the requester has the @s3:GetObjectRetention@
+-- permission. For more information about S3 Object Lock, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock>.
+headObjectResponse_objectLockMode :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ObjectLockMode)
+headObjectResponse_objectLockMode = Lens.lens (\HeadObjectResponse' {objectLockMode} -> objectLockMode) (\s@HeadObjectResponse' {} a -> s {objectLockMode = a} :: HeadObjectResponse)
+
+-- | The date and time at which the object is no longer cacheable.
+headObjectResponse_expires :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.UTCTime)
+headObjectResponse_expires = Lens.lens (\HeadObjectResponse' {expires} -> expires) (\s@HeadObjectResponse' {} a -> s {expires = a} :: HeadObjectResponse) Prelude.. Lens.mapping Core._Time
+
+-- | If the object is an archived object (an object whose storage class is
 -- GLACIER), the response includes this header if either the archive
 -- restoration is in progress (see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html RestoreObject>
@@ -819,96 +920,8 @@ data HeadObjectResponse = HeadObjectResponse'
 --
 -- For more information about archiving objects, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations Transitioning Objects: General Considerations>.
---
--- 'objectLockMode', 'headObjectResponse_objectLockMode' - The Object Lock mode, if any, that\'s in effect for this object. This
--- header is only returned if the requester has the @s3:GetObjectRetention@
--- permission. For more information about S3 Object Lock, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock>.
---
--- 'objectLockRetainUntilDate', 'headObjectResponse_objectLockRetainUntilDate' - The date and time when the Object Lock retention period expires. This
--- header is only returned if the requester has the @s3:GetObjectRetention@
--- permission.
---
--- 'httpStatus', 'headObjectResponse_httpStatus' - The response's http status code.
-newHeadObjectResponse ::
-  -- | 'httpStatus'
-  Prelude.Int ->
-  HeadObjectResponse
-newHeadObjectResponse pHttpStatus_ =
-  HeadObjectResponse'
-    { partsCount = Prelude.Nothing,
-      requestCharged = Prelude.Nothing,
-      eTag = Prelude.Nothing,
-      websiteRedirectLocation = Prelude.Nothing,
-      contentType = Prelude.Nothing,
-      contentDisposition = Prelude.Nothing,
-      archiveStatus = Prelude.Nothing,
-      deleteMarker = Prelude.Nothing,
-      contentLanguage = Prelude.Nothing,
-      expiration = Prelude.Nothing,
-      replicationStatus = Prelude.Nothing,
-      contentLength = Prelude.Nothing,
-      metadata = Prelude.mempty,
-      sSECustomerKeyMD5 = Prelude.Nothing,
-      sSEKMSKeyId = Prelude.Nothing,
-      contentEncoding = Prelude.Nothing,
-      versionId = Prelude.Nothing,
-      storageClass = Prelude.Nothing,
-      bucketKeyEnabled = Prelude.Nothing,
-      acceptRanges = Prelude.Nothing,
-      missingMeta = Prelude.Nothing,
-      serverSideEncryption = Prelude.Nothing,
-      sSECustomerAlgorithm = Prelude.Nothing,
-      objectLockLegalHoldStatus = Prelude.Nothing,
-      cacheControl = Prelude.Nothing,
-      lastModified = Prelude.Nothing,
-      expires = Prelude.Nothing,
-      restore = Prelude.Nothing,
-      objectLockMode = Prelude.Nothing,
-      objectLockRetainUntilDate = Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
-
--- | The count of parts this object has.
-headObjectResponse_partsCount :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Int)
-headObjectResponse_partsCount = Lens.lens (\HeadObjectResponse' {partsCount} -> partsCount) (\s@HeadObjectResponse' {} a -> s {partsCount = a} :: HeadObjectResponse)
-
--- | Undocumented member.
-headObjectResponse_requestCharged :: Lens.Lens' HeadObjectResponse (Prelude.Maybe RequestCharged)
-headObjectResponse_requestCharged = Lens.lens (\HeadObjectResponse' {requestCharged} -> requestCharged) (\s@HeadObjectResponse' {} a -> s {requestCharged = a} :: HeadObjectResponse)
-
--- | An ETag is an opaque identifier assigned by a web server to a specific
--- version of a resource found at a URL.
-headObjectResponse_eTag :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ETag)
-headObjectResponse_eTag = Lens.lens (\HeadObjectResponse' {eTag} -> eTag) (\s@HeadObjectResponse' {} a -> s {eTag = a} :: HeadObjectResponse)
-
--- | If the bucket is configured as a website, redirects requests for this
--- object to another object in the same bucket or to an external URL.
--- Amazon S3 stores the value of this header in the object metadata.
-headObjectResponse_websiteRedirectLocation :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
-headObjectResponse_websiteRedirectLocation = Lens.lens (\HeadObjectResponse' {websiteRedirectLocation} -> websiteRedirectLocation) (\s@HeadObjectResponse' {} a -> s {websiteRedirectLocation = a} :: HeadObjectResponse)
-
--- | A standard MIME type describing the format of the object data.
-headObjectResponse_contentType :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
-headObjectResponse_contentType = Lens.lens (\HeadObjectResponse' {contentType} -> contentType) (\s@HeadObjectResponse' {} a -> s {contentType = a} :: HeadObjectResponse)
-
--- | Specifies presentational information for the object.
-headObjectResponse_contentDisposition :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
-headObjectResponse_contentDisposition = Lens.lens (\HeadObjectResponse' {contentDisposition} -> contentDisposition) (\s@HeadObjectResponse' {} a -> s {contentDisposition = a} :: HeadObjectResponse)
-
--- | The archive state of the head object.
-headObjectResponse_archiveStatus :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ArchiveStatus)
-headObjectResponse_archiveStatus = Lens.lens (\HeadObjectResponse' {archiveStatus} -> archiveStatus) (\s@HeadObjectResponse' {} a -> s {archiveStatus = a} :: HeadObjectResponse)
-
--- | Specifies whether the object retrieved was (true) or was not (false) a
--- Delete Marker. If false, this response header does not appear in the
--- response.
-headObjectResponse_deleteMarker :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Bool)
-headObjectResponse_deleteMarker = Lens.lens (\HeadObjectResponse' {deleteMarker} -> deleteMarker) (\s@HeadObjectResponse' {} a -> s {deleteMarker = a} :: HeadObjectResponse)
-
--- | The language the content is in.
-headObjectResponse_contentLanguage :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
-headObjectResponse_contentLanguage = Lens.lens (\HeadObjectResponse' {contentLanguage} -> contentLanguage) (\s@HeadObjectResponse' {} a -> s {contentLanguage = a} :: HeadObjectResponse)
+headObjectResponse_restore :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
+headObjectResponse_restore = Lens.lens (\HeadObjectResponse' {restore} -> restore) (\s@HeadObjectResponse' {} a -> s {restore = a} :: HeadObjectResponse)
 
 -- | If the object expiration is configured (see PUT Bucket lifecycle), the
 -- response includes this header. It includes the expiry-date and rule-id
@@ -916,6 +929,81 @@ headObjectResponse_contentLanguage = Lens.lens (\HeadObjectResponse' {contentLan
 -- the rule-id is URL encoded.
 headObjectResponse_expiration :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
 headObjectResponse_expiration = Lens.lens (\HeadObjectResponse' {expiration} -> expiration) (\s@HeadObjectResponse' {} a -> s {expiration = a} :: HeadObjectResponse)
+
+-- | Specifies whether the object retrieved was (true) or was not (false) a
+-- Delete Marker. If false, this response header does not appear in the
+-- response.
+headObjectResponse_deleteMarker :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Bool)
+headObjectResponse_deleteMarker = Lens.lens (\HeadObjectResponse' {deleteMarker} -> deleteMarker) (\s@HeadObjectResponse' {} a -> s {deleteMarker = a} :: HeadObjectResponse)
+
+-- | The archive state of the head object.
+headObjectResponse_archiveStatus :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ArchiveStatus)
+headObjectResponse_archiveStatus = Lens.lens (\HeadObjectResponse' {archiveStatus} -> archiveStatus) (\s@HeadObjectResponse' {} a -> s {archiveStatus = a} :: HeadObjectResponse)
+
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header confirming the
+-- encryption algorithm used.
+headObjectResponse_sSECustomerAlgorithm :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
+headObjectResponse_sSECustomerAlgorithm = Lens.lens (\HeadObjectResponse' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@HeadObjectResponse' {} a -> s {sSECustomerAlgorithm = a} :: HeadObjectResponse)
+
+-- | This is set to the number of metadata entries not returned in
+-- @x-amz-meta@ headers. This can happen if you create metadata using an
+-- API like SOAP that supports more flexible metadata than the REST API.
+-- For example, using SOAP, you can create metadata whose values are not
+-- legal HTTP headers.
+headObjectResponse_missingMeta :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Int)
+headObjectResponse_missingMeta = Lens.lens (\HeadObjectResponse' {missingMeta} -> missingMeta) (\s@HeadObjectResponse' {} a -> s {missingMeta = a} :: HeadObjectResponse)
+
+-- | Indicates whether the object uses an S3 Bucket Key for server-side
+-- encryption with Amazon Web Services KMS (SSE-KMS).
+headObjectResponse_bucketKeyEnabled :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Bool)
+headObjectResponse_bucketKeyEnabled = Lens.lens (\HeadObjectResponse' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@HeadObjectResponse' {} a -> s {bucketKeyEnabled = a} :: HeadObjectResponse)
+
+-- | If the bucket is configured as a website, redirects requests for this
+-- object to another object in the same bucket or to an external URL.
+-- Amazon S3 stores the value of this header in the object metadata.
+headObjectResponse_websiteRedirectLocation :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
+headObjectResponse_websiteRedirectLocation = Lens.lens (\HeadObjectResponse' {websiteRedirectLocation} -> websiteRedirectLocation) (\s@HeadObjectResponse' {} a -> s {websiteRedirectLocation = a} :: HeadObjectResponse)
+
+-- | Indicates that a range of bytes was specified.
+headObjectResponse_acceptRanges :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
+headObjectResponse_acceptRanges = Lens.lens (\HeadObjectResponse' {acceptRanges} -> acceptRanges) (\s@HeadObjectResponse' {} a -> s {acceptRanges = a} :: HeadObjectResponse)
+
+-- | Provides storage class information of the object. Amazon S3 returns this
+-- header for all objects except for S3 Standard storage class objects.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>.
+headObjectResponse_storageClass :: Lens.Lens' HeadObjectResponse (Prelude.Maybe StorageClass)
+headObjectResponse_storageClass = Lens.lens (\HeadObjectResponse' {storageClass} -> storageClass) (\s@HeadObjectResponse' {} a -> s {storageClass = a} :: HeadObjectResponse)
+
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header to provide round-trip
+-- message integrity verification of the customer-provided encryption key.
+headObjectResponse_sSECustomerKeyMD5 :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
+headObjectResponse_sSECustomerKeyMD5 = Lens.lens (\HeadObjectResponse' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@HeadObjectResponse' {} a -> s {sSECustomerKeyMD5 = a} :: HeadObjectResponse)
+
+-- | If present, specifies the ID of the Amazon Web Services Key Management
+-- Service (Amazon Web Services KMS) symmetric customer managed key that
+-- was used for the object.
+headObjectResponse_sSEKMSKeyId :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
+headObjectResponse_sSEKMSKeyId = Lens.lens (\HeadObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@HeadObjectResponse' {} a -> s {sSEKMSKeyId = a} :: HeadObjectResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | Specifies what content encodings have been applied to the object and
+-- thus what decoding mechanisms must be applied to obtain the media-type
+-- referenced by the Content-Type header field.
+headObjectResponse_contentEncoding :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
+headObjectResponse_contentEncoding = Lens.lens (\HeadObjectResponse' {contentEncoding} -> contentEncoding) (\s@HeadObjectResponse' {} a -> s {contentEncoding = a} :: HeadObjectResponse)
+
+-- | The date and time when the Object Lock retention period expires. This
+-- header is only returned if the requester has the @s3:GetObjectRetention@
+-- permission.
+headObjectResponse_objectLockRetainUntilDate :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.UTCTime)
+headObjectResponse_objectLockRetainUntilDate = Lens.lens (\HeadObjectResponse' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@HeadObjectResponse' {} a -> s {objectLockRetainUntilDate = a} :: HeadObjectResponse) Prelude.. Lens.mapping Core._Time
+
+-- | A map of metadata to store with the object in S3.
+headObjectResponse_metadata :: Lens.Lens' HeadObjectResponse (Prelude.HashMap Prelude.Text Prelude.Text)
+headObjectResponse_metadata = Lens.lens (\HeadObjectResponse' {metadata} -> metadata) (\s@HeadObjectResponse' {} a -> s {metadata = a} :: HeadObjectResponse) Prelude.. Lens.coerced
 
 -- | Amazon S3 can return this header if your request involves a bucket that
 -- is either a source or a destination in a replication rule.
@@ -957,74 +1045,17 @@ headObjectResponse_expiration = Lens.lens (\HeadObjectResponse' {expiration} -> 
 headObjectResponse_replicationStatus :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ReplicationStatus)
 headObjectResponse_replicationStatus = Lens.lens (\HeadObjectResponse' {replicationStatus} -> replicationStatus) (\s@HeadObjectResponse' {} a -> s {replicationStatus = a} :: HeadObjectResponse)
 
--- | Size of the body in bytes.
-headObjectResponse_contentLength :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Integer)
-headObjectResponse_contentLength = Lens.lens (\HeadObjectResponse' {contentLength} -> contentLength) (\s@HeadObjectResponse' {} a -> s {contentLength = a} :: HeadObjectResponse)
+-- | Specifies caching behavior along the request\/reply chain.
+headObjectResponse_cacheControl :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
+headObjectResponse_cacheControl = Lens.lens (\HeadObjectResponse' {cacheControl} -> cacheControl) (\s@HeadObjectResponse' {} a -> s {cacheControl = a} :: HeadObjectResponse)
 
--- | A map of metadata to store with the object in S3.
-headObjectResponse_metadata :: Lens.Lens' HeadObjectResponse (Prelude.HashMap Prelude.Text Prelude.Text)
-headObjectResponse_metadata = Lens.lens (\HeadObjectResponse' {metadata} -> metadata) (\s@HeadObjectResponse' {} a -> s {metadata = a} :: HeadObjectResponse) Prelude.. Lens._Coerce
+-- | The language the content is in.
+headObjectResponse_contentLanguage :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
+headObjectResponse_contentLanguage = Lens.lens (\HeadObjectResponse' {contentLanguage} -> contentLanguage) (\s@HeadObjectResponse' {} a -> s {contentLanguage = a} :: HeadObjectResponse)
 
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header to provide round-trip
--- message integrity verification of the customer-provided encryption key.
-headObjectResponse_sSECustomerKeyMD5 :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
-headObjectResponse_sSECustomerKeyMD5 = Lens.lens (\HeadObjectResponse' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@HeadObjectResponse' {} a -> s {sSECustomerKeyMD5 = a} :: HeadObjectResponse)
-
--- | If present, specifies the ID of the Amazon Web Services Key Management
--- Service (Amazon Web Services KMS) symmetric customer managed key that
--- was used for the object.
-headObjectResponse_sSEKMSKeyId :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
-headObjectResponse_sSEKMSKeyId = Lens.lens (\HeadObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@HeadObjectResponse' {} a -> s {sSEKMSKeyId = a} :: HeadObjectResponse) Prelude.. Lens.mapping Core._Sensitive
-
--- | Specifies what content encodings have been applied to the object and
--- thus what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
-headObjectResponse_contentEncoding :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
-headObjectResponse_contentEncoding = Lens.lens (\HeadObjectResponse' {contentEncoding} -> contentEncoding) (\s@HeadObjectResponse' {} a -> s {contentEncoding = a} :: HeadObjectResponse)
-
--- | Version of the object.
-headObjectResponse_versionId :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ObjectVersionId)
-headObjectResponse_versionId = Lens.lens (\HeadObjectResponse' {versionId} -> versionId) (\s@HeadObjectResponse' {} a -> s {versionId = a} :: HeadObjectResponse)
-
--- | Provides storage class information of the object. Amazon S3 returns this
--- header for all objects except for S3 Standard storage class objects.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>.
-headObjectResponse_storageClass :: Lens.Lens' HeadObjectResponse (Prelude.Maybe StorageClass)
-headObjectResponse_storageClass = Lens.lens (\HeadObjectResponse' {storageClass} -> storageClass) (\s@HeadObjectResponse' {} a -> s {storageClass = a} :: HeadObjectResponse)
-
--- | Indicates whether the object uses an S3 Bucket Key for server-side
--- encryption with Amazon Web Services KMS (SSE-KMS).
-headObjectResponse_bucketKeyEnabled :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Bool)
-headObjectResponse_bucketKeyEnabled = Lens.lens (\HeadObjectResponse' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@HeadObjectResponse' {} a -> s {bucketKeyEnabled = a} :: HeadObjectResponse)
-
--- | Indicates that a range of bytes was specified.
-headObjectResponse_acceptRanges :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
-headObjectResponse_acceptRanges = Lens.lens (\HeadObjectResponse' {acceptRanges} -> acceptRanges) (\s@HeadObjectResponse' {} a -> s {acceptRanges = a} :: HeadObjectResponse)
-
--- | This is set to the number of metadata entries not returned in
--- @x-amz-meta@ headers. This can happen if you create metadata using an
--- API like SOAP that supports more flexible metadata than the REST API.
--- For example, using SOAP, you can create metadata whose values are not
--- legal HTTP headers.
-headObjectResponse_missingMeta :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Int)
-headObjectResponse_missingMeta = Lens.lens (\HeadObjectResponse' {missingMeta} -> missingMeta) (\s@HeadObjectResponse' {} a -> s {missingMeta = a} :: HeadObjectResponse)
-
--- | If the object is stored using server-side encryption either with an
--- Amazon Web Services KMS key or an Amazon S3-managed encryption key, the
--- response includes this header with the value of the server-side
--- encryption algorithm used when storing this object in Amazon S3 (for
--- example, AES256, aws:kms).
-headObjectResponse_serverSideEncryption :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ServerSideEncryption)
-headObjectResponse_serverSideEncryption = Lens.lens (\HeadObjectResponse' {serverSideEncryption} -> serverSideEncryption) (\s@HeadObjectResponse' {} a -> s {serverSideEncryption = a} :: HeadObjectResponse)
-
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header confirming the
--- encryption algorithm used.
-headObjectResponse_sSECustomerAlgorithm :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
-headObjectResponse_sSECustomerAlgorithm = Lens.lens (\HeadObjectResponse' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@HeadObjectResponse' {} a -> s {sSECustomerAlgorithm = a} :: HeadObjectResponse)
+-- | Creation date of the object.
+headObjectResponse_lastModified :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.UTCTime)
+headObjectResponse_lastModified = Lens.lens (\HeadObjectResponse' {lastModified} -> lastModified) (\s@HeadObjectResponse' {} a -> s {lastModified = a} :: HeadObjectResponse) Prelude.. Lens.mapping Core._Time
 
 -- | Specifies whether a legal hold is in effect for this object. This header
 -- is only returned if the requester has the @s3:GetObjectLegalHold@
@@ -1035,49 +1066,21 @@ headObjectResponse_sSECustomerAlgorithm = Lens.lens (\HeadObjectResponse' {sSECu
 headObjectResponse_objectLockLegalHoldStatus :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ObjectLockLegalHoldStatus)
 headObjectResponse_objectLockLegalHoldStatus = Lens.lens (\HeadObjectResponse' {objectLockLegalHoldStatus} -> objectLockLegalHoldStatus) (\s@HeadObjectResponse' {} a -> s {objectLockLegalHoldStatus = a} :: HeadObjectResponse)
 
--- | Specifies caching behavior along the request\/reply chain.
-headObjectResponse_cacheControl :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
-headObjectResponse_cacheControl = Lens.lens (\HeadObjectResponse' {cacheControl} -> cacheControl) (\s@HeadObjectResponse' {} a -> s {cacheControl = a} :: HeadObjectResponse)
+-- | Specifies presentational information for the object.
+headObjectResponse_contentDisposition :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
+headObjectResponse_contentDisposition = Lens.lens (\HeadObjectResponse' {contentDisposition} -> contentDisposition) (\s@HeadObjectResponse' {} a -> s {contentDisposition = a} :: HeadObjectResponse)
 
--- | Creation date of the object.
-headObjectResponse_lastModified :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.UTCTime)
-headObjectResponse_lastModified = Lens.lens (\HeadObjectResponse' {lastModified} -> lastModified) (\s@HeadObjectResponse' {} a -> s {lastModified = a} :: HeadObjectResponse) Prelude.. Lens.mapping Core._Time
+-- | If the object is stored using server-side encryption either with an
+-- Amazon Web Services KMS key or an Amazon S3-managed encryption key, the
+-- response includes this header with the value of the server-side
+-- encryption algorithm used when storing this object in Amazon S3 (for
+-- example, AES256, aws:kms).
+headObjectResponse_serverSideEncryption :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ServerSideEncryption)
+headObjectResponse_serverSideEncryption = Lens.lens (\HeadObjectResponse' {serverSideEncryption} -> serverSideEncryption) (\s@HeadObjectResponse' {} a -> s {serverSideEncryption = a} :: HeadObjectResponse)
 
--- | The date and time at which the object is no longer cacheable.
-headObjectResponse_expires :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.UTCTime)
-headObjectResponse_expires = Lens.lens (\HeadObjectResponse' {expires} -> expires) (\s@HeadObjectResponse' {} a -> s {expires = a} :: HeadObjectResponse) Prelude.. Lens.mapping Core._Time
-
--- | If the object is an archived object (an object whose storage class is
--- GLACIER), the response includes this header if either the archive
--- restoration is in progress (see
--- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html RestoreObject>
--- or an archive copy is already restored.
---
--- If an archive copy is already restored, the header value indicates when
--- Amazon S3 is scheduled to delete the object copy. For example:
---
--- @x-amz-restore: ongoing-request=\"false\", expiry-date=\"Fri, 21 Dec 2012 00:00:00 GMT\"@
---
--- If the object restoration is in progress, the header returns the value
--- @ongoing-request=\"true\"@.
---
--- For more information about archiving objects, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations Transitioning Objects: General Considerations>.
-headObjectResponse_restore :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
-headObjectResponse_restore = Lens.lens (\HeadObjectResponse' {restore} -> restore) (\s@HeadObjectResponse' {} a -> s {restore = a} :: HeadObjectResponse)
-
--- | The Object Lock mode, if any, that\'s in effect for this object. This
--- header is only returned if the requester has the @s3:GetObjectRetention@
--- permission. For more information about S3 Object Lock, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock>.
-headObjectResponse_objectLockMode :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ObjectLockMode)
-headObjectResponse_objectLockMode = Lens.lens (\HeadObjectResponse' {objectLockMode} -> objectLockMode) (\s@HeadObjectResponse' {} a -> s {objectLockMode = a} :: HeadObjectResponse)
-
--- | The date and time when the Object Lock retention period expires. This
--- header is only returned if the requester has the @s3:GetObjectRetention@
--- permission.
-headObjectResponse_objectLockRetainUntilDate :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.UTCTime)
-headObjectResponse_objectLockRetainUntilDate = Lens.lens (\HeadObjectResponse' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@HeadObjectResponse' {} a -> s {objectLockRetainUntilDate = a} :: HeadObjectResponse) Prelude.. Lens.mapping Core._Time
+-- | A standard MIME type describing the format of the object data.
+headObjectResponse_contentType :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
+headObjectResponse_contentType = Lens.lens (\HeadObjectResponse' {contentType} -> contentType) (\s@HeadObjectResponse' {} a -> s {contentType = a} :: HeadObjectResponse)
 
 -- | The response's http status code.
 headObjectResponse_httpStatus :: Lens.Lens' HeadObjectResponse Prelude.Int

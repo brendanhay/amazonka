@@ -166,7 +166,9 @@ instance
     AWSResponse
       PutBucketIntelligentTieringConfiguration =
       PutBucketIntelligentTieringConfigurationResponse
-  request = Request.putXML defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.putXML defaultService
   response =
     Response.receiveNull
       PutBucketIntelligentTieringConfigurationResponse'

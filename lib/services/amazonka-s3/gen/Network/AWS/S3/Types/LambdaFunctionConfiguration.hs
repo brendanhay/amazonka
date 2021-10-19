@@ -92,7 +92,7 @@ lambdaFunctionConfiguration_lambdaFunctionArn = Lens.lens (\LambdaFunctionConfig
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types>
 -- in the /Amazon S3 User Guide/.
 lambdaFunctionConfiguration_events :: Lens.Lens' LambdaFunctionConfiguration [Event]
-lambdaFunctionConfiguration_events = Lens.lens (\LambdaFunctionConfiguration' {events} -> events) (\s@LambdaFunctionConfiguration' {} a -> s {events = a} :: LambdaFunctionConfiguration) Prelude.. Lens._Coerce
+lambdaFunctionConfiguration_events = Lens.lens (\LambdaFunctionConfiguration' {events} -> events) (\s@LambdaFunctionConfiguration' {} a -> s {events = a} :: LambdaFunctionConfiguration) Prelude.. Lens.coerced
 
 instance Core.FromXML LambdaFunctionConfiguration where
   parseXML x =

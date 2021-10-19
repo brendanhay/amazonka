@@ -54,8 +54,8 @@ module Network.AWS.S3.AbortMultipartUpload
     newAbortMultipartUpload,
 
     -- * Request Lenses
-    abortMultipartUpload_expectedBucketOwner,
     abortMultipartUpload_requestPayer,
+    abortMultipartUpload_expectedBucketOwner,
     abortMultipartUpload_bucket,
     abortMultipartUpload_key,
     abortMultipartUpload_uploadId,
@@ -79,11 +79,11 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newAbortMultipartUpload' smart constructor.
 data AbortMultipartUpload = AbortMultipartUpload'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
+  { requestPayer :: Prelude.Maybe RequestPayer,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The bucket name to which the upload was taking place.
     --
     -- When using this action with an access point, you must direct requests to
@@ -120,11 +120,11 @@ data AbortMultipartUpload = AbortMultipartUpload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'requestPayer', 'abortMultipartUpload_requestPayer' - Undocumented member.
+--
 -- 'expectedBucketOwner', 'abortMultipartUpload_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
---
--- 'requestPayer', 'abortMultipartUpload_requestPayer' - Undocumented member.
 --
 -- 'bucket', 'abortMultipartUpload_bucket' - The bucket name to which the upload was taking place.
 --
@@ -160,23 +160,23 @@ newAbortMultipartUpload ::
   AbortMultipartUpload
 newAbortMultipartUpload pBucket_ pKey_ pUploadId_ =
   AbortMultipartUpload'
-    { expectedBucketOwner =
+    { requestPayer =
         Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_,
       uploadId = pUploadId_
     }
+
+-- | Undocumented member.
+abortMultipartUpload_requestPayer :: Lens.Lens' AbortMultipartUpload (Prelude.Maybe RequestPayer)
+abortMultipartUpload_requestPayer = Lens.lens (\AbortMultipartUpload' {requestPayer} -> requestPayer) (\s@AbortMultipartUpload' {} a -> s {requestPayer = a} :: AbortMultipartUpload)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 abortMultipartUpload_expectedBucketOwner :: Lens.Lens' AbortMultipartUpload (Prelude.Maybe Prelude.Text)
 abortMultipartUpload_expectedBucketOwner = Lens.lens (\AbortMultipartUpload' {expectedBucketOwner} -> expectedBucketOwner) (\s@AbortMultipartUpload' {} a -> s {expectedBucketOwner = a} :: AbortMultipartUpload)
-
--- | Undocumented member.
-abortMultipartUpload_requestPayer :: Lens.Lens' AbortMultipartUpload (Prelude.Maybe RequestPayer)
-abortMultipartUpload_requestPayer = Lens.lens (\AbortMultipartUpload' {requestPayer} -> requestPayer) (\s@AbortMultipartUpload' {} a -> s {requestPayer = a} :: AbortMultipartUpload)
 
 -- | The bucket name to which the upload was taking place.
 --
@@ -213,7 +213,9 @@ instance Core.AWSRequest AbortMultipartUpload where
   type
     AWSResponse AbortMultipartUpload =
       AbortMultipartUploadResponse
-  request = Request.delete defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -229,9 +231,9 @@ instance Prelude.NFData AbortMultipartUpload
 instance Core.ToHeaders AbortMultipartUpload where
   toHeaders AbortMultipartUpload' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+      [ "x-amz-request-payer" Core.=# requestPayer,
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath AbortMultipartUpload where

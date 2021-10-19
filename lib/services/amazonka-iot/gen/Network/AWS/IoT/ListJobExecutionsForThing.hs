@@ -33,9 +33,9 @@ module Network.AWS.IoT.ListJobExecutionsForThing
     newListJobExecutionsForThing,
 
     -- * Request Lenses
-    listJobExecutionsForThing_nextToken,
     listJobExecutionsForThing_status,
     listJobExecutionsForThing_namespaceId,
+    listJobExecutionsForThing_nextToken,
     listJobExecutionsForThing_maxResults,
     listJobExecutionsForThing_thingName,
 
@@ -44,8 +44,8 @@ module Network.AWS.IoT.ListJobExecutionsForThing
     newListJobExecutionsForThingResponse,
 
     -- * Response Lenses
-    listJobExecutionsForThingResponse_nextToken,
     listJobExecutionsForThingResponse_executionSummaries,
+    listJobExecutionsForThingResponse_nextToken,
     listJobExecutionsForThingResponse_httpStatus,
   )
 where
@@ -59,9 +59,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListJobExecutionsForThing' smart constructor.
 data ListJobExecutionsForThing = ListJobExecutionsForThing'
-  { -- | The token to retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional filter that lets you search for jobs that have the specified
+  { -- | An optional filter that lets you search for jobs that have the specified
     -- status.
     status :: Prelude.Maybe JobExecutionStatus,
     -- | The namespace used to indicate that a job is a customer-managed job.
@@ -74,6 +72,8 @@ data ListJobExecutionsForThing = ListJobExecutionsForThing'
     --
     -- The @namespaceId@ feature is in public preview.
     namespaceId :: Prelude.Maybe Prelude.Text,
+    -- | The token to retrieve the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to be returned per request.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The thing name.
@@ -89,8 +89,6 @@ data ListJobExecutionsForThing = ListJobExecutionsForThing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listJobExecutionsForThing_nextToken' - The token to retrieve the next set of results.
---
 -- 'status', 'listJobExecutionsForThing_status' - An optional filter that lets you search for jobs that have the specified
 -- status.
 --
@@ -104,6 +102,8 @@ data ListJobExecutionsForThing = ListJobExecutionsForThing'
 --
 -- The @namespaceId@ feature is in public preview.
 --
+-- 'nextToken', 'listJobExecutionsForThing_nextToken' - The token to retrieve the next set of results.
+--
 -- 'maxResults', 'listJobExecutionsForThing_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'thingName', 'listJobExecutionsForThing_thingName' - The thing name.
@@ -113,17 +113,13 @@ newListJobExecutionsForThing ::
   ListJobExecutionsForThing
 newListJobExecutionsForThing pThingName_ =
   ListJobExecutionsForThing'
-    { nextToken =
+    { status =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       namespaceId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       thingName = pThingName_
     }
-
--- | The token to retrieve the next set of results.
-listJobExecutionsForThing_nextToken :: Lens.Lens' ListJobExecutionsForThing (Prelude.Maybe Prelude.Text)
-listJobExecutionsForThing_nextToken = Lens.lens (\ListJobExecutionsForThing' {nextToken} -> nextToken) (\s@ListJobExecutionsForThing' {} a -> s {nextToken = a} :: ListJobExecutionsForThing)
 
 -- | An optional filter that lets you search for jobs that have the specified
 -- status.
@@ -141,6 +137,10 @@ listJobExecutionsForThing_status = Lens.lens (\ListJobExecutionsForThing' {statu
 -- The @namespaceId@ feature is in public preview.
 listJobExecutionsForThing_namespaceId :: Lens.Lens' ListJobExecutionsForThing (Prelude.Maybe Prelude.Text)
 listJobExecutionsForThing_namespaceId = Lens.lens (\ListJobExecutionsForThing' {namespaceId} -> namespaceId) (\s@ListJobExecutionsForThing' {} a -> s {namespaceId = a} :: ListJobExecutionsForThing)
+
+-- | The token to retrieve the next set of results.
+listJobExecutionsForThing_nextToken :: Lens.Lens' ListJobExecutionsForThing (Prelude.Maybe Prelude.Text)
+listJobExecutionsForThing_nextToken = Lens.lens (\ListJobExecutionsForThing' {nextToken} -> nextToken) (\s@ListJobExecutionsForThing' {} a -> s {nextToken = a} :: ListJobExecutionsForThing)
 
 -- | The maximum number of results to be returned per request.
 listJobExecutionsForThing_maxResults :: Lens.Lens' ListJobExecutionsForThing (Prelude.Maybe Prelude.Natural)
@@ -181,10 +181,10 @@ instance Core.AWSRequest ListJobExecutionsForThing where
     Response.receiveJSON
       ( \s h x ->
           ListJobExecutionsForThingResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "executionSummaries"
+            Prelude.<$> ( x Core..?> "executionSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,19 +203,19 @@ instance Core.ToPath ListJobExecutionsForThing where
 instance Core.ToQuery ListJobExecutionsForThing where
   toQuery ListJobExecutionsForThing' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "status" Core.=: status,
+      [ "status" Core.=: status,
         "namespaceId" Core.=: namespaceId,
+        "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListJobExecutionsForThingResponse' smart constructor.
 data ListJobExecutionsForThingResponse = ListJobExecutionsForThingResponse'
-  { -- | The token for the next set of results, or __null__ if there are no
+  { -- | A list of job execution summaries.
+    executionSummaries :: Prelude.Maybe [JobExecutionSummaryForThing],
+    -- | The token for the next set of results, or __null__ if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of job execution summaries.
-    executionSummaries :: Prelude.Maybe [JobExecutionSummaryForThing],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -229,10 +229,10 @@ data ListJobExecutionsForThingResponse = ListJobExecutionsForThingResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'executionSummaries', 'listJobExecutionsForThingResponse_executionSummaries' - A list of job execution summaries.
+--
 -- 'nextToken', 'listJobExecutionsForThingResponse_nextToken' - The token for the next set of results, or __null__ if there are no
 -- additional results.
---
--- 'executionSummaries', 'listJobExecutionsForThingResponse_executionSummaries' - A list of job execution summaries.
 --
 -- 'httpStatus', 'listJobExecutionsForThingResponse_httpStatus' - The response's http status code.
 newListJobExecutionsForThingResponse ::
@@ -241,20 +241,20 @@ newListJobExecutionsForThingResponse ::
   ListJobExecutionsForThingResponse
 newListJobExecutionsForThingResponse pHttpStatus_ =
   ListJobExecutionsForThingResponse'
-    { nextToken =
+    { executionSummaries =
         Prelude.Nothing,
-      executionSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of job execution summaries.
+listJobExecutionsForThingResponse_executionSummaries :: Lens.Lens' ListJobExecutionsForThingResponse (Prelude.Maybe [JobExecutionSummaryForThing])
+listJobExecutionsForThingResponse_executionSummaries = Lens.lens (\ListJobExecutionsForThingResponse' {executionSummaries} -> executionSummaries) (\s@ListJobExecutionsForThingResponse' {} a -> s {executionSummaries = a} :: ListJobExecutionsForThingResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or __null__ if there are no
 -- additional results.
 listJobExecutionsForThingResponse_nextToken :: Lens.Lens' ListJobExecutionsForThingResponse (Prelude.Maybe Prelude.Text)
 listJobExecutionsForThingResponse_nextToken = Lens.lens (\ListJobExecutionsForThingResponse' {nextToken} -> nextToken) (\s@ListJobExecutionsForThingResponse' {} a -> s {nextToken = a} :: ListJobExecutionsForThingResponse)
-
--- | A list of job execution summaries.
-listJobExecutionsForThingResponse_executionSummaries :: Lens.Lens' ListJobExecutionsForThingResponse (Prelude.Maybe [JobExecutionSummaryForThing])
-listJobExecutionsForThingResponse_executionSummaries = Lens.lens (\ListJobExecutionsForThingResponse' {executionSummaries} -> executionSummaries) (\s@ListJobExecutionsForThingResponse' {} a -> s {executionSummaries = a} :: ListJobExecutionsForThingResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listJobExecutionsForThingResponse_httpStatus :: Lens.Lens' ListJobExecutionsForThingResponse Prelude.Int

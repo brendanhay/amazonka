@@ -41,8 +41,8 @@ module Network.AWS.IoT.ListCustomMetrics
     newListCustomMetricsResponse,
 
     -- * Response Lenses
-    listCustomMetricsResponse_nextToken,
     listCustomMetricsResponse_metricNames,
+    listCustomMetricsResponse_nextToken,
     listCustomMetricsResponse_httpStatus,
   )
 where
@@ -121,8 +121,8 @@ instance Core.AWSRequest ListCustomMetrics where
     Response.receiveJSON
       ( \s h x ->
           ListCustomMetricsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "metricNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "metricNames" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,11 +145,11 @@ instance Core.ToQuery ListCustomMetrics where
 
 -- | /See:/ 'newListCustomMetricsResponse' smart constructor.
 data ListCustomMetricsResponse = ListCustomMetricsResponse'
-  { -- | A token that can be used to retrieve the next set of results, or @null@
+  { -- | The name of the custom metric.
+    metricNames :: Prelude.Maybe [Prelude.Text],
+    -- | A token that can be used to retrieve the next set of results, or @null@
     -- if there are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the custom metric.
-    metricNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,10 +163,10 @@ data ListCustomMetricsResponse = ListCustomMetricsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'metricNames', 'listCustomMetricsResponse_metricNames' - The name of the custom metric.
+--
 -- 'nextToken', 'listCustomMetricsResponse_nextToken' - A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
---
--- 'metricNames', 'listCustomMetricsResponse_metricNames' - The name of the custom metric.
 --
 -- 'httpStatus', 'listCustomMetricsResponse_httpStatus' - The response's http status code.
 newListCustomMetricsResponse ::
@@ -175,20 +175,20 @@ newListCustomMetricsResponse ::
   ListCustomMetricsResponse
 newListCustomMetricsResponse pHttpStatus_ =
   ListCustomMetricsResponse'
-    { nextToken =
+    { metricNames =
         Prelude.Nothing,
-      metricNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The name of the custom metric.
+listCustomMetricsResponse_metricNames :: Lens.Lens' ListCustomMetricsResponse (Prelude.Maybe [Prelude.Text])
+listCustomMetricsResponse_metricNames = Lens.lens (\ListCustomMetricsResponse' {metricNames} -> metricNames) (\s@ListCustomMetricsResponse' {} a -> s {metricNames = a} :: ListCustomMetricsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
 listCustomMetricsResponse_nextToken :: Lens.Lens' ListCustomMetricsResponse (Prelude.Maybe Prelude.Text)
 listCustomMetricsResponse_nextToken = Lens.lens (\ListCustomMetricsResponse' {nextToken} -> nextToken) (\s@ListCustomMetricsResponse' {} a -> s {nextToken = a} :: ListCustomMetricsResponse)
-
--- | The name of the custom metric.
-listCustomMetricsResponse_metricNames :: Lens.Lens' ListCustomMetricsResponse (Prelude.Maybe [Prelude.Text])
-listCustomMetricsResponse_metricNames = Lens.lens (\ListCustomMetricsResponse' {metricNames} -> metricNames) (\s@ListCustomMetricsResponse' {} a -> s {metricNames = a} :: ListCustomMetricsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listCustomMetricsResponse_httpStatus :: Lens.Lens' ListCustomMetricsResponse Prelude.Int

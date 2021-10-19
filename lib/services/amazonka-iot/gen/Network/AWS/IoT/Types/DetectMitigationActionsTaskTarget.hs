@@ -61,7 +61,7 @@ newDetectMitigationActionsTaskTarget =
 
 -- | The unique identifiers of the violations.
 detectMitigationActionsTaskTarget_violationIds :: Lens.Lens' DetectMitigationActionsTaskTarget (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-detectMitigationActionsTaskTarget_violationIds = Lens.lens (\DetectMitigationActionsTaskTarget' {violationIds} -> violationIds) (\s@DetectMitigationActionsTaskTarget' {} a -> s {violationIds = a} :: DetectMitigationActionsTaskTarget) Prelude.. Lens.mapping Lens._Coerce
+detectMitigationActionsTaskTarget_violationIds = Lens.lens (\DetectMitigationActionsTaskTarget' {violationIds} -> violationIds) (\s@DetectMitigationActionsTaskTarget' {} a -> s {violationIds = a} :: DetectMitigationActionsTaskTarget) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the behavior.
 detectMitigationActionsTaskTarget_behaviorName :: Lens.Lens' DetectMitigationActionsTaskTarget (Prelude.Maybe Prelude.Text)

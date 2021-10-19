@@ -62,7 +62,7 @@ newRelatedResource =
 
 -- | Other information about the resource.
 relatedResource_additionalInfo :: Lens.Lens' RelatedResource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-relatedResource_additionalInfo = Lens.lens (\RelatedResource' {additionalInfo} -> additionalInfo) (\s@RelatedResource' {} a -> s {additionalInfo = a} :: RelatedResource) Prelude.. Lens.mapping Lens._Coerce
+relatedResource_additionalInfo = Lens.lens (\RelatedResource' {additionalInfo} -> additionalInfo) (\s@RelatedResource' {} a -> s {additionalInfo = a} :: RelatedResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of resource.
 relatedResource_resourceType :: Lens.Lens' RelatedResource (Prelude.Maybe ResourceType)

@@ -31,9 +31,9 @@ module Network.AWS.IoT.GetCardinality
     newGetCardinality,
 
     -- * Request Lenses
-    getCardinality_indexName,
     getCardinality_queryVersion,
     getCardinality_aggregationField,
+    getCardinality_indexName,
     getCardinality_queryString,
 
     -- * Destructuring the Response
@@ -55,12 +55,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetCardinality' smart constructor.
 data GetCardinality = GetCardinality'
-  { -- | The name of the index to search.
-    indexName :: Prelude.Maybe Prelude.Text,
-    -- | The query version.
+  { -- | The query version.
     queryVersion :: Prelude.Maybe Prelude.Text,
     -- | The field to aggregate.
     aggregationField :: Prelude.Maybe Prelude.Text,
+    -- | The name of the index to search.
+    indexName :: Prelude.Maybe Prelude.Text,
     -- | The search query string.
     queryString :: Prelude.Text
   }
@@ -74,11 +74,11 @@ data GetCardinality = GetCardinality'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'indexName', 'getCardinality_indexName' - The name of the index to search.
---
 -- 'queryVersion', 'getCardinality_queryVersion' - The query version.
 --
 -- 'aggregationField', 'getCardinality_aggregationField' - The field to aggregate.
+--
+-- 'indexName', 'getCardinality_indexName' - The name of the index to search.
 --
 -- 'queryString', 'getCardinality_queryString' - The search query string.
 newGetCardinality ::
@@ -87,15 +87,11 @@ newGetCardinality ::
   GetCardinality
 newGetCardinality pQueryString_ =
   GetCardinality'
-    { indexName = Prelude.Nothing,
-      queryVersion = Prelude.Nothing,
+    { queryVersion = Prelude.Nothing,
       aggregationField = Prelude.Nothing,
+      indexName = Prelude.Nothing,
       queryString = pQueryString_
     }
-
--- | The name of the index to search.
-getCardinality_indexName :: Lens.Lens' GetCardinality (Prelude.Maybe Prelude.Text)
-getCardinality_indexName = Lens.lens (\GetCardinality' {indexName} -> indexName) (\s@GetCardinality' {} a -> s {indexName = a} :: GetCardinality)
 
 -- | The query version.
 getCardinality_queryVersion :: Lens.Lens' GetCardinality (Prelude.Maybe Prelude.Text)
@@ -104,6 +100,10 @@ getCardinality_queryVersion = Lens.lens (\GetCardinality' {queryVersion} -> quer
 -- | The field to aggregate.
 getCardinality_aggregationField :: Lens.Lens' GetCardinality (Prelude.Maybe Prelude.Text)
 getCardinality_aggregationField = Lens.lens (\GetCardinality' {aggregationField} -> aggregationField) (\s@GetCardinality' {} a -> s {aggregationField = a} :: GetCardinality)
+
+-- | The name of the index to search.
+getCardinality_indexName :: Lens.Lens' GetCardinality (Prelude.Maybe Prelude.Text)
+getCardinality_indexName = Lens.lens (\GetCardinality' {indexName} -> indexName) (\s@GetCardinality' {} a -> s {indexName = a} :: GetCardinality)
 
 -- | The search query string.
 getCardinality_queryString :: Lens.Lens' GetCardinality Prelude.Text
@@ -133,10 +133,10 @@ instance Core.ToJSON GetCardinality where
   toJSON GetCardinality' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("indexName" Core..=) Prelude.<$> indexName,
-            ("queryVersion" Core..=) Prelude.<$> queryVersion,
+          [ ("queryVersion" Core..=) Prelude.<$> queryVersion,
             ("aggregationField" Core..=)
               Prelude.<$> aggregationField,
+            ("indexName" Core..=) Prelude.<$> indexName,
             Prelude.Just ("queryString" Core..= queryString)
           ]
       )

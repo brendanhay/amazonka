@@ -34,8 +34,8 @@ module Network.AWS.IoT.ListThingsInThingGroup
 
     -- * Request Lenses
     listThingsInThingGroup_nextToken,
-    listThingsInThingGroup_maxResults,
     listThingsInThingGroup_recursive,
+    listThingsInThingGroup_maxResults,
     listThingsInThingGroup_thingGroupName,
 
     -- * Destructuring the Response
@@ -62,11 +62,11 @@ data ListThingsInThingGroup = ListThingsInThingGroup'
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | When true, list things in this thing group and in all child groups as
     -- well.
     recursive :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return at one time.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The thing group name.
     thingGroupName :: Prelude.Text
   }
@@ -84,10 +84,10 @@ data ListThingsInThingGroup = ListThingsInThingGroup'
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 --
--- 'maxResults', 'listThingsInThingGroup_maxResults' - The maximum number of results to return at one time.
---
 -- 'recursive', 'listThingsInThingGroup_recursive' - When true, list things in this thing group and in all child groups as
 -- well.
+--
+-- 'maxResults', 'listThingsInThingGroup_maxResults' - The maximum number of results to return at one time.
 --
 -- 'thingGroupName', 'listThingsInThingGroup_thingGroupName' - The thing group name.
 newListThingsInThingGroup ::
@@ -98,8 +98,8 @@ newListThingsInThingGroup pThingGroupName_ =
   ListThingsInThingGroup'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       recursive = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       thingGroupName = pThingGroupName_
     }
 
@@ -109,14 +109,14 @@ newListThingsInThingGroup pThingGroupName_ =
 listThingsInThingGroup_nextToken :: Lens.Lens' ListThingsInThingGroup (Prelude.Maybe Prelude.Text)
 listThingsInThingGroup_nextToken = Lens.lens (\ListThingsInThingGroup' {nextToken} -> nextToken) (\s@ListThingsInThingGroup' {} a -> s {nextToken = a} :: ListThingsInThingGroup)
 
--- | The maximum number of results to return at one time.
-listThingsInThingGroup_maxResults :: Lens.Lens' ListThingsInThingGroup (Prelude.Maybe Prelude.Natural)
-listThingsInThingGroup_maxResults = Lens.lens (\ListThingsInThingGroup' {maxResults} -> maxResults) (\s@ListThingsInThingGroup' {} a -> s {maxResults = a} :: ListThingsInThingGroup)
-
 -- | When true, list things in this thing group and in all child groups as
 -- well.
 listThingsInThingGroup_recursive :: Lens.Lens' ListThingsInThingGroup (Prelude.Maybe Prelude.Bool)
 listThingsInThingGroup_recursive = Lens.lens (\ListThingsInThingGroup' {recursive} -> recursive) (\s@ListThingsInThingGroup' {} a -> s {recursive = a} :: ListThingsInThingGroup)
+
+-- | The maximum number of results to return at one time.
+listThingsInThingGroup_maxResults :: Lens.Lens' ListThingsInThingGroup (Prelude.Maybe Prelude.Natural)
+listThingsInThingGroup_maxResults = Lens.lens (\ListThingsInThingGroup' {maxResults} -> maxResults) (\s@ListThingsInThingGroup' {} a -> s {maxResults = a} :: ListThingsInThingGroup)
 
 -- | The thing group name.
 listThingsInThingGroup_thingGroupName :: Lens.Lens' ListThingsInThingGroup Prelude.Text
@@ -177,8 +177,8 @@ instance Core.ToQuery ListThingsInThingGroup where
   toQuery ListThingsInThingGroup' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "recursive" Core.=: recursive
+        "recursive" Core.=: recursive,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListThingsInThingGroupResponse' smart constructor.
@@ -226,7 +226,7 @@ listThingsInThingGroupResponse_nextToken = Lens.lens (\ListThingsInThingGroupRes
 
 -- | The things in the specified thing group.
 listThingsInThingGroupResponse_things :: Lens.Lens' ListThingsInThingGroupResponse (Prelude.Maybe [Prelude.Text])
-listThingsInThingGroupResponse_things = Lens.lens (\ListThingsInThingGroupResponse' {things} -> things) (\s@ListThingsInThingGroupResponse' {} a -> s {things = a} :: ListThingsInThingGroupResponse) Prelude.. Lens.mapping Lens._Coerce
+listThingsInThingGroupResponse_things = Lens.lens (\ListThingsInThingGroupResponse' {things} -> things) (\s@ListThingsInThingGroupResponse' {} a -> s {things = a} :: ListThingsInThingGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listThingsInThingGroupResponse_httpStatus :: Lens.Lens' ListThingsInThingGroupResponse Prelude.Int

@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data MqttContext = MqttContext'
   { -- | The value of the @clientId@ key in an MQTT authorization request.
     clientId :: Prelude.Maybe Prelude.Text,
-    -- | The value of the @password@ key in an MQTT authorization request.
-    password :: Prelude.Maybe Core.Base64,
     -- | The value of the @username@ key in an MQTT authorization request.
-    username :: Prelude.Maybe Prelude.Text
+    username :: Prelude.Maybe Prelude.Text,
+    -- | The value of the @password@ key in an MQTT authorization request.
+    password :: Prelude.Maybe Core.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,29 @@ data MqttContext = MqttContext'
 --
 -- 'clientId', 'mqttContext_clientId' - The value of the @clientId@ key in an MQTT authorization request.
 --
+-- 'username', 'mqttContext_username' - The value of the @username@ key in an MQTT authorization request.
+--
 -- 'password', 'mqttContext_password' - The value of the @password@ key in an MQTT authorization request.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
---
--- 'username', 'mqttContext_username' - The value of the @username@ key in an MQTT authorization request.
 newMqttContext ::
   MqttContext
 newMqttContext =
   MqttContext'
     { clientId = Prelude.Nothing,
-      password = Prelude.Nothing,
-      username = Prelude.Nothing
+      username = Prelude.Nothing,
+      password = Prelude.Nothing
     }
 
 -- | The value of the @clientId@ key in an MQTT authorization request.
 mqttContext_clientId :: Lens.Lens' MqttContext (Prelude.Maybe Prelude.Text)
 mqttContext_clientId = Lens.lens (\MqttContext' {clientId} -> clientId) (\s@MqttContext' {} a -> s {clientId = a} :: MqttContext)
+
+-- | The value of the @username@ key in an MQTT authorization request.
+mqttContext_username :: Lens.Lens' MqttContext (Prelude.Maybe Prelude.Text)
+mqttContext_username = Lens.lens (\MqttContext' {username} -> username) (\s@MqttContext' {} a -> s {username = a} :: MqttContext)
 
 -- | The value of the @password@ key in an MQTT authorization request.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -73,10 +77,6 @@ mqttContext_clientId = Lens.lens (\MqttContext' {clientId} -> clientId) (\s@Mqtt
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 mqttContext_password :: Lens.Lens' MqttContext (Prelude.Maybe Prelude.ByteString)
 mqttContext_password = Lens.lens (\MqttContext' {password} -> password) (\s@MqttContext' {} a -> s {password = a} :: MqttContext) Prelude.. Lens.mapping Core._Base64
-
--- | The value of the @username@ key in an MQTT authorization request.
-mqttContext_username :: Lens.Lens' MqttContext (Prelude.Maybe Prelude.Text)
-mqttContext_username = Lens.lens (\MqttContext' {username} -> username) (\s@MqttContext' {} a -> s {username = a} :: MqttContext)
 
 instance Prelude.Hashable MqttContext
 
@@ -87,7 +87,7 @@ instance Core.ToJSON MqttContext where
     Core.object
       ( Prelude.catMaybes
           [ ("clientId" Core..=) Prelude.<$> clientId,
-            ("password" Core..=) Prelude.<$> password,
-            ("username" Core..=) Prelude.<$> username
+            ("username" Core..=) Prelude.<$> username,
+            ("password" Core..=) Prelude.<$> password
           ]
       )

@@ -41,8 +41,8 @@ module Network.AWS.IoT.ListFleetMetrics
     newListFleetMetricsResponse,
 
     -- * Response Lenses
-    listFleetMetricsResponse_nextToken,
     listFleetMetricsResponse_fleetMetrics,
+    listFleetMetricsResponse_nextToken,
     listFleetMetricsResponse_httpStatus,
   )
 where
@@ -124,8 +124,8 @@ instance Core.AWSRequest ListFleetMetrics where
     Response.receiveJSON
       ( \s h x ->
           ListFleetMetricsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "fleetMetrics" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "fleetMetrics" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,11 +148,11 @@ instance Core.ToQuery ListFleetMetrics where
 
 -- | /See:/ 'newListFleetMetricsResponse' smart constructor.
 data ListFleetMetricsResponse = ListFleetMetricsResponse'
-  { -- | The token for the next set of results. Will not be returned if the
+  { -- | The list of fleet metrics objects.
+    fleetMetrics :: Prelude.Maybe [FleetMetricNameAndArn],
+    -- | The token for the next set of results. Will not be returned if the
     -- operation has returned all results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of fleet metrics objects.
-    fleetMetrics :: Prelude.Maybe [FleetMetricNameAndArn],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,10 +166,10 @@ data ListFleetMetricsResponse = ListFleetMetricsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fleetMetrics', 'listFleetMetricsResponse_fleetMetrics' - The list of fleet metrics objects.
+--
 -- 'nextToken', 'listFleetMetricsResponse_nextToken' - The token for the next set of results. Will not be returned if the
 -- operation has returned all results.
---
--- 'fleetMetrics', 'listFleetMetricsResponse_fleetMetrics' - The list of fleet metrics objects.
 --
 -- 'httpStatus', 'listFleetMetricsResponse_httpStatus' - The response's http status code.
 newListFleetMetricsResponse ::
@@ -178,20 +178,20 @@ newListFleetMetricsResponse ::
   ListFleetMetricsResponse
 newListFleetMetricsResponse pHttpStatus_ =
   ListFleetMetricsResponse'
-    { nextToken =
+    { fleetMetrics =
         Prelude.Nothing,
-      fleetMetrics = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of fleet metrics objects.
+listFleetMetricsResponse_fleetMetrics :: Lens.Lens' ListFleetMetricsResponse (Prelude.Maybe [FleetMetricNameAndArn])
+listFleetMetricsResponse_fleetMetrics = Lens.lens (\ListFleetMetricsResponse' {fleetMetrics} -> fleetMetrics) (\s@ListFleetMetricsResponse' {} a -> s {fleetMetrics = a} :: ListFleetMetricsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results. Will not be returned if the
 -- operation has returned all results.
 listFleetMetricsResponse_nextToken :: Lens.Lens' ListFleetMetricsResponse (Prelude.Maybe Prelude.Text)
 listFleetMetricsResponse_nextToken = Lens.lens (\ListFleetMetricsResponse' {nextToken} -> nextToken) (\s@ListFleetMetricsResponse' {} a -> s {nextToken = a} :: ListFleetMetricsResponse)
-
--- | The list of fleet metrics objects.
-listFleetMetricsResponse_fleetMetrics :: Lens.Lens' ListFleetMetricsResponse (Prelude.Maybe [FleetMetricNameAndArn])
-listFleetMetricsResponse_fleetMetrics = Lens.lens (\ListFleetMetricsResponse' {fleetMetrics} -> fleetMetrics) (\s@ListFleetMetricsResponse' {} a -> s {fleetMetrics = a} :: ListFleetMetricsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listFleetMetricsResponse_httpStatus :: Lens.Lens' ListFleetMetricsResponse Prelude.Int

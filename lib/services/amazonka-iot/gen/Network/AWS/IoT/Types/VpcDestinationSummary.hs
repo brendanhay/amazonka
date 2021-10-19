@@ -27,15 +27,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVpcDestinationSummary' smart constructor.
 data VpcDestinationSummary = VpcDestinationSummary'
-  { -- | The ARN of a role that has permission to create and attach to elastic
-    -- network interfaces (ENIs).
-    roleArn :: Prelude.Maybe Prelude.Text,
+  { -- | The security groups of the VPC destination.
+    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The subnet IDs of the VPC destination.
     subnetIds :: Prelude.Maybe [Prelude.Text],
-    -- | The security groups of the VPC destination.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the VPC.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of a role that has permission to create and attach to elastic
+    -- network interfaces (ENIs).
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,40 +47,41 @@ data VpcDestinationSummary = VpcDestinationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'vpcDestinationSummary_roleArn' - The ARN of a role that has permission to create and attach to elastic
--- network interfaces (ENIs).
+-- 'securityGroups', 'vpcDestinationSummary_securityGroups' - The security groups of the VPC destination.
 --
 -- 'subnetIds', 'vpcDestinationSummary_subnetIds' - The subnet IDs of the VPC destination.
 --
--- 'securityGroups', 'vpcDestinationSummary_securityGroups' - The security groups of the VPC destination.
---
 -- 'vpcId', 'vpcDestinationSummary_vpcId' - The ID of the VPC.
+--
+-- 'roleArn', 'vpcDestinationSummary_roleArn' - The ARN of a role that has permission to create and attach to elastic
+-- network interfaces (ENIs).
 newVpcDestinationSummary ::
   VpcDestinationSummary
 newVpcDestinationSummary =
   VpcDestinationSummary'
-    { roleArn = Prelude.Nothing,
+    { securityGroups =
+        Prelude.Nothing,
       subnetIds = Prelude.Nothing,
-      securityGroups = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+      vpcId = Prelude.Nothing,
+      roleArn = Prelude.Nothing
     }
+
+-- | The security groups of the VPC destination.
+vpcDestinationSummary_securityGroups :: Lens.Lens' VpcDestinationSummary (Prelude.Maybe [Prelude.Text])
+vpcDestinationSummary_securityGroups = Lens.lens (\VpcDestinationSummary' {securityGroups} -> securityGroups) (\s@VpcDestinationSummary' {} a -> s {securityGroups = a} :: VpcDestinationSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The subnet IDs of the VPC destination.
+vpcDestinationSummary_subnetIds :: Lens.Lens' VpcDestinationSummary (Prelude.Maybe [Prelude.Text])
+vpcDestinationSummary_subnetIds = Lens.lens (\VpcDestinationSummary' {subnetIds} -> subnetIds) (\s@VpcDestinationSummary' {} a -> s {subnetIds = a} :: VpcDestinationSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the VPC.
+vpcDestinationSummary_vpcId :: Lens.Lens' VpcDestinationSummary (Prelude.Maybe Prelude.Text)
+vpcDestinationSummary_vpcId = Lens.lens (\VpcDestinationSummary' {vpcId} -> vpcId) (\s@VpcDestinationSummary' {} a -> s {vpcId = a} :: VpcDestinationSummary)
 
 -- | The ARN of a role that has permission to create and attach to elastic
 -- network interfaces (ENIs).
 vpcDestinationSummary_roleArn :: Lens.Lens' VpcDestinationSummary (Prelude.Maybe Prelude.Text)
 vpcDestinationSummary_roleArn = Lens.lens (\VpcDestinationSummary' {roleArn} -> roleArn) (\s@VpcDestinationSummary' {} a -> s {roleArn = a} :: VpcDestinationSummary)
-
--- | The subnet IDs of the VPC destination.
-vpcDestinationSummary_subnetIds :: Lens.Lens' VpcDestinationSummary (Prelude.Maybe [Prelude.Text])
-vpcDestinationSummary_subnetIds = Lens.lens (\VpcDestinationSummary' {subnetIds} -> subnetIds) (\s@VpcDestinationSummary' {} a -> s {subnetIds = a} :: VpcDestinationSummary) Prelude.. Lens.mapping Lens._Coerce
-
--- | The security groups of the VPC destination.
-vpcDestinationSummary_securityGroups :: Lens.Lens' VpcDestinationSummary (Prelude.Maybe [Prelude.Text])
-vpcDestinationSummary_securityGroups = Lens.lens (\VpcDestinationSummary' {securityGroups} -> securityGroups) (\s@VpcDestinationSummary' {} a -> s {securityGroups = a} :: VpcDestinationSummary) Prelude.. Lens.mapping Lens._Coerce
-
--- | The ID of the VPC.
-vpcDestinationSummary_vpcId :: Lens.Lens' VpcDestinationSummary (Prelude.Maybe Prelude.Text)
-vpcDestinationSummary_vpcId = Lens.lens (\VpcDestinationSummary' {vpcId} -> vpcId) (\s@VpcDestinationSummary' {} a -> s {vpcId = a} :: VpcDestinationSummary)
 
 instance Core.FromJSON VpcDestinationSummary where
   parseJSON =
@@ -88,10 +89,10 @@ instance Core.FromJSON VpcDestinationSummary where
       "VpcDestinationSummary"
       ( \x ->
           VpcDestinationSummary'
-            Prelude.<$> (x Core..:? "roleArn")
+            Prelude.<$> (x Core..:? "securityGroups" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "subnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "securityGroups" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "vpcId")
+            Prelude.<*> (x Core..:? "roleArn")
       )
 
 instance Prelude.Hashable VpcDestinationSummary

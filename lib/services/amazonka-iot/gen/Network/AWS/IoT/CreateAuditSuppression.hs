@@ -32,8 +32,8 @@ module Network.AWS.IoT.CreateAuditSuppression
 
     -- * Request Lenses
     createAuditSuppression_expirationDate,
-    createAuditSuppression_description,
     createAuditSuppression_suppressIndefinitely,
+    createAuditSuppression_description,
     createAuditSuppression_checkName,
     createAuditSuppression_resourceIdentifier,
     createAuditSuppression_clientRequestToken,
@@ -58,10 +58,10 @@ import qualified Network.AWS.Response as Response
 data CreateAuditSuppression = CreateAuditSuppression'
   { -- | The epoch timestamp in seconds at which this suppression expires.
     expirationDate :: Prelude.Maybe Core.POSIX,
-    -- | The description of the audit suppression.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether a suppression should exist indefinitely or not.
     suppressIndefinitely :: Prelude.Maybe Prelude.Bool,
+    -- | The description of the audit suppression.
+    description :: Prelude.Maybe Prelude.Text,
     checkName :: Prelude.Text,
     resourceIdentifier :: ResourceIdentifier,
     -- | Each audit supression must have a unique client request token. If you
@@ -82,9 +82,9 @@ data CreateAuditSuppression = CreateAuditSuppression'
 --
 -- 'expirationDate', 'createAuditSuppression_expirationDate' - The epoch timestamp in seconds at which this suppression expires.
 --
--- 'description', 'createAuditSuppression_description' - The description of the audit suppression.
---
 -- 'suppressIndefinitely', 'createAuditSuppression_suppressIndefinitely' - Indicates whether a suppression should exist indefinitely or not.
+--
+-- 'description', 'createAuditSuppression_description' - The description of the audit suppression.
 --
 -- 'checkName', 'createAuditSuppression_checkName' - Undocumented member.
 --
@@ -109,8 +109,8 @@ newCreateAuditSuppression
     CreateAuditSuppression'
       { expirationDate =
           Prelude.Nothing,
-        description = Prelude.Nothing,
         suppressIndefinitely = Prelude.Nothing,
+        description = Prelude.Nothing,
         checkName = pCheckName_,
         resourceIdentifier = pResourceIdentifier_,
         clientRequestToken = pClientRequestToken_
@@ -120,13 +120,13 @@ newCreateAuditSuppression
 createAuditSuppression_expirationDate :: Lens.Lens' CreateAuditSuppression (Prelude.Maybe Prelude.UTCTime)
 createAuditSuppression_expirationDate = Lens.lens (\CreateAuditSuppression' {expirationDate} -> expirationDate) (\s@CreateAuditSuppression' {} a -> s {expirationDate = a} :: CreateAuditSuppression) Prelude.. Lens.mapping Core._Time
 
--- | The description of the audit suppression.
-createAuditSuppression_description :: Lens.Lens' CreateAuditSuppression (Prelude.Maybe Prelude.Text)
-createAuditSuppression_description = Lens.lens (\CreateAuditSuppression' {description} -> description) (\s@CreateAuditSuppression' {} a -> s {description = a} :: CreateAuditSuppression)
-
 -- | Indicates whether a suppression should exist indefinitely or not.
 createAuditSuppression_suppressIndefinitely :: Lens.Lens' CreateAuditSuppression (Prelude.Maybe Prelude.Bool)
 createAuditSuppression_suppressIndefinitely = Lens.lens (\CreateAuditSuppression' {suppressIndefinitely} -> suppressIndefinitely) (\s@CreateAuditSuppression' {} a -> s {suppressIndefinitely = a} :: CreateAuditSuppression)
+
+-- | The description of the audit suppression.
+createAuditSuppression_description :: Lens.Lens' CreateAuditSuppression (Prelude.Maybe Prelude.Text)
+createAuditSuppression_description = Lens.lens (\CreateAuditSuppression' {description} -> description) (\s@CreateAuditSuppression' {} a -> s {description = a} :: CreateAuditSuppression)
 
 -- | Undocumented member.
 createAuditSuppression_checkName :: Lens.Lens' CreateAuditSuppression Prelude.Text
@@ -168,9 +168,9 @@ instance Core.ToJSON CreateAuditSuppression where
       ( Prelude.catMaybes
           [ ("expirationDate" Core..=)
               Prelude.<$> expirationDate,
-            ("description" Core..=) Prelude.<$> description,
             ("suppressIndefinitely" Core..=)
               Prelude.<$> suppressIndefinitely,
+            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("checkName" Core..= checkName),
             Prelude.Just
               ("resourceIdentifier" Core..= resourceIdentifier),

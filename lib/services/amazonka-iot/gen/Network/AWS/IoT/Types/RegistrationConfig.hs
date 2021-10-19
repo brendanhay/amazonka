@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRegistrationConfig' smart constructor.
 data RegistrationConfig = RegistrationConfig'
-  { -- | The ARN of the role.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The template body.
-    templateBody :: Prelude.Maybe Prelude.Text
+  { -- | The template body.
+    templateBody :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the role.
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data RegistrationConfig = RegistrationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'registrationConfig_roleArn' - The ARN of the role.
---
 -- 'templateBody', 'registrationConfig_templateBody' - The template body.
+--
+-- 'roleArn', 'registrationConfig_roleArn' - The ARN of the role.
 newRegistrationConfig ::
   RegistrationConfig
 newRegistrationConfig =
   RegistrationConfig'
-    { roleArn = Prelude.Nothing,
-      templateBody = Prelude.Nothing
+    { templateBody = Prelude.Nothing,
+      roleArn = Prelude.Nothing
     }
-
--- | The ARN of the role.
-registrationConfig_roleArn :: Lens.Lens' RegistrationConfig (Prelude.Maybe Prelude.Text)
-registrationConfig_roleArn = Lens.lens (\RegistrationConfig' {roleArn} -> roleArn) (\s@RegistrationConfig' {} a -> s {roleArn = a} :: RegistrationConfig)
 
 -- | The template body.
 registrationConfig_templateBody :: Lens.Lens' RegistrationConfig (Prelude.Maybe Prelude.Text)
 registrationConfig_templateBody = Lens.lens (\RegistrationConfig' {templateBody} -> templateBody) (\s@RegistrationConfig' {} a -> s {templateBody = a} :: RegistrationConfig)
+
+-- | The ARN of the role.
+registrationConfig_roleArn :: Lens.Lens' RegistrationConfig (Prelude.Maybe Prelude.Text)
+registrationConfig_roleArn = Lens.lens (\RegistrationConfig' {roleArn} -> roleArn) (\s@RegistrationConfig' {} a -> s {roleArn = a} :: RegistrationConfig)
 
 instance Core.FromJSON RegistrationConfig where
   parseJSON =
@@ -67,8 +67,8 @@ instance Core.FromJSON RegistrationConfig where
       "RegistrationConfig"
       ( \x ->
           RegistrationConfig'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "templateBody")
+            Prelude.<$> (x Core..:? "templateBody")
+            Prelude.<*> (x Core..:? "roleArn")
       )
 
 instance Prelude.Hashable RegistrationConfig
@@ -79,7 +79,7 @@ instance Core.ToJSON RegistrationConfig where
   toJSON RegistrationConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("templateBody" Core..=) Prelude.<$> templateBody
+          [ ("templateBody" Core..=) Prelude.<$> templateBody,
+            ("roleArn" Core..=) Prelude.<$> roleArn
           ]
       )

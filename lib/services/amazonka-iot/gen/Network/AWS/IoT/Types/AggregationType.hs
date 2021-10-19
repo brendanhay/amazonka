@@ -58,7 +58,7 @@ newAggregationType pName_ =
 
 -- | A list of the values of aggregation types.
 aggregationType_values :: Lens.Lens' AggregationType (Prelude.Maybe [Prelude.Text])
-aggregationType_values = Lens.lens (\AggregationType' {values} -> values) (\s@AggregationType' {} a -> s {values = a} :: AggregationType) Prelude.. Lens.mapping Lens._Coerce
+aggregationType_values = Lens.lens (\AggregationType' {values} -> values) (\s@AggregationType' {} a -> s {values = a} :: AggregationType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the aggregation type.
 aggregationType_name :: Lens.Lens' AggregationType AggregationTypeName

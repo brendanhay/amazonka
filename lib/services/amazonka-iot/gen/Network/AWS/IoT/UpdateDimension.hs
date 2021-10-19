@@ -41,11 +41,11 @@ module Network.AWS.IoT.UpdateDimension
 
     -- * Response Lenses
     updateDimensionResponse_lastModifiedDate,
-    updateDimensionResponse_creationDate,
     updateDimensionResponse_arn,
-    updateDimensionResponse_name,
-    updateDimensionResponse_type,
     updateDimensionResponse_stringValues,
+    updateDimensionResponse_name,
+    updateDimensionResponse_creationDate,
+    updateDimensionResponse_type,
     updateDimensionResponse_httpStatus,
   )
 where
@@ -92,7 +92,7 @@ newUpdateDimension ::
 newUpdateDimension pName_ pStringValues_ =
   UpdateDimension'
     { name = pName_,
-      stringValues = Lens._Coerce Lens.# pStringValues_
+      stringValues = Lens.coerced Lens.# pStringValues_
     }
 
 -- | A unique identifier for the dimension. Choose something that describes
@@ -104,7 +104,7 @@ updateDimension_name = Lens.lens (\UpdateDimension' {name} -> name) (\s@UpdateDi
 -- @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT
 -- topic (for example, \"admin\/#\").
 updateDimension_stringValues :: Lens.Lens' UpdateDimension (Prelude.NonEmpty Prelude.Text)
-updateDimension_stringValues = Lens.lens (\UpdateDimension' {stringValues} -> stringValues) (\s@UpdateDimension' {} a -> s {stringValues = a} :: UpdateDimension) Prelude.. Lens._Coerce
+updateDimension_stringValues = Lens.lens (\UpdateDimension' {stringValues} -> stringValues) (\s@UpdateDimension' {} a -> s {stringValues = a} :: UpdateDimension) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateDimension where
   type
@@ -116,11 +116,11 @@ instance Core.AWSRequest UpdateDimension where
       ( \s h x ->
           UpdateDimensionResponse'
             Prelude.<$> (x Core..?> "lastModifiedDate")
-            Prelude.<*> (x Core..?> "creationDate")
             Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "type")
             Prelude.<*> (x Core..?> "stringValues")
+            Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "creationDate")
+            Prelude.<*> (x Core..?> "type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,19 +150,19 @@ data UpdateDimensionResponse = UpdateDimensionResponse'
   { -- | The date and time, in milliseconds since epoch, when the dimension was
     -- most recently updated.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | The date and time, in milliseconds since epoch, when the dimension was
-    -- initially created.
-    creationDate :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN)of the created dimension.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the dimension.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The type of the dimension.
-    type' :: Prelude.Maybe DimensionType,
     -- | The value or list of values used to scope the dimension. For example,
     -- for topic filters, this is the pattern used to match the MQTT topic
     -- name.
     stringValues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | A unique identifier for the dimension.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, in milliseconds since epoch, when the dimension was
+    -- initially created.
+    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The type of the dimension.
+    type' :: Prelude.Maybe DimensionType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,18 +179,18 @@ data UpdateDimensionResponse = UpdateDimensionResponse'
 -- 'lastModifiedDate', 'updateDimensionResponse_lastModifiedDate' - The date and time, in milliseconds since epoch, when the dimension was
 -- most recently updated.
 --
--- 'creationDate', 'updateDimensionResponse_creationDate' - The date and time, in milliseconds since epoch, when the dimension was
--- initially created.
---
 -- 'arn', 'updateDimensionResponse_arn' - The Amazon Resource Name (ARN)of the created dimension.
---
--- 'name', 'updateDimensionResponse_name' - A unique identifier for the dimension.
---
--- 'type'', 'updateDimensionResponse_type' - The type of the dimension.
 --
 -- 'stringValues', 'updateDimensionResponse_stringValues' - The value or list of values used to scope the dimension. For example,
 -- for topic filters, this is the pattern used to match the MQTT topic
 -- name.
+--
+-- 'name', 'updateDimensionResponse_name' - A unique identifier for the dimension.
+--
+-- 'creationDate', 'updateDimensionResponse_creationDate' - The date and time, in milliseconds since epoch, when the dimension was
+-- initially created.
+--
+-- 'type'', 'updateDimensionResponse_type' - The type of the dimension.
 --
 -- 'httpStatus', 'updateDimensionResponse_httpStatus' - The response's http status code.
 newUpdateDimensionResponse ::
@@ -201,11 +201,11 @@ newUpdateDimensionResponse pHttpStatus_ =
   UpdateDimensionResponse'
     { lastModifiedDate =
         Prelude.Nothing,
-      creationDate = Prelude.Nothing,
       arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      type' = Prelude.Nothing,
       stringValues = Prelude.Nothing,
+      name = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      type' = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -214,28 +214,28 @@ newUpdateDimensionResponse pHttpStatus_ =
 updateDimensionResponse_lastModifiedDate :: Lens.Lens' UpdateDimensionResponse (Prelude.Maybe Prelude.UTCTime)
 updateDimensionResponse_lastModifiedDate = Lens.lens (\UpdateDimensionResponse' {lastModifiedDate} -> lastModifiedDate) (\s@UpdateDimensionResponse' {} a -> s {lastModifiedDate = a} :: UpdateDimensionResponse) Prelude.. Lens.mapping Core._Time
 
--- | The date and time, in milliseconds since epoch, when the dimension was
--- initially created.
-updateDimensionResponse_creationDate :: Lens.Lens' UpdateDimensionResponse (Prelude.Maybe Prelude.UTCTime)
-updateDimensionResponse_creationDate = Lens.lens (\UpdateDimensionResponse' {creationDate} -> creationDate) (\s@UpdateDimensionResponse' {} a -> s {creationDate = a} :: UpdateDimensionResponse) Prelude.. Lens.mapping Core._Time
-
 -- | The Amazon Resource Name (ARN)of the created dimension.
 updateDimensionResponse_arn :: Lens.Lens' UpdateDimensionResponse (Prelude.Maybe Prelude.Text)
 updateDimensionResponse_arn = Lens.lens (\UpdateDimensionResponse' {arn} -> arn) (\s@UpdateDimensionResponse' {} a -> s {arn = a} :: UpdateDimensionResponse)
-
--- | A unique identifier for the dimension.
-updateDimensionResponse_name :: Lens.Lens' UpdateDimensionResponse (Prelude.Maybe Prelude.Text)
-updateDimensionResponse_name = Lens.lens (\UpdateDimensionResponse' {name} -> name) (\s@UpdateDimensionResponse' {} a -> s {name = a} :: UpdateDimensionResponse)
-
--- | The type of the dimension.
-updateDimensionResponse_type :: Lens.Lens' UpdateDimensionResponse (Prelude.Maybe DimensionType)
-updateDimensionResponse_type = Lens.lens (\UpdateDimensionResponse' {type'} -> type') (\s@UpdateDimensionResponse' {} a -> s {type' = a} :: UpdateDimensionResponse)
 
 -- | The value or list of values used to scope the dimension. For example,
 -- for topic filters, this is the pattern used to match the MQTT topic
 -- name.
 updateDimensionResponse_stringValues :: Lens.Lens' UpdateDimensionResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateDimensionResponse_stringValues = Lens.lens (\UpdateDimensionResponse' {stringValues} -> stringValues) (\s@UpdateDimensionResponse' {} a -> s {stringValues = a} :: UpdateDimensionResponse) Prelude.. Lens.mapping Lens._Coerce
+updateDimensionResponse_stringValues = Lens.lens (\UpdateDimensionResponse' {stringValues} -> stringValues) (\s@UpdateDimensionResponse' {} a -> s {stringValues = a} :: UpdateDimensionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A unique identifier for the dimension.
+updateDimensionResponse_name :: Lens.Lens' UpdateDimensionResponse (Prelude.Maybe Prelude.Text)
+updateDimensionResponse_name = Lens.lens (\UpdateDimensionResponse' {name} -> name) (\s@UpdateDimensionResponse' {} a -> s {name = a} :: UpdateDimensionResponse)
+
+-- | The date and time, in milliseconds since epoch, when the dimension was
+-- initially created.
+updateDimensionResponse_creationDate :: Lens.Lens' UpdateDimensionResponse (Prelude.Maybe Prelude.UTCTime)
+updateDimensionResponse_creationDate = Lens.lens (\UpdateDimensionResponse' {creationDate} -> creationDate) (\s@UpdateDimensionResponse' {} a -> s {creationDate = a} :: UpdateDimensionResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The type of the dimension.
+updateDimensionResponse_type :: Lens.Lens' UpdateDimensionResponse (Prelude.Maybe DimensionType)
+updateDimensionResponse_type = Lens.lens (\UpdateDimensionResponse' {type'} -> type') (\s@UpdateDimensionResponse' {} a -> s {type' = a} :: UpdateDimensionResponse)
 
 -- | The response's http status code.
 updateDimensionResponse_httpStatus :: Lens.Lens' UpdateDimensionResponse Prelude.Int

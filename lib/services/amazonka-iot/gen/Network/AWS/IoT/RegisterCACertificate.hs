@@ -38,10 +38,10 @@ module Network.AWS.IoT.RegisterCACertificate
     newRegisterCACertificate,
 
     -- * Request Lenses
-    registerCACertificate_allowAutoRegistration,
     registerCACertificate_setAsActive,
-    registerCACertificate_tags,
+    registerCACertificate_allowAutoRegistration,
     registerCACertificate_registrationConfig,
+    registerCACertificate_tags,
     registerCACertificate_caCertificate,
     registerCACertificate_verificationCertificate,
 
@@ -67,11 +67,13 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newRegisterCACertificate' smart constructor.
 data RegisterCACertificate = RegisterCACertificate'
-  { -- | Allows this CA certificate to be used for auto registration of device
+  { -- | A boolean value that specifies if the CA certificate is set to active.
+    setAsActive :: Prelude.Maybe Prelude.Bool,
+    -- | Allows this CA certificate to be used for auto registration of device
     -- certificates.
     allowAutoRegistration :: Prelude.Maybe Prelude.Bool,
-    -- | A boolean value that specifies if the CA certificate is set to active.
-    setAsActive :: Prelude.Maybe Prelude.Bool,
+    -- | Information about the registration configuration.
+    registrationConfig :: Prelude.Maybe RegistrationConfig,
     -- | Metadata which can be used to manage the CA certificate.
     --
     -- For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -82,8 +84,6 @@ data RegisterCACertificate = RegisterCACertificate'
     -- For the cli-input-json file use format: \"tags\":
     -- \"key1=value1&key2=value2...\"
     tags :: Prelude.Maybe [Tag],
-    -- | Information about the registration configuration.
-    registrationConfig :: Prelude.Maybe RegistrationConfig,
     -- | The CA certificate.
     caCertificate :: Prelude.Text,
     -- | The private key verification certificate.
@@ -99,10 +99,12 @@ data RegisterCACertificate = RegisterCACertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'setAsActive', 'registerCACertificate_setAsActive' - A boolean value that specifies if the CA certificate is set to active.
+--
 -- 'allowAutoRegistration', 'registerCACertificate_allowAutoRegistration' - Allows this CA certificate to be used for auto registration of device
 -- certificates.
 --
--- 'setAsActive', 'registerCACertificate_setAsActive' - A boolean value that specifies if the CA certificate is set to active.
+-- 'registrationConfig', 'registerCACertificate_registrationConfig' - Information about the registration configuration.
 --
 -- 'tags', 'registerCACertificate_tags' - Metadata which can be used to manage the CA certificate.
 --
@@ -113,8 +115,6 @@ data RegisterCACertificate = RegisterCACertificate'
 --
 -- For the cli-input-json file use format: \"tags\":
 -- \"key1=value1&key2=value2...\"
---
--- 'registrationConfig', 'registerCACertificate_registrationConfig' - Information about the registration configuration.
 --
 -- 'caCertificate', 'registerCACertificate_caCertificate' - The CA certificate.
 --
@@ -129,23 +129,27 @@ newRegisterCACertificate
   pCaCertificate_
   pVerificationCertificate_ =
     RegisterCACertificate'
-      { allowAutoRegistration =
+      { setAsActive =
           Prelude.Nothing,
-        setAsActive = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        allowAutoRegistration = Prelude.Nothing,
         registrationConfig = Prelude.Nothing,
+        tags = Prelude.Nothing,
         caCertificate = pCaCertificate_,
         verificationCertificate = pVerificationCertificate_
       }
+
+-- | A boolean value that specifies if the CA certificate is set to active.
+registerCACertificate_setAsActive :: Lens.Lens' RegisterCACertificate (Prelude.Maybe Prelude.Bool)
+registerCACertificate_setAsActive = Lens.lens (\RegisterCACertificate' {setAsActive} -> setAsActive) (\s@RegisterCACertificate' {} a -> s {setAsActive = a} :: RegisterCACertificate)
 
 -- | Allows this CA certificate to be used for auto registration of device
 -- certificates.
 registerCACertificate_allowAutoRegistration :: Lens.Lens' RegisterCACertificate (Prelude.Maybe Prelude.Bool)
 registerCACertificate_allowAutoRegistration = Lens.lens (\RegisterCACertificate' {allowAutoRegistration} -> allowAutoRegistration) (\s@RegisterCACertificate' {} a -> s {allowAutoRegistration = a} :: RegisterCACertificate)
 
--- | A boolean value that specifies if the CA certificate is set to active.
-registerCACertificate_setAsActive :: Lens.Lens' RegisterCACertificate (Prelude.Maybe Prelude.Bool)
-registerCACertificate_setAsActive = Lens.lens (\RegisterCACertificate' {setAsActive} -> setAsActive) (\s@RegisterCACertificate' {} a -> s {setAsActive = a} :: RegisterCACertificate)
+-- | Information about the registration configuration.
+registerCACertificate_registrationConfig :: Lens.Lens' RegisterCACertificate (Prelude.Maybe RegistrationConfig)
+registerCACertificate_registrationConfig = Lens.lens (\RegisterCACertificate' {registrationConfig} -> registrationConfig) (\s@RegisterCACertificate' {} a -> s {registrationConfig = a} :: RegisterCACertificate)
 
 -- | Metadata which can be used to manage the CA certificate.
 --
@@ -157,11 +161,7 @@ registerCACertificate_setAsActive = Lens.lens (\RegisterCACertificate' {setAsAct
 -- For the cli-input-json file use format: \"tags\":
 -- \"key1=value1&key2=value2...\"
 registerCACertificate_tags :: Lens.Lens' RegisterCACertificate (Prelude.Maybe [Tag])
-registerCACertificate_tags = Lens.lens (\RegisterCACertificate' {tags} -> tags) (\s@RegisterCACertificate' {} a -> s {tags = a} :: RegisterCACertificate) Prelude.. Lens.mapping Lens._Coerce
-
--- | Information about the registration configuration.
-registerCACertificate_registrationConfig :: Lens.Lens' RegisterCACertificate (Prelude.Maybe RegistrationConfig)
-registerCACertificate_registrationConfig = Lens.lens (\RegisterCACertificate' {registrationConfig} -> registrationConfig) (\s@RegisterCACertificate' {} a -> s {registrationConfig = a} :: RegisterCACertificate)
+registerCACertificate_tags = Lens.lens (\RegisterCACertificate' {tags} -> tags) (\s@RegisterCACertificate' {} a -> s {tags = a} :: RegisterCACertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The CA certificate.
 registerCACertificate_caCertificate :: Lens.Lens' RegisterCACertificate Prelude.Text
@@ -196,9 +196,9 @@ instance Core.ToJSON RegisterCACertificate where
   toJSON RegisterCACertificate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("registrationConfig" Core..=)
+          [ ("registrationConfig" Core..=)
               Prelude.<$> registrationConfig,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("caCertificate" Core..= caCertificate),
             Prelude.Just
               ( "verificationCertificate"
@@ -213,9 +213,9 @@ instance Core.ToPath RegisterCACertificate where
 instance Core.ToQuery RegisterCACertificate where
   toQuery RegisterCACertificate' {..} =
     Prelude.mconcat
-      [ "allowAutoRegistration"
-          Core.=: allowAutoRegistration,
-        "setAsActive" Core.=: setAsActive
+      [ "setAsActive" Core.=: setAsActive,
+        "allowAutoRegistration"
+          Core.=: allowAutoRegistration
       ]
 
 -- | The output from the RegisterCACertificateResponse operation.

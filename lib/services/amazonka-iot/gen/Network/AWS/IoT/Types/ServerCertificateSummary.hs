@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newServerCertificateSummary' smart constructor.
 data ServerCertificateSummary = ServerCertificateSummary'
-  { -- | The status of the server certificate.
-    serverCertificateStatus :: Prelude.Maybe ServerCertificateStatus,
-    -- | Details that explain the status of the server certificate.
+  { -- | Details that explain the status of the server certificate.
     serverCertificateStatusDetail :: Prelude.Maybe Prelude.Text,
+    -- | The status of the server certificate.
+    serverCertificateStatus :: Prelude.Maybe ServerCertificateStatus,
     -- | The ARN of the server certificate.
     serverCertificateArn :: Prelude.Maybe Prelude.Text
   }
@@ -45,28 +45,28 @@ data ServerCertificateSummary = ServerCertificateSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverCertificateStatus', 'serverCertificateSummary_serverCertificateStatus' - The status of the server certificate.
---
 -- 'serverCertificateStatusDetail', 'serverCertificateSummary_serverCertificateStatusDetail' - Details that explain the status of the server certificate.
+--
+-- 'serverCertificateStatus', 'serverCertificateSummary_serverCertificateStatus' - The status of the server certificate.
 --
 -- 'serverCertificateArn', 'serverCertificateSummary_serverCertificateArn' - The ARN of the server certificate.
 newServerCertificateSummary ::
   ServerCertificateSummary
 newServerCertificateSummary =
   ServerCertificateSummary'
-    { serverCertificateStatus =
+    { serverCertificateStatusDetail =
         Prelude.Nothing,
-      serverCertificateStatusDetail = Prelude.Nothing,
+      serverCertificateStatus = Prelude.Nothing,
       serverCertificateArn = Prelude.Nothing
     }
-
--- | The status of the server certificate.
-serverCertificateSummary_serverCertificateStatus :: Lens.Lens' ServerCertificateSummary (Prelude.Maybe ServerCertificateStatus)
-serverCertificateSummary_serverCertificateStatus = Lens.lens (\ServerCertificateSummary' {serverCertificateStatus} -> serverCertificateStatus) (\s@ServerCertificateSummary' {} a -> s {serverCertificateStatus = a} :: ServerCertificateSummary)
 
 -- | Details that explain the status of the server certificate.
 serverCertificateSummary_serverCertificateStatusDetail :: Lens.Lens' ServerCertificateSummary (Prelude.Maybe Prelude.Text)
 serverCertificateSummary_serverCertificateStatusDetail = Lens.lens (\ServerCertificateSummary' {serverCertificateStatusDetail} -> serverCertificateStatusDetail) (\s@ServerCertificateSummary' {} a -> s {serverCertificateStatusDetail = a} :: ServerCertificateSummary)
+
+-- | The status of the server certificate.
+serverCertificateSummary_serverCertificateStatus :: Lens.Lens' ServerCertificateSummary (Prelude.Maybe ServerCertificateStatus)
+serverCertificateSummary_serverCertificateStatus = Lens.lens (\ServerCertificateSummary' {serverCertificateStatus} -> serverCertificateStatus) (\s@ServerCertificateSummary' {} a -> s {serverCertificateStatus = a} :: ServerCertificateSummary)
 
 -- | The ARN of the server certificate.
 serverCertificateSummary_serverCertificateArn :: Lens.Lens' ServerCertificateSummary (Prelude.Maybe Prelude.Text)
@@ -78,8 +78,8 @@ instance Core.FromJSON ServerCertificateSummary where
       "ServerCertificateSummary"
       ( \x ->
           ServerCertificateSummary'
-            Prelude.<$> (x Core..:? "serverCertificateStatus")
-            Prelude.<*> (x Core..:? "serverCertificateStatusDetail")
+            Prelude.<$> (x Core..:? "serverCertificateStatusDetail")
+            Prelude.<*> (x Core..:? "serverCertificateStatus")
             Prelude.<*> (x Core..:? "serverCertificateArn")
       )
 

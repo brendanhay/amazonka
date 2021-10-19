@@ -122,13 +122,13 @@ newCreateDimension
       { tags = Prelude.Nothing,
         name = pName_,
         type' = pType_,
-        stringValues = Lens._Coerce Lens.# pStringValues_,
+        stringValues = Lens.coerced Lens.# pStringValues_,
         clientRequestToken = pClientRequestToken_
       }
 
 -- | Metadata that can be used to manage the dimension.
 createDimension_tags :: Lens.Lens' CreateDimension (Prelude.Maybe [Tag])
-createDimension_tags = Lens.lens (\CreateDimension' {tags} -> tags) (\s@CreateDimension' {} a -> s {tags = a} :: CreateDimension) Prelude.. Lens.mapping Lens._Coerce
+createDimension_tags = Lens.lens (\CreateDimension' {tags} -> tags) (\s@CreateDimension' {} a -> s {tags = a} :: CreateDimension) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for the dimension. Choose something that describes
 -- the type and value to make it easy to remember what it does.
@@ -143,7 +143,7 @@ createDimension_type = Lens.lens (\CreateDimension' {type'} -> type') (\s@Create
 -- @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT
 -- topic (for example, \"admin\/#\").
 createDimension_stringValues :: Lens.Lens' CreateDimension (Prelude.NonEmpty Prelude.Text)
-createDimension_stringValues = Lens.lens (\CreateDimension' {stringValues} -> stringValues) (\s@CreateDimension' {} a -> s {stringValues = a} :: CreateDimension) Prelude.. Lens._Coerce
+createDimension_stringValues = Lens.lens (\CreateDimension' {stringValues} -> stringValues) (\s@CreateDimension' {} a -> s {stringValues = a} :: CreateDimension) Prelude.. Lens.coerced
 
 -- | Each dimension must have a unique client request token. If you try to
 -- create a new dimension with the same token as a dimension that already

@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAuditMitigationActionsTaskMetadata' smart constructor.
 data AuditMitigationActionsTaskMetadata = AuditMitigationActionsTaskMetadata'
-  { -- | The unique identifier for the task.
-    taskId :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the audit mitigation actions task was started.
+  { -- | The time at which the audit mitigation actions task was started.
     startTime :: Prelude.Maybe Core.POSIX,
+    -- | The unique identifier for the task.
+    taskId :: Prelude.Maybe Prelude.Text,
     -- | The current state of the audit mitigation actions task.
     taskStatus :: Prelude.Maybe AuditMitigationActionsTaskStatus
   }
@@ -46,28 +46,28 @@ data AuditMitigationActionsTaskMetadata = AuditMitigationActionsTaskMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'taskId', 'auditMitigationActionsTaskMetadata_taskId' - The unique identifier for the task.
---
 -- 'startTime', 'auditMitigationActionsTaskMetadata_startTime' - The time at which the audit mitigation actions task was started.
+--
+-- 'taskId', 'auditMitigationActionsTaskMetadata_taskId' - The unique identifier for the task.
 --
 -- 'taskStatus', 'auditMitigationActionsTaskMetadata_taskStatus' - The current state of the audit mitigation actions task.
 newAuditMitigationActionsTaskMetadata ::
   AuditMitigationActionsTaskMetadata
 newAuditMitigationActionsTaskMetadata =
   AuditMitigationActionsTaskMetadata'
-    { taskId =
+    { startTime =
         Prelude.Nothing,
-      startTime = Prelude.Nothing,
+      taskId = Prelude.Nothing,
       taskStatus = Prelude.Nothing
     }
-
--- | The unique identifier for the task.
-auditMitigationActionsTaskMetadata_taskId :: Lens.Lens' AuditMitigationActionsTaskMetadata (Prelude.Maybe Prelude.Text)
-auditMitigationActionsTaskMetadata_taskId = Lens.lens (\AuditMitigationActionsTaskMetadata' {taskId} -> taskId) (\s@AuditMitigationActionsTaskMetadata' {} a -> s {taskId = a} :: AuditMitigationActionsTaskMetadata)
 
 -- | The time at which the audit mitigation actions task was started.
 auditMitigationActionsTaskMetadata_startTime :: Lens.Lens' AuditMitigationActionsTaskMetadata (Prelude.Maybe Prelude.UTCTime)
 auditMitigationActionsTaskMetadata_startTime = Lens.lens (\AuditMitigationActionsTaskMetadata' {startTime} -> startTime) (\s@AuditMitigationActionsTaskMetadata' {} a -> s {startTime = a} :: AuditMitigationActionsTaskMetadata) Prelude.. Lens.mapping Core._Time
+
+-- | The unique identifier for the task.
+auditMitigationActionsTaskMetadata_taskId :: Lens.Lens' AuditMitigationActionsTaskMetadata (Prelude.Maybe Prelude.Text)
+auditMitigationActionsTaskMetadata_taskId = Lens.lens (\AuditMitigationActionsTaskMetadata' {taskId} -> taskId) (\s@AuditMitigationActionsTaskMetadata' {} a -> s {taskId = a} :: AuditMitigationActionsTaskMetadata)
 
 -- | The current state of the audit mitigation actions task.
 auditMitigationActionsTaskMetadata_taskStatus :: Lens.Lens' AuditMitigationActionsTaskMetadata (Prelude.Maybe AuditMitigationActionsTaskStatus)
@@ -82,8 +82,8 @@ instance
       "AuditMitigationActionsTaskMetadata"
       ( \x ->
           AuditMitigationActionsTaskMetadata'
-            Prelude.<$> (x Core..:? "taskId")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Core..:? "startTime")
+            Prelude.<*> (x Core..:? "taskId")
             Prelude.<*> (x Core..:? "taskStatus")
       )
 

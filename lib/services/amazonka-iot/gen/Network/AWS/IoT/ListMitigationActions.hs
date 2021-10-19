@@ -43,8 +43,8 @@ module Network.AWS.IoT.ListMitigationActions
     newListMitigationActionsResponse,
 
     -- * Response Lenses
-    listMitigationActionsResponse_nextToken,
     listMitigationActionsResponse_actionIdentifiers,
+    listMitigationActionsResponse_nextToken,
     listMitigationActionsResponse_httpStatus,
   )
 where
@@ -135,10 +135,10 @@ instance Core.AWSRequest ListMitigationActions where
     Response.receiveJSON
       ( \s h x ->
           ListMitigationActionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "actionIdentifiers"
+            Prelude.<$> ( x Core..?> "actionIdentifiers"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,10 +162,10 @@ instance Core.ToQuery ListMitigationActions where
 
 -- | /See:/ 'newListMitigationActionsResponse' smart constructor.
 data ListMitigationActionsResponse = ListMitigationActionsResponse'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A set of actions that matched the specified filter criteria.
+  { -- | A set of actions that matched the specified filter criteria.
     actionIdentifiers :: Prelude.Maybe [MitigationActionIdentifier],
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,9 +179,9 @@ data ListMitigationActionsResponse = ListMitigationActionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMitigationActionsResponse_nextToken' - The token for the next set of results.
---
 -- 'actionIdentifiers', 'listMitigationActionsResponse_actionIdentifiers' - A set of actions that matched the specified filter criteria.
+--
+-- 'nextToken', 'listMitigationActionsResponse_nextToken' - The token for the next set of results.
 --
 -- 'httpStatus', 'listMitigationActionsResponse_httpStatus' - The response's http status code.
 newListMitigationActionsResponse ::
@@ -190,19 +190,19 @@ newListMitigationActionsResponse ::
   ListMitigationActionsResponse
 newListMitigationActionsResponse pHttpStatus_ =
   ListMitigationActionsResponse'
-    { nextToken =
+    { actionIdentifiers =
         Prelude.Nothing,
-      actionIdentifiers = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A set of actions that matched the specified filter criteria.
+listMitigationActionsResponse_actionIdentifiers :: Lens.Lens' ListMitigationActionsResponse (Prelude.Maybe [MitigationActionIdentifier])
+listMitigationActionsResponse_actionIdentifiers = Lens.lens (\ListMitigationActionsResponse' {actionIdentifiers} -> actionIdentifiers) (\s@ListMitigationActionsResponse' {} a -> s {actionIdentifiers = a} :: ListMitigationActionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results.
 listMitigationActionsResponse_nextToken :: Lens.Lens' ListMitigationActionsResponse (Prelude.Maybe Prelude.Text)
 listMitigationActionsResponse_nextToken = Lens.lens (\ListMitigationActionsResponse' {nextToken} -> nextToken) (\s@ListMitigationActionsResponse' {} a -> s {nextToken = a} :: ListMitigationActionsResponse)
-
--- | A set of actions that matched the specified filter criteria.
-listMitigationActionsResponse_actionIdentifiers :: Lens.Lens' ListMitigationActionsResponse (Prelude.Maybe [MitigationActionIdentifier])
-listMitigationActionsResponse_actionIdentifiers = Lens.lens (\ListMitigationActionsResponse' {actionIdentifiers} -> actionIdentifiers) (\s@ListMitigationActionsResponse' {} a -> s {actionIdentifiers = a} :: ListMitigationActionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listMitigationActionsResponse_httpStatus :: Lens.Lens' ListMitigationActionsResponse Prelude.Int

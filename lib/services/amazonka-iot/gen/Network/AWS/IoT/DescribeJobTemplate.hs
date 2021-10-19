@@ -35,15 +35,15 @@ module Network.AWS.IoT.DescribeJobTemplate
 
     -- * Response Lenses
     describeJobTemplateResponse_jobExecutionsRolloutConfig,
-    describeJobTemplateResponse_timeoutConfig,
-    describeJobTemplateResponse_createdAt,
-    describeJobTemplateResponse_jobTemplateId,
     describeJobTemplateResponse_documentSource,
-    describeJobTemplateResponse_document,
-    describeJobTemplateResponse_presignedUrlConfig,
-    describeJobTemplateResponse_description,
+    describeJobTemplateResponse_createdAt,
     describeJobTemplateResponse_abortConfig,
+    describeJobTemplateResponse_presignedUrlConfig,
+    describeJobTemplateResponse_document,
+    describeJobTemplateResponse_jobTemplateId,
     describeJobTemplateResponse_jobTemplateArn,
+    describeJobTemplateResponse_description,
+    describeJobTemplateResponse_timeoutConfig,
     describeJobTemplateResponse_httpStatus,
   )
 where
@@ -95,15 +95,15 @@ instance Core.AWSRequest DescribeJobTemplate where
       ( \s h x ->
           DescribeJobTemplateResponse'
             Prelude.<$> (x Core..?> "jobExecutionsRolloutConfig")
-            Prelude.<*> (x Core..?> "timeoutConfig")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "jobTemplateId")
             Prelude.<*> (x Core..?> "documentSource")
-            Prelude.<*> (x Core..?> "document")
-            Prelude.<*> (x Core..?> "presignedUrlConfig")
-            Prelude.<*> (x Core..?> "description")
+            Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (x Core..?> "abortConfig")
+            Prelude.<*> (x Core..?> "presignedUrlConfig")
+            Prelude.<*> (x Core..?> "document")
+            Prelude.<*> (x Core..?> "jobTemplateId")
             Prelude.<*> (x Core..?> "jobTemplateArn")
+            Prelude.<*> (x Core..?> "description")
+            Prelude.<*> (x Core..?> "timeoutConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,21 +125,21 @@ instance Core.ToQuery DescribeJobTemplate where
 -- | /See:/ 'newDescribeJobTemplateResponse' smart constructor.
 data DescribeJobTemplateResponse = DescribeJobTemplateResponse'
   { jobExecutionsRolloutConfig :: Prelude.Maybe JobExecutionsRolloutConfig,
-    timeoutConfig :: Prelude.Maybe TimeoutConfig,
-    -- | The time, in seconds since the epoch, when the job template was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The unique identifier of the job template.
-    jobTemplateId :: Prelude.Maybe Prelude.Text,
     -- | An S3 link to the job document.
     documentSource :: Prelude.Maybe Prelude.Text,
+    -- | The time, in seconds since the epoch, when the job template was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
+    abortConfig :: Prelude.Maybe AbortConfig,
+    presignedUrlConfig :: Prelude.Maybe PresignedUrlConfig,
     -- | The job document.
     document :: Prelude.Maybe Prelude.Text,
-    presignedUrlConfig :: Prelude.Maybe PresignedUrlConfig,
-    -- | A description of the job template.
-    description :: Prelude.Maybe Prelude.Text,
-    abortConfig :: Prelude.Maybe AbortConfig,
+    -- | The unique identifier of the job template.
+    jobTemplateId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the job template.
     jobTemplateArn :: Prelude.Maybe Prelude.Text,
+    -- | A description of the job template.
+    description :: Prelude.Maybe Prelude.Text,
+    timeoutConfig :: Prelude.Maybe TimeoutConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -155,23 +155,23 @@ data DescribeJobTemplateResponse = DescribeJobTemplateResponse'
 --
 -- 'jobExecutionsRolloutConfig', 'describeJobTemplateResponse_jobExecutionsRolloutConfig' - Undocumented member.
 --
--- 'timeoutConfig', 'describeJobTemplateResponse_timeoutConfig' - Undocumented member.
+-- 'documentSource', 'describeJobTemplateResponse_documentSource' - An S3 link to the job document.
 --
 -- 'createdAt', 'describeJobTemplateResponse_createdAt' - The time, in seconds since the epoch, when the job template was created.
 --
--- 'jobTemplateId', 'describeJobTemplateResponse_jobTemplateId' - The unique identifier of the job template.
---
--- 'documentSource', 'describeJobTemplateResponse_documentSource' - An S3 link to the job document.
---
--- 'document', 'describeJobTemplateResponse_document' - The job document.
+-- 'abortConfig', 'describeJobTemplateResponse_abortConfig' - Undocumented member.
 --
 -- 'presignedUrlConfig', 'describeJobTemplateResponse_presignedUrlConfig' - Undocumented member.
 --
--- 'description', 'describeJobTemplateResponse_description' - A description of the job template.
+-- 'document', 'describeJobTemplateResponse_document' - The job document.
 --
--- 'abortConfig', 'describeJobTemplateResponse_abortConfig' - Undocumented member.
+-- 'jobTemplateId', 'describeJobTemplateResponse_jobTemplateId' - The unique identifier of the job template.
 --
 -- 'jobTemplateArn', 'describeJobTemplateResponse_jobTemplateArn' - The ARN of the job template.
+--
+-- 'description', 'describeJobTemplateResponse_description' - A description of the job template.
+--
+-- 'timeoutConfig', 'describeJobTemplateResponse_timeoutConfig' - Undocumented member.
 --
 -- 'httpStatus', 'describeJobTemplateResponse_httpStatus' - The response's http status code.
 newDescribeJobTemplateResponse ::
@@ -182,15 +182,15 @@ newDescribeJobTemplateResponse pHttpStatus_ =
   DescribeJobTemplateResponse'
     { jobExecutionsRolloutConfig =
         Prelude.Nothing,
-      timeoutConfig = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      jobTemplateId = Prelude.Nothing,
       documentSource = Prelude.Nothing,
-      document = Prelude.Nothing,
-      presignedUrlConfig = Prelude.Nothing,
-      description = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       abortConfig = Prelude.Nothing,
+      presignedUrlConfig = Prelude.Nothing,
+      document = Prelude.Nothing,
+      jobTemplateId = Prelude.Nothing,
       jobTemplateArn = Prelude.Nothing,
+      description = Prelude.Nothing,
+      timeoutConfig = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -198,41 +198,41 @@ newDescribeJobTemplateResponse pHttpStatus_ =
 describeJobTemplateResponse_jobExecutionsRolloutConfig :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe JobExecutionsRolloutConfig)
 describeJobTemplateResponse_jobExecutionsRolloutConfig = Lens.lens (\DescribeJobTemplateResponse' {jobExecutionsRolloutConfig} -> jobExecutionsRolloutConfig) (\s@DescribeJobTemplateResponse' {} a -> s {jobExecutionsRolloutConfig = a} :: DescribeJobTemplateResponse)
 
--- | Undocumented member.
-describeJobTemplateResponse_timeoutConfig :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe TimeoutConfig)
-describeJobTemplateResponse_timeoutConfig = Lens.lens (\DescribeJobTemplateResponse' {timeoutConfig} -> timeoutConfig) (\s@DescribeJobTemplateResponse' {} a -> s {timeoutConfig = a} :: DescribeJobTemplateResponse)
+-- | An S3 link to the job document.
+describeJobTemplateResponse_documentSource :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe Prelude.Text)
+describeJobTemplateResponse_documentSource = Lens.lens (\DescribeJobTemplateResponse' {documentSource} -> documentSource) (\s@DescribeJobTemplateResponse' {} a -> s {documentSource = a} :: DescribeJobTemplateResponse)
 
 -- | The time, in seconds since the epoch, when the job template was created.
 describeJobTemplateResponse_createdAt :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe Prelude.UTCTime)
 describeJobTemplateResponse_createdAt = Lens.lens (\DescribeJobTemplateResponse' {createdAt} -> createdAt) (\s@DescribeJobTemplateResponse' {} a -> s {createdAt = a} :: DescribeJobTemplateResponse) Prelude.. Lens.mapping Core._Time
 
--- | The unique identifier of the job template.
-describeJobTemplateResponse_jobTemplateId :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe Prelude.Text)
-describeJobTemplateResponse_jobTemplateId = Lens.lens (\DescribeJobTemplateResponse' {jobTemplateId} -> jobTemplateId) (\s@DescribeJobTemplateResponse' {} a -> s {jobTemplateId = a} :: DescribeJobTemplateResponse)
+-- | Undocumented member.
+describeJobTemplateResponse_abortConfig :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe AbortConfig)
+describeJobTemplateResponse_abortConfig = Lens.lens (\DescribeJobTemplateResponse' {abortConfig} -> abortConfig) (\s@DescribeJobTemplateResponse' {} a -> s {abortConfig = a} :: DescribeJobTemplateResponse)
 
--- | An S3 link to the job document.
-describeJobTemplateResponse_documentSource :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe Prelude.Text)
-describeJobTemplateResponse_documentSource = Lens.lens (\DescribeJobTemplateResponse' {documentSource} -> documentSource) (\s@DescribeJobTemplateResponse' {} a -> s {documentSource = a} :: DescribeJobTemplateResponse)
+-- | Undocumented member.
+describeJobTemplateResponse_presignedUrlConfig :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe PresignedUrlConfig)
+describeJobTemplateResponse_presignedUrlConfig = Lens.lens (\DescribeJobTemplateResponse' {presignedUrlConfig} -> presignedUrlConfig) (\s@DescribeJobTemplateResponse' {} a -> s {presignedUrlConfig = a} :: DescribeJobTemplateResponse)
 
 -- | The job document.
 describeJobTemplateResponse_document :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe Prelude.Text)
 describeJobTemplateResponse_document = Lens.lens (\DescribeJobTemplateResponse' {document} -> document) (\s@DescribeJobTemplateResponse' {} a -> s {document = a} :: DescribeJobTemplateResponse)
 
--- | Undocumented member.
-describeJobTemplateResponse_presignedUrlConfig :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe PresignedUrlConfig)
-describeJobTemplateResponse_presignedUrlConfig = Lens.lens (\DescribeJobTemplateResponse' {presignedUrlConfig} -> presignedUrlConfig) (\s@DescribeJobTemplateResponse' {} a -> s {presignedUrlConfig = a} :: DescribeJobTemplateResponse)
+-- | The unique identifier of the job template.
+describeJobTemplateResponse_jobTemplateId :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe Prelude.Text)
+describeJobTemplateResponse_jobTemplateId = Lens.lens (\DescribeJobTemplateResponse' {jobTemplateId} -> jobTemplateId) (\s@DescribeJobTemplateResponse' {} a -> s {jobTemplateId = a} :: DescribeJobTemplateResponse)
+
+-- | The ARN of the job template.
+describeJobTemplateResponse_jobTemplateArn :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe Prelude.Text)
+describeJobTemplateResponse_jobTemplateArn = Lens.lens (\DescribeJobTemplateResponse' {jobTemplateArn} -> jobTemplateArn) (\s@DescribeJobTemplateResponse' {} a -> s {jobTemplateArn = a} :: DescribeJobTemplateResponse)
 
 -- | A description of the job template.
 describeJobTemplateResponse_description :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe Prelude.Text)
 describeJobTemplateResponse_description = Lens.lens (\DescribeJobTemplateResponse' {description} -> description) (\s@DescribeJobTemplateResponse' {} a -> s {description = a} :: DescribeJobTemplateResponse)
 
 -- | Undocumented member.
-describeJobTemplateResponse_abortConfig :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe AbortConfig)
-describeJobTemplateResponse_abortConfig = Lens.lens (\DescribeJobTemplateResponse' {abortConfig} -> abortConfig) (\s@DescribeJobTemplateResponse' {} a -> s {abortConfig = a} :: DescribeJobTemplateResponse)
-
--- | The ARN of the job template.
-describeJobTemplateResponse_jobTemplateArn :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe Prelude.Text)
-describeJobTemplateResponse_jobTemplateArn = Lens.lens (\DescribeJobTemplateResponse' {jobTemplateArn} -> jobTemplateArn) (\s@DescribeJobTemplateResponse' {} a -> s {jobTemplateArn = a} :: DescribeJobTemplateResponse)
+describeJobTemplateResponse_timeoutConfig :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe TimeoutConfig)
+describeJobTemplateResponse_timeoutConfig = Lens.lens (\DescribeJobTemplateResponse' {timeoutConfig} -> timeoutConfig) (\s@DescribeJobTemplateResponse' {} a -> s {timeoutConfig = a} :: DescribeJobTemplateResponse)
 
 -- | The response's http status code.
 describeJobTemplateResponse_httpStatus :: Lens.Lens' DescribeJobTemplateResponse Prelude.Int

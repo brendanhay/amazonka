@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newErrorInfo' smart constructor.
 data ErrorInfo = ErrorInfo'
-  { -- | The error message.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The error code.
-    code :: Prelude.Maybe Prelude.Text
+  { -- | The error code.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | The error message.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data ErrorInfo = ErrorInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'errorInfo_message' - The error message.
---
 -- 'code', 'errorInfo_code' - The error code.
+--
+-- 'message', 'errorInfo_message' - The error message.
 newErrorInfo ::
   ErrorInfo
 newErrorInfo =
   ErrorInfo'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The error message.
-errorInfo_message :: Lens.Lens' ErrorInfo (Prelude.Maybe Prelude.Text)
-errorInfo_message = Lens.lens (\ErrorInfo' {message} -> message) (\s@ErrorInfo' {} a -> s {message = a} :: ErrorInfo)
 
 -- | The error code.
 errorInfo_code :: Lens.Lens' ErrorInfo (Prelude.Maybe Prelude.Text)
 errorInfo_code = Lens.lens (\ErrorInfo' {code} -> code) (\s@ErrorInfo' {} a -> s {code = a} :: ErrorInfo)
+
+-- | The error message.
+errorInfo_message :: Lens.Lens' ErrorInfo (Prelude.Maybe Prelude.Text)
+errorInfo_message = Lens.lens (\ErrorInfo' {message} -> message) (\s@ErrorInfo' {} a -> s {message = a} :: ErrorInfo)
 
 instance Core.FromJSON ErrorInfo where
   parseJSON =
@@ -67,8 +67,8 @@ instance Core.FromJSON ErrorInfo where
       "ErrorInfo"
       ( \x ->
           ErrorInfo'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Core..:? "code")
+            Prelude.<*> (x Core..:? "message")
       )
 
 instance Prelude.Hashable ErrorInfo

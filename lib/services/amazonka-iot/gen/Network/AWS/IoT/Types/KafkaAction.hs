@@ -91,7 +91,7 @@ kafkaAction_topic = Lens.lens (\KafkaAction' {topic} -> topic) (\s@KafkaAction' 
 
 -- | Properties of the Apache Kafka producer client.
 kafkaAction_clientProperties :: Lens.Lens' KafkaAction (Prelude.HashMap Prelude.Text Prelude.Text)
-kafkaAction_clientProperties = Lens.lens (\KafkaAction' {clientProperties} -> clientProperties) (\s@KafkaAction' {} a -> s {clientProperties = a} :: KafkaAction) Prelude.. Lens._Coerce
+kafkaAction_clientProperties = Lens.lens (\KafkaAction' {clientProperties} -> clientProperties) (\s@KafkaAction' {} a -> s {clientProperties = a} :: KafkaAction) Prelude.. Lens.coerced
 
 instance Core.FromJSON KafkaAction where
   parseJSON =

@@ -75,7 +75,7 @@ newUpdateEventConfigurations =
 
 -- | The new event configuration values.
 updateEventConfigurations_eventConfigurations :: Lens.Lens' UpdateEventConfigurations (Prelude.Maybe (Prelude.HashMap EventType Configuration))
-updateEventConfigurations_eventConfigurations = Lens.lens (\UpdateEventConfigurations' {eventConfigurations} -> eventConfigurations) (\s@UpdateEventConfigurations' {} a -> s {eventConfigurations = a} :: UpdateEventConfigurations) Prelude.. Lens.mapping Lens._Coerce
+updateEventConfigurations_eventConfigurations = Lens.lens (\UpdateEventConfigurations' {eventConfigurations} -> eventConfigurations) (\s@UpdateEventConfigurations' {} a -> s {eventConfigurations = a} :: UpdateEventConfigurations) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest UpdateEventConfigurations where
   type

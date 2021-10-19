@@ -51,8 +51,8 @@ module Network.AWS.IoT.CreatePolicyVersion
     -- * Response Lenses
     createPolicyVersionResponse_policyDocument,
     createPolicyVersionResponse_policyVersionId,
-    createPolicyVersionResponse_isDefaultVersion,
     createPolicyVersionResponse_policyArn,
+    createPolicyVersionResponse_isDefaultVersion,
     createPolicyVersionResponse_httpStatus,
   )
 where
@@ -139,8 +139,8 @@ instance Core.AWSRequest CreatePolicyVersion where
           CreatePolicyVersionResponse'
             Prelude.<$> (x Core..?> "policyDocument")
             Prelude.<*> (x Core..?> "policyVersionId")
-            Prelude.<*> (x Core..?> "isDefaultVersion")
             Prelude.<*> (x Core..?> "policyArn")
+            Prelude.<*> (x Core..?> "isDefaultVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,10 +178,10 @@ data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
     policyDocument :: Prelude.Maybe Prelude.Text,
     -- | The policy version ID.
     policyVersionId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the policy version is the default.
-    isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The policy ARN.
     policyArn :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the policy version is the default.
+    isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,9 +199,9 @@ data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
 --
 -- 'policyVersionId', 'createPolicyVersionResponse_policyVersionId' - The policy version ID.
 --
--- 'isDefaultVersion', 'createPolicyVersionResponse_isDefaultVersion' - Specifies whether the policy version is the default.
---
 -- 'policyArn', 'createPolicyVersionResponse_policyArn' - The policy ARN.
+--
+-- 'isDefaultVersion', 'createPolicyVersionResponse_isDefaultVersion' - Specifies whether the policy version is the default.
 --
 -- 'httpStatus', 'createPolicyVersionResponse_httpStatus' - The response's http status code.
 newCreatePolicyVersionResponse ::
@@ -213,8 +213,8 @@ newCreatePolicyVersionResponse pHttpStatus_ =
     { policyDocument =
         Prelude.Nothing,
       policyVersionId = Prelude.Nothing,
-      isDefaultVersion = Prelude.Nothing,
       policyArn = Prelude.Nothing,
+      isDefaultVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -226,13 +226,13 @@ createPolicyVersionResponse_policyDocument = Lens.lens (\CreatePolicyVersionResp
 createPolicyVersionResponse_policyVersionId :: Lens.Lens' CreatePolicyVersionResponse (Prelude.Maybe Prelude.Text)
 createPolicyVersionResponse_policyVersionId = Lens.lens (\CreatePolicyVersionResponse' {policyVersionId} -> policyVersionId) (\s@CreatePolicyVersionResponse' {} a -> s {policyVersionId = a} :: CreatePolicyVersionResponse)
 
--- | Specifies whether the policy version is the default.
-createPolicyVersionResponse_isDefaultVersion :: Lens.Lens' CreatePolicyVersionResponse (Prelude.Maybe Prelude.Bool)
-createPolicyVersionResponse_isDefaultVersion = Lens.lens (\CreatePolicyVersionResponse' {isDefaultVersion} -> isDefaultVersion) (\s@CreatePolicyVersionResponse' {} a -> s {isDefaultVersion = a} :: CreatePolicyVersionResponse)
-
 -- | The policy ARN.
 createPolicyVersionResponse_policyArn :: Lens.Lens' CreatePolicyVersionResponse (Prelude.Maybe Prelude.Text)
 createPolicyVersionResponse_policyArn = Lens.lens (\CreatePolicyVersionResponse' {policyArn} -> policyArn) (\s@CreatePolicyVersionResponse' {} a -> s {policyArn = a} :: CreatePolicyVersionResponse)
+
+-- | Specifies whether the policy version is the default.
+createPolicyVersionResponse_isDefaultVersion :: Lens.Lens' CreatePolicyVersionResponse (Prelude.Maybe Prelude.Bool)
+createPolicyVersionResponse_isDefaultVersion = Lens.lens (\CreatePolicyVersionResponse' {isDefaultVersion} -> isDefaultVersion) (\s@CreatePolicyVersionResponse' {} a -> s {isDefaultVersion = a} :: CreatePolicyVersionResponse)
 
 -- | The response's http status code.
 createPolicyVersionResponse_httpStatus :: Lens.Lens' CreatePolicyVersionResponse Prelude.Int

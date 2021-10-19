@@ -33,8 +33,8 @@ module Network.AWS.IoT.ListOTAUpdates
     newListOTAUpdates,
 
     -- * Request Lenses
-    listOTAUpdates_otaUpdateStatus,
     listOTAUpdates_nextToken,
+    listOTAUpdates_otaUpdateStatus,
     listOTAUpdates_maxResults,
 
     -- * Destructuring the Response
@@ -57,10 +57,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListOTAUpdates' smart constructor.
 data ListOTAUpdates = ListOTAUpdates'
-  { -- | The OTA update job status.
-    otaUpdateStatus :: Prelude.Maybe OTAUpdateStatus,
-    -- | A token used to retrieve the next set of results.
+  { -- | A token used to retrieve the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The OTA update job status.
+    otaUpdateStatus :: Prelude.Maybe OTAUpdateStatus,
     -- | The maximum number of results to return at one time.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -74,27 +74,27 @@ data ListOTAUpdates = ListOTAUpdates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'otaUpdateStatus', 'listOTAUpdates_otaUpdateStatus' - The OTA update job status.
---
 -- 'nextToken', 'listOTAUpdates_nextToken' - A token used to retrieve the next set of results.
+--
+-- 'otaUpdateStatus', 'listOTAUpdates_otaUpdateStatus' - The OTA update job status.
 --
 -- 'maxResults', 'listOTAUpdates_maxResults' - The maximum number of results to return at one time.
 newListOTAUpdates ::
   ListOTAUpdates
 newListOTAUpdates =
   ListOTAUpdates'
-    { otaUpdateStatus = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      otaUpdateStatus = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The OTA update job status.
-listOTAUpdates_otaUpdateStatus :: Lens.Lens' ListOTAUpdates (Prelude.Maybe OTAUpdateStatus)
-listOTAUpdates_otaUpdateStatus = Lens.lens (\ListOTAUpdates' {otaUpdateStatus} -> otaUpdateStatus) (\s@ListOTAUpdates' {} a -> s {otaUpdateStatus = a} :: ListOTAUpdates)
 
 -- | A token used to retrieve the next set of results.
 listOTAUpdates_nextToken :: Lens.Lens' ListOTAUpdates (Prelude.Maybe Prelude.Text)
 listOTAUpdates_nextToken = Lens.lens (\ListOTAUpdates' {nextToken} -> nextToken) (\s@ListOTAUpdates' {} a -> s {nextToken = a} :: ListOTAUpdates)
+
+-- | The OTA update job status.
+listOTAUpdates_otaUpdateStatus :: Lens.Lens' ListOTAUpdates (Prelude.Maybe OTAUpdateStatus)
+listOTAUpdates_otaUpdateStatus = Lens.lens (\ListOTAUpdates' {otaUpdateStatus} -> otaUpdateStatus) (\s@ListOTAUpdates' {} a -> s {otaUpdateStatus = a} :: ListOTAUpdates)
 
 -- | The maximum number of results to return at one time.
 listOTAUpdates_maxResults :: Lens.Lens' ListOTAUpdates (Prelude.Maybe Prelude.Natural)
@@ -148,8 +148,8 @@ instance Core.ToPath ListOTAUpdates where
 instance Core.ToQuery ListOTAUpdates where
   toQuery ListOTAUpdates' {..} =
     Prelude.mconcat
-      [ "otaUpdateStatus" Core.=: otaUpdateStatus,
-        "nextToken" Core.=: nextToken,
+      [ "nextToken" Core.=: nextToken,
+        "otaUpdateStatus" Core.=: otaUpdateStatus,
         "maxResults" Core.=: maxResults
       ]
 
@@ -195,7 +195,7 @@ listOTAUpdatesResponse_nextToken = Lens.lens (\ListOTAUpdatesResponse' {nextToke
 
 -- | A list of OTA update jobs.
 listOTAUpdatesResponse_otaUpdates :: Lens.Lens' ListOTAUpdatesResponse (Prelude.Maybe [OTAUpdateSummary])
-listOTAUpdatesResponse_otaUpdates = Lens.lens (\ListOTAUpdatesResponse' {otaUpdates} -> otaUpdates) (\s@ListOTAUpdatesResponse' {} a -> s {otaUpdates = a} :: ListOTAUpdatesResponse) Prelude.. Lens.mapping Lens._Coerce
+listOTAUpdatesResponse_otaUpdates = Lens.lens (\ListOTAUpdatesResponse' {otaUpdates} -> otaUpdates) (\s@ListOTAUpdatesResponse' {} a -> s {otaUpdates = a} :: ListOTAUpdatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listOTAUpdatesResponse_httpStatus :: Lens.Lens' ListOTAUpdatesResponse Prelude.Int

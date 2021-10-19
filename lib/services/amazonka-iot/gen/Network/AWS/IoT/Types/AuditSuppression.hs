@@ -31,10 +31,10 @@ data AuditSuppression = AuditSuppression'
   { -- | The expiration date (epoch timestamp in seconds) that you want the
     -- suppression to adhere to.
     expirationDate :: Prelude.Maybe Core.POSIX,
-    -- | The description of the audit suppression.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether a suppression should exist indefinitely or not.
     suppressIndefinitely :: Prelude.Maybe Prelude.Bool,
+    -- | The description of the audit suppression.
+    description :: Prelude.Maybe Prelude.Text,
     checkName :: Prelude.Text,
     resourceIdentifier :: ResourceIdentifier
   }
@@ -51,9 +51,9 @@ data AuditSuppression = AuditSuppression'
 -- 'expirationDate', 'auditSuppression_expirationDate' - The expiration date (epoch timestamp in seconds) that you want the
 -- suppression to adhere to.
 --
--- 'description', 'auditSuppression_description' - The description of the audit suppression.
---
 -- 'suppressIndefinitely', 'auditSuppression_suppressIndefinitely' - Indicates whether a suppression should exist indefinitely or not.
+--
+-- 'description', 'auditSuppression_description' - The description of the audit suppression.
 --
 -- 'checkName', 'auditSuppression_checkName' - Undocumented member.
 --
@@ -67,8 +67,8 @@ newAuditSuppression ::
 newAuditSuppression pCheckName_ pResourceIdentifier_ =
   AuditSuppression'
     { expirationDate = Prelude.Nothing,
-      description = Prelude.Nothing,
       suppressIndefinitely = Prelude.Nothing,
+      description = Prelude.Nothing,
       checkName = pCheckName_,
       resourceIdentifier = pResourceIdentifier_
     }
@@ -78,13 +78,13 @@ newAuditSuppression pCheckName_ pResourceIdentifier_ =
 auditSuppression_expirationDate :: Lens.Lens' AuditSuppression (Prelude.Maybe Prelude.UTCTime)
 auditSuppression_expirationDate = Lens.lens (\AuditSuppression' {expirationDate} -> expirationDate) (\s@AuditSuppression' {} a -> s {expirationDate = a} :: AuditSuppression) Prelude.. Lens.mapping Core._Time
 
--- | The description of the audit suppression.
-auditSuppression_description :: Lens.Lens' AuditSuppression (Prelude.Maybe Prelude.Text)
-auditSuppression_description = Lens.lens (\AuditSuppression' {description} -> description) (\s@AuditSuppression' {} a -> s {description = a} :: AuditSuppression)
-
 -- | Indicates whether a suppression should exist indefinitely or not.
 auditSuppression_suppressIndefinitely :: Lens.Lens' AuditSuppression (Prelude.Maybe Prelude.Bool)
 auditSuppression_suppressIndefinitely = Lens.lens (\AuditSuppression' {suppressIndefinitely} -> suppressIndefinitely) (\s@AuditSuppression' {} a -> s {suppressIndefinitely = a} :: AuditSuppression)
+
+-- | The description of the audit suppression.
+auditSuppression_description :: Lens.Lens' AuditSuppression (Prelude.Maybe Prelude.Text)
+auditSuppression_description = Lens.lens (\AuditSuppression' {description} -> description) (\s@AuditSuppression' {} a -> s {description = a} :: AuditSuppression)
 
 -- | Undocumented member.
 auditSuppression_checkName :: Lens.Lens' AuditSuppression Prelude.Text
@@ -101,8 +101,8 @@ instance Core.FromJSON AuditSuppression where
       ( \x ->
           AuditSuppression'
             Prelude.<$> (x Core..:? "expirationDate")
-            Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "suppressIndefinitely")
+            Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..: "checkName")
             Prelude.<*> (x Core..: "resourceIdentifier")
       )

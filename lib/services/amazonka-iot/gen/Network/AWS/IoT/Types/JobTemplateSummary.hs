@@ -31,10 +31,10 @@ data JobTemplateSummary = JobTemplateSummary'
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The unique identifier of the job template.
     jobTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | A description of the job template.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the job template.
-    jobTemplateArn :: Prelude.Maybe Prelude.Text
+    jobTemplateArn :: Prelude.Maybe Prelude.Text,
+    -- | A description of the job template.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,17 +50,17 @@ data JobTemplateSummary = JobTemplateSummary'
 --
 -- 'jobTemplateId', 'jobTemplateSummary_jobTemplateId' - The unique identifier of the job template.
 --
--- 'description', 'jobTemplateSummary_description' - A description of the job template.
---
 -- 'jobTemplateArn', 'jobTemplateSummary_jobTemplateArn' - The ARN of the job template.
+--
+-- 'description', 'jobTemplateSummary_description' - A description of the job template.
 newJobTemplateSummary ::
   JobTemplateSummary
 newJobTemplateSummary =
   JobTemplateSummary'
     { createdAt = Prelude.Nothing,
       jobTemplateId = Prelude.Nothing,
-      description = Prelude.Nothing,
-      jobTemplateArn = Prelude.Nothing
+      jobTemplateArn = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The time, in seconds since the epoch, when the job template was created.
@@ -71,13 +71,13 @@ jobTemplateSummary_createdAt = Lens.lens (\JobTemplateSummary' {createdAt} -> cr
 jobTemplateSummary_jobTemplateId :: Lens.Lens' JobTemplateSummary (Prelude.Maybe Prelude.Text)
 jobTemplateSummary_jobTemplateId = Lens.lens (\JobTemplateSummary' {jobTemplateId} -> jobTemplateId) (\s@JobTemplateSummary' {} a -> s {jobTemplateId = a} :: JobTemplateSummary)
 
--- | A description of the job template.
-jobTemplateSummary_description :: Lens.Lens' JobTemplateSummary (Prelude.Maybe Prelude.Text)
-jobTemplateSummary_description = Lens.lens (\JobTemplateSummary' {description} -> description) (\s@JobTemplateSummary' {} a -> s {description = a} :: JobTemplateSummary)
-
 -- | The ARN of the job template.
 jobTemplateSummary_jobTemplateArn :: Lens.Lens' JobTemplateSummary (Prelude.Maybe Prelude.Text)
 jobTemplateSummary_jobTemplateArn = Lens.lens (\JobTemplateSummary' {jobTemplateArn} -> jobTemplateArn) (\s@JobTemplateSummary' {} a -> s {jobTemplateArn = a} :: JobTemplateSummary)
+
+-- | A description of the job template.
+jobTemplateSummary_description :: Lens.Lens' JobTemplateSummary (Prelude.Maybe Prelude.Text)
+jobTemplateSummary_description = Lens.lens (\JobTemplateSummary' {description} -> description) (\s@JobTemplateSummary' {} a -> s {description = a} :: JobTemplateSummary)
 
 instance Core.FromJSON JobTemplateSummary where
   parseJSON =
@@ -87,8 +87,8 @@ instance Core.FromJSON JobTemplateSummary where
           JobTemplateSummary'
             Prelude.<$> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "jobTemplateId")
-            Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "jobTemplateArn")
+            Prelude.<*> (x Core..:? "description")
       )
 
 instance Prelude.Hashable JobTemplateSummary

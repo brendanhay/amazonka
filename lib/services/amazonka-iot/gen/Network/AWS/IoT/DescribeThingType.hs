@@ -39,10 +39,10 @@ module Network.AWS.IoT.DescribeThingType
 
     -- * Response Lenses
     describeThingTypeResponse_thingTypeProperties,
-    describeThingTypeResponse_thingTypeMetadata,
-    describeThingTypeResponse_thingTypeId,
-    describeThingTypeResponse_thingTypeArn,
     describeThingTypeResponse_thingTypeName,
+    describeThingTypeResponse_thingTypeId,
+    describeThingTypeResponse_thingTypeMetadata,
+    describeThingTypeResponse_thingTypeArn,
     describeThingTypeResponse_httpStatus,
   )
 where
@@ -93,10 +93,10 @@ instance Core.AWSRequest DescribeThingType where
       ( \s h x ->
           DescribeThingTypeResponse'
             Prelude.<$> (x Core..?> "thingTypeProperties")
-            Prelude.<*> (x Core..?> "thingTypeMetadata")
-            Prelude.<*> (x Core..?> "thingTypeId")
-            Prelude.<*> (x Core..?> "thingTypeArn")
             Prelude.<*> (x Core..?> "thingTypeName")
+            Prelude.<*> (x Core..?> "thingTypeId")
+            Prelude.<*> (x Core..?> "thingTypeMetadata")
+            Prelude.<*> (x Core..?> "thingTypeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,16 +122,16 @@ data DescribeThingTypeResponse = DescribeThingTypeResponse'
   { -- | The ThingTypeProperties contains information about the thing type
     -- including description, and a list of searchable thing attribute names.
     thingTypeProperties :: Prelude.Maybe ThingTypeProperties,
+    -- | The name of the thing type.
+    thingTypeName :: Prelude.Maybe Prelude.Text,
+    -- | The thing type ID.
+    thingTypeId :: Prelude.Maybe Prelude.Text,
     -- | The ThingTypeMetadata contains additional information about the thing
     -- type including: creation date and time, a value indicating whether the
     -- thing type is deprecated, and a date and time when it was deprecated.
     thingTypeMetadata :: Prelude.Maybe ThingTypeMetadata,
-    -- | The thing type ID.
-    thingTypeId :: Prelude.Maybe Prelude.Text,
     -- | The thing type ARN.
     thingTypeArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the thing type.
-    thingTypeName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -148,15 +148,15 @@ data DescribeThingTypeResponse = DescribeThingTypeResponse'
 -- 'thingTypeProperties', 'describeThingTypeResponse_thingTypeProperties' - The ThingTypeProperties contains information about the thing type
 -- including description, and a list of searchable thing attribute names.
 --
+-- 'thingTypeName', 'describeThingTypeResponse_thingTypeName' - The name of the thing type.
+--
+-- 'thingTypeId', 'describeThingTypeResponse_thingTypeId' - The thing type ID.
+--
 -- 'thingTypeMetadata', 'describeThingTypeResponse_thingTypeMetadata' - The ThingTypeMetadata contains additional information about the thing
 -- type including: creation date and time, a value indicating whether the
 -- thing type is deprecated, and a date and time when it was deprecated.
 --
--- 'thingTypeId', 'describeThingTypeResponse_thingTypeId' - The thing type ID.
---
 -- 'thingTypeArn', 'describeThingTypeResponse_thingTypeArn' - The thing type ARN.
---
--- 'thingTypeName', 'describeThingTypeResponse_thingTypeName' - The name of the thing type.
 --
 -- 'httpStatus', 'describeThingTypeResponse_httpStatus' - The response's http status code.
 newDescribeThingTypeResponse ::
@@ -167,10 +167,10 @@ newDescribeThingTypeResponse pHttpStatus_ =
   DescribeThingTypeResponse'
     { thingTypeProperties =
         Prelude.Nothing,
-      thingTypeMetadata = Prelude.Nothing,
-      thingTypeId = Prelude.Nothing,
-      thingTypeArn = Prelude.Nothing,
       thingTypeName = Prelude.Nothing,
+      thingTypeId = Prelude.Nothing,
+      thingTypeMetadata = Prelude.Nothing,
+      thingTypeArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -179,23 +179,23 @@ newDescribeThingTypeResponse pHttpStatus_ =
 describeThingTypeResponse_thingTypeProperties :: Lens.Lens' DescribeThingTypeResponse (Prelude.Maybe ThingTypeProperties)
 describeThingTypeResponse_thingTypeProperties = Lens.lens (\DescribeThingTypeResponse' {thingTypeProperties} -> thingTypeProperties) (\s@DescribeThingTypeResponse' {} a -> s {thingTypeProperties = a} :: DescribeThingTypeResponse)
 
+-- | The name of the thing type.
+describeThingTypeResponse_thingTypeName :: Lens.Lens' DescribeThingTypeResponse (Prelude.Maybe Prelude.Text)
+describeThingTypeResponse_thingTypeName = Lens.lens (\DescribeThingTypeResponse' {thingTypeName} -> thingTypeName) (\s@DescribeThingTypeResponse' {} a -> s {thingTypeName = a} :: DescribeThingTypeResponse)
+
+-- | The thing type ID.
+describeThingTypeResponse_thingTypeId :: Lens.Lens' DescribeThingTypeResponse (Prelude.Maybe Prelude.Text)
+describeThingTypeResponse_thingTypeId = Lens.lens (\DescribeThingTypeResponse' {thingTypeId} -> thingTypeId) (\s@DescribeThingTypeResponse' {} a -> s {thingTypeId = a} :: DescribeThingTypeResponse)
+
 -- | The ThingTypeMetadata contains additional information about the thing
 -- type including: creation date and time, a value indicating whether the
 -- thing type is deprecated, and a date and time when it was deprecated.
 describeThingTypeResponse_thingTypeMetadata :: Lens.Lens' DescribeThingTypeResponse (Prelude.Maybe ThingTypeMetadata)
 describeThingTypeResponse_thingTypeMetadata = Lens.lens (\DescribeThingTypeResponse' {thingTypeMetadata} -> thingTypeMetadata) (\s@DescribeThingTypeResponse' {} a -> s {thingTypeMetadata = a} :: DescribeThingTypeResponse)
 
--- | The thing type ID.
-describeThingTypeResponse_thingTypeId :: Lens.Lens' DescribeThingTypeResponse (Prelude.Maybe Prelude.Text)
-describeThingTypeResponse_thingTypeId = Lens.lens (\DescribeThingTypeResponse' {thingTypeId} -> thingTypeId) (\s@DescribeThingTypeResponse' {} a -> s {thingTypeId = a} :: DescribeThingTypeResponse)
-
 -- | The thing type ARN.
 describeThingTypeResponse_thingTypeArn :: Lens.Lens' DescribeThingTypeResponse (Prelude.Maybe Prelude.Text)
 describeThingTypeResponse_thingTypeArn = Lens.lens (\DescribeThingTypeResponse' {thingTypeArn} -> thingTypeArn) (\s@DescribeThingTypeResponse' {} a -> s {thingTypeArn = a} :: DescribeThingTypeResponse)
-
--- | The name of the thing type.
-describeThingTypeResponse_thingTypeName :: Lens.Lens' DescribeThingTypeResponse (Prelude.Maybe Prelude.Text)
-describeThingTypeResponse_thingTypeName = Lens.lens (\DescribeThingTypeResponse' {thingTypeName} -> thingTypeName) (\s@DescribeThingTypeResponse' {} a -> s {thingTypeName = a} :: DescribeThingTypeResponse)
 
 -- | The response's http status code.
 describeThingTypeResponse_httpStatus :: Lens.Lens' DescribeThingTypeResponse Prelude.Int

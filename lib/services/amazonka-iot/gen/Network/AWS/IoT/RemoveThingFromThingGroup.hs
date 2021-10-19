@@ -35,10 +35,10 @@ module Network.AWS.IoT.RemoveThingFromThingGroup
     newRemoveThingFromThingGroup,
 
     -- * Request Lenses
-    removeThingFromThingGroup_thingArn,
     removeThingFromThingGroup_thingGroupArn,
-    removeThingFromThingGroup_thingName,
+    removeThingFromThingGroup_thingArn,
     removeThingFromThingGroup_thingGroupName,
+    removeThingFromThingGroup_thingName,
 
     -- * Destructuring the Response
     RemoveThingFromThingGroupResponse (..),
@@ -58,14 +58,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRemoveThingFromThingGroup' smart constructor.
 data RemoveThingFromThingGroup = RemoveThingFromThingGroup'
-  { -- | The ARN of the thing to remove from the group.
-    thingArn :: Prelude.Maybe Prelude.Text,
-    -- | The group ARN.
+  { -- | The group ARN.
     thingGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the thing to remove from the group.
-    thingName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the thing to remove from the group.
+    thingArn :: Prelude.Maybe Prelude.Text,
     -- | The group name.
-    thingGroupName :: Prelude.Maybe Prelude.Text
+    thingGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the thing to remove from the group.
+    thingName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,39 +77,39 @@ data RemoveThingFromThingGroup = RemoveThingFromThingGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingArn', 'removeThingFromThingGroup_thingArn' - The ARN of the thing to remove from the group.
---
 -- 'thingGroupArn', 'removeThingFromThingGroup_thingGroupArn' - The group ARN.
 --
--- 'thingName', 'removeThingFromThingGroup_thingName' - The name of the thing to remove from the group.
+-- 'thingArn', 'removeThingFromThingGroup_thingArn' - The ARN of the thing to remove from the group.
 --
 -- 'thingGroupName', 'removeThingFromThingGroup_thingGroupName' - The group name.
+--
+-- 'thingName', 'removeThingFromThingGroup_thingName' - The name of the thing to remove from the group.
 newRemoveThingFromThingGroup ::
   RemoveThingFromThingGroup
 newRemoveThingFromThingGroup =
   RemoveThingFromThingGroup'
-    { thingArn =
+    { thingGroupArn =
         Prelude.Nothing,
-      thingGroupArn = Prelude.Nothing,
-      thingName = Prelude.Nothing,
-      thingGroupName = Prelude.Nothing
+      thingArn = Prelude.Nothing,
+      thingGroupName = Prelude.Nothing,
+      thingName = Prelude.Nothing
     }
-
--- | The ARN of the thing to remove from the group.
-removeThingFromThingGroup_thingArn :: Lens.Lens' RemoveThingFromThingGroup (Prelude.Maybe Prelude.Text)
-removeThingFromThingGroup_thingArn = Lens.lens (\RemoveThingFromThingGroup' {thingArn} -> thingArn) (\s@RemoveThingFromThingGroup' {} a -> s {thingArn = a} :: RemoveThingFromThingGroup)
 
 -- | The group ARN.
 removeThingFromThingGroup_thingGroupArn :: Lens.Lens' RemoveThingFromThingGroup (Prelude.Maybe Prelude.Text)
 removeThingFromThingGroup_thingGroupArn = Lens.lens (\RemoveThingFromThingGroup' {thingGroupArn} -> thingGroupArn) (\s@RemoveThingFromThingGroup' {} a -> s {thingGroupArn = a} :: RemoveThingFromThingGroup)
 
--- | The name of the thing to remove from the group.
-removeThingFromThingGroup_thingName :: Lens.Lens' RemoveThingFromThingGroup (Prelude.Maybe Prelude.Text)
-removeThingFromThingGroup_thingName = Lens.lens (\RemoveThingFromThingGroup' {thingName} -> thingName) (\s@RemoveThingFromThingGroup' {} a -> s {thingName = a} :: RemoveThingFromThingGroup)
+-- | The ARN of the thing to remove from the group.
+removeThingFromThingGroup_thingArn :: Lens.Lens' RemoveThingFromThingGroup (Prelude.Maybe Prelude.Text)
+removeThingFromThingGroup_thingArn = Lens.lens (\RemoveThingFromThingGroup' {thingArn} -> thingArn) (\s@RemoveThingFromThingGroup' {} a -> s {thingArn = a} :: RemoveThingFromThingGroup)
 
 -- | The group name.
 removeThingFromThingGroup_thingGroupName :: Lens.Lens' RemoveThingFromThingGroup (Prelude.Maybe Prelude.Text)
 removeThingFromThingGroup_thingGroupName = Lens.lens (\RemoveThingFromThingGroup' {thingGroupName} -> thingGroupName) (\s@RemoveThingFromThingGroup' {} a -> s {thingGroupName = a} :: RemoveThingFromThingGroup)
+
+-- | The name of the thing to remove from the group.
+removeThingFromThingGroup_thingName :: Lens.Lens' RemoveThingFromThingGroup (Prelude.Maybe Prelude.Text)
+removeThingFromThingGroup_thingName = Lens.lens (\RemoveThingFromThingGroup' {thingName} -> thingName) (\s@RemoveThingFromThingGroup' {} a -> s {thingName = a} :: RemoveThingFromThingGroup)
 
 instance Core.AWSRequest RemoveThingFromThingGroup where
   type
@@ -134,11 +134,11 @@ instance Core.ToJSON RemoveThingFromThingGroup where
   toJSON RemoveThingFromThingGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("thingArn" Core..=) Prelude.<$> thingArn,
-            ("thingGroupArn" Core..=) Prelude.<$> thingGroupArn,
-            ("thingName" Core..=) Prelude.<$> thingName,
+          [ ("thingGroupArn" Core..=) Prelude.<$> thingGroupArn,
+            ("thingArn" Core..=) Prelude.<$> thingArn,
             ("thingGroupName" Core..=)
-              Prelude.<$> thingGroupName
+              Prelude.<$> thingGroupName,
+            ("thingName" Core..=) Prelude.<$> thingName
           ]
       )
 

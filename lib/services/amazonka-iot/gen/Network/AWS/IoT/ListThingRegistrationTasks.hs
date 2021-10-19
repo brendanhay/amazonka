@@ -33,8 +33,8 @@ module Network.AWS.IoT.ListThingRegistrationTasks
     newListThingRegistrationTasks,
 
     -- * Request Lenses
-    listThingRegistrationTasks_nextToken,
     listThingRegistrationTasks_status,
+    listThingRegistrationTasks_nextToken,
     listThingRegistrationTasks_maxResults,
 
     -- * Destructuring the Response
@@ -57,12 +57,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListThingRegistrationTasks' smart constructor.
 data ListThingRegistrationTasks = ListThingRegistrationTasks'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | The status of the bulk thing provisioning task.
+    status :: Prelude.Maybe TaskStatus,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The status of the bulk thing provisioning task.
-    status :: Prelude.Maybe TaskStatus,
     -- | The maximum number of results to return at one time.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -76,32 +76,32 @@ data ListThingRegistrationTasks = ListThingRegistrationTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'status', 'listThingRegistrationTasks_status' - The status of the bulk thing provisioning task.
+--
 -- 'nextToken', 'listThingRegistrationTasks_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'status', 'listThingRegistrationTasks_status' - The status of the bulk thing provisioning task.
 --
 -- 'maxResults', 'listThingRegistrationTasks_maxResults' - The maximum number of results to return at one time.
 newListThingRegistrationTasks ::
   ListThingRegistrationTasks
 newListThingRegistrationTasks =
   ListThingRegistrationTasks'
-    { nextToken =
+    { status =
         Prelude.Nothing,
-      status = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The status of the bulk thing provisioning task.
+listThingRegistrationTasks_status :: Lens.Lens' ListThingRegistrationTasks (Prelude.Maybe TaskStatus)
+listThingRegistrationTasks_status = Lens.lens (\ListThingRegistrationTasks' {status} -> status) (\s@ListThingRegistrationTasks' {} a -> s {status = a} :: ListThingRegistrationTasks)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listThingRegistrationTasks_nextToken :: Lens.Lens' ListThingRegistrationTasks (Prelude.Maybe Prelude.Text)
 listThingRegistrationTasks_nextToken = Lens.lens (\ListThingRegistrationTasks' {nextToken} -> nextToken) (\s@ListThingRegistrationTasks' {} a -> s {nextToken = a} :: ListThingRegistrationTasks)
-
--- | The status of the bulk thing provisioning task.
-listThingRegistrationTasks_status :: Lens.Lens' ListThingRegistrationTasks (Prelude.Maybe TaskStatus)
-listThingRegistrationTasks_status = Lens.lens (\ListThingRegistrationTasks' {status} -> status) (\s@ListThingRegistrationTasks' {} a -> s {status = a} :: ListThingRegistrationTasks)
 
 -- | The maximum number of results to return at one time.
 listThingRegistrationTasks_maxResults :: Lens.Lens' ListThingRegistrationTasks (Prelude.Maybe Prelude.Natural)
@@ -156,8 +156,8 @@ instance Core.ToPath ListThingRegistrationTasks where
 instance Core.ToQuery ListThingRegistrationTasks where
   toQuery ListThingRegistrationTasks' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "status" Core.=: status,
+      [ "status" Core.=: status,
+        "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
 
@@ -206,7 +206,7 @@ listThingRegistrationTasksResponse_nextToken = Lens.lens (\ListThingRegistration
 
 -- | A list of bulk thing provisioning task IDs.
 listThingRegistrationTasksResponse_taskIds :: Lens.Lens' ListThingRegistrationTasksResponse (Prelude.Maybe [Prelude.Text])
-listThingRegistrationTasksResponse_taskIds = Lens.lens (\ListThingRegistrationTasksResponse' {taskIds} -> taskIds) (\s@ListThingRegistrationTasksResponse' {} a -> s {taskIds = a} :: ListThingRegistrationTasksResponse) Prelude.. Lens.mapping Lens._Coerce
+listThingRegistrationTasksResponse_taskIds = Lens.lens (\ListThingRegistrationTasksResponse' {taskIds} -> taskIds) (\s@ListThingRegistrationTasksResponse' {} a -> s {taskIds = a} :: ListThingRegistrationTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listThingRegistrationTasksResponse_httpStatus :: Lens.Lens' ListThingRegistrationTasksResponse Prelude.Int

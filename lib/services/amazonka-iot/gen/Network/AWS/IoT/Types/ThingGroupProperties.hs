@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newThingGroupProperties' smart constructor.
 data ThingGroupProperties = ThingGroupProperties'
-  { -- | The thing group description.
-    thingGroupDescription :: Prelude.Maybe Prelude.Text,
-    -- | The thing group attributes in JSON format.
-    attributePayload :: Prelude.Maybe AttributePayload
+  { -- | The thing group attributes in JSON format.
+    attributePayload :: Prelude.Maybe AttributePayload,
+    -- | The thing group description.
+    thingGroupDescription :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data ThingGroupProperties = ThingGroupProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingGroupDescription', 'thingGroupProperties_thingGroupDescription' - The thing group description.
---
 -- 'attributePayload', 'thingGroupProperties_attributePayload' - The thing group attributes in JSON format.
+--
+-- 'thingGroupDescription', 'thingGroupProperties_thingGroupDescription' - The thing group description.
 newThingGroupProperties ::
   ThingGroupProperties
 newThingGroupProperties =
   ThingGroupProperties'
-    { thingGroupDescription =
+    { attributePayload =
         Prelude.Nothing,
-      attributePayload = Prelude.Nothing
+      thingGroupDescription = Prelude.Nothing
     }
-
--- | The thing group description.
-thingGroupProperties_thingGroupDescription :: Lens.Lens' ThingGroupProperties (Prelude.Maybe Prelude.Text)
-thingGroupProperties_thingGroupDescription = Lens.lens (\ThingGroupProperties' {thingGroupDescription} -> thingGroupDescription) (\s@ThingGroupProperties' {} a -> s {thingGroupDescription = a} :: ThingGroupProperties)
 
 -- | The thing group attributes in JSON format.
 thingGroupProperties_attributePayload :: Lens.Lens' ThingGroupProperties (Prelude.Maybe AttributePayload)
 thingGroupProperties_attributePayload = Lens.lens (\ThingGroupProperties' {attributePayload} -> attributePayload) (\s@ThingGroupProperties' {} a -> s {attributePayload = a} :: ThingGroupProperties)
+
+-- | The thing group description.
+thingGroupProperties_thingGroupDescription :: Lens.Lens' ThingGroupProperties (Prelude.Maybe Prelude.Text)
+thingGroupProperties_thingGroupDescription = Lens.lens (\ThingGroupProperties' {thingGroupDescription} -> thingGroupDescription) (\s@ThingGroupProperties' {} a -> s {thingGroupDescription = a} :: ThingGroupProperties)
 
 instance Core.FromJSON ThingGroupProperties where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON ThingGroupProperties where
       "ThingGroupProperties"
       ( \x ->
           ThingGroupProperties'
-            Prelude.<$> (x Core..:? "thingGroupDescription")
-            Prelude.<*> (x Core..:? "attributePayload")
+            Prelude.<$> (x Core..:? "attributePayload")
+            Prelude.<*> (x Core..:? "thingGroupDescription")
       )
 
 instance Prelude.Hashable ThingGroupProperties
@@ -81,9 +81,9 @@ instance Core.ToJSON ThingGroupProperties where
   toJSON ThingGroupProperties' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("thingGroupDescription" Core..=)
-              Prelude.<$> thingGroupDescription,
-            ("attributePayload" Core..=)
-              Prelude.<$> attributePayload
+          [ ("attributePayload" Core..=)
+              Prelude.<$> attributePayload,
+            ("thingGroupDescription" Core..=)
+              Prelude.<$> thingGroupDescription
           ]
       )

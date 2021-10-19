@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTopicRulePayload' smart constructor.
 data TopicRulePayload = TopicRulePayload'
-  { -- | The action to take when an error occurs.
-    errorAction :: Prelude.Maybe Action,
-    -- | The version of the SQL rules engine to use when evaluating the rule.
+  { -- | The version of the SQL rules engine to use when evaluating the rule.
     awsIotSqlVersion :: Prelude.Maybe Prelude.Text,
+    -- | The action to take when an error occurs.
+    errorAction :: Prelude.Maybe Action,
     -- | Specifies whether the rule is disabled.
     ruleDisabled :: Prelude.Maybe Prelude.Bool,
     -- | The description of the rule.
@@ -53,9 +53,9 @@ data TopicRulePayload = TopicRulePayload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorAction', 'topicRulePayload_errorAction' - The action to take when an error occurs.
---
 -- 'awsIotSqlVersion', 'topicRulePayload_awsIotSqlVersion' - The version of the SQL rules engine to use when evaluating the rule.
+--
+-- 'errorAction', 'topicRulePayload_errorAction' - The action to take when an error occurs.
 --
 -- 'ruleDisabled', 'topicRulePayload_ruleDisabled' - Specifies whether the rule is disabled.
 --
@@ -72,21 +72,22 @@ newTopicRulePayload ::
   TopicRulePayload
 newTopicRulePayload pSql_ =
   TopicRulePayload'
-    { errorAction = Prelude.Nothing,
-      awsIotSqlVersion = Prelude.Nothing,
+    { awsIotSqlVersion =
+        Prelude.Nothing,
+      errorAction = Prelude.Nothing,
       ruleDisabled = Prelude.Nothing,
       description = Prelude.Nothing,
       sql = pSql_,
       actions = Prelude.mempty
     }
 
--- | The action to take when an error occurs.
-topicRulePayload_errorAction :: Lens.Lens' TopicRulePayload (Prelude.Maybe Action)
-topicRulePayload_errorAction = Lens.lens (\TopicRulePayload' {errorAction} -> errorAction) (\s@TopicRulePayload' {} a -> s {errorAction = a} :: TopicRulePayload)
-
 -- | The version of the SQL rules engine to use when evaluating the rule.
 topicRulePayload_awsIotSqlVersion :: Lens.Lens' TopicRulePayload (Prelude.Maybe Prelude.Text)
 topicRulePayload_awsIotSqlVersion = Lens.lens (\TopicRulePayload' {awsIotSqlVersion} -> awsIotSqlVersion) (\s@TopicRulePayload' {} a -> s {awsIotSqlVersion = a} :: TopicRulePayload)
+
+-- | The action to take when an error occurs.
+topicRulePayload_errorAction :: Lens.Lens' TopicRulePayload (Prelude.Maybe Action)
+topicRulePayload_errorAction = Lens.lens (\TopicRulePayload' {errorAction} -> errorAction) (\s@TopicRulePayload' {} a -> s {errorAction = a} :: TopicRulePayload)
 
 -- | Specifies whether the rule is disabled.
 topicRulePayload_ruleDisabled :: Lens.Lens' TopicRulePayload (Prelude.Maybe Prelude.Bool)
@@ -104,7 +105,7 @@ topicRulePayload_sql = Lens.lens (\TopicRulePayload' {sql} -> sql) (\s@TopicRule
 
 -- | The actions associated with the rule.
 topicRulePayload_actions :: Lens.Lens' TopicRulePayload [Action]
-topicRulePayload_actions = Lens.lens (\TopicRulePayload' {actions} -> actions) (\s@TopicRulePayload' {} a -> s {actions = a} :: TopicRulePayload) Prelude.. Lens._Coerce
+topicRulePayload_actions = Lens.lens (\TopicRulePayload' {actions} -> actions) (\s@TopicRulePayload' {} a -> s {actions = a} :: TopicRulePayload) Prelude.. Lens.coerced
 
 instance Prelude.Hashable TopicRulePayload
 
@@ -114,9 +115,9 @@ instance Core.ToJSON TopicRulePayload where
   toJSON TopicRulePayload' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("errorAction" Core..=) Prelude.<$> errorAction,
-            ("awsIotSqlVersion" Core..=)
+          [ ("awsIotSqlVersion" Core..=)
               Prelude.<$> awsIotSqlVersion,
+            ("errorAction" Core..=) Prelude.<$> errorAction,
             ("ruleDisabled" Core..=) Prelude.<$> ruleDisabled,
             ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("sql" Core..= sql),

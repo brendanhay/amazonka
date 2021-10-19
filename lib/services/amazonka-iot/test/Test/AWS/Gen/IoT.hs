@@ -27,38 +27,29 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetBucketsAggregation $
---             newGetBucketsAggregation
+--         [ requestGetCardinality $
+--             newGetCardinality
 --
---         , requestUpdateIndexingConfiguration $
---             newUpdateIndexingConfiguration
+--         , requestCreateDomainConfiguration $
+--             newCreateDomainConfiguration
 --
---         , requestPutVerificationStateOnViolation $
---             newPutVerificationStateOnViolation
+--         , requestStartDetectMitigationActionsTask $
+--             newStartDetectMitigationActionsTask
 --
---         , requestListThingRegistrationTaskReports $
---             newListThingRegistrationTaskReports
+--         , requestDeleteSecurityProfile $
+--             newDeleteSecurityProfile
 --
---         , requestDescribeFleetMetric $
---             newDescribeFleetMetric
---
---         , requestCreateProvisioningClaim $
---             newCreateProvisioningClaim
---
---         , requestUpdateCertificate $
---             newUpdateCertificate
---
---         , requestListMitigationActions $
---             newListMitigationActions
---
---         , requestDescribeProvisioningTemplate $
---             newDescribeProvisioningTemplate
---
---         , requestDeleteJobExecution $
---             newDeleteJobExecution
+--         , requestUpdateSecurityProfile $
+--             newUpdateSecurityProfile
 --
 --         , requestListSecurityProfiles $
 --             newListSecurityProfiles
+--
+--         , requestListPolicies $
+--             newListPolicies
+--
+--         , requestDescribeProvisioningTemplate $
+--             newDescribeProvisioningTemplate
 --
 --         , requestUpdateMitigationAction $
 --             newUpdateMitigationAction
@@ -66,350 +57,29 @@ import Test.Tasty
 --         , requestDeleteMitigationAction $
 --             newDeleteMitigationAction
 --
---         , requestListPolicies $
---             newListPolicies
---
---         , requestStartDetectMitigationActionsTask $
---             newStartDetectMitigationActionsTask
---
---         , requestGetCardinality $
---             newGetCardinality
---
---         , requestDeleteCertificate $
---             newDeleteCertificate
+--         , requestDeleteJobExecution $
+--             newDeleteJobExecution
 --
 --         , requestCreatePolicy $
 --             newCreatePolicy
 --
---         , requestListViolationEvents $
---             newListViolationEvents
---
---         , requestCreateDimension $
---             newCreateDimension
---
---         , requestListAuditTasks $
---             newListAuditTasks
---
---         , requestDescribeThingType $
---             newDescribeThingType
---
---         , requestDeletePolicy $
---             newDeletePolicy
---
---         , requestCreateMitigationAction $
---             newCreateMitigationAction
---
---         , requestDeleteDomainConfiguration $
---             newDeleteDomainConfiguration
---
---         , requestGetTopicRule $
---             newGetTopicRule
---
---         , requestUpdateDomainConfiguration $
---             newUpdateDomainConfiguration
---
---         , requestRejectCertificateTransfer $
---             newRejectCertificateTransfer
---
---         , requestSetLoggingOptions $
---             newSetLoggingOptions
---
---         , requestCreateSecurityProfile $
---             newCreateSecurityProfile
---
---         , requestCancelJob $
---             newCancelJob
---
---         , requestListDomainConfigurations $
---             newListDomainConfigurations
---
---         , requestDescribeScheduledAudit $
---             newDescribeScheduledAudit
---
---         , requestGetV2LoggingOptions $
---             newGetV2LoggingOptions
---
---         , requestListThingsInThingGroup $
---             newListThingsInThingGroup
---
---         , requestListCustomMetrics $
---             newListCustomMetrics
---
---         , requestAttachSecurityProfile $
---             newAttachSecurityProfile
---
---         , requestUpdateJob $
---             newUpdateJob
---
---         , requestDeleteJob $
---             newDeleteJob
---
---         , requestDeleteCACertificate $
---             newDeleteCACertificate
---
---         , requestDeleteCustomMetric $
---             newDeleteCustomMetric
---
---         , requestCreatePolicyVersion $
---             newCreatePolicyVersion
---
---         , requestListRoleAliases $
---             newListRoleAliases
---
---         , requestCancelAuditTask $
---             newCancelAuditTask
---
---         , requestCreateRoleAlias $
---             newCreateRoleAlias
---
---         , requestListJobTemplates $
---             newListJobTemplates
---
---         , requestDescribeProvisioningTemplateVersion $
---             newDescribeProvisioningTemplateVersion
---
---         , requestCreateKeysAndCertificate $
---             newCreateKeysAndCertificate
---
---         , requestUpdateCACertificate $
---             newUpdateCACertificate
---
---         , requestUpdateCustomMetric $
---             newUpdateCustomMetric
---
---         , requestStartAuditMitigationActionsTask $
---             newStartAuditMitigationActionsTask
---
---         , requestTransferCertificate $
---             newTransferCertificate
---
---         , requestGetPercentiles $
---             newGetPercentiles
---
---         , requestDeleteTopicRule $
---             newDeleteTopicRule
---
---         , requestListTargetsForSecurityProfile $
---             newListTargetsForSecurityProfile
---
---         , requestDescribeEndpoint $
---             newDescribeEndpoint
---
---         , requestListThingsInBillingGroup $
---             newListThingsInBillingGroup
---
---         , requestSetV2LoggingLevel $
---             newSetV2LoggingLevel
---
---         , requestCreateJobTemplate $
---             newCreateJobTemplate
---
---         , requestSetDefaultPolicyVersion $
---             newSetDefaultPolicyVersion
---
---         , requestCreateCustomMetric $
---             newCreateCustomMetric
---
---         , requestListFleetMetrics $
---             newListFleetMetrics
---
---         , requestUpdateFleetMetric $
---             newUpdateFleetMetric
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestListJobExecutionsForThing $
---             newListJobExecutionsForThing
---
---         , requestDeleteFleetMetric $
---             newDeleteFleetMetric
---
---         , requestDisableTopicRule $
---             newDisableTopicRule
---
---         , requestDescribeAuditMitigationActionsTask $
---             newDescribeAuditMitigationActionsTask
---
---         , requestCreateThing $
---             newCreateThing
---
---         , requestListV2LoggingLevels $
---             newListV2LoggingLevels
---
---         , requestListAuditMitigationActionsExecutions $
---             newListAuditMitigationActionsExecutions
---
---         , requestListProvisioningTemplates $
---             newListProvisioningTemplates
---
---         , requestStartThingRegistrationTask $
---             newStartThingRegistrationTask
---
---         , requestDescribeJobExecution $
---             newDescribeJobExecution
---
---         , requestTagResource $
---             newTagResource
---
---         , requestDescribeCertificate $
---             newDescribeCertificate
---
---         , requestDeleteProvisioningTemplate $
---             newDeleteProvisioningTemplate
---
---         , requestUpdateProvisioningTemplate $
---             newUpdateProvisioningTemplate
---
---         , requestGetIndexingConfiguration $
---             newGetIndexingConfiguration
---
---         , requestStopThingRegistrationTask $
---             newStopThingRegistrationTask
---
---         , requestCreateScheduledAudit $
---             newCreateScheduledAudit
---
---         , requestSetDefaultAuthorizer $
---             newSetDefaultAuthorizer
---
---         , requestDeleteV2LoggingLevel $
---             newDeleteV2LoggingLevel
---
---         , requestDescribeMitigationAction $
---             newDescribeMitigationAction
---
---         , requestDescribeDimension $
---             newDescribeDimension
---
---         , requestCreateAuthorizer $
---             newCreateAuthorizer
---
---         , requestSetV2LoggingOptions $
---             newSetV2LoggingOptions
---
---         , requestDeleteStream $
---             newDeleteStream
---
---         , requestListDetectMitigationActionsTasks $
---             newListDetectMitigationActionsTasks
---
---         , requestUpdateAuditSuppression $
---             newUpdateAuditSuppression
---
---         , requestUpdateStream $
---             newUpdateStream
---
---         , requestUpdateThing $
---             newUpdateThing
---
---         , requestDescribeThingRegistrationTask $
---             newDescribeThingRegistrationTask
---
---         , requestDeleteAccountAuditConfiguration $
---             newDeleteAccountAuditConfiguration
---
---         , requestListThingGroupsForThing $
---             newListThingGroupsForThing
---
---         , requestListCertificatesByCA $
---             newListCertificatesByCA
---
---         , requestListThings $
---             newListThings
---
---         , requestAddThingToThingGroup $
---             newAddThingToThingGroup
---
---         , requestDeleteBillingGroup $
---             newDeleteBillingGroup
---
---         , requestListScheduledAudits $
---             newListScheduledAudits
---
---         , requestDeleteRegistrationCode $
---             newDeleteRegistrationCode
---
---         , requestDeleteThing $
---             newDeleteThing
---
---         , requestAttachThingPrincipal $
---             newAttachThingPrincipal
---
---         , requestUpdateBillingGroup $
---             newUpdateBillingGroup
---
---         , requestUpdateAccountAuditConfiguration $
---             newUpdateAccountAuditConfiguration
---
---         , requestGetLoggingOptions $
---             newGetLoggingOptions
---
---         , requestDeleteAuditSuppression $
---             newDeleteAuditSuppression
---
---         , requestDescribeCustomMetric $
---             newDescribeCustomMetric
---
---         , requestDescribeJob $
---             newDescribeJob
---
---         , requestDeleteOTAUpdate $
---             newDeleteOTAUpdate
---
---         , requestGetRegistrationCode $
---             newGetRegistrationCode
---
---         , requestListDetectMitigationActionsExecutions $
---             newListDetectMitigationActionsExecutions
---
---         , requestRegisterCertificateWithoutCA $
---             newRegisterCertificateWithoutCA
---
---         , requestCreateDynamicThingGroup $
---             newCreateDynamicThingGroup
---
---         , requestDescribeCACertificate $
---             newDescribeCACertificate
---
---         , requestDeleteProvisioningTemplateVersion $
---             newDeleteProvisioningTemplateVersion
---
---         , requestDetachSecurityProfile $
---             newDetachSecurityProfile
---
---         , requestListThingPrincipals $
---             newListThingPrincipals
---
---         , requestRemoveThingFromThingGroup $
---             newRemoveThingFromThingGroup
---
---         , requestGetBehaviorModelTrainingSummaries $
---             newGetBehaviorModelTrainingSummaries
---
---         , requestUpdateDynamicThingGroup $
---             newUpdateDynamicThingGroup
---
---         , requestCreateTopicRuleDestination $
---             newCreateTopicRuleDestination
---
---         , requestListPrincipalThings $
---             newListPrincipalThings
---
---         , requestCreateProvisioningTemplateVersion $
---             newCreateProvisioningTemplateVersion
---
---         , requestDescribeRoleAlias $
---             newDescribeRoleAlias
+--         , requestRegisterCertificate $
+--             newRegisterCertificate
 --
 --         , requestDeleteDynamicThingGroup $
 --             newDeleteDynamicThingGroup
 --
---         , requestCreateThingGroup $
---             newCreateThingGroup
+--         , requestListThingPrincipals $
+--             newListThingPrincipals
 --
---         , requestTestInvokeAuthorizer $
---             newTestInvokeAuthorizer
+--         , requestUpdateDynamicThingGroup $
+--             newUpdateDynamicThingGroup
+--
+--         , requestDescribeRoleAlias $
+--             newDescribeRoleAlias
+--
+--         , requestCreateProvisioningTemplateVersion $
+--             newCreateProvisioningTemplateVersion
 --
 --         , requestCreateOTAUpdate $
 --             newCreateOTAUpdate
@@ -417,17 +87,299 @@ import Test.Tasty
 --         , requestDescribeDefaultAuthorizer $
 --             newDescribeDefaultAuthorizer
 --
---         , requestDetachPolicy $
---             newDetachPolicy
---
 --         , requestListAuditMitigationActionsTasks $
 --             newListAuditMitigationActionsTasks
 --
---         , requestRegisterCertificate $
---             newRegisterCertificate
+--         , requestListThingRegistrationTaskReports $
+--             newListThingRegistrationTaskReports
 --
---         , requestUpdateSecurityProfile $
---             newUpdateSecurityProfile
+--         , requestGetBehaviorModelTrainingSummaries $
+--             newGetBehaviorModelTrainingSummaries
+--
+--         , requestListPrincipalThings $
+--             newListPrincipalThings
+--
+--         , requestRemoveThingFromThingGroup $
+--             newRemoveThingFromThingGroup
+--
+--         , requestDescribeEventConfigurations $
+--             newDescribeEventConfigurations
+--
+--         , requestCancelDetectMitigationActionsTask $
+--             newCancelDetectMitigationActionsTask
+--
+--         , requestListTopicRuleDestinations $
+--             newListTopicRuleDestinations
+--
+--         , requestRegisterCertificateWithoutCA $
+--             newRegisterCertificateWithoutCA
+--
+--         , requestDescribeCustomMetric $
+--             newDescribeCustomMetric
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListThingGroups $
+--             newListThingGroups
+--
+--         , requestDescribeJobTemplate $
+--             newDescribeJobTemplate
+--
+--         , requestListScheduledAudits $
+--             newListScheduledAudits
+--
+--         , requestDescribeThingRegistrationTask $
+--             newDescribeThingRegistrationTask
+--
+--         , requestUpdateScheduledAudit $
+--             newUpdateScheduledAudit
+--
+--         , requestDeleteScheduledAudit $
+--             newDeleteScheduledAudit
+--
+--         , requestDescribeAuditFinding $
+--             newDescribeAuditFinding
+--
+--         , requestDescribeDimension $
+--             newDescribeDimension
+--
+--         , requestGetLoggingOptions $
+--             newGetLoggingOptions
+--
+--         , requestDeleteAccountAuditConfiguration $
+--             newDeleteAccountAuditConfiguration
+--
+--         , requestUpdateAccountAuditConfiguration $
+--             newUpdateAccountAuditConfiguration
+--
+--         , requestGetOTAUpdate $
+--             newGetOTAUpdate
+--
+--         , requestGetEffectivePolicies $
+--             newGetEffectivePolicies
+--
+--         , requestListThingTypes $
+--             newListThingTypes
+--
+--         , requestSetV2LoggingOptions $
+--             newSetV2LoggingOptions
+--
+--         , requestCreateProvisioningTemplate $
+--             newCreateProvisioningTemplate
+--
+--         , requestListThingGroupsForThing $
+--             newListThingGroupsForThing
+--
+--         , requestCreateCertificateFromCsr $
+--             newCreateCertificateFromCsr
+--
+--         , requestDeleteThing $
+--             newDeleteThing
+--
+--         , requestUpdateThing $
+--             newUpdateThing
+--
+--         , requestDeleteProvisioningTemplate $
+--             newDeleteProvisioningTemplate
+--
+--         , requestUpdateProvisioningTemplate $
+--             newUpdateProvisioningTemplate
+--
+--         , requestDescribeMitigationAction $
+--             newDescribeMitigationAction
+--
+--         , requestStartThingRegistrationTask $
+--             newStartThingRegistrationTask
+--
+--         , requestCreateScheduledAudit $
+--             newCreateScheduledAudit
+--
+--         , requestListAuthorizers $
+--             newListAuthorizers
+--
+--         , requestListJobExecutionsForJob $
+--             newListJobExecutionsForJob
+--
+--         , requestRemoveThingFromBillingGroup $
+--             newRemoveThingFromBillingGroup
+--
+--         , requestSearchIndex $
+--             newSearchIndex
+--
+--         , requestCreateThingType $
+--             newCreateThingType
+--
+--         , requestDescribeSecurityProfile $
+--             newDescribeSecurityProfile
+--
+--         , requestDeleteV2LoggingLevel $
+--             newDeleteV2LoggingLevel
+--
+--         , requestSetDefaultAuthorizer $
+--             newSetDefaultAuthorizer
+--
+--         , requestDescribeJobExecution $
+--             newDescribeJobExecution
+--
+--         , requestCancelCertificateTransfer $
+--             newCancelCertificateTransfer
+--
+--         , requestGetIndexingConfiguration $
+--             newGetIndexingConfiguration
+--
+--         , requestListAuditMitigationActionsExecutions $
+--             newListAuditMitigationActionsExecutions
+--
+--         , requestCreateCustomMetric $
+--             newCreateCustomMetric
+--
+--         , requestDescribeAuditMitigationActionsTask $
+--             newDescribeAuditMitigationActionsTask
+--
+--         , requestGetStatistics $
+--             newGetStatistics
+--
+--         , requestDeleteRoleAlias $
+--             newDeleteRoleAlias
+--
+--         , requestUpdateRoleAlias $
+--             newUpdateRoleAlias
+--
+--         , requestListFleetMetrics $
+--             newListFleetMetrics
+--
+--         , requestDeletePolicyVersion $
+--             newDeletePolicyVersion
+--
+--         , requestDisableTopicRule $
+--             newDisableTopicRule
+--
+--         , requestCreateTopicRule $
+--             newCreateTopicRule
+--
+--         , requestCreateJob $
+--             newCreateJob
+--
+--         , requestDescribeIndex $
+--             newDescribeIndex
+--
+--         , requestAssociateTargetsWithJob $
+--             newAssociateTargetsWithJob
+--
+--         , requestAttachSecurityProfile $
+--             newAttachSecurityProfile
+--
+--         , requestListAttachedPolicies $
+--             newListAttachedPolicies
+--
+--         , requestCreatePolicyVersion $
+--             newCreatePolicyVersion
+--
+--         , requestListCACertificates $
+--             newListCACertificates
+--
+--         , requestDeleteTopicRule $
+--             newDeleteTopicRule
+--
+--         , requestGetJobDocument $
+--             newGetJobDocument
+--
+--         , requestDescribeProvisioningTemplateVersion $
+--             newDescribeProvisioningTemplateVersion
+--
+--         , requestListCustomMetrics $
+--             newListCustomMetrics
+--
+--         , requestCancelAuditTask $
+--             newCancelAuditTask
+--
+--         , requestCreateRoleAlias $
+--             newCreateRoleAlias
+--
+--         , requestDeleteCACertificate $
+--             newDeleteCACertificate
+--
+--         , requestUpdateCACertificate $
+--             newUpdateCACertificate
+--
+--         , requestListTopicRules $
+--             newListTopicRules
+--
+--         , requestTransferCertificate $
+--             newTransferCertificate
+--
+--         , requestListJobs $
+--             newListJobs
+--
+--         , requestListRoleAliases $
+--             newListRoleAliases
+--
+--         , requestStartOnDemandAuditTask $
+--             newStartOnDemandAuditTask
+--
+--         , requestDescribeThingGroup $
+--             newDescribeThingGroup
+--
+--         , requestDeleteJob $
+--             newDeleteJob
+--
+--         , requestListTargetsForSecurityProfile $
+--             newListTargetsForSecurityProfile
+--
+--         , requestUpdateJob $
+--             newUpdateJob
+--
+--         , requestStartAuditMitigationActionsTask $
+--             newStartAuditMitigationActionsTask
+--
+--         , requestDescribeDetectMitigationActionsTask $
+--             newDescribeDetectMitigationActionsTask
+--
+--         , requestGetTopicRule $
+--             newGetTopicRule
+--
+--         , requestDescribeThing $
+--             newDescribeThing
+--
+--         , requestListDomainConfigurations $
+--             newListDomainConfigurations
+--
+--         , requestListAuditTasks $
+--             newListAuditTasks
+--
+--         , requestDescribeAccountAuditConfiguration $
+--             newDescribeAccountAuditConfiguration
+--
+--         , requestDeleteDimension $
+--             newDeleteDimension
+--
+--         , requestUpdateDimension $
+--             newUpdateDimension
+--
+--         , requestDeletePolicy $
+--             newDeletePolicy
+--
+--         , requestListThingsInThingGroup $
+--             newListThingsInThingGroup
+--
+--         , requestListAuditFindings $
+--             newListAuditFindings
+--
+--         , requestDescribeScheduledAudit $
+--             newDescribeScheduledAudit
+--
+--         , requestCreateMitigationAction $
+--             newCreateMitigationAction
+--
+--         , requestConfirmTopicRuleDestination $
+--             newConfirmTopicRuleDestination
+--
+--         , requestListCertificates $
+--             newListCertificates
+--
+--         , requestListMitigationActions $
+--             newListMitigationActions
 --
 --         , requestDescribeAuthorizer $
 --             newDescribeAuthorizer
@@ -435,233 +387,137 @@ import Test.Tasty
 --         , requestGetPolicyVersion $
 --             newGetPolicyVersion
 --
---         , requestListCertificates $
---             newListCertificates
---
---         , requestDeleteSecurityProfile $
---             newDeleteSecurityProfile
+--         , requestListActiveViolations $
+--             newListActiveViolations
 --
 --         , requestValidateSecurityProfileBehaviors $
 --             newValidateSecurityProfileBehaviors
 --
---         , requestCreateDomainConfiguration $
---             newCreateDomainConfiguration
+--         , requestListViolationEvents $
+--             newListViolationEvents
 --
---         , requestListActiveViolations $
---             newListActiveViolations
+--         , requestDeleteCertificate $
+--             newDeleteCertificate
 --
---         , requestDescribeBillingGroup $
---             newDescribeBillingGroup
+--         , requestUpdateCertificate $
+--             newUpdateCertificate
 --
---         , requestListThingRegistrationTasks $
---             newListThingRegistrationTasks
+--         , requestCreateDimension $
+--             newCreateDimension
 --
---         , requestUpdateDimension $
---             newUpdateDimension
+--         , requestUpdateIndexingConfiguration $
+--             newUpdateIndexingConfiguration
 --
---         , requestDescribeAuditSuppression $
---             newDescribeAuditSuppression
+--         , requestGetBucketsAggregation $
+--             newGetBucketsAggregation
 --
---         , requestDescribeAccountAuditConfiguration $
---             newDescribeAccountAuditConfiguration
+--         , requestCreateProvisioningClaim $
+--             newCreateProvisioningClaim
 --
---         , requestDeprecateThingType $
---             newDeprecateThingType
+--         , requestTestInvokeAuthorizer $
+--             newTestInvokeAuthorizer
 --
---         , requestDescribeDetectMitigationActionsTask $
---             newDescribeDetectMitigationActionsTask
+--         , requestPutVerificationStateOnViolation $
+--             newPutVerificationStateOnViolation
 --
---         , requestDeleteDimension $
---             newDeleteDimension
+--         , requestCreateThingGroup $
+--             newCreateThingGroup
 --
---         , requestListAuditFindings $
---             newListAuditFindings
+--         , requestDescribeFleetMetric $
+--             newDescribeFleetMetric
 --
---         , requestDescribeThing $
---             newDescribeThing
+--         , requestCreateTopicRuleDestination $
+--             newCreateTopicRuleDestination
 --
---         , requestListDimensions $
---             newListDimensions
+--         , requestDetachPolicy $
+--             newDetachPolicy
 --
---         , requestDetachThingPrincipal $
---             newDetachThingPrincipal
+--         , requestDescribeJob $
+--             newDescribeJob
 --
---         , requestDescribeStream $
---             newDescribeStream
+--         , requestAddThingToBillingGroup $
+--             newAddThingToBillingGroup
 --
---         , requestConfirmTopicRuleDestination $
---             newConfirmTopicRuleDestination
+--         , requestUpdateTopicRuleDestination $
+--             newUpdateTopicRuleDestination
 --
---         , requestGetPolicy $
---             newGetPolicy
+--         , requestDeleteTopicRuleDestination $
+--             newDeleteTopicRuleDestination
 --
---         , requestListTopicRules $
---             newListTopicRules
+--         , requestDeleteThingGroup $
+--             newDeleteThingGroup
 --
---         , requestListCACertificates $
---             newListCACertificates
+--         , requestUpdateThingGroup $
+--             newUpdateThingGroup
 --
---         , requestStartOnDemandAuditTask $
---             newStartOnDemandAuditTask
+--         , requestListOTAUpdates $
+--             newListOTAUpdates
 --
---         , requestUpdateEventConfigurations $
---             newUpdateEventConfigurations
+--         , requestDeleteOTAUpdate $
+--             newDeleteOTAUpdate
 --
---         , requestUpdateThingGroupsForThing $
---             newUpdateThingGroupsForThing
+--         , requestCreateDynamicThingGroup $
+--             newCreateDynamicThingGroup
 --
---         , requestListSecurityProfilesForTarget $
---             newListSecurityProfilesForTarget
+--         , requestDetachSecurityProfile $
+--             newDetachSecurityProfile
 --
---         , requestDeleteJobTemplate $
---             newDeleteJobTemplate
+--         , requestListOutgoingCertificates $
+--             newListOutgoingCertificates
 --
---         , requestEnableTopicRule $
---             newEnableTopicRule
+--         , requestDeleteProvisioningTemplateVersion $
+--             newDeleteProvisioningTemplateVersion
 --
---         , requestAcceptCertificateTransfer $
---             newAcceptCertificateTransfer
+--         , requestDescribeCACertificate $
+--             newDescribeCACertificate
 --
---         , requestGetJobDocument $
---             newGetJobDocument
+--         , requestListProvisioningTemplateVersions $
+--             newListProvisioningTemplateVersions
 --
---         , requestListAttachedPolicies $
---             newListAttachedPolicies
+--         , requestGetRegistrationCode $
+--             newGetRegistrationCode
 --
---         , requestDescribeThingGroup $
---             newDescribeThingGroup
---
---         , requestListJobs $
---             newListJobs
---
---         , requestCreateFleetMetric $
---             newCreateFleetMetric
---
---         , requestRegisterCACertificate $
---             newRegisterCACertificate
---
---         , requestReplaceTopicRule $
---             newReplaceTopicRule
---
---         , requestGetStatistics $
---             newGetStatistics
---
---         , requestDescribeIndex $
---             newDescribeIndex
---
---         , requestAttachPolicy $
---             newAttachPolicy
---
---         , requestUpdateRoleAlias $
---             newUpdateRoleAlias
---
---         , requestClearDefaultAuthorizer $
---             newClearDefaultAuthorizer
---
---         , requestCreateTopicRule $
---             newCreateTopicRule
---
---         , requestCancelJobExecution $
---             newCancelJobExecution
---
---         , requestCreateJob $
---             newCreateJob
---
---         , requestAssociateTargetsWithJob $
---             newAssociateTargetsWithJob
---
---         , requestDeletePolicyVersion $
---             newDeletePolicyVersion
---
---         , requestDeleteRoleAlias $
---             newDeleteRoleAlias
---
---         , requestListPolicyVersions $
---             newListPolicyVersions
---
---         , requestListTargetsForPolicy $
---             newListTargetsForPolicy
---
---         , requestCancelCertificateTransfer $
---             newCancelCertificateTransfer
---
---         , requestListAuthorizers $
---             newListAuthorizers
---
---         , requestCreateThingType $
---             newCreateThingType
---
---         , requestUpdateAuthorizer $
---             newUpdateAuthorizer
---
---         , requestCreateAuditSuppression $
---             newCreateAuditSuppression
---
---         , requestListJobExecutionsForJob $
---             newListJobExecutionsForJob
---
---         , requestDescribeSecurityProfile $
---             newDescribeSecurityProfile
---
---         , requestRemoveThingFromBillingGroup $
---             newRemoveThingFromBillingGroup
---
---         , requestCreateStream $
---             newCreateStream
---
---         , requestSearchIndex $
---             newSearchIndex
---
---         , requestCancelAuditMitigationActionsTask $
---             newCancelAuditMitigationActionsTask
---
---         , requestDeleteAuthorizer $
---             newDeleteAuthorizer
---
---         , requestCreateBillingGroup $
---             newCreateBillingGroup
---
---         , requestDescribeAuditFinding $
---             newDescribeAuditFinding
---
---         , requestDeleteScheduledAudit $
---             newDeleteScheduledAudit
---
---         , requestGetEffectivePolicies $
---             newGetEffectivePolicies
---
---         , requestGetOTAUpdate $
---             newGetOTAUpdate
---
---         , requestCreateProvisioningTemplate $
---             newCreateProvisioningTemplate
---
---         , requestListThingTypes $
---             newListThingTypes
---
---         , requestDeleteThingType $
---             newDeleteThingType
---
---         , requestRegisterThing $
---             newRegisterThing
+--         , requestListDetectMitigationActionsExecutions $
+--             newListDetectMitigationActionsExecutions
 --
 --         , requestListBillingGroups $
 --             newListBillingGroups
 --
---         , requestListStreams $
---             newListStreams
+--         , requestDeleteThingType $
+--             newDeleteThingType
 --
---         , requestTestAuthorization $
---             newTestAuthorization
+--         , requestDeleteBillingGroup $
+--             newDeleteBillingGroup
 --
---         , requestListIndices $
---             newListIndices
+--         , requestAddThingToThingGroup $
+--             newAddThingToThingGroup
 --
---         , requestDescribeAuditTask $
---             newDescribeAuditTask
+--         , requestUpdateBillingGroup $
+--             newUpdateBillingGroup
 --
---         , requestCreateCertificateFromCsr $
---             newCreateCertificateFromCsr
+--         , requestGetTopicRuleDestination $
+--             newGetTopicRuleDestination
+--
+--         , requestListCertificatesByCA $
+--             newListCertificatesByCA
+--
+--         , requestUpdateAuditSuppression $
+--             newUpdateAuditSuppression
+--
+--         , requestAttachThingPrincipal $
+--             newAttachThingPrincipal
+--
+--         , requestListThings $
+--             newListThings
+--
+--         , requestDeleteAuditSuppression $
+--             newDeleteAuditSuppression
+--
+--         , requestListDetectMitigationActionsTasks $
+--             newListDetectMitigationActionsTasks
+--
+--         , requestRegisterThing $
+--             newRegisterThing
 --
 --         , requestListAuditSuppressions $
 --             newListAuditSuppressions
@@ -669,89 +525,224 @@ import Test.Tasty
 --         , requestDescribeDomainConfiguration $
 --             newDescribeDomainConfiguration
 --
---         , requestUpdateScheduledAudit $
---             newUpdateScheduledAudit
+--         , requestDescribeAuditTask $
+--             newDescribeAuditTask
 --
---         , requestGetTopicRuleDestination $
---             newGetTopicRuleDestination
+--         , requestDeleteRegistrationCode $
+--             newDeleteRegistrationCode
 --
---         , requestDeleteTopicRuleDestination $
---             newDeleteTopicRuleDestination
+--         , requestUpdateStream $
+--             newUpdateStream
 --
---         , requestListOutgoingCertificates $
---             newListOutgoingCertificates
+--         , requestDeleteStream $
+--             newDeleteStream
 --
---         , requestDescribeJobTemplate $
---             newDescribeJobTemplate
+--         , requestListStreams $
+--             newListStreams
 --
---         , requestAddThingToBillingGroup $
---             newAddThingToBillingGroup
+--         , requestCreateAuthorizer $
+--             newCreateAuthorizer
 --
---         , requestListOTAUpdates $
---             newListOTAUpdates
+--         , requestTestAuthorization $
+--             newTestAuthorization
 --
---         , requestUpdateThingGroup $
---             newUpdateThingGroup
+--         , requestListIndices $
+--             newListIndices
 --
---         , requestDeleteThingGroup $
---             newDeleteThingGroup
+--         , requestUpdateAuthorizer $
+--             newUpdateAuthorizer
 --
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestDeleteAuthorizer $
+--             newDeleteAuthorizer
 --
---         , requestDescribeEventConfigurations $
---             newDescribeEventConfigurations
+--         , requestCreateThing $
+--             newCreateThing
 --
---         , requestListTopicRuleDestinations $
---             newListTopicRuleDestinations
+--         , requestCreateStream $
+--             newCreateStream
 --
---         , requestListProvisioningTemplateVersions $
---             newListProvisioningTemplateVersions
+--         , requestCancelAuditMitigationActionsTask $
+--             newCancelAuditMitigationActionsTask
 --
---         , requestUpdateTopicRuleDestination $
---             newUpdateTopicRuleDestination
+--         , requestCreateAuditSuppression $
+--             newCreateAuditSuppression
 --
---         , requestListThingGroups $
---             newListThingGroups
+--         , requestCreateBillingGroup $
+--             newCreateBillingGroup
 --
---         , requestCancelDetectMitigationActionsTask $
---             newCancelDetectMitigationActionsTask
+--         , requestListProvisioningTemplates $
+--             newListProvisioningTemplates
+--
+--         , requestListV2LoggingLevels $
+--             newListV2LoggingLevels
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestStopThingRegistrationTask $
+--             newStopThingRegistrationTask
+--
+--         , requestDescribeCertificate $
+--             newDescribeCertificate
+--
+--         , requestListTargetsForPolicy $
+--             newListTargetsForPolicy
+--
+--         , requestCreateJobTemplate $
+--             newCreateJobTemplate
+--
+--         , requestClearDefaultAuthorizer $
+--             newClearDefaultAuthorizer
+--
+--         , requestReplaceTopicRule $
+--             newReplaceTopicRule
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestDeleteFleetMetric $
+--             newDeleteFleetMetric
+--
+--         , requestUpdateFleetMetric $
+--             newUpdateFleetMetric
+--
+--         , requestSetDefaultPolicyVersion $
+--             newSetDefaultPolicyVersion
+--
+--         , requestCancelJobExecution $
+--             newCancelJobExecution
+--
+--         , requestListPolicyVersions $
+--             newListPolicyVersions
+--
+--         , requestSetV2LoggingLevel $
+--             newSetV2LoggingLevel
+--
+--         , requestListJobExecutionsForThing $
+--             newListJobExecutionsForThing
+--
+--         , requestAttachPolicy $
+--             newAttachPolicy
+--
+--         , requestCreateKeysAndCertificate $
+--             newCreateKeysAndCertificate
+--
+--         , requestListThingsInBillingGroup $
+--             newListThingsInBillingGroup
+--
+--         , requestUpdateThingGroupsForThing $
+--             newUpdateThingGroupsForThing
+--
+--         , requestCreateFleetMetric $
+--             newCreateFleetMetric
+--
+--         , requestEnableTopicRule $
+--             newEnableTopicRule
+--
+--         , requestDeleteJobTemplate $
+--             newDeleteJobTemplate
+--
+--         , requestAcceptCertificateTransfer $
+--             newAcceptCertificateTransfer
+--
+--         , requestGetPercentiles $
+--             newGetPercentiles
+--
+--         , requestGetPolicy $
+--             newGetPolicy
+--
+--         , requestListJobTemplates $
+--             newListJobTemplates
+--
+--         , requestDescribeEndpoint $
+--             newDescribeEndpoint
+--
+--         , requestListSecurityProfilesForTarget $
+--             newListSecurityProfilesForTarget
+--
+--         , requestUpdateEventConfigurations $
+--             newUpdateEventConfigurations
+--
+--         , requestUpdateCustomMetric $
+--             newUpdateCustomMetric
+--
+--         , requestDeleteCustomMetric $
+--             newDeleteCustomMetric
+--
+--         , requestRegisterCACertificate $
+--             newRegisterCACertificate
+--
+--         , requestDeleteDomainConfiguration $
+--             newDeleteDomainConfiguration
+--
+--         , requestUpdateDomainConfiguration $
+--             newUpdateDomainConfiguration
+--
+--         , requestSetLoggingOptions $
+--             newSetLoggingOptions
+--
+--         , requestDescribeThingType $
+--             newDescribeThingType
+--
+--         , requestListDimensions $
+--             newListDimensions
+--
+--         , requestGetV2LoggingOptions $
+--             newGetV2LoggingOptions
+--
+--         , requestListThingRegistrationTasks $
+--             newListThingRegistrationTasks
+--
+--         , requestRejectCertificateTransfer $
+--             newRejectCertificateTransfer
+--
+--         , requestDescribeAuditSuppression $
+--             newDescribeAuditSuppression
+--
+--         , requestDescribeStream $
+--             newDescribeStream
+--
+--         , requestCreateSecurityProfile $
+--             newCreateSecurityProfile
+--
+--         , requestDescribeBillingGroup $
+--             newDescribeBillingGroup
+--
+--         , requestDetachThingPrincipal $
+--             newDetachThingPrincipal
+--
+--         , requestCancelJob $
+--             newCancelJob
+--
+--         , requestDeprecateThingType $
+--             newDeprecateThingType
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseGetBucketsAggregation $
---             newGetBucketsAggregationResponse
+--         [ responseGetCardinality $
+--             newGetCardinalityResponse
 --
---         , responseUpdateIndexingConfiguration $
---             newUpdateIndexingConfigurationResponse
+--         , responseCreateDomainConfiguration $
+--             newCreateDomainConfigurationResponse
 --
---         , responsePutVerificationStateOnViolation $
---             newPutVerificationStateOnViolationResponse
+--         , responseStartDetectMitigationActionsTask $
+--             newStartDetectMitigationActionsTaskResponse
 --
---         , responseListThingRegistrationTaskReports $
---             newListThingRegistrationTaskReportsResponse
+--         , responseDeleteSecurityProfile $
+--             newDeleteSecurityProfileResponse
 --
---         , responseDescribeFleetMetric $
---             newDescribeFleetMetricResponse
---
---         , responseCreateProvisioningClaim $
---             newCreateProvisioningClaimResponse
---
---         , responseUpdateCertificate $
---             newUpdateCertificateResponse
---
---         , responseListMitigationActions $
---             newListMitigationActionsResponse
---
---         , responseDescribeProvisioningTemplate $
---             newDescribeProvisioningTemplateResponse
---
---         , responseDeleteJobExecution $
---             newDeleteJobExecutionResponse
+--         , responseUpdateSecurityProfile $
+--             newUpdateSecurityProfileResponse
 --
 --         , responseListSecurityProfiles $
 --             newListSecurityProfilesResponse
+--
+--         , responseListPolicies $
+--             newListPoliciesResponse
+--
+--         , responseDescribeProvisioningTemplate $
+--             newDescribeProvisioningTemplateResponse
 --
 --         , responseUpdateMitigationAction $
 --             newUpdateMitigationActionResponse
@@ -759,350 +750,29 @@ import Test.Tasty
 --         , responseDeleteMitigationAction $
 --             newDeleteMitigationActionResponse
 --
---         , responseListPolicies $
---             newListPoliciesResponse
---
---         , responseStartDetectMitigationActionsTask $
---             newStartDetectMitigationActionsTaskResponse
---
---         , responseGetCardinality $
---             newGetCardinalityResponse
---
---         , responseDeleteCertificate $
---             newDeleteCertificateResponse
+--         , responseDeleteJobExecution $
+--             newDeleteJobExecutionResponse
 --
 --         , responseCreatePolicy $
 --             newCreatePolicyResponse
 --
---         , responseListViolationEvents $
---             newListViolationEventsResponse
---
---         , responseCreateDimension $
---             newCreateDimensionResponse
---
---         , responseListAuditTasks $
---             newListAuditTasksResponse
---
---         , responseDescribeThingType $
---             newDescribeThingTypeResponse
---
---         , responseDeletePolicy $
---             newDeletePolicyResponse
---
---         , responseCreateMitigationAction $
---             newCreateMitigationActionResponse
---
---         , responseDeleteDomainConfiguration $
---             newDeleteDomainConfigurationResponse
---
---         , responseGetTopicRule $
---             newGetTopicRuleResponse
---
---         , responseUpdateDomainConfiguration $
---             newUpdateDomainConfigurationResponse
---
---         , responseRejectCertificateTransfer $
---             newRejectCertificateTransferResponse
---
---         , responseSetLoggingOptions $
---             newSetLoggingOptionsResponse
---
---         , responseCreateSecurityProfile $
---             newCreateSecurityProfileResponse
---
---         , responseCancelJob $
---             newCancelJobResponse
---
---         , responseListDomainConfigurations $
---             newListDomainConfigurationsResponse
---
---         , responseDescribeScheduledAudit $
---             newDescribeScheduledAuditResponse
---
---         , responseGetV2LoggingOptions $
---             newGetV2LoggingOptionsResponse
---
---         , responseListThingsInThingGroup $
---             newListThingsInThingGroupResponse
---
---         , responseListCustomMetrics $
---             newListCustomMetricsResponse
---
---         , responseAttachSecurityProfile $
---             newAttachSecurityProfileResponse
---
---         , responseUpdateJob $
---             newUpdateJobResponse
---
---         , responseDeleteJob $
---             newDeleteJobResponse
---
---         , responseDeleteCACertificate $
---             newDeleteCACertificateResponse
---
---         , responseDeleteCustomMetric $
---             newDeleteCustomMetricResponse
---
---         , responseCreatePolicyVersion $
---             newCreatePolicyVersionResponse
---
---         , responseListRoleAliases $
---             newListRoleAliasesResponse
---
---         , responseCancelAuditTask $
---             newCancelAuditTaskResponse
---
---         , responseCreateRoleAlias $
---             newCreateRoleAliasResponse
---
---         , responseListJobTemplates $
---             newListJobTemplatesResponse
---
---         , responseDescribeProvisioningTemplateVersion $
---             newDescribeProvisioningTemplateVersionResponse
---
---         , responseCreateKeysAndCertificate $
---             newCreateKeysAndCertificateResponse
---
---         , responseUpdateCACertificate $
---             newUpdateCACertificateResponse
---
---         , responseUpdateCustomMetric $
---             newUpdateCustomMetricResponse
---
---         , responseStartAuditMitigationActionsTask $
---             newStartAuditMitigationActionsTaskResponse
---
---         , responseTransferCertificate $
---             newTransferCertificateResponse
---
---         , responseGetPercentiles $
---             newGetPercentilesResponse
---
---         , responseDeleteTopicRule $
---             newDeleteTopicRuleResponse
---
---         , responseListTargetsForSecurityProfile $
---             newListTargetsForSecurityProfileResponse
---
---         , responseDescribeEndpoint $
---             newDescribeEndpointResponse
---
---         , responseListThingsInBillingGroup $
---             newListThingsInBillingGroupResponse
---
---         , responseSetV2LoggingLevel $
---             newSetV2LoggingLevelResponse
---
---         , responseCreateJobTemplate $
---             newCreateJobTemplateResponse
---
---         , responseSetDefaultPolicyVersion $
---             newSetDefaultPolicyVersionResponse
---
---         , responseCreateCustomMetric $
---             newCreateCustomMetricResponse
---
---         , responseListFleetMetrics $
---             newListFleetMetricsResponse
---
---         , responseUpdateFleetMetric $
---             newUpdateFleetMetricResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseListJobExecutionsForThing $
---             newListJobExecutionsForThingResponse
---
---         , responseDeleteFleetMetric $
---             newDeleteFleetMetricResponse
---
---         , responseDisableTopicRule $
---             newDisableTopicRuleResponse
---
---         , responseDescribeAuditMitigationActionsTask $
---             newDescribeAuditMitigationActionsTaskResponse
---
---         , responseCreateThing $
---             newCreateThingResponse
---
---         , responseListV2LoggingLevels $
---             newListV2LoggingLevelsResponse
---
---         , responseListAuditMitigationActionsExecutions $
---             newListAuditMitigationActionsExecutionsResponse
---
---         , responseListProvisioningTemplates $
---             newListProvisioningTemplatesResponse
---
---         , responseStartThingRegistrationTask $
---             newStartThingRegistrationTaskResponse
---
---         , responseDescribeJobExecution $
---             newDescribeJobExecutionResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseDescribeCertificate $
---             newDescribeCertificateResponse
---
---         , responseDeleteProvisioningTemplate $
---             newDeleteProvisioningTemplateResponse
---
---         , responseUpdateProvisioningTemplate $
---             newUpdateProvisioningTemplateResponse
---
---         , responseGetIndexingConfiguration $
---             newGetIndexingConfigurationResponse
---
---         , responseStopThingRegistrationTask $
---             newStopThingRegistrationTaskResponse
---
---         , responseCreateScheduledAudit $
---             newCreateScheduledAuditResponse
---
---         , responseSetDefaultAuthorizer $
---             newSetDefaultAuthorizerResponse
---
---         , responseDeleteV2LoggingLevel $
---             newDeleteV2LoggingLevelResponse
---
---         , responseDescribeMitigationAction $
---             newDescribeMitigationActionResponse
---
---         , responseDescribeDimension $
---             newDescribeDimensionResponse
---
---         , responseCreateAuthorizer $
---             newCreateAuthorizerResponse
---
---         , responseSetV2LoggingOptions $
---             newSetV2LoggingOptionsResponse
---
---         , responseDeleteStream $
---             newDeleteStreamResponse
---
---         , responseListDetectMitigationActionsTasks $
---             newListDetectMitigationActionsTasksResponse
---
---         , responseUpdateAuditSuppression $
---             newUpdateAuditSuppressionResponse
---
---         , responseUpdateStream $
---             newUpdateStreamResponse
---
---         , responseUpdateThing $
---             newUpdateThingResponse
---
---         , responseDescribeThingRegistrationTask $
---             newDescribeThingRegistrationTaskResponse
---
---         , responseDeleteAccountAuditConfiguration $
---             newDeleteAccountAuditConfigurationResponse
---
---         , responseListThingGroupsForThing $
---             newListThingGroupsForThingResponse
---
---         , responseListCertificatesByCA $
---             newListCertificatesByCAResponse
---
---         , responseListThings $
---             newListThingsResponse
---
---         , responseAddThingToThingGroup $
---             newAddThingToThingGroupResponse
---
---         , responseDeleteBillingGroup $
---             newDeleteBillingGroupResponse
---
---         , responseListScheduledAudits $
---             newListScheduledAuditsResponse
---
---         , responseDeleteRegistrationCode $
---             newDeleteRegistrationCodeResponse
---
---         , responseDeleteThing $
---             newDeleteThingResponse
---
---         , responseAttachThingPrincipal $
---             newAttachThingPrincipalResponse
---
---         , responseUpdateBillingGroup $
---             newUpdateBillingGroupResponse
---
---         , responseUpdateAccountAuditConfiguration $
---             newUpdateAccountAuditConfigurationResponse
---
---         , responseGetLoggingOptions $
---             newGetLoggingOptionsResponse
---
---         , responseDeleteAuditSuppression $
---             newDeleteAuditSuppressionResponse
---
---         , responseDescribeCustomMetric $
---             newDescribeCustomMetricResponse
---
---         , responseDescribeJob $
---             newDescribeJobResponse
---
---         , responseDeleteOTAUpdate $
---             newDeleteOTAUpdateResponse
---
---         , responseGetRegistrationCode $
---             newGetRegistrationCodeResponse
---
---         , responseListDetectMitigationActionsExecutions $
---             newListDetectMitigationActionsExecutionsResponse
---
---         , responseRegisterCertificateWithoutCA $
---             newRegisterCertificateWithoutCAResponse
---
---         , responseCreateDynamicThingGroup $
---             newCreateDynamicThingGroupResponse
---
---         , responseDescribeCACertificate $
---             newDescribeCACertificateResponse
---
---         , responseDeleteProvisioningTemplateVersion $
---             newDeleteProvisioningTemplateVersionResponse
---
---         , responseDetachSecurityProfile $
---             newDetachSecurityProfileResponse
---
---         , responseListThingPrincipals $
---             newListThingPrincipalsResponse
---
---         , responseRemoveThingFromThingGroup $
---             newRemoveThingFromThingGroupResponse
---
---         , responseGetBehaviorModelTrainingSummaries $
---             newGetBehaviorModelTrainingSummariesResponse
---
---         , responseUpdateDynamicThingGroup $
---             newUpdateDynamicThingGroupResponse
---
---         , responseCreateTopicRuleDestination $
---             newCreateTopicRuleDestinationResponse
---
---         , responseListPrincipalThings $
---             newListPrincipalThingsResponse
---
---         , responseCreateProvisioningTemplateVersion $
---             newCreateProvisioningTemplateVersionResponse
---
---         , responseDescribeRoleAlias $
---             newDescribeRoleAliasResponse
+--         , responseRegisterCertificate $
+--             newRegisterCertificateResponse
 --
 --         , responseDeleteDynamicThingGroup $
 --             newDeleteDynamicThingGroupResponse
 --
---         , responseCreateThingGroup $
---             newCreateThingGroupResponse
+--         , responseListThingPrincipals $
+--             newListThingPrincipalsResponse
 --
---         , responseTestInvokeAuthorizer $
---             newTestInvokeAuthorizerResponse
+--         , responseUpdateDynamicThingGroup $
+--             newUpdateDynamicThingGroupResponse
+--
+--         , responseDescribeRoleAlias $
+--             newDescribeRoleAliasResponse
+--
+--         , responseCreateProvisioningTemplateVersion $
+--             newCreateProvisioningTemplateVersionResponse
 --
 --         , responseCreateOTAUpdate $
 --             newCreateOTAUpdateResponse
@@ -1110,17 +780,299 @@ import Test.Tasty
 --         , responseDescribeDefaultAuthorizer $
 --             newDescribeDefaultAuthorizerResponse
 --
---         , responseDetachPolicy $
---             newDetachPolicyResponse
---
 --         , responseListAuditMitigationActionsTasks $
 --             newListAuditMitigationActionsTasksResponse
 --
---         , responseRegisterCertificate $
---             newRegisterCertificateResponse
+--         , responseListThingRegistrationTaskReports $
+--             newListThingRegistrationTaskReportsResponse
 --
---         , responseUpdateSecurityProfile $
---             newUpdateSecurityProfileResponse
+--         , responseGetBehaviorModelTrainingSummaries $
+--             newGetBehaviorModelTrainingSummariesResponse
+--
+--         , responseListPrincipalThings $
+--             newListPrincipalThingsResponse
+--
+--         , responseRemoveThingFromThingGroup $
+--             newRemoveThingFromThingGroupResponse
+--
+--         , responseDescribeEventConfigurations $
+--             newDescribeEventConfigurationsResponse
+--
+--         , responseCancelDetectMitigationActionsTask $
+--             newCancelDetectMitigationActionsTaskResponse
+--
+--         , responseListTopicRuleDestinations $
+--             newListTopicRuleDestinationsResponse
+--
+--         , responseRegisterCertificateWithoutCA $
+--             newRegisterCertificateWithoutCAResponse
+--
+--         , responseDescribeCustomMetric $
+--             newDescribeCustomMetricResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseListThingGroups $
+--             newListThingGroupsResponse
+--
+--         , responseDescribeJobTemplate $
+--             newDescribeJobTemplateResponse
+--
+--         , responseListScheduledAudits $
+--             newListScheduledAuditsResponse
+--
+--         , responseDescribeThingRegistrationTask $
+--             newDescribeThingRegistrationTaskResponse
+--
+--         , responseUpdateScheduledAudit $
+--             newUpdateScheduledAuditResponse
+--
+--         , responseDeleteScheduledAudit $
+--             newDeleteScheduledAuditResponse
+--
+--         , responseDescribeAuditFinding $
+--             newDescribeAuditFindingResponse
+--
+--         , responseDescribeDimension $
+--             newDescribeDimensionResponse
+--
+--         , responseGetLoggingOptions $
+--             newGetLoggingOptionsResponse
+--
+--         , responseDeleteAccountAuditConfiguration $
+--             newDeleteAccountAuditConfigurationResponse
+--
+--         , responseUpdateAccountAuditConfiguration $
+--             newUpdateAccountAuditConfigurationResponse
+--
+--         , responseGetOTAUpdate $
+--             newGetOTAUpdateResponse
+--
+--         , responseGetEffectivePolicies $
+--             newGetEffectivePoliciesResponse
+--
+--         , responseListThingTypes $
+--             newListThingTypesResponse
+--
+--         , responseSetV2LoggingOptions $
+--             newSetV2LoggingOptionsResponse
+--
+--         , responseCreateProvisioningTemplate $
+--             newCreateProvisioningTemplateResponse
+--
+--         , responseListThingGroupsForThing $
+--             newListThingGroupsForThingResponse
+--
+--         , responseCreateCertificateFromCsr $
+--             newCreateCertificateFromCsrResponse
+--
+--         , responseDeleteThing $
+--             newDeleteThingResponse
+--
+--         , responseUpdateThing $
+--             newUpdateThingResponse
+--
+--         , responseDeleteProvisioningTemplate $
+--             newDeleteProvisioningTemplateResponse
+--
+--         , responseUpdateProvisioningTemplate $
+--             newUpdateProvisioningTemplateResponse
+--
+--         , responseDescribeMitigationAction $
+--             newDescribeMitigationActionResponse
+--
+--         , responseStartThingRegistrationTask $
+--             newStartThingRegistrationTaskResponse
+--
+--         , responseCreateScheduledAudit $
+--             newCreateScheduledAuditResponse
+--
+--         , responseListAuthorizers $
+--             newListAuthorizersResponse
+--
+--         , responseListJobExecutionsForJob $
+--             newListJobExecutionsForJobResponse
+--
+--         , responseRemoveThingFromBillingGroup $
+--             newRemoveThingFromBillingGroupResponse
+--
+--         , responseSearchIndex $
+--             newSearchIndexResponse
+--
+--         , responseCreateThingType $
+--             newCreateThingTypeResponse
+--
+--         , responseDescribeSecurityProfile $
+--             newDescribeSecurityProfileResponse
+--
+--         , responseDeleteV2LoggingLevel $
+--             newDeleteV2LoggingLevelResponse
+--
+--         , responseSetDefaultAuthorizer $
+--             newSetDefaultAuthorizerResponse
+--
+--         , responseDescribeJobExecution $
+--             newDescribeJobExecutionResponse
+--
+--         , responseCancelCertificateTransfer $
+--             newCancelCertificateTransferResponse
+--
+--         , responseGetIndexingConfiguration $
+--             newGetIndexingConfigurationResponse
+--
+--         , responseListAuditMitigationActionsExecutions $
+--             newListAuditMitigationActionsExecutionsResponse
+--
+--         , responseCreateCustomMetric $
+--             newCreateCustomMetricResponse
+--
+--         , responseDescribeAuditMitigationActionsTask $
+--             newDescribeAuditMitigationActionsTaskResponse
+--
+--         , responseGetStatistics $
+--             newGetStatisticsResponse
+--
+--         , responseDeleteRoleAlias $
+--             newDeleteRoleAliasResponse
+--
+--         , responseUpdateRoleAlias $
+--             newUpdateRoleAliasResponse
+--
+--         , responseListFleetMetrics $
+--             newListFleetMetricsResponse
+--
+--         , responseDeletePolicyVersion $
+--             newDeletePolicyVersionResponse
+--
+--         , responseDisableTopicRule $
+--             newDisableTopicRuleResponse
+--
+--         , responseCreateTopicRule $
+--             newCreateTopicRuleResponse
+--
+--         , responseCreateJob $
+--             newCreateJobResponse
+--
+--         , responseDescribeIndex $
+--             newDescribeIndexResponse
+--
+--         , responseAssociateTargetsWithJob $
+--             newAssociateTargetsWithJobResponse
+--
+--         , responseAttachSecurityProfile $
+--             newAttachSecurityProfileResponse
+--
+--         , responseListAttachedPolicies $
+--             newListAttachedPoliciesResponse
+--
+--         , responseCreatePolicyVersion $
+--             newCreatePolicyVersionResponse
+--
+--         , responseListCACertificates $
+--             newListCACertificatesResponse
+--
+--         , responseDeleteTopicRule $
+--             newDeleteTopicRuleResponse
+--
+--         , responseGetJobDocument $
+--             newGetJobDocumentResponse
+--
+--         , responseDescribeProvisioningTemplateVersion $
+--             newDescribeProvisioningTemplateVersionResponse
+--
+--         , responseListCustomMetrics $
+--             newListCustomMetricsResponse
+--
+--         , responseCancelAuditTask $
+--             newCancelAuditTaskResponse
+--
+--         , responseCreateRoleAlias $
+--             newCreateRoleAliasResponse
+--
+--         , responseDeleteCACertificate $
+--             newDeleteCACertificateResponse
+--
+--         , responseUpdateCACertificate $
+--             newUpdateCACertificateResponse
+--
+--         , responseListTopicRules $
+--             newListTopicRulesResponse
+--
+--         , responseTransferCertificate $
+--             newTransferCertificateResponse
+--
+--         , responseListJobs $
+--             newListJobsResponse
+--
+--         , responseListRoleAliases $
+--             newListRoleAliasesResponse
+--
+--         , responseStartOnDemandAuditTask $
+--             newStartOnDemandAuditTaskResponse
+--
+--         , responseDescribeThingGroup $
+--             newDescribeThingGroupResponse
+--
+--         , responseDeleteJob $
+--             newDeleteJobResponse
+--
+--         , responseListTargetsForSecurityProfile $
+--             newListTargetsForSecurityProfileResponse
+--
+--         , responseUpdateJob $
+--             newUpdateJobResponse
+--
+--         , responseStartAuditMitigationActionsTask $
+--             newStartAuditMitigationActionsTaskResponse
+--
+--         , responseDescribeDetectMitigationActionsTask $
+--             newDescribeDetectMitigationActionsTaskResponse
+--
+--         , responseGetTopicRule $
+--             newGetTopicRuleResponse
+--
+--         , responseDescribeThing $
+--             newDescribeThingResponse
+--
+--         , responseListDomainConfigurations $
+--             newListDomainConfigurationsResponse
+--
+--         , responseListAuditTasks $
+--             newListAuditTasksResponse
+--
+--         , responseDescribeAccountAuditConfiguration $
+--             newDescribeAccountAuditConfigurationResponse
+--
+--         , responseDeleteDimension $
+--             newDeleteDimensionResponse
+--
+--         , responseUpdateDimension $
+--             newUpdateDimensionResponse
+--
+--         , responseDeletePolicy $
+--             newDeletePolicyResponse
+--
+--         , responseListThingsInThingGroup $
+--             newListThingsInThingGroupResponse
+--
+--         , responseListAuditFindings $
+--             newListAuditFindingsResponse
+--
+--         , responseDescribeScheduledAudit $
+--             newDescribeScheduledAuditResponse
+--
+--         , responseCreateMitigationAction $
+--             newCreateMitigationActionResponse
+--
+--         , responseConfirmTopicRuleDestination $
+--             newConfirmTopicRuleDestinationResponse
+--
+--         , responseListCertificates $
+--             newListCertificatesResponse
+--
+--         , responseListMitigationActions $
+--             newListMitigationActionsResponse
 --
 --         , responseDescribeAuthorizer $
 --             newDescribeAuthorizerResponse
@@ -1128,233 +1080,137 @@ import Test.Tasty
 --         , responseGetPolicyVersion $
 --             newGetPolicyVersionResponse
 --
---         , responseListCertificates $
---             newListCertificatesResponse
---
---         , responseDeleteSecurityProfile $
---             newDeleteSecurityProfileResponse
+--         , responseListActiveViolations $
+--             newListActiveViolationsResponse
 --
 --         , responseValidateSecurityProfileBehaviors $
 --             newValidateSecurityProfileBehaviorsResponse
 --
---         , responseCreateDomainConfiguration $
---             newCreateDomainConfigurationResponse
+--         , responseListViolationEvents $
+--             newListViolationEventsResponse
 --
---         , responseListActiveViolations $
---             newListActiveViolationsResponse
+--         , responseDeleteCertificate $
+--             newDeleteCertificateResponse
 --
---         , responseDescribeBillingGroup $
---             newDescribeBillingGroupResponse
+--         , responseUpdateCertificate $
+--             newUpdateCertificateResponse
 --
---         , responseListThingRegistrationTasks $
---             newListThingRegistrationTasksResponse
+--         , responseCreateDimension $
+--             newCreateDimensionResponse
 --
---         , responseUpdateDimension $
---             newUpdateDimensionResponse
+--         , responseUpdateIndexingConfiguration $
+--             newUpdateIndexingConfigurationResponse
 --
---         , responseDescribeAuditSuppression $
---             newDescribeAuditSuppressionResponse
+--         , responseGetBucketsAggregation $
+--             newGetBucketsAggregationResponse
 --
---         , responseDescribeAccountAuditConfiguration $
---             newDescribeAccountAuditConfigurationResponse
+--         , responseCreateProvisioningClaim $
+--             newCreateProvisioningClaimResponse
 --
---         , responseDeprecateThingType $
---             newDeprecateThingTypeResponse
+--         , responseTestInvokeAuthorizer $
+--             newTestInvokeAuthorizerResponse
 --
---         , responseDescribeDetectMitigationActionsTask $
---             newDescribeDetectMitigationActionsTaskResponse
+--         , responsePutVerificationStateOnViolation $
+--             newPutVerificationStateOnViolationResponse
 --
---         , responseDeleteDimension $
---             newDeleteDimensionResponse
+--         , responseCreateThingGroup $
+--             newCreateThingGroupResponse
 --
---         , responseListAuditFindings $
---             newListAuditFindingsResponse
+--         , responseDescribeFleetMetric $
+--             newDescribeFleetMetricResponse
 --
---         , responseDescribeThing $
---             newDescribeThingResponse
+--         , responseCreateTopicRuleDestination $
+--             newCreateTopicRuleDestinationResponse
 --
---         , responseListDimensions $
---             newListDimensionsResponse
+--         , responseDetachPolicy $
+--             newDetachPolicyResponse
 --
---         , responseDetachThingPrincipal $
---             newDetachThingPrincipalResponse
+--         , responseDescribeJob $
+--             newDescribeJobResponse
 --
---         , responseDescribeStream $
---             newDescribeStreamResponse
+--         , responseAddThingToBillingGroup $
+--             newAddThingToBillingGroupResponse
 --
---         , responseConfirmTopicRuleDestination $
---             newConfirmTopicRuleDestinationResponse
+--         , responseUpdateTopicRuleDestination $
+--             newUpdateTopicRuleDestinationResponse
 --
---         , responseGetPolicy $
---             newGetPolicyResponse
+--         , responseDeleteTopicRuleDestination $
+--             newDeleteTopicRuleDestinationResponse
 --
---         , responseListTopicRules $
---             newListTopicRulesResponse
+--         , responseDeleteThingGroup $
+--             newDeleteThingGroupResponse
 --
---         , responseListCACertificates $
---             newListCACertificatesResponse
+--         , responseUpdateThingGroup $
+--             newUpdateThingGroupResponse
 --
---         , responseStartOnDemandAuditTask $
---             newStartOnDemandAuditTaskResponse
+--         , responseListOTAUpdates $
+--             newListOTAUpdatesResponse
 --
---         , responseUpdateEventConfigurations $
---             newUpdateEventConfigurationsResponse
+--         , responseDeleteOTAUpdate $
+--             newDeleteOTAUpdateResponse
 --
---         , responseUpdateThingGroupsForThing $
---             newUpdateThingGroupsForThingResponse
+--         , responseCreateDynamicThingGroup $
+--             newCreateDynamicThingGroupResponse
 --
---         , responseListSecurityProfilesForTarget $
---             newListSecurityProfilesForTargetResponse
+--         , responseDetachSecurityProfile $
+--             newDetachSecurityProfileResponse
 --
---         , responseDeleteJobTemplate $
---             newDeleteJobTemplateResponse
+--         , responseListOutgoingCertificates $
+--             newListOutgoingCertificatesResponse
 --
---         , responseEnableTopicRule $
---             newEnableTopicRuleResponse
+--         , responseDeleteProvisioningTemplateVersion $
+--             newDeleteProvisioningTemplateVersionResponse
 --
---         , responseAcceptCertificateTransfer $
---             newAcceptCertificateTransferResponse
+--         , responseDescribeCACertificate $
+--             newDescribeCACertificateResponse
 --
---         , responseGetJobDocument $
---             newGetJobDocumentResponse
+--         , responseListProvisioningTemplateVersions $
+--             newListProvisioningTemplateVersionsResponse
 --
---         , responseListAttachedPolicies $
---             newListAttachedPoliciesResponse
+--         , responseGetRegistrationCode $
+--             newGetRegistrationCodeResponse
 --
---         , responseDescribeThingGroup $
---             newDescribeThingGroupResponse
---
---         , responseListJobs $
---             newListJobsResponse
---
---         , responseCreateFleetMetric $
---             newCreateFleetMetricResponse
---
---         , responseRegisterCACertificate $
---             newRegisterCACertificateResponse
---
---         , responseReplaceTopicRule $
---             newReplaceTopicRuleResponse
---
---         , responseGetStatistics $
---             newGetStatisticsResponse
---
---         , responseDescribeIndex $
---             newDescribeIndexResponse
---
---         , responseAttachPolicy $
---             newAttachPolicyResponse
---
---         , responseUpdateRoleAlias $
---             newUpdateRoleAliasResponse
---
---         , responseClearDefaultAuthorizer $
---             newClearDefaultAuthorizerResponse
---
---         , responseCreateTopicRule $
---             newCreateTopicRuleResponse
---
---         , responseCancelJobExecution $
---             newCancelJobExecutionResponse
---
---         , responseCreateJob $
---             newCreateJobResponse
---
---         , responseAssociateTargetsWithJob $
---             newAssociateTargetsWithJobResponse
---
---         , responseDeletePolicyVersion $
---             newDeletePolicyVersionResponse
---
---         , responseDeleteRoleAlias $
---             newDeleteRoleAliasResponse
---
---         , responseListPolicyVersions $
---             newListPolicyVersionsResponse
---
---         , responseListTargetsForPolicy $
---             newListTargetsForPolicyResponse
---
---         , responseCancelCertificateTransfer $
---             newCancelCertificateTransferResponse
---
---         , responseListAuthorizers $
---             newListAuthorizersResponse
---
---         , responseCreateThingType $
---             newCreateThingTypeResponse
---
---         , responseUpdateAuthorizer $
---             newUpdateAuthorizerResponse
---
---         , responseCreateAuditSuppression $
---             newCreateAuditSuppressionResponse
---
---         , responseListJobExecutionsForJob $
---             newListJobExecutionsForJobResponse
---
---         , responseDescribeSecurityProfile $
---             newDescribeSecurityProfileResponse
---
---         , responseRemoveThingFromBillingGroup $
---             newRemoveThingFromBillingGroupResponse
---
---         , responseCreateStream $
---             newCreateStreamResponse
---
---         , responseSearchIndex $
---             newSearchIndexResponse
---
---         , responseCancelAuditMitigationActionsTask $
---             newCancelAuditMitigationActionsTaskResponse
---
---         , responseDeleteAuthorizer $
---             newDeleteAuthorizerResponse
---
---         , responseCreateBillingGroup $
---             newCreateBillingGroupResponse
---
---         , responseDescribeAuditFinding $
---             newDescribeAuditFindingResponse
---
---         , responseDeleteScheduledAudit $
---             newDeleteScheduledAuditResponse
---
---         , responseGetEffectivePolicies $
---             newGetEffectivePoliciesResponse
---
---         , responseGetOTAUpdate $
---             newGetOTAUpdateResponse
---
---         , responseCreateProvisioningTemplate $
---             newCreateProvisioningTemplateResponse
---
---         , responseListThingTypes $
---             newListThingTypesResponse
---
---         , responseDeleteThingType $
---             newDeleteThingTypeResponse
---
---         , responseRegisterThing $
---             newRegisterThingResponse
+--         , responseListDetectMitigationActionsExecutions $
+--             newListDetectMitigationActionsExecutionsResponse
 --
 --         , responseListBillingGroups $
 --             newListBillingGroupsResponse
 --
---         , responseListStreams $
---             newListStreamsResponse
+--         , responseDeleteThingType $
+--             newDeleteThingTypeResponse
 --
---         , responseTestAuthorization $
---             newTestAuthorizationResponse
+--         , responseDeleteBillingGroup $
+--             newDeleteBillingGroupResponse
 --
---         , responseListIndices $
---             newListIndicesResponse
+--         , responseAddThingToThingGroup $
+--             newAddThingToThingGroupResponse
 --
---         , responseDescribeAuditTask $
---             newDescribeAuditTaskResponse
+--         , responseUpdateBillingGroup $
+--             newUpdateBillingGroupResponse
 --
---         , responseCreateCertificateFromCsr $
---             newCreateCertificateFromCsrResponse
+--         , responseGetTopicRuleDestination $
+--             newGetTopicRuleDestinationResponse
+--
+--         , responseListCertificatesByCA $
+--             newListCertificatesByCAResponse
+--
+--         , responseUpdateAuditSuppression $
+--             newUpdateAuditSuppressionResponse
+--
+--         , responseAttachThingPrincipal $
+--             newAttachThingPrincipalResponse
+--
+--         , responseListThings $
+--             newListThingsResponse
+--
+--         , responseDeleteAuditSuppression $
+--             newDeleteAuditSuppressionResponse
+--
+--         , responseListDetectMitigationActionsTasks $
+--             newListDetectMitigationActionsTasksResponse
+--
+--         , responseRegisterThing $
+--             newRegisterThingResponse
 --
 --         , responseListAuditSuppressions $
 --             newListAuditSuppressionsResponse
@@ -1362,124 +1218,250 @@ import Test.Tasty
 --         , responseDescribeDomainConfiguration $
 --             newDescribeDomainConfigurationResponse
 --
---         , responseUpdateScheduledAudit $
---             newUpdateScheduledAuditResponse
+--         , responseDescribeAuditTask $
+--             newDescribeAuditTaskResponse
 --
---         , responseGetTopicRuleDestination $
---             newGetTopicRuleDestinationResponse
+--         , responseDeleteRegistrationCode $
+--             newDeleteRegistrationCodeResponse
 --
---         , responseDeleteTopicRuleDestination $
---             newDeleteTopicRuleDestinationResponse
+--         , responseUpdateStream $
+--             newUpdateStreamResponse
 --
---         , responseListOutgoingCertificates $
---             newListOutgoingCertificatesResponse
+--         , responseDeleteStream $
+--             newDeleteStreamResponse
 --
---         , responseDescribeJobTemplate $
---             newDescribeJobTemplateResponse
+--         , responseListStreams $
+--             newListStreamsResponse
 --
---         , responseAddThingToBillingGroup $
---             newAddThingToBillingGroupResponse
+--         , responseCreateAuthorizer $
+--             newCreateAuthorizerResponse
 --
---         , responseListOTAUpdates $
---             newListOTAUpdatesResponse
+--         , responseTestAuthorization $
+--             newTestAuthorizationResponse
 --
---         , responseUpdateThingGroup $
---             newUpdateThingGroupResponse
+--         , responseListIndices $
+--             newListIndicesResponse
 --
---         , responseDeleteThingGroup $
---             newDeleteThingGroupResponse
+--         , responseUpdateAuthorizer $
+--             newUpdateAuthorizerResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseDeleteAuthorizer $
+--             newDeleteAuthorizerResponse
 --
---         , responseDescribeEventConfigurations $
---             newDescribeEventConfigurationsResponse
+--         , responseCreateThing $
+--             newCreateThingResponse
 --
---         , responseListTopicRuleDestinations $
---             newListTopicRuleDestinationsResponse
+--         , responseCreateStream $
+--             newCreateStreamResponse
 --
---         , responseListProvisioningTemplateVersions $
---             newListProvisioningTemplateVersionsResponse
+--         , responseCancelAuditMitigationActionsTask $
+--             newCancelAuditMitigationActionsTaskResponse
 --
---         , responseUpdateTopicRuleDestination $
---             newUpdateTopicRuleDestinationResponse
+--         , responseCreateAuditSuppression $
+--             newCreateAuditSuppressionResponse
 --
---         , responseListThingGroups $
---             newListThingGroupsResponse
+--         , responseCreateBillingGroup $
+--             newCreateBillingGroupResponse
 --
---         , responseCancelDetectMitigationActionsTask $
---             newCancelDetectMitigationActionsTaskResponse
+--         , responseListProvisioningTemplates $
+--             newListProvisioningTemplatesResponse
+--
+--         , responseListV2LoggingLevels $
+--             newListV2LoggingLevelsResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseStopThingRegistrationTask $
+--             newStopThingRegistrationTaskResponse
+--
+--         , responseDescribeCertificate $
+--             newDescribeCertificateResponse
+--
+--         , responseListTargetsForPolicy $
+--             newListTargetsForPolicyResponse
+--
+--         , responseCreateJobTemplate $
+--             newCreateJobTemplateResponse
+--
+--         , responseClearDefaultAuthorizer $
+--             newClearDefaultAuthorizerResponse
+--
+--         , responseReplaceTopicRule $
+--             newReplaceTopicRuleResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseDeleteFleetMetric $
+--             newDeleteFleetMetricResponse
+--
+--         , responseUpdateFleetMetric $
+--             newUpdateFleetMetricResponse
+--
+--         , responseSetDefaultPolicyVersion $
+--             newSetDefaultPolicyVersionResponse
+--
+--         , responseCancelJobExecution $
+--             newCancelJobExecutionResponse
+--
+--         , responseListPolicyVersions $
+--             newListPolicyVersionsResponse
+--
+--         , responseSetV2LoggingLevel $
+--             newSetV2LoggingLevelResponse
+--
+--         , responseListJobExecutionsForThing $
+--             newListJobExecutionsForThingResponse
+--
+--         , responseAttachPolicy $
+--             newAttachPolicyResponse
+--
+--         , responseCreateKeysAndCertificate $
+--             newCreateKeysAndCertificateResponse
+--
+--         , responseListThingsInBillingGroup $
+--             newListThingsInBillingGroupResponse
+--
+--         , responseUpdateThingGroupsForThing $
+--             newUpdateThingGroupsForThingResponse
+--
+--         , responseCreateFleetMetric $
+--             newCreateFleetMetricResponse
+--
+--         , responseEnableTopicRule $
+--             newEnableTopicRuleResponse
+--
+--         , responseDeleteJobTemplate $
+--             newDeleteJobTemplateResponse
+--
+--         , responseAcceptCertificateTransfer $
+--             newAcceptCertificateTransferResponse
+--
+--         , responseGetPercentiles $
+--             newGetPercentilesResponse
+--
+--         , responseGetPolicy $
+--             newGetPolicyResponse
+--
+--         , responseListJobTemplates $
+--             newListJobTemplatesResponse
+--
+--         , responseDescribeEndpoint $
+--             newDescribeEndpointResponse
+--
+--         , responseListSecurityProfilesForTarget $
+--             newListSecurityProfilesForTargetResponse
+--
+--         , responseUpdateEventConfigurations $
+--             newUpdateEventConfigurationsResponse
+--
+--         , responseUpdateCustomMetric $
+--             newUpdateCustomMetricResponse
+--
+--         , responseDeleteCustomMetric $
+--             newDeleteCustomMetricResponse
+--
+--         , responseRegisterCACertificate $
+--             newRegisterCACertificateResponse
+--
+--         , responseDeleteDomainConfiguration $
+--             newDeleteDomainConfigurationResponse
+--
+--         , responseUpdateDomainConfiguration $
+--             newUpdateDomainConfigurationResponse
+--
+--         , responseSetLoggingOptions $
+--             newSetLoggingOptionsResponse
+--
+--         , responseDescribeThingType $
+--             newDescribeThingTypeResponse
+--
+--         , responseListDimensions $
+--             newListDimensionsResponse
+--
+--         , responseGetV2LoggingOptions $
+--             newGetV2LoggingOptionsResponse
+--
+--         , responseListThingRegistrationTasks $
+--             newListThingRegistrationTasksResponse
+--
+--         , responseRejectCertificateTransfer $
+--             newRejectCertificateTransferResponse
+--
+--         , responseDescribeAuditSuppression $
+--             newDescribeAuditSuppressionResponse
+--
+--         , responseDescribeStream $
+--             newDescribeStreamResponse
+--
+--         , responseCreateSecurityProfile $
+--             newCreateSecurityProfileResponse
+--
+--         , responseDescribeBillingGroup $
+--             newDescribeBillingGroupResponse
+--
+--         , responseDetachThingPrincipal $
+--             newDetachThingPrincipalResponse
+--
+--         , responseCancelJob $
+--             newCancelJobResponse
+--
+--         , responseDeprecateThingType $
+--             newDeprecateThingTypeResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestGetBucketsAggregation :: GetBucketsAggregation -> TestTree
-requestGetBucketsAggregation =
+requestGetCardinality :: GetCardinality -> TestTree
+requestGetCardinality =
   req
-    "GetBucketsAggregation"
-    "fixture/GetBucketsAggregation.yaml"
+    "GetCardinality"
+    "fixture/GetCardinality.yaml"
 
-requestUpdateIndexingConfiguration :: UpdateIndexingConfiguration -> TestTree
-requestUpdateIndexingConfiguration =
+requestCreateDomainConfiguration :: CreateDomainConfiguration -> TestTree
+requestCreateDomainConfiguration =
   req
-    "UpdateIndexingConfiguration"
-    "fixture/UpdateIndexingConfiguration.yaml"
+    "CreateDomainConfiguration"
+    "fixture/CreateDomainConfiguration.yaml"
 
-requestPutVerificationStateOnViolation :: PutVerificationStateOnViolation -> TestTree
-requestPutVerificationStateOnViolation =
+requestStartDetectMitigationActionsTask :: StartDetectMitigationActionsTask -> TestTree
+requestStartDetectMitigationActionsTask =
   req
-    "PutVerificationStateOnViolation"
-    "fixture/PutVerificationStateOnViolation.yaml"
+    "StartDetectMitigationActionsTask"
+    "fixture/StartDetectMitigationActionsTask.yaml"
 
-requestListThingRegistrationTaskReports :: ListThingRegistrationTaskReports -> TestTree
-requestListThingRegistrationTaskReports =
+requestDeleteSecurityProfile :: DeleteSecurityProfile -> TestTree
+requestDeleteSecurityProfile =
   req
-    "ListThingRegistrationTaskReports"
-    "fixture/ListThingRegistrationTaskReports.yaml"
+    "DeleteSecurityProfile"
+    "fixture/DeleteSecurityProfile.yaml"
 
-requestDescribeFleetMetric :: DescribeFleetMetric -> TestTree
-requestDescribeFleetMetric =
+requestUpdateSecurityProfile :: UpdateSecurityProfile -> TestTree
+requestUpdateSecurityProfile =
   req
-    "DescribeFleetMetric"
-    "fixture/DescribeFleetMetric.yaml"
-
-requestCreateProvisioningClaim :: CreateProvisioningClaim -> TestTree
-requestCreateProvisioningClaim =
-  req
-    "CreateProvisioningClaim"
-    "fixture/CreateProvisioningClaim.yaml"
-
-requestUpdateCertificate :: UpdateCertificate -> TestTree
-requestUpdateCertificate =
-  req
-    "UpdateCertificate"
-    "fixture/UpdateCertificate.yaml"
-
-requestListMitigationActions :: ListMitigationActions -> TestTree
-requestListMitigationActions =
-  req
-    "ListMitigationActions"
-    "fixture/ListMitigationActions.yaml"
-
-requestDescribeProvisioningTemplate :: DescribeProvisioningTemplate -> TestTree
-requestDescribeProvisioningTemplate =
-  req
-    "DescribeProvisioningTemplate"
-    "fixture/DescribeProvisioningTemplate.yaml"
-
-requestDeleteJobExecution :: DeleteJobExecution -> TestTree
-requestDeleteJobExecution =
-  req
-    "DeleteJobExecution"
-    "fixture/DeleteJobExecution.yaml"
+    "UpdateSecurityProfile"
+    "fixture/UpdateSecurityProfile.yaml"
 
 requestListSecurityProfiles :: ListSecurityProfiles -> TestTree
 requestListSecurityProfiles =
   req
     "ListSecurityProfiles"
     "fixture/ListSecurityProfiles.yaml"
+
+requestListPolicies :: ListPolicies -> TestTree
+requestListPolicies =
+  req
+    "ListPolicies"
+    "fixture/ListPolicies.yaml"
+
+requestDescribeProvisioningTemplate :: DescribeProvisioningTemplate -> TestTree
+requestDescribeProvisioningTemplate =
+  req
+    "DescribeProvisioningTemplate"
+    "fixture/DescribeProvisioningTemplate.yaml"
 
 requestUpdateMitigationAction :: UpdateMitigationAction -> TestTree
 requestUpdateMitigationAction =
@@ -1493,29 +1475,11 @@ requestDeleteMitigationAction =
     "DeleteMitigationAction"
     "fixture/DeleteMitigationAction.yaml"
 
-requestListPolicies :: ListPolicies -> TestTree
-requestListPolicies =
+requestDeleteJobExecution :: DeleteJobExecution -> TestTree
+requestDeleteJobExecution =
   req
-    "ListPolicies"
-    "fixture/ListPolicies.yaml"
-
-requestStartDetectMitigationActionsTask :: StartDetectMitigationActionsTask -> TestTree
-requestStartDetectMitigationActionsTask =
-  req
-    "StartDetectMitigationActionsTask"
-    "fixture/StartDetectMitigationActionsTask.yaml"
-
-requestGetCardinality :: GetCardinality -> TestTree
-requestGetCardinality =
-  req
-    "GetCardinality"
-    "fixture/GetCardinality.yaml"
-
-requestDeleteCertificate :: DeleteCertificate -> TestTree
-requestDeleteCertificate =
-  req
-    "DeleteCertificate"
-    "fixture/DeleteCertificate.yaml"
+    "DeleteJobExecution"
+    "fixture/DeleteJobExecution.yaml"
 
 requestCreatePolicy :: CreatePolicy -> TestTree
 requestCreatePolicy =
@@ -1523,647 +1487,11 @@ requestCreatePolicy =
     "CreatePolicy"
     "fixture/CreatePolicy.yaml"
 
-requestListViolationEvents :: ListViolationEvents -> TestTree
-requestListViolationEvents =
-  req
-    "ListViolationEvents"
-    "fixture/ListViolationEvents.yaml"
-
-requestCreateDimension :: CreateDimension -> TestTree
-requestCreateDimension =
-  req
-    "CreateDimension"
-    "fixture/CreateDimension.yaml"
-
-requestListAuditTasks :: ListAuditTasks -> TestTree
-requestListAuditTasks =
-  req
-    "ListAuditTasks"
-    "fixture/ListAuditTasks.yaml"
-
-requestDescribeThingType :: DescribeThingType -> TestTree
-requestDescribeThingType =
-  req
-    "DescribeThingType"
-    "fixture/DescribeThingType.yaml"
-
-requestDeletePolicy :: DeletePolicy -> TestTree
-requestDeletePolicy =
-  req
-    "DeletePolicy"
-    "fixture/DeletePolicy.yaml"
-
-requestCreateMitigationAction :: CreateMitigationAction -> TestTree
-requestCreateMitigationAction =
-  req
-    "CreateMitigationAction"
-    "fixture/CreateMitigationAction.yaml"
-
-requestDeleteDomainConfiguration :: DeleteDomainConfiguration -> TestTree
-requestDeleteDomainConfiguration =
-  req
-    "DeleteDomainConfiguration"
-    "fixture/DeleteDomainConfiguration.yaml"
-
-requestGetTopicRule :: GetTopicRule -> TestTree
-requestGetTopicRule =
-  req
-    "GetTopicRule"
-    "fixture/GetTopicRule.yaml"
-
-requestUpdateDomainConfiguration :: UpdateDomainConfiguration -> TestTree
-requestUpdateDomainConfiguration =
-  req
-    "UpdateDomainConfiguration"
-    "fixture/UpdateDomainConfiguration.yaml"
-
-requestRejectCertificateTransfer :: RejectCertificateTransfer -> TestTree
-requestRejectCertificateTransfer =
-  req
-    "RejectCertificateTransfer"
-    "fixture/RejectCertificateTransfer.yaml"
-
-requestSetLoggingOptions :: SetLoggingOptions -> TestTree
-requestSetLoggingOptions =
-  req
-    "SetLoggingOptions"
-    "fixture/SetLoggingOptions.yaml"
-
-requestCreateSecurityProfile :: CreateSecurityProfile -> TestTree
-requestCreateSecurityProfile =
-  req
-    "CreateSecurityProfile"
-    "fixture/CreateSecurityProfile.yaml"
-
-requestCancelJob :: CancelJob -> TestTree
-requestCancelJob =
-  req
-    "CancelJob"
-    "fixture/CancelJob.yaml"
-
-requestListDomainConfigurations :: ListDomainConfigurations -> TestTree
-requestListDomainConfigurations =
-  req
-    "ListDomainConfigurations"
-    "fixture/ListDomainConfigurations.yaml"
-
-requestDescribeScheduledAudit :: DescribeScheduledAudit -> TestTree
-requestDescribeScheduledAudit =
-  req
-    "DescribeScheduledAudit"
-    "fixture/DescribeScheduledAudit.yaml"
-
-requestGetV2LoggingOptions :: GetV2LoggingOptions -> TestTree
-requestGetV2LoggingOptions =
-  req
-    "GetV2LoggingOptions"
-    "fixture/GetV2LoggingOptions.yaml"
-
-requestListThingsInThingGroup :: ListThingsInThingGroup -> TestTree
-requestListThingsInThingGroup =
-  req
-    "ListThingsInThingGroup"
-    "fixture/ListThingsInThingGroup.yaml"
-
-requestListCustomMetrics :: ListCustomMetrics -> TestTree
-requestListCustomMetrics =
-  req
-    "ListCustomMetrics"
-    "fixture/ListCustomMetrics.yaml"
-
-requestAttachSecurityProfile :: AttachSecurityProfile -> TestTree
-requestAttachSecurityProfile =
-  req
-    "AttachSecurityProfile"
-    "fixture/AttachSecurityProfile.yaml"
-
-requestUpdateJob :: UpdateJob -> TestTree
-requestUpdateJob =
-  req
-    "UpdateJob"
-    "fixture/UpdateJob.yaml"
-
-requestDeleteJob :: DeleteJob -> TestTree
-requestDeleteJob =
-  req
-    "DeleteJob"
-    "fixture/DeleteJob.yaml"
-
-requestDeleteCACertificate :: DeleteCACertificate -> TestTree
-requestDeleteCACertificate =
-  req
-    "DeleteCACertificate"
-    "fixture/DeleteCACertificate.yaml"
-
-requestDeleteCustomMetric :: DeleteCustomMetric -> TestTree
-requestDeleteCustomMetric =
-  req
-    "DeleteCustomMetric"
-    "fixture/DeleteCustomMetric.yaml"
-
-requestCreatePolicyVersion :: CreatePolicyVersion -> TestTree
-requestCreatePolicyVersion =
-  req
-    "CreatePolicyVersion"
-    "fixture/CreatePolicyVersion.yaml"
-
-requestListRoleAliases :: ListRoleAliases -> TestTree
-requestListRoleAliases =
-  req
-    "ListRoleAliases"
-    "fixture/ListRoleAliases.yaml"
-
-requestCancelAuditTask :: CancelAuditTask -> TestTree
-requestCancelAuditTask =
-  req
-    "CancelAuditTask"
-    "fixture/CancelAuditTask.yaml"
-
-requestCreateRoleAlias :: CreateRoleAlias -> TestTree
-requestCreateRoleAlias =
-  req
-    "CreateRoleAlias"
-    "fixture/CreateRoleAlias.yaml"
-
-requestListJobTemplates :: ListJobTemplates -> TestTree
-requestListJobTemplates =
-  req
-    "ListJobTemplates"
-    "fixture/ListJobTemplates.yaml"
-
-requestDescribeProvisioningTemplateVersion :: DescribeProvisioningTemplateVersion -> TestTree
-requestDescribeProvisioningTemplateVersion =
-  req
-    "DescribeProvisioningTemplateVersion"
-    "fixture/DescribeProvisioningTemplateVersion.yaml"
-
-requestCreateKeysAndCertificate :: CreateKeysAndCertificate -> TestTree
-requestCreateKeysAndCertificate =
-  req
-    "CreateKeysAndCertificate"
-    "fixture/CreateKeysAndCertificate.yaml"
-
-requestUpdateCACertificate :: UpdateCACertificate -> TestTree
-requestUpdateCACertificate =
-  req
-    "UpdateCACertificate"
-    "fixture/UpdateCACertificate.yaml"
-
-requestUpdateCustomMetric :: UpdateCustomMetric -> TestTree
-requestUpdateCustomMetric =
-  req
-    "UpdateCustomMetric"
-    "fixture/UpdateCustomMetric.yaml"
-
-requestStartAuditMitigationActionsTask :: StartAuditMitigationActionsTask -> TestTree
-requestStartAuditMitigationActionsTask =
-  req
-    "StartAuditMitigationActionsTask"
-    "fixture/StartAuditMitigationActionsTask.yaml"
-
-requestTransferCertificate :: TransferCertificate -> TestTree
-requestTransferCertificate =
-  req
-    "TransferCertificate"
-    "fixture/TransferCertificate.yaml"
-
-requestGetPercentiles :: GetPercentiles -> TestTree
-requestGetPercentiles =
-  req
-    "GetPercentiles"
-    "fixture/GetPercentiles.yaml"
-
-requestDeleteTopicRule :: DeleteTopicRule -> TestTree
-requestDeleteTopicRule =
-  req
-    "DeleteTopicRule"
-    "fixture/DeleteTopicRule.yaml"
-
-requestListTargetsForSecurityProfile :: ListTargetsForSecurityProfile -> TestTree
-requestListTargetsForSecurityProfile =
-  req
-    "ListTargetsForSecurityProfile"
-    "fixture/ListTargetsForSecurityProfile.yaml"
-
-requestDescribeEndpoint :: DescribeEndpoint -> TestTree
-requestDescribeEndpoint =
-  req
-    "DescribeEndpoint"
-    "fixture/DescribeEndpoint.yaml"
-
-requestListThingsInBillingGroup :: ListThingsInBillingGroup -> TestTree
-requestListThingsInBillingGroup =
-  req
-    "ListThingsInBillingGroup"
-    "fixture/ListThingsInBillingGroup.yaml"
-
-requestSetV2LoggingLevel :: SetV2LoggingLevel -> TestTree
-requestSetV2LoggingLevel =
-  req
-    "SetV2LoggingLevel"
-    "fixture/SetV2LoggingLevel.yaml"
-
-requestCreateJobTemplate :: CreateJobTemplate -> TestTree
-requestCreateJobTemplate =
-  req
-    "CreateJobTemplate"
-    "fixture/CreateJobTemplate.yaml"
-
-requestSetDefaultPolicyVersion :: SetDefaultPolicyVersion -> TestTree
-requestSetDefaultPolicyVersion =
-  req
-    "SetDefaultPolicyVersion"
-    "fixture/SetDefaultPolicyVersion.yaml"
-
-requestCreateCustomMetric :: CreateCustomMetric -> TestTree
-requestCreateCustomMetric =
-  req
-    "CreateCustomMetric"
-    "fixture/CreateCustomMetric.yaml"
-
-requestListFleetMetrics :: ListFleetMetrics -> TestTree
-requestListFleetMetrics =
-  req
-    "ListFleetMetrics"
-    "fixture/ListFleetMetrics.yaml"
-
-requestUpdateFleetMetric :: UpdateFleetMetric -> TestTree
-requestUpdateFleetMetric =
-  req
-    "UpdateFleetMetric"
-    "fixture/UpdateFleetMetric.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestListJobExecutionsForThing :: ListJobExecutionsForThing -> TestTree
-requestListJobExecutionsForThing =
-  req
-    "ListJobExecutionsForThing"
-    "fixture/ListJobExecutionsForThing.yaml"
-
-requestDeleteFleetMetric :: DeleteFleetMetric -> TestTree
-requestDeleteFleetMetric =
-  req
-    "DeleteFleetMetric"
-    "fixture/DeleteFleetMetric.yaml"
-
-requestDisableTopicRule :: DisableTopicRule -> TestTree
-requestDisableTopicRule =
-  req
-    "DisableTopicRule"
-    "fixture/DisableTopicRule.yaml"
-
-requestDescribeAuditMitigationActionsTask :: DescribeAuditMitigationActionsTask -> TestTree
-requestDescribeAuditMitigationActionsTask =
-  req
-    "DescribeAuditMitigationActionsTask"
-    "fixture/DescribeAuditMitigationActionsTask.yaml"
-
-requestCreateThing :: CreateThing -> TestTree
-requestCreateThing =
-  req
-    "CreateThing"
-    "fixture/CreateThing.yaml"
-
-requestListV2LoggingLevels :: ListV2LoggingLevels -> TestTree
-requestListV2LoggingLevels =
-  req
-    "ListV2LoggingLevels"
-    "fixture/ListV2LoggingLevels.yaml"
-
-requestListAuditMitigationActionsExecutions :: ListAuditMitigationActionsExecutions -> TestTree
-requestListAuditMitigationActionsExecutions =
-  req
-    "ListAuditMitigationActionsExecutions"
-    "fixture/ListAuditMitigationActionsExecutions.yaml"
-
-requestListProvisioningTemplates :: ListProvisioningTemplates -> TestTree
-requestListProvisioningTemplates =
-  req
-    "ListProvisioningTemplates"
-    "fixture/ListProvisioningTemplates.yaml"
-
-requestStartThingRegistrationTask :: StartThingRegistrationTask -> TestTree
-requestStartThingRegistrationTask =
-  req
-    "StartThingRegistrationTask"
-    "fixture/StartThingRegistrationTask.yaml"
-
-requestDescribeJobExecution :: DescribeJobExecution -> TestTree
-requestDescribeJobExecution =
-  req
-    "DescribeJobExecution"
-    "fixture/DescribeJobExecution.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestDescribeCertificate :: DescribeCertificate -> TestTree
-requestDescribeCertificate =
-  req
-    "DescribeCertificate"
-    "fixture/DescribeCertificate.yaml"
-
-requestDeleteProvisioningTemplate :: DeleteProvisioningTemplate -> TestTree
-requestDeleteProvisioningTemplate =
-  req
-    "DeleteProvisioningTemplate"
-    "fixture/DeleteProvisioningTemplate.yaml"
-
-requestUpdateProvisioningTemplate :: UpdateProvisioningTemplate -> TestTree
-requestUpdateProvisioningTemplate =
-  req
-    "UpdateProvisioningTemplate"
-    "fixture/UpdateProvisioningTemplate.yaml"
-
-requestGetIndexingConfiguration :: GetIndexingConfiguration -> TestTree
-requestGetIndexingConfiguration =
-  req
-    "GetIndexingConfiguration"
-    "fixture/GetIndexingConfiguration.yaml"
-
-requestStopThingRegistrationTask :: StopThingRegistrationTask -> TestTree
-requestStopThingRegistrationTask =
-  req
-    "StopThingRegistrationTask"
-    "fixture/StopThingRegistrationTask.yaml"
-
-requestCreateScheduledAudit :: CreateScheduledAudit -> TestTree
-requestCreateScheduledAudit =
-  req
-    "CreateScheduledAudit"
-    "fixture/CreateScheduledAudit.yaml"
-
-requestSetDefaultAuthorizer :: SetDefaultAuthorizer -> TestTree
-requestSetDefaultAuthorizer =
-  req
-    "SetDefaultAuthorizer"
-    "fixture/SetDefaultAuthorizer.yaml"
-
-requestDeleteV2LoggingLevel :: DeleteV2LoggingLevel -> TestTree
-requestDeleteV2LoggingLevel =
-  req
-    "DeleteV2LoggingLevel"
-    "fixture/DeleteV2LoggingLevel.yaml"
-
-requestDescribeMitigationAction :: DescribeMitigationAction -> TestTree
-requestDescribeMitigationAction =
-  req
-    "DescribeMitigationAction"
-    "fixture/DescribeMitigationAction.yaml"
-
-requestDescribeDimension :: DescribeDimension -> TestTree
-requestDescribeDimension =
-  req
-    "DescribeDimension"
-    "fixture/DescribeDimension.yaml"
-
-requestCreateAuthorizer :: CreateAuthorizer -> TestTree
-requestCreateAuthorizer =
-  req
-    "CreateAuthorizer"
-    "fixture/CreateAuthorizer.yaml"
-
-requestSetV2LoggingOptions :: SetV2LoggingOptions -> TestTree
-requestSetV2LoggingOptions =
-  req
-    "SetV2LoggingOptions"
-    "fixture/SetV2LoggingOptions.yaml"
-
-requestDeleteStream :: DeleteStream -> TestTree
-requestDeleteStream =
-  req
-    "DeleteStream"
-    "fixture/DeleteStream.yaml"
-
-requestListDetectMitigationActionsTasks :: ListDetectMitigationActionsTasks -> TestTree
-requestListDetectMitigationActionsTasks =
-  req
-    "ListDetectMitigationActionsTasks"
-    "fixture/ListDetectMitigationActionsTasks.yaml"
-
-requestUpdateAuditSuppression :: UpdateAuditSuppression -> TestTree
-requestUpdateAuditSuppression =
-  req
-    "UpdateAuditSuppression"
-    "fixture/UpdateAuditSuppression.yaml"
-
-requestUpdateStream :: UpdateStream -> TestTree
-requestUpdateStream =
-  req
-    "UpdateStream"
-    "fixture/UpdateStream.yaml"
-
-requestUpdateThing :: UpdateThing -> TestTree
-requestUpdateThing =
-  req
-    "UpdateThing"
-    "fixture/UpdateThing.yaml"
-
-requestDescribeThingRegistrationTask :: DescribeThingRegistrationTask -> TestTree
-requestDescribeThingRegistrationTask =
-  req
-    "DescribeThingRegistrationTask"
-    "fixture/DescribeThingRegistrationTask.yaml"
-
-requestDeleteAccountAuditConfiguration :: DeleteAccountAuditConfiguration -> TestTree
-requestDeleteAccountAuditConfiguration =
-  req
-    "DeleteAccountAuditConfiguration"
-    "fixture/DeleteAccountAuditConfiguration.yaml"
-
-requestListThingGroupsForThing :: ListThingGroupsForThing -> TestTree
-requestListThingGroupsForThing =
-  req
-    "ListThingGroupsForThing"
-    "fixture/ListThingGroupsForThing.yaml"
-
-requestListCertificatesByCA :: ListCertificatesByCA -> TestTree
-requestListCertificatesByCA =
-  req
-    "ListCertificatesByCA"
-    "fixture/ListCertificatesByCA.yaml"
-
-requestListThings :: ListThings -> TestTree
-requestListThings =
-  req
-    "ListThings"
-    "fixture/ListThings.yaml"
-
-requestAddThingToThingGroup :: AddThingToThingGroup -> TestTree
-requestAddThingToThingGroup =
-  req
-    "AddThingToThingGroup"
-    "fixture/AddThingToThingGroup.yaml"
-
-requestDeleteBillingGroup :: DeleteBillingGroup -> TestTree
-requestDeleteBillingGroup =
-  req
-    "DeleteBillingGroup"
-    "fixture/DeleteBillingGroup.yaml"
-
-requestListScheduledAudits :: ListScheduledAudits -> TestTree
-requestListScheduledAudits =
-  req
-    "ListScheduledAudits"
-    "fixture/ListScheduledAudits.yaml"
-
-requestDeleteRegistrationCode :: DeleteRegistrationCode -> TestTree
-requestDeleteRegistrationCode =
-  req
-    "DeleteRegistrationCode"
-    "fixture/DeleteRegistrationCode.yaml"
-
-requestDeleteThing :: DeleteThing -> TestTree
-requestDeleteThing =
-  req
-    "DeleteThing"
-    "fixture/DeleteThing.yaml"
-
-requestAttachThingPrincipal :: AttachThingPrincipal -> TestTree
-requestAttachThingPrincipal =
-  req
-    "AttachThingPrincipal"
-    "fixture/AttachThingPrincipal.yaml"
-
-requestUpdateBillingGroup :: UpdateBillingGroup -> TestTree
-requestUpdateBillingGroup =
-  req
-    "UpdateBillingGroup"
-    "fixture/UpdateBillingGroup.yaml"
-
-requestUpdateAccountAuditConfiguration :: UpdateAccountAuditConfiguration -> TestTree
-requestUpdateAccountAuditConfiguration =
-  req
-    "UpdateAccountAuditConfiguration"
-    "fixture/UpdateAccountAuditConfiguration.yaml"
-
-requestGetLoggingOptions :: GetLoggingOptions -> TestTree
-requestGetLoggingOptions =
-  req
-    "GetLoggingOptions"
-    "fixture/GetLoggingOptions.yaml"
-
-requestDeleteAuditSuppression :: DeleteAuditSuppression -> TestTree
-requestDeleteAuditSuppression =
-  req
-    "DeleteAuditSuppression"
-    "fixture/DeleteAuditSuppression.yaml"
-
-requestDescribeCustomMetric :: DescribeCustomMetric -> TestTree
-requestDescribeCustomMetric =
-  req
-    "DescribeCustomMetric"
-    "fixture/DescribeCustomMetric.yaml"
-
-requestDescribeJob :: DescribeJob -> TestTree
-requestDescribeJob =
-  req
-    "DescribeJob"
-    "fixture/DescribeJob.yaml"
-
-requestDeleteOTAUpdate :: DeleteOTAUpdate -> TestTree
-requestDeleteOTAUpdate =
-  req
-    "DeleteOTAUpdate"
-    "fixture/DeleteOTAUpdate.yaml"
-
-requestGetRegistrationCode :: GetRegistrationCode -> TestTree
-requestGetRegistrationCode =
-  req
-    "GetRegistrationCode"
-    "fixture/GetRegistrationCode.yaml"
-
-requestListDetectMitigationActionsExecutions :: ListDetectMitigationActionsExecutions -> TestTree
-requestListDetectMitigationActionsExecutions =
-  req
-    "ListDetectMitigationActionsExecutions"
-    "fixture/ListDetectMitigationActionsExecutions.yaml"
-
-requestRegisterCertificateWithoutCA :: RegisterCertificateWithoutCA -> TestTree
-requestRegisterCertificateWithoutCA =
-  req
-    "RegisterCertificateWithoutCA"
-    "fixture/RegisterCertificateWithoutCA.yaml"
-
-requestCreateDynamicThingGroup :: CreateDynamicThingGroup -> TestTree
-requestCreateDynamicThingGroup =
-  req
-    "CreateDynamicThingGroup"
-    "fixture/CreateDynamicThingGroup.yaml"
-
-requestDescribeCACertificate :: DescribeCACertificate -> TestTree
-requestDescribeCACertificate =
-  req
-    "DescribeCACertificate"
-    "fixture/DescribeCACertificate.yaml"
-
-requestDeleteProvisioningTemplateVersion :: DeleteProvisioningTemplateVersion -> TestTree
-requestDeleteProvisioningTemplateVersion =
-  req
-    "DeleteProvisioningTemplateVersion"
-    "fixture/DeleteProvisioningTemplateVersion.yaml"
-
-requestDetachSecurityProfile :: DetachSecurityProfile -> TestTree
-requestDetachSecurityProfile =
-  req
-    "DetachSecurityProfile"
-    "fixture/DetachSecurityProfile.yaml"
-
-requestListThingPrincipals :: ListThingPrincipals -> TestTree
-requestListThingPrincipals =
-  req
-    "ListThingPrincipals"
-    "fixture/ListThingPrincipals.yaml"
-
-requestRemoveThingFromThingGroup :: RemoveThingFromThingGroup -> TestTree
-requestRemoveThingFromThingGroup =
-  req
-    "RemoveThingFromThingGroup"
-    "fixture/RemoveThingFromThingGroup.yaml"
-
-requestGetBehaviorModelTrainingSummaries :: GetBehaviorModelTrainingSummaries -> TestTree
-requestGetBehaviorModelTrainingSummaries =
-  req
-    "GetBehaviorModelTrainingSummaries"
-    "fixture/GetBehaviorModelTrainingSummaries.yaml"
-
-requestUpdateDynamicThingGroup :: UpdateDynamicThingGroup -> TestTree
-requestUpdateDynamicThingGroup =
-  req
-    "UpdateDynamicThingGroup"
-    "fixture/UpdateDynamicThingGroup.yaml"
-
-requestCreateTopicRuleDestination :: CreateTopicRuleDestination -> TestTree
-requestCreateTopicRuleDestination =
-  req
-    "CreateTopicRuleDestination"
-    "fixture/CreateTopicRuleDestination.yaml"
-
-requestListPrincipalThings :: ListPrincipalThings -> TestTree
-requestListPrincipalThings =
-  req
-    "ListPrincipalThings"
-    "fixture/ListPrincipalThings.yaml"
-
-requestCreateProvisioningTemplateVersion :: CreateProvisioningTemplateVersion -> TestTree
-requestCreateProvisioningTemplateVersion =
-  req
-    "CreateProvisioningTemplateVersion"
-    "fixture/CreateProvisioningTemplateVersion.yaml"
-
-requestDescribeRoleAlias :: DescribeRoleAlias -> TestTree
-requestDescribeRoleAlias =
-  req
-    "DescribeRoleAlias"
-    "fixture/DescribeRoleAlias.yaml"
+requestRegisterCertificate :: RegisterCertificate -> TestTree
+requestRegisterCertificate =
+  req
+    "RegisterCertificate"
+    "fixture/RegisterCertificate.yaml"
 
 requestDeleteDynamicThingGroup :: DeleteDynamicThingGroup -> TestTree
 requestDeleteDynamicThingGroup =
@@ -2171,17 +1499,29 @@ requestDeleteDynamicThingGroup =
     "DeleteDynamicThingGroup"
     "fixture/DeleteDynamicThingGroup.yaml"
 
-requestCreateThingGroup :: CreateThingGroup -> TestTree
-requestCreateThingGroup =
+requestListThingPrincipals :: ListThingPrincipals -> TestTree
+requestListThingPrincipals =
   req
-    "CreateThingGroup"
-    "fixture/CreateThingGroup.yaml"
+    "ListThingPrincipals"
+    "fixture/ListThingPrincipals.yaml"
 
-requestTestInvokeAuthorizer :: TestInvokeAuthorizer -> TestTree
-requestTestInvokeAuthorizer =
+requestUpdateDynamicThingGroup :: UpdateDynamicThingGroup -> TestTree
+requestUpdateDynamicThingGroup =
   req
-    "TestInvokeAuthorizer"
-    "fixture/TestInvokeAuthorizer.yaml"
+    "UpdateDynamicThingGroup"
+    "fixture/UpdateDynamicThingGroup.yaml"
+
+requestDescribeRoleAlias :: DescribeRoleAlias -> TestTree
+requestDescribeRoleAlias =
+  req
+    "DescribeRoleAlias"
+    "fixture/DescribeRoleAlias.yaml"
+
+requestCreateProvisioningTemplateVersion :: CreateProvisioningTemplateVersion -> TestTree
+requestCreateProvisioningTemplateVersion =
+  req
+    "CreateProvisioningTemplateVersion"
+    "fixture/CreateProvisioningTemplateVersion.yaml"
 
 requestCreateOTAUpdate :: CreateOTAUpdate -> TestTree
 requestCreateOTAUpdate =
@@ -2195,29 +1535,593 @@ requestDescribeDefaultAuthorizer =
     "DescribeDefaultAuthorizer"
     "fixture/DescribeDefaultAuthorizer.yaml"
 
-requestDetachPolicy :: DetachPolicy -> TestTree
-requestDetachPolicy =
-  req
-    "DetachPolicy"
-    "fixture/DetachPolicy.yaml"
-
 requestListAuditMitigationActionsTasks :: ListAuditMitigationActionsTasks -> TestTree
 requestListAuditMitigationActionsTasks =
   req
     "ListAuditMitigationActionsTasks"
     "fixture/ListAuditMitigationActionsTasks.yaml"
 
-requestRegisterCertificate :: RegisterCertificate -> TestTree
-requestRegisterCertificate =
+requestListThingRegistrationTaskReports :: ListThingRegistrationTaskReports -> TestTree
+requestListThingRegistrationTaskReports =
   req
-    "RegisterCertificate"
-    "fixture/RegisterCertificate.yaml"
+    "ListThingRegistrationTaskReports"
+    "fixture/ListThingRegistrationTaskReports.yaml"
 
-requestUpdateSecurityProfile :: UpdateSecurityProfile -> TestTree
-requestUpdateSecurityProfile =
+requestGetBehaviorModelTrainingSummaries :: GetBehaviorModelTrainingSummaries -> TestTree
+requestGetBehaviorModelTrainingSummaries =
   req
-    "UpdateSecurityProfile"
-    "fixture/UpdateSecurityProfile.yaml"
+    "GetBehaviorModelTrainingSummaries"
+    "fixture/GetBehaviorModelTrainingSummaries.yaml"
+
+requestListPrincipalThings :: ListPrincipalThings -> TestTree
+requestListPrincipalThings =
+  req
+    "ListPrincipalThings"
+    "fixture/ListPrincipalThings.yaml"
+
+requestRemoveThingFromThingGroup :: RemoveThingFromThingGroup -> TestTree
+requestRemoveThingFromThingGroup =
+  req
+    "RemoveThingFromThingGroup"
+    "fixture/RemoveThingFromThingGroup.yaml"
+
+requestDescribeEventConfigurations :: DescribeEventConfigurations -> TestTree
+requestDescribeEventConfigurations =
+  req
+    "DescribeEventConfigurations"
+    "fixture/DescribeEventConfigurations.yaml"
+
+requestCancelDetectMitigationActionsTask :: CancelDetectMitigationActionsTask -> TestTree
+requestCancelDetectMitigationActionsTask =
+  req
+    "CancelDetectMitigationActionsTask"
+    "fixture/CancelDetectMitigationActionsTask.yaml"
+
+requestListTopicRuleDestinations :: ListTopicRuleDestinations -> TestTree
+requestListTopicRuleDestinations =
+  req
+    "ListTopicRuleDestinations"
+    "fixture/ListTopicRuleDestinations.yaml"
+
+requestRegisterCertificateWithoutCA :: RegisterCertificateWithoutCA -> TestTree
+requestRegisterCertificateWithoutCA =
+  req
+    "RegisterCertificateWithoutCA"
+    "fixture/RegisterCertificateWithoutCA.yaml"
+
+requestDescribeCustomMetric :: DescribeCustomMetric -> TestTree
+requestDescribeCustomMetric =
+  req
+    "DescribeCustomMetric"
+    "fixture/DescribeCustomMetric.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListThingGroups :: ListThingGroups -> TestTree
+requestListThingGroups =
+  req
+    "ListThingGroups"
+    "fixture/ListThingGroups.yaml"
+
+requestDescribeJobTemplate :: DescribeJobTemplate -> TestTree
+requestDescribeJobTemplate =
+  req
+    "DescribeJobTemplate"
+    "fixture/DescribeJobTemplate.yaml"
+
+requestListScheduledAudits :: ListScheduledAudits -> TestTree
+requestListScheduledAudits =
+  req
+    "ListScheduledAudits"
+    "fixture/ListScheduledAudits.yaml"
+
+requestDescribeThingRegistrationTask :: DescribeThingRegistrationTask -> TestTree
+requestDescribeThingRegistrationTask =
+  req
+    "DescribeThingRegistrationTask"
+    "fixture/DescribeThingRegistrationTask.yaml"
+
+requestUpdateScheduledAudit :: UpdateScheduledAudit -> TestTree
+requestUpdateScheduledAudit =
+  req
+    "UpdateScheduledAudit"
+    "fixture/UpdateScheduledAudit.yaml"
+
+requestDeleteScheduledAudit :: DeleteScheduledAudit -> TestTree
+requestDeleteScheduledAudit =
+  req
+    "DeleteScheduledAudit"
+    "fixture/DeleteScheduledAudit.yaml"
+
+requestDescribeAuditFinding :: DescribeAuditFinding -> TestTree
+requestDescribeAuditFinding =
+  req
+    "DescribeAuditFinding"
+    "fixture/DescribeAuditFinding.yaml"
+
+requestDescribeDimension :: DescribeDimension -> TestTree
+requestDescribeDimension =
+  req
+    "DescribeDimension"
+    "fixture/DescribeDimension.yaml"
+
+requestGetLoggingOptions :: GetLoggingOptions -> TestTree
+requestGetLoggingOptions =
+  req
+    "GetLoggingOptions"
+    "fixture/GetLoggingOptions.yaml"
+
+requestDeleteAccountAuditConfiguration :: DeleteAccountAuditConfiguration -> TestTree
+requestDeleteAccountAuditConfiguration =
+  req
+    "DeleteAccountAuditConfiguration"
+    "fixture/DeleteAccountAuditConfiguration.yaml"
+
+requestUpdateAccountAuditConfiguration :: UpdateAccountAuditConfiguration -> TestTree
+requestUpdateAccountAuditConfiguration =
+  req
+    "UpdateAccountAuditConfiguration"
+    "fixture/UpdateAccountAuditConfiguration.yaml"
+
+requestGetOTAUpdate :: GetOTAUpdate -> TestTree
+requestGetOTAUpdate =
+  req
+    "GetOTAUpdate"
+    "fixture/GetOTAUpdate.yaml"
+
+requestGetEffectivePolicies :: GetEffectivePolicies -> TestTree
+requestGetEffectivePolicies =
+  req
+    "GetEffectivePolicies"
+    "fixture/GetEffectivePolicies.yaml"
+
+requestListThingTypes :: ListThingTypes -> TestTree
+requestListThingTypes =
+  req
+    "ListThingTypes"
+    "fixture/ListThingTypes.yaml"
+
+requestSetV2LoggingOptions :: SetV2LoggingOptions -> TestTree
+requestSetV2LoggingOptions =
+  req
+    "SetV2LoggingOptions"
+    "fixture/SetV2LoggingOptions.yaml"
+
+requestCreateProvisioningTemplate :: CreateProvisioningTemplate -> TestTree
+requestCreateProvisioningTemplate =
+  req
+    "CreateProvisioningTemplate"
+    "fixture/CreateProvisioningTemplate.yaml"
+
+requestListThingGroupsForThing :: ListThingGroupsForThing -> TestTree
+requestListThingGroupsForThing =
+  req
+    "ListThingGroupsForThing"
+    "fixture/ListThingGroupsForThing.yaml"
+
+requestCreateCertificateFromCsr :: CreateCertificateFromCsr -> TestTree
+requestCreateCertificateFromCsr =
+  req
+    "CreateCertificateFromCsr"
+    "fixture/CreateCertificateFromCsr.yaml"
+
+requestDeleteThing :: DeleteThing -> TestTree
+requestDeleteThing =
+  req
+    "DeleteThing"
+    "fixture/DeleteThing.yaml"
+
+requestUpdateThing :: UpdateThing -> TestTree
+requestUpdateThing =
+  req
+    "UpdateThing"
+    "fixture/UpdateThing.yaml"
+
+requestDeleteProvisioningTemplate :: DeleteProvisioningTemplate -> TestTree
+requestDeleteProvisioningTemplate =
+  req
+    "DeleteProvisioningTemplate"
+    "fixture/DeleteProvisioningTemplate.yaml"
+
+requestUpdateProvisioningTemplate :: UpdateProvisioningTemplate -> TestTree
+requestUpdateProvisioningTemplate =
+  req
+    "UpdateProvisioningTemplate"
+    "fixture/UpdateProvisioningTemplate.yaml"
+
+requestDescribeMitigationAction :: DescribeMitigationAction -> TestTree
+requestDescribeMitigationAction =
+  req
+    "DescribeMitigationAction"
+    "fixture/DescribeMitigationAction.yaml"
+
+requestStartThingRegistrationTask :: StartThingRegistrationTask -> TestTree
+requestStartThingRegistrationTask =
+  req
+    "StartThingRegistrationTask"
+    "fixture/StartThingRegistrationTask.yaml"
+
+requestCreateScheduledAudit :: CreateScheduledAudit -> TestTree
+requestCreateScheduledAudit =
+  req
+    "CreateScheduledAudit"
+    "fixture/CreateScheduledAudit.yaml"
+
+requestListAuthorizers :: ListAuthorizers -> TestTree
+requestListAuthorizers =
+  req
+    "ListAuthorizers"
+    "fixture/ListAuthorizers.yaml"
+
+requestListJobExecutionsForJob :: ListJobExecutionsForJob -> TestTree
+requestListJobExecutionsForJob =
+  req
+    "ListJobExecutionsForJob"
+    "fixture/ListJobExecutionsForJob.yaml"
+
+requestRemoveThingFromBillingGroup :: RemoveThingFromBillingGroup -> TestTree
+requestRemoveThingFromBillingGroup =
+  req
+    "RemoveThingFromBillingGroup"
+    "fixture/RemoveThingFromBillingGroup.yaml"
+
+requestSearchIndex :: SearchIndex -> TestTree
+requestSearchIndex =
+  req
+    "SearchIndex"
+    "fixture/SearchIndex.yaml"
+
+requestCreateThingType :: CreateThingType -> TestTree
+requestCreateThingType =
+  req
+    "CreateThingType"
+    "fixture/CreateThingType.yaml"
+
+requestDescribeSecurityProfile :: DescribeSecurityProfile -> TestTree
+requestDescribeSecurityProfile =
+  req
+    "DescribeSecurityProfile"
+    "fixture/DescribeSecurityProfile.yaml"
+
+requestDeleteV2LoggingLevel :: DeleteV2LoggingLevel -> TestTree
+requestDeleteV2LoggingLevel =
+  req
+    "DeleteV2LoggingLevel"
+    "fixture/DeleteV2LoggingLevel.yaml"
+
+requestSetDefaultAuthorizer :: SetDefaultAuthorizer -> TestTree
+requestSetDefaultAuthorizer =
+  req
+    "SetDefaultAuthorizer"
+    "fixture/SetDefaultAuthorizer.yaml"
+
+requestDescribeJobExecution :: DescribeJobExecution -> TestTree
+requestDescribeJobExecution =
+  req
+    "DescribeJobExecution"
+    "fixture/DescribeJobExecution.yaml"
+
+requestCancelCertificateTransfer :: CancelCertificateTransfer -> TestTree
+requestCancelCertificateTransfer =
+  req
+    "CancelCertificateTransfer"
+    "fixture/CancelCertificateTransfer.yaml"
+
+requestGetIndexingConfiguration :: GetIndexingConfiguration -> TestTree
+requestGetIndexingConfiguration =
+  req
+    "GetIndexingConfiguration"
+    "fixture/GetIndexingConfiguration.yaml"
+
+requestListAuditMitigationActionsExecutions :: ListAuditMitigationActionsExecutions -> TestTree
+requestListAuditMitigationActionsExecutions =
+  req
+    "ListAuditMitigationActionsExecutions"
+    "fixture/ListAuditMitigationActionsExecutions.yaml"
+
+requestCreateCustomMetric :: CreateCustomMetric -> TestTree
+requestCreateCustomMetric =
+  req
+    "CreateCustomMetric"
+    "fixture/CreateCustomMetric.yaml"
+
+requestDescribeAuditMitigationActionsTask :: DescribeAuditMitigationActionsTask -> TestTree
+requestDescribeAuditMitigationActionsTask =
+  req
+    "DescribeAuditMitigationActionsTask"
+    "fixture/DescribeAuditMitigationActionsTask.yaml"
+
+requestGetStatistics :: GetStatistics -> TestTree
+requestGetStatistics =
+  req
+    "GetStatistics"
+    "fixture/GetStatistics.yaml"
+
+requestDeleteRoleAlias :: DeleteRoleAlias -> TestTree
+requestDeleteRoleAlias =
+  req
+    "DeleteRoleAlias"
+    "fixture/DeleteRoleAlias.yaml"
+
+requestUpdateRoleAlias :: UpdateRoleAlias -> TestTree
+requestUpdateRoleAlias =
+  req
+    "UpdateRoleAlias"
+    "fixture/UpdateRoleAlias.yaml"
+
+requestListFleetMetrics :: ListFleetMetrics -> TestTree
+requestListFleetMetrics =
+  req
+    "ListFleetMetrics"
+    "fixture/ListFleetMetrics.yaml"
+
+requestDeletePolicyVersion :: DeletePolicyVersion -> TestTree
+requestDeletePolicyVersion =
+  req
+    "DeletePolicyVersion"
+    "fixture/DeletePolicyVersion.yaml"
+
+requestDisableTopicRule :: DisableTopicRule -> TestTree
+requestDisableTopicRule =
+  req
+    "DisableTopicRule"
+    "fixture/DisableTopicRule.yaml"
+
+requestCreateTopicRule :: CreateTopicRule -> TestTree
+requestCreateTopicRule =
+  req
+    "CreateTopicRule"
+    "fixture/CreateTopicRule.yaml"
+
+requestCreateJob :: CreateJob -> TestTree
+requestCreateJob =
+  req
+    "CreateJob"
+    "fixture/CreateJob.yaml"
+
+requestDescribeIndex :: DescribeIndex -> TestTree
+requestDescribeIndex =
+  req
+    "DescribeIndex"
+    "fixture/DescribeIndex.yaml"
+
+requestAssociateTargetsWithJob :: AssociateTargetsWithJob -> TestTree
+requestAssociateTargetsWithJob =
+  req
+    "AssociateTargetsWithJob"
+    "fixture/AssociateTargetsWithJob.yaml"
+
+requestAttachSecurityProfile :: AttachSecurityProfile -> TestTree
+requestAttachSecurityProfile =
+  req
+    "AttachSecurityProfile"
+    "fixture/AttachSecurityProfile.yaml"
+
+requestListAttachedPolicies :: ListAttachedPolicies -> TestTree
+requestListAttachedPolicies =
+  req
+    "ListAttachedPolicies"
+    "fixture/ListAttachedPolicies.yaml"
+
+requestCreatePolicyVersion :: CreatePolicyVersion -> TestTree
+requestCreatePolicyVersion =
+  req
+    "CreatePolicyVersion"
+    "fixture/CreatePolicyVersion.yaml"
+
+requestListCACertificates :: ListCACertificates -> TestTree
+requestListCACertificates =
+  req
+    "ListCACertificates"
+    "fixture/ListCACertificates.yaml"
+
+requestDeleteTopicRule :: DeleteTopicRule -> TestTree
+requestDeleteTopicRule =
+  req
+    "DeleteTopicRule"
+    "fixture/DeleteTopicRule.yaml"
+
+requestGetJobDocument :: GetJobDocument -> TestTree
+requestGetJobDocument =
+  req
+    "GetJobDocument"
+    "fixture/GetJobDocument.yaml"
+
+requestDescribeProvisioningTemplateVersion :: DescribeProvisioningTemplateVersion -> TestTree
+requestDescribeProvisioningTemplateVersion =
+  req
+    "DescribeProvisioningTemplateVersion"
+    "fixture/DescribeProvisioningTemplateVersion.yaml"
+
+requestListCustomMetrics :: ListCustomMetrics -> TestTree
+requestListCustomMetrics =
+  req
+    "ListCustomMetrics"
+    "fixture/ListCustomMetrics.yaml"
+
+requestCancelAuditTask :: CancelAuditTask -> TestTree
+requestCancelAuditTask =
+  req
+    "CancelAuditTask"
+    "fixture/CancelAuditTask.yaml"
+
+requestCreateRoleAlias :: CreateRoleAlias -> TestTree
+requestCreateRoleAlias =
+  req
+    "CreateRoleAlias"
+    "fixture/CreateRoleAlias.yaml"
+
+requestDeleteCACertificate :: DeleteCACertificate -> TestTree
+requestDeleteCACertificate =
+  req
+    "DeleteCACertificate"
+    "fixture/DeleteCACertificate.yaml"
+
+requestUpdateCACertificate :: UpdateCACertificate -> TestTree
+requestUpdateCACertificate =
+  req
+    "UpdateCACertificate"
+    "fixture/UpdateCACertificate.yaml"
+
+requestListTopicRules :: ListTopicRules -> TestTree
+requestListTopicRules =
+  req
+    "ListTopicRules"
+    "fixture/ListTopicRules.yaml"
+
+requestTransferCertificate :: TransferCertificate -> TestTree
+requestTransferCertificate =
+  req
+    "TransferCertificate"
+    "fixture/TransferCertificate.yaml"
+
+requestListJobs :: ListJobs -> TestTree
+requestListJobs =
+  req
+    "ListJobs"
+    "fixture/ListJobs.yaml"
+
+requestListRoleAliases :: ListRoleAliases -> TestTree
+requestListRoleAliases =
+  req
+    "ListRoleAliases"
+    "fixture/ListRoleAliases.yaml"
+
+requestStartOnDemandAuditTask :: StartOnDemandAuditTask -> TestTree
+requestStartOnDemandAuditTask =
+  req
+    "StartOnDemandAuditTask"
+    "fixture/StartOnDemandAuditTask.yaml"
+
+requestDescribeThingGroup :: DescribeThingGroup -> TestTree
+requestDescribeThingGroup =
+  req
+    "DescribeThingGroup"
+    "fixture/DescribeThingGroup.yaml"
+
+requestDeleteJob :: DeleteJob -> TestTree
+requestDeleteJob =
+  req
+    "DeleteJob"
+    "fixture/DeleteJob.yaml"
+
+requestListTargetsForSecurityProfile :: ListTargetsForSecurityProfile -> TestTree
+requestListTargetsForSecurityProfile =
+  req
+    "ListTargetsForSecurityProfile"
+    "fixture/ListTargetsForSecurityProfile.yaml"
+
+requestUpdateJob :: UpdateJob -> TestTree
+requestUpdateJob =
+  req
+    "UpdateJob"
+    "fixture/UpdateJob.yaml"
+
+requestStartAuditMitigationActionsTask :: StartAuditMitigationActionsTask -> TestTree
+requestStartAuditMitigationActionsTask =
+  req
+    "StartAuditMitigationActionsTask"
+    "fixture/StartAuditMitigationActionsTask.yaml"
+
+requestDescribeDetectMitigationActionsTask :: DescribeDetectMitigationActionsTask -> TestTree
+requestDescribeDetectMitigationActionsTask =
+  req
+    "DescribeDetectMitigationActionsTask"
+    "fixture/DescribeDetectMitigationActionsTask.yaml"
+
+requestGetTopicRule :: GetTopicRule -> TestTree
+requestGetTopicRule =
+  req
+    "GetTopicRule"
+    "fixture/GetTopicRule.yaml"
+
+requestDescribeThing :: DescribeThing -> TestTree
+requestDescribeThing =
+  req
+    "DescribeThing"
+    "fixture/DescribeThing.yaml"
+
+requestListDomainConfigurations :: ListDomainConfigurations -> TestTree
+requestListDomainConfigurations =
+  req
+    "ListDomainConfigurations"
+    "fixture/ListDomainConfigurations.yaml"
+
+requestListAuditTasks :: ListAuditTasks -> TestTree
+requestListAuditTasks =
+  req
+    "ListAuditTasks"
+    "fixture/ListAuditTasks.yaml"
+
+requestDescribeAccountAuditConfiguration :: DescribeAccountAuditConfiguration -> TestTree
+requestDescribeAccountAuditConfiguration =
+  req
+    "DescribeAccountAuditConfiguration"
+    "fixture/DescribeAccountAuditConfiguration.yaml"
+
+requestDeleteDimension :: DeleteDimension -> TestTree
+requestDeleteDimension =
+  req
+    "DeleteDimension"
+    "fixture/DeleteDimension.yaml"
+
+requestUpdateDimension :: UpdateDimension -> TestTree
+requestUpdateDimension =
+  req
+    "UpdateDimension"
+    "fixture/UpdateDimension.yaml"
+
+requestDeletePolicy :: DeletePolicy -> TestTree
+requestDeletePolicy =
+  req
+    "DeletePolicy"
+    "fixture/DeletePolicy.yaml"
+
+requestListThingsInThingGroup :: ListThingsInThingGroup -> TestTree
+requestListThingsInThingGroup =
+  req
+    "ListThingsInThingGroup"
+    "fixture/ListThingsInThingGroup.yaml"
+
+requestListAuditFindings :: ListAuditFindings -> TestTree
+requestListAuditFindings =
+  req
+    "ListAuditFindings"
+    "fixture/ListAuditFindings.yaml"
+
+requestDescribeScheduledAudit :: DescribeScheduledAudit -> TestTree
+requestDescribeScheduledAudit =
+  req
+    "DescribeScheduledAudit"
+    "fixture/DescribeScheduledAudit.yaml"
+
+requestCreateMitigationAction :: CreateMitigationAction -> TestTree
+requestCreateMitigationAction =
+  req
+    "CreateMitigationAction"
+    "fixture/CreateMitigationAction.yaml"
+
+requestConfirmTopicRuleDestination :: ConfirmTopicRuleDestination -> TestTree
+requestConfirmTopicRuleDestination =
+  req
+    "ConfirmTopicRuleDestination"
+    "fixture/ConfirmTopicRuleDestination.yaml"
+
+requestListCertificates :: ListCertificates -> TestTree
+requestListCertificates =
+  req
+    "ListCertificates"
+    "fixture/ListCertificates.yaml"
+
+requestListMitigationActions :: ListMitigationActions -> TestTree
+requestListMitigationActions =
+  req
+    "ListMitigationActions"
+    "fixture/ListMitigationActions.yaml"
 
 requestDescribeAuthorizer :: DescribeAuthorizer -> TestTree
 requestDescribeAuthorizer =
@@ -2231,17 +2135,11 @@ requestGetPolicyVersion =
     "GetPolicyVersion"
     "fixture/GetPolicyVersion.yaml"
 
-requestListCertificates :: ListCertificates -> TestTree
-requestListCertificates =
+requestListActiveViolations :: ListActiveViolations -> TestTree
+requestListActiveViolations =
   req
-    "ListCertificates"
-    "fixture/ListCertificates.yaml"
-
-requestDeleteSecurityProfile :: DeleteSecurityProfile -> TestTree
-requestDeleteSecurityProfile =
-  req
-    "DeleteSecurityProfile"
-    "fixture/DeleteSecurityProfile.yaml"
+    "ListActiveViolations"
+    "fixture/ListActiveViolations.yaml"
 
 requestValidateSecurityProfileBehaviors :: ValidateSecurityProfileBehaviors -> TestTree
 requestValidateSecurityProfileBehaviors =
@@ -2249,407 +2147,179 @@ requestValidateSecurityProfileBehaviors =
     "ValidateSecurityProfileBehaviors"
     "fixture/ValidateSecurityProfileBehaviors.yaml"
 
-requestCreateDomainConfiguration :: CreateDomainConfiguration -> TestTree
-requestCreateDomainConfiguration =
+requestListViolationEvents :: ListViolationEvents -> TestTree
+requestListViolationEvents =
   req
-    "CreateDomainConfiguration"
-    "fixture/CreateDomainConfiguration.yaml"
+    "ListViolationEvents"
+    "fixture/ListViolationEvents.yaml"
 
-requestListActiveViolations :: ListActiveViolations -> TestTree
-requestListActiveViolations =
+requestDeleteCertificate :: DeleteCertificate -> TestTree
+requestDeleteCertificate =
   req
-    "ListActiveViolations"
-    "fixture/ListActiveViolations.yaml"
+    "DeleteCertificate"
+    "fixture/DeleteCertificate.yaml"
 
-requestDescribeBillingGroup :: DescribeBillingGroup -> TestTree
-requestDescribeBillingGroup =
+requestUpdateCertificate :: UpdateCertificate -> TestTree
+requestUpdateCertificate =
   req
-    "DescribeBillingGroup"
-    "fixture/DescribeBillingGroup.yaml"
+    "UpdateCertificate"
+    "fixture/UpdateCertificate.yaml"
 
-requestListThingRegistrationTasks :: ListThingRegistrationTasks -> TestTree
-requestListThingRegistrationTasks =
+requestCreateDimension :: CreateDimension -> TestTree
+requestCreateDimension =
   req
-    "ListThingRegistrationTasks"
-    "fixture/ListThingRegistrationTasks.yaml"
+    "CreateDimension"
+    "fixture/CreateDimension.yaml"
 
-requestUpdateDimension :: UpdateDimension -> TestTree
-requestUpdateDimension =
+requestUpdateIndexingConfiguration :: UpdateIndexingConfiguration -> TestTree
+requestUpdateIndexingConfiguration =
   req
-    "UpdateDimension"
-    "fixture/UpdateDimension.yaml"
+    "UpdateIndexingConfiguration"
+    "fixture/UpdateIndexingConfiguration.yaml"
 
-requestDescribeAuditSuppression :: DescribeAuditSuppression -> TestTree
-requestDescribeAuditSuppression =
+requestGetBucketsAggregation :: GetBucketsAggregation -> TestTree
+requestGetBucketsAggregation =
   req
-    "DescribeAuditSuppression"
-    "fixture/DescribeAuditSuppression.yaml"
+    "GetBucketsAggregation"
+    "fixture/GetBucketsAggregation.yaml"
 
-requestDescribeAccountAuditConfiguration :: DescribeAccountAuditConfiguration -> TestTree
-requestDescribeAccountAuditConfiguration =
+requestCreateProvisioningClaim :: CreateProvisioningClaim -> TestTree
+requestCreateProvisioningClaim =
   req
-    "DescribeAccountAuditConfiguration"
-    "fixture/DescribeAccountAuditConfiguration.yaml"
+    "CreateProvisioningClaim"
+    "fixture/CreateProvisioningClaim.yaml"
 
-requestDeprecateThingType :: DeprecateThingType -> TestTree
-requestDeprecateThingType =
+requestTestInvokeAuthorizer :: TestInvokeAuthorizer -> TestTree
+requestTestInvokeAuthorizer =
   req
-    "DeprecateThingType"
-    "fixture/DeprecateThingType.yaml"
+    "TestInvokeAuthorizer"
+    "fixture/TestInvokeAuthorizer.yaml"
 
-requestDescribeDetectMitigationActionsTask :: DescribeDetectMitigationActionsTask -> TestTree
-requestDescribeDetectMitigationActionsTask =
+requestPutVerificationStateOnViolation :: PutVerificationStateOnViolation -> TestTree
+requestPutVerificationStateOnViolation =
   req
-    "DescribeDetectMitigationActionsTask"
-    "fixture/DescribeDetectMitigationActionsTask.yaml"
+    "PutVerificationStateOnViolation"
+    "fixture/PutVerificationStateOnViolation.yaml"
 
-requestDeleteDimension :: DeleteDimension -> TestTree
-requestDeleteDimension =
+requestCreateThingGroup :: CreateThingGroup -> TestTree
+requestCreateThingGroup =
   req
-    "DeleteDimension"
-    "fixture/DeleteDimension.yaml"
+    "CreateThingGroup"
+    "fixture/CreateThingGroup.yaml"
 
-requestListAuditFindings :: ListAuditFindings -> TestTree
-requestListAuditFindings =
+requestDescribeFleetMetric :: DescribeFleetMetric -> TestTree
+requestDescribeFleetMetric =
   req
-    "ListAuditFindings"
-    "fixture/ListAuditFindings.yaml"
+    "DescribeFleetMetric"
+    "fixture/DescribeFleetMetric.yaml"
 
-requestDescribeThing :: DescribeThing -> TestTree
-requestDescribeThing =
+requestCreateTopicRuleDestination :: CreateTopicRuleDestination -> TestTree
+requestCreateTopicRuleDestination =
   req
-    "DescribeThing"
-    "fixture/DescribeThing.yaml"
+    "CreateTopicRuleDestination"
+    "fixture/CreateTopicRuleDestination.yaml"
 
-requestListDimensions :: ListDimensions -> TestTree
-requestListDimensions =
+requestDetachPolicy :: DetachPolicy -> TestTree
+requestDetachPolicy =
   req
-    "ListDimensions"
-    "fixture/ListDimensions.yaml"
+    "DetachPolicy"
+    "fixture/DetachPolicy.yaml"
 
-requestDetachThingPrincipal :: DetachThingPrincipal -> TestTree
-requestDetachThingPrincipal =
+requestDescribeJob :: DescribeJob -> TestTree
+requestDescribeJob =
   req
-    "DetachThingPrincipal"
-    "fixture/DetachThingPrincipal.yaml"
+    "DescribeJob"
+    "fixture/DescribeJob.yaml"
 
-requestDescribeStream :: DescribeStream -> TestTree
-requestDescribeStream =
+requestAddThingToBillingGroup :: AddThingToBillingGroup -> TestTree
+requestAddThingToBillingGroup =
   req
-    "DescribeStream"
-    "fixture/DescribeStream.yaml"
+    "AddThingToBillingGroup"
+    "fixture/AddThingToBillingGroup.yaml"
 
-requestConfirmTopicRuleDestination :: ConfirmTopicRuleDestination -> TestTree
-requestConfirmTopicRuleDestination =
+requestUpdateTopicRuleDestination :: UpdateTopicRuleDestination -> TestTree
+requestUpdateTopicRuleDestination =
   req
-    "ConfirmTopicRuleDestination"
-    "fixture/ConfirmTopicRuleDestination.yaml"
+    "UpdateTopicRuleDestination"
+    "fixture/UpdateTopicRuleDestination.yaml"
 
-requestGetPolicy :: GetPolicy -> TestTree
-requestGetPolicy =
+requestDeleteTopicRuleDestination :: DeleteTopicRuleDestination -> TestTree
+requestDeleteTopicRuleDestination =
   req
-    "GetPolicy"
-    "fixture/GetPolicy.yaml"
+    "DeleteTopicRuleDestination"
+    "fixture/DeleteTopicRuleDestination.yaml"
 
-requestListTopicRules :: ListTopicRules -> TestTree
-requestListTopicRules =
+requestDeleteThingGroup :: DeleteThingGroup -> TestTree
+requestDeleteThingGroup =
   req
-    "ListTopicRules"
-    "fixture/ListTopicRules.yaml"
+    "DeleteThingGroup"
+    "fixture/DeleteThingGroup.yaml"
 
-requestListCACertificates :: ListCACertificates -> TestTree
-requestListCACertificates =
+requestUpdateThingGroup :: UpdateThingGroup -> TestTree
+requestUpdateThingGroup =
   req
-    "ListCACertificates"
-    "fixture/ListCACertificates.yaml"
+    "UpdateThingGroup"
+    "fixture/UpdateThingGroup.yaml"
 
-requestStartOnDemandAuditTask :: StartOnDemandAuditTask -> TestTree
-requestStartOnDemandAuditTask =
+requestListOTAUpdates :: ListOTAUpdates -> TestTree
+requestListOTAUpdates =
   req
-    "StartOnDemandAuditTask"
-    "fixture/StartOnDemandAuditTask.yaml"
+    "ListOTAUpdates"
+    "fixture/ListOTAUpdates.yaml"
 
-requestUpdateEventConfigurations :: UpdateEventConfigurations -> TestTree
-requestUpdateEventConfigurations =
+requestDeleteOTAUpdate :: DeleteOTAUpdate -> TestTree
+requestDeleteOTAUpdate =
   req
-    "UpdateEventConfigurations"
-    "fixture/UpdateEventConfigurations.yaml"
+    "DeleteOTAUpdate"
+    "fixture/DeleteOTAUpdate.yaml"
 
-requestUpdateThingGroupsForThing :: UpdateThingGroupsForThing -> TestTree
-requestUpdateThingGroupsForThing =
+requestCreateDynamicThingGroup :: CreateDynamicThingGroup -> TestTree
+requestCreateDynamicThingGroup =
   req
-    "UpdateThingGroupsForThing"
-    "fixture/UpdateThingGroupsForThing.yaml"
+    "CreateDynamicThingGroup"
+    "fixture/CreateDynamicThingGroup.yaml"
 
-requestListSecurityProfilesForTarget :: ListSecurityProfilesForTarget -> TestTree
-requestListSecurityProfilesForTarget =
+requestDetachSecurityProfile :: DetachSecurityProfile -> TestTree
+requestDetachSecurityProfile =
   req
-    "ListSecurityProfilesForTarget"
-    "fixture/ListSecurityProfilesForTarget.yaml"
+    "DetachSecurityProfile"
+    "fixture/DetachSecurityProfile.yaml"
 
-requestDeleteJobTemplate :: DeleteJobTemplate -> TestTree
-requestDeleteJobTemplate =
+requestListOutgoingCertificates :: ListOutgoingCertificates -> TestTree
+requestListOutgoingCertificates =
   req
-    "DeleteJobTemplate"
-    "fixture/DeleteJobTemplate.yaml"
+    "ListOutgoingCertificates"
+    "fixture/ListOutgoingCertificates.yaml"
 
-requestEnableTopicRule :: EnableTopicRule -> TestTree
-requestEnableTopicRule =
+requestDeleteProvisioningTemplateVersion :: DeleteProvisioningTemplateVersion -> TestTree
+requestDeleteProvisioningTemplateVersion =
   req
-    "EnableTopicRule"
-    "fixture/EnableTopicRule.yaml"
+    "DeleteProvisioningTemplateVersion"
+    "fixture/DeleteProvisioningTemplateVersion.yaml"
 
-requestAcceptCertificateTransfer :: AcceptCertificateTransfer -> TestTree
-requestAcceptCertificateTransfer =
+requestDescribeCACertificate :: DescribeCACertificate -> TestTree
+requestDescribeCACertificate =
   req
-    "AcceptCertificateTransfer"
-    "fixture/AcceptCertificateTransfer.yaml"
+    "DescribeCACertificate"
+    "fixture/DescribeCACertificate.yaml"
 
-requestGetJobDocument :: GetJobDocument -> TestTree
-requestGetJobDocument =
+requestListProvisioningTemplateVersions :: ListProvisioningTemplateVersions -> TestTree
+requestListProvisioningTemplateVersions =
   req
-    "GetJobDocument"
-    "fixture/GetJobDocument.yaml"
+    "ListProvisioningTemplateVersions"
+    "fixture/ListProvisioningTemplateVersions.yaml"
 
-requestListAttachedPolicies :: ListAttachedPolicies -> TestTree
-requestListAttachedPolicies =
+requestGetRegistrationCode :: GetRegistrationCode -> TestTree
+requestGetRegistrationCode =
   req
-    "ListAttachedPolicies"
-    "fixture/ListAttachedPolicies.yaml"
+    "GetRegistrationCode"
+    "fixture/GetRegistrationCode.yaml"
 
-requestDescribeThingGroup :: DescribeThingGroup -> TestTree
-requestDescribeThingGroup =
+requestListDetectMitigationActionsExecutions :: ListDetectMitigationActionsExecutions -> TestTree
+requestListDetectMitigationActionsExecutions =
   req
-    "DescribeThingGroup"
-    "fixture/DescribeThingGroup.yaml"
-
-requestListJobs :: ListJobs -> TestTree
-requestListJobs =
-  req
-    "ListJobs"
-    "fixture/ListJobs.yaml"
-
-requestCreateFleetMetric :: CreateFleetMetric -> TestTree
-requestCreateFleetMetric =
-  req
-    "CreateFleetMetric"
-    "fixture/CreateFleetMetric.yaml"
-
-requestRegisterCACertificate :: RegisterCACertificate -> TestTree
-requestRegisterCACertificate =
-  req
-    "RegisterCACertificate"
-    "fixture/RegisterCACertificate.yaml"
-
-requestReplaceTopicRule :: ReplaceTopicRule -> TestTree
-requestReplaceTopicRule =
-  req
-    "ReplaceTopicRule"
-    "fixture/ReplaceTopicRule.yaml"
-
-requestGetStatistics :: GetStatistics -> TestTree
-requestGetStatistics =
-  req
-    "GetStatistics"
-    "fixture/GetStatistics.yaml"
-
-requestDescribeIndex :: DescribeIndex -> TestTree
-requestDescribeIndex =
-  req
-    "DescribeIndex"
-    "fixture/DescribeIndex.yaml"
-
-requestAttachPolicy :: AttachPolicy -> TestTree
-requestAttachPolicy =
-  req
-    "AttachPolicy"
-    "fixture/AttachPolicy.yaml"
-
-requestUpdateRoleAlias :: UpdateRoleAlias -> TestTree
-requestUpdateRoleAlias =
-  req
-    "UpdateRoleAlias"
-    "fixture/UpdateRoleAlias.yaml"
-
-requestClearDefaultAuthorizer :: ClearDefaultAuthorizer -> TestTree
-requestClearDefaultAuthorizer =
-  req
-    "ClearDefaultAuthorizer"
-    "fixture/ClearDefaultAuthorizer.yaml"
-
-requestCreateTopicRule :: CreateTopicRule -> TestTree
-requestCreateTopicRule =
-  req
-    "CreateTopicRule"
-    "fixture/CreateTopicRule.yaml"
-
-requestCancelJobExecution :: CancelJobExecution -> TestTree
-requestCancelJobExecution =
-  req
-    "CancelJobExecution"
-    "fixture/CancelJobExecution.yaml"
-
-requestCreateJob :: CreateJob -> TestTree
-requestCreateJob =
-  req
-    "CreateJob"
-    "fixture/CreateJob.yaml"
-
-requestAssociateTargetsWithJob :: AssociateTargetsWithJob -> TestTree
-requestAssociateTargetsWithJob =
-  req
-    "AssociateTargetsWithJob"
-    "fixture/AssociateTargetsWithJob.yaml"
-
-requestDeletePolicyVersion :: DeletePolicyVersion -> TestTree
-requestDeletePolicyVersion =
-  req
-    "DeletePolicyVersion"
-    "fixture/DeletePolicyVersion.yaml"
-
-requestDeleteRoleAlias :: DeleteRoleAlias -> TestTree
-requestDeleteRoleAlias =
-  req
-    "DeleteRoleAlias"
-    "fixture/DeleteRoleAlias.yaml"
-
-requestListPolicyVersions :: ListPolicyVersions -> TestTree
-requestListPolicyVersions =
-  req
-    "ListPolicyVersions"
-    "fixture/ListPolicyVersions.yaml"
-
-requestListTargetsForPolicy :: ListTargetsForPolicy -> TestTree
-requestListTargetsForPolicy =
-  req
-    "ListTargetsForPolicy"
-    "fixture/ListTargetsForPolicy.yaml"
-
-requestCancelCertificateTransfer :: CancelCertificateTransfer -> TestTree
-requestCancelCertificateTransfer =
-  req
-    "CancelCertificateTransfer"
-    "fixture/CancelCertificateTransfer.yaml"
-
-requestListAuthorizers :: ListAuthorizers -> TestTree
-requestListAuthorizers =
-  req
-    "ListAuthorizers"
-    "fixture/ListAuthorizers.yaml"
-
-requestCreateThingType :: CreateThingType -> TestTree
-requestCreateThingType =
-  req
-    "CreateThingType"
-    "fixture/CreateThingType.yaml"
-
-requestUpdateAuthorizer :: UpdateAuthorizer -> TestTree
-requestUpdateAuthorizer =
-  req
-    "UpdateAuthorizer"
-    "fixture/UpdateAuthorizer.yaml"
-
-requestCreateAuditSuppression :: CreateAuditSuppression -> TestTree
-requestCreateAuditSuppression =
-  req
-    "CreateAuditSuppression"
-    "fixture/CreateAuditSuppression.yaml"
-
-requestListJobExecutionsForJob :: ListJobExecutionsForJob -> TestTree
-requestListJobExecutionsForJob =
-  req
-    "ListJobExecutionsForJob"
-    "fixture/ListJobExecutionsForJob.yaml"
-
-requestDescribeSecurityProfile :: DescribeSecurityProfile -> TestTree
-requestDescribeSecurityProfile =
-  req
-    "DescribeSecurityProfile"
-    "fixture/DescribeSecurityProfile.yaml"
-
-requestRemoveThingFromBillingGroup :: RemoveThingFromBillingGroup -> TestTree
-requestRemoveThingFromBillingGroup =
-  req
-    "RemoveThingFromBillingGroup"
-    "fixture/RemoveThingFromBillingGroup.yaml"
-
-requestCreateStream :: CreateStream -> TestTree
-requestCreateStream =
-  req
-    "CreateStream"
-    "fixture/CreateStream.yaml"
-
-requestSearchIndex :: SearchIndex -> TestTree
-requestSearchIndex =
-  req
-    "SearchIndex"
-    "fixture/SearchIndex.yaml"
-
-requestCancelAuditMitigationActionsTask :: CancelAuditMitigationActionsTask -> TestTree
-requestCancelAuditMitigationActionsTask =
-  req
-    "CancelAuditMitigationActionsTask"
-    "fixture/CancelAuditMitigationActionsTask.yaml"
-
-requestDeleteAuthorizer :: DeleteAuthorizer -> TestTree
-requestDeleteAuthorizer =
-  req
-    "DeleteAuthorizer"
-    "fixture/DeleteAuthorizer.yaml"
-
-requestCreateBillingGroup :: CreateBillingGroup -> TestTree
-requestCreateBillingGroup =
-  req
-    "CreateBillingGroup"
-    "fixture/CreateBillingGroup.yaml"
-
-requestDescribeAuditFinding :: DescribeAuditFinding -> TestTree
-requestDescribeAuditFinding =
-  req
-    "DescribeAuditFinding"
-    "fixture/DescribeAuditFinding.yaml"
-
-requestDeleteScheduledAudit :: DeleteScheduledAudit -> TestTree
-requestDeleteScheduledAudit =
-  req
-    "DeleteScheduledAudit"
-    "fixture/DeleteScheduledAudit.yaml"
-
-requestGetEffectivePolicies :: GetEffectivePolicies -> TestTree
-requestGetEffectivePolicies =
-  req
-    "GetEffectivePolicies"
-    "fixture/GetEffectivePolicies.yaml"
-
-requestGetOTAUpdate :: GetOTAUpdate -> TestTree
-requestGetOTAUpdate =
-  req
-    "GetOTAUpdate"
-    "fixture/GetOTAUpdate.yaml"
-
-requestCreateProvisioningTemplate :: CreateProvisioningTemplate -> TestTree
-requestCreateProvisioningTemplate =
-  req
-    "CreateProvisioningTemplate"
-    "fixture/CreateProvisioningTemplate.yaml"
-
-requestListThingTypes :: ListThingTypes -> TestTree
-requestListThingTypes =
-  req
-    "ListThingTypes"
-    "fixture/ListThingTypes.yaml"
-
-requestDeleteThingType :: DeleteThingType -> TestTree
-requestDeleteThingType =
-  req
-    "DeleteThingType"
-    "fixture/DeleteThingType.yaml"
-
-requestRegisterThing :: RegisterThing -> TestTree
-requestRegisterThing =
-  req
-    "RegisterThing"
-    "fixture/RegisterThing.yaml"
+    "ListDetectMitigationActionsExecutions"
+    "fixture/ListDetectMitigationActionsExecutions.yaml"
 
 requestListBillingGroups :: ListBillingGroups -> TestTree
 requestListBillingGroups =
@@ -2657,35 +2327,77 @@ requestListBillingGroups =
     "ListBillingGroups"
     "fixture/ListBillingGroups.yaml"
 
-requestListStreams :: ListStreams -> TestTree
-requestListStreams =
+requestDeleteThingType :: DeleteThingType -> TestTree
+requestDeleteThingType =
   req
-    "ListStreams"
-    "fixture/ListStreams.yaml"
+    "DeleteThingType"
+    "fixture/DeleteThingType.yaml"
 
-requestTestAuthorization :: TestAuthorization -> TestTree
-requestTestAuthorization =
+requestDeleteBillingGroup :: DeleteBillingGroup -> TestTree
+requestDeleteBillingGroup =
   req
-    "TestAuthorization"
-    "fixture/TestAuthorization.yaml"
+    "DeleteBillingGroup"
+    "fixture/DeleteBillingGroup.yaml"
 
-requestListIndices :: ListIndices -> TestTree
-requestListIndices =
+requestAddThingToThingGroup :: AddThingToThingGroup -> TestTree
+requestAddThingToThingGroup =
   req
-    "ListIndices"
-    "fixture/ListIndices.yaml"
+    "AddThingToThingGroup"
+    "fixture/AddThingToThingGroup.yaml"
 
-requestDescribeAuditTask :: DescribeAuditTask -> TestTree
-requestDescribeAuditTask =
+requestUpdateBillingGroup :: UpdateBillingGroup -> TestTree
+requestUpdateBillingGroup =
   req
-    "DescribeAuditTask"
-    "fixture/DescribeAuditTask.yaml"
+    "UpdateBillingGroup"
+    "fixture/UpdateBillingGroup.yaml"
 
-requestCreateCertificateFromCsr :: CreateCertificateFromCsr -> TestTree
-requestCreateCertificateFromCsr =
+requestGetTopicRuleDestination :: GetTopicRuleDestination -> TestTree
+requestGetTopicRuleDestination =
   req
-    "CreateCertificateFromCsr"
-    "fixture/CreateCertificateFromCsr.yaml"
+    "GetTopicRuleDestination"
+    "fixture/GetTopicRuleDestination.yaml"
+
+requestListCertificatesByCA :: ListCertificatesByCA -> TestTree
+requestListCertificatesByCA =
+  req
+    "ListCertificatesByCA"
+    "fixture/ListCertificatesByCA.yaml"
+
+requestUpdateAuditSuppression :: UpdateAuditSuppression -> TestTree
+requestUpdateAuditSuppression =
+  req
+    "UpdateAuditSuppression"
+    "fixture/UpdateAuditSuppression.yaml"
+
+requestAttachThingPrincipal :: AttachThingPrincipal -> TestTree
+requestAttachThingPrincipal =
+  req
+    "AttachThingPrincipal"
+    "fixture/AttachThingPrincipal.yaml"
+
+requestListThings :: ListThings -> TestTree
+requestListThings =
+  req
+    "ListThings"
+    "fixture/ListThings.yaml"
+
+requestDeleteAuditSuppression :: DeleteAuditSuppression -> TestTree
+requestDeleteAuditSuppression =
+  req
+    "DeleteAuditSuppression"
+    "fixture/DeleteAuditSuppression.yaml"
+
+requestListDetectMitigationActionsTasks :: ListDetectMitigationActionsTasks -> TestTree
+requestListDetectMitigationActionsTasks =
+  req
+    "ListDetectMitigationActionsTasks"
+    "fixture/ListDetectMitigationActionsTasks.yaml"
+
+requestRegisterThing :: RegisterThing -> TestTree
+requestRegisterThing =
+  req
+    "RegisterThing"
+    "fixture/RegisterThing.yaml"
 
 requestListAuditSuppressions :: ListAuditSuppressions -> TestTree
 requestListAuditSuppressions =
@@ -2699,183 +2411,431 @@ requestDescribeDomainConfiguration =
     "DescribeDomainConfiguration"
     "fixture/DescribeDomainConfiguration.yaml"
 
-requestUpdateScheduledAudit :: UpdateScheduledAudit -> TestTree
-requestUpdateScheduledAudit =
+requestDescribeAuditTask :: DescribeAuditTask -> TestTree
+requestDescribeAuditTask =
   req
-    "UpdateScheduledAudit"
-    "fixture/UpdateScheduledAudit.yaml"
+    "DescribeAuditTask"
+    "fixture/DescribeAuditTask.yaml"
 
-requestGetTopicRuleDestination :: GetTopicRuleDestination -> TestTree
-requestGetTopicRuleDestination =
+requestDeleteRegistrationCode :: DeleteRegistrationCode -> TestTree
+requestDeleteRegistrationCode =
   req
-    "GetTopicRuleDestination"
-    "fixture/GetTopicRuleDestination.yaml"
+    "DeleteRegistrationCode"
+    "fixture/DeleteRegistrationCode.yaml"
 
-requestDeleteTopicRuleDestination :: DeleteTopicRuleDestination -> TestTree
-requestDeleteTopicRuleDestination =
+requestUpdateStream :: UpdateStream -> TestTree
+requestUpdateStream =
   req
-    "DeleteTopicRuleDestination"
-    "fixture/DeleteTopicRuleDestination.yaml"
+    "UpdateStream"
+    "fixture/UpdateStream.yaml"
 
-requestListOutgoingCertificates :: ListOutgoingCertificates -> TestTree
-requestListOutgoingCertificates =
+requestDeleteStream :: DeleteStream -> TestTree
+requestDeleteStream =
   req
-    "ListOutgoingCertificates"
-    "fixture/ListOutgoingCertificates.yaml"
+    "DeleteStream"
+    "fixture/DeleteStream.yaml"
 
-requestDescribeJobTemplate :: DescribeJobTemplate -> TestTree
-requestDescribeJobTemplate =
+requestListStreams :: ListStreams -> TestTree
+requestListStreams =
   req
-    "DescribeJobTemplate"
-    "fixture/DescribeJobTemplate.yaml"
+    "ListStreams"
+    "fixture/ListStreams.yaml"
 
-requestAddThingToBillingGroup :: AddThingToBillingGroup -> TestTree
-requestAddThingToBillingGroup =
+requestCreateAuthorizer :: CreateAuthorizer -> TestTree
+requestCreateAuthorizer =
   req
-    "AddThingToBillingGroup"
-    "fixture/AddThingToBillingGroup.yaml"
+    "CreateAuthorizer"
+    "fixture/CreateAuthorizer.yaml"
 
-requestListOTAUpdates :: ListOTAUpdates -> TestTree
-requestListOTAUpdates =
+requestTestAuthorization :: TestAuthorization -> TestTree
+requestTestAuthorization =
   req
-    "ListOTAUpdates"
-    "fixture/ListOTAUpdates.yaml"
+    "TestAuthorization"
+    "fixture/TestAuthorization.yaml"
 
-requestUpdateThingGroup :: UpdateThingGroup -> TestTree
-requestUpdateThingGroup =
+requestListIndices :: ListIndices -> TestTree
+requestListIndices =
   req
-    "UpdateThingGroup"
-    "fixture/UpdateThingGroup.yaml"
+    "ListIndices"
+    "fixture/ListIndices.yaml"
 
-requestDeleteThingGroup :: DeleteThingGroup -> TestTree
-requestDeleteThingGroup =
+requestUpdateAuthorizer :: UpdateAuthorizer -> TestTree
+requestUpdateAuthorizer =
   req
-    "DeleteThingGroup"
-    "fixture/DeleteThingGroup.yaml"
+    "UpdateAuthorizer"
+    "fixture/UpdateAuthorizer.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestDeleteAuthorizer :: DeleteAuthorizer -> TestTree
+requestDeleteAuthorizer =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "DeleteAuthorizer"
+    "fixture/DeleteAuthorizer.yaml"
 
-requestDescribeEventConfigurations :: DescribeEventConfigurations -> TestTree
-requestDescribeEventConfigurations =
+requestCreateThing :: CreateThing -> TestTree
+requestCreateThing =
   req
-    "DescribeEventConfigurations"
-    "fixture/DescribeEventConfigurations.yaml"
+    "CreateThing"
+    "fixture/CreateThing.yaml"
 
-requestListTopicRuleDestinations :: ListTopicRuleDestinations -> TestTree
-requestListTopicRuleDestinations =
+requestCreateStream :: CreateStream -> TestTree
+requestCreateStream =
   req
-    "ListTopicRuleDestinations"
-    "fixture/ListTopicRuleDestinations.yaml"
+    "CreateStream"
+    "fixture/CreateStream.yaml"
 
-requestListProvisioningTemplateVersions :: ListProvisioningTemplateVersions -> TestTree
-requestListProvisioningTemplateVersions =
+requestCancelAuditMitigationActionsTask :: CancelAuditMitigationActionsTask -> TestTree
+requestCancelAuditMitigationActionsTask =
   req
-    "ListProvisioningTemplateVersions"
-    "fixture/ListProvisioningTemplateVersions.yaml"
+    "CancelAuditMitigationActionsTask"
+    "fixture/CancelAuditMitigationActionsTask.yaml"
 
-requestUpdateTopicRuleDestination :: UpdateTopicRuleDestination -> TestTree
-requestUpdateTopicRuleDestination =
+requestCreateAuditSuppression :: CreateAuditSuppression -> TestTree
+requestCreateAuditSuppression =
   req
-    "UpdateTopicRuleDestination"
-    "fixture/UpdateTopicRuleDestination.yaml"
+    "CreateAuditSuppression"
+    "fixture/CreateAuditSuppression.yaml"
 
-requestListThingGroups :: ListThingGroups -> TestTree
-requestListThingGroups =
+requestCreateBillingGroup :: CreateBillingGroup -> TestTree
+requestCreateBillingGroup =
   req
-    "ListThingGroups"
-    "fixture/ListThingGroups.yaml"
+    "CreateBillingGroup"
+    "fixture/CreateBillingGroup.yaml"
 
-requestCancelDetectMitigationActionsTask :: CancelDetectMitigationActionsTask -> TestTree
-requestCancelDetectMitigationActionsTask =
+requestListProvisioningTemplates :: ListProvisioningTemplates -> TestTree
+requestListProvisioningTemplates =
   req
-    "CancelDetectMitigationActionsTask"
-    "fixture/CancelDetectMitigationActionsTask.yaml"
+    "ListProvisioningTemplates"
+    "fixture/ListProvisioningTemplates.yaml"
+
+requestListV2LoggingLevels :: ListV2LoggingLevels -> TestTree
+requestListV2LoggingLevels =
+  req
+    "ListV2LoggingLevels"
+    "fixture/ListV2LoggingLevels.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestStopThingRegistrationTask :: StopThingRegistrationTask -> TestTree
+requestStopThingRegistrationTask =
+  req
+    "StopThingRegistrationTask"
+    "fixture/StopThingRegistrationTask.yaml"
+
+requestDescribeCertificate :: DescribeCertificate -> TestTree
+requestDescribeCertificate =
+  req
+    "DescribeCertificate"
+    "fixture/DescribeCertificate.yaml"
+
+requestListTargetsForPolicy :: ListTargetsForPolicy -> TestTree
+requestListTargetsForPolicy =
+  req
+    "ListTargetsForPolicy"
+    "fixture/ListTargetsForPolicy.yaml"
+
+requestCreateJobTemplate :: CreateJobTemplate -> TestTree
+requestCreateJobTemplate =
+  req
+    "CreateJobTemplate"
+    "fixture/CreateJobTemplate.yaml"
+
+requestClearDefaultAuthorizer :: ClearDefaultAuthorizer -> TestTree
+requestClearDefaultAuthorizer =
+  req
+    "ClearDefaultAuthorizer"
+    "fixture/ClearDefaultAuthorizer.yaml"
+
+requestReplaceTopicRule :: ReplaceTopicRule -> TestTree
+requestReplaceTopicRule =
+  req
+    "ReplaceTopicRule"
+    "fixture/ReplaceTopicRule.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestDeleteFleetMetric :: DeleteFleetMetric -> TestTree
+requestDeleteFleetMetric =
+  req
+    "DeleteFleetMetric"
+    "fixture/DeleteFleetMetric.yaml"
+
+requestUpdateFleetMetric :: UpdateFleetMetric -> TestTree
+requestUpdateFleetMetric =
+  req
+    "UpdateFleetMetric"
+    "fixture/UpdateFleetMetric.yaml"
+
+requestSetDefaultPolicyVersion :: SetDefaultPolicyVersion -> TestTree
+requestSetDefaultPolicyVersion =
+  req
+    "SetDefaultPolicyVersion"
+    "fixture/SetDefaultPolicyVersion.yaml"
+
+requestCancelJobExecution :: CancelJobExecution -> TestTree
+requestCancelJobExecution =
+  req
+    "CancelJobExecution"
+    "fixture/CancelJobExecution.yaml"
+
+requestListPolicyVersions :: ListPolicyVersions -> TestTree
+requestListPolicyVersions =
+  req
+    "ListPolicyVersions"
+    "fixture/ListPolicyVersions.yaml"
+
+requestSetV2LoggingLevel :: SetV2LoggingLevel -> TestTree
+requestSetV2LoggingLevel =
+  req
+    "SetV2LoggingLevel"
+    "fixture/SetV2LoggingLevel.yaml"
+
+requestListJobExecutionsForThing :: ListJobExecutionsForThing -> TestTree
+requestListJobExecutionsForThing =
+  req
+    "ListJobExecutionsForThing"
+    "fixture/ListJobExecutionsForThing.yaml"
+
+requestAttachPolicy :: AttachPolicy -> TestTree
+requestAttachPolicy =
+  req
+    "AttachPolicy"
+    "fixture/AttachPolicy.yaml"
+
+requestCreateKeysAndCertificate :: CreateKeysAndCertificate -> TestTree
+requestCreateKeysAndCertificate =
+  req
+    "CreateKeysAndCertificate"
+    "fixture/CreateKeysAndCertificate.yaml"
+
+requestListThingsInBillingGroup :: ListThingsInBillingGroup -> TestTree
+requestListThingsInBillingGroup =
+  req
+    "ListThingsInBillingGroup"
+    "fixture/ListThingsInBillingGroup.yaml"
+
+requestUpdateThingGroupsForThing :: UpdateThingGroupsForThing -> TestTree
+requestUpdateThingGroupsForThing =
+  req
+    "UpdateThingGroupsForThing"
+    "fixture/UpdateThingGroupsForThing.yaml"
+
+requestCreateFleetMetric :: CreateFleetMetric -> TestTree
+requestCreateFleetMetric =
+  req
+    "CreateFleetMetric"
+    "fixture/CreateFleetMetric.yaml"
+
+requestEnableTopicRule :: EnableTopicRule -> TestTree
+requestEnableTopicRule =
+  req
+    "EnableTopicRule"
+    "fixture/EnableTopicRule.yaml"
+
+requestDeleteJobTemplate :: DeleteJobTemplate -> TestTree
+requestDeleteJobTemplate =
+  req
+    "DeleteJobTemplate"
+    "fixture/DeleteJobTemplate.yaml"
+
+requestAcceptCertificateTransfer :: AcceptCertificateTransfer -> TestTree
+requestAcceptCertificateTransfer =
+  req
+    "AcceptCertificateTransfer"
+    "fixture/AcceptCertificateTransfer.yaml"
+
+requestGetPercentiles :: GetPercentiles -> TestTree
+requestGetPercentiles =
+  req
+    "GetPercentiles"
+    "fixture/GetPercentiles.yaml"
+
+requestGetPolicy :: GetPolicy -> TestTree
+requestGetPolicy =
+  req
+    "GetPolicy"
+    "fixture/GetPolicy.yaml"
+
+requestListJobTemplates :: ListJobTemplates -> TestTree
+requestListJobTemplates =
+  req
+    "ListJobTemplates"
+    "fixture/ListJobTemplates.yaml"
+
+requestDescribeEndpoint :: DescribeEndpoint -> TestTree
+requestDescribeEndpoint =
+  req
+    "DescribeEndpoint"
+    "fixture/DescribeEndpoint.yaml"
+
+requestListSecurityProfilesForTarget :: ListSecurityProfilesForTarget -> TestTree
+requestListSecurityProfilesForTarget =
+  req
+    "ListSecurityProfilesForTarget"
+    "fixture/ListSecurityProfilesForTarget.yaml"
+
+requestUpdateEventConfigurations :: UpdateEventConfigurations -> TestTree
+requestUpdateEventConfigurations =
+  req
+    "UpdateEventConfigurations"
+    "fixture/UpdateEventConfigurations.yaml"
+
+requestUpdateCustomMetric :: UpdateCustomMetric -> TestTree
+requestUpdateCustomMetric =
+  req
+    "UpdateCustomMetric"
+    "fixture/UpdateCustomMetric.yaml"
+
+requestDeleteCustomMetric :: DeleteCustomMetric -> TestTree
+requestDeleteCustomMetric =
+  req
+    "DeleteCustomMetric"
+    "fixture/DeleteCustomMetric.yaml"
+
+requestRegisterCACertificate :: RegisterCACertificate -> TestTree
+requestRegisterCACertificate =
+  req
+    "RegisterCACertificate"
+    "fixture/RegisterCACertificate.yaml"
+
+requestDeleteDomainConfiguration :: DeleteDomainConfiguration -> TestTree
+requestDeleteDomainConfiguration =
+  req
+    "DeleteDomainConfiguration"
+    "fixture/DeleteDomainConfiguration.yaml"
+
+requestUpdateDomainConfiguration :: UpdateDomainConfiguration -> TestTree
+requestUpdateDomainConfiguration =
+  req
+    "UpdateDomainConfiguration"
+    "fixture/UpdateDomainConfiguration.yaml"
+
+requestSetLoggingOptions :: SetLoggingOptions -> TestTree
+requestSetLoggingOptions =
+  req
+    "SetLoggingOptions"
+    "fixture/SetLoggingOptions.yaml"
+
+requestDescribeThingType :: DescribeThingType -> TestTree
+requestDescribeThingType =
+  req
+    "DescribeThingType"
+    "fixture/DescribeThingType.yaml"
+
+requestListDimensions :: ListDimensions -> TestTree
+requestListDimensions =
+  req
+    "ListDimensions"
+    "fixture/ListDimensions.yaml"
+
+requestGetV2LoggingOptions :: GetV2LoggingOptions -> TestTree
+requestGetV2LoggingOptions =
+  req
+    "GetV2LoggingOptions"
+    "fixture/GetV2LoggingOptions.yaml"
+
+requestListThingRegistrationTasks :: ListThingRegistrationTasks -> TestTree
+requestListThingRegistrationTasks =
+  req
+    "ListThingRegistrationTasks"
+    "fixture/ListThingRegistrationTasks.yaml"
+
+requestRejectCertificateTransfer :: RejectCertificateTransfer -> TestTree
+requestRejectCertificateTransfer =
+  req
+    "RejectCertificateTransfer"
+    "fixture/RejectCertificateTransfer.yaml"
+
+requestDescribeAuditSuppression :: DescribeAuditSuppression -> TestTree
+requestDescribeAuditSuppression =
+  req
+    "DescribeAuditSuppression"
+    "fixture/DescribeAuditSuppression.yaml"
+
+requestDescribeStream :: DescribeStream -> TestTree
+requestDescribeStream =
+  req
+    "DescribeStream"
+    "fixture/DescribeStream.yaml"
+
+requestCreateSecurityProfile :: CreateSecurityProfile -> TestTree
+requestCreateSecurityProfile =
+  req
+    "CreateSecurityProfile"
+    "fixture/CreateSecurityProfile.yaml"
+
+requestDescribeBillingGroup :: DescribeBillingGroup -> TestTree
+requestDescribeBillingGroup =
+  req
+    "DescribeBillingGroup"
+    "fixture/DescribeBillingGroup.yaml"
+
+requestDetachThingPrincipal :: DetachThingPrincipal -> TestTree
+requestDetachThingPrincipal =
+  req
+    "DetachThingPrincipal"
+    "fixture/DetachThingPrincipal.yaml"
+
+requestCancelJob :: CancelJob -> TestTree
+requestCancelJob =
+  req
+    "CancelJob"
+    "fixture/CancelJob.yaml"
+
+requestDeprecateThingType :: DeprecateThingType -> TestTree
+requestDeprecateThingType =
+  req
+    "DeprecateThingType"
+    "fixture/DeprecateThingType.yaml"
 
 -- Responses
 
-responseGetBucketsAggregation :: GetBucketsAggregationResponse -> TestTree
-responseGetBucketsAggregation =
+responseGetCardinality :: GetCardinalityResponse -> TestTree
+responseGetCardinality =
   res
-    "GetBucketsAggregationResponse"
-    "fixture/GetBucketsAggregationResponse.proto"
+    "GetCardinalityResponse"
+    "fixture/GetCardinalityResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketsAggregation)
+    (Proxy :: Proxy GetCardinality)
 
-responseUpdateIndexingConfiguration :: UpdateIndexingConfigurationResponse -> TestTree
-responseUpdateIndexingConfiguration =
+responseCreateDomainConfiguration :: CreateDomainConfigurationResponse -> TestTree
+responseCreateDomainConfiguration =
   res
-    "UpdateIndexingConfigurationResponse"
-    "fixture/UpdateIndexingConfigurationResponse.proto"
+    "CreateDomainConfigurationResponse"
+    "fixture/CreateDomainConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateIndexingConfiguration)
+    (Proxy :: Proxy CreateDomainConfiguration)
 
-responsePutVerificationStateOnViolation :: PutVerificationStateOnViolationResponse -> TestTree
-responsePutVerificationStateOnViolation =
+responseStartDetectMitigationActionsTask :: StartDetectMitigationActionsTaskResponse -> TestTree
+responseStartDetectMitigationActionsTask =
   res
-    "PutVerificationStateOnViolationResponse"
-    "fixture/PutVerificationStateOnViolationResponse.proto"
+    "StartDetectMitigationActionsTaskResponse"
+    "fixture/StartDetectMitigationActionsTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy PutVerificationStateOnViolation)
+    (Proxy :: Proxy StartDetectMitigationActionsTask)
 
-responseListThingRegistrationTaskReports :: ListThingRegistrationTaskReportsResponse -> TestTree
-responseListThingRegistrationTaskReports =
+responseDeleteSecurityProfile :: DeleteSecurityProfileResponse -> TestTree
+responseDeleteSecurityProfile =
   res
-    "ListThingRegistrationTaskReportsResponse"
-    "fixture/ListThingRegistrationTaskReportsResponse.proto"
+    "DeleteSecurityProfileResponse"
+    "fixture/DeleteSecurityProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy ListThingRegistrationTaskReports)
+    (Proxy :: Proxy DeleteSecurityProfile)
 
-responseDescribeFleetMetric :: DescribeFleetMetricResponse -> TestTree
-responseDescribeFleetMetric =
+responseUpdateSecurityProfile :: UpdateSecurityProfileResponse -> TestTree
+responseUpdateSecurityProfile =
   res
-    "DescribeFleetMetricResponse"
-    "fixture/DescribeFleetMetricResponse.proto"
+    "UpdateSecurityProfileResponse"
+    "fixture/UpdateSecurityProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFleetMetric)
-
-responseCreateProvisioningClaim :: CreateProvisioningClaimResponse -> TestTree
-responseCreateProvisioningClaim =
-  res
-    "CreateProvisioningClaimResponse"
-    "fixture/CreateProvisioningClaimResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateProvisioningClaim)
-
-responseUpdateCertificate :: UpdateCertificateResponse -> TestTree
-responseUpdateCertificate =
-  res
-    "UpdateCertificateResponse"
-    "fixture/UpdateCertificateResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateCertificate)
-
-responseListMitigationActions :: ListMitigationActionsResponse -> TestTree
-responseListMitigationActions =
-  res
-    "ListMitigationActionsResponse"
-    "fixture/ListMitigationActionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListMitigationActions)
-
-responseDescribeProvisioningTemplate :: DescribeProvisioningTemplateResponse -> TestTree
-responseDescribeProvisioningTemplate =
-  res
-    "DescribeProvisioningTemplateResponse"
-    "fixture/DescribeProvisioningTemplateResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeProvisioningTemplate)
-
-responseDeleteJobExecution :: DeleteJobExecutionResponse -> TestTree
-responseDeleteJobExecution =
-  res
-    "DeleteJobExecutionResponse"
-    "fixture/DeleteJobExecutionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteJobExecution)
+    (Proxy :: Proxy UpdateSecurityProfile)
 
 responseListSecurityProfiles :: ListSecurityProfilesResponse -> TestTree
 responseListSecurityProfiles =
@@ -2884,6 +2844,22 @@ responseListSecurityProfiles =
     "fixture/ListSecurityProfilesResponse.proto"
     defaultService
     (Proxy :: Proxy ListSecurityProfiles)
+
+responseListPolicies :: ListPoliciesResponse -> TestTree
+responseListPolicies =
+  res
+    "ListPoliciesResponse"
+    "fixture/ListPoliciesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListPolicies)
+
+responseDescribeProvisioningTemplate :: DescribeProvisioningTemplateResponse -> TestTree
+responseDescribeProvisioningTemplate =
+  res
+    "DescribeProvisioningTemplateResponse"
+    "fixture/DescribeProvisioningTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeProvisioningTemplate)
 
 responseUpdateMitigationAction :: UpdateMitigationActionResponse -> TestTree
 responseUpdateMitigationAction =
@@ -2901,37 +2877,13 @@ responseDeleteMitigationAction =
     defaultService
     (Proxy :: Proxy DeleteMitigationAction)
 
-responseListPolicies :: ListPoliciesResponse -> TestTree
-responseListPolicies =
+responseDeleteJobExecution :: DeleteJobExecutionResponse -> TestTree
+responseDeleteJobExecution =
   res
-    "ListPoliciesResponse"
-    "fixture/ListPoliciesResponse.proto"
+    "DeleteJobExecutionResponse"
+    "fixture/DeleteJobExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPolicies)
-
-responseStartDetectMitigationActionsTask :: StartDetectMitigationActionsTaskResponse -> TestTree
-responseStartDetectMitigationActionsTask =
-  res
-    "StartDetectMitigationActionsTaskResponse"
-    "fixture/StartDetectMitigationActionsTaskResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartDetectMitigationActionsTask)
-
-responseGetCardinality :: GetCardinalityResponse -> TestTree
-responseGetCardinality =
-  res
-    "GetCardinalityResponse"
-    "fixture/GetCardinalityResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetCardinality)
-
-responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
-responseDeleteCertificate =
-  res
-    "DeleteCertificateResponse"
-    "fixture/DeleteCertificateResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteCertificate)
+    (Proxy :: Proxy DeleteJobExecution)
 
 responseCreatePolicy :: CreatePolicyResponse -> TestTree
 responseCreatePolicy =
@@ -2941,861 +2893,13 @@ responseCreatePolicy =
     defaultService
     (Proxy :: Proxy CreatePolicy)
 
-responseListViolationEvents :: ListViolationEventsResponse -> TestTree
-responseListViolationEvents =
+responseRegisterCertificate :: RegisterCertificateResponse -> TestTree
+responseRegisterCertificate =
   res
-    "ListViolationEventsResponse"
-    "fixture/ListViolationEventsResponse.proto"
+    "RegisterCertificateResponse"
+    "fixture/RegisterCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy ListViolationEvents)
-
-responseCreateDimension :: CreateDimensionResponse -> TestTree
-responseCreateDimension =
-  res
-    "CreateDimensionResponse"
-    "fixture/CreateDimensionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateDimension)
-
-responseListAuditTasks :: ListAuditTasksResponse -> TestTree
-responseListAuditTasks =
-  res
-    "ListAuditTasksResponse"
-    "fixture/ListAuditTasksResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListAuditTasks)
-
-responseDescribeThingType :: DescribeThingTypeResponse -> TestTree
-responseDescribeThingType =
-  res
-    "DescribeThingTypeResponse"
-    "fixture/DescribeThingTypeResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeThingType)
-
-responseDeletePolicy :: DeletePolicyResponse -> TestTree
-responseDeletePolicy =
-  res
-    "DeletePolicyResponse"
-    "fixture/DeletePolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeletePolicy)
-
-responseCreateMitigationAction :: CreateMitigationActionResponse -> TestTree
-responseCreateMitigationAction =
-  res
-    "CreateMitigationActionResponse"
-    "fixture/CreateMitigationActionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateMitigationAction)
-
-responseDeleteDomainConfiguration :: DeleteDomainConfigurationResponse -> TestTree
-responseDeleteDomainConfiguration =
-  res
-    "DeleteDomainConfigurationResponse"
-    "fixture/DeleteDomainConfigurationResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteDomainConfiguration)
-
-responseGetTopicRule :: GetTopicRuleResponse -> TestTree
-responseGetTopicRule =
-  res
-    "GetTopicRuleResponse"
-    "fixture/GetTopicRuleResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetTopicRule)
-
-responseUpdateDomainConfiguration :: UpdateDomainConfigurationResponse -> TestTree
-responseUpdateDomainConfiguration =
-  res
-    "UpdateDomainConfigurationResponse"
-    "fixture/UpdateDomainConfigurationResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateDomainConfiguration)
-
-responseRejectCertificateTransfer :: RejectCertificateTransferResponse -> TestTree
-responseRejectCertificateTransfer =
-  res
-    "RejectCertificateTransferResponse"
-    "fixture/RejectCertificateTransferResponse.proto"
-    defaultService
-    (Proxy :: Proxy RejectCertificateTransfer)
-
-responseSetLoggingOptions :: SetLoggingOptionsResponse -> TestTree
-responseSetLoggingOptions =
-  res
-    "SetLoggingOptionsResponse"
-    "fixture/SetLoggingOptionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy SetLoggingOptions)
-
-responseCreateSecurityProfile :: CreateSecurityProfileResponse -> TestTree
-responseCreateSecurityProfile =
-  res
-    "CreateSecurityProfileResponse"
-    "fixture/CreateSecurityProfileResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateSecurityProfile)
-
-responseCancelJob :: CancelJobResponse -> TestTree
-responseCancelJob =
-  res
-    "CancelJobResponse"
-    "fixture/CancelJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy CancelJob)
-
-responseListDomainConfigurations :: ListDomainConfigurationsResponse -> TestTree
-responseListDomainConfigurations =
-  res
-    "ListDomainConfigurationsResponse"
-    "fixture/ListDomainConfigurationsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListDomainConfigurations)
-
-responseDescribeScheduledAudit :: DescribeScheduledAuditResponse -> TestTree
-responseDescribeScheduledAudit =
-  res
-    "DescribeScheduledAuditResponse"
-    "fixture/DescribeScheduledAuditResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeScheduledAudit)
-
-responseGetV2LoggingOptions :: GetV2LoggingOptionsResponse -> TestTree
-responseGetV2LoggingOptions =
-  res
-    "GetV2LoggingOptionsResponse"
-    "fixture/GetV2LoggingOptionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetV2LoggingOptions)
-
-responseListThingsInThingGroup :: ListThingsInThingGroupResponse -> TestTree
-responseListThingsInThingGroup =
-  res
-    "ListThingsInThingGroupResponse"
-    "fixture/ListThingsInThingGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListThingsInThingGroup)
-
-responseListCustomMetrics :: ListCustomMetricsResponse -> TestTree
-responseListCustomMetrics =
-  res
-    "ListCustomMetricsResponse"
-    "fixture/ListCustomMetricsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListCustomMetrics)
-
-responseAttachSecurityProfile :: AttachSecurityProfileResponse -> TestTree
-responseAttachSecurityProfile =
-  res
-    "AttachSecurityProfileResponse"
-    "fixture/AttachSecurityProfileResponse.proto"
-    defaultService
-    (Proxy :: Proxy AttachSecurityProfile)
-
-responseUpdateJob :: UpdateJobResponse -> TestTree
-responseUpdateJob =
-  res
-    "UpdateJobResponse"
-    "fixture/UpdateJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateJob)
-
-responseDeleteJob :: DeleteJobResponse -> TestTree
-responseDeleteJob =
-  res
-    "DeleteJobResponse"
-    "fixture/DeleteJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteJob)
-
-responseDeleteCACertificate :: DeleteCACertificateResponse -> TestTree
-responseDeleteCACertificate =
-  res
-    "DeleteCACertificateResponse"
-    "fixture/DeleteCACertificateResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteCACertificate)
-
-responseDeleteCustomMetric :: DeleteCustomMetricResponse -> TestTree
-responseDeleteCustomMetric =
-  res
-    "DeleteCustomMetricResponse"
-    "fixture/DeleteCustomMetricResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteCustomMetric)
-
-responseCreatePolicyVersion :: CreatePolicyVersionResponse -> TestTree
-responseCreatePolicyVersion =
-  res
-    "CreatePolicyVersionResponse"
-    "fixture/CreatePolicyVersionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreatePolicyVersion)
-
-responseListRoleAliases :: ListRoleAliasesResponse -> TestTree
-responseListRoleAliases =
-  res
-    "ListRoleAliasesResponse"
-    "fixture/ListRoleAliasesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListRoleAliases)
-
-responseCancelAuditTask :: CancelAuditTaskResponse -> TestTree
-responseCancelAuditTask =
-  res
-    "CancelAuditTaskResponse"
-    "fixture/CancelAuditTaskResponse.proto"
-    defaultService
-    (Proxy :: Proxy CancelAuditTask)
-
-responseCreateRoleAlias :: CreateRoleAliasResponse -> TestTree
-responseCreateRoleAlias =
-  res
-    "CreateRoleAliasResponse"
-    "fixture/CreateRoleAliasResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateRoleAlias)
-
-responseListJobTemplates :: ListJobTemplatesResponse -> TestTree
-responseListJobTemplates =
-  res
-    "ListJobTemplatesResponse"
-    "fixture/ListJobTemplatesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListJobTemplates)
-
-responseDescribeProvisioningTemplateVersion :: DescribeProvisioningTemplateVersionResponse -> TestTree
-responseDescribeProvisioningTemplateVersion =
-  res
-    "DescribeProvisioningTemplateVersionResponse"
-    "fixture/DescribeProvisioningTemplateVersionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeProvisioningTemplateVersion)
-
-responseCreateKeysAndCertificate :: CreateKeysAndCertificateResponse -> TestTree
-responseCreateKeysAndCertificate =
-  res
-    "CreateKeysAndCertificateResponse"
-    "fixture/CreateKeysAndCertificateResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateKeysAndCertificate)
-
-responseUpdateCACertificate :: UpdateCACertificateResponse -> TestTree
-responseUpdateCACertificate =
-  res
-    "UpdateCACertificateResponse"
-    "fixture/UpdateCACertificateResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateCACertificate)
-
-responseUpdateCustomMetric :: UpdateCustomMetricResponse -> TestTree
-responseUpdateCustomMetric =
-  res
-    "UpdateCustomMetricResponse"
-    "fixture/UpdateCustomMetricResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateCustomMetric)
-
-responseStartAuditMitigationActionsTask :: StartAuditMitigationActionsTaskResponse -> TestTree
-responseStartAuditMitigationActionsTask =
-  res
-    "StartAuditMitigationActionsTaskResponse"
-    "fixture/StartAuditMitigationActionsTaskResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartAuditMitigationActionsTask)
-
-responseTransferCertificate :: TransferCertificateResponse -> TestTree
-responseTransferCertificate =
-  res
-    "TransferCertificateResponse"
-    "fixture/TransferCertificateResponse.proto"
-    defaultService
-    (Proxy :: Proxy TransferCertificate)
-
-responseGetPercentiles :: GetPercentilesResponse -> TestTree
-responseGetPercentiles =
-  res
-    "GetPercentilesResponse"
-    "fixture/GetPercentilesResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetPercentiles)
-
-responseDeleteTopicRule :: DeleteTopicRuleResponse -> TestTree
-responseDeleteTopicRule =
-  res
-    "DeleteTopicRuleResponse"
-    "fixture/DeleteTopicRuleResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteTopicRule)
-
-responseListTargetsForSecurityProfile :: ListTargetsForSecurityProfileResponse -> TestTree
-responseListTargetsForSecurityProfile =
-  res
-    "ListTargetsForSecurityProfileResponse"
-    "fixture/ListTargetsForSecurityProfileResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTargetsForSecurityProfile)
-
-responseDescribeEndpoint :: DescribeEndpointResponse -> TestTree
-responseDescribeEndpoint =
-  res
-    "DescribeEndpointResponse"
-    "fixture/DescribeEndpointResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeEndpoint)
-
-responseListThingsInBillingGroup :: ListThingsInBillingGroupResponse -> TestTree
-responseListThingsInBillingGroup =
-  res
-    "ListThingsInBillingGroupResponse"
-    "fixture/ListThingsInBillingGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListThingsInBillingGroup)
-
-responseSetV2LoggingLevel :: SetV2LoggingLevelResponse -> TestTree
-responseSetV2LoggingLevel =
-  res
-    "SetV2LoggingLevelResponse"
-    "fixture/SetV2LoggingLevelResponse.proto"
-    defaultService
-    (Proxy :: Proxy SetV2LoggingLevel)
-
-responseCreateJobTemplate :: CreateJobTemplateResponse -> TestTree
-responseCreateJobTemplate =
-  res
-    "CreateJobTemplateResponse"
-    "fixture/CreateJobTemplateResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateJobTemplate)
-
-responseSetDefaultPolicyVersion :: SetDefaultPolicyVersionResponse -> TestTree
-responseSetDefaultPolicyVersion =
-  res
-    "SetDefaultPolicyVersionResponse"
-    "fixture/SetDefaultPolicyVersionResponse.proto"
-    defaultService
-    (Proxy :: Proxy SetDefaultPolicyVersion)
-
-responseCreateCustomMetric :: CreateCustomMetricResponse -> TestTree
-responseCreateCustomMetric =
-  res
-    "CreateCustomMetricResponse"
-    "fixture/CreateCustomMetricResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateCustomMetric)
-
-responseListFleetMetrics :: ListFleetMetricsResponse -> TestTree
-responseListFleetMetrics =
-  res
-    "ListFleetMetricsResponse"
-    "fixture/ListFleetMetricsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListFleetMetrics)
-
-responseUpdateFleetMetric :: UpdateFleetMetricResponse -> TestTree
-responseUpdateFleetMetric =
-  res
-    "UpdateFleetMetricResponse"
-    "fixture/UpdateFleetMetricResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateFleetMetric)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UntagResource)
-
-responseListJobExecutionsForThing :: ListJobExecutionsForThingResponse -> TestTree
-responseListJobExecutionsForThing =
-  res
-    "ListJobExecutionsForThingResponse"
-    "fixture/ListJobExecutionsForThingResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListJobExecutionsForThing)
-
-responseDeleteFleetMetric :: DeleteFleetMetricResponse -> TestTree
-responseDeleteFleetMetric =
-  res
-    "DeleteFleetMetricResponse"
-    "fixture/DeleteFleetMetricResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteFleetMetric)
-
-responseDisableTopicRule :: DisableTopicRuleResponse -> TestTree
-responseDisableTopicRule =
-  res
-    "DisableTopicRuleResponse"
-    "fixture/DisableTopicRuleResponse.proto"
-    defaultService
-    (Proxy :: Proxy DisableTopicRule)
-
-responseDescribeAuditMitigationActionsTask :: DescribeAuditMitigationActionsTaskResponse -> TestTree
-responseDescribeAuditMitigationActionsTask =
-  res
-    "DescribeAuditMitigationActionsTaskResponse"
-    "fixture/DescribeAuditMitigationActionsTaskResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeAuditMitigationActionsTask)
-
-responseCreateThing :: CreateThingResponse -> TestTree
-responseCreateThing =
-  res
-    "CreateThingResponse"
-    "fixture/CreateThingResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateThing)
-
-responseListV2LoggingLevels :: ListV2LoggingLevelsResponse -> TestTree
-responseListV2LoggingLevels =
-  res
-    "ListV2LoggingLevelsResponse"
-    "fixture/ListV2LoggingLevelsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListV2LoggingLevels)
-
-responseListAuditMitigationActionsExecutions :: ListAuditMitigationActionsExecutionsResponse -> TestTree
-responseListAuditMitigationActionsExecutions =
-  res
-    "ListAuditMitigationActionsExecutionsResponse"
-    "fixture/ListAuditMitigationActionsExecutionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListAuditMitigationActionsExecutions)
-
-responseListProvisioningTemplates :: ListProvisioningTemplatesResponse -> TestTree
-responseListProvisioningTemplates =
-  res
-    "ListProvisioningTemplatesResponse"
-    "fixture/ListProvisioningTemplatesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListProvisioningTemplates)
-
-responseStartThingRegistrationTask :: StartThingRegistrationTaskResponse -> TestTree
-responseStartThingRegistrationTask =
-  res
-    "StartThingRegistrationTaskResponse"
-    "fixture/StartThingRegistrationTaskResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartThingRegistrationTask)
-
-responseDescribeJobExecution :: DescribeJobExecutionResponse -> TestTree
-responseDescribeJobExecution =
-  res
-    "DescribeJobExecutionResponse"
-    "fixture/DescribeJobExecutionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeJobExecution)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy TagResource)
-
-responseDescribeCertificate :: DescribeCertificateResponse -> TestTree
-responseDescribeCertificate =
-  res
-    "DescribeCertificateResponse"
-    "fixture/DescribeCertificateResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeCertificate)
-
-responseDeleteProvisioningTemplate :: DeleteProvisioningTemplateResponse -> TestTree
-responseDeleteProvisioningTemplate =
-  res
-    "DeleteProvisioningTemplateResponse"
-    "fixture/DeleteProvisioningTemplateResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteProvisioningTemplate)
-
-responseUpdateProvisioningTemplate :: UpdateProvisioningTemplateResponse -> TestTree
-responseUpdateProvisioningTemplate =
-  res
-    "UpdateProvisioningTemplateResponse"
-    "fixture/UpdateProvisioningTemplateResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateProvisioningTemplate)
-
-responseGetIndexingConfiguration :: GetIndexingConfigurationResponse -> TestTree
-responseGetIndexingConfiguration =
-  res
-    "GetIndexingConfigurationResponse"
-    "fixture/GetIndexingConfigurationResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetIndexingConfiguration)
-
-responseStopThingRegistrationTask :: StopThingRegistrationTaskResponse -> TestTree
-responseStopThingRegistrationTask =
-  res
-    "StopThingRegistrationTaskResponse"
-    "fixture/StopThingRegistrationTaskResponse.proto"
-    defaultService
-    (Proxy :: Proxy StopThingRegistrationTask)
-
-responseCreateScheduledAudit :: CreateScheduledAuditResponse -> TestTree
-responseCreateScheduledAudit =
-  res
-    "CreateScheduledAuditResponse"
-    "fixture/CreateScheduledAuditResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateScheduledAudit)
-
-responseSetDefaultAuthorizer :: SetDefaultAuthorizerResponse -> TestTree
-responseSetDefaultAuthorizer =
-  res
-    "SetDefaultAuthorizerResponse"
-    "fixture/SetDefaultAuthorizerResponse.proto"
-    defaultService
-    (Proxy :: Proxy SetDefaultAuthorizer)
-
-responseDeleteV2LoggingLevel :: DeleteV2LoggingLevelResponse -> TestTree
-responseDeleteV2LoggingLevel =
-  res
-    "DeleteV2LoggingLevelResponse"
-    "fixture/DeleteV2LoggingLevelResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteV2LoggingLevel)
-
-responseDescribeMitigationAction :: DescribeMitigationActionResponse -> TestTree
-responseDescribeMitigationAction =
-  res
-    "DescribeMitigationActionResponse"
-    "fixture/DescribeMitigationActionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeMitigationAction)
-
-responseDescribeDimension :: DescribeDimensionResponse -> TestTree
-responseDescribeDimension =
-  res
-    "DescribeDimensionResponse"
-    "fixture/DescribeDimensionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeDimension)
-
-responseCreateAuthorizer :: CreateAuthorizerResponse -> TestTree
-responseCreateAuthorizer =
-  res
-    "CreateAuthorizerResponse"
-    "fixture/CreateAuthorizerResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateAuthorizer)
-
-responseSetV2LoggingOptions :: SetV2LoggingOptionsResponse -> TestTree
-responseSetV2LoggingOptions =
-  res
-    "SetV2LoggingOptionsResponse"
-    "fixture/SetV2LoggingOptionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy SetV2LoggingOptions)
-
-responseDeleteStream :: DeleteStreamResponse -> TestTree
-responseDeleteStream =
-  res
-    "DeleteStreamResponse"
-    "fixture/DeleteStreamResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteStream)
-
-responseListDetectMitigationActionsTasks :: ListDetectMitigationActionsTasksResponse -> TestTree
-responseListDetectMitigationActionsTasks =
-  res
-    "ListDetectMitigationActionsTasksResponse"
-    "fixture/ListDetectMitigationActionsTasksResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListDetectMitigationActionsTasks)
-
-responseUpdateAuditSuppression :: UpdateAuditSuppressionResponse -> TestTree
-responseUpdateAuditSuppression =
-  res
-    "UpdateAuditSuppressionResponse"
-    "fixture/UpdateAuditSuppressionResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateAuditSuppression)
-
-responseUpdateStream :: UpdateStreamResponse -> TestTree
-responseUpdateStream =
-  res
-    "UpdateStreamResponse"
-    "fixture/UpdateStreamResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateStream)
-
-responseUpdateThing :: UpdateThingResponse -> TestTree
-responseUpdateThing =
-  res
-    "UpdateThingResponse"
-    "fixture/UpdateThingResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateThing)
-
-responseDescribeThingRegistrationTask :: DescribeThingRegistrationTaskResponse -> TestTree
-responseDescribeThingRegistrationTask =
-  res
-    "DescribeThingRegistrationTaskResponse"
-    "fixture/DescribeThingRegistrationTaskResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeThingRegistrationTask)
-
-responseDeleteAccountAuditConfiguration :: DeleteAccountAuditConfigurationResponse -> TestTree
-responseDeleteAccountAuditConfiguration =
-  res
-    "DeleteAccountAuditConfigurationResponse"
-    "fixture/DeleteAccountAuditConfigurationResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteAccountAuditConfiguration)
-
-responseListThingGroupsForThing :: ListThingGroupsForThingResponse -> TestTree
-responseListThingGroupsForThing =
-  res
-    "ListThingGroupsForThingResponse"
-    "fixture/ListThingGroupsForThingResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListThingGroupsForThing)
-
-responseListCertificatesByCA :: ListCertificatesByCAResponse -> TestTree
-responseListCertificatesByCA =
-  res
-    "ListCertificatesByCAResponse"
-    "fixture/ListCertificatesByCAResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListCertificatesByCA)
-
-responseListThings :: ListThingsResponse -> TestTree
-responseListThings =
-  res
-    "ListThingsResponse"
-    "fixture/ListThingsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListThings)
-
-responseAddThingToThingGroup :: AddThingToThingGroupResponse -> TestTree
-responseAddThingToThingGroup =
-  res
-    "AddThingToThingGroupResponse"
-    "fixture/AddThingToThingGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy AddThingToThingGroup)
-
-responseDeleteBillingGroup :: DeleteBillingGroupResponse -> TestTree
-responseDeleteBillingGroup =
-  res
-    "DeleteBillingGroupResponse"
-    "fixture/DeleteBillingGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteBillingGroup)
-
-responseListScheduledAudits :: ListScheduledAuditsResponse -> TestTree
-responseListScheduledAudits =
-  res
-    "ListScheduledAuditsResponse"
-    "fixture/ListScheduledAuditsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListScheduledAudits)
-
-responseDeleteRegistrationCode :: DeleteRegistrationCodeResponse -> TestTree
-responseDeleteRegistrationCode =
-  res
-    "DeleteRegistrationCodeResponse"
-    "fixture/DeleteRegistrationCodeResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteRegistrationCode)
-
-responseDeleteThing :: DeleteThingResponse -> TestTree
-responseDeleteThing =
-  res
-    "DeleteThingResponse"
-    "fixture/DeleteThingResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteThing)
-
-responseAttachThingPrincipal :: AttachThingPrincipalResponse -> TestTree
-responseAttachThingPrincipal =
-  res
-    "AttachThingPrincipalResponse"
-    "fixture/AttachThingPrincipalResponse.proto"
-    defaultService
-    (Proxy :: Proxy AttachThingPrincipal)
-
-responseUpdateBillingGroup :: UpdateBillingGroupResponse -> TestTree
-responseUpdateBillingGroup =
-  res
-    "UpdateBillingGroupResponse"
-    "fixture/UpdateBillingGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateBillingGroup)
-
-responseUpdateAccountAuditConfiguration :: UpdateAccountAuditConfigurationResponse -> TestTree
-responseUpdateAccountAuditConfiguration =
-  res
-    "UpdateAccountAuditConfigurationResponse"
-    "fixture/UpdateAccountAuditConfigurationResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateAccountAuditConfiguration)
-
-responseGetLoggingOptions :: GetLoggingOptionsResponse -> TestTree
-responseGetLoggingOptions =
-  res
-    "GetLoggingOptionsResponse"
-    "fixture/GetLoggingOptionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetLoggingOptions)
-
-responseDeleteAuditSuppression :: DeleteAuditSuppressionResponse -> TestTree
-responseDeleteAuditSuppression =
-  res
-    "DeleteAuditSuppressionResponse"
-    "fixture/DeleteAuditSuppressionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteAuditSuppression)
-
-responseDescribeCustomMetric :: DescribeCustomMetricResponse -> TestTree
-responseDescribeCustomMetric =
-  res
-    "DescribeCustomMetricResponse"
-    "fixture/DescribeCustomMetricResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeCustomMetric)
-
-responseDescribeJob :: DescribeJobResponse -> TestTree
-responseDescribeJob =
-  res
-    "DescribeJobResponse"
-    "fixture/DescribeJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeJob)
-
-responseDeleteOTAUpdate :: DeleteOTAUpdateResponse -> TestTree
-responseDeleteOTAUpdate =
-  res
-    "DeleteOTAUpdateResponse"
-    "fixture/DeleteOTAUpdateResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteOTAUpdate)
-
-responseGetRegistrationCode :: GetRegistrationCodeResponse -> TestTree
-responseGetRegistrationCode =
-  res
-    "GetRegistrationCodeResponse"
-    "fixture/GetRegistrationCodeResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetRegistrationCode)
-
-responseListDetectMitigationActionsExecutions :: ListDetectMitigationActionsExecutionsResponse -> TestTree
-responseListDetectMitigationActionsExecutions =
-  res
-    "ListDetectMitigationActionsExecutionsResponse"
-    "fixture/ListDetectMitigationActionsExecutionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListDetectMitigationActionsExecutions)
-
-responseRegisterCertificateWithoutCA :: RegisterCertificateWithoutCAResponse -> TestTree
-responseRegisterCertificateWithoutCA =
-  res
-    "RegisterCertificateWithoutCAResponse"
-    "fixture/RegisterCertificateWithoutCAResponse.proto"
-    defaultService
-    (Proxy :: Proxy RegisterCertificateWithoutCA)
-
-responseCreateDynamicThingGroup :: CreateDynamicThingGroupResponse -> TestTree
-responseCreateDynamicThingGroup =
-  res
-    "CreateDynamicThingGroupResponse"
-    "fixture/CreateDynamicThingGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateDynamicThingGroup)
-
-responseDescribeCACertificate :: DescribeCACertificateResponse -> TestTree
-responseDescribeCACertificate =
-  res
-    "DescribeCACertificateResponse"
-    "fixture/DescribeCACertificateResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeCACertificate)
-
-responseDeleteProvisioningTemplateVersion :: DeleteProvisioningTemplateVersionResponse -> TestTree
-responseDeleteProvisioningTemplateVersion =
-  res
-    "DeleteProvisioningTemplateVersionResponse"
-    "fixture/DeleteProvisioningTemplateVersionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteProvisioningTemplateVersion)
-
-responseDetachSecurityProfile :: DetachSecurityProfileResponse -> TestTree
-responseDetachSecurityProfile =
-  res
-    "DetachSecurityProfileResponse"
-    "fixture/DetachSecurityProfileResponse.proto"
-    defaultService
-    (Proxy :: Proxy DetachSecurityProfile)
-
-responseListThingPrincipals :: ListThingPrincipalsResponse -> TestTree
-responseListThingPrincipals =
-  res
-    "ListThingPrincipalsResponse"
-    "fixture/ListThingPrincipalsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListThingPrincipals)
-
-responseRemoveThingFromThingGroup :: RemoveThingFromThingGroupResponse -> TestTree
-responseRemoveThingFromThingGroup =
-  res
-    "RemoveThingFromThingGroupResponse"
-    "fixture/RemoveThingFromThingGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy RemoveThingFromThingGroup)
-
-responseGetBehaviorModelTrainingSummaries :: GetBehaviorModelTrainingSummariesResponse -> TestTree
-responseGetBehaviorModelTrainingSummaries =
-  res
-    "GetBehaviorModelTrainingSummariesResponse"
-    "fixture/GetBehaviorModelTrainingSummariesResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetBehaviorModelTrainingSummaries)
-
-responseUpdateDynamicThingGroup :: UpdateDynamicThingGroupResponse -> TestTree
-responseUpdateDynamicThingGroup =
-  res
-    "UpdateDynamicThingGroupResponse"
-    "fixture/UpdateDynamicThingGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateDynamicThingGroup)
-
-responseCreateTopicRuleDestination :: CreateTopicRuleDestinationResponse -> TestTree
-responseCreateTopicRuleDestination =
-  res
-    "CreateTopicRuleDestinationResponse"
-    "fixture/CreateTopicRuleDestinationResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateTopicRuleDestination)
-
-responseListPrincipalThings :: ListPrincipalThingsResponse -> TestTree
-responseListPrincipalThings =
-  res
-    "ListPrincipalThingsResponse"
-    "fixture/ListPrincipalThingsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListPrincipalThings)
-
-responseCreateProvisioningTemplateVersion :: CreateProvisioningTemplateVersionResponse -> TestTree
-responseCreateProvisioningTemplateVersion =
-  res
-    "CreateProvisioningTemplateVersionResponse"
-    "fixture/CreateProvisioningTemplateVersionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateProvisioningTemplateVersion)
-
-responseDescribeRoleAlias :: DescribeRoleAliasResponse -> TestTree
-responseDescribeRoleAlias =
-  res
-    "DescribeRoleAliasResponse"
-    "fixture/DescribeRoleAliasResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeRoleAlias)
+    (Proxy :: Proxy RegisterCertificate)
 
 responseDeleteDynamicThingGroup :: DeleteDynamicThingGroupResponse -> TestTree
 responseDeleteDynamicThingGroup =
@@ -3805,21 +2909,37 @@ responseDeleteDynamicThingGroup =
     defaultService
     (Proxy :: Proxy DeleteDynamicThingGroup)
 
-responseCreateThingGroup :: CreateThingGroupResponse -> TestTree
-responseCreateThingGroup =
+responseListThingPrincipals :: ListThingPrincipalsResponse -> TestTree
+responseListThingPrincipals =
   res
-    "CreateThingGroupResponse"
-    "fixture/CreateThingGroupResponse.proto"
+    "ListThingPrincipalsResponse"
+    "fixture/ListThingPrincipalsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateThingGroup)
+    (Proxy :: Proxy ListThingPrincipals)
 
-responseTestInvokeAuthorizer :: TestInvokeAuthorizerResponse -> TestTree
-responseTestInvokeAuthorizer =
+responseUpdateDynamicThingGroup :: UpdateDynamicThingGroupResponse -> TestTree
+responseUpdateDynamicThingGroup =
   res
-    "TestInvokeAuthorizerResponse"
-    "fixture/TestInvokeAuthorizerResponse.proto"
+    "UpdateDynamicThingGroupResponse"
+    "fixture/UpdateDynamicThingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy TestInvokeAuthorizer)
+    (Proxy :: Proxy UpdateDynamicThingGroup)
+
+responseDescribeRoleAlias :: DescribeRoleAliasResponse -> TestTree
+responseDescribeRoleAlias =
+  res
+    "DescribeRoleAliasResponse"
+    "fixture/DescribeRoleAliasResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeRoleAlias)
+
+responseCreateProvisioningTemplateVersion :: CreateProvisioningTemplateVersionResponse -> TestTree
+responseCreateProvisioningTemplateVersion =
+  res
+    "CreateProvisioningTemplateVersionResponse"
+    "fixture/CreateProvisioningTemplateVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateProvisioningTemplateVersion)
 
 responseCreateOTAUpdate :: CreateOTAUpdateResponse -> TestTree
 responseCreateOTAUpdate =
@@ -3837,14 +2957,6 @@ responseDescribeDefaultAuthorizer =
     defaultService
     (Proxy :: Proxy DescribeDefaultAuthorizer)
 
-responseDetachPolicy :: DetachPolicyResponse -> TestTree
-responseDetachPolicy =
-  res
-    "DetachPolicyResponse"
-    "fixture/DetachPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy DetachPolicy)
-
 responseListAuditMitigationActionsTasks :: ListAuditMitigationActionsTasksResponse -> TestTree
 responseListAuditMitigationActionsTasks =
   res
@@ -3853,21 +2965,781 @@ responseListAuditMitigationActionsTasks =
     defaultService
     (Proxy :: Proxy ListAuditMitigationActionsTasks)
 
-responseRegisterCertificate :: RegisterCertificateResponse -> TestTree
-responseRegisterCertificate =
+responseListThingRegistrationTaskReports :: ListThingRegistrationTaskReportsResponse -> TestTree
+responseListThingRegistrationTaskReports =
   res
-    "RegisterCertificateResponse"
-    "fixture/RegisterCertificateResponse.proto"
+    "ListThingRegistrationTaskReportsResponse"
+    "fixture/ListThingRegistrationTaskReportsResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterCertificate)
+    (Proxy :: Proxy ListThingRegistrationTaskReports)
 
-responseUpdateSecurityProfile :: UpdateSecurityProfileResponse -> TestTree
-responseUpdateSecurityProfile =
+responseGetBehaviorModelTrainingSummaries :: GetBehaviorModelTrainingSummariesResponse -> TestTree
+responseGetBehaviorModelTrainingSummaries =
   res
-    "UpdateSecurityProfileResponse"
-    "fixture/UpdateSecurityProfileResponse.proto"
+    "GetBehaviorModelTrainingSummariesResponse"
+    "fixture/GetBehaviorModelTrainingSummariesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSecurityProfile)
+    (Proxy :: Proxy GetBehaviorModelTrainingSummaries)
+
+responseListPrincipalThings :: ListPrincipalThingsResponse -> TestTree
+responseListPrincipalThings =
+  res
+    "ListPrincipalThingsResponse"
+    "fixture/ListPrincipalThingsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListPrincipalThings)
+
+responseRemoveThingFromThingGroup :: RemoveThingFromThingGroupResponse -> TestTree
+responseRemoveThingFromThingGroup =
+  res
+    "RemoveThingFromThingGroupResponse"
+    "fixture/RemoveThingFromThingGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy RemoveThingFromThingGroup)
+
+responseDescribeEventConfigurations :: DescribeEventConfigurationsResponse -> TestTree
+responseDescribeEventConfigurations =
+  res
+    "DescribeEventConfigurationsResponse"
+    "fixture/DescribeEventConfigurationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeEventConfigurations)
+
+responseCancelDetectMitigationActionsTask :: CancelDetectMitigationActionsTaskResponse -> TestTree
+responseCancelDetectMitigationActionsTask =
+  res
+    "CancelDetectMitigationActionsTaskResponse"
+    "fixture/CancelDetectMitigationActionsTaskResponse.proto"
+    defaultService
+    (Proxy :: Proxy CancelDetectMitigationActionsTask)
+
+responseListTopicRuleDestinations :: ListTopicRuleDestinationsResponse -> TestTree
+responseListTopicRuleDestinations =
+  res
+    "ListTopicRuleDestinationsResponse"
+    "fixture/ListTopicRuleDestinationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTopicRuleDestinations)
+
+responseRegisterCertificateWithoutCA :: RegisterCertificateWithoutCAResponse -> TestTree
+responseRegisterCertificateWithoutCA =
+  res
+    "RegisterCertificateWithoutCAResponse"
+    "fixture/RegisterCertificateWithoutCAResponse.proto"
+    defaultService
+    (Proxy :: Proxy RegisterCertificateWithoutCA)
+
+responseDescribeCustomMetric :: DescribeCustomMetricResponse -> TestTree
+responseDescribeCustomMetric =
+  res
+    "DescribeCustomMetricResponse"
+    "fixture/DescribeCustomMetricResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeCustomMetric)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForResource)
+
+responseListThingGroups :: ListThingGroupsResponse -> TestTree
+responseListThingGroups =
+  res
+    "ListThingGroupsResponse"
+    "fixture/ListThingGroupsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListThingGroups)
+
+responseDescribeJobTemplate :: DescribeJobTemplateResponse -> TestTree
+responseDescribeJobTemplate =
+  res
+    "DescribeJobTemplateResponse"
+    "fixture/DescribeJobTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeJobTemplate)
+
+responseListScheduledAudits :: ListScheduledAuditsResponse -> TestTree
+responseListScheduledAudits =
+  res
+    "ListScheduledAuditsResponse"
+    "fixture/ListScheduledAuditsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListScheduledAudits)
+
+responseDescribeThingRegistrationTask :: DescribeThingRegistrationTaskResponse -> TestTree
+responseDescribeThingRegistrationTask =
+  res
+    "DescribeThingRegistrationTaskResponse"
+    "fixture/DescribeThingRegistrationTaskResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeThingRegistrationTask)
+
+responseUpdateScheduledAudit :: UpdateScheduledAuditResponse -> TestTree
+responseUpdateScheduledAudit =
+  res
+    "UpdateScheduledAuditResponse"
+    "fixture/UpdateScheduledAuditResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateScheduledAudit)
+
+responseDeleteScheduledAudit :: DeleteScheduledAuditResponse -> TestTree
+responseDeleteScheduledAudit =
+  res
+    "DeleteScheduledAuditResponse"
+    "fixture/DeleteScheduledAuditResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteScheduledAudit)
+
+responseDescribeAuditFinding :: DescribeAuditFindingResponse -> TestTree
+responseDescribeAuditFinding =
+  res
+    "DescribeAuditFindingResponse"
+    "fixture/DescribeAuditFindingResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAuditFinding)
+
+responseDescribeDimension :: DescribeDimensionResponse -> TestTree
+responseDescribeDimension =
+  res
+    "DescribeDimensionResponse"
+    "fixture/DescribeDimensionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeDimension)
+
+responseGetLoggingOptions :: GetLoggingOptionsResponse -> TestTree
+responseGetLoggingOptions =
+  res
+    "GetLoggingOptionsResponse"
+    "fixture/GetLoggingOptionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetLoggingOptions)
+
+responseDeleteAccountAuditConfiguration :: DeleteAccountAuditConfigurationResponse -> TestTree
+responseDeleteAccountAuditConfiguration =
+  res
+    "DeleteAccountAuditConfigurationResponse"
+    "fixture/DeleteAccountAuditConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteAccountAuditConfiguration)
+
+responseUpdateAccountAuditConfiguration :: UpdateAccountAuditConfigurationResponse -> TestTree
+responseUpdateAccountAuditConfiguration =
+  res
+    "UpdateAccountAuditConfigurationResponse"
+    "fixture/UpdateAccountAuditConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateAccountAuditConfiguration)
+
+responseGetOTAUpdate :: GetOTAUpdateResponse -> TestTree
+responseGetOTAUpdate =
+  res
+    "GetOTAUpdateResponse"
+    "fixture/GetOTAUpdateResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetOTAUpdate)
+
+responseGetEffectivePolicies :: GetEffectivePoliciesResponse -> TestTree
+responseGetEffectivePolicies =
+  res
+    "GetEffectivePoliciesResponse"
+    "fixture/GetEffectivePoliciesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetEffectivePolicies)
+
+responseListThingTypes :: ListThingTypesResponse -> TestTree
+responseListThingTypes =
+  res
+    "ListThingTypesResponse"
+    "fixture/ListThingTypesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListThingTypes)
+
+responseSetV2LoggingOptions :: SetV2LoggingOptionsResponse -> TestTree
+responseSetV2LoggingOptions =
+  res
+    "SetV2LoggingOptionsResponse"
+    "fixture/SetV2LoggingOptionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetV2LoggingOptions)
+
+responseCreateProvisioningTemplate :: CreateProvisioningTemplateResponse -> TestTree
+responseCreateProvisioningTemplate =
+  res
+    "CreateProvisioningTemplateResponse"
+    "fixture/CreateProvisioningTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateProvisioningTemplate)
+
+responseListThingGroupsForThing :: ListThingGroupsForThingResponse -> TestTree
+responseListThingGroupsForThing =
+  res
+    "ListThingGroupsForThingResponse"
+    "fixture/ListThingGroupsForThingResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListThingGroupsForThing)
+
+responseCreateCertificateFromCsr :: CreateCertificateFromCsrResponse -> TestTree
+responseCreateCertificateFromCsr =
+  res
+    "CreateCertificateFromCsrResponse"
+    "fixture/CreateCertificateFromCsrResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateCertificateFromCsr)
+
+responseDeleteThing :: DeleteThingResponse -> TestTree
+responseDeleteThing =
+  res
+    "DeleteThingResponse"
+    "fixture/DeleteThingResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteThing)
+
+responseUpdateThing :: UpdateThingResponse -> TestTree
+responseUpdateThing =
+  res
+    "UpdateThingResponse"
+    "fixture/UpdateThingResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateThing)
+
+responseDeleteProvisioningTemplate :: DeleteProvisioningTemplateResponse -> TestTree
+responseDeleteProvisioningTemplate =
+  res
+    "DeleteProvisioningTemplateResponse"
+    "fixture/DeleteProvisioningTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteProvisioningTemplate)
+
+responseUpdateProvisioningTemplate :: UpdateProvisioningTemplateResponse -> TestTree
+responseUpdateProvisioningTemplate =
+  res
+    "UpdateProvisioningTemplateResponse"
+    "fixture/UpdateProvisioningTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateProvisioningTemplate)
+
+responseDescribeMitigationAction :: DescribeMitigationActionResponse -> TestTree
+responseDescribeMitigationAction =
+  res
+    "DescribeMitigationActionResponse"
+    "fixture/DescribeMitigationActionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeMitigationAction)
+
+responseStartThingRegistrationTask :: StartThingRegistrationTaskResponse -> TestTree
+responseStartThingRegistrationTask =
+  res
+    "StartThingRegistrationTaskResponse"
+    "fixture/StartThingRegistrationTaskResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartThingRegistrationTask)
+
+responseCreateScheduledAudit :: CreateScheduledAuditResponse -> TestTree
+responseCreateScheduledAudit =
+  res
+    "CreateScheduledAuditResponse"
+    "fixture/CreateScheduledAuditResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateScheduledAudit)
+
+responseListAuthorizers :: ListAuthorizersResponse -> TestTree
+responseListAuthorizers =
+  res
+    "ListAuthorizersResponse"
+    "fixture/ListAuthorizersResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListAuthorizers)
+
+responseListJobExecutionsForJob :: ListJobExecutionsForJobResponse -> TestTree
+responseListJobExecutionsForJob =
+  res
+    "ListJobExecutionsForJobResponse"
+    "fixture/ListJobExecutionsForJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListJobExecutionsForJob)
+
+responseRemoveThingFromBillingGroup :: RemoveThingFromBillingGroupResponse -> TestTree
+responseRemoveThingFromBillingGroup =
+  res
+    "RemoveThingFromBillingGroupResponse"
+    "fixture/RemoveThingFromBillingGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy RemoveThingFromBillingGroup)
+
+responseSearchIndex :: SearchIndexResponse -> TestTree
+responseSearchIndex =
+  res
+    "SearchIndexResponse"
+    "fixture/SearchIndexResponse.proto"
+    defaultService
+    (Proxy :: Proxy SearchIndex)
+
+responseCreateThingType :: CreateThingTypeResponse -> TestTree
+responseCreateThingType =
+  res
+    "CreateThingTypeResponse"
+    "fixture/CreateThingTypeResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateThingType)
+
+responseDescribeSecurityProfile :: DescribeSecurityProfileResponse -> TestTree
+responseDescribeSecurityProfile =
+  res
+    "DescribeSecurityProfileResponse"
+    "fixture/DescribeSecurityProfileResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeSecurityProfile)
+
+responseDeleteV2LoggingLevel :: DeleteV2LoggingLevelResponse -> TestTree
+responseDeleteV2LoggingLevel =
+  res
+    "DeleteV2LoggingLevelResponse"
+    "fixture/DeleteV2LoggingLevelResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteV2LoggingLevel)
+
+responseSetDefaultAuthorizer :: SetDefaultAuthorizerResponse -> TestTree
+responseSetDefaultAuthorizer =
+  res
+    "SetDefaultAuthorizerResponse"
+    "fixture/SetDefaultAuthorizerResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetDefaultAuthorizer)
+
+responseDescribeJobExecution :: DescribeJobExecutionResponse -> TestTree
+responseDescribeJobExecution =
+  res
+    "DescribeJobExecutionResponse"
+    "fixture/DescribeJobExecutionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeJobExecution)
+
+responseCancelCertificateTransfer :: CancelCertificateTransferResponse -> TestTree
+responseCancelCertificateTransfer =
+  res
+    "CancelCertificateTransferResponse"
+    "fixture/CancelCertificateTransferResponse.proto"
+    defaultService
+    (Proxy :: Proxy CancelCertificateTransfer)
+
+responseGetIndexingConfiguration :: GetIndexingConfigurationResponse -> TestTree
+responseGetIndexingConfiguration =
+  res
+    "GetIndexingConfigurationResponse"
+    "fixture/GetIndexingConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetIndexingConfiguration)
+
+responseListAuditMitigationActionsExecutions :: ListAuditMitigationActionsExecutionsResponse -> TestTree
+responseListAuditMitigationActionsExecutions =
+  res
+    "ListAuditMitigationActionsExecutionsResponse"
+    "fixture/ListAuditMitigationActionsExecutionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListAuditMitigationActionsExecutions)
+
+responseCreateCustomMetric :: CreateCustomMetricResponse -> TestTree
+responseCreateCustomMetric =
+  res
+    "CreateCustomMetricResponse"
+    "fixture/CreateCustomMetricResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateCustomMetric)
+
+responseDescribeAuditMitigationActionsTask :: DescribeAuditMitigationActionsTaskResponse -> TestTree
+responseDescribeAuditMitigationActionsTask =
+  res
+    "DescribeAuditMitigationActionsTaskResponse"
+    "fixture/DescribeAuditMitigationActionsTaskResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAuditMitigationActionsTask)
+
+responseGetStatistics :: GetStatisticsResponse -> TestTree
+responseGetStatistics =
+  res
+    "GetStatisticsResponse"
+    "fixture/GetStatisticsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetStatistics)
+
+responseDeleteRoleAlias :: DeleteRoleAliasResponse -> TestTree
+responseDeleteRoleAlias =
+  res
+    "DeleteRoleAliasResponse"
+    "fixture/DeleteRoleAliasResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteRoleAlias)
+
+responseUpdateRoleAlias :: UpdateRoleAliasResponse -> TestTree
+responseUpdateRoleAlias =
+  res
+    "UpdateRoleAliasResponse"
+    "fixture/UpdateRoleAliasResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateRoleAlias)
+
+responseListFleetMetrics :: ListFleetMetricsResponse -> TestTree
+responseListFleetMetrics =
+  res
+    "ListFleetMetricsResponse"
+    "fixture/ListFleetMetricsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListFleetMetrics)
+
+responseDeletePolicyVersion :: DeletePolicyVersionResponse -> TestTree
+responseDeletePolicyVersion =
+  res
+    "DeletePolicyVersionResponse"
+    "fixture/DeletePolicyVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeletePolicyVersion)
+
+responseDisableTopicRule :: DisableTopicRuleResponse -> TestTree
+responseDisableTopicRule =
+  res
+    "DisableTopicRuleResponse"
+    "fixture/DisableTopicRuleResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisableTopicRule)
+
+responseCreateTopicRule :: CreateTopicRuleResponse -> TestTree
+responseCreateTopicRule =
+  res
+    "CreateTopicRuleResponse"
+    "fixture/CreateTopicRuleResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateTopicRule)
+
+responseCreateJob :: CreateJobResponse -> TestTree
+responseCreateJob =
+  res
+    "CreateJobResponse"
+    "fixture/CreateJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateJob)
+
+responseDescribeIndex :: DescribeIndexResponse -> TestTree
+responseDescribeIndex =
+  res
+    "DescribeIndexResponse"
+    "fixture/DescribeIndexResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeIndex)
+
+responseAssociateTargetsWithJob :: AssociateTargetsWithJobResponse -> TestTree
+responseAssociateTargetsWithJob =
+  res
+    "AssociateTargetsWithJobResponse"
+    "fixture/AssociateTargetsWithJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateTargetsWithJob)
+
+responseAttachSecurityProfile :: AttachSecurityProfileResponse -> TestTree
+responseAttachSecurityProfile =
+  res
+    "AttachSecurityProfileResponse"
+    "fixture/AttachSecurityProfileResponse.proto"
+    defaultService
+    (Proxy :: Proxy AttachSecurityProfile)
+
+responseListAttachedPolicies :: ListAttachedPoliciesResponse -> TestTree
+responseListAttachedPolicies =
+  res
+    "ListAttachedPoliciesResponse"
+    "fixture/ListAttachedPoliciesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListAttachedPolicies)
+
+responseCreatePolicyVersion :: CreatePolicyVersionResponse -> TestTree
+responseCreatePolicyVersion =
+  res
+    "CreatePolicyVersionResponse"
+    "fixture/CreatePolicyVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreatePolicyVersion)
+
+responseListCACertificates :: ListCACertificatesResponse -> TestTree
+responseListCACertificates =
+  res
+    "ListCACertificatesResponse"
+    "fixture/ListCACertificatesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListCACertificates)
+
+responseDeleteTopicRule :: DeleteTopicRuleResponse -> TestTree
+responseDeleteTopicRule =
+  res
+    "DeleteTopicRuleResponse"
+    "fixture/DeleteTopicRuleResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteTopicRule)
+
+responseGetJobDocument :: GetJobDocumentResponse -> TestTree
+responseGetJobDocument =
+  res
+    "GetJobDocumentResponse"
+    "fixture/GetJobDocumentResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetJobDocument)
+
+responseDescribeProvisioningTemplateVersion :: DescribeProvisioningTemplateVersionResponse -> TestTree
+responseDescribeProvisioningTemplateVersion =
+  res
+    "DescribeProvisioningTemplateVersionResponse"
+    "fixture/DescribeProvisioningTemplateVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeProvisioningTemplateVersion)
+
+responseListCustomMetrics :: ListCustomMetricsResponse -> TestTree
+responseListCustomMetrics =
+  res
+    "ListCustomMetricsResponse"
+    "fixture/ListCustomMetricsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListCustomMetrics)
+
+responseCancelAuditTask :: CancelAuditTaskResponse -> TestTree
+responseCancelAuditTask =
+  res
+    "CancelAuditTaskResponse"
+    "fixture/CancelAuditTaskResponse.proto"
+    defaultService
+    (Proxy :: Proxy CancelAuditTask)
+
+responseCreateRoleAlias :: CreateRoleAliasResponse -> TestTree
+responseCreateRoleAlias =
+  res
+    "CreateRoleAliasResponse"
+    "fixture/CreateRoleAliasResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateRoleAlias)
+
+responseDeleteCACertificate :: DeleteCACertificateResponse -> TestTree
+responseDeleteCACertificate =
+  res
+    "DeleteCACertificateResponse"
+    "fixture/DeleteCACertificateResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteCACertificate)
+
+responseUpdateCACertificate :: UpdateCACertificateResponse -> TestTree
+responseUpdateCACertificate =
+  res
+    "UpdateCACertificateResponse"
+    "fixture/UpdateCACertificateResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateCACertificate)
+
+responseListTopicRules :: ListTopicRulesResponse -> TestTree
+responseListTopicRules =
+  res
+    "ListTopicRulesResponse"
+    "fixture/ListTopicRulesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTopicRules)
+
+responseTransferCertificate :: TransferCertificateResponse -> TestTree
+responseTransferCertificate =
+  res
+    "TransferCertificateResponse"
+    "fixture/TransferCertificateResponse.proto"
+    defaultService
+    (Proxy :: Proxy TransferCertificate)
+
+responseListJobs :: ListJobsResponse -> TestTree
+responseListJobs =
+  res
+    "ListJobsResponse"
+    "fixture/ListJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListJobs)
+
+responseListRoleAliases :: ListRoleAliasesResponse -> TestTree
+responseListRoleAliases =
+  res
+    "ListRoleAliasesResponse"
+    "fixture/ListRoleAliasesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListRoleAliases)
+
+responseStartOnDemandAuditTask :: StartOnDemandAuditTaskResponse -> TestTree
+responseStartOnDemandAuditTask =
+  res
+    "StartOnDemandAuditTaskResponse"
+    "fixture/StartOnDemandAuditTaskResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartOnDemandAuditTask)
+
+responseDescribeThingGroup :: DescribeThingGroupResponse -> TestTree
+responseDescribeThingGroup =
+  res
+    "DescribeThingGroupResponse"
+    "fixture/DescribeThingGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeThingGroup)
+
+responseDeleteJob :: DeleteJobResponse -> TestTree
+responseDeleteJob =
+  res
+    "DeleteJobResponse"
+    "fixture/DeleteJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteJob)
+
+responseListTargetsForSecurityProfile :: ListTargetsForSecurityProfileResponse -> TestTree
+responseListTargetsForSecurityProfile =
+  res
+    "ListTargetsForSecurityProfileResponse"
+    "fixture/ListTargetsForSecurityProfileResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTargetsForSecurityProfile)
+
+responseUpdateJob :: UpdateJobResponse -> TestTree
+responseUpdateJob =
+  res
+    "UpdateJobResponse"
+    "fixture/UpdateJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateJob)
+
+responseStartAuditMitigationActionsTask :: StartAuditMitigationActionsTaskResponse -> TestTree
+responseStartAuditMitigationActionsTask =
+  res
+    "StartAuditMitigationActionsTaskResponse"
+    "fixture/StartAuditMitigationActionsTaskResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartAuditMitigationActionsTask)
+
+responseDescribeDetectMitigationActionsTask :: DescribeDetectMitigationActionsTaskResponse -> TestTree
+responseDescribeDetectMitigationActionsTask =
+  res
+    "DescribeDetectMitigationActionsTaskResponse"
+    "fixture/DescribeDetectMitigationActionsTaskResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeDetectMitigationActionsTask)
+
+responseGetTopicRule :: GetTopicRuleResponse -> TestTree
+responseGetTopicRule =
+  res
+    "GetTopicRuleResponse"
+    "fixture/GetTopicRuleResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetTopicRule)
+
+responseDescribeThing :: DescribeThingResponse -> TestTree
+responseDescribeThing =
+  res
+    "DescribeThingResponse"
+    "fixture/DescribeThingResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeThing)
+
+responseListDomainConfigurations :: ListDomainConfigurationsResponse -> TestTree
+responseListDomainConfigurations =
+  res
+    "ListDomainConfigurationsResponse"
+    "fixture/ListDomainConfigurationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListDomainConfigurations)
+
+responseListAuditTasks :: ListAuditTasksResponse -> TestTree
+responseListAuditTasks =
+  res
+    "ListAuditTasksResponse"
+    "fixture/ListAuditTasksResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListAuditTasks)
+
+responseDescribeAccountAuditConfiguration :: DescribeAccountAuditConfigurationResponse -> TestTree
+responseDescribeAccountAuditConfiguration =
+  res
+    "DescribeAccountAuditConfigurationResponse"
+    "fixture/DescribeAccountAuditConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAccountAuditConfiguration)
+
+responseDeleteDimension :: DeleteDimensionResponse -> TestTree
+responseDeleteDimension =
+  res
+    "DeleteDimensionResponse"
+    "fixture/DeleteDimensionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDimension)
+
+responseUpdateDimension :: UpdateDimensionResponse -> TestTree
+responseUpdateDimension =
+  res
+    "UpdateDimensionResponse"
+    "fixture/UpdateDimensionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDimension)
+
+responseDeletePolicy :: DeletePolicyResponse -> TestTree
+responseDeletePolicy =
+  res
+    "DeletePolicyResponse"
+    "fixture/DeletePolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeletePolicy)
+
+responseListThingsInThingGroup :: ListThingsInThingGroupResponse -> TestTree
+responseListThingsInThingGroup =
+  res
+    "ListThingsInThingGroupResponse"
+    "fixture/ListThingsInThingGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListThingsInThingGroup)
+
+responseListAuditFindings :: ListAuditFindingsResponse -> TestTree
+responseListAuditFindings =
+  res
+    "ListAuditFindingsResponse"
+    "fixture/ListAuditFindingsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListAuditFindings)
+
+responseDescribeScheduledAudit :: DescribeScheduledAuditResponse -> TestTree
+responseDescribeScheduledAudit =
+  res
+    "DescribeScheduledAuditResponse"
+    "fixture/DescribeScheduledAuditResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeScheduledAudit)
+
+responseCreateMitigationAction :: CreateMitigationActionResponse -> TestTree
+responseCreateMitigationAction =
+  res
+    "CreateMitigationActionResponse"
+    "fixture/CreateMitigationActionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateMitigationAction)
+
+responseConfirmTopicRuleDestination :: ConfirmTopicRuleDestinationResponse -> TestTree
+responseConfirmTopicRuleDestination =
+  res
+    "ConfirmTopicRuleDestinationResponse"
+    "fixture/ConfirmTopicRuleDestinationResponse.proto"
+    defaultService
+    (Proxy :: Proxy ConfirmTopicRuleDestination)
+
+responseListCertificates :: ListCertificatesResponse -> TestTree
+responseListCertificates =
+  res
+    "ListCertificatesResponse"
+    "fixture/ListCertificatesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListCertificates)
+
+responseListMitigationActions :: ListMitigationActionsResponse -> TestTree
+responseListMitigationActions =
+  res
+    "ListMitigationActionsResponse"
+    "fixture/ListMitigationActionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListMitigationActions)
 
 responseDescribeAuthorizer :: DescribeAuthorizerResponse -> TestTree
 responseDescribeAuthorizer =
@@ -3885,21 +3757,13 @@ responseGetPolicyVersion =
     defaultService
     (Proxy :: Proxy GetPolicyVersion)
 
-responseListCertificates :: ListCertificatesResponse -> TestTree
-responseListCertificates =
+responseListActiveViolations :: ListActiveViolationsResponse -> TestTree
+responseListActiveViolations =
   res
-    "ListCertificatesResponse"
-    "fixture/ListCertificatesResponse.proto"
+    "ListActiveViolationsResponse"
+    "fixture/ListActiveViolationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCertificates)
-
-responseDeleteSecurityProfile :: DeleteSecurityProfileResponse -> TestTree
-responseDeleteSecurityProfile =
-  res
-    "DeleteSecurityProfileResponse"
-    "fixture/DeleteSecurityProfileResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteSecurityProfile)
+    (Proxy :: Proxy ListActiveViolations)
 
 responseValidateSecurityProfileBehaviors :: ValidateSecurityProfileBehaviorsResponse -> TestTree
 responseValidateSecurityProfileBehaviors =
@@ -3909,541 +3773,237 @@ responseValidateSecurityProfileBehaviors =
     defaultService
     (Proxy :: Proxy ValidateSecurityProfileBehaviors)
 
-responseCreateDomainConfiguration :: CreateDomainConfigurationResponse -> TestTree
-responseCreateDomainConfiguration =
+responseListViolationEvents :: ListViolationEventsResponse -> TestTree
+responseListViolationEvents =
   res
-    "CreateDomainConfigurationResponse"
-    "fixture/CreateDomainConfigurationResponse.proto"
+    "ListViolationEventsResponse"
+    "fixture/ListViolationEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDomainConfiguration)
+    (Proxy :: Proxy ListViolationEvents)
 
-responseListActiveViolations :: ListActiveViolationsResponse -> TestTree
-responseListActiveViolations =
+responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
+responseDeleteCertificate =
   res
-    "ListActiveViolationsResponse"
-    "fixture/ListActiveViolationsResponse.proto"
+    "DeleteCertificateResponse"
+    "fixture/DeleteCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy ListActiveViolations)
+    (Proxy :: Proxy DeleteCertificate)
 
-responseDescribeBillingGroup :: DescribeBillingGroupResponse -> TestTree
-responseDescribeBillingGroup =
+responseUpdateCertificate :: UpdateCertificateResponse -> TestTree
+responseUpdateCertificate =
   res
-    "DescribeBillingGroupResponse"
-    "fixture/DescribeBillingGroupResponse.proto"
+    "UpdateCertificateResponse"
+    "fixture/UpdateCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBillingGroup)
+    (Proxy :: Proxy UpdateCertificate)
 
-responseListThingRegistrationTasks :: ListThingRegistrationTasksResponse -> TestTree
-responseListThingRegistrationTasks =
+responseCreateDimension :: CreateDimensionResponse -> TestTree
+responseCreateDimension =
   res
-    "ListThingRegistrationTasksResponse"
-    "fixture/ListThingRegistrationTasksResponse.proto"
+    "CreateDimensionResponse"
+    "fixture/CreateDimensionResponse.proto"
     defaultService
-    (Proxy :: Proxy ListThingRegistrationTasks)
+    (Proxy :: Proxy CreateDimension)
 
-responseUpdateDimension :: UpdateDimensionResponse -> TestTree
-responseUpdateDimension =
+responseUpdateIndexingConfiguration :: UpdateIndexingConfigurationResponse -> TestTree
+responseUpdateIndexingConfiguration =
   res
-    "UpdateDimensionResponse"
-    "fixture/UpdateDimensionResponse.proto"
+    "UpdateIndexingConfigurationResponse"
+    "fixture/UpdateIndexingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDimension)
+    (Proxy :: Proxy UpdateIndexingConfiguration)
 
-responseDescribeAuditSuppression :: DescribeAuditSuppressionResponse -> TestTree
-responseDescribeAuditSuppression =
+responseGetBucketsAggregation :: GetBucketsAggregationResponse -> TestTree
+responseGetBucketsAggregation =
   res
-    "DescribeAuditSuppressionResponse"
-    "fixture/DescribeAuditSuppressionResponse.proto"
+    "GetBucketsAggregationResponse"
+    "fixture/GetBucketsAggregationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAuditSuppression)
+    (Proxy :: Proxy GetBucketsAggregation)
 
-responseDescribeAccountAuditConfiguration :: DescribeAccountAuditConfigurationResponse -> TestTree
-responseDescribeAccountAuditConfiguration =
+responseCreateProvisioningClaim :: CreateProvisioningClaimResponse -> TestTree
+responseCreateProvisioningClaim =
   res
-    "DescribeAccountAuditConfigurationResponse"
-    "fixture/DescribeAccountAuditConfigurationResponse.proto"
+    "CreateProvisioningClaimResponse"
+    "fixture/CreateProvisioningClaimResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountAuditConfiguration)
+    (Proxy :: Proxy CreateProvisioningClaim)
 
-responseDeprecateThingType :: DeprecateThingTypeResponse -> TestTree
-responseDeprecateThingType =
+responseTestInvokeAuthorizer :: TestInvokeAuthorizerResponse -> TestTree
+responseTestInvokeAuthorizer =
   res
-    "DeprecateThingTypeResponse"
-    "fixture/DeprecateThingTypeResponse.proto"
+    "TestInvokeAuthorizerResponse"
+    "fixture/TestInvokeAuthorizerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeprecateThingType)
+    (Proxy :: Proxy TestInvokeAuthorizer)
 
-responseDescribeDetectMitigationActionsTask :: DescribeDetectMitigationActionsTaskResponse -> TestTree
-responseDescribeDetectMitigationActionsTask =
+responsePutVerificationStateOnViolation :: PutVerificationStateOnViolationResponse -> TestTree
+responsePutVerificationStateOnViolation =
   res
-    "DescribeDetectMitigationActionsTaskResponse"
-    "fixture/DescribeDetectMitigationActionsTaskResponse.proto"
+    "PutVerificationStateOnViolationResponse"
+    "fixture/PutVerificationStateOnViolationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDetectMitigationActionsTask)
+    (Proxy :: Proxy PutVerificationStateOnViolation)
 
-responseDeleteDimension :: DeleteDimensionResponse -> TestTree
-responseDeleteDimension =
+responseCreateThingGroup :: CreateThingGroupResponse -> TestTree
+responseCreateThingGroup =
   res
-    "DeleteDimensionResponse"
-    "fixture/DeleteDimensionResponse.proto"
+    "CreateThingGroupResponse"
+    "fixture/CreateThingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDimension)
+    (Proxy :: Proxy CreateThingGroup)
 
-responseListAuditFindings :: ListAuditFindingsResponse -> TestTree
-responseListAuditFindings =
+responseDescribeFleetMetric :: DescribeFleetMetricResponse -> TestTree
+responseDescribeFleetMetric =
   res
-    "ListAuditFindingsResponse"
-    "fixture/ListAuditFindingsResponse.proto"
+    "DescribeFleetMetricResponse"
+    "fixture/DescribeFleetMetricResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAuditFindings)
+    (Proxy :: Proxy DescribeFleetMetric)
 
-responseDescribeThing :: DescribeThingResponse -> TestTree
-responseDescribeThing =
+responseCreateTopicRuleDestination :: CreateTopicRuleDestinationResponse -> TestTree
+responseCreateTopicRuleDestination =
   res
-    "DescribeThingResponse"
-    "fixture/DescribeThingResponse.proto"
+    "CreateTopicRuleDestinationResponse"
+    "fixture/CreateTopicRuleDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeThing)
+    (Proxy :: Proxy CreateTopicRuleDestination)
 
-responseListDimensions :: ListDimensionsResponse -> TestTree
-responseListDimensions =
+responseDetachPolicy :: DetachPolicyResponse -> TestTree
+responseDetachPolicy =
   res
-    "ListDimensionsResponse"
-    "fixture/ListDimensionsResponse.proto"
+    "DetachPolicyResponse"
+    "fixture/DetachPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDimensions)
+    (Proxy :: Proxy DetachPolicy)
 
-responseDetachThingPrincipal :: DetachThingPrincipalResponse -> TestTree
-responseDetachThingPrincipal =
+responseDescribeJob :: DescribeJobResponse -> TestTree
+responseDescribeJob =
   res
-    "DetachThingPrincipalResponse"
-    "fixture/DetachThingPrincipalResponse.proto"
+    "DescribeJobResponse"
+    "fixture/DescribeJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachThingPrincipal)
+    (Proxy :: Proxy DescribeJob)
 
-responseDescribeStream :: DescribeStreamResponse -> TestTree
-responseDescribeStream =
+responseAddThingToBillingGroup :: AddThingToBillingGroupResponse -> TestTree
+responseAddThingToBillingGroup =
   res
-    "DescribeStreamResponse"
-    "fixture/DescribeStreamResponse.proto"
+    "AddThingToBillingGroupResponse"
+    "fixture/AddThingToBillingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStream)
+    (Proxy :: Proxy AddThingToBillingGroup)
 
-responseConfirmTopicRuleDestination :: ConfirmTopicRuleDestinationResponse -> TestTree
-responseConfirmTopicRuleDestination =
+responseUpdateTopicRuleDestination :: UpdateTopicRuleDestinationResponse -> TestTree
+responseUpdateTopicRuleDestination =
   res
-    "ConfirmTopicRuleDestinationResponse"
-    "fixture/ConfirmTopicRuleDestinationResponse.proto"
+    "UpdateTopicRuleDestinationResponse"
+    "fixture/UpdateTopicRuleDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfirmTopicRuleDestination)
+    (Proxy :: Proxy UpdateTopicRuleDestination)
 
-responseGetPolicy :: GetPolicyResponse -> TestTree
-responseGetPolicy =
+responseDeleteTopicRuleDestination :: DeleteTopicRuleDestinationResponse -> TestTree
+responseDeleteTopicRuleDestination =
   res
-    "GetPolicyResponse"
-    "fixture/GetPolicyResponse.proto"
+    "DeleteTopicRuleDestinationResponse"
+    "fixture/DeleteTopicRuleDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPolicy)
+    (Proxy :: Proxy DeleteTopicRuleDestination)
 
-responseListTopicRules :: ListTopicRulesResponse -> TestTree
-responseListTopicRules =
+responseDeleteThingGroup :: DeleteThingGroupResponse -> TestTree
+responseDeleteThingGroup =
   res
-    "ListTopicRulesResponse"
-    "fixture/ListTopicRulesResponse.proto"
+    "DeleteThingGroupResponse"
+    "fixture/DeleteThingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTopicRules)
+    (Proxy :: Proxy DeleteThingGroup)
 
-responseListCACertificates :: ListCACertificatesResponse -> TestTree
-responseListCACertificates =
+responseUpdateThingGroup :: UpdateThingGroupResponse -> TestTree
+responseUpdateThingGroup =
   res
-    "ListCACertificatesResponse"
-    "fixture/ListCACertificatesResponse.proto"
+    "UpdateThingGroupResponse"
+    "fixture/UpdateThingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCACertificates)
+    (Proxy :: Proxy UpdateThingGroup)
 
-responseStartOnDemandAuditTask :: StartOnDemandAuditTaskResponse -> TestTree
-responseStartOnDemandAuditTask =
+responseListOTAUpdates :: ListOTAUpdatesResponse -> TestTree
+responseListOTAUpdates =
   res
-    "StartOnDemandAuditTaskResponse"
-    "fixture/StartOnDemandAuditTaskResponse.proto"
+    "ListOTAUpdatesResponse"
+    "fixture/ListOTAUpdatesResponse.proto"
     defaultService
-    (Proxy :: Proxy StartOnDemandAuditTask)
+    (Proxy :: Proxy ListOTAUpdates)
 
-responseUpdateEventConfigurations :: UpdateEventConfigurationsResponse -> TestTree
-responseUpdateEventConfigurations =
+responseDeleteOTAUpdate :: DeleteOTAUpdateResponse -> TestTree
+responseDeleteOTAUpdate =
   res
-    "UpdateEventConfigurationsResponse"
-    "fixture/UpdateEventConfigurationsResponse.proto"
+    "DeleteOTAUpdateResponse"
+    "fixture/DeleteOTAUpdateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEventConfigurations)
+    (Proxy :: Proxy DeleteOTAUpdate)
 
-responseUpdateThingGroupsForThing :: UpdateThingGroupsForThingResponse -> TestTree
-responseUpdateThingGroupsForThing =
+responseCreateDynamicThingGroup :: CreateDynamicThingGroupResponse -> TestTree
+responseCreateDynamicThingGroup =
   res
-    "UpdateThingGroupsForThingResponse"
-    "fixture/UpdateThingGroupsForThingResponse.proto"
+    "CreateDynamicThingGroupResponse"
+    "fixture/CreateDynamicThingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateThingGroupsForThing)
+    (Proxy :: Proxy CreateDynamicThingGroup)
 
-responseListSecurityProfilesForTarget :: ListSecurityProfilesForTargetResponse -> TestTree
-responseListSecurityProfilesForTarget =
+responseDetachSecurityProfile :: DetachSecurityProfileResponse -> TestTree
+responseDetachSecurityProfile =
   res
-    "ListSecurityProfilesForTargetResponse"
-    "fixture/ListSecurityProfilesForTargetResponse.proto"
+    "DetachSecurityProfileResponse"
+    "fixture/DetachSecurityProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSecurityProfilesForTarget)
+    (Proxy :: Proxy DetachSecurityProfile)
 
-responseDeleteJobTemplate :: DeleteJobTemplateResponse -> TestTree
-responseDeleteJobTemplate =
+responseListOutgoingCertificates :: ListOutgoingCertificatesResponse -> TestTree
+responseListOutgoingCertificates =
   res
-    "DeleteJobTemplateResponse"
-    "fixture/DeleteJobTemplateResponse.proto"
+    "ListOutgoingCertificatesResponse"
+    "fixture/ListOutgoingCertificatesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteJobTemplate)
+    (Proxy :: Proxy ListOutgoingCertificates)
 
-responseEnableTopicRule :: EnableTopicRuleResponse -> TestTree
-responseEnableTopicRule =
+responseDeleteProvisioningTemplateVersion :: DeleteProvisioningTemplateVersionResponse -> TestTree
+responseDeleteProvisioningTemplateVersion =
   res
-    "EnableTopicRuleResponse"
-    "fixture/EnableTopicRuleResponse.proto"
+    "DeleteProvisioningTemplateVersionResponse"
+    "fixture/DeleteProvisioningTemplateVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableTopicRule)
+    (Proxy :: Proxy DeleteProvisioningTemplateVersion)
 
-responseAcceptCertificateTransfer :: AcceptCertificateTransferResponse -> TestTree
-responseAcceptCertificateTransfer =
+responseDescribeCACertificate :: DescribeCACertificateResponse -> TestTree
+responseDescribeCACertificate =
   res
-    "AcceptCertificateTransferResponse"
-    "fixture/AcceptCertificateTransferResponse.proto"
+    "DescribeCACertificateResponse"
+    "fixture/DescribeCACertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptCertificateTransfer)
+    (Proxy :: Proxy DescribeCACertificate)
 
-responseGetJobDocument :: GetJobDocumentResponse -> TestTree
-responseGetJobDocument =
+responseListProvisioningTemplateVersions :: ListProvisioningTemplateVersionsResponse -> TestTree
+responseListProvisioningTemplateVersions =
   res
-    "GetJobDocumentResponse"
-    "fixture/GetJobDocumentResponse.proto"
+    "ListProvisioningTemplateVersionsResponse"
+    "fixture/ListProvisioningTemplateVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetJobDocument)
+    (Proxy :: Proxy ListProvisioningTemplateVersions)
 
-responseListAttachedPolicies :: ListAttachedPoliciesResponse -> TestTree
-responseListAttachedPolicies =
+responseGetRegistrationCode :: GetRegistrationCodeResponse -> TestTree
+responseGetRegistrationCode =
   res
-    "ListAttachedPoliciesResponse"
-    "fixture/ListAttachedPoliciesResponse.proto"
+    "GetRegistrationCodeResponse"
+    "fixture/GetRegistrationCodeResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAttachedPolicies)
+    (Proxy :: Proxy GetRegistrationCode)
 
-responseDescribeThingGroup :: DescribeThingGroupResponse -> TestTree
-responseDescribeThingGroup =
+responseListDetectMitigationActionsExecutions :: ListDetectMitigationActionsExecutionsResponse -> TestTree
+responseListDetectMitigationActionsExecutions =
   res
-    "DescribeThingGroupResponse"
-    "fixture/DescribeThingGroupResponse.proto"
+    "ListDetectMitigationActionsExecutionsResponse"
+    "fixture/ListDetectMitigationActionsExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeThingGroup)
-
-responseListJobs :: ListJobsResponse -> TestTree
-responseListJobs =
-  res
-    "ListJobsResponse"
-    "fixture/ListJobsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListJobs)
-
-responseCreateFleetMetric :: CreateFleetMetricResponse -> TestTree
-responseCreateFleetMetric =
-  res
-    "CreateFleetMetricResponse"
-    "fixture/CreateFleetMetricResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateFleetMetric)
-
-responseRegisterCACertificate :: RegisterCACertificateResponse -> TestTree
-responseRegisterCACertificate =
-  res
-    "RegisterCACertificateResponse"
-    "fixture/RegisterCACertificateResponse.proto"
-    defaultService
-    (Proxy :: Proxy RegisterCACertificate)
-
-responseReplaceTopicRule :: ReplaceTopicRuleResponse -> TestTree
-responseReplaceTopicRule =
-  res
-    "ReplaceTopicRuleResponse"
-    "fixture/ReplaceTopicRuleResponse.proto"
-    defaultService
-    (Proxy :: Proxy ReplaceTopicRule)
-
-responseGetStatistics :: GetStatisticsResponse -> TestTree
-responseGetStatistics =
-  res
-    "GetStatisticsResponse"
-    "fixture/GetStatisticsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetStatistics)
-
-responseDescribeIndex :: DescribeIndexResponse -> TestTree
-responseDescribeIndex =
-  res
-    "DescribeIndexResponse"
-    "fixture/DescribeIndexResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeIndex)
-
-responseAttachPolicy :: AttachPolicyResponse -> TestTree
-responseAttachPolicy =
-  res
-    "AttachPolicyResponse"
-    "fixture/AttachPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy AttachPolicy)
-
-responseUpdateRoleAlias :: UpdateRoleAliasResponse -> TestTree
-responseUpdateRoleAlias =
-  res
-    "UpdateRoleAliasResponse"
-    "fixture/UpdateRoleAliasResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateRoleAlias)
-
-responseClearDefaultAuthorizer :: ClearDefaultAuthorizerResponse -> TestTree
-responseClearDefaultAuthorizer =
-  res
-    "ClearDefaultAuthorizerResponse"
-    "fixture/ClearDefaultAuthorizerResponse.proto"
-    defaultService
-    (Proxy :: Proxy ClearDefaultAuthorizer)
-
-responseCreateTopicRule :: CreateTopicRuleResponse -> TestTree
-responseCreateTopicRule =
-  res
-    "CreateTopicRuleResponse"
-    "fixture/CreateTopicRuleResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateTopicRule)
-
-responseCancelJobExecution :: CancelJobExecutionResponse -> TestTree
-responseCancelJobExecution =
-  res
-    "CancelJobExecutionResponse"
-    "fixture/CancelJobExecutionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CancelJobExecution)
-
-responseCreateJob :: CreateJobResponse -> TestTree
-responseCreateJob =
-  res
-    "CreateJobResponse"
-    "fixture/CreateJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateJob)
-
-responseAssociateTargetsWithJob :: AssociateTargetsWithJobResponse -> TestTree
-responseAssociateTargetsWithJob =
-  res
-    "AssociateTargetsWithJobResponse"
-    "fixture/AssociateTargetsWithJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy AssociateTargetsWithJob)
-
-responseDeletePolicyVersion :: DeletePolicyVersionResponse -> TestTree
-responseDeletePolicyVersion =
-  res
-    "DeletePolicyVersionResponse"
-    "fixture/DeletePolicyVersionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeletePolicyVersion)
-
-responseDeleteRoleAlias :: DeleteRoleAliasResponse -> TestTree
-responseDeleteRoleAlias =
-  res
-    "DeleteRoleAliasResponse"
-    "fixture/DeleteRoleAliasResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteRoleAlias)
-
-responseListPolicyVersions :: ListPolicyVersionsResponse -> TestTree
-responseListPolicyVersions =
-  res
-    "ListPolicyVersionsResponse"
-    "fixture/ListPolicyVersionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListPolicyVersions)
-
-responseListTargetsForPolicy :: ListTargetsForPolicyResponse -> TestTree
-responseListTargetsForPolicy =
-  res
-    "ListTargetsForPolicyResponse"
-    "fixture/ListTargetsForPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTargetsForPolicy)
-
-responseCancelCertificateTransfer :: CancelCertificateTransferResponse -> TestTree
-responseCancelCertificateTransfer =
-  res
-    "CancelCertificateTransferResponse"
-    "fixture/CancelCertificateTransferResponse.proto"
-    defaultService
-    (Proxy :: Proxy CancelCertificateTransfer)
-
-responseListAuthorizers :: ListAuthorizersResponse -> TestTree
-responseListAuthorizers =
-  res
-    "ListAuthorizersResponse"
-    "fixture/ListAuthorizersResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListAuthorizers)
-
-responseCreateThingType :: CreateThingTypeResponse -> TestTree
-responseCreateThingType =
-  res
-    "CreateThingTypeResponse"
-    "fixture/CreateThingTypeResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateThingType)
-
-responseUpdateAuthorizer :: UpdateAuthorizerResponse -> TestTree
-responseUpdateAuthorizer =
-  res
-    "UpdateAuthorizerResponse"
-    "fixture/UpdateAuthorizerResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateAuthorizer)
-
-responseCreateAuditSuppression :: CreateAuditSuppressionResponse -> TestTree
-responseCreateAuditSuppression =
-  res
-    "CreateAuditSuppressionResponse"
-    "fixture/CreateAuditSuppressionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateAuditSuppression)
-
-responseListJobExecutionsForJob :: ListJobExecutionsForJobResponse -> TestTree
-responseListJobExecutionsForJob =
-  res
-    "ListJobExecutionsForJobResponse"
-    "fixture/ListJobExecutionsForJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListJobExecutionsForJob)
-
-responseDescribeSecurityProfile :: DescribeSecurityProfileResponse -> TestTree
-responseDescribeSecurityProfile =
-  res
-    "DescribeSecurityProfileResponse"
-    "fixture/DescribeSecurityProfileResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeSecurityProfile)
-
-responseRemoveThingFromBillingGroup :: RemoveThingFromBillingGroupResponse -> TestTree
-responseRemoveThingFromBillingGroup =
-  res
-    "RemoveThingFromBillingGroupResponse"
-    "fixture/RemoveThingFromBillingGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy RemoveThingFromBillingGroup)
-
-responseCreateStream :: CreateStreamResponse -> TestTree
-responseCreateStream =
-  res
-    "CreateStreamResponse"
-    "fixture/CreateStreamResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateStream)
-
-responseSearchIndex :: SearchIndexResponse -> TestTree
-responseSearchIndex =
-  res
-    "SearchIndexResponse"
-    "fixture/SearchIndexResponse.proto"
-    defaultService
-    (Proxy :: Proxy SearchIndex)
-
-responseCancelAuditMitigationActionsTask :: CancelAuditMitigationActionsTaskResponse -> TestTree
-responseCancelAuditMitigationActionsTask =
-  res
-    "CancelAuditMitigationActionsTaskResponse"
-    "fixture/CancelAuditMitigationActionsTaskResponse.proto"
-    defaultService
-    (Proxy :: Proxy CancelAuditMitigationActionsTask)
-
-responseDeleteAuthorizer :: DeleteAuthorizerResponse -> TestTree
-responseDeleteAuthorizer =
-  res
-    "DeleteAuthorizerResponse"
-    "fixture/DeleteAuthorizerResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteAuthorizer)
-
-responseCreateBillingGroup :: CreateBillingGroupResponse -> TestTree
-responseCreateBillingGroup =
-  res
-    "CreateBillingGroupResponse"
-    "fixture/CreateBillingGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateBillingGroup)
-
-responseDescribeAuditFinding :: DescribeAuditFindingResponse -> TestTree
-responseDescribeAuditFinding =
-  res
-    "DescribeAuditFindingResponse"
-    "fixture/DescribeAuditFindingResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeAuditFinding)
-
-responseDeleteScheduledAudit :: DeleteScheduledAuditResponse -> TestTree
-responseDeleteScheduledAudit =
-  res
-    "DeleteScheduledAuditResponse"
-    "fixture/DeleteScheduledAuditResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteScheduledAudit)
-
-responseGetEffectivePolicies :: GetEffectivePoliciesResponse -> TestTree
-responseGetEffectivePolicies =
-  res
-    "GetEffectivePoliciesResponse"
-    "fixture/GetEffectivePoliciesResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetEffectivePolicies)
-
-responseGetOTAUpdate :: GetOTAUpdateResponse -> TestTree
-responseGetOTAUpdate =
-  res
-    "GetOTAUpdateResponse"
-    "fixture/GetOTAUpdateResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetOTAUpdate)
-
-responseCreateProvisioningTemplate :: CreateProvisioningTemplateResponse -> TestTree
-responseCreateProvisioningTemplate =
-  res
-    "CreateProvisioningTemplateResponse"
-    "fixture/CreateProvisioningTemplateResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateProvisioningTemplate)
-
-responseListThingTypes :: ListThingTypesResponse -> TestTree
-responseListThingTypes =
-  res
-    "ListThingTypesResponse"
-    "fixture/ListThingTypesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListThingTypes)
-
-responseDeleteThingType :: DeleteThingTypeResponse -> TestTree
-responseDeleteThingType =
-  res
-    "DeleteThingTypeResponse"
-    "fixture/DeleteThingTypeResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteThingType)
-
-responseRegisterThing :: RegisterThingResponse -> TestTree
-responseRegisterThing =
-  res
-    "RegisterThingResponse"
-    "fixture/RegisterThingResponse.proto"
-    defaultService
-    (Proxy :: Proxy RegisterThing)
+    (Proxy :: Proxy ListDetectMitigationActionsExecutions)
 
 responseListBillingGroups :: ListBillingGroupsResponse -> TestTree
 responseListBillingGroups =
@@ -4453,45 +4013,101 @@ responseListBillingGroups =
     defaultService
     (Proxy :: Proxy ListBillingGroups)
 
-responseListStreams :: ListStreamsResponse -> TestTree
-responseListStreams =
+responseDeleteThingType :: DeleteThingTypeResponse -> TestTree
+responseDeleteThingType =
   res
-    "ListStreamsResponse"
-    "fixture/ListStreamsResponse.proto"
+    "DeleteThingTypeResponse"
+    "fixture/DeleteThingTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStreams)
+    (Proxy :: Proxy DeleteThingType)
 
-responseTestAuthorization :: TestAuthorizationResponse -> TestTree
-responseTestAuthorization =
+responseDeleteBillingGroup :: DeleteBillingGroupResponse -> TestTree
+responseDeleteBillingGroup =
   res
-    "TestAuthorizationResponse"
-    "fixture/TestAuthorizationResponse.proto"
+    "DeleteBillingGroupResponse"
+    "fixture/DeleteBillingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy TestAuthorization)
+    (Proxy :: Proxy DeleteBillingGroup)
 
-responseListIndices :: ListIndicesResponse -> TestTree
-responseListIndices =
+responseAddThingToThingGroup :: AddThingToThingGroupResponse -> TestTree
+responseAddThingToThingGroup =
   res
-    "ListIndicesResponse"
-    "fixture/ListIndicesResponse.proto"
+    "AddThingToThingGroupResponse"
+    "fixture/AddThingToThingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIndices)
+    (Proxy :: Proxy AddThingToThingGroup)
 
-responseDescribeAuditTask :: DescribeAuditTaskResponse -> TestTree
-responseDescribeAuditTask =
+responseUpdateBillingGroup :: UpdateBillingGroupResponse -> TestTree
+responseUpdateBillingGroup =
   res
-    "DescribeAuditTaskResponse"
-    "fixture/DescribeAuditTaskResponse.proto"
+    "UpdateBillingGroupResponse"
+    "fixture/UpdateBillingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAuditTask)
+    (Proxy :: Proxy UpdateBillingGroup)
 
-responseCreateCertificateFromCsr :: CreateCertificateFromCsrResponse -> TestTree
-responseCreateCertificateFromCsr =
+responseGetTopicRuleDestination :: GetTopicRuleDestinationResponse -> TestTree
+responseGetTopicRuleDestination =
   res
-    "CreateCertificateFromCsrResponse"
-    "fixture/CreateCertificateFromCsrResponse.proto"
+    "GetTopicRuleDestinationResponse"
+    "fixture/GetTopicRuleDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCertificateFromCsr)
+    (Proxy :: Proxy GetTopicRuleDestination)
+
+responseListCertificatesByCA :: ListCertificatesByCAResponse -> TestTree
+responseListCertificatesByCA =
+  res
+    "ListCertificatesByCAResponse"
+    "fixture/ListCertificatesByCAResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListCertificatesByCA)
+
+responseUpdateAuditSuppression :: UpdateAuditSuppressionResponse -> TestTree
+responseUpdateAuditSuppression =
+  res
+    "UpdateAuditSuppressionResponse"
+    "fixture/UpdateAuditSuppressionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateAuditSuppression)
+
+responseAttachThingPrincipal :: AttachThingPrincipalResponse -> TestTree
+responseAttachThingPrincipal =
+  res
+    "AttachThingPrincipalResponse"
+    "fixture/AttachThingPrincipalResponse.proto"
+    defaultService
+    (Proxy :: Proxy AttachThingPrincipal)
+
+responseListThings :: ListThingsResponse -> TestTree
+responseListThings =
+  res
+    "ListThingsResponse"
+    "fixture/ListThingsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListThings)
+
+responseDeleteAuditSuppression :: DeleteAuditSuppressionResponse -> TestTree
+responseDeleteAuditSuppression =
+  res
+    "DeleteAuditSuppressionResponse"
+    "fixture/DeleteAuditSuppressionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteAuditSuppression)
+
+responseListDetectMitigationActionsTasks :: ListDetectMitigationActionsTasksResponse -> TestTree
+responseListDetectMitigationActionsTasks =
+  res
+    "ListDetectMitigationActionsTasksResponse"
+    "fixture/ListDetectMitigationActionsTasksResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListDetectMitigationActionsTasks)
+
+responseRegisterThing :: RegisterThingResponse -> TestTree
+responseRegisterThing =
+  res
+    "RegisterThingResponse"
+    "fixture/RegisterThingResponse.proto"
+    defaultService
+    (Proxy :: Proxy RegisterThing)
 
 responseListAuditSuppressions :: ListAuditSuppressionsResponse -> TestTree
 responseListAuditSuppressions =
@@ -4509,130 +4125,514 @@ responseDescribeDomainConfiguration =
     defaultService
     (Proxy :: Proxy DescribeDomainConfiguration)
 
-responseUpdateScheduledAudit :: UpdateScheduledAuditResponse -> TestTree
-responseUpdateScheduledAudit =
+responseDescribeAuditTask :: DescribeAuditTaskResponse -> TestTree
+responseDescribeAuditTask =
   res
-    "UpdateScheduledAuditResponse"
-    "fixture/UpdateScheduledAuditResponse.proto"
+    "DescribeAuditTaskResponse"
+    "fixture/DescribeAuditTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateScheduledAudit)
+    (Proxy :: Proxy DescribeAuditTask)
 
-responseGetTopicRuleDestination :: GetTopicRuleDestinationResponse -> TestTree
-responseGetTopicRuleDestination =
+responseDeleteRegistrationCode :: DeleteRegistrationCodeResponse -> TestTree
+responseDeleteRegistrationCode =
   res
-    "GetTopicRuleDestinationResponse"
-    "fixture/GetTopicRuleDestinationResponse.proto"
+    "DeleteRegistrationCodeResponse"
+    "fixture/DeleteRegistrationCodeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTopicRuleDestination)
+    (Proxy :: Proxy DeleteRegistrationCode)
 
-responseDeleteTopicRuleDestination :: DeleteTopicRuleDestinationResponse -> TestTree
-responseDeleteTopicRuleDestination =
+responseUpdateStream :: UpdateStreamResponse -> TestTree
+responseUpdateStream =
   res
-    "DeleteTopicRuleDestinationResponse"
-    "fixture/DeleteTopicRuleDestinationResponse.proto"
+    "UpdateStreamResponse"
+    "fixture/UpdateStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTopicRuleDestination)
+    (Proxy :: Proxy UpdateStream)
 
-responseListOutgoingCertificates :: ListOutgoingCertificatesResponse -> TestTree
-responseListOutgoingCertificates =
+responseDeleteStream :: DeleteStreamResponse -> TestTree
+responseDeleteStream =
   res
-    "ListOutgoingCertificatesResponse"
-    "fixture/ListOutgoingCertificatesResponse.proto"
+    "DeleteStreamResponse"
+    "fixture/DeleteStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOutgoingCertificates)
+    (Proxy :: Proxy DeleteStream)
 
-responseDescribeJobTemplate :: DescribeJobTemplateResponse -> TestTree
-responseDescribeJobTemplate =
+responseListStreams :: ListStreamsResponse -> TestTree
+responseListStreams =
   res
-    "DescribeJobTemplateResponse"
-    "fixture/DescribeJobTemplateResponse.proto"
+    "ListStreamsResponse"
+    "fixture/ListStreamsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeJobTemplate)
+    (Proxy :: Proxy ListStreams)
 
-responseAddThingToBillingGroup :: AddThingToBillingGroupResponse -> TestTree
-responseAddThingToBillingGroup =
+responseCreateAuthorizer :: CreateAuthorizerResponse -> TestTree
+responseCreateAuthorizer =
   res
-    "AddThingToBillingGroupResponse"
-    "fixture/AddThingToBillingGroupResponse.proto"
+    "CreateAuthorizerResponse"
+    "fixture/CreateAuthorizerResponse.proto"
     defaultService
-    (Proxy :: Proxy AddThingToBillingGroup)
+    (Proxy :: Proxy CreateAuthorizer)
 
-responseListOTAUpdates :: ListOTAUpdatesResponse -> TestTree
-responseListOTAUpdates =
+responseTestAuthorization :: TestAuthorizationResponse -> TestTree
+responseTestAuthorization =
   res
-    "ListOTAUpdatesResponse"
-    "fixture/ListOTAUpdatesResponse.proto"
+    "TestAuthorizationResponse"
+    "fixture/TestAuthorizationResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOTAUpdates)
+    (Proxy :: Proxy TestAuthorization)
 
-responseUpdateThingGroup :: UpdateThingGroupResponse -> TestTree
-responseUpdateThingGroup =
+responseListIndices :: ListIndicesResponse -> TestTree
+responseListIndices =
   res
-    "UpdateThingGroupResponse"
-    "fixture/UpdateThingGroupResponse.proto"
+    "ListIndicesResponse"
+    "fixture/ListIndicesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateThingGroup)
+    (Proxy :: Proxy ListIndices)
 
-responseDeleteThingGroup :: DeleteThingGroupResponse -> TestTree
-responseDeleteThingGroup =
+responseUpdateAuthorizer :: UpdateAuthorizerResponse -> TestTree
+responseUpdateAuthorizer =
   res
-    "DeleteThingGroupResponse"
-    "fixture/DeleteThingGroupResponse.proto"
+    "UpdateAuthorizerResponse"
+    "fixture/UpdateAuthorizerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteThingGroup)
+    (Proxy :: Proxy UpdateAuthorizer)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseDeleteAuthorizer :: DeleteAuthorizerResponse -> TestTree
+responseDeleteAuthorizer =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "DeleteAuthorizerResponse"
+    "fixture/DeleteAuthorizerResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy :: Proxy DeleteAuthorizer)
 
-responseDescribeEventConfigurations :: DescribeEventConfigurationsResponse -> TestTree
-responseDescribeEventConfigurations =
+responseCreateThing :: CreateThingResponse -> TestTree
+responseCreateThing =
   res
-    "DescribeEventConfigurationsResponse"
-    "fixture/DescribeEventConfigurationsResponse.proto"
+    "CreateThingResponse"
+    "fixture/CreateThingResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEventConfigurations)
+    (Proxy :: Proxy CreateThing)
 
-responseListTopicRuleDestinations :: ListTopicRuleDestinationsResponse -> TestTree
-responseListTopicRuleDestinations =
+responseCreateStream :: CreateStreamResponse -> TestTree
+responseCreateStream =
   res
-    "ListTopicRuleDestinationsResponse"
-    "fixture/ListTopicRuleDestinationsResponse.proto"
+    "CreateStreamResponse"
+    "fixture/CreateStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTopicRuleDestinations)
+    (Proxy :: Proxy CreateStream)
 
-responseListProvisioningTemplateVersions :: ListProvisioningTemplateVersionsResponse -> TestTree
-responseListProvisioningTemplateVersions =
+responseCancelAuditMitigationActionsTask :: CancelAuditMitigationActionsTaskResponse -> TestTree
+responseCancelAuditMitigationActionsTask =
   res
-    "ListProvisioningTemplateVersionsResponse"
-    "fixture/ListProvisioningTemplateVersionsResponse.proto"
+    "CancelAuditMitigationActionsTaskResponse"
+    "fixture/CancelAuditMitigationActionsTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProvisioningTemplateVersions)
+    (Proxy :: Proxy CancelAuditMitigationActionsTask)
 
-responseUpdateTopicRuleDestination :: UpdateTopicRuleDestinationResponse -> TestTree
-responseUpdateTopicRuleDestination =
+responseCreateAuditSuppression :: CreateAuditSuppressionResponse -> TestTree
+responseCreateAuditSuppression =
   res
-    "UpdateTopicRuleDestinationResponse"
-    "fixture/UpdateTopicRuleDestinationResponse.proto"
+    "CreateAuditSuppressionResponse"
+    "fixture/CreateAuditSuppressionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTopicRuleDestination)
+    (Proxy :: Proxy CreateAuditSuppression)
 
-responseListThingGroups :: ListThingGroupsResponse -> TestTree
-responseListThingGroups =
+responseCreateBillingGroup :: CreateBillingGroupResponse -> TestTree
+responseCreateBillingGroup =
   res
-    "ListThingGroupsResponse"
-    "fixture/ListThingGroupsResponse.proto"
+    "CreateBillingGroupResponse"
+    "fixture/CreateBillingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ListThingGroups)
+    (Proxy :: Proxy CreateBillingGroup)
 
-responseCancelDetectMitigationActionsTask :: CancelDetectMitigationActionsTaskResponse -> TestTree
-responseCancelDetectMitigationActionsTask =
+responseListProvisioningTemplates :: ListProvisioningTemplatesResponse -> TestTree
+responseListProvisioningTemplates =
   res
-    "CancelDetectMitigationActionsTaskResponse"
-    "fixture/CancelDetectMitigationActionsTaskResponse.proto"
+    "ListProvisioningTemplatesResponse"
+    "fixture/ListProvisioningTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelDetectMitigationActionsTask)
+    (Proxy :: Proxy ListProvisioningTemplates)
+
+responseListV2LoggingLevels :: ListV2LoggingLevelsResponse -> TestTree
+responseListV2LoggingLevels =
+  res
+    "ListV2LoggingLevelsResponse"
+    "fixture/ListV2LoggingLevelsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListV2LoggingLevels)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
+
+responseStopThingRegistrationTask :: StopThingRegistrationTaskResponse -> TestTree
+responseStopThingRegistrationTask =
+  res
+    "StopThingRegistrationTaskResponse"
+    "fixture/StopThingRegistrationTaskResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopThingRegistrationTask)
+
+responseDescribeCertificate :: DescribeCertificateResponse -> TestTree
+responseDescribeCertificate =
+  res
+    "DescribeCertificateResponse"
+    "fixture/DescribeCertificateResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeCertificate)
+
+responseListTargetsForPolicy :: ListTargetsForPolicyResponse -> TestTree
+responseListTargetsForPolicy =
+  res
+    "ListTargetsForPolicyResponse"
+    "fixture/ListTargetsForPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTargetsForPolicy)
+
+responseCreateJobTemplate :: CreateJobTemplateResponse -> TestTree
+responseCreateJobTemplate =
+  res
+    "CreateJobTemplateResponse"
+    "fixture/CreateJobTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateJobTemplate)
+
+responseClearDefaultAuthorizer :: ClearDefaultAuthorizerResponse -> TestTree
+responseClearDefaultAuthorizer =
+  res
+    "ClearDefaultAuthorizerResponse"
+    "fixture/ClearDefaultAuthorizerResponse.proto"
+    defaultService
+    (Proxy :: Proxy ClearDefaultAuthorizer)
+
+responseReplaceTopicRule :: ReplaceTopicRuleResponse -> TestTree
+responseReplaceTopicRule =
+  res
+    "ReplaceTopicRuleResponse"
+    "fixture/ReplaceTopicRuleResponse.proto"
+    defaultService
+    (Proxy :: Proxy ReplaceTopicRule)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
+
+responseDeleteFleetMetric :: DeleteFleetMetricResponse -> TestTree
+responseDeleteFleetMetric =
+  res
+    "DeleteFleetMetricResponse"
+    "fixture/DeleteFleetMetricResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteFleetMetric)
+
+responseUpdateFleetMetric :: UpdateFleetMetricResponse -> TestTree
+responseUpdateFleetMetric =
+  res
+    "UpdateFleetMetricResponse"
+    "fixture/UpdateFleetMetricResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateFleetMetric)
+
+responseSetDefaultPolicyVersion :: SetDefaultPolicyVersionResponse -> TestTree
+responseSetDefaultPolicyVersion =
+  res
+    "SetDefaultPolicyVersionResponse"
+    "fixture/SetDefaultPolicyVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetDefaultPolicyVersion)
+
+responseCancelJobExecution :: CancelJobExecutionResponse -> TestTree
+responseCancelJobExecution =
+  res
+    "CancelJobExecutionResponse"
+    "fixture/CancelJobExecutionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CancelJobExecution)
+
+responseListPolicyVersions :: ListPolicyVersionsResponse -> TestTree
+responseListPolicyVersions =
+  res
+    "ListPolicyVersionsResponse"
+    "fixture/ListPolicyVersionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListPolicyVersions)
+
+responseSetV2LoggingLevel :: SetV2LoggingLevelResponse -> TestTree
+responseSetV2LoggingLevel =
+  res
+    "SetV2LoggingLevelResponse"
+    "fixture/SetV2LoggingLevelResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetV2LoggingLevel)
+
+responseListJobExecutionsForThing :: ListJobExecutionsForThingResponse -> TestTree
+responseListJobExecutionsForThing =
+  res
+    "ListJobExecutionsForThingResponse"
+    "fixture/ListJobExecutionsForThingResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListJobExecutionsForThing)
+
+responseAttachPolicy :: AttachPolicyResponse -> TestTree
+responseAttachPolicy =
+  res
+    "AttachPolicyResponse"
+    "fixture/AttachPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy AttachPolicy)
+
+responseCreateKeysAndCertificate :: CreateKeysAndCertificateResponse -> TestTree
+responseCreateKeysAndCertificate =
+  res
+    "CreateKeysAndCertificateResponse"
+    "fixture/CreateKeysAndCertificateResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateKeysAndCertificate)
+
+responseListThingsInBillingGroup :: ListThingsInBillingGroupResponse -> TestTree
+responseListThingsInBillingGroup =
+  res
+    "ListThingsInBillingGroupResponse"
+    "fixture/ListThingsInBillingGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListThingsInBillingGroup)
+
+responseUpdateThingGroupsForThing :: UpdateThingGroupsForThingResponse -> TestTree
+responseUpdateThingGroupsForThing =
+  res
+    "UpdateThingGroupsForThingResponse"
+    "fixture/UpdateThingGroupsForThingResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateThingGroupsForThing)
+
+responseCreateFleetMetric :: CreateFleetMetricResponse -> TestTree
+responseCreateFleetMetric =
+  res
+    "CreateFleetMetricResponse"
+    "fixture/CreateFleetMetricResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateFleetMetric)
+
+responseEnableTopicRule :: EnableTopicRuleResponse -> TestTree
+responseEnableTopicRule =
+  res
+    "EnableTopicRuleResponse"
+    "fixture/EnableTopicRuleResponse.proto"
+    defaultService
+    (Proxy :: Proxy EnableTopicRule)
+
+responseDeleteJobTemplate :: DeleteJobTemplateResponse -> TestTree
+responseDeleteJobTemplate =
+  res
+    "DeleteJobTemplateResponse"
+    "fixture/DeleteJobTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteJobTemplate)
+
+responseAcceptCertificateTransfer :: AcceptCertificateTransferResponse -> TestTree
+responseAcceptCertificateTransfer =
+  res
+    "AcceptCertificateTransferResponse"
+    "fixture/AcceptCertificateTransferResponse.proto"
+    defaultService
+    (Proxy :: Proxy AcceptCertificateTransfer)
+
+responseGetPercentiles :: GetPercentilesResponse -> TestTree
+responseGetPercentiles =
+  res
+    "GetPercentilesResponse"
+    "fixture/GetPercentilesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetPercentiles)
+
+responseGetPolicy :: GetPolicyResponse -> TestTree
+responseGetPolicy =
+  res
+    "GetPolicyResponse"
+    "fixture/GetPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetPolicy)
+
+responseListJobTemplates :: ListJobTemplatesResponse -> TestTree
+responseListJobTemplates =
+  res
+    "ListJobTemplatesResponse"
+    "fixture/ListJobTemplatesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListJobTemplates)
+
+responseDescribeEndpoint :: DescribeEndpointResponse -> TestTree
+responseDescribeEndpoint =
+  res
+    "DescribeEndpointResponse"
+    "fixture/DescribeEndpointResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeEndpoint)
+
+responseListSecurityProfilesForTarget :: ListSecurityProfilesForTargetResponse -> TestTree
+responseListSecurityProfilesForTarget =
+  res
+    "ListSecurityProfilesForTargetResponse"
+    "fixture/ListSecurityProfilesForTargetResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListSecurityProfilesForTarget)
+
+responseUpdateEventConfigurations :: UpdateEventConfigurationsResponse -> TestTree
+responseUpdateEventConfigurations =
+  res
+    "UpdateEventConfigurationsResponse"
+    "fixture/UpdateEventConfigurationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateEventConfigurations)
+
+responseUpdateCustomMetric :: UpdateCustomMetricResponse -> TestTree
+responseUpdateCustomMetric =
+  res
+    "UpdateCustomMetricResponse"
+    "fixture/UpdateCustomMetricResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateCustomMetric)
+
+responseDeleteCustomMetric :: DeleteCustomMetricResponse -> TestTree
+responseDeleteCustomMetric =
+  res
+    "DeleteCustomMetricResponse"
+    "fixture/DeleteCustomMetricResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteCustomMetric)
+
+responseRegisterCACertificate :: RegisterCACertificateResponse -> TestTree
+responseRegisterCACertificate =
+  res
+    "RegisterCACertificateResponse"
+    "fixture/RegisterCACertificateResponse.proto"
+    defaultService
+    (Proxy :: Proxy RegisterCACertificate)
+
+responseDeleteDomainConfiguration :: DeleteDomainConfigurationResponse -> TestTree
+responseDeleteDomainConfiguration =
+  res
+    "DeleteDomainConfigurationResponse"
+    "fixture/DeleteDomainConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDomainConfiguration)
+
+responseUpdateDomainConfiguration :: UpdateDomainConfigurationResponse -> TestTree
+responseUpdateDomainConfiguration =
+  res
+    "UpdateDomainConfigurationResponse"
+    "fixture/UpdateDomainConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDomainConfiguration)
+
+responseSetLoggingOptions :: SetLoggingOptionsResponse -> TestTree
+responseSetLoggingOptions =
+  res
+    "SetLoggingOptionsResponse"
+    "fixture/SetLoggingOptionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetLoggingOptions)
+
+responseDescribeThingType :: DescribeThingTypeResponse -> TestTree
+responseDescribeThingType =
+  res
+    "DescribeThingTypeResponse"
+    "fixture/DescribeThingTypeResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeThingType)
+
+responseListDimensions :: ListDimensionsResponse -> TestTree
+responseListDimensions =
+  res
+    "ListDimensionsResponse"
+    "fixture/ListDimensionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListDimensions)
+
+responseGetV2LoggingOptions :: GetV2LoggingOptionsResponse -> TestTree
+responseGetV2LoggingOptions =
+  res
+    "GetV2LoggingOptionsResponse"
+    "fixture/GetV2LoggingOptionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetV2LoggingOptions)
+
+responseListThingRegistrationTasks :: ListThingRegistrationTasksResponse -> TestTree
+responseListThingRegistrationTasks =
+  res
+    "ListThingRegistrationTasksResponse"
+    "fixture/ListThingRegistrationTasksResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListThingRegistrationTasks)
+
+responseRejectCertificateTransfer :: RejectCertificateTransferResponse -> TestTree
+responseRejectCertificateTransfer =
+  res
+    "RejectCertificateTransferResponse"
+    "fixture/RejectCertificateTransferResponse.proto"
+    defaultService
+    (Proxy :: Proxy RejectCertificateTransfer)
+
+responseDescribeAuditSuppression :: DescribeAuditSuppressionResponse -> TestTree
+responseDescribeAuditSuppression =
+  res
+    "DescribeAuditSuppressionResponse"
+    "fixture/DescribeAuditSuppressionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAuditSuppression)
+
+responseDescribeStream :: DescribeStreamResponse -> TestTree
+responseDescribeStream =
+  res
+    "DescribeStreamResponse"
+    "fixture/DescribeStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeStream)
+
+responseCreateSecurityProfile :: CreateSecurityProfileResponse -> TestTree
+responseCreateSecurityProfile =
+  res
+    "CreateSecurityProfileResponse"
+    "fixture/CreateSecurityProfileResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateSecurityProfile)
+
+responseDescribeBillingGroup :: DescribeBillingGroupResponse -> TestTree
+responseDescribeBillingGroup =
+  res
+    "DescribeBillingGroupResponse"
+    "fixture/DescribeBillingGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeBillingGroup)
+
+responseDetachThingPrincipal :: DetachThingPrincipalResponse -> TestTree
+responseDetachThingPrincipal =
+  res
+    "DetachThingPrincipalResponse"
+    "fixture/DetachThingPrincipalResponse.proto"
+    defaultService
+    (Proxy :: Proxy DetachThingPrincipal)
+
+responseCancelJob :: CancelJobResponse -> TestTree
+responseCancelJob =
+  res
+    "CancelJobResponse"
+    "fixture/CancelJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy CancelJob)
+
+responseDeprecateThingType :: DeprecateThingTypeResponse -> TestTree
+responseDeprecateThingType =
+  res
+    "DeprecateThingTypeResponse"
+    "fixture/DeprecateThingTypeResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeprecateThingType)

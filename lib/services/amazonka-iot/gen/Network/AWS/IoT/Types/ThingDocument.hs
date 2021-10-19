@@ -28,21 +28,21 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newThingDocument' smart constructor.
 data ThingDocument = ThingDocument'
-  { -- | The thing ID.
-    thingId :: Prelude.Maybe Prelude.Text,
-    -- | The thing name.
-    thingName :: Prelude.Maybe Prelude.Text,
+  { -- | Thing group names.
+    thingGroupNames :: Prelude.Maybe [Prelude.Text],
+    -- | The thing type name.
+    thingTypeName :: Prelude.Maybe Prelude.Text,
+    -- | The shadow.
+    shadow :: Prelude.Maybe Prelude.Text,
+    -- | The attributes.
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Indicates whether the thing is connected to the Amazon Web Services IoT
     -- Core service.
     connectivity :: Prelude.Maybe ThingConnectivity,
-    -- | The attributes.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Thing group names.
-    thingGroupNames :: Prelude.Maybe [Prelude.Text],
-    -- | The shadow.
-    shadow :: Prelude.Maybe Prelude.Text,
-    -- | The thing type name.
-    thingTypeName :: Prelude.Maybe Prelude.Text
+    -- | The thing name.
+    thingName :: Prelude.Maybe Prelude.Text,
+    -- | The thing ID.
+    thingId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,61 +54,61 @@ data ThingDocument = ThingDocument'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingId', 'thingDocument_thingId' - The thing ID.
+-- 'thingGroupNames', 'thingDocument_thingGroupNames' - Thing group names.
 --
--- 'thingName', 'thingDocument_thingName' - The thing name.
+-- 'thingTypeName', 'thingDocument_thingTypeName' - The thing type name.
+--
+-- 'shadow', 'thingDocument_shadow' - The shadow.
+--
+-- 'attributes', 'thingDocument_attributes' - The attributes.
 --
 -- 'connectivity', 'thingDocument_connectivity' - Indicates whether the thing is connected to the Amazon Web Services IoT
 -- Core service.
 --
--- 'attributes', 'thingDocument_attributes' - The attributes.
+-- 'thingName', 'thingDocument_thingName' - The thing name.
 --
--- 'thingGroupNames', 'thingDocument_thingGroupNames' - Thing group names.
---
--- 'shadow', 'thingDocument_shadow' - The shadow.
---
--- 'thingTypeName', 'thingDocument_thingTypeName' - The thing type name.
+-- 'thingId', 'thingDocument_thingId' - The thing ID.
 newThingDocument ::
   ThingDocument
 newThingDocument =
   ThingDocument'
-    { thingId = Prelude.Nothing,
-      thingName = Prelude.Nothing,
-      connectivity = Prelude.Nothing,
-      attributes = Prelude.Nothing,
-      thingGroupNames = Prelude.Nothing,
+    { thingGroupNames = Prelude.Nothing,
+      thingTypeName = Prelude.Nothing,
       shadow = Prelude.Nothing,
-      thingTypeName = Prelude.Nothing
+      attributes = Prelude.Nothing,
+      connectivity = Prelude.Nothing,
+      thingName = Prelude.Nothing,
+      thingId = Prelude.Nothing
     }
 
--- | The thing ID.
-thingDocument_thingId :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
-thingDocument_thingId = Lens.lens (\ThingDocument' {thingId} -> thingId) (\s@ThingDocument' {} a -> s {thingId = a} :: ThingDocument)
+-- | Thing group names.
+thingDocument_thingGroupNames :: Lens.Lens' ThingDocument (Prelude.Maybe [Prelude.Text])
+thingDocument_thingGroupNames = Lens.lens (\ThingDocument' {thingGroupNames} -> thingGroupNames) (\s@ThingDocument' {} a -> s {thingGroupNames = a} :: ThingDocument) Prelude.. Lens.mapping Lens.coerced
 
--- | The thing name.
-thingDocument_thingName :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
-thingDocument_thingName = Lens.lens (\ThingDocument' {thingName} -> thingName) (\s@ThingDocument' {} a -> s {thingName = a} :: ThingDocument)
+-- | The thing type name.
+thingDocument_thingTypeName :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
+thingDocument_thingTypeName = Lens.lens (\ThingDocument' {thingTypeName} -> thingTypeName) (\s@ThingDocument' {} a -> s {thingTypeName = a} :: ThingDocument)
+
+-- | The shadow.
+thingDocument_shadow :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
+thingDocument_shadow = Lens.lens (\ThingDocument' {shadow} -> shadow) (\s@ThingDocument' {} a -> s {shadow = a} :: ThingDocument)
+
+-- | The attributes.
+thingDocument_attributes :: Lens.Lens' ThingDocument (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+thingDocument_attributes = Lens.lens (\ThingDocument' {attributes} -> attributes) (\s@ThingDocument' {} a -> s {attributes = a} :: ThingDocument) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether the thing is connected to the Amazon Web Services IoT
 -- Core service.
 thingDocument_connectivity :: Lens.Lens' ThingDocument (Prelude.Maybe ThingConnectivity)
 thingDocument_connectivity = Lens.lens (\ThingDocument' {connectivity} -> connectivity) (\s@ThingDocument' {} a -> s {connectivity = a} :: ThingDocument)
 
--- | The attributes.
-thingDocument_attributes :: Lens.Lens' ThingDocument (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-thingDocument_attributes = Lens.lens (\ThingDocument' {attributes} -> attributes) (\s@ThingDocument' {} a -> s {attributes = a} :: ThingDocument) Prelude.. Lens.mapping Lens._Coerce
+-- | The thing name.
+thingDocument_thingName :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
+thingDocument_thingName = Lens.lens (\ThingDocument' {thingName} -> thingName) (\s@ThingDocument' {} a -> s {thingName = a} :: ThingDocument)
 
--- | Thing group names.
-thingDocument_thingGroupNames :: Lens.Lens' ThingDocument (Prelude.Maybe [Prelude.Text])
-thingDocument_thingGroupNames = Lens.lens (\ThingDocument' {thingGroupNames} -> thingGroupNames) (\s@ThingDocument' {} a -> s {thingGroupNames = a} :: ThingDocument) Prelude.. Lens.mapping Lens._Coerce
-
--- | The shadow.
-thingDocument_shadow :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
-thingDocument_shadow = Lens.lens (\ThingDocument' {shadow} -> shadow) (\s@ThingDocument' {} a -> s {shadow = a} :: ThingDocument)
-
--- | The thing type name.
-thingDocument_thingTypeName :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
-thingDocument_thingTypeName = Lens.lens (\ThingDocument' {thingTypeName} -> thingTypeName) (\s@ThingDocument' {} a -> s {thingTypeName = a} :: ThingDocument)
+-- | The thing ID.
+thingDocument_thingId :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
+thingDocument_thingId = Lens.lens (\ThingDocument' {thingId} -> thingId) (\s@ThingDocument' {} a -> s {thingId = a} :: ThingDocument)
 
 instance Core.FromJSON ThingDocument where
   parseJSON =
@@ -116,15 +116,15 @@ instance Core.FromJSON ThingDocument where
       "ThingDocument"
       ( \x ->
           ThingDocument'
-            Prelude.<$> (x Core..:? "thingId")
-            Prelude.<*> (x Core..:? "thingName")
-            Prelude.<*> (x Core..:? "connectivity")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "thingGroupNames"
+            Prelude.<$> ( x Core..:? "thingGroupNames"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "shadow")
             Prelude.<*> (x Core..:? "thingTypeName")
+            Prelude.<*> (x Core..:? "shadow")
+            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "connectivity")
+            Prelude.<*> (x Core..:? "thingName")
+            Prelude.<*> (x Core..:? "thingId")
       )
 
 instance Prelude.Hashable ThingDocument

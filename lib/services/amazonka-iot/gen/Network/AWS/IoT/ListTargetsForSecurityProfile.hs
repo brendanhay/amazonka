@@ -210,7 +210,7 @@ newListTargetsForSecurityProfileResponse pHttpStatus_ =
 
 -- | The thing groups to which the security profile is attached.
 listTargetsForSecurityProfileResponse_securityProfileTargets :: Lens.Lens' ListTargetsForSecurityProfileResponse (Prelude.Maybe [SecurityProfileTarget])
-listTargetsForSecurityProfileResponse_securityProfileTargets = Lens.lens (\ListTargetsForSecurityProfileResponse' {securityProfileTargets} -> securityProfileTargets) (\s@ListTargetsForSecurityProfileResponse' {} a -> s {securityProfileTargets = a} :: ListTargetsForSecurityProfileResponse) Prelude.. Lens.mapping Lens._Coerce
+listTargetsForSecurityProfileResponse_securityProfileTargets = Lens.lens (\ListTargetsForSecurityProfileResponse' {securityProfileTargets} -> securityProfileTargets) (\s@ListTargetsForSecurityProfileResponse' {} a -> s {securityProfileTargets = a} :: ListTargetsForSecurityProfileResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.

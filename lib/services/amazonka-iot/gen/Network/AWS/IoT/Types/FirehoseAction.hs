@@ -28,11 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFirehoseAction' smart constructor.
 data FirehoseAction = FirehoseAction'
-  { -- | A character separator that will be used to separate records written to
-    -- the Firehose stream. Valid values are: \'\\n\' (newline), \'\\t\' (tab),
-    -- \'\\r\\n\' (Windows newline), \',\' (comma).
-    separator :: Prelude.Maybe Prelude.Text,
-    -- | Whether to deliver the Kinesis Data Firehose stream as a batch by using
+  { -- | Whether to deliver the Kinesis Data Firehose stream as a batch by using
     -- <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html PutRecordBatch>
     -- . The default value is @false@.
     --
@@ -41,6 +37,10 @@ data FirehoseAction = FirehoseAction'
     -- <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html PutRecordBatch>
     -- request. The resulting array can\'t have more than 500 records.
     batchMode :: Prelude.Maybe Prelude.Bool,
+    -- | A character separator that will be used to separate records written to
+    -- the Firehose stream. Valid values are: \'\\n\' (newline), \'\\t\' (tab),
+    -- \'\\r\\n\' (Windows newline), \',\' (comma).
+    separator :: Prelude.Maybe Prelude.Text,
     -- | The IAM role that grants access to the Amazon Kinesis Firehose stream.
     roleArn :: Prelude.Text,
     -- | The delivery stream name.
@@ -56,10 +56,6 @@ data FirehoseAction = FirehoseAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'separator', 'firehoseAction_separator' - A character separator that will be used to separate records written to
--- the Firehose stream. Valid values are: \'\\n\' (newline), \'\\t\' (tab),
--- \'\\r\\n\' (Windows newline), \',\' (comma).
---
 -- 'batchMode', 'firehoseAction_batchMode' - Whether to deliver the Kinesis Data Firehose stream as a batch by using
 -- <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html PutRecordBatch>
 -- . The default value is @false@.
@@ -68,6 +64,10 @@ data FirehoseAction = FirehoseAction'
 -- Array, each Array element forms one record in the
 -- <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html PutRecordBatch>
 -- request. The resulting array can\'t have more than 500 records.
+--
+-- 'separator', 'firehoseAction_separator' - A character separator that will be used to separate records written to
+-- the Firehose stream. Valid values are: \'\\n\' (newline), \'\\t\' (tab),
+-- \'\\r\\n\' (Windows newline), \',\' (comma).
 --
 -- 'roleArn', 'firehoseAction_roleArn' - The IAM role that grants access to the Amazon Kinesis Firehose stream.
 --
@@ -80,17 +80,11 @@ newFirehoseAction ::
   FirehoseAction
 newFirehoseAction pRoleArn_ pDeliveryStreamName_ =
   FirehoseAction'
-    { separator = Prelude.Nothing,
-      batchMode = Prelude.Nothing,
+    { batchMode = Prelude.Nothing,
+      separator = Prelude.Nothing,
       roleArn = pRoleArn_,
       deliveryStreamName = pDeliveryStreamName_
     }
-
--- | A character separator that will be used to separate records written to
--- the Firehose stream. Valid values are: \'\\n\' (newline), \'\\t\' (tab),
--- \'\\r\\n\' (Windows newline), \',\' (comma).
-firehoseAction_separator :: Lens.Lens' FirehoseAction (Prelude.Maybe Prelude.Text)
-firehoseAction_separator = Lens.lens (\FirehoseAction' {separator} -> separator) (\s@FirehoseAction' {} a -> s {separator = a} :: FirehoseAction)
 
 -- | Whether to deliver the Kinesis Data Firehose stream as a batch by using
 -- <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html PutRecordBatch>
@@ -102,6 +96,12 @@ firehoseAction_separator = Lens.lens (\FirehoseAction' {separator} -> separator)
 -- request. The resulting array can\'t have more than 500 records.
 firehoseAction_batchMode :: Lens.Lens' FirehoseAction (Prelude.Maybe Prelude.Bool)
 firehoseAction_batchMode = Lens.lens (\FirehoseAction' {batchMode} -> batchMode) (\s@FirehoseAction' {} a -> s {batchMode = a} :: FirehoseAction)
+
+-- | A character separator that will be used to separate records written to
+-- the Firehose stream. Valid values are: \'\\n\' (newline), \'\\t\' (tab),
+-- \'\\r\\n\' (Windows newline), \',\' (comma).
+firehoseAction_separator :: Lens.Lens' FirehoseAction (Prelude.Maybe Prelude.Text)
+firehoseAction_separator = Lens.lens (\FirehoseAction' {separator} -> separator) (\s@FirehoseAction' {} a -> s {separator = a} :: FirehoseAction)
 
 -- | The IAM role that grants access to the Amazon Kinesis Firehose stream.
 firehoseAction_roleArn :: Lens.Lens' FirehoseAction Prelude.Text
@@ -117,8 +117,8 @@ instance Core.FromJSON FirehoseAction where
       "FirehoseAction"
       ( \x ->
           FirehoseAction'
-            Prelude.<$> (x Core..:? "separator")
-            Prelude.<*> (x Core..:? "batchMode")
+            Prelude.<$> (x Core..:? "batchMode")
+            Prelude.<*> (x Core..:? "separator")
             Prelude.<*> (x Core..: "roleArn")
             Prelude.<*> (x Core..: "deliveryStreamName")
       )
@@ -131,8 +131,8 @@ instance Core.ToJSON FirehoseAction where
   toJSON FirehoseAction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("separator" Core..=) Prelude.<$> separator,
-            ("batchMode" Core..=) Prelude.<$> batchMode,
+          [ ("batchMode" Core..=) Prelude.<$> batchMode,
+            ("separator" Core..=) Prelude.<$> separator,
             Prelude.Just ("roleArn" Core..= roleArn),
             Prelude.Just
               ("deliveryStreamName" Core..= deliveryStreamName)

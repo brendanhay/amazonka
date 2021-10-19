@@ -32,27 +32,27 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newActiveViolation' smart constructor.
 data ActiveViolation = ActiveViolation'
-  { -- | The ID of the active violation.
-    violationId :: Prelude.Maybe Prelude.Text,
-    -- | The time the most recent violation occurred.
-    lastViolationTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the thing responsible for the active violation.
-    thingName :: Prelude.Maybe Prelude.Text,
+  { -- | The description of the verification state of the violation.
+    verificationStateDescription :: Prelude.Maybe Prelude.Text,
     -- | The value of the metric (the measurement) that caused the most recent
     -- violation.
     lastViolationValue :: Prelude.Maybe MetricValue,
-    -- | The description of the verification state of the violation.
-    verificationStateDescription :: Prelude.Maybe Prelude.Text,
-    -- | The security profile with the behavior is in violation.
-    securityProfileName :: Prelude.Maybe Prelude.Text,
-    -- | The behavior that is being violated.
-    behavior :: Prelude.Maybe Behavior,
+    -- | The time the most recent violation occurred.
+    lastViolationTime :: Prelude.Maybe Core.POSIX,
     -- | The time the violation started.
     violationStartTime :: Prelude.Maybe Core.POSIX,
-    -- | The verification state of the violation (detect alarm).
-    verificationState :: Prelude.Maybe VerificationState,
+    -- | The ID of the active violation.
+    violationId :: Prelude.Maybe Prelude.Text,
+    -- | The behavior that is being violated.
+    behavior :: Prelude.Maybe Behavior,
+    -- | The security profile with the behavior is in violation.
+    securityProfileName :: Prelude.Maybe Prelude.Text,
     -- | The details of a violation event.
-    violationEventAdditionalInfo :: Prelude.Maybe ViolationEventAdditionalInfo
+    violationEventAdditionalInfo :: Prelude.Maybe ViolationEventAdditionalInfo,
+    -- | The name of the thing responsible for the active violation.
+    thingName :: Prelude.Maybe Prelude.Text,
+    -- | The verification state of the violation (detect alarm).
+    verificationState :: Prelude.Maybe VerificationState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,82 +64,83 @@ data ActiveViolation = ActiveViolation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'violationId', 'activeViolation_violationId' - The ID of the active violation.
---
--- 'lastViolationTime', 'activeViolation_lastViolationTime' - The time the most recent violation occurred.
---
--- 'thingName', 'activeViolation_thingName' - The name of the thing responsible for the active violation.
+-- 'verificationStateDescription', 'activeViolation_verificationStateDescription' - The description of the verification state of the violation.
 --
 -- 'lastViolationValue', 'activeViolation_lastViolationValue' - The value of the metric (the measurement) that caused the most recent
 -- violation.
 --
--- 'verificationStateDescription', 'activeViolation_verificationStateDescription' - The description of the verification state of the violation.
---
--- 'securityProfileName', 'activeViolation_securityProfileName' - The security profile with the behavior is in violation.
---
--- 'behavior', 'activeViolation_behavior' - The behavior that is being violated.
+-- 'lastViolationTime', 'activeViolation_lastViolationTime' - The time the most recent violation occurred.
 --
 -- 'violationStartTime', 'activeViolation_violationStartTime' - The time the violation started.
 --
--- 'verificationState', 'activeViolation_verificationState' - The verification state of the violation (detect alarm).
+-- 'violationId', 'activeViolation_violationId' - The ID of the active violation.
+--
+-- 'behavior', 'activeViolation_behavior' - The behavior that is being violated.
+--
+-- 'securityProfileName', 'activeViolation_securityProfileName' - The security profile with the behavior is in violation.
 --
 -- 'violationEventAdditionalInfo', 'activeViolation_violationEventAdditionalInfo' - The details of a violation event.
+--
+-- 'thingName', 'activeViolation_thingName' - The name of the thing responsible for the active violation.
+--
+-- 'verificationState', 'activeViolation_verificationState' - The verification state of the violation (detect alarm).
 newActiveViolation ::
   ActiveViolation
 newActiveViolation =
   ActiveViolation'
-    { violationId = Prelude.Nothing,
-      lastViolationTime = Prelude.Nothing,
-      thingName = Prelude.Nothing,
+    { verificationStateDescription =
+        Prelude.Nothing,
       lastViolationValue = Prelude.Nothing,
-      verificationStateDescription = Prelude.Nothing,
-      securityProfileName = Prelude.Nothing,
-      behavior = Prelude.Nothing,
+      lastViolationTime = Prelude.Nothing,
       violationStartTime = Prelude.Nothing,
-      verificationState = Prelude.Nothing,
-      violationEventAdditionalInfo = Prelude.Nothing
+      violationId = Prelude.Nothing,
+      behavior = Prelude.Nothing,
+      securityProfileName = Prelude.Nothing,
+      violationEventAdditionalInfo = Prelude.Nothing,
+      thingName = Prelude.Nothing,
+      verificationState = Prelude.Nothing
     }
 
--- | The ID of the active violation.
-activeViolation_violationId :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.Text)
-activeViolation_violationId = Lens.lens (\ActiveViolation' {violationId} -> violationId) (\s@ActiveViolation' {} a -> s {violationId = a} :: ActiveViolation)
-
--- | The time the most recent violation occurred.
-activeViolation_lastViolationTime :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.UTCTime)
-activeViolation_lastViolationTime = Lens.lens (\ActiveViolation' {lastViolationTime} -> lastViolationTime) (\s@ActiveViolation' {} a -> s {lastViolationTime = a} :: ActiveViolation) Prelude.. Lens.mapping Core._Time
-
--- | The name of the thing responsible for the active violation.
-activeViolation_thingName :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.Text)
-activeViolation_thingName = Lens.lens (\ActiveViolation' {thingName} -> thingName) (\s@ActiveViolation' {} a -> s {thingName = a} :: ActiveViolation)
+-- | The description of the verification state of the violation.
+activeViolation_verificationStateDescription :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.Text)
+activeViolation_verificationStateDescription = Lens.lens (\ActiveViolation' {verificationStateDescription} -> verificationStateDescription) (\s@ActiveViolation' {} a -> s {verificationStateDescription = a} :: ActiveViolation)
 
 -- | The value of the metric (the measurement) that caused the most recent
 -- violation.
 activeViolation_lastViolationValue :: Lens.Lens' ActiveViolation (Prelude.Maybe MetricValue)
 activeViolation_lastViolationValue = Lens.lens (\ActiveViolation' {lastViolationValue} -> lastViolationValue) (\s@ActiveViolation' {} a -> s {lastViolationValue = a} :: ActiveViolation)
 
--- | The description of the verification state of the violation.
-activeViolation_verificationStateDescription :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.Text)
-activeViolation_verificationStateDescription = Lens.lens (\ActiveViolation' {verificationStateDescription} -> verificationStateDescription) (\s@ActiveViolation' {} a -> s {verificationStateDescription = a} :: ActiveViolation)
-
--- | The security profile with the behavior is in violation.
-activeViolation_securityProfileName :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.Text)
-activeViolation_securityProfileName = Lens.lens (\ActiveViolation' {securityProfileName} -> securityProfileName) (\s@ActiveViolation' {} a -> s {securityProfileName = a} :: ActiveViolation)
-
--- | The behavior that is being violated.
-activeViolation_behavior :: Lens.Lens' ActiveViolation (Prelude.Maybe Behavior)
-activeViolation_behavior = Lens.lens (\ActiveViolation' {behavior} -> behavior) (\s@ActiveViolation' {} a -> s {behavior = a} :: ActiveViolation)
+-- | The time the most recent violation occurred.
+activeViolation_lastViolationTime :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.UTCTime)
+activeViolation_lastViolationTime = Lens.lens (\ActiveViolation' {lastViolationTime} -> lastViolationTime) (\s@ActiveViolation' {} a -> s {lastViolationTime = a} :: ActiveViolation) Prelude.. Lens.mapping Core._Time
 
 -- | The time the violation started.
 activeViolation_violationStartTime :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.UTCTime)
 activeViolation_violationStartTime = Lens.lens (\ActiveViolation' {violationStartTime} -> violationStartTime) (\s@ActiveViolation' {} a -> s {violationStartTime = a} :: ActiveViolation) Prelude.. Lens.mapping Core._Time
 
--- | The verification state of the violation (detect alarm).
-activeViolation_verificationState :: Lens.Lens' ActiveViolation (Prelude.Maybe VerificationState)
-activeViolation_verificationState = Lens.lens (\ActiveViolation' {verificationState} -> verificationState) (\s@ActiveViolation' {} a -> s {verificationState = a} :: ActiveViolation)
+-- | The ID of the active violation.
+activeViolation_violationId :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.Text)
+activeViolation_violationId = Lens.lens (\ActiveViolation' {violationId} -> violationId) (\s@ActiveViolation' {} a -> s {violationId = a} :: ActiveViolation)
+
+-- | The behavior that is being violated.
+activeViolation_behavior :: Lens.Lens' ActiveViolation (Prelude.Maybe Behavior)
+activeViolation_behavior = Lens.lens (\ActiveViolation' {behavior} -> behavior) (\s@ActiveViolation' {} a -> s {behavior = a} :: ActiveViolation)
+
+-- | The security profile with the behavior is in violation.
+activeViolation_securityProfileName :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.Text)
+activeViolation_securityProfileName = Lens.lens (\ActiveViolation' {securityProfileName} -> securityProfileName) (\s@ActiveViolation' {} a -> s {securityProfileName = a} :: ActiveViolation)
 
 -- | The details of a violation event.
 activeViolation_violationEventAdditionalInfo :: Lens.Lens' ActiveViolation (Prelude.Maybe ViolationEventAdditionalInfo)
 activeViolation_violationEventAdditionalInfo = Lens.lens (\ActiveViolation' {violationEventAdditionalInfo} -> violationEventAdditionalInfo) (\s@ActiveViolation' {} a -> s {violationEventAdditionalInfo = a} :: ActiveViolation)
+
+-- | The name of the thing responsible for the active violation.
+activeViolation_thingName :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.Text)
+activeViolation_thingName = Lens.lens (\ActiveViolation' {thingName} -> thingName) (\s@ActiveViolation' {} a -> s {thingName = a} :: ActiveViolation)
+
+-- | The verification state of the violation (detect alarm).
+activeViolation_verificationState :: Lens.Lens' ActiveViolation (Prelude.Maybe VerificationState)
+activeViolation_verificationState = Lens.lens (\ActiveViolation' {verificationState} -> verificationState) (\s@ActiveViolation' {} a -> s {verificationState = a} :: ActiveViolation)
 
 instance Core.FromJSON ActiveViolation where
   parseJSON =
@@ -147,16 +148,16 @@ instance Core.FromJSON ActiveViolation where
       "ActiveViolation"
       ( \x ->
           ActiveViolation'
-            Prelude.<$> (x Core..:? "violationId")
-            Prelude.<*> (x Core..:? "lastViolationTime")
-            Prelude.<*> (x Core..:? "thingName")
+            Prelude.<$> (x Core..:? "verificationStateDescription")
             Prelude.<*> (x Core..:? "lastViolationValue")
-            Prelude.<*> (x Core..:? "verificationStateDescription")
-            Prelude.<*> (x Core..:? "securityProfileName")
-            Prelude.<*> (x Core..:? "behavior")
+            Prelude.<*> (x Core..:? "lastViolationTime")
             Prelude.<*> (x Core..:? "violationStartTime")
-            Prelude.<*> (x Core..:? "verificationState")
+            Prelude.<*> (x Core..:? "violationId")
+            Prelude.<*> (x Core..:? "behavior")
+            Prelude.<*> (x Core..:? "securityProfileName")
             Prelude.<*> (x Core..:? "violationEventAdditionalInfo")
+            Prelude.<*> (x Core..:? "thingName")
+            Prelude.<*> (x Core..:? "verificationState")
       )
 
 instance Prelude.Hashable ActiveViolation

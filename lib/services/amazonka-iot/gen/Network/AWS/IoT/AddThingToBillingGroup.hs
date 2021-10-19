@@ -32,8 +32,8 @@ module Network.AWS.IoT.AddThingToBillingGroup
 
     -- * Request Lenses
     addThingToBillingGroup_thingArn,
-    addThingToBillingGroup_thingName,
     addThingToBillingGroup_billingGroupArn,
+    addThingToBillingGroup_thingName,
     addThingToBillingGroup_billingGroupName,
 
     -- * Destructuring the Response
@@ -56,10 +56,10 @@ import qualified Network.AWS.Response as Response
 data AddThingToBillingGroup = AddThingToBillingGroup'
   { -- | The ARN of the thing to be added to the billing group.
     thingArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the thing to be added to the billing group.
-    thingName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the billing group.
     billingGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the thing to be added to the billing group.
+    thingName :: Prelude.Maybe Prelude.Text,
     -- | The name of the billing group.
     billingGroupName :: Prelude.Maybe Prelude.Text
   }
@@ -75,9 +75,9 @@ data AddThingToBillingGroup = AddThingToBillingGroup'
 --
 -- 'thingArn', 'addThingToBillingGroup_thingArn' - The ARN of the thing to be added to the billing group.
 --
--- 'thingName', 'addThingToBillingGroup_thingName' - The name of the thing to be added to the billing group.
---
 -- 'billingGroupArn', 'addThingToBillingGroup_billingGroupArn' - The ARN of the billing group.
+--
+-- 'thingName', 'addThingToBillingGroup_thingName' - The name of the thing to be added to the billing group.
 --
 -- 'billingGroupName', 'addThingToBillingGroup_billingGroupName' - The name of the billing group.
 newAddThingToBillingGroup ::
@@ -85,8 +85,8 @@ newAddThingToBillingGroup ::
 newAddThingToBillingGroup =
   AddThingToBillingGroup'
     { thingArn = Prelude.Nothing,
-      thingName = Prelude.Nothing,
       billingGroupArn = Prelude.Nothing,
+      thingName = Prelude.Nothing,
       billingGroupName = Prelude.Nothing
     }
 
@@ -94,13 +94,13 @@ newAddThingToBillingGroup =
 addThingToBillingGroup_thingArn :: Lens.Lens' AddThingToBillingGroup (Prelude.Maybe Prelude.Text)
 addThingToBillingGroup_thingArn = Lens.lens (\AddThingToBillingGroup' {thingArn} -> thingArn) (\s@AddThingToBillingGroup' {} a -> s {thingArn = a} :: AddThingToBillingGroup)
 
--- | The name of the thing to be added to the billing group.
-addThingToBillingGroup_thingName :: Lens.Lens' AddThingToBillingGroup (Prelude.Maybe Prelude.Text)
-addThingToBillingGroup_thingName = Lens.lens (\AddThingToBillingGroup' {thingName} -> thingName) (\s@AddThingToBillingGroup' {} a -> s {thingName = a} :: AddThingToBillingGroup)
-
 -- | The ARN of the billing group.
 addThingToBillingGroup_billingGroupArn :: Lens.Lens' AddThingToBillingGroup (Prelude.Maybe Prelude.Text)
 addThingToBillingGroup_billingGroupArn = Lens.lens (\AddThingToBillingGroup' {billingGroupArn} -> billingGroupArn) (\s@AddThingToBillingGroup' {} a -> s {billingGroupArn = a} :: AddThingToBillingGroup)
+
+-- | The name of the thing to be added to the billing group.
+addThingToBillingGroup_thingName :: Lens.Lens' AddThingToBillingGroup (Prelude.Maybe Prelude.Text)
+addThingToBillingGroup_thingName = Lens.lens (\AddThingToBillingGroup' {thingName} -> thingName) (\s@AddThingToBillingGroup' {} a -> s {thingName = a} :: AddThingToBillingGroup)
 
 -- | The name of the billing group.
 addThingToBillingGroup_billingGroupName :: Lens.Lens' AddThingToBillingGroup (Prelude.Maybe Prelude.Text)
@@ -130,9 +130,9 @@ instance Core.ToJSON AddThingToBillingGroup where
     Core.object
       ( Prelude.catMaybes
           [ ("thingArn" Core..=) Prelude.<$> thingArn,
-            ("thingName" Core..=) Prelude.<$> thingName,
             ("billingGroupArn" Core..=)
               Prelude.<$> billingGroupArn,
+            ("thingName" Core..=) Prelude.<$> thingName,
             ("billingGroupName" Core..=)
               Prelude.<$> billingGroupName
           ]

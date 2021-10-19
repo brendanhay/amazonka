@@ -43,8 +43,8 @@ module Network.AWS.IoT.ListDetectMitigationActionsTasks
     newListDetectMitigationActionsTasksResponse,
 
     -- * Response Lenses
-    listDetectMitigationActionsTasksResponse_nextToken,
     listDetectMitigationActionsTasksResponse_tasks,
+    listDetectMitigationActionsTasksResponse_nextToken,
     listDetectMitigationActionsTasksResponse_httpStatus,
   )
 where
@@ -163,8 +163,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDetectMitigationActionsTasksResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "tasks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "tasks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,12 +200,12 @@ instance
 
 -- | /See:/ 'newListDetectMitigationActionsTasksResponse' smart constructor.
 data ListDetectMitigationActionsTasksResponse = ListDetectMitigationActionsTasksResponse'
-  { -- | A token that can be used to retrieve the next set of results, or @null@
-    -- if there are no additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The collection of ML Detect mitigation tasks that matched the filter
+  { -- | The collection of ML Detect mitigation tasks that matched the filter
     -- criteria.
     tasks :: Prelude.Maybe [DetectMitigationActionsTaskSummary],
+    -- | A token that can be used to retrieve the next set of results, or @null@
+    -- if there are no additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,11 +219,11 @@ data ListDetectMitigationActionsTasksResponse = ListDetectMitigationActionsTasks
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDetectMitigationActionsTasksResponse_nextToken' - A token that can be used to retrieve the next set of results, or @null@
--- if there are no additional results.
---
 -- 'tasks', 'listDetectMitigationActionsTasksResponse_tasks' - The collection of ML Detect mitigation tasks that matched the filter
 -- criteria.
+--
+-- 'nextToken', 'listDetectMitigationActionsTasksResponse_nextToken' - A token that can be used to retrieve the next set of results, or @null@
+-- if there are no additional results.
 --
 -- 'httpStatus', 'listDetectMitigationActionsTasksResponse_httpStatus' - The response's http status code.
 newListDetectMitigationActionsTasksResponse ::
@@ -233,21 +233,21 @@ newListDetectMitigationActionsTasksResponse ::
 newListDetectMitigationActionsTasksResponse
   pHttpStatus_ =
     ListDetectMitigationActionsTasksResponse'
-      { nextToken =
+      { tasks =
           Prelude.Nothing,
-        tasks = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The collection of ML Detect mitigation tasks that matched the filter
+-- criteria.
+listDetectMitigationActionsTasksResponse_tasks :: Lens.Lens' ListDetectMitigationActionsTasksResponse (Prelude.Maybe [DetectMitigationActionsTaskSummary])
+listDetectMitigationActionsTasksResponse_tasks = Lens.lens (\ListDetectMitigationActionsTasksResponse' {tasks} -> tasks) (\s@ListDetectMitigationActionsTasksResponse' {} a -> s {tasks = a} :: ListDetectMitigationActionsTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
 listDetectMitigationActionsTasksResponse_nextToken :: Lens.Lens' ListDetectMitigationActionsTasksResponse (Prelude.Maybe Prelude.Text)
 listDetectMitigationActionsTasksResponse_nextToken = Lens.lens (\ListDetectMitigationActionsTasksResponse' {nextToken} -> nextToken) (\s@ListDetectMitigationActionsTasksResponse' {} a -> s {nextToken = a} :: ListDetectMitigationActionsTasksResponse)
-
--- | The collection of ML Detect mitigation tasks that matched the filter
--- criteria.
-listDetectMitigationActionsTasksResponse_tasks :: Lens.Lens' ListDetectMitigationActionsTasksResponse (Prelude.Maybe [DetectMitigationActionsTaskSummary])
-listDetectMitigationActionsTasksResponse_tasks = Lens.lens (\ListDetectMitigationActionsTasksResponse' {tasks} -> tasks) (\s@ListDetectMitigationActionsTasksResponse' {} a -> s {tasks = a} :: ListDetectMitigationActionsTasksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listDetectMitigationActionsTasksResponse_httpStatus :: Lens.Lens' ListDetectMitigationActionsTasksResponse Prelude.Int

@@ -31,8 +31,8 @@ module Network.AWS.IoT.DeleteJobExecution
     newDeleteJobExecution,
 
     -- * Request Lenses
-    deleteJobExecution_namespaceId,
     deleteJobExecution_force,
+    deleteJobExecution_namespaceId,
     deleteJobExecution_jobId,
     deleteJobExecution_thingName,
     deleteJobExecution_executionNumber,
@@ -52,17 +52,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteJobExecution' smart constructor.
 data DeleteJobExecution = DeleteJobExecution'
-  { -- | The namespace used to indicate that a job is a customer-managed job.
-    --
-    -- When you specify a value for this parameter, Amazon Web Services IoT
-    -- Core sends jobs notifications to MQTT topics that contain the value in
-    -- the following format.
-    --
-    -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
-    --
-    -- The @namespaceId@ feature is in public preview.
-    namespaceId :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) When true, you can delete a job execution which is
+  { -- | (Optional) When true, you can delete a job execution which is
     -- \"IN_PROGRESS\". Otherwise, you can only delete a job execution which is
     -- in a terminal state (\"SUCCEEDED\", \"FAILED\", \"REJECTED\",
     -- \"REMOVED\" or \"CANCELED\") or an exception will occur. The default is
@@ -73,6 +63,16 @@ data DeleteJobExecution = DeleteJobExecution'
     -- status. Use caution and ensure that the device is able to recover to a
     -- valid state.
     force :: Prelude.Maybe Prelude.Bool,
+    -- | The namespace used to indicate that a job is a customer-managed job.
+    --
+    -- When you specify a value for this parameter, Amazon Web Services IoT
+    -- Core sends jobs notifications to MQTT topics that contain the value in
+    -- the following format.
+    --
+    -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+    --
+    -- The @namespaceId@ feature is in public preview.
+    namespaceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the job whose execution on a particular device will be
     -- deleted.
     jobId :: Prelude.Text,
@@ -95,16 +95,6 @@ data DeleteJobExecution = DeleteJobExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'namespaceId', 'deleteJobExecution_namespaceId' - The namespace used to indicate that a job is a customer-managed job.
---
--- When you specify a value for this parameter, Amazon Web Services IoT
--- Core sends jobs notifications to MQTT topics that contain the value in
--- the following format.
---
--- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
---
--- The @namespaceId@ feature is in public preview.
---
 -- 'force', 'deleteJobExecution_force' - (Optional) When true, you can delete a job execution which is
 -- \"IN_PROGRESS\". Otherwise, you can only delete a job execution which is
 -- in a terminal state (\"SUCCEEDED\", \"FAILED\", \"REJECTED\",
@@ -115,6 +105,16 @@ data DeleteJobExecution = DeleteJobExecution'
 -- to be unable to access job information or update the job execution
 -- status. Use caution and ensure that the device is able to recover to a
 -- valid state.
+--
+-- 'namespaceId', 'deleteJobExecution_namespaceId' - The namespace used to indicate that a job is a customer-managed job.
+--
+-- When you specify a value for this parameter, Amazon Web Services IoT
+-- Core sends jobs notifications to MQTT topics that contain the value in
+-- the following format.
+--
+-- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+--
+-- The @namespaceId@ feature is in public preview.
 --
 -- 'jobId', 'deleteJobExecution_jobId' - The ID of the job whose execution on a particular device will be
 -- deleted.
@@ -139,24 +139,12 @@ newDeleteJobExecution
   pThingName_
   pExecutionNumber_ =
     DeleteJobExecution'
-      { namespaceId = Prelude.Nothing,
-        force = Prelude.Nothing,
+      { force = Prelude.Nothing,
+        namespaceId = Prelude.Nothing,
         jobId = pJobId_,
         thingName = pThingName_,
         executionNumber = pExecutionNumber_
       }
-
--- | The namespace used to indicate that a job is a customer-managed job.
---
--- When you specify a value for this parameter, Amazon Web Services IoT
--- Core sends jobs notifications to MQTT topics that contain the value in
--- the following format.
---
--- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
---
--- The @namespaceId@ feature is in public preview.
-deleteJobExecution_namespaceId :: Lens.Lens' DeleteJobExecution (Prelude.Maybe Prelude.Text)
-deleteJobExecution_namespaceId = Lens.lens (\DeleteJobExecution' {namespaceId} -> namespaceId) (\s@DeleteJobExecution' {} a -> s {namespaceId = a} :: DeleteJobExecution)
 
 -- | (Optional) When true, you can delete a job execution which is
 -- \"IN_PROGRESS\". Otherwise, you can only delete a job execution which is
@@ -170,6 +158,18 @@ deleteJobExecution_namespaceId = Lens.lens (\DeleteJobExecution' {namespaceId} -
 -- valid state.
 deleteJobExecution_force :: Lens.Lens' DeleteJobExecution (Prelude.Maybe Prelude.Bool)
 deleteJobExecution_force = Lens.lens (\DeleteJobExecution' {force} -> force) (\s@DeleteJobExecution' {} a -> s {force = a} :: DeleteJobExecution)
+
+-- | The namespace used to indicate that a job is a customer-managed job.
+--
+-- When you specify a value for this parameter, Amazon Web Services IoT
+-- Core sends jobs notifications to MQTT topics that contain the value in
+-- the following format.
+--
+-- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+--
+-- The @namespaceId@ feature is in public preview.
+deleteJobExecution_namespaceId :: Lens.Lens' DeleteJobExecution (Prelude.Maybe Prelude.Text)
+deleteJobExecution_namespaceId = Lens.lens (\DeleteJobExecution' {namespaceId} -> namespaceId) (\s@DeleteJobExecution' {} a -> s {namespaceId = a} :: DeleteJobExecution)
 
 -- | The ID of the job whose execution on a particular device will be
 -- deleted.
@@ -217,8 +217,8 @@ instance Core.ToPath DeleteJobExecution where
 instance Core.ToQuery DeleteJobExecution where
   toQuery DeleteJobExecution' {..} =
     Prelude.mconcat
-      [ "namespaceId" Core.=: namespaceId,
-        "force" Core.=: force
+      [ "force" Core.=: force,
+        "namespaceId" Core.=: namespaceId
       ]
 
 -- | /See:/ 'newDeleteJobExecutionResponse' smart constructor.

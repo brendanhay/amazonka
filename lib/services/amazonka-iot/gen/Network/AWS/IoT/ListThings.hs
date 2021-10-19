@@ -41,12 +41,12 @@ module Network.AWS.IoT.ListThings
     newListThings,
 
     -- * Request Lenses
-    listThings_attributeValue,
-    listThings_nextToken,
-    listThings_maxResults,
-    listThings_attributeName,
     listThings_usePrefixAttributeValue,
+    listThings_attributeValue,
     listThings_thingTypeName,
+    listThings_nextToken,
+    listThings_attributeName,
+    listThings_maxResults,
 
     -- * Destructuring the Response
     ListThingsResponse (..),
@@ -70,25 +70,25 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListThings' smart constructor.
 data ListThings = ListThings'
-  { -- | The attribute value used to search for things.
-    attributeValue :: Prelude.Maybe Prelude.Text,
-    -- | To retrieve the next set of results, the @nextToken@ value from a
-    -- previous response; otherwise __null__ to receive the first set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in this operation.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The attribute name used to search for things.
-    attributeName :: Prelude.Maybe Prelude.Text,
-    -- | When @true@, the action returns the thing resources with attribute
+  { -- | When @true@, the action returns the thing resources with attribute
     -- values that start with the @attributeValue@ provided.
     --
     -- When @false@, or not present, the action returns only the thing
     -- resources with attribute values that match the entire @attributeValue@
     -- provided.
     usePrefixAttributeValue :: Prelude.Maybe Prelude.Bool,
+    -- | The attribute value used to search for things.
+    attributeValue :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing type used to search for things.
-    thingTypeName :: Prelude.Maybe Prelude.Text
+    thingTypeName :: Prelude.Maybe Prelude.Text,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
+    -- previous response; otherwise __null__ to receive the first set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The attribute name used to search for things.
+    attributeName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return in this operation.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,16 +100,6 @@ data ListThings = ListThings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributeValue', 'listThings_attributeValue' - The attribute value used to search for things.
---
--- 'nextToken', 'listThings_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
--- previous response; otherwise __null__ to receive the first set of
--- results.
---
--- 'maxResults', 'listThings_maxResults' - The maximum number of results to return in this operation.
---
--- 'attributeName', 'listThings_attributeName' - The attribute name used to search for things.
---
 -- 'usePrefixAttributeValue', 'listThings_usePrefixAttributeValue' - When @true@, the action returns the thing resources with attribute
 -- values that start with the @attributeValue@ provided.
 --
@@ -117,36 +107,29 @@ data ListThings = ListThings'
 -- resources with attribute values that match the entire @attributeValue@
 -- provided.
 --
+-- 'attributeValue', 'listThings_attributeValue' - The attribute value used to search for things.
+--
 -- 'thingTypeName', 'listThings_thingTypeName' - The name of the thing type used to search for things.
+--
+-- 'nextToken', 'listThings_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
+-- previous response; otherwise __null__ to receive the first set of
+-- results.
+--
+-- 'attributeName', 'listThings_attributeName' - The attribute name used to search for things.
+--
+-- 'maxResults', 'listThings_maxResults' - The maximum number of results to return in this operation.
 newListThings ::
   ListThings
 newListThings =
   ListThings'
-    { attributeValue = Prelude.Nothing,
+    { usePrefixAttributeValue =
+        Prelude.Nothing,
+      attributeValue = Prelude.Nothing,
+      thingTypeName = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       attributeName = Prelude.Nothing,
-      usePrefixAttributeValue = Prelude.Nothing,
-      thingTypeName = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
-
--- | The attribute value used to search for things.
-listThings_attributeValue :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Text)
-listThings_attributeValue = Lens.lens (\ListThings' {attributeValue} -> attributeValue) (\s@ListThings' {} a -> s {attributeValue = a} :: ListThings)
-
--- | To retrieve the next set of results, the @nextToken@ value from a
--- previous response; otherwise __null__ to receive the first set of
--- results.
-listThings_nextToken :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Text)
-listThings_nextToken = Lens.lens (\ListThings' {nextToken} -> nextToken) (\s@ListThings' {} a -> s {nextToken = a} :: ListThings)
-
--- | The maximum number of results to return in this operation.
-listThings_maxResults :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Natural)
-listThings_maxResults = Lens.lens (\ListThings' {maxResults} -> maxResults) (\s@ListThings' {} a -> s {maxResults = a} :: ListThings)
-
--- | The attribute name used to search for things.
-listThings_attributeName :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Text)
-listThings_attributeName = Lens.lens (\ListThings' {attributeName} -> attributeName) (\s@ListThings' {} a -> s {attributeName = a} :: ListThings)
 
 -- | When @true@, the action returns the thing resources with attribute
 -- values that start with the @attributeValue@ provided.
@@ -157,9 +140,27 @@ listThings_attributeName = Lens.lens (\ListThings' {attributeName} -> attributeN
 listThings_usePrefixAttributeValue :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Bool)
 listThings_usePrefixAttributeValue = Lens.lens (\ListThings' {usePrefixAttributeValue} -> usePrefixAttributeValue) (\s@ListThings' {} a -> s {usePrefixAttributeValue = a} :: ListThings)
 
+-- | The attribute value used to search for things.
+listThings_attributeValue :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Text)
+listThings_attributeValue = Lens.lens (\ListThings' {attributeValue} -> attributeValue) (\s@ListThings' {} a -> s {attributeValue = a} :: ListThings)
+
 -- | The name of the thing type used to search for things.
 listThings_thingTypeName :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Text)
 listThings_thingTypeName = Lens.lens (\ListThings' {thingTypeName} -> thingTypeName) (\s@ListThings' {} a -> s {thingTypeName = a} :: ListThings)
+
+-- | To retrieve the next set of results, the @nextToken@ value from a
+-- previous response; otherwise __null__ to receive the first set of
+-- results.
+listThings_nextToken :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Text)
+listThings_nextToken = Lens.lens (\ListThings' {nextToken} -> nextToken) (\s@ListThings' {} a -> s {nextToken = a} :: ListThings)
+
+-- | The attribute name used to search for things.
+listThings_attributeName :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Text)
+listThings_attributeName = Lens.lens (\ListThings' {attributeName} -> attributeName) (\s@ListThings' {} a -> s {attributeName = a} :: ListThings)
+
+-- | The maximum number of results to return in this operation.
+listThings_maxResults :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Natural)
+listThings_maxResults = Lens.lens (\ListThings' {maxResults} -> maxResults) (\s@ListThings' {} a -> s {maxResults = a} :: ListThings)
 
 instance Core.AWSPager ListThings where
   page rq rs
@@ -205,13 +206,13 @@ instance Core.ToPath ListThings where
 instance Core.ToQuery ListThings where
   toQuery ListThings' {..} =
     Prelude.mconcat
-      [ "attributeValue" Core.=: attributeValue,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "attributeName" Core.=: attributeName,
-        "usePrefixAttributeValue"
+      [ "usePrefixAttributeValue"
           Core.=: usePrefixAttributeValue,
-        "thingTypeName" Core.=: thingTypeName
+        "attributeValue" Core.=: attributeValue,
+        "thingTypeName" Core.=: thingTypeName,
+        "nextToken" Core.=: nextToken,
+        "attributeName" Core.=: attributeName,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | The output from the ListThings operation.
@@ -260,7 +261,7 @@ listThingsResponse_nextToken = Lens.lens (\ListThingsResponse' {nextToken} -> ne
 
 -- | The things.
 listThingsResponse_things :: Lens.Lens' ListThingsResponse (Prelude.Maybe [ThingAttribute])
-listThingsResponse_things = Lens.lens (\ListThingsResponse' {things} -> things) (\s@ListThingsResponse' {} a -> s {things = a} :: ListThingsResponse) Prelude.. Lens.mapping Lens._Coerce
+listThingsResponse_things = Lens.lens (\ListThingsResponse' {things} -> things) (\s@ListThingsResponse' {} a -> s {things = a} :: ListThingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listThingsResponse_httpStatus :: Lens.Lens' ListThingsResponse Prelude.Int

@@ -28,22 +28,22 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStatistics' smart constructor.
 data Statistics = Statistics'
-  { -- | The minimum aggregated field value.
-    minimum :: Prelude.Maybe Prelude.Double,
-    -- | The sum of the aggregated field values.
-    sum :: Prelude.Maybe Prelude.Double,
-    -- | The standard deviation of the aggregated field values.
+  { -- | The standard deviation of the aggregated field values.
     stdDeviation :: Prelude.Maybe Prelude.Double,
-    -- | The variance of the aggregated field values.
-    variance :: Prelude.Maybe Prelude.Double,
+    -- | The maximum aggregated field value.
+    maximum :: Prelude.Maybe Prelude.Double,
     -- | The average of the aggregated field values.
     average :: Prelude.Maybe Prelude.Double,
     -- | The count of things that match the query.
     count :: Prelude.Maybe Prelude.Int,
+    -- | The minimum aggregated field value.
+    minimum :: Prelude.Maybe Prelude.Double,
+    -- | The variance of the aggregated field values.
+    variance :: Prelude.Maybe Prelude.Double,
     -- | The sum of the squares of the aggregated field values.
     sumOfSquares :: Prelude.Maybe Prelude.Double,
-    -- | The maximum aggregated field value.
-    maximum :: Prelude.Maybe Prelude.Double
+    -- | The sum of the aggregated field values.
+    sum :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,50 +55,42 @@ data Statistics = Statistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minimum', 'statistics_minimum' - The minimum aggregated field value.
---
--- 'sum', 'statistics_sum' - The sum of the aggregated field values.
---
 -- 'stdDeviation', 'statistics_stdDeviation' - The standard deviation of the aggregated field values.
 --
--- 'variance', 'statistics_variance' - The variance of the aggregated field values.
+-- 'maximum', 'statistics_maximum' - The maximum aggregated field value.
 --
 -- 'average', 'statistics_average' - The average of the aggregated field values.
 --
 -- 'count', 'statistics_count' - The count of things that match the query.
 --
+-- 'minimum', 'statistics_minimum' - The minimum aggregated field value.
+--
+-- 'variance', 'statistics_variance' - The variance of the aggregated field values.
+--
 -- 'sumOfSquares', 'statistics_sumOfSquares' - The sum of the squares of the aggregated field values.
 --
--- 'maximum', 'statistics_maximum' - The maximum aggregated field value.
+-- 'sum', 'statistics_sum' - The sum of the aggregated field values.
 newStatistics ::
   Statistics
 newStatistics =
   Statistics'
-    { minimum = Prelude.Nothing,
-      sum = Prelude.Nothing,
-      stdDeviation = Prelude.Nothing,
-      variance = Prelude.Nothing,
+    { stdDeviation = Prelude.Nothing,
+      maximum = Prelude.Nothing,
       average = Prelude.Nothing,
       count = Prelude.Nothing,
+      minimum = Prelude.Nothing,
+      variance = Prelude.Nothing,
       sumOfSquares = Prelude.Nothing,
-      maximum = Prelude.Nothing
+      sum = Prelude.Nothing
     }
-
--- | The minimum aggregated field value.
-statistics_minimum :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
-statistics_minimum = Lens.lens (\Statistics' {minimum} -> minimum) (\s@Statistics' {} a -> s {minimum = a} :: Statistics)
-
--- | The sum of the aggregated field values.
-statistics_sum :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
-statistics_sum = Lens.lens (\Statistics' {sum} -> sum) (\s@Statistics' {} a -> s {sum = a} :: Statistics)
 
 -- | The standard deviation of the aggregated field values.
 statistics_stdDeviation :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
 statistics_stdDeviation = Lens.lens (\Statistics' {stdDeviation} -> stdDeviation) (\s@Statistics' {} a -> s {stdDeviation = a} :: Statistics)
 
--- | The variance of the aggregated field values.
-statistics_variance :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
-statistics_variance = Lens.lens (\Statistics' {variance} -> variance) (\s@Statistics' {} a -> s {variance = a} :: Statistics)
+-- | The maximum aggregated field value.
+statistics_maximum :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
+statistics_maximum = Lens.lens (\Statistics' {maximum} -> maximum) (\s@Statistics' {} a -> s {maximum = a} :: Statistics)
 
 -- | The average of the aggregated field values.
 statistics_average :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
@@ -108,13 +100,21 @@ statistics_average = Lens.lens (\Statistics' {average} -> average) (\s@Statistic
 statistics_count :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Int)
 statistics_count = Lens.lens (\Statistics' {count} -> count) (\s@Statistics' {} a -> s {count = a} :: Statistics)
 
+-- | The minimum aggregated field value.
+statistics_minimum :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
+statistics_minimum = Lens.lens (\Statistics' {minimum} -> minimum) (\s@Statistics' {} a -> s {minimum = a} :: Statistics)
+
+-- | The variance of the aggregated field values.
+statistics_variance :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
+statistics_variance = Lens.lens (\Statistics' {variance} -> variance) (\s@Statistics' {} a -> s {variance = a} :: Statistics)
+
 -- | The sum of the squares of the aggregated field values.
 statistics_sumOfSquares :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
 statistics_sumOfSquares = Lens.lens (\Statistics' {sumOfSquares} -> sumOfSquares) (\s@Statistics' {} a -> s {sumOfSquares = a} :: Statistics)
 
--- | The maximum aggregated field value.
-statistics_maximum :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
-statistics_maximum = Lens.lens (\Statistics' {maximum} -> maximum) (\s@Statistics' {} a -> s {maximum = a} :: Statistics)
+-- | The sum of the aggregated field values.
+statistics_sum :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
+statistics_sum = Lens.lens (\Statistics' {sum} -> sum) (\s@Statistics' {} a -> s {sum = a} :: Statistics)
 
 instance Core.FromJSON Statistics where
   parseJSON =
@@ -122,14 +122,14 @@ instance Core.FromJSON Statistics where
       "Statistics"
       ( \x ->
           Statistics'
-            Prelude.<$> (x Core..:? "minimum")
-            Prelude.<*> (x Core..:? "sum")
-            Prelude.<*> (x Core..:? "stdDeviation")
-            Prelude.<*> (x Core..:? "variance")
+            Prelude.<$> (x Core..:? "stdDeviation")
+            Prelude.<*> (x Core..:? "maximum")
             Prelude.<*> (x Core..:? "average")
             Prelude.<*> (x Core..:? "count")
+            Prelude.<*> (x Core..:? "minimum")
+            Prelude.<*> (x Core..:? "variance")
             Prelude.<*> (x Core..:? "sumOfSquares")
-            Prelude.<*> (x Core..:? "maximum")
+            Prelude.<*> (x Core..:? "sum")
       )
 
 instance Prelude.Hashable Statistics

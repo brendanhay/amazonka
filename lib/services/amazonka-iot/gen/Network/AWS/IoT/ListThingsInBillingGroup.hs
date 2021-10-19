@@ -212,7 +212,7 @@ listThingsInBillingGroupResponse_nextToken = Lens.lens (\ListThingsInBillingGrou
 
 -- | A list of things in the billing group.
 listThingsInBillingGroupResponse_things :: Lens.Lens' ListThingsInBillingGroupResponse (Prelude.Maybe [Prelude.Text])
-listThingsInBillingGroupResponse_things = Lens.lens (\ListThingsInBillingGroupResponse' {things} -> things) (\s@ListThingsInBillingGroupResponse' {} a -> s {things = a} :: ListThingsInBillingGroupResponse) Prelude.. Lens.mapping Lens._Coerce
+listThingsInBillingGroupResponse_things = Lens.lens (\ListThingsInBillingGroupResponse' {things} -> things) (\s@ListThingsInBillingGroupResponse' {} a -> s {things = a} :: ListThingsInBillingGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listThingsInBillingGroupResponse_httpStatus :: Lens.Lens' ListThingsInBillingGroupResponse Prelude.Int

@@ -17,36 +17,36 @@ module Network.AWS.IoT.Types
     defaultService,
 
     -- * Errors
-    _IndexNotReadyException,
-    _TransferAlreadyCompletedException,
-    _InvalidQueryException,
-    _CertificateConflictException,
     _TaskAlreadyExistsException,
-    _CertificateValidationException,
-    _UnauthorizedException,
-    _ResourceAlreadyExistsException,
-    _ServiceUnavailableException,
-    _MalformedPolicyException,
-    _InternalException,
-    _CertificateStateException,
-    _InvalidAggregationException,
-    _ThrottlingException,
-    _InvalidRequestException,
-    _ResourceRegistrationFailureException,
+    _CertificateConflictException,
     _SqlParseException,
-    _ConflictException,
-    _LimitExceededException,
-    _ResourceNotFoundException,
-    _InvalidStateTransitionException,
-    _NotConfiguredException,
-    _VersionConflictException,
+    _IndexNotReadyException,
+    _InvalidRequestException,
+    _TransferConflictException,
+    _CertificateStateException,
+    _InvalidResponseException,
     _RegistrationCodeValidationException,
+    _MalformedPolicyException,
+    _DeleteConflictException,
+    _ResourceAlreadyExistsException,
+    _NotConfiguredException,
+    _CertificateValidationException,
+    _ConflictException,
+    _ResourceRegistrationFailureException,
+    _InvalidQueryException,
+    _TransferAlreadyCompletedException,
+    _ThrottlingException,
+    _InvalidAggregationException,
+    _ConflictingResourceUpdateException,
     _InternalFailureException,
     _VersionsLimitExceededException,
-    _DeleteConflictException,
-    _InvalidResponseException,
-    _TransferConflictException,
-    _ConflictingResourceUpdateException,
+    _ServiceUnavailableException,
+    _InternalException,
+    _VersionConflictException,
+    _UnauthorizedException,
+    _InvalidStateTransitionException,
+    _ResourceNotFoundException,
+    _LimitExceededException,
 
     -- * AbortAction
     AbortAction (..),
@@ -253,42 +253,42 @@ module Network.AWS.IoT.Types
     -- * Action
     Action (..),
     newAction,
-    action_cloudwatchLogs,
     action_cloudwatchMetric,
-    action_sqs,
-    action_firehose,
-    action_timestream,
-    action_sns,
-    action_elasticsearch,
-    action_kinesis,
-    action_salesforce,
+    action_cloudwatchLogs,
     action_dynamoDBv2,
-    action_lambda,
-    action_iotAnalytics,
-    action_iotSiteWise,
-    action_republish,
-    action_kafka,
-    action_dynamoDB,
     action_stepFunctions,
     action_cloudwatchAlarm,
+    action_sns,
+    action_dynamoDB,
+    action_firehose,
+    action_timestream,
+    action_iotSiteWise,
+    action_iotAnalytics,
+    action_lambda,
+    action_openSearch,
+    action_iotEvents,
+    action_salesforce,
+    action_kinesis,
     action_s3,
     action_http,
-    action_iotEvents,
-    action_openSearch,
+    action_elasticsearch,
+    action_kafka,
+    action_republish,
+    action_sqs,
 
     -- * ActiveViolation
     ActiveViolation (..),
     newActiveViolation,
-    activeViolation_violationId,
-    activeViolation_lastViolationTime,
-    activeViolation_thingName,
-    activeViolation_lastViolationValue,
     activeViolation_verificationStateDescription,
-    activeViolation_securityProfileName,
-    activeViolation_behavior,
+    activeViolation_lastViolationValue,
+    activeViolation_lastViolationTime,
     activeViolation_violationStartTime,
-    activeViolation_verificationState,
+    activeViolation_violationId,
+    activeViolation_behavior,
+    activeViolation_securityProfileName,
     activeViolation_violationEventAdditionalInfo,
+    activeViolation_thingName,
+    activeViolation_verificationState,
 
     -- * AddThingsToThingGroupParams
     AddThingsToThingGroupParams (..),
@@ -329,16 +329,16 @@ module Network.AWS.IoT.Types
     -- * AssetPropertyVariant
     AssetPropertyVariant (..),
     newAssetPropertyVariant,
-    assetPropertyVariant_stringValue,
-    assetPropertyVariant_doubleValue,
-    assetPropertyVariant_booleanValue,
     assetPropertyVariant_integerValue,
+    assetPropertyVariant_doubleValue,
+    assetPropertyVariant_stringValue,
+    assetPropertyVariant_booleanValue,
 
     -- * AttributePayload
     AttributePayload (..),
     newAttributePayload,
-    attributePayload_merge,
     attributePayload_attributes,
+    attributePayload_merge,
 
     -- * AuditCheckConfiguration
     AuditCheckConfiguration (..),
@@ -348,78 +348,78 @@ module Network.AWS.IoT.Types
     -- * AuditCheckDetails
     AuditCheckDetails (..),
     newAuditCheckDetails,
-    auditCheckDetails_checkCompliant,
-    auditCheckDetails_message,
     auditCheckDetails_suppressedNonCompliantResourcesCount,
-    auditCheckDetails_checkRunStatus,
     auditCheckDetails_totalResourcesCount,
-    auditCheckDetails_errorCode,
+    auditCheckDetails_checkCompliant,
     auditCheckDetails_nonCompliantResourcesCount,
+    auditCheckDetails_errorCode,
+    auditCheckDetails_message,
+    auditCheckDetails_checkRunStatus,
 
     -- * AuditFinding
     AuditFinding (..),
     newAuditFinding,
-    auditFinding_severity,
-    auditFinding_findingId,
-    auditFinding_taskId,
-    auditFinding_reasonForNonComplianceCode,
-    auditFinding_reasonForNonCompliance,
     auditFinding_isSuppressed,
-    auditFinding_checkName,
-    auditFinding_relatedResources,
+    auditFinding_taskId,
     auditFinding_findingTime,
     auditFinding_taskStartTime,
+    auditFinding_reasonForNonComplianceCode,
+    auditFinding_severity,
+    auditFinding_relatedResources,
+    auditFinding_checkName,
     auditFinding_nonCompliantResource,
+    auditFinding_reasonForNonCompliance,
+    auditFinding_findingId,
 
     -- * AuditMitigationActionExecutionMetadata
     AuditMitigationActionExecutionMetadata (..),
     newAuditMitigationActionExecutionMetadata,
     auditMitigationActionExecutionMetadata_status,
-    auditMitigationActionExecutionMetadata_actionName,
-    auditMitigationActionExecutionMetadata_message,
-    auditMitigationActionExecutionMetadata_actionId,
-    auditMitigationActionExecutionMetadata_findingId,
-    auditMitigationActionExecutionMetadata_taskId,
     auditMitigationActionExecutionMetadata_startTime,
+    auditMitigationActionExecutionMetadata_taskId,
+    auditMitigationActionExecutionMetadata_actionId,
+    auditMitigationActionExecutionMetadata_actionName,
     auditMitigationActionExecutionMetadata_endTime,
     auditMitigationActionExecutionMetadata_errorCode,
+    auditMitigationActionExecutionMetadata_findingId,
+    auditMitigationActionExecutionMetadata_message,
 
     -- * AuditMitigationActionsTaskMetadata
     AuditMitigationActionsTaskMetadata (..),
     newAuditMitigationActionsTaskMetadata,
-    auditMitigationActionsTaskMetadata_taskId,
     auditMitigationActionsTaskMetadata_startTime,
+    auditMitigationActionsTaskMetadata_taskId,
     auditMitigationActionsTaskMetadata_taskStatus,
 
     -- * AuditMitigationActionsTaskTarget
     AuditMitigationActionsTaskTarget (..),
     newAuditMitigationActionsTaskTarget,
-    auditMitigationActionsTaskTarget_findingIds,
     auditMitigationActionsTaskTarget_auditTaskId,
+    auditMitigationActionsTaskTarget_findingIds,
     auditMitigationActionsTaskTarget_auditCheckToReasonCodeFilter,
 
     -- * AuditNotificationTarget
     AuditNotificationTarget (..),
     newAuditNotificationTarget,
-    auditNotificationTarget_roleArn,
-    auditNotificationTarget_enabled,
     auditNotificationTarget_targetArn,
+    auditNotificationTarget_enabled,
+    auditNotificationTarget_roleArn,
 
     -- * AuditSuppression
     AuditSuppression (..),
     newAuditSuppression,
     auditSuppression_expirationDate,
-    auditSuppression_description,
     auditSuppression_suppressIndefinitely,
+    auditSuppression_description,
     auditSuppression_checkName,
     auditSuppression_resourceIdentifier,
 
     -- * AuditTaskMetadata
     AuditTaskMetadata (..),
     newAuditTaskMetadata,
+    auditTaskMetadata_taskType,
     auditTaskMetadata_taskId,
     auditTaskMetadata_taskStatus,
-    auditTaskMetadata_taskType,
 
     -- * AuthInfo
     AuthInfo (..),
@@ -430,11 +430,11 @@ module Network.AWS.IoT.Types
     -- * AuthResult
     AuthResult (..),
     newAuthResult,
-    authResult_authInfo,
-    authResult_allowed,
     authResult_denied,
-    authResult_missingContextValues,
     authResult_authDecision,
+    authResult_allowed,
+    authResult_missingContextValues,
+    authResult_authInfo,
 
     -- * AuthorizerConfig
     AuthorizerConfig (..),
@@ -445,21 +445,21 @@ module Network.AWS.IoT.Types
     -- * AuthorizerDescription
     AuthorizerDescription (..),
     newAuthorizerDescription,
-    authorizerDescription_lastModifiedDate,
-    authorizerDescription_authorizerArn,
     authorizerDescription_status,
+    authorizerDescription_lastModifiedDate,
+    authorizerDescription_signingDisabled,
+    authorizerDescription_authorizerName,
     authorizerDescription_authorizerFunctionArn,
+    authorizerDescription_authorizerArn,
     authorizerDescription_creationDate,
     authorizerDescription_tokenSigningPublicKeys,
-    authorizerDescription_authorizerName,
     authorizerDescription_tokenKeyName,
-    authorizerDescription_signingDisabled,
 
     -- * AuthorizerSummary
     AuthorizerSummary (..),
     newAuthorizerSummary,
-    authorizerSummary_authorizerArn,
     authorizerSummary_authorizerName,
+    authorizerSummary_authorizerArn,
 
     -- * AwsJobAbortConfig
     AwsJobAbortConfig (..),
@@ -506,8 +506,8 @@ module Network.AWS.IoT.Types
     -- * Behavior
     Behavior (..),
     newBehavior,
-    behavior_metricDimension,
     behavior_suppressAlerts,
+    behavior_metricDimension,
     behavior_metric,
     behavior_criteria,
     behavior_name,
@@ -515,23 +515,23 @@ module Network.AWS.IoT.Types
     -- * BehaviorCriteria
     BehaviorCriteria (..),
     newBehaviorCriteria,
-    behaviorCriteria_comparisonOperator,
-    behaviorCriteria_consecutiveDatapointsToAlarm,
     behaviorCriteria_mlDetectionConfig,
-    behaviorCriteria_statisticalThreshold,
-    behaviorCriteria_consecutiveDatapointsToClear,
     behaviorCriteria_value,
+    behaviorCriteria_consecutiveDatapointsToAlarm,
+    behaviorCriteria_comparisonOperator,
+    behaviorCriteria_statisticalThreshold,
     behaviorCriteria_durationSeconds,
+    behaviorCriteria_consecutiveDatapointsToClear,
 
     -- * BehaviorModelTrainingSummary
     BehaviorModelTrainingSummary (..),
     newBehaviorModelTrainingSummary,
     behaviorModelTrainingSummary_lastModelRefreshDate,
-    behaviorModelTrainingSummary_datapointsCollectionPercentage,
-    behaviorModelTrainingSummary_modelStatus,
     behaviorModelTrainingSummary_behaviorName,
+    behaviorModelTrainingSummary_datapointsCollectionPercentage,
     behaviorModelTrainingSummary_securityProfileName,
     behaviorModelTrainingSummary_trainingDataCollectionStartDate,
+    behaviorModelTrainingSummary_modelStatus,
 
     -- * BillingGroupMetadata
     BillingGroupMetadata (..),
@@ -559,50 +559,50 @@ module Network.AWS.IoT.Types
     newCACertificate,
     cACertificate_status,
     cACertificate_certificateArn,
-    cACertificate_creationDate,
     cACertificate_certificateId,
+    cACertificate_creationDate,
 
     -- * CACertificateDescription
     CACertificateDescription (..),
     newCACertificateDescription,
-    cACertificateDescription_lastModifiedDate,
     cACertificateDescription_status,
-    cACertificateDescription_certificateArn,
-    cACertificateDescription_creationDate,
     cACertificateDescription_ownedBy,
-    cACertificateDescription_customerVersion,
-    cACertificateDescription_generationId,
-    cACertificateDescription_certificateId,
+    cACertificateDescription_lastModifiedDate,
     cACertificateDescription_certificatePem,
+    cACertificateDescription_certificateArn,
+    cACertificateDescription_certificateId,
     cACertificateDescription_validity,
     cACertificateDescription_autoRegistrationStatus,
+    cACertificateDescription_creationDate,
+    cACertificateDescription_generationId,
+    cACertificateDescription_customerVersion,
 
     -- * Certificate
     Certificate (..),
     newCertificate,
     certificate_status,
-    certificate_certificateMode,
     certificate_certificateArn,
-    certificate_creationDate,
     certificate_certificateId,
+    certificate_certificateMode,
+    certificate_creationDate,
 
     -- * CertificateDescription
     CertificateDescription (..),
     newCertificateDescription,
-    certificateDescription_lastModifiedDate,
     certificateDescription_status,
-    certificateDescription_certificateMode,
-    certificateDescription_certificateArn,
-    certificateDescription_creationDate,
-    certificateDescription_previousOwnedBy,
     certificateDescription_ownedBy,
-    certificateDescription_customerVersion,
+    certificateDescription_lastModifiedDate,
+    certificateDescription_caCertificateId,
+    certificateDescription_previousOwnedBy,
+    certificateDescription_certificatePem,
+    certificateDescription_certificateArn,
+    certificateDescription_certificateId,
+    certificateDescription_certificateMode,
+    certificateDescription_validity,
+    certificateDescription_creationDate,
     certificateDescription_generationId,
     certificateDescription_transferData,
-    certificateDescription_certificateId,
-    certificateDescription_certificatePem,
-    certificateDescription_caCertificateId,
-    certificateDescription_validity,
+    certificateDescription_customerVersion,
 
     -- * CertificateValidity
     CertificateValidity (..),
@@ -637,15 +637,15 @@ module Network.AWS.IoT.Types
     -- * CodeSigning
     CodeSigning (..),
     newCodeSigning,
+    codeSigning_customCodeSigning,
     codeSigning_startSigningJobParameter,
     codeSigning_awsSignerJobId,
-    codeSigning_customCodeSigning,
 
     -- * CodeSigningCertificateChain
     CodeSigningCertificateChain (..),
     newCodeSigningCertificateChain,
-    codeSigningCertificateChain_inlineDocument,
     codeSigningCertificateChain_certificateName,
+    codeSigningCertificateChain_inlineDocument,
 
     -- * CodeSigningSignature
     CodeSigningSignature (..),
@@ -661,9 +661,9 @@ module Network.AWS.IoT.Types
     CustomCodeSigning (..),
     newCustomCodeSigning,
     customCodeSigning_signature,
-    customCodeSigning_signatureAlgorithm,
-    customCodeSigning_certificateChain,
     customCodeSigning_hashAlgorithm,
+    customCodeSigning_certificateChain,
+    customCodeSigning_signatureAlgorithm,
 
     -- * Denied
     Denied (..),
@@ -680,14 +680,14 @@ module Network.AWS.IoT.Types
     DetectMitigationActionExecution (..),
     newDetectMitigationActionExecution,
     detectMitigationActionExecution_status,
-    detectMitigationActionExecution_violationId,
+    detectMitigationActionExecution_taskId,
     detectMitigationActionExecution_actionName,
-    detectMitigationActionExecution_executionStartDate,
+    detectMitigationActionExecution_violationId,
+    detectMitigationActionExecution_errorCode,
     detectMitigationActionExecution_message,
     detectMitigationActionExecution_thingName,
-    detectMitigationActionExecution_taskId,
+    detectMitigationActionExecution_executionStartDate,
     detectMitigationActionExecution_executionEndDate,
-    detectMitigationActionExecution_errorCode,
 
     -- * DetectMitigationActionsTaskStatistics
     DetectMitigationActionsTaskStatistics (..),
@@ -699,16 +699,16 @@ module Network.AWS.IoT.Types
     -- * DetectMitigationActionsTaskSummary
     DetectMitigationActionsTaskSummary (..),
     newDetectMitigationActionsTaskSummary,
-    detectMitigationActionsTaskSummary_taskEndTime,
-    detectMitigationActionsTaskSummary_taskId,
-    detectMitigationActionsTaskSummary_taskStatistics,
-    detectMitigationActionsTaskSummary_violationEventOccurrenceRange,
     detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded,
+    detectMitigationActionsTaskSummary_suppressedAlertsIncluded,
+    detectMitigationActionsTaskSummary_violationEventOccurrenceRange,
+    detectMitigationActionsTaskSummary_taskId,
+    detectMitigationActionsTaskSummary_taskStartTime,
+    detectMitigationActionsTaskSummary_taskStatistics,
+    detectMitigationActionsTaskSummary_actionsDefinition,
+    detectMitigationActionsTaskSummary_taskEndTime,
     detectMitigationActionsTaskSummary_target,
     detectMitigationActionsTaskSummary_taskStatus,
-    detectMitigationActionsTaskSummary_actionsDefinition,
-    detectMitigationActionsTaskSummary_taskStartTime,
-    detectMitigationActionsTaskSummary_suppressedAlertsIncluded,
 
     -- * DetectMitigationActionsTaskTarget
     DetectMitigationActionsTaskTarget (..),
@@ -720,19 +720,19 @@ module Network.AWS.IoT.Types
     -- * DomainConfigurationSummary
     DomainConfigurationSummary (..),
     newDomainConfigurationSummary,
-    domainConfigurationSummary_domainConfigurationArn,
     domainConfigurationSummary_domainConfigurationName,
+    domainConfigurationSummary_domainConfigurationArn,
     domainConfigurationSummary_serviceType,
 
     -- * DynamoDBAction
     DynamoDBAction (..),
     newDynamoDBAction,
-    dynamoDBAction_rangeKeyValue,
-    dynamoDBAction_rangeKeyType,
     dynamoDBAction_hashKeyType,
     dynamoDBAction_operation,
-    dynamoDBAction_rangeKeyField,
+    dynamoDBAction_rangeKeyType,
     dynamoDBAction_payloadField,
+    dynamoDBAction_rangeKeyField,
+    dynamoDBAction_rangeKeyValue,
     dynamoDBAction_tableName,
     dynamoDBAction_roleArn,
     dynamoDBAction_hashKeyField,
@@ -747,8 +747,8 @@ module Network.AWS.IoT.Types
     -- * EffectivePolicy
     EffectivePolicy (..),
     newEffectivePolicy,
-    effectivePolicy_policyDocument,
     effectivePolicy_policyName,
+    effectivePolicy_policyDocument,
     effectivePolicy_policyArn,
 
     -- * ElasticsearchAction
@@ -769,8 +769,8 @@ module Network.AWS.IoT.Types
     -- * ErrorInfo
     ErrorInfo (..),
     newErrorInfo,
-    errorInfo_message,
     errorInfo_code,
+    errorInfo_message,
 
     -- * ExplicitDeny
     ExplicitDeny (..),
@@ -799,29 +799,29 @@ module Network.AWS.IoT.Types
     -- * FirehoseAction
     FirehoseAction (..),
     newFirehoseAction,
-    firehoseAction_separator,
     firehoseAction_batchMode,
+    firehoseAction_separator,
     firehoseAction_roleArn,
     firehoseAction_deliveryStreamName,
 
     -- * FleetMetricNameAndArn
     FleetMetricNameAndArn (..),
     newFleetMetricNameAndArn,
-    fleetMetricNameAndArn_metricArn,
     fleetMetricNameAndArn_metricName,
+    fleetMetricNameAndArn_metricArn,
 
     -- * GroupNameAndArn
     GroupNameAndArn (..),
     newGroupNameAndArn,
-    groupNameAndArn_groupName,
     groupNameAndArn_groupArn,
+    groupNameAndArn_groupName,
 
     -- * HttpAction
     HttpAction (..),
     newHttpAction,
-    httpAction_headers,
-    httpAction_auth,
     httpAction_confirmationUrl,
+    httpAction_auth,
+    httpAction_headers,
     httpAction_url,
 
     -- * HttpActionHeader
@@ -838,8 +838,8 @@ module Network.AWS.IoT.Types
     -- * HttpContext
     HttpContext (..),
     newHttpContext,
-    httpContext_queryString,
     httpContext_headers,
+    httpContext_queryString,
 
     -- * HttpUrlDestinationConfiguration
     HttpUrlDestinationConfiguration (..),
@@ -864,10 +864,10 @@ module Network.AWS.IoT.Types
     -- * IotAnalyticsAction
     IotAnalyticsAction (..),
     newIotAnalyticsAction,
-    iotAnalyticsAction_channelName,
-    iotAnalyticsAction_roleArn,
     iotAnalyticsAction_batchMode,
     iotAnalyticsAction_channelArn,
+    iotAnalyticsAction_channelName,
+    iotAnalyticsAction_roleArn,
 
     -- * IotEventsAction
     IotEventsAction (..),
@@ -886,40 +886,40 @@ module Network.AWS.IoT.Types
     -- * Job
     Job (..),
     newJob,
-    job_jobExecutionsRolloutConfig,
     job_status,
-    job_reasonCode,
-    job_timeoutConfig,
-    job_targetSelection,
-    job_namespaceId,
-    job_jobProcessDetails,
-    job_comment,
-    job_completedAt,
-    job_createdAt,
-    job_forceCanceled,
-    job_jobArn,
-    job_targets,
-    job_presignedUrlConfig,
-    job_description,
-    job_abortConfig,
-    job_jobTemplateArn,
+    job_jobExecutionsRolloutConfig,
     job_jobId,
     job_lastUpdatedAt,
+    job_jobArn,
+    job_createdAt,
+    job_abortConfig,
+    job_jobProcessDetails,
+    job_namespaceId,
+    job_reasonCode,
+    job_presignedUrlConfig,
+    job_forceCanceled,
+    job_jobTemplateArn,
+    job_targets,
+    job_completedAt,
+    job_comment,
+    job_description,
+    job_targetSelection,
+    job_timeoutConfig,
 
     -- * JobExecution
     JobExecution (..),
     newJobExecution,
-    jobExecution_startedAt,
     jobExecution_status,
-    jobExecution_thingArn,
-    jobExecution_statusDetails,
-    jobExecution_queuedAt,
-    jobExecution_forceCanceled,
-    jobExecution_executionNumber,
-    jobExecution_versionNumber,
-    jobExecution_approximateSecondsBeforeTimedOut,
     jobExecution_jobId,
     jobExecution_lastUpdatedAt,
+    jobExecution_approximateSecondsBeforeTimedOut,
+    jobExecution_queuedAt,
+    jobExecution_statusDetails,
+    jobExecution_thingArn,
+    jobExecution_executionNumber,
+    jobExecution_versionNumber,
+    jobExecution_startedAt,
+    jobExecution_forceCanceled,
 
     -- * JobExecutionStatusDetails
     JobExecutionStatusDetails (..),
@@ -929,23 +929,23 @@ module Network.AWS.IoT.Types
     -- * JobExecutionSummary
     JobExecutionSummary (..),
     newJobExecutionSummary,
-    jobExecutionSummary_startedAt,
     jobExecutionSummary_status,
+    jobExecutionSummary_lastUpdatedAt,
     jobExecutionSummary_queuedAt,
     jobExecutionSummary_executionNumber,
-    jobExecutionSummary_lastUpdatedAt,
+    jobExecutionSummary_startedAt,
 
     -- * JobExecutionSummaryForJob
     JobExecutionSummaryForJob (..),
     newJobExecutionSummaryForJob,
-    jobExecutionSummaryForJob_thingArn,
     jobExecutionSummaryForJob_jobExecutionSummary,
+    jobExecutionSummaryForJob_thingArn,
 
     -- * JobExecutionSummaryForThing
     JobExecutionSummaryForThing (..),
     newJobExecutionSummaryForThing,
-    jobExecutionSummaryForThing_jobExecutionSummary,
     jobExecutionSummaryForThing_jobId,
+    jobExecutionSummaryForThing_jobExecutionSummary,
 
     -- * JobExecutionsRolloutConfig
     JobExecutionsRolloutConfig (..),
@@ -956,35 +956,35 @@ module Network.AWS.IoT.Types
     -- * JobProcessDetails
     JobProcessDetails (..),
     newJobProcessDetails,
-    jobProcessDetails_processingTargets,
-    jobProcessDetails_numberOfSucceededThings,
-    jobProcessDetails_numberOfQueuedThings,
-    jobProcessDetails_numberOfInProgressThings,
     jobProcessDetails_numberOfRemovedThings,
+    jobProcessDetails_numberOfQueuedThings,
     jobProcessDetails_numberOfFailedThings,
-    jobProcessDetails_numberOfRejectedThings,
-    jobProcessDetails_numberOfTimedOutThings,
+    jobProcessDetails_numberOfSucceededThings,
+    jobProcessDetails_numberOfInProgressThings,
     jobProcessDetails_numberOfCanceledThings,
+    jobProcessDetails_numberOfTimedOutThings,
+    jobProcessDetails_numberOfRejectedThings,
+    jobProcessDetails_processingTargets,
 
     -- * JobSummary
     JobSummary (..),
     newJobSummary,
     jobSummary_status,
-    jobSummary_targetSelection,
-    jobSummary_completedAt,
-    jobSummary_createdAt,
-    jobSummary_jobArn,
-    jobSummary_thingGroupId,
     jobSummary_jobId,
     jobSummary_lastUpdatedAt,
+    jobSummary_jobArn,
+    jobSummary_createdAt,
+    jobSummary_thingGroupId,
+    jobSummary_completedAt,
+    jobSummary_targetSelection,
 
     -- * JobTemplateSummary
     JobTemplateSummary (..),
     newJobTemplateSummary,
     jobTemplateSummary_createdAt,
     jobTemplateSummary_jobTemplateId,
-    jobTemplateSummary_description,
     jobTemplateSummary_jobTemplateArn,
+    jobTemplateSummary_description,
 
     -- * KafkaAction
     KafkaAction (..),
@@ -998,8 +998,8 @@ module Network.AWS.IoT.Types
     -- * KeyPair
     KeyPair (..),
     newKeyPair,
-    keyPair_publicKey,
     keyPair_privateKey,
+    keyPair_publicKey,
 
     -- * KinesisAction
     KinesisAction (..),
@@ -1051,44 +1051,44 @@ module Network.AWS.IoT.Types
     -- * MetricValue
     MetricValue (..),
     newMetricValue,
-    metricValue_numbers,
-    metricValue_ports,
     metricValue_cidrs,
-    metricValue_strings,
-    metricValue_number,
     metricValue_count,
+    metricValue_ports,
+    metricValue_numbers,
+    metricValue_number,
+    metricValue_strings,
 
     -- * MitigationAction
     MitigationAction (..),
     newMitigationAction,
-    mitigationAction_roleArn,
-    mitigationAction_id,
     mitigationAction_actionParams,
     mitigationAction_name,
+    mitigationAction_id,
+    mitigationAction_roleArn,
 
     -- * MitigationActionIdentifier
     MitigationActionIdentifier (..),
     newMitigationActionIdentifier,
     mitigationActionIdentifier_actionName,
-    mitigationActionIdentifier_actionArn,
     mitigationActionIdentifier_creationDate,
+    mitigationActionIdentifier_actionArn,
 
     -- * MitigationActionParams
     MitigationActionParams (..),
     newMitigationActionParams,
     mitigationActionParams_enableIoTLoggingParams,
-    mitigationActionParams_replaceDefaultPolicyVersionParams,
-    mitigationActionParams_updateDeviceCertificateParams,
-    mitigationActionParams_publishFindingToSnsParams,
-    mitigationActionParams_updateCACertificateParams,
     mitigationActionParams_addThingsToThingGroupParams,
+    mitigationActionParams_updateCACertificateParams,
+    mitigationActionParams_updateDeviceCertificateParams,
+    mitigationActionParams_replaceDefaultPolicyVersionParams,
+    mitigationActionParams_publishFindingToSnsParams,
 
     -- * MqttContext
     MqttContext (..),
     newMqttContext,
     mqttContext_clientId,
-    mqttContext_password,
     mqttContext_username,
+    mqttContext_password,
 
     -- * NonCompliantResource
     NonCompliantResource (..),
@@ -1100,39 +1100,39 @@ module Network.AWS.IoT.Types
     -- * OTAUpdateFile
     OTAUpdateFile (..),
     newOTAUpdateFile,
-    oTAUpdateFile_fileVersion,
     oTAUpdateFile_fileLocation,
-    oTAUpdateFile_attributes,
-    oTAUpdateFile_fileName,
-    oTAUpdateFile_codeSigning,
     oTAUpdateFile_fileType,
+    oTAUpdateFile_fileVersion,
+    oTAUpdateFile_attributes,
+    oTAUpdateFile_codeSigning,
+    oTAUpdateFile_fileName,
 
     -- * OTAUpdateInfo
     OTAUpdateInfo (..),
     newOTAUpdateInfo,
-    oTAUpdateInfo_otaUpdateStatus,
     oTAUpdateInfo_lastModifiedDate,
-    oTAUpdateInfo_targetSelection,
-    oTAUpdateInfo_otaUpdateArn,
-    oTAUpdateInfo_creationDate,
-    oTAUpdateInfo_protocols,
-    oTAUpdateInfo_awsIotJobArn,
-    oTAUpdateInfo_awsIotJobId,
-    oTAUpdateInfo_targets,
-    oTAUpdateInfo_otaUpdateFiles,
-    oTAUpdateInfo_awsJobPresignedUrlConfig,
-    oTAUpdateInfo_errorInfo,
-    oTAUpdateInfo_otaUpdateId,
-    oTAUpdateInfo_description,
-    oTAUpdateInfo_additionalParameters,
     oTAUpdateInfo_awsJobExecutionsRolloutConfig,
+    oTAUpdateInfo_awsIotJobId,
+    oTAUpdateInfo_protocols,
+    oTAUpdateInfo_awsJobPresignedUrlConfig,
+    oTAUpdateInfo_otaUpdateFiles,
+    oTAUpdateInfo_otaUpdateStatus,
+    oTAUpdateInfo_targets,
+    oTAUpdateInfo_awsIotJobArn,
+    oTAUpdateInfo_creationDate,
+    oTAUpdateInfo_additionalParameters,
+    oTAUpdateInfo_otaUpdateId,
+    oTAUpdateInfo_errorInfo,
+    oTAUpdateInfo_otaUpdateArn,
+    oTAUpdateInfo_description,
+    oTAUpdateInfo_targetSelection,
 
     -- * OTAUpdateSummary
     OTAUpdateSummary (..),
     newOTAUpdateSummary,
-    oTAUpdateSummary_otaUpdateArn,
     oTAUpdateSummary_creationDate,
     oTAUpdateSummary_otaUpdateId,
+    oTAUpdateSummary_otaUpdateArn,
 
     -- * OpenSearchAction
     OpenSearchAction (..),
@@ -1148,16 +1148,16 @@ module Network.AWS.IoT.Types
     newOutgoingCertificate,
     outgoingCertificate_transferDate,
     outgoingCertificate_certificateArn,
-    outgoingCertificate_transferMessage,
-    outgoingCertificate_creationDate,
-    outgoingCertificate_transferredTo,
     outgoingCertificate_certificateId,
+    outgoingCertificate_transferredTo,
+    outgoingCertificate_creationDate,
+    outgoingCertificate_transferMessage,
 
     -- * PercentPair
     PercentPair (..),
     newPercentPair,
-    percentPair_percent,
     percentPair_value,
+    percentPair_percent,
 
     -- * Policy
     Policy (..),
@@ -1168,21 +1168,21 @@ module Network.AWS.IoT.Types
     -- * PolicyVersion
     PolicyVersion (..),
     newPolicyVersion,
-    policyVersion_createDate,
     policyVersion_versionId,
+    policyVersion_createDate,
     policyVersion_isDefaultVersion,
 
     -- * PolicyVersionIdentifier
     PolicyVersionIdentifier (..),
     newPolicyVersionIdentifier,
-    policyVersionIdentifier_policyVersionId,
     policyVersionIdentifier_policyName,
+    policyVersionIdentifier_policyVersionId,
 
     -- * PresignedUrlConfig
     PresignedUrlConfig (..),
     newPresignedUrlConfig,
-    presignedUrlConfig_roleArn,
     presignedUrlConfig_expiresInSec,
+    presignedUrlConfig_roleArn,
 
     -- * ProvisioningHook
     ProvisioningHook (..),
@@ -1195,16 +1195,16 @@ module Network.AWS.IoT.Types
     newProvisioningTemplateSummary,
     provisioningTemplateSummary_lastModifiedDate,
     provisioningTemplateSummary_templateName,
-    provisioningTemplateSummary_creationDate,
     provisioningTemplateSummary_enabled,
-    provisioningTemplateSummary_description,
+    provisioningTemplateSummary_creationDate,
     provisioningTemplateSummary_templateArn,
+    provisioningTemplateSummary_description,
 
     -- * ProvisioningTemplateVersionSummary
     ProvisioningTemplateVersionSummary (..),
     newProvisioningTemplateVersionSummary,
-    provisioningTemplateVersionSummary_creationDate,
     provisioningTemplateVersionSummary_versionId,
+    provisioningTemplateVersionSummary_creationDate,
     provisioningTemplateVersionSummary_isDefaultVersion,
 
     -- * PublishFindingToSnsParams
@@ -1215,10 +1215,10 @@ module Network.AWS.IoT.Types
     -- * PutAssetPropertyValueEntry
     PutAssetPropertyValueEntry (..),
     newPutAssetPropertyValueEntry,
-    putAssetPropertyValueEntry_propertyAlias,
     putAssetPropertyValueEntry_entryId,
-    putAssetPropertyValueEntry_assetId,
+    putAssetPropertyValueEntry_propertyAlias,
     putAssetPropertyValueEntry_propertyId,
+    putAssetPropertyValueEntry_assetId,
     putAssetPropertyValueEntry_propertyValues,
 
     -- * PutItemInput
@@ -1235,8 +1235,8 @@ module Network.AWS.IoT.Types
     -- * RegistrationConfig
     RegistrationConfig (..),
     newRegistrationConfig,
-    registrationConfig_roleArn,
     registrationConfig_templateBody,
+    registrationConfig_roleArn,
 
     -- * RelatedResource
     RelatedResource (..),
@@ -1260,25 +1260,25 @@ module Network.AWS.IoT.Types
     -- * ResourceIdentifier
     ResourceIdentifier (..),
     newResourceIdentifier,
-    resourceIdentifier_roleAliasArn,
     resourceIdentifier_iamRoleArn,
     resourceIdentifier_clientId,
-    resourceIdentifier_cognitoIdentityPoolId,
-    resourceIdentifier_policyVersionIdentifier,
-    resourceIdentifier_account,
-    resourceIdentifier_deviceCertificateId,
+    resourceIdentifier_roleAliasArn,
     resourceIdentifier_caCertificateId,
+    resourceIdentifier_deviceCertificateId,
+    resourceIdentifier_account,
+    resourceIdentifier_policyVersionIdentifier,
+    resourceIdentifier_cognitoIdentityPoolId,
 
     -- * RoleAliasDescription
     RoleAliasDescription (..),
     newRoleAliasDescription,
-    roleAliasDescription_lastModifiedDate,
     roleAliasDescription_roleAliasArn,
-    roleAliasDescription_roleArn,
-    roleAliasDescription_creationDate,
-    roleAliasDescription_owner,
-    roleAliasDescription_credentialDurationSeconds,
+    roleAliasDescription_lastModifiedDate,
     roleAliasDescription_roleAlias,
+    roleAliasDescription_owner,
+    roleAliasDescription_creationDate,
+    roleAliasDescription_credentialDurationSeconds,
+    roleAliasDescription_roleArn,
 
     -- * S3Action
     S3Action (..),
@@ -1297,9 +1297,9 @@ module Network.AWS.IoT.Types
     -- * S3Location
     S3Location (..),
     newS3Location,
+    s3Location_bucket,
     s3Location_key,
     s3Location_version,
-    s3Location_bucket,
 
     -- * SalesforceAction
     SalesforceAction (..),
@@ -1310,11 +1310,11 @@ module Network.AWS.IoT.Types
     -- * ScheduledAuditMetadata
     ScheduledAuditMetadata (..),
     newScheduledAuditMetadata,
-    scheduledAuditMetadata_dayOfWeek,
-    scheduledAuditMetadata_scheduledAuditArn,
+    scheduledAuditMetadata_frequency,
     scheduledAuditMetadata_scheduledAuditName,
     scheduledAuditMetadata_dayOfMonth,
-    scheduledAuditMetadata_frequency,
+    scheduledAuditMetadata_dayOfWeek,
+    scheduledAuditMetadata_scheduledAuditArn,
 
     -- * SecurityProfileIdentifier
     SecurityProfileIdentifier (..),
@@ -1330,14 +1330,14 @@ module Network.AWS.IoT.Types
     -- * SecurityProfileTargetMapping
     SecurityProfileTargetMapping (..),
     newSecurityProfileTargetMapping,
-    securityProfileTargetMapping_target,
     securityProfileTargetMapping_securityProfileIdentifier,
+    securityProfileTargetMapping_target,
 
     -- * ServerCertificateSummary
     ServerCertificateSummary (..),
     newServerCertificateSummary,
-    serverCertificateSummary_serverCertificateStatus,
     serverCertificateSummary_serverCertificateStatusDetail,
+    serverCertificateSummary_serverCertificateStatus,
     serverCertificateSummary_serverCertificateArn,
 
     -- * SigV4Authorization
@@ -1371,8 +1371,8 @@ module Network.AWS.IoT.Types
     -- * StartSigningJobParameter
     StartSigningJobParameter (..),
     newStartSigningJobParameter,
-    startSigningJobParameter_signingProfileName,
     startSigningJobParameter_destination,
+    startSigningJobParameter_signingProfileName,
     startSigningJobParameter_signingProfileParameter,
 
     -- * StatisticalThreshold
@@ -1383,14 +1383,14 @@ module Network.AWS.IoT.Types
     -- * Statistics
     Statistics (..),
     newStatistics,
-    statistics_minimum,
-    statistics_sum,
     statistics_stdDeviation,
-    statistics_variance,
+    statistics_maximum,
     statistics_average,
     statistics_count,
+    statistics_minimum,
+    statistics_variance,
     statistics_sumOfSquares,
-    statistics_maximum,
+    statistics_sum,
 
     -- * StepFunctionsAction
     StepFunctionsAction (..),
@@ -1402,8 +1402,8 @@ module Network.AWS.IoT.Types
     -- * Stream
     Stream (..),
     newStream,
-    stream_streamId,
     stream_fileId,
+    stream_streamId,
 
     -- * StreamFile
     StreamFile (..),
@@ -1414,22 +1414,22 @@ module Network.AWS.IoT.Types
     -- * StreamInfo
     StreamInfo (..),
     newStreamInfo,
-    streamInfo_roleArn,
-    streamInfo_streamVersion,
-    streamInfo_createdAt,
-    streamInfo_streamArn,
-    streamInfo_streamId,
-    streamInfo_description,
-    streamInfo_files,
     streamInfo_lastUpdatedAt,
+    streamInfo_createdAt,
+    streamInfo_streamVersion,
+    streamInfo_streamArn,
+    streamInfo_files,
+    streamInfo_description,
+    streamInfo_streamId,
+    streamInfo_roleArn,
 
     -- * StreamSummary
     StreamSummary (..),
     newStreamSummary,
     streamSummary_streamVersion,
     streamSummary_streamArn,
-    streamSummary_streamId,
     streamSummary_description,
+    streamSummary_streamId,
 
     -- * Tag
     Tag (..),
@@ -1440,22 +1440,22 @@ module Network.AWS.IoT.Types
     -- * TaskStatistics
     TaskStatistics (..),
     newTaskStatistics,
-    taskStatistics_totalChecks,
-    taskStatistics_waitingForDataCollectionChecks,
-    taskStatistics_compliantChecks,
-    taskStatistics_inProgressChecks,
-    taskStatistics_failedChecks,
     taskStatistics_nonCompliantChecks,
+    taskStatistics_waitingForDataCollectionChecks,
+    taskStatistics_failedChecks,
+    taskStatistics_totalChecks,
+    taskStatistics_inProgressChecks,
+    taskStatistics_compliantChecks,
     taskStatistics_canceledChecks,
 
     -- * TaskStatisticsForAuditCheck
     TaskStatisticsForAuditCheck (..),
     newTaskStatisticsForAuditCheck,
-    taskStatisticsForAuditCheck_succeededFindingsCount,
+    taskStatisticsForAuditCheck_canceledFindingsCount,
+    taskStatisticsForAuditCheck_skippedFindingsCount,
     taskStatisticsForAuditCheck_totalFindingsCount,
     taskStatisticsForAuditCheck_failedFindingsCount,
-    taskStatisticsForAuditCheck_skippedFindingsCount,
-    taskStatisticsForAuditCheck_canceledFindingsCount,
+    taskStatisticsForAuditCheck_succeededFindingsCount,
 
     -- * TermsAggregation
     TermsAggregation (..),
@@ -1465,11 +1465,11 @@ module Network.AWS.IoT.Types
     -- * ThingAttribute
     ThingAttribute (..),
     newThingAttribute,
-    thingAttribute_thingArn,
-    thingAttribute_thingName,
-    thingAttribute_version,
-    thingAttribute_attributes,
     thingAttribute_thingTypeName,
+    thingAttribute_thingArn,
+    thingAttribute_attributes,
+    thingAttribute_version,
+    thingAttribute_thingName,
 
     -- * ThingConnectivity
     ThingConnectivity (..),
@@ -1481,21 +1481,21 @@ module Network.AWS.IoT.Types
     -- * ThingDocument
     ThingDocument (..),
     newThingDocument,
-    thingDocument_thingId,
-    thingDocument_thingName,
-    thingDocument_connectivity,
-    thingDocument_attributes,
     thingDocument_thingGroupNames,
-    thingDocument_shadow,
     thingDocument_thingTypeName,
+    thingDocument_shadow,
+    thingDocument_attributes,
+    thingDocument_connectivity,
+    thingDocument_thingName,
+    thingDocument_thingId,
 
     -- * ThingGroupDocument
     ThingGroupDocument (..),
     newThingGroupDocument,
     thingGroupDocument_parentGroupNames,
-    thingGroupDocument_attributes,
-    thingGroupDocument_thingGroupName,
     thingGroupDocument_thingGroupId,
+    thingGroupDocument_thingGroupName,
+    thingGroupDocument_attributes,
     thingGroupDocument_thingGroupDescription,
 
     -- * ThingGroupIndexingConfiguration
@@ -1508,21 +1508,21 @@ module Network.AWS.IoT.Types
     -- * ThingGroupMetadata
     ThingGroupMetadata (..),
     newThingGroupMetadata,
+    thingGroupMetadata_rootToParentThingGroups,
     thingGroupMetadata_parentGroupName,
     thingGroupMetadata_creationDate,
-    thingGroupMetadata_rootToParentThingGroups,
 
     -- * ThingGroupProperties
     ThingGroupProperties (..),
     newThingGroupProperties,
-    thingGroupProperties_thingGroupDescription,
     thingGroupProperties_attributePayload,
+    thingGroupProperties_thingGroupDescription,
 
     -- * ThingIndexingConfiguration
     ThingIndexingConfiguration (..),
     newThingIndexingConfiguration,
-    thingIndexingConfiguration_thingConnectivityIndexingMode,
     thingIndexingConfiguration_managedFields,
+    thingIndexingConfiguration_thingConnectivityIndexingMode,
     thingIndexingConfiguration_customFields,
     thingIndexingConfiguration_thingIndexingMode,
 
@@ -1530,9 +1530,9 @@ module Network.AWS.IoT.Types
     ThingTypeDefinition (..),
     newThingTypeDefinition,
     thingTypeDefinition_thingTypeProperties,
+    thingTypeDefinition_thingTypeName,
     thingTypeDefinition_thingTypeMetadata,
     thingTypeDefinition_thingTypeArn,
-    thingTypeDefinition_thingTypeName,
 
     -- * ThingTypeMetadata
     ThingTypeMetadata (..),
@@ -1581,25 +1581,25 @@ module Network.AWS.IoT.Types
     -- * TopicRule
     TopicRule (..),
     newTopicRule,
-    topicRule_ruleName,
-    topicRule_errorAction,
-    topicRule_awsIotSqlVersion,
     topicRule_createdAt,
     topicRule_actions,
+    topicRule_awsIotSqlVersion,
+    topicRule_errorAction,
     topicRule_ruleDisabled,
-    topicRule_description,
+    topicRule_ruleName,
     topicRule_sql,
+    topicRule_description,
 
     -- * TopicRuleDestination
     TopicRuleDestination (..),
     newTopicRuleDestination,
-    topicRuleDestination_status,
-    topicRuleDestination_createdAt,
-    topicRuleDestination_arn,
     topicRuleDestination_vpcProperties,
-    topicRuleDestination_statusReason,
-    topicRuleDestination_httpUrlProperties,
+    topicRuleDestination_status,
     topicRuleDestination_lastUpdatedAt,
+    topicRuleDestination_httpUrlProperties,
+    topicRuleDestination_arn,
+    topicRuleDestination_createdAt,
+    topicRuleDestination_statusReason,
 
     -- * TopicRuleDestinationConfiguration
     TopicRuleDestinationConfiguration (..),
@@ -1610,28 +1610,28 @@ module Network.AWS.IoT.Types
     -- * TopicRuleDestinationSummary
     TopicRuleDestinationSummary (..),
     newTopicRuleDestinationSummary,
-    topicRuleDestinationSummary_httpUrlSummary,
     topicRuleDestinationSummary_status,
-    topicRuleDestinationSummary_createdAt,
-    topicRuleDestinationSummary_arn,
-    topicRuleDestinationSummary_statusReason,
-    topicRuleDestinationSummary_vpcDestinationSummary,
+    topicRuleDestinationSummary_httpUrlSummary,
     topicRuleDestinationSummary_lastUpdatedAt,
+    topicRuleDestinationSummary_arn,
+    topicRuleDestinationSummary_createdAt,
+    topicRuleDestinationSummary_vpcDestinationSummary,
+    topicRuleDestinationSummary_statusReason,
 
     -- * TopicRuleListItem
     TopicRuleListItem (..),
     newTopicRuleListItem,
+    topicRuleListItem_createdAt,
+    topicRuleListItem_ruleDisabled,
     topicRuleListItem_ruleName,
     topicRuleListItem_ruleArn,
-    topicRuleListItem_createdAt,
     topicRuleListItem_topicPattern,
-    topicRuleListItem_ruleDisabled,
 
     -- * TopicRulePayload
     TopicRulePayload (..),
     newTopicRulePayload,
-    topicRulePayload_errorAction,
     topicRulePayload_awsIotSqlVersion,
+    topicRulePayload_errorAction,
     topicRulePayload_ruleDisabled,
     topicRulePayload_description,
     topicRulePayload_sql,
@@ -1641,10 +1641,10 @@ module Network.AWS.IoT.Types
     TransferData (..),
     newTransferData,
     transferData_transferDate,
-    transferData_transferMessage,
     transferData_acceptDate,
-    transferData_rejectReason,
+    transferData_transferMessage,
     transferData_rejectDate,
+    transferData_rejectReason,
 
     -- * UpdateCACertificateParams
     UpdateCACertificateParams (..),
@@ -1664,16 +1664,16 @@ module Network.AWS.IoT.Types
     -- * ViolationEvent
     ViolationEvent (..),
     newViolationEvent,
-    violationEvent_metricValue,
-    violationEvent_violationId,
-    violationEvent_thingName,
-    violationEvent_verificationStateDescription,
-    violationEvent_securityProfileName,
-    violationEvent_behavior,
-    violationEvent_verificationState,
-    violationEvent_violationEventTime,
     violationEvent_violationEventType,
+    violationEvent_verificationStateDescription,
+    violationEvent_violationId,
+    violationEvent_behavior,
+    violationEvent_metricValue,
+    violationEvent_securityProfileName,
     violationEvent_violationEventAdditionalInfo,
+    violationEvent_violationEventTime,
+    violationEvent_thingName,
+    violationEvent_verificationState,
 
     -- * ViolationEventAdditionalInfo
     ViolationEventAdditionalInfo (..),
@@ -1697,18 +1697,18 @@ module Network.AWS.IoT.Types
     -- * VpcDestinationProperties
     VpcDestinationProperties (..),
     newVpcDestinationProperties,
-    vpcDestinationProperties_roleArn,
-    vpcDestinationProperties_subnetIds,
     vpcDestinationProperties_securityGroups,
+    vpcDestinationProperties_subnetIds,
     vpcDestinationProperties_vpcId,
+    vpcDestinationProperties_roleArn,
 
     -- * VpcDestinationSummary
     VpcDestinationSummary (..),
     newVpcDestinationSummary,
-    vpcDestinationSummary_roleArn,
-    vpcDestinationSummary_subnetIds,
     vpcDestinationSummary_securityGroups,
+    vpcDestinationSummary_subnetIds,
     vpcDestinationSummary_vpcId,
+    vpcDestinationSummary_roleArn,
   )
 where
 
@@ -1995,37 +1995,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -2038,31 +2015,38 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The index is not ready.
-_IndexNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IndexNotReadyException =
+-- | This exception occurs if you attempt to start a task with the same
+-- task-id as an existing task but with a different clientRequestToken.
+_TaskAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TaskAlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "IndexNotReadyException"
-    Prelude.. Core.hasStatus 400
-
--- | You can\'t revert the certificate transfer because the transfer is
--- already complete.
-_TransferAlreadyCompletedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TransferAlreadyCompletedException =
-  Core._MatchServiceError
-    defaultService
-    "TransferAlreadyCompletedException"
-    Prelude.. Core.hasStatus 410
-
--- | The query is invalid.
-_InvalidQueryException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidQueryException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidQueryException"
+    "TaskAlreadyExistsException"
     Prelude.. Core.hasStatus 400
 
 -- | Unable to verify the CA certificate used to sign the device certificate
@@ -2076,85 +2060,20 @@ _CertificateConflictException =
     "CertificateConflictException"
     Prelude.. Core.hasStatus 409
 
--- | This exception occurs if you attempt to start a task with the same
--- task-id as an existing task but with a different clientRequestToken.
-_TaskAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TaskAlreadyExistsException =
+-- | The Rule-SQL expression can\'t be parsed correctly.
+_SqlParseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SqlParseException =
   Core._MatchServiceError
     defaultService
-    "TaskAlreadyExistsException"
+    "SqlParseException"
     Prelude.. Core.hasStatus 400
 
--- | The certificate is invalid.
-_CertificateValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CertificateValidationException =
+-- | The index is not ready.
+_IndexNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IndexNotReadyException =
   Core._MatchServiceError
     defaultService
-    "CertificateValidationException"
-    Prelude.. Core.hasStatus 400
-
--- | You are not authorized to perform this operation.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedException =
-  Core._MatchServiceError
-    defaultService
-    "UnauthorizedException"
-    Prelude.. Core.hasStatus 401
-
--- | The resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceAlreadyExistsException"
-    Prelude.. Core.hasStatus 409
-
--- | The service is temporarily unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
--- | The policy documentation is not valid.
-_MalformedPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MalformedPolicyException =
-  Core._MatchServiceError
-    defaultService
-    "MalformedPolicyException"
-    Prelude.. Core.hasStatus 400
-
--- | An unexpected error has occurred.
-_InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalException =
-  Core._MatchServiceError
-    defaultService
-    "InternalException"
-    Prelude.. Core.hasStatus 500
-
--- | The certificate operation is not allowed.
-_CertificateStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CertificateStateException =
-  Core._MatchServiceError
-    defaultService
-    "CertificateStateException"
-    Prelude.. Core.hasStatus 406
-
--- | The aggregation is invalid.
-_InvalidAggregationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidAggregationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidAggregationException"
-    Prelude.. Core.hasStatus 400
-
--- | The rate exceeds the limit.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
+    "IndexNotReadyException"
     Prelude.. Core.hasStatus 400
 
 -- | The request is not valid.
@@ -2165,54 +2084,62 @@ _InvalidRequestException =
     "InvalidRequestException"
     Prelude.. Core.hasStatus 400
 
--- | The resource registration failed.
-_ResourceRegistrationFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceRegistrationFailureException =
+-- | You can\'t transfer the certificate because authorization policies are
+-- still attached.
+_TransferConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TransferConflictException =
   Core._MatchServiceError
     defaultService
-    "ResourceRegistrationFailureException"
-    Prelude.. Core.hasStatus 400
-
--- | The Rule-SQL expression can\'t be parsed correctly.
-_SqlParseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SqlParseException =
-  Core._MatchServiceError
-    defaultService
-    "SqlParseException"
-    Prelude.. Core.hasStatus 400
-
--- | A resource with the same name already exists.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
+    "TransferConflictException"
     Prelude.. Core.hasStatus 409
 
--- | A limit has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | The certificate operation is not allowed.
+_CertificateStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CertificateStateException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 410
+    "CertificateStateException"
+    Prelude.. Core.hasStatus 406
 
--- | The specified resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
+-- | The response is invalid.
+_InvalidResponseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResponseException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
+    "InvalidResponseException"
+    Prelude.. Core.hasStatus 400
 
--- | An attempt was made to change to an invalid state, for example by
--- deleting a job or a job execution which is \"IN_PROGRESS\" without
--- setting the @force@ parameter.
-_InvalidStateTransitionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidStateTransitionException =
+-- | The registration code is invalid.
+_RegistrationCodeValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RegistrationCodeValidationException =
   Core._MatchServiceError
     defaultService
-    "InvalidStateTransitionException"
+    "RegistrationCodeValidationException"
+    Prelude.. Core.hasStatus 400
+
+-- | The policy documentation is not valid.
+_MalformedPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MalformedPolicyException =
+  Core._MatchServiceError
+    defaultService
+    "MalformedPolicyException"
+    Prelude.. Core.hasStatus 400
+
+-- | You can\'t delete the resource because it is attached to one or more
+-- resources.
+_DeleteConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DeleteConflictException =
+  Core._MatchServiceError
+    defaultService
+    "DeleteConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The resource already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAlreadyExistsException"
     Prelude.. Core.hasStatus 409
 
 -- | The resource is not configured.
@@ -2223,23 +2150,71 @@ _NotConfiguredException =
     "NotConfiguredException"
     Prelude.. Core.hasStatus 404
 
--- | An exception thrown when the version of an entity specified with the
--- @expectedVersion@ parameter does not match the latest version in the
--- system.
-_VersionConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_VersionConflictException =
+-- | The certificate is invalid.
+_CertificateValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CertificateValidationException =
   Core._MatchServiceError
     defaultService
-    "VersionConflictException"
+    "CertificateValidationException"
+    Prelude.. Core.hasStatus 400
+
+-- | A resource with the same name already exists.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
     Prelude.. Core.hasStatus 409
 
--- | The registration code is invalid.
-_RegistrationCodeValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RegistrationCodeValidationException =
+-- | The resource registration failed.
+_ResourceRegistrationFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceRegistrationFailureException =
   Core._MatchServiceError
     defaultService
-    "RegistrationCodeValidationException"
+    "ResourceRegistrationFailureException"
     Prelude.. Core.hasStatus 400
+
+-- | The query is invalid.
+_InvalidQueryException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidQueryException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidQueryException"
+    Prelude.. Core.hasStatus 400
+
+-- | You can\'t revert the certificate transfer because the transfer is
+-- already complete.
+_TransferAlreadyCompletedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TransferAlreadyCompletedException =
+  Core._MatchServiceError
+    defaultService
+    "TransferAlreadyCompletedException"
+    Prelude.. Core.hasStatus 410
+
+-- | The rate exceeds the limit.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 400
+
+-- | The aggregation is invalid.
+_InvalidAggregationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAggregationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidAggregationException"
+    Prelude.. Core.hasStatus 400
+
+-- | A conflicting resource update exception. This exception is thrown when
+-- two pending updates cause a conflict.
+_ConflictingResourceUpdateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictingResourceUpdateException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictingResourceUpdateException"
+    Prelude.. Core.hasStatus 409
 
 -- | An unexpected error has occurred.
 _InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -2257,37 +2232,62 @@ _VersionsLimitExceededException =
     "VersionsLimitExceededException"
     Prelude.. Core.hasStatus 409
 
--- | You can\'t delete the resource because it is attached to one or more
--- resources.
-_DeleteConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DeleteConflictException =
+-- | The service is temporarily unavailable.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
-    "DeleteConflictException"
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
+
+-- | An unexpected error has occurred.
+_InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalException =
+  Core._MatchServiceError
+    defaultService
+    "InternalException"
+    Prelude.. Core.hasStatus 500
+
+-- | An exception thrown when the version of an entity specified with the
+-- @expectedVersion@ parameter does not match the latest version in the
+-- system.
+_VersionConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_VersionConflictException =
+  Core._MatchServiceError
+    defaultService
+    "VersionConflictException"
     Prelude.. Core.hasStatus 409
 
--- | The response is invalid.
-_InvalidResponseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidResponseException =
+-- | You are not authorized to perform this operation.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
   Core._MatchServiceError
     defaultService
-    "InvalidResponseException"
-    Prelude.. Core.hasStatus 400
+    "UnauthorizedException"
+    Prelude.. Core.hasStatus 401
 
--- | You can\'t transfer the certificate because authorization policies are
--- still attached.
-_TransferConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TransferConflictException =
+-- | An attempt was made to change to an invalid state, for example by
+-- deleting a job or a job execution which is \"IN_PROGRESS\" without
+-- setting the @force@ parameter.
+_InvalidStateTransitionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidStateTransitionException =
   Core._MatchServiceError
     defaultService
-    "TransferConflictException"
+    "InvalidStateTransitionException"
     Prelude.. Core.hasStatus 409
 
--- | A conflicting resource update exception. This exception is thrown when
--- two pending updates cause a conflict.
-_ConflictingResourceUpdateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictingResourceUpdateException =
+-- | The specified resource does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "ConflictingResourceUpdateException"
-    Prelude.. Core.hasStatus 409
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | A limit has been exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 410

@@ -130,7 +130,7 @@ startAuditMitigationActionsTask_target = Lens.lens (\StartAuditMitigationActions
 -- | For an audit check, specifies which mitigation actions to apply. Those
 -- actions must be defined in your Amazon Web Services accounts.
 startAuditMitigationActionsTask_auditCheckToActionsMapping :: Lens.Lens' StartAuditMitigationActionsTask (Prelude.HashMap Prelude.Text (Prelude.NonEmpty Prelude.Text))
-startAuditMitigationActionsTask_auditCheckToActionsMapping = Lens.lens (\StartAuditMitigationActionsTask' {auditCheckToActionsMapping} -> auditCheckToActionsMapping) (\s@StartAuditMitigationActionsTask' {} a -> s {auditCheckToActionsMapping = a} :: StartAuditMitigationActionsTask) Prelude.. Lens._Coerce
+startAuditMitigationActionsTask_auditCheckToActionsMapping = Lens.lens (\StartAuditMitigationActionsTask' {auditCheckToActionsMapping} -> auditCheckToActionsMapping) (\s@StartAuditMitigationActionsTask' {} a -> s {auditCheckToActionsMapping = a} :: StartAuditMitigationActionsTask) Prelude.. Lens.coerced
 
 -- | Each audit mitigation task must have a unique client request token. If
 -- you try to start a new task with the same token as a task that already

@@ -39,11 +39,11 @@ module Network.AWS.IoT.DescribeAuditTask
 
     -- * Response Lenses
     describeAuditTaskResponse_auditDetails,
-    describeAuditTaskResponse_scheduledAuditName,
-    describeAuditTaskResponse_taskStatistics,
-    describeAuditTaskResponse_taskStatus,
-    describeAuditTaskResponse_taskStartTime,
     describeAuditTaskResponse_taskType,
+    describeAuditTaskResponse_taskStartTime,
+    describeAuditTaskResponse_taskStatistics,
+    describeAuditTaskResponse_scheduledAuditName,
+    describeAuditTaskResponse_taskStatus,
     describeAuditTaskResponse_httpStatus,
   )
 where
@@ -92,11 +92,11 @@ instance Core.AWSRequest DescribeAuditTask where
       ( \s h x ->
           DescribeAuditTaskResponse'
             Prelude.<$> (x Core..?> "auditDetails" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "scheduledAuditName")
-            Prelude.<*> (x Core..?> "taskStatistics")
-            Prelude.<*> (x Core..?> "taskStatus")
-            Prelude.<*> (x Core..?> "taskStartTime")
             Prelude.<*> (x Core..?> "taskType")
+            Prelude.<*> (x Core..?> "taskStartTime")
+            Prelude.<*> (x Core..?> "taskStatistics")
+            Prelude.<*> (x Core..?> "scheduledAuditName")
+            Prelude.<*> (x Core..?> "taskStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,18 +118,18 @@ instance Core.ToQuery DescribeAuditTask where
 data DescribeAuditTaskResponse = DescribeAuditTaskResponse'
   { -- | Detailed information about each check performed during this audit.
     auditDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text AuditCheckDetails),
+    -- | The type of audit: \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".
+    taskType :: Prelude.Maybe AuditTaskType,
+    -- | The time the audit started.
+    taskStartTime :: Prelude.Maybe Core.POSIX,
+    -- | Statistical information about the audit.
+    taskStatistics :: Prelude.Maybe TaskStatistics,
     -- | The name of the scheduled audit (only if the audit was a scheduled
     -- audit).
     scheduledAuditName :: Prelude.Maybe Prelude.Text,
-    -- | Statistical information about the audit.
-    taskStatistics :: Prelude.Maybe TaskStatistics,
     -- | The status of the audit: one of \"IN_PROGRESS\", \"COMPLETED\",
     -- \"FAILED\", or \"CANCELED\".
     taskStatus :: Prelude.Maybe AuditTaskStatus,
-    -- | The time the audit started.
-    taskStartTime :: Prelude.Maybe Core.POSIX,
-    -- | The type of audit: \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".
-    taskType :: Prelude.Maybe AuditTaskType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -145,17 +145,17 @@ data DescribeAuditTaskResponse = DescribeAuditTaskResponse'
 --
 -- 'auditDetails', 'describeAuditTaskResponse_auditDetails' - Detailed information about each check performed during this audit.
 --
--- 'scheduledAuditName', 'describeAuditTaskResponse_scheduledAuditName' - The name of the scheduled audit (only if the audit was a scheduled
--- audit).
---
--- 'taskStatistics', 'describeAuditTaskResponse_taskStatistics' - Statistical information about the audit.
---
--- 'taskStatus', 'describeAuditTaskResponse_taskStatus' - The status of the audit: one of \"IN_PROGRESS\", \"COMPLETED\",
--- \"FAILED\", or \"CANCELED\".
+-- 'taskType', 'describeAuditTaskResponse_taskType' - The type of audit: \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".
 --
 -- 'taskStartTime', 'describeAuditTaskResponse_taskStartTime' - The time the audit started.
 --
--- 'taskType', 'describeAuditTaskResponse_taskType' - The type of audit: \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".
+-- 'taskStatistics', 'describeAuditTaskResponse_taskStatistics' - Statistical information about the audit.
+--
+-- 'scheduledAuditName', 'describeAuditTaskResponse_scheduledAuditName' - The name of the scheduled audit (only if the audit was a scheduled
+-- audit).
+--
+-- 'taskStatus', 'describeAuditTaskResponse_taskStatus' - The status of the audit: one of \"IN_PROGRESS\", \"COMPLETED\",
+-- \"FAILED\", or \"CANCELED\".
 --
 -- 'httpStatus', 'describeAuditTaskResponse_httpStatus' - The response's http status code.
 newDescribeAuditTaskResponse ::
@@ -166,39 +166,39 @@ newDescribeAuditTaskResponse pHttpStatus_ =
   DescribeAuditTaskResponse'
     { auditDetails =
         Prelude.Nothing,
-      scheduledAuditName = Prelude.Nothing,
-      taskStatistics = Prelude.Nothing,
-      taskStatus = Prelude.Nothing,
-      taskStartTime = Prelude.Nothing,
       taskType = Prelude.Nothing,
+      taskStartTime = Prelude.Nothing,
+      taskStatistics = Prelude.Nothing,
+      scheduledAuditName = Prelude.Nothing,
+      taskStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Detailed information about each check performed during this audit.
 describeAuditTaskResponse_auditDetails :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AuditCheckDetails))
-describeAuditTaskResponse_auditDetails = Lens.lens (\DescribeAuditTaskResponse' {auditDetails} -> auditDetails) (\s@DescribeAuditTaskResponse' {} a -> s {auditDetails = a} :: DescribeAuditTaskResponse) Prelude.. Lens.mapping Lens._Coerce
+describeAuditTaskResponse_auditDetails = Lens.lens (\DescribeAuditTaskResponse' {auditDetails} -> auditDetails) (\s@DescribeAuditTaskResponse' {} a -> s {auditDetails = a} :: DescribeAuditTaskResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of audit: \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".
+describeAuditTaskResponse_taskType :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe AuditTaskType)
+describeAuditTaskResponse_taskType = Lens.lens (\DescribeAuditTaskResponse' {taskType} -> taskType) (\s@DescribeAuditTaskResponse' {} a -> s {taskType = a} :: DescribeAuditTaskResponse)
+
+-- | The time the audit started.
+describeAuditTaskResponse_taskStartTime :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe Prelude.UTCTime)
+describeAuditTaskResponse_taskStartTime = Lens.lens (\DescribeAuditTaskResponse' {taskStartTime} -> taskStartTime) (\s@DescribeAuditTaskResponse' {} a -> s {taskStartTime = a} :: DescribeAuditTaskResponse) Prelude.. Lens.mapping Core._Time
+
+-- | Statistical information about the audit.
+describeAuditTaskResponse_taskStatistics :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe TaskStatistics)
+describeAuditTaskResponse_taskStatistics = Lens.lens (\DescribeAuditTaskResponse' {taskStatistics} -> taskStatistics) (\s@DescribeAuditTaskResponse' {} a -> s {taskStatistics = a} :: DescribeAuditTaskResponse)
 
 -- | The name of the scheduled audit (only if the audit was a scheduled
 -- audit).
 describeAuditTaskResponse_scheduledAuditName :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe Prelude.Text)
 describeAuditTaskResponse_scheduledAuditName = Lens.lens (\DescribeAuditTaskResponse' {scheduledAuditName} -> scheduledAuditName) (\s@DescribeAuditTaskResponse' {} a -> s {scheduledAuditName = a} :: DescribeAuditTaskResponse)
 
--- | Statistical information about the audit.
-describeAuditTaskResponse_taskStatistics :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe TaskStatistics)
-describeAuditTaskResponse_taskStatistics = Lens.lens (\DescribeAuditTaskResponse' {taskStatistics} -> taskStatistics) (\s@DescribeAuditTaskResponse' {} a -> s {taskStatistics = a} :: DescribeAuditTaskResponse)
-
 -- | The status of the audit: one of \"IN_PROGRESS\", \"COMPLETED\",
 -- \"FAILED\", or \"CANCELED\".
 describeAuditTaskResponse_taskStatus :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe AuditTaskStatus)
 describeAuditTaskResponse_taskStatus = Lens.lens (\DescribeAuditTaskResponse' {taskStatus} -> taskStatus) (\s@DescribeAuditTaskResponse' {} a -> s {taskStatus = a} :: DescribeAuditTaskResponse)
-
--- | The time the audit started.
-describeAuditTaskResponse_taskStartTime :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe Prelude.UTCTime)
-describeAuditTaskResponse_taskStartTime = Lens.lens (\DescribeAuditTaskResponse' {taskStartTime} -> taskStartTime) (\s@DescribeAuditTaskResponse' {} a -> s {taskStartTime = a} :: DescribeAuditTaskResponse) Prelude.. Lens.mapping Core._Time
-
--- | The type of audit: \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".
-describeAuditTaskResponse_taskType :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe AuditTaskType)
-describeAuditTaskResponse_taskType = Lens.lens (\DescribeAuditTaskResponse' {taskType} -> taskType) (\s@DescribeAuditTaskResponse' {} a -> s {taskType = a} :: DescribeAuditTaskResponse)
 
 -- | The response's http status code.
 describeAuditTaskResponse_httpStatus :: Lens.Lens' DescribeAuditTaskResponse Prelude.Int

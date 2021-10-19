@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data MitigationActionIdentifier = MitigationActionIdentifier'
   { -- | The friendly name of the mitigation action.
     actionName :: Prelude.Maybe Prelude.Text,
-    -- | The IAM role ARN used to apply this mitigation action.
-    actionArn :: Prelude.Maybe Prelude.Text,
     -- | The date when this mitigation action was created.
-    creationDate :: Prelude.Maybe Core.POSIX
+    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The IAM role ARN used to apply this mitigation action.
+    actionArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,30 +47,30 @@ data MitigationActionIdentifier = MitigationActionIdentifier'
 --
 -- 'actionName', 'mitigationActionIdentifier_actionName' - The friendly name of the mitigation action.
 --
--- 'actionArn', 'mitigationActionIdentifier_actionArn' - The IAM role ARN used to apply this mitigation action.
---
 -- 'creationDate', 'mitigationActionIdentifier_creationDate' - The date when this mitigation action was created.
+--
+-- 'actionArn', 'mitigationActionIdentifier_actionArn' - The IAM role ARN used to apply this mitigation action.
 newMitigationActionIdentifier ::
   MitigationActionIdentifier
 newMitigationActionIdentifier =
   MitigationActionIdentifier'
     { actionName =
         Prelude.Nothing,
-      actionArn = Prelude.Nothing,
-      creationDate = Prelude.Nothing
+      creationDate = Prelude.Nothing,
+      actionArn = Prelude.Nothing
     }
 
 -- | The friendly name of the mitigation action.
 mitigationActionIdentifier_actionName :: Lens.Lens' MitigationActionIdentifier (Prelude.Maybe Prelude.Text)
 mitigationActionIdentifier_actionName = Lens.lens (\MitigationActionIdentifier' {actionName} -> actionName) (\s@MitigationActionIdentifier' {} a -> s {actionName = a} :: MitigationActionIdentifier)
 
--- | The IAM role ARN used to apply this mitigation action.
-mitigationActionIdentifier_actionArn :: Lens.Lens' MitigationActionIdentifier (Prelude.Maybe Prelude.Text)
-mitigationActionIdentifier_actionArn = Lens.lens (\MitigationActionIdentifier' {actionArn} -> actionArn) (\s@MitigationActionIdentifier' {} a -> s {actionArn = a} :: MitigationActionIdentifier)
-
 -- | The date when this mitigation action was created.
 mitigationActionIdentifier_creationDate :: Lens.Lens' MitigationActionIdentifier (Prelude.Maybe Prelude.UTCTime)
 mitigationActionIdentifier_creationDate = Lens.lens (\MitigationActionIdentifier' {creationDate} -> creationDate) (\s@MitigationActionIdentifier' {} a -> s {creationDate = a} :: MitigationActionIdentifier) Prelude.. Lens.mapping Core._Time
+
+-- | The IAM role ARN used to apply this mitigation action.
+mitigationActionIdentifier_actionArn :: Lens.Lens' MitigationActionIdentifier (Prelude.Maybe Prelude.Text)
+mitigationActionIdentifier_actionArn = Lens.lens (\MitigationActionIdentifier' {actionArn} -> actionArn) (\s@MitigationActionIdentifier' {} a -> s {actionArn = a} :: MitigationActionIdentifier)
 
 instance Core.FromJSON MitigationActionIdentifier where
   parseJSON =
@@ -79,8 +79,8 @@ instance Core.FromJSON MitigationActionIdentifier where
       ( \x ->
           MitigationActionIdentifier'
             Prelude.<$> (x Core..:? "actionName")
-            Prelude.<*> (x Core..:? "actionArn")
             Prelude.<*> (x Core..:? "creationDate")
+            Prelude.<*> (x Core..:? "actionArn")
       )
 
 instance Prelude.Hashable MitigationActionIdentifier

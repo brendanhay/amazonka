@@ -42,8 +42,8 @@ module Network.AWS.IoT.ListThingGroupsForThing
     newListThingGroupsForThingResponse,
 
     -- * Response Lenses
-    listThingGroupsForThingResponse_nextToken,
     listThingGroupsForThingResponse_thingGroups,
+    listThingGroupsForThingResponse_nextToken,
     listThingGroupsForThingResponse_httpStatus,
   )
 where
@@ -140,8 +140,8 @@ instance Core.AWSRequest ListThingGroupsForThing where
     Response.receiveJSON
       ( \s h x ->
           ListThingGroupsForThingResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "thingGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "thingGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,11 +166,11 @@ instance Core.ToQuery ListThingGroupsForThing where
 
 -- | /See:/ 'newListThingGroupsForThingResponse' smart constructor.
 data ListThingGroupsForThingResponse = ListThingGroupsForThingResponse'
-  { -- | The token to use to get the next set of results, or __null__ if there
+  { -- | The thing groups.
+    thingGroups :: Prelude.Maybe [GroupNameAndArn],
+    -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The thing groups.
-    thingGroups :: Prelude.Maybe [GroupNameAndArn],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,10 +184,10 @@ data ListThingGroupsForThingResponse = ListThingGroupsForThingResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'thingGroups', 'listThingGroupsForThingResponse_thingGroups' - The thing groups.
+--
 -- 'nextToken', 'listThingGroupsForThingResponse_nextToken' - The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
---
--- 'thingGroups', 'listThingGroupsForThingResponse_thingGroups' - The thing groups.
 --
 -- 'httpStatus', 'listThingGroupsForThingResponse_httpStatus' - The response's http status code.
 newListThingGroupsForThingResponse ::
@@ -196,20 +196,20 @@ newListThingGroupsForThingResponse ::
   ListThingGroupsForThingResponse
 newListThingGroupsForThingResponse pHttpStatus_ =
   ListThingGroupsForThingResponse'
-    { nextToken =
+    { thingGroups =
         Prelude.Nothing,
-      thingGroups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The thing groups.
+listThingGroupsForThingResponse_thingGroups :: Lens.Lens' ListThingGroupsForThingResponse (Prelude.Maybe [GroupNameAndArn])
+listThingGroupsForThingResponse_thingGroups = Lens.lens (\ListThingGroupsForThingResponse' {thingGroups} -> thingGroups) (\s@ListThingGroupsForThingResponse' {} a -> s {thingGroups = a} :: ListThingGroupsForThingResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
 listThingGroupsForThingResponse_nextToken :: Lens.Lens' ListThingGroupsForThingResponse (Prelude.Maybe Prelude.Text)
 listThingGroupsForThingResponse_nextToken = Lens.lens (\ListThingGroupsForThingResponse' {nextToken} -> nextToken) (\s@ListThingGroupsForThingResponse' {} a -> s {nextToken = a} :: ListThingGroupsForThingResponse)
-
--- | The thing groups.
-listThingGroupsForThingResponse_thingGroups :: Lens.Lens' ListThingGroupsForThingResponse (Prelude.Maybe [GroupNameAndArn])
-listThingGroupsForThingResponse_thingGroups = Lens.lens (\ListThingGroupsForThingResponse' {thingGroups} -> thingGroups) (\s@ListThingGroupsForThingResponse' {} a -> s {thingGroups = a} :: ListThingGroupsForThingResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listThingGroupsForThingResponse_httpStatus :: Lens.Lens' ListThingGroupsForThingResponse Prelude.Int

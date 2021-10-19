@@ -39,12 +39,12 @@ module Network.AWS.IoT.UpdateCustomMetric
     newUpdateCustomMetricResponse,
 
     -- * Response Lenses
-    updateCustomMetricResponse_lastModifiedDate,
     updateCustomMetricResponse_metricType,
-    updateCustomMetricResponse_metricArn,
+    updateCustomMetricResponse_lastModifiedDate,
     updateCustomMetricResponse_metricName,
-    updateCustomMetricResponse_creationDate,
     updateCustomMetricResponse_displayName,
+    updateCustomMetricResponse_creationDate,
+    updateCustomMetricResponse_metricArn,
     updateCustomMetricResponse_httpStatus,
   )
 where
@@ -111,12 +111,12 @@ instance Core.AWSRequest UpdateCustomMetric where
     Response.receiveJSON
       ( \s h x ->
           UpdateCustomMetricResponse'
-            Prelude.<$> (x Core..?> "lastModifiedDate")
-            Prelude.<*> (x Core..?> "metricType")
-            Prelude.<*> (x Core..?> "metricArn")
+            Prelude.<$> (x Core..?> "metricType")
+            Prelude.<*> (x Core..?> "lastModifiedDate")
             Prelude.<*> (x Core..?> "metricName")
-            Prelude.<*> (x Core..?> "creationDate")
             Prelude.<*> (x Core..?> "displayName")
+            Prelude.<*> (x Core..?> "creationDate")
+            Prelude.<*> (x Core..?> "metricArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,20 +144,20 @@ instance Core.ToQuery UpdateCustomMetric where
 
 -- | /See:/ 'newUpdateCustomMetricResponse' smart constructor.
 data UpdateCustomMetricResponse = UpdateCustomMetricResponse'
-  { -- | The time the custom metric was last modified in milliseconds since
-    -- epoch.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | The type of the custom metric. Types include @string-list@,
+  { -- | The type of the custom metric. Types include @string-list@,
     -- @ip-address-list@, @number-list@, and @number@.
     metricType :: Prelude.Maybe CustomMetricType,
-    -- | The Amazon Resource Number (ARN) of the custom metric.
-    metricArn :: Prelude.Maybe Prelude.Text,
+    -- | The time the custom metric was last modified in milliseconds since
+    -- epoch.
+    lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | The name of the custom metric.
     metricName :: Prelude.Maybe Prelude.Text,
-    -- | The creation date of the custom metric in milliseconds since epoch.
-    creationDate :: Prelude.Maybe Core.POSIX,
     -- | A friendly name in the console for the custom metric
     displayName :: Prelude.Maybe Prelude.Text,
+    -- | The creation date of the custom metric in milliseconds since epoch.
+    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Number (ARN) of the custom metric.
+    metricArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,19 +171,19 @@ data UpdateCustomMetricResponse = UpdateCustomMetricResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedDate', 'updateCustomMetricResponse_lastModifiedDate' - The time the custom metric was last modified in milliseconds since
--- epoch.
---
 -- 'metricType', 'updateCustomMetricResponse_metricType' - The type of the custom metric. Types include @string-list@,
 -- @ip-address-list@, @number-list@, and @number@.
 --
--- 'metricArn', 'updateCustomMetricResponse_metricArn' - The Amazon Resource Number (ARN) of the custom metric.
+-- 'lastModifiedDate', 'updateCustomMetricResponse_lastModifiedDate' - The time the custom metric was last modified in milliseconds since
+-- epoch.
 --
 -- 'metricName', 'updateCustomMetricResponse_metricName' - The name of the custom metric.
 --
+-- 'displayName', 'updateCustomMetricResponse_displayName' - A friendly name in the console for the custom metric
+--
 -- 'creationDate', 'updateCustomMetricResponse_creationDate' - The creation date of the custom metric in milliseconds since epoch.
 --
--- 'displayName', 'updateCustomMetricResponse_displayName' - A friendly name in the console for the custom metric
+-- 'metricArn', 'updateCustomMetricResponse_metricArn' - The Amazon Resource Number (ARN) of the custom metric.
 --
 -- 'httpStatus', 'updateCustomMetricResponse_httpStatus' - The response's http status code.
 newUpdateCustomMetricResponse ::
@@ -192,41 +192,41 @@ newUpdateCustomMetricResponse ::
   UpdateCustomMetricResponse
 newUpdateCustomMetricResponse pHttpStatus_ =
   UpdateCustomMetricResponse'
-    { lastModifiedDate =
+    { metricType =
         Prelude.Nothing,
-      metricType = Prelude.Nothing,
-      metricArn = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       metricName = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
       displayName = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      metricArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The time the custom metric was last modified in milliseconds since
--- epoch.
-updateCustomMetricResponse_lastModifiedDate :: Lens.Lens' UpdateCustomMetricResponse (Prelude.Maybe Prelude.UTCTime)
-updateCustomMetricResponse_lastModifiedDate = Lens.lens (\UpdateCustomMetricResponse' {lastModifiedDate} -> lastModifiedDate) (\s@UpdateCustomMetricResponse' {} a -> s {lastModifiedDate = a} :: UpdateCustomMetricResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The type of the custom metric. Types include @string-list@,
 -- @ip-address-list@, @number-list@, and @number@.
 updateCustomMetricResponse_metricType :: Lens.Lens' UpdateCustomMetricResponse (Prelude.Maybe CustomMetricType)
 updateCustomMetricResponse_metricType = Lens.lens (\UpdateCustomMetricResponse' {metricType} -> metricType) (\s@UpdateCustomMetricResponse' {} a -> s {metricType = a} :: UpdateCustomMetricResponse)
 
--- | The Amazon Resource Number (ARN) of the custom metric.
-updateCustomMetricResponse_metricArn :: Lens.Lens' UpdateCustomMetricResponse (Prelude.Maybe Prelude.Text)
-updateCustomMetricResponse_metricArn = Lens.lens (\UpdateCustomMetricResponse' {metricArn} -> metricArn) (\s@UpdateCustomMetricResponse' {} a -> s {metricArn = a} :: UpdateCustomMetricResponse)
+-- | The time the custom metric was last modified in milliseconds since
+-- epoch.
+updateCustomMetricResponse_lastModifiedDate :: Lens.Lens' UpdateCustomMetricResponse (Prelude.Maybe Prelude.UTCTime)
+updateCustomMetricResponse_lastModifiedDate = Lens.lens (\UpdateCustomMetricResponse' {lastModifiedDate} -> lastModifiedDate) (\s@UpdateCustomMetricResponse' {} a -> s {lastModifiedDate = a} :: UpdateCustomMetricResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the custom metric.
 updateCustomMetricResponse_metricName :: Lens.Lens' UpdateCustomMetricResponse (Prelude.Maybe Prelude.Text)
 updateCustomMetricResponse_metricName = Lens.lens (\UpdateCustomMetricResponse' {metricName} -> metricName) (\s@UpdateCustomMetricResponse' {} a -> s {metricName = a} :: UpdateCustomMetricResponse)
 
+-- | A friendly name in the console for the custom metric
+updateCustomMetricResponse_displayName :: Lens.Lens' UpdateCustomMetricResponse (Prelude.Maybe Prelude.Text)
+updateCustomMetricResponse_displayName = Lens.lens (\UpdateCustomMetricResponse' {displayName} -> displayName) (\s@UpdateCustomMetricResponse' {} a -> s {displayName = a} :: UpdateCustomMetricResponse)
+
 -- | The creation date of the custom metric in milliseconds since epoch.
 updateCustomMetricResponse_creationDate :: Lens.Lens' UpdateCustomMetricResponse (Prelude.Maybe Prelude.UTCTime)
 updateCustomMetricResponse_creationDate = Lens.lens (\UpdateCustomMetricResponse' {creationDate} -> creationDate) (\s@UpdateCustomMetricResponse' {} a -> s {creationDate = a} :: UpdateCustomMetricResponse) Prelude.. Lens.mapping Core._Time
 
--- | A friendly name in the console for the custom metric
-updateCustomMetricResponse_displayName :: Lens.Lens' UpdateCustomMetricResponse (Prelude.Maybe Prelude.Text)
-updateCustomMetricResponse_displayName = Lens.lens (\UpdateCustomMetricResponse' {displayName} -> displayName) (\s@UpdateCustomMetricResponse' {} a -> s {displayName = a} :: UpdateCustomMetricResponse)
+-- | The Amazon Resource Number (ARN) of the custom metric.
+updateCustomMetricResponse_metricArn :: Lens.Lens' UpdateCustomMetricResponse (Prelude.Maybe Prelude.Text)
+updateCustomMetricResponse_metricArn = Lens.lens (\UpdateCustomMetricResponse' {metricArn} -> metricArn) (\s@UpdateCustomMetricResponse' {} a -> s {metricArn = a} :: UpdateCustomMetricResponse)
 
 -- | The response's http status code.
 updateCustomMetricResponse_httpStatus :: Lens.Lens' UpdateCustomMetricResponse Prelude.Int

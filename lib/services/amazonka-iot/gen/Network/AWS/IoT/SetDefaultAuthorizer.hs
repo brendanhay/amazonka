@@ -39,8 +39,8 @@ module Network.AWS.IoT.SetDefaultAuthorizer
     newSetDefaultAuthorizerResponse,
 
     -- * Response Lenses
-    setDefaultAuthorizerResponse_authorizerArn,
     setDefaultAuthorizerResponse_authorizerName,
+    setDefaultAuthorizerResponse_authorizerArn,
     setDefaultAuthorizerResponse_httpStatus,
   )
 where
@@ -91,8 +91,8 @@ instance Core.AWSRequest SetDefaultAuthorizer where
     Response.receiveJSON
       ( \s h x ->
           SetDefaultAuthorizerResponse'
-            Prelude.<$> (x Core..?> "authorizerArn")
-            Prelude.<*> (x Core..?> "authorizerName")
+            Prelude.<$> (x Core..?> "authorizerName")
+            Prelude.<*> (x Core..?> "authorizerArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,10 +120,10 @@ instance Core.ToQuery SetDefaultAuthorizer where
 
 -- | /See:/ 'newSetDefaultAuthorizerResponse' smart constructor.
 data SetDefaultAuthorizerResponse = SetDefaultAuthorizerResponse'
-  { -- | The authorizer ARN.
-    authorizerArn :: Prelude.Maybe Prelude.Text,
-    -- | The authorizer name.
+  { -- | The authorizer name.
     authorizerName :: Prelude.Maybe Prelude.Text,
+    -- | The authorizer ARN.
+    authorizerArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -137,9 +137,9 @@ data SetDefaultAuthorizerResponse = SetDefaultAuthorizerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authorizerArn', 'setDefaultAuthorizerResponse_authorizerArn' - The authorizer ARN.
---
 -- 'authorizerName', 'setDefaultAuthorizerResponse_authorizerName' - The authorizer name.
+--
+-- 'authorizerArn', 'setDefaultAuthorizerResponse_authorizerArn' - The authorizer ARN.
 --
 -- 'httpStatus', 'setDefaultAuthorizerResponse_httpStatus' - The response's http status code.
 newSetDefaultAuthorizerResponse ::
@@ -148,19 +148,19 @@ newSetDefaultAuthorizerResponse ::
   SetDefaultAuthorizerResponse
 newSetDefaultAuthorizerResponse pHttpStatus_ =
   SetDefaultAuthorizerResponse'
-    { authorizerArn =
+    { authorizerName =
         Prelude.Nothing,
-      authorizerName = Prelude.Nothing,
+      authorizerArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The authorizer ARN.
-setDefaultAuthorizerResponse_authorizerArn :: Lens.Lens' SetDefaultAuthorizerResponse (Prelude.Maybe Prelude.Text)
-setDefaultAuthorizerResponse_authorizerArn = Lens.lens (\SetDefaultAuthorizerResponse' {authorizerArn} -> authorizerArn) (\s@SetDefaultAuthorizerResponse' {} a -> s {authorizerArn = a} :: SetDefaultAuthorizerResponse)
 
 -- | The authorizer name.
 setDefaultAuthorizerResponse_authorizerName :: Lens.Lens' SetDefaultAuthorizerResponse (Prelude.Maybe Prelude.Text)
 setDefaultAuthorizerResponse_authorizerName = Lens.lens (\SetDefaultAuthorizerResponse' {authorizerName} -> authorizerName) (\s@SetDefaultAuthorizerResponse' {} a -> s {authorizerName = a} :: SetDefaultAuthorizerResponse)
+
+-- | The authorizer ARN.
+setDefaultAuthorizerResponse_authorizerArn :: Lens.Lens' SetDefaultAuthorizerResponse (Prelude.Maybe Prelude.Text)
+setDefaultAuthorizerResponse_authorizerArn = Lens.lens (\SetDefaultAuthorizerResponse' {authorizerArn} -> authorizerArn) (\s@SetDefaultAuthorizerResponse' {} a -> s {authorizerArn = a} :: SetDefaultAuthorizerResponse)
 
 -- | The response's http status code.
 setDefaultAuthorizerResponse_httpStatus :: Lens.Lens' SetDefaultAuthorizerResponse Prelude.Int

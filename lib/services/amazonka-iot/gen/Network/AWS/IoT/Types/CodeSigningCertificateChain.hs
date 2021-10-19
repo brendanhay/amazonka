@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCodeSigningCertificateChain' smart constructor.
 data CodeSigningCertificateChain = CodeSigningCertificateChain'
-  { -- | A base64 encoded binary representation of the code signing certificate
+  { -- | The name of the certificate.
+    certificateName :: Prelude.Maybe Prelude.Text,
+    -- | A base64 encoded binary representation of the code signing certificate
     -- chain.
-    inlineDocument :: Prelude.Maybe Prelude.Text,
-    -- | The name of the certificate.
-    certificateName :: Prelude.Maybe Prelude.Text
+    inlineDocument :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,27 +43,27 @@ data CodeSigningCertificateChain = CodeSigningCertificateChain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'certificateName', 'codeSigningCertificateChain_certificateName' - The name of the certificate.
+--
 -- 'inlineDocument', 'codeSigningCertificateChain_inlineDocument' - A base64 encoded binary representation of the code signing certificate
 -- chain.
---
--- 'certificateName', 'codeSigningCertificateChain_certificateName' - The name of the certificate.
 newCodeSigningCertificateChain ::
   CodeSigningCertificateChain
 newCodeSigningCertificateChain =
   CodeSigningCertificateChain'
-    { inlineDocument =
+    { certificateName =
         Prelude.Nothing,
-      certificateName = Prelude.Nothing
+      inlineDocument = Prelude.Nothing
     }
+
+-- | The name of the certificate.
+codeSigningCertificateChain_certificateName :: Lens.Lens' CodeSigningCertificateChain (Prelude.Maybe Prelude.Text)
+codeSigningCertificateChain_certificateName = Lens.lens (\CodeSigningCertificateChain' {certificateName} -> certificateName) (\s@CodeSigningCertificateChain' {} a -> s {certificateName = a} :: CodeSigningCertificateChain)
 
 -- | A base64 encoded binary representation of the code signing certificate
 -- chain.
 codeSigningCertificateChain_inlineDocument :: Lens.Lens' CodeSigningCertificateChain (Prelude.Maybe Prelude.Text)
 codeSigningCertificateChain_inlineDocument = Lens.lens (\CodeSigningCertificateChain' {inlineDocument} -> inlineDocument) (\s@CodeSigningCertificateChain' {} a -> s {inlineDocument = a} :: CodeSigningCertificateChain)
-
--- | The name of the certificate.
-codeSigningCertificateChain_certificateName :: Lens.Lens' CodeSigningCertificateChain (Prelude.Maybe Prelude.Text)
-codeSigningCertificateChain_certificateName = Lens.lens (\CodeSigningCertificateChain' {certificateName} -> certificateName) (\s@CodeSigningCertificateChain' {} a -> s {certificateName = a} :: CodeSigningCertificateChain)
 
 instance Core.FromJSON CodeSigningCertificateChain where
   parseJSON =
@@ -71,8 +71,8 @@ instance Core.FromJSON CodeSigningCertificateChain where
       "CodeSigningCertificateChain"
       ( \x ->
           CodeSigningCertificateChain'
-            Prelude.<$> (x Core..:? "inlineDocument")
-            Prelude.<*> (x Core..:? "certificateName")
+            Prelude.<$> (x Core..:? "certificateName")
+            Prelude.<*> (x Core..:? "inlineDocument")
       )
 
 instance Prelude.Hashable CodeSigningCertificateChain
@@ -83,9 +83,9 @@ instance Core.ToJSON CodeSigningCertificateChain where
   toJSON CodeSigningCertificateChain' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("inlineDocument" Core..=)
-              Prelude.<$> inlineDocument,
-            ("certificateName" Core..=)
-              Prelude.<$> certificateName
+          [ ("certificateName" Core..=)
+              Prelude.<$> certificateName,
+            ("inlineDocument" Core..=)
+              Prelude.<$> inlineDocument
           ]
       )

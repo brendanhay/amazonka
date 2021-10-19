@@ -44,8 +44,8 @@ module Network.AWS.IoT.RegisterThing
     newRegisterThingResponse,
 
     -- * Response Lenses
-    registerThingResponse_resourceArns,
     registerThingResponse_certificatePem,
+    registerThingResponse_resourceArns,
     registerThingResponse_httpStatus,
   )
 where
@@ -99,7 +99,7 @@ newRegisterThing pTemplateBody_ =
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning Templates>
 -- for more information.
 registerThing_parameters :: Lens.Lens' RegisterThing (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-registerThing_parameters = Lens.lens (\RegisterThing' {parameters} -> parameters) (\s@RegisterThing' {} a -> s {parameters = a} :: RegisterThing) Prelude.. Lens.mapping Lens._Coerce
+registerThing_parameters = Lens.lens (\RegisterThing' {parameters} -> parameters) (\s@RegisterThing' {} a -> s {parameters = a} :: RegisterThing) Prelude.. Lens.mapping Lens.coerced
 
 -- | The provisioning template. See
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html Provisioning Devices That Have Device Certificates>
@@ -116,8 +116,8 @@ instance Core.AWSRequest RegisterThing where
     Response.receiveJSON
       ( \s h x ->
           RegisterThingResponse'
-            Prelude.<$> (x Core..?> "resourceArns" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "certificatePem")
+            Prelude.<$> (x Core..?> "certificatePem")
+            Prelude.<*> (x Core..?> "resourceArns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,10 +145,10 @@ instance Core.ToQuery RegisterThing where
 
 -- | /See:/ 'newRegisterThingResponse' smart constructor.
 data RegisterThingResponse = RegisterThingResponse'
-  { -- | ARNs for the generated resources.
-    resourceArns :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The certificate data, in PEM format.
+  { -- | The certificate data, in PEM format.
     certificatePem :: Prelude.Maybe Prelude.Text,
+    -- | ARNs for the generated resources.
+    resourceArns :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -162,9 +162,9 @@ data RegisterThingResponse = RegisterThingResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArns', 'registerThingResponse_resourceArns' - ARNs for the generated resources.
---
 -- 'certificatePem', 'registerThingResponse_certificatePem' - The certificate data, in PEM format.
+--
+-- 'resourceArns', 'registerThingResponse_resourceArns' - ARNs for the generated resources.
 --
 -- 'httpStatus', 'registerThingResponse_httpStatus' - The response's http status code.
 newRegisterThingResponse ::
@@ -173,19 +173,19 @@ newRegisterThingResponse ::
   RegisterThingResponse
 newRegisterThingResponse pHttpStatus_ =
   RegisterThingResponse'
-    { resourceArns =
+    { certificatePem =
         Prelude.Nothing,
-      certificatePem = Prelude.Nothing,
+      resourceArns = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | ARNs for the generated resources.
-registerThingResponse_resourceArns :: Lens.Lens' RegisterThingResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-registerThingResponse_resourceArns = Lens.lens (\RegisterThingResponse' {resourceArns} -> resourceArns) (\s@RegisterThingResponse' {} a -> s {resourceArns = a} :: RegisterThingResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The certificate data, in PEM format.
 registerThingResponse_certificatePem :: Lens.Lens' RegisterThingResponse (Prelude.Maybe Prelude.Text)
 registerThingResponse_certificatePem = Lens.lens (\RegisterThingResponse' {certificatePem} -> certificatePem) (\s@RegisterThingResponse' {} a -> s {certificatePem = a} :: RegisterThingResponse)
+
+-- | ARNs for the generated resources.
+registerThingResponse_resourceArns :: Lens.Lens' RegisterThingResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+registerThingResponse_resourceArns = Lens.lens (\RegisterThingResponse' {resourceArns} -> resourceArns) (\s@RegisterThingResponse' {} a -> s {resourceArns = a} :: RegisterThingResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 registerThingResponse_httpStatus :: Lens.Lens' RegisterThingResponse Prelude.Int

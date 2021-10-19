@@ -48,7 +48,7 @@ newAllowed = Allowed' {policies = Prelude.Nothing}
 
 -- | A list of policies that allowed the authentication.
 allowed_policies :: Lens.Lens' Allowed (Prelude.Maybe [Policy])
-allowed_policies = Lens.lens (\Allowed' {policies} -> policies) (\s@Allowed' {} a -> s {policies = a} :: Allowed) Prelude.. Lens.mapping Lens._Coerce
+allowed_policies = Lens.lens (\Allowed' {policies} -> policies) (\s@Allowed' {} a -> s {policies = a} :: Allowed) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Allowed where
   parseJSON =

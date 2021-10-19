@@ -34,10 +34,10 @@ module Network.AWS.IoT.TestAuthorization
 
     -- * Request Lenses
     testAuthorization_clientId,
-    testAuthorization_cognitoIdentityPoolId,
-    testAuthorization_principal,
-    testAuthorization_policyNamesToSkip,
     testAuthorization_policyNamesToAdd,
+    testAuthorization_principal,
+    testAuthorization_cognitoIdentityPoolId,
+    testAuthorization_policyNamesToSkip,
     testAuthorization_authInfos,
 
     -- * Destructuring the Response
@@ -61,19 +61,19 @@ import qualified Network.AWS.Response as Response
 data TestAuthorization = TestAuthorization'
   { -- | The MQTT client ID.
     clientId :: Prelude.Maybe Prelude.Text,
-    -- | The Cognito identity pool ID.
-    cognitoIdentityPoolId :: Prelude.Maybe Prelude.Text,
+    -- | When testing custom authorization, the policies specified here are
+    -- treated as if they are attached to the principal being authorized.
+    policyNamesToAdd :: Prelude.Maybe [Prelude.Text],
     -- | The principal. Valid principals are CertificateArn
     -- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn
     -- (arn:aws:iot:/region/:/accountId/:thinggroup\//groupName/) and CognitoId
     -- (/region/:/id/).
     principal :: Prelude.Maybe Prelude.Text,
+    -- | The Cognito identity pool ID.
+    cognitoIdentityPoolId :: Prelude.Maybe Prelude.Text,
     -- | When testing custom authorization, the policies specified here are
     -- treated as if they are not attached to the principal being authorized.
     policyNamesToSkip :: Prelude.Maybe [Prelude.Text],
-    -- | When testing custom authorization, the policies specified here are
-    -- treated as if they are attached to the principal being authorized.
-    policyNamesToAdd :: Prelude.Maybe [Prelude.Text],
     -- | A list of authorization info objects. Simulating authorization will
     -- create a response for each @authInfo@ object in the list.
     authInfos :: Prelude.NonEmpty AuthInfo
@@ -90,18 +90,18 @@ data TestAuthorization = TestAuthorization'
 --
 -- 'clientId', 'testAuthorization_clientId' - The MQTT client ID.
 --
--- 'cognitoIdentityPoolId', 'testAuthorization_cognitoIdentityPoolId' - The Cognito identity pool ID.
+-- 'policyNamesToAdd', 'testAuthorization_policyNamesToAdd' - When testing custom authorization, the policies specified here are
+-- treated as if they are attached to the principal being authorized.
 --
 -- 'principal', 'testAuthorization_principal' - The principal. Valid principals are CertificateArn
 -- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn
 -- (arn:aws:iot:/region/:/accountId/:thinggroup\//groupName/) and CognitoId
 -- (/region/:/id/).
 --
+-- 'cognitoIdentityPoolId', 'testAuthorization_cognitoIdentityPoolId' - The Cognito identity pool ID.
+--
 -- 'policyNamesToSkip', 'testAuthorization_policyNamesToSkip' - When testing custom authorization, the policies specified here are
 -- treated as if they are not attached to the principal being authorized.
---
--- 'policyNamesToAdd', 'testAuthorization_policyNamesToAdd' - When testing custom authorization, the policies specified here are
--- treated as if they are attached to the principal being authorized.
 --
 -- 'authInfos', 'testAuthorization_authInfos' - A list of authorization info objects. Simulating authorization will
 -- create a response for each @authInfo@ object in the list.
@@ -112,20 +112,21 @@ newTestAuthorization ::
 newTestAuthorization pAuthInfos_ =
   TestAuthorization'
     { clientId = Prelude.Nothing,
-      cognitoIdentityPoolId = Prelude.Nothing,
-      principal = Prelude.Nothing,
-      policyNamesToSkip = Prelude.Nothing,
       policyNamesToAdd = Prelude.Nothing,
-      authInfos = Lens._Coerce Lens.# pAuthInfos_
+      principal = Prelude.Nothing,
+      cognitoIdentityPoolId = Prelude.Nothing,
+      policyNamesToSkip = Prelude.Nothing,
+      authInfos = Lens.coerced Lens.# pAuthInfos_
     }
 
 -- | The MQTT client ID.
 testAuthorization_clientId :: Lens.Lens' TestAuthorization (Prelude.Maybe Prelude.Text)
 testAuthorization_clientId = Lens.lens (\TestAuthorization' {clientId} -> clientId) (\s@TestAuthorization' {} a -> s {clientId = a} :: TestAuthorization)
 
--- | The Cognito identity pool ID.
-testAuthorization_cognitoIdentityPoolId :: Lens.Lens' TestAuthorization (Prelude.Maybe Prelude.Text)
-testAuthorization_cognitoIdentityPoolId = Lens.lens (\TestAuthorization' {cognitoIdentityPoolId} -> cognitoIdentityPoolId) (\s@TestAuthorization' {} a -> s {cognitoIdentityPoolId = a} :: TestAuthorization)
+-- | When testing custom authorization, the policies specified here are
+-- treated as if they are attached to the principal being authorized.
+testAuthorization_policyNamesToAdd :: Lens.Lens' TestAuthorization (Prelude.Maybe [Prelude.Text])
+testAuthorization_policyNamesToAdd = Lens.lens (\TestAuthorization' {policyNamesToAdd} -> policyNamesToAdd) (\s@TestAuthorization' {} a -> s {policyNamesToAdd = a} :: TestAuthorization) Prelude.. Lens.mapping Lens.coerced
 
 -- | The principal. Valid principals are CertificateArn
 -- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn
@@ -134,20 +135,19 @@ testAuthorization_cognitoIdentityPoolId = Lens.lens (\TestAuthorization' {cognit
 testAuthorization_principal :: Lens.Lens' TestAuthorization (Prelude.Maybe Prelude.Text)
 testAuthorization_principal = Lens.lens (\TestAuthorization' {principal} -> principal) (\s@TestAuthorization' {} a -> s {principal = a} :: TestAuthorization)
 
+-- | The Cognito identity pool ID.
+testAuthorization_cognitoIdentityPoolId :: Lens.Lens' TestAuthorization (Prelude.Maybe Prelude.Text)
+testAuthorization_cognitoIdentityPoolId = Lens.lens (\TestAuthorization' {cognitoIdentityPoolId} -> cognitoIdentityPoolId) (\s@TestAuthorization' {} a -> s {cognitoIdentityPoolId = a} :: TestAuthorization)
+
 -- | When testing custom authorization, the policies specified here are
 -- treated as if they are not attached to the principal being authorized.
 testAuthorization_policyNamesToSkip :: Lens.Lens' TestAuthorization (Prelude.Maybe [Prelude.Text])
-testAuthorization_policyNamesToSkip = Lens.lens (\TestAuthorization' {policyNamesToSkip} -> policyNamesToSkip) (\s@TestAuthorization' {} a -> s {policyNamesToSkip = a} :: TestAuthorization) Prelude.. Lens.mapping Lens._Coerce
-
--- | When testing custom authorization, the policies specified here are
--- treated as if they are attached to the principal being authorized.
-testAuthorization_policyNamesToAdd :: Lens.Lens' TestAuthorization (Prelude.Maybe [Prelude.Text])
-testAuthorization_policyNamesToAdd = Lens.lens (\TestAuthorization' {policyNamesToAdd} -> policyNamesToAdd) (\s@TestAuthorization' {} a -> s {policyNamesToAdd = a} :: TestAuthorization) Prelude.. Lens.mapping Lens._Coerce
+testAuthorization_policyNamesToSkip = Lens.lens (\TestAuthorization' {policyNamesToSkip} -> policyNamesToSkip) (\s@TestAuthorization' {} a -> s {policyNamesToSkip = a} :: TestAuthorization) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of authorization info objects. Simulating authorization will
 -- create a response for each @authInfo@ object in the list.
 testAuthorization_authInfos :: Lens.Lens' TestAuthorization (Prelude.NonEmpty AuthInfo)
-testAuthorization_authInfos = Lens.lens (\TestAuthorization' {authInfos} -> authInfos) (\s@TestAuthorization' {} a -> s {authInfos = a} :: TestAuthorization) Prelude.. Lens._Coerce
+testAuthorization_authInfos = Lens.lens (\TestAuthorization' {authInfos} -> authInfos) (\s@TestAuthorization' {} a -> s {authInfos = a} :: TestAuthorization) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TestAuthorization where
   type
@@ -173,13 +173,13 @@ instance Core.ToJSON TestAuthorization where
   toJSON TestAuthorization' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("cognitoIdentityPoolId" Core..=)
-              Prelude.<$> cognitoIdentityPoolId,
+          [ ("policyNamesToAdd" Core..=)
+              Prelude.<$> policyNamesToAdd,
             ("principal" Core..=) Prelude.<$> principal,
+            ("cognitoIdentityPoolId" Core..=)
+              Prelude.<$> cognitoIdentityPoolId,
             ("policyNamesToSkip" Core..=)
               Prelude.<$> policyNamesToSkip,
-            ("policyNamesToAdd" Core..=)
-              Prelude.<$> policyNamesToAdd,
             Prelude.Just ("authInfos" Core..= authInfos)
           ]
       )
@@ -224,7 +224,7 @@ newTestAuthorizationResponse pHttpStatus_ =
 
 -- | The authentication results.
 testAuthorizationResponse_authResults :: Lens.Lens' TestAuthorizationResponse (Prelude.Maybe [AuthResult])
-testAuthorizationResponse_authResults = Lens.lens (\TestAuthorizationResponse' {authResults} -> authResults) (\s@TestAuthorizationResponse' {} a -> s {authResults = a} :: TestAuthorizationResponse) Prelude.. Lens.mapping Lens._Coerce
+testAuthorizationResponse_authResults = Lens.lens (\TestAuthorizationResponse' {authResults} -> authResults) (\s@TestAuthorizationResponse' {} a -> s {authResults = a} :: TestAuthorizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 testAuthorizationResponse_httpStatus :: Lens.Lens' TestAuthorizationResponse Prelude.Int

@@ -31,9 +31,9 @@ module Network.AWS.IoT.StartDetectMitigationActionsTask
     newStartDetectMitigationActionsTask,
 
     -- * Request Lenses
-    startDetectMitigationActionsTask_includeSuppressedAlerts,
-    startDetectMitigationActionsTask_includeOnlyActiveViolations,
     startDetectMitigationActionsTask_violationEventOccurrenceRange,
+    startDetectMitigationActionsTask_includeOnlyActiveViolations,
+    startDetectMitigationActionsTask_includeSuppressedAlerts,
     startDetectMitigationActionsTask_taskId,
     startDetectMitigationActionsTask_target,
     startDetectMitigationActionsTask_actions,
@@ -58,12 +58,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartDetectMitigationActionsTask' smart constructor.
 data StartDetectMitigationActionsTask = StartDetectMitigationActionsTask'
-  { -- | Specifies to include suppressed alerts.
-    includeSuppressedAlerts :: Prelude.Maybe Prelude.Bool,
+  { -- | Specifies the time period of which violation events occurred between.
+    violationEventOccurrenceRange :: Prelude.Maybe ViolationEventOccurrenceRange,
     -- | Specifies to list only active violations.
     includeOnlyActiveViolations :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the time period of which violation events occurred between.
-    violationEventOccurrenceRange :: Prelude.Maybe ViolationEventOccurrenceRange,
+    -- | Specifies to include suppressed alerts.
+    includeSuppressedAlerts :: Prelude.Maybe Prelude.Bool,
     -- | The unique identifier of the task.
     taskId :: Prelude.Text,
     -- | Specifies the ML Detect findings to which the mitigation actions are
@@ -87,11 +87,11 @@ data StartDetectMitigationActionsTask = StartDetectMitigationActionsTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeSuppressedAlerts', 'startDetectMitigationActionsTask_includeSuppressedAlerts' - Specifies to include suppressed alerts.
+-- 'violationEventOccurrenceRange', 'startDetectMitigationActionsTask_violationEventOccurrenceRange' - Specifies the time period of which violation events occurred between.
 --
 -- 'includeOnlyActiveViolations', 'startDetectMitigationActionsTask_includeOnlyActiveViolations' - Specifies to list only active violations.
 --
--- 'violationEventOccurrenceRange', 'startDetectMitigationActionsTask_violationEventOccurrenceRange' - Specifies the time period of which violation events occurred between.
+-- 'includeSuppressedAlerts', 'startDetectMitigationActionsTask_includeSuppressedAlerts' - Specifies to include suppressed alerts.
 --
 -- 'taskId', 'startDetectMitigationActionsTask_taskId' - The unique identifier of the task.
 --
@@ -120,29 +120,28 @@ newStartDetectMitigationActionsTask
   pActions_
   pClientRequestToken_ =
     StartDetectMitigationActionsTask'
-      { includeSuppressedAlerts =
+      { violationEventOccurrenceRange =
           Prelude.Nothing,
         includeOnlyActiveViolations =
           Prelude.Nothing,
-        violationEventOccurrenceRange =
-          Prelude.Nothing,
+        includeSuppressedAlerts = Prelude.Nothing,
         taskId = pTaskId_,
         target = pTarget_,
-        actions = Lens._Coerce Lens.# pActions_,
+        actions = Lens.coerced Lens.# pActions_,
         clientRequestToken = pClientRequestToken_
       }
 
--- | Specifies to include suppressed alerts.
-startDetectMitigationActionsTask_includeSuppressedAlerts :: Lens.Lens' StartDetectMitigationActionsTask (Prelude.Maybe Prelude.Bool)
-startDetectMitigationActionsTask_includeSuppressedAlerts = Lens.lens (\StartDetectMitigationActionsTask' {includeSuppressedAlerts} -> includeSuppressedAlerts) (\s@StartDetectMitigationActionsTask' {} a -> s {includeSuppressedAlerts = a} :: StartDetectMitigationActionsTask)
+-- | Specifies the time period of which violation events occurred between.
+startDetectMitigationActionsTask_violationEventOccurrenceRange :: Lens.Lens' StartDetectMitigationActionsTask (Prelude.Maybe ViolationEventOccurrenceRange)
+startDetectMitigationActionsTask_violationEventOccurrenceRange = Lens.lens (\StartDetectMitigationActionsTask' {violationEventOccurrenceRange} -> violationEventOccurrenceRange) (\s@StartDetectMitigationActionsTask' {} a -> s {violationEventOccurrenceRange = a} :: StartDetectMitigationActionsTask)
 
 -- | Specifies to list only active violations.
 startDetectMitigationActionsTask_includeOnlyActiveViolations :: Lens.Lens' StartDetectMitigationActionsTask (Prelude.Maybe Prelude.Bool)
 startDetectMitigationActionsTask_includeOnlyActiveViolations = Lens.lens (\StartDetectMitigationActionsTask' {includeOnlyActiveViolations} -> includeOnlyActiveViolations) (\s@StartDetectMitigationActionsTask' {} a -> s {includeOnlyActiveViolations = a} :: StartDetectMitigationActionsTask)
 
--- | Specifies the time period of which violation events occurred between.
-startDetectMitigationActionsTask_violationEventOccurrenceRange :: Lens.Lens' StartDetectMitigationActionsTask (Prelude.Maybe ViolationEventOccurrenceRange)
-startDetectMitigationActionsTask_violationEventOccurrenceRange = Lens.lens (\StartDetectMitigationActionsTask' {violationEventOccurrenceRange} -> violationEventOccurrenceRange) (\s@StartDetectMitigationActionsTask' {} a -> s {violationEventOccurrenceRange = a} :: StartDetectMitigationActionsTask)
+-- | Specifies to include suppressed alerts.
+startDetectMitigationActionsTask_includeSuppressedAlerts :: Lens.Lens' StartDetectMitigationActionsTask (Prelude.Maybe Prelude.Bool)
+startDetectMitigationActionsTask_includeSuppressedAlerts = Lens.lens (\StartDetectMitigationActionsTask' {includeSuppressedAlerts} -> includeSuppressedAlerts) (\s@StartDetectMitigationActionsTask' {} a -> s {includeSuppressedAlerts = a} :: StartDetectMitigationActionsTask)
 
 -- | The unique identifier of the task.
 startDetectMitigationActionsTask_taskId :: Lens.Lens' StartDetectMitigationActionsTask Prelude.Text
@@ -155,7 +154,7 @@ startDetectMitigationActionsTask_target = Lens.lens (\StartDetectMitigationActio
 
 -- | The actions to be performed when a device has unexpected behavior.
 startDetectMitigationActionsTask_actions :: Lens.Lens' StartDetectMitigationActionsTask (Prelude.NonEmpty Prelude.Text)
-startDetectMitigationActionsTask_actions = Lens.lens (\StartDetectMitigationActionsTask' {actions} -> actions) (\s@StartDetectMitigationActionsTask' {} a -> s {actions = a} :: StartDetectMitigationActionsTask) Prelude.. Lens._Coerce
+startDetectMitigationActionsTask_actions = Lens.lens (\StartDetectMitigationActionsTask' {actions} -> actions) (\s@StartDetectMitigationActionsTask' {} a -> s {actions = a} :: StartDetectMitigationActionsTask) Prelude.. Lens.coerced
 
 -- | Each mitigation action task must have a unique client request token. If
 -- you try to create a new task with the same token as a task that already
@@ -198,12 +197,12 @@ instance Core.ToJSON StartDetectMitigationActionsTask where
   toJSON StartDetectMitigationActionsTask' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("includeSuppressedAlerts" Core..=)
-              Prelude.<$> includeSuppressedAlerts,
+          [ ("violationEventOccurrenceRange" Core..=)
+              Prelude.<$> violationEventOccurrenceRange,
             ("includeOnlyActiveViolations" Core..=)
               Prelude.<$> includeOnlyActiveViolations,
-            ("violationEventOccurrenceRange" Core..=)
-              Prelude.<$> violationEventOccurrenceRange,
+            ("includeSuppressedAlerts" Core..=)
+              Prelude.<$> includeSuppressedAlerts,
             Prelude.Just ("target" Core..= target),
             Prelude.Just ("actions" Core..= actions),
             Prelude.Just

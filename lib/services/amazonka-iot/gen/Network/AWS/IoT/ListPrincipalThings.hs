@@ -214,7 +214,7 @@ listPrincipalThingsResponse_nextToken = Lens.lens (\ListPrincipalThingsResponse'
 
 -- | The things.
 listPrincipalThingsResponse_things :: Lens.Lens' ListPrincipalThingsResponse (Prelude.Maybe [Prelude.Text])
-listPrincipalThingsResponse_things = Lens.lens (\ListPrincipalThingsResponse' {things} -> things) (\s@ListPrincipalThingsResponse' {} a -> s {things = a} :: ListPrincipalThingsResponse) Prelude.. Lens.mapping Lens._Coerce
+listPrincipalThingsResponse_things = Lens.lens (\ListPrincipalThingsResponse' {things} -> things) (\s@ListPrincipalThingsResponse' {} a -> s {things = a} :: ListPrincipalThingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPrincipalThingsResponse_httpStatus :: Lens.Lens' ListPrincipalThingsResponse Prelude.Int

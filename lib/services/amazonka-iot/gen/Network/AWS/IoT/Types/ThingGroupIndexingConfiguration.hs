@@ -78,7 +78,7 @@ newThingGroupIndexingConfiguration
 -- | Contains fields that are indexed and whose types are already known by
 -- the Fleet Indexing service.
 thingGroupIndexingConfiguration_managedFields :: Lens.Lens' ThingGroupIndexingConfiguration (Prelude.Maybe [Field])
-thingGroupIndexingConfiguration_managedFields = Lens.lens (\ThingGroupIndexingConfiguration' {managedFields} -> managedFields) (\s@ThingGroupIndexingConfiguration' {} a -> s {managedFields = a} :: ThingGroupIndexingConfiguration) Prelude.. Lens.mapping Lens._Coerce
+thingGroupIndexingConfiguration_managedFields = Lens.lens (\ThingGroupIndexingConfiguration' {managedFields} -> managedFields) (\s@ThingGroupIndexingConfiguration' {} a -> s {managedFields = a} :: ThingGroupIndexingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of thing group fields to index. This list cannot contain any
 -- managed fields. Use the GetIndexingConfiguration API to get a list of
@@ -86,7 +86,7 @@ thingGroupIndexingConfiguration_managedFields = Lens.lens (\ThingGroupIndexingCo
 --
 -- Contains custom field names and their data type.
 thingGroupIndexingConfiguration_customFields :: Lens.Lens' ThingGroupIndexingConfiguration (Prelude.Maybe [Field])
-thingGroupIndexingConfiguration_customFields = Lens.lens (\ThingGroupIndexingConfiguration' {customFields} -> customFields) (\s@ThingGroupIndexingConfiguration' {} a -> s {customFields = a} :: ThingGroupIndexingConfiguration) Prelude.. Lens.mapping Lens._Coerce
+thingGroupIndexingConfiguration_customFields = Lens.lens (\ThingGroupIndexingConfiguration' {customFields} -> customFields) (\s@ThingGroupIndexingConfiguration' {} a -> s {customFields = a} :: ThingGroupIndexingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Thing group indexing mode.
 thingGroupIndexingConfiguration_thingGroupIndexingMode :: Lens.Lens' ThingGroupIndexingConfiguration ThingGroupIndexingMode

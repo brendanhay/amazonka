@@ -102,7 +102,7 @@ newTimestreamAction
         roleArn = pRoleArn_,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
-        dimensions = Lens._Coerce Lens.# pDimensions_
+        dimensions = Lens.coerced Lens.# pDimensions_
       }
 
 -- | Specifies an application-defined value to replace the default value
@@ -133,7 +133,7 @@ timestreamAction_tableName = Lens.lens (\TimestreamAction' {tableName} -> tableN
 -- | Metadata attributes of the time series that are written in each measure
 -- record.
 timestreamAction_dimensions :: Lens.Lens' TimestreamAction (Prelude.NonEmpty TimestreamDimension)
-timestreamAction_dimensions = Lens.lens (\TimestreamAction' {dimensions} -> dimensions) (\s@TimestreamAction' {} a -> s {dimensions = a} :: TimestreamAction) Prelude.. Lens._Coerce
+timestreamAction_dimensions = Lens.lens (\TimestreamAction' {dimensions} -> dimensions) (\s@TimestreamAction' {} a -> s {dimensions = a} :: TimestreamAction) Prelude.. Lens.coerced
 
 instance Core.FromJSON TimestreamAction where
   parseJSON =

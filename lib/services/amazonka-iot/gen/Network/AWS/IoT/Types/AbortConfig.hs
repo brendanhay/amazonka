@@ -49,12 +49,12 @@ newAbortConfig ::
 newAbortConfig pCriteriaList_ =
   AbortConfig'
     { criteriaList =
-        Lens._Coerce Lens.# pCriteriaList_
+        Lens.coerced Lens.# pCriteriaList_
     }
 
 -- | The list of criteria that determine when and how to abort the job.
 abortConfig_criteriaList :: Lens.Lens' AbortConfig (Prelude.NonEmpty AbortCriteria)
-abortConfig_criteriaList = Lens.lens (\AbortConfig' {criteriaList} -> criteriaList) (\s@AbortConfig' {} a -> s {criteriaList = a} :: AbortConfig) Prelude.. Lens._Coerce
+abortConfig_criteriaList = Lens.lens (\AbortConfig' {criteriaList} -> criteriaList) (\s@AbortConfig' {} a -> s {criteriaList = a} :: AbortConfig) Prelude.. Lens.coerced
 
 instance Core.FromJSON AbortConfig where
   parseJSON =

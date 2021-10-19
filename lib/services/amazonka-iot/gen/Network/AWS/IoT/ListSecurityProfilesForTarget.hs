@@ -35,8 +35,8 @@ module Network.AWS.IoT.ListSecurityProfilesForTarget
 
     -- * Request Lenses
     listSecurityProfilesForTarget_nextToken,
-    listSecurityProfilesForTarget_maxResults,
     listSecurityProfilesForTarget_recursive,
+    listSecurityProfilesForTarget_maxResults,
     listSecurityProfilesForTarget_securityProfileTargetArn,
 
     -- * Destructuring the Response
@@ -61,10 +61,10 @@ import qualified Network.AWS.Response as Response
 data ListSecurityProfilesForTarget = ListSecurityProfilesForTarget'
   { -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If true, return child groups too.
     recursive :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return at one time.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the target (thing group) whose attached security profiles you
     -- want to get.
     securityProfileTargetArn :: Prelude.Text
@@ -81,9 +81,9 @@ data ListSecurityProfilesForTarget = ListSecurityProfilesForTarget'
 --
 -- 'nextToken', 'listSecurityProfilesForTarget_nextToken' - The token for the next set of results.
 --
--- 'maxResults', 'listSecurityProfilesForTarget_maxResults' - The maximum number of results to return at one time.
---
 -- 'recursive', 'listSecurityProfilesForTarget_recursive' - If true, return child groups too.
+--
+-- 'maxResults', 'listSecurityProfilesForTarget_maxResults' - The maximum number of results to return at one time.
 --
 -- 'securityProfileTargetArn', 'listSecurityProfilesForTarget_securityProfileTargetArn' - The ARN of the target (thing group) whose attached security profiles you
 -- want to get.
@@ -96,8 +96,8 @@ newListSecurityProfilesForTarget
     ListSecurityProfilesForTarget'
       { nextToken =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
         recursive = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         securityProfileTargetArn =
           pSecurityProfileTargetArn_
       }
@@ -106,13 +106,13 @@ newListSecurityProfilesForTarget
 listSecurityProfilesForTarget_nextToken :: Lens.Lens' ListSecurityProfilesForTarget (Prelude.Maybe Prelude.Text)
 listSecurityProfilesForTarget_nextToken = Lens.lens (\ListSecurityProfilesForTarget' {nextToken} -> nextToken) (\s@ListSecurityProfilesForTarget' {} a -> s {nextToken = a} :: ListSecurityProfilesForTarget)
 
--- | The maximum number of results to return at one time.
-listSecurityProfilesForTarget_maxResults :: Lens.Lens' ListSecurityProfilesForTarget (Prelude.Maybe Prelude.Natural)
-listSecurityProfilesForTarget_maxResults = Lens.lens (\ListSecurityProfilesForTarget' {maxResults} -> maxResults) (\s@ListSecurityProfilesForTarget' {} a -> s {maxResults = a} :: ListSecurityProfilesForTarget)
-
 -- | If true, return child groups too.
 listSecurityProfilesForTarget_recursive :: Lens.Lens' ListSecurityProfilesForTarget (Prelude.Maybe Prelude.Bool)
 listSecurityProfilesForTarget_recursive = Lens.lens (\ListSecurityProfilesForTarget' {recursive} -> recursive) (\s@ListSecurityProfilesForTarget' {} a -> s {recursive = a} :: ListSecurityProfilesForTarget)
+
+-- | The maximum number of results to return at one time.
+listSecurityProfilesForTarget_maxResults :: Lens.Lens' ListSecurityProfilesForTarget (Prelude.Maybe Prelude.Natural)
+listSecurityProfilesForTarget_maxResults = Lens.lens (\ListSecurityProfilesForTarget' {maxResults} -> maxResults) (\s@ListSecurityProfilesForTarget' {} a -> s {maxResults = a} :: ListSecurityProfilesForTarget)
 
 -- | The ARN of the target (thing group) whose attached security profiles you
 -- want to get.
@@ -177,8 +177,8 @@ instance Core.ToQuery ListSecurityProfilesForTarget where
   toQuery ListSecurityProfilesForTarget' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
         "recursive" Core.=: recursive,
+        "maxResults" Core.=: maxResults,
         "securityProfileTargetArn"
           Core.=: securityProfileTargetArn
       ]
@@ -229,7 +229,7 @@ listSecurityProfilesForTargetResponse_nextToken = Lens.lens (\ListSecurityProfil
 
 -- | A list of security profiles and their associated targets.
 listSecurityProfilesForTargetResponse_securityProfileTargetMappings :: Lens.Lens' ListSecurityProfilesForTargetResponse (Prelude.Maybe [SecurityProfileTargetMapping])
-listSecurityProfilesForTargetResponse_securityProfileTargetMappings = Lens.lens (\ListSecurityProfilesForTargetResponse' {securityProfileTargetMappings} -> securityProfileTargetMappings) (\s@ListSecurityProfilesForTargetResponse' {} a -> s {securityProfileTargetMappings = a} :: ListSecurityProfilesForTargetResponse) Prelude.. Lens.mapping Lens._Coerce
+listSecurityProfilesForTargetResponse_securityProfileTargetMappings = Lens.lens (\ListSecurityProfilesForTargetResponse' {securityProfileTargetMappings} -> securityProfileTargetMappings) (\s@ListSecurityProfilesForTargetResponse' {} a -> s {securityProfileTargetMappings = a} :: ListSecurityProfilesForTargetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSecurityProfilesForTargetResponse_httpStatus :: Lens.Lens' ListSecurityProfilesForTargetResponse Prelude.Int

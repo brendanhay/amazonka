@@ -73,11 +73,11 @@ newVpcDestinationConfiguration pVpcId_ pRoleArn_ =
 
 -- | The security groups of the VPC destination.
 vpcDestinationConfiguration_securityGroups :: Lens.Lens' VpcDestinationConfiguration (Prelude.Maybe [Prelude.Text])
-vpcDestinationConfiguration_securityGroups = Lens.lens (\VpcDestinationConfiguration' {securityGroups} -> securityGroups) (\s@VpcDestinationConfiguration' {} a -> s {securityGroups = a} :: VpcDestinationConfiguration) Prelude.. Lens.mapping Lens._Coerce
+vpcDestinationConfiguration_securityGroups = Lens.lens (\VpcDestinationConfiguration' {securityGroups} -> securityGroups) (\s@VpcDestinationConfiguration' {} a -> s {securityGroups = a} :: VpcDestinationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The subnet IDs of the VPC destination.
 vpcDestinationConfiguration_subnetIds :: Lens.Lens' VpcDestinationConfiguration [Prelude.Text]
-vpcDestinationConfiguration_subnetIds = Lens.lens (\VpcDestinationConfiguration' {subnetIds} -> subnetIds) (\s@VpcDestinationConfiguration' {} a -> s {subnetIds = a} :: VpcDestinationConfiguration) Prelude.. Lens._Coerce
+vpcDestinationConfiguration_subnetIds = Lens.lens (\VpcDestinationConfiguration' {subnetIds} -> subnetIds) (\s@VpcDestinationConfiguration' {} a -> s {subnetIds = a} :: VpcDestinationConfiguration) Prelude.. Lens.coerced
 
 -- | The ID of the VPC.
 vpcDestinationConfiguration_vpcId :: Lens.Lens' VpcDestinationConfiguration Prelude.Text

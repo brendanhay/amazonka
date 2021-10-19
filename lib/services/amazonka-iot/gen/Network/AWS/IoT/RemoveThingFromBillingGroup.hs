@@ -32,8 +32,8 @@ module Network.AWS.IoT.RemoveThingFromBillingGroup
 
     -- * Request Lenses
     removeThingFromBillingGroup_thingArn,
-    removeThingFromBillingGroup_thingName,
     removeThingFromBillingGroup_billingGroupArn,
+    removeThingFromBillingGroup_thingName,
     removeThingFromBillingGroup_billingGroupName,
 
     -- * Destructuring the Response
@@ -56,10 +56,10 @@ import qualified Network.AWS.Response as Response
 data RemoveThingFromBillingGroup = RemoveThingFromBillingGroup'
   { -- | The ARN of the thing to be removed from the billing group.
     thingArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the thing to be removed from the billing group.
-    thingName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the billing group.
     billingGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the thing to be removed from the billing group.
+    thingName :: Prelude.Maybe Prelude.Text,
     -- | The name of the billing group.
     billingGroupName :: Prelude.Maybe Prelude.Text
   }
@@ -75,9 +75,9 @@ data RemoveThingFromBillingGroup = RemoveThingFromBillingGroup'
 --
 -- 'thingArn', 'removeThingFromBillingGroup_thingArn' - The ARN of the thing to be removed from the billing group.
 --
--- 'thingName', 'removeThingFromBillingGroup_thingName' - The name of the thing to be removed from the billing group.
---
 -- 'billingGroupArn', 'removeThingFromBillingGroup_billingGroupArn' - The ARN of the billing group.
+--
+-- 'thingName', 'removeThingFromBillingGroup_thingName' - The name of the thing to be removed from the billing group.
 --
 -- 'billingGroupName', 'removeThingFromBillingGroup_billingGroupName' - The name of the billing group.
 newRemoveThingFromBillingGroup ::
@@ -86,8 +86,8 @@ newRemoveThingFromBillingGroup =
   RemoveThingFromBillingGroup'
     { thingArn =
         Prelude.Nothing,
-      thingName = Prelude.Nothing,
       billingGroupArn = Prelude.Nothing,
+      thingName = Prelude.Nothing,
       billingGroupName = Prelude.Nothing
     }
 
@@ -95,13 +95,13 @@ newRemoveThingFromBillingGroup =
 removeThingFromBillingGroup_thingArn :: Lens.Lens' RemoveThingFromBillingGroup (Prelude.Maybe Prelude.Text)
 removeThingFromBillingGroup_thingArn = Lens.lens (\RemoveThingFromBillingGroup' {thingArn} -> thingArn) (\s@RemoveThingFromBillingGroup' {} a -> s {thingArn = a} :: RemoveThingFromBillingGroup)
 
--- | The name of the thing to be removed from the billing group.
-removeThingFromBillingGroup_thingName :: Lens.Lens' RemoveThingFromBillingGroup (Prelude.Maybe Prelude.Text)
-removeThingFromBillingGroup_thingName = Lens.lens (\RemoveThingFromBillingGroup' {thingName} -> thingName) (\s@RemoveThingFromBillingGroup' {} a -> s {thingName = a} :: RemoveThingFromBillingGroup)
-
 -- | The ARN of the billing group.
 removeThingFromBillingGroup_billingGroupArn :: Lens.Lens' RemoveThingFromBillingGroup (Prelude.Maybe Prelude.Text)
 removeThingFromBillingGroup_billingGroupArn = Lens.lens (\RemoveThingFromBillingGroup' {billingGroupArn} -> billingGroupArn) (\s@RemoveThingFromBillingGroup' {} a -> s {billingGroupArn = a} :: RemoveThingFromBillingGroup)
+
+-- | The name of the thing to be removed from the billing group.
+removeThingFromBillingGroup_thingName :: Lens.Lens' RemoveThingFromBillingGroup (Prelude.Maybe Prelude.Text)
+removeThingFromBillingGroup_thingName = Lens.lens (\RemoveThingFromBillingGroup' {thingName} -> thingName) (\s@RemoveThingFromBillingGroup' {} a -> s {thingName = a} :: RemoveThingFromBillingGroup)
 
 -- | The name of the billing group.
 removeThingFromBillingGroup_billingGroupName :: Lens.Lens' RemoveThingFromBillingGroup (Prelude.Maybe Prelude.Text)
@@ -131,9 +131,9 @@ instance Core.ToJSON RemoveThingFromBillingGroup where
     Core.object
       ( Prelude.catMaybes
           [ ("thingArn" Core..=) Prelude.<$> thingArn,
-            ("thingName" Core..=) Prelude.<$> thingName,
             ("billingGroupArn" Core..=)
               Prelude.<$> billingGroupArn,
+            ("thingName" Core..=) Prelude.<$> thingName,
             ("billingGroupName" Core..=)
               Prelude.<$> billingGroupName
           ]

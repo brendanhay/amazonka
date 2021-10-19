@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPolicyVersion' smart constructor.
 data PolicyVersion = PolicyVersion'
-  { -- | The date and time the policy was created.
-    createDate :: Prelude.Maybe Core.POSIX,
-    -- | The policy version ID.
+  { -- | The policy version ID.
     versionId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the policy was created.
+    createDate :: Prelude.Maybe Core.POSIX,
     -- | Specifies whether the policy version is the default.
     isDefaultVersion :: Prelude.Maybe Prelude.Bool
   }
@@ -44,27 +44,27 @@ data PolicyVersion = PolicyVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createDate', 'policyVersion_createDate' - The date and time the policy was created.
---
 -- 'versionId', 'policyVersion_versionId' - The policy version ID.
+--
+-- 'createDate', 'policyVersion_createDate' - The date and time the policy was created.
 --
 -- 'isDefaultVersion', 'policyVersion_isDefaultVersion' - Specifies whether the policy version is the default.
 newPolicyVersion ::
   PolicyVersion
 newPolicyVersion =
   PolicyVersion'
-    { createDate = Prelude.Nothing,
-      versionId = Prelude.Nothing,
+    { versionId = Prelude.Nothing,
+      createDate = Prelude.Nothing,
       isDefaultVersion = Prelude.Nothing
     }
-
--- | The date and time the policy was created.
-policyVersion_createDate :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.UTCTime)
-policyVersion_createDate = Lens.lens (\PolicyVersion' {createDate} -> createDate) (\s@PolicyVersion' {} a -> s {createDate = a} :: PolicyVersion) Prelude.. Lens.mapping Core._Time
 
 -- | The policy version ID.
 policyVersion_versionId :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.Text)
 policyVersion_versionId = Lens.lens (\PolicyVersion' {versionId} -> versionId) (\s@PolicyVersion' {} a -> s {versionId = a} :: PolicyVersion)
+
+-- | The date and time the policy was created.
+policyVersion_createDate :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.UTCTime)
+policyVersion_createDate = Lens.lens (\PolicyVersion' {createDate} -> createDate) (\s@PolicyVersion' {} a -> s {createDate = a} :: PolicyVersion) Prelude.. Lens.mapping Core._Time
 
 -- | Specifies whether the policy version is the default.
 policyVersion_isDefaultVersion :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.Bool)
@@ -76,8 +76,8 @@ instance Core.FromJSON PolicyVersion where
       "PolicyVersion"
       ( \x ->
           PolicyVersion'
-            Prelude.<$> (x Core..:? "createDate")
-            Prelude.<*> (x Core..:? "versionId")
+            Prelude.<$> (x Core..:? "versionId")
+            Prelude.<*> (x Core..:? "createDate")
             Prelude.<*> (x Core..:? "isDefaultVersion")
       )
 

@@ -311,7 +311,7 @@ newSetSMSAttributes =
 -- <https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html Monitoring SMS Activity>
 -- in the /Amazon SNS Developer Guide/.
 setSMSAttributes_attributes :: Lens.Lens' SetSMSAttributes (Prelude.HashMap Prelude.Text Prelude.Text)
-setSMSAttributes_attributes = Lens.lens (\SetSMSAttributes' {attributes} -> attributes) (\s@SetSMSAttributes' {} a -> s {attributes = a} :: SetSMSAttributes) Prelude.. Lens._Coerce
+setSMSAttributes_attributes = Lens.lens (\SetSMSAttributes' {attributes} -> attributes) (\s@SetSMSAttributes' {} a -> s {attributes = a} :: SetSMSAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest SetSMSAttributes where
   type

@@ -108,13 +108,13 @@ addPermission_label = Lens.lens (\AddPermission' {label} -> label) (\s@AddPermis
 -- the specified actions. The users must have account, but do not need to
 -- be signed up for this service.
 addPermission_aWSAccountId :: Lens.Lens' AddPermission [Prelude.Text]
-addPermission_aWSAccountId = Lens.lens (\AddPermission' {aWSAccountId} -> aWSAccountId) (\s@AddPermission' {} a -> s {aWSAccountId = a} :: AddPermission) Prelude.. Lens._Coerce
+addPermission_aWSAccountId = Lens.lens (\AddPermission' {aWSAccountId} -> aWSAccountId) (\s@AddPermission' {} a -> s {aWSAccountId = a} :: AddPermission) Prelude.. Lens.coerced
 
 -- | The action you want to allow for the specified principal(s).
 --
 -- Valid values: Any Amazon SNS action name, for example @Publish@.
 addPermission_actionName :: Lens.Lens' AddPermission [Prelude.Text]
-addPermission_actionName = Lens.lens (\AddPermission' {actionName} -> actionName) (\s@AddPermission' {} a -> s {actionName = a} :: AddPermission) Prelude.. Lens._Coerce
+addPermission_actionName = Lens.lens (\AddPermission' {actionName} -> actionName) (\s@AddPermission' {} a -> s {actionName = a} :: AddPermission) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddPermission where
   type

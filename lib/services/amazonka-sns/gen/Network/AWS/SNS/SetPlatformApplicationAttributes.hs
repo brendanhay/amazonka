@@ -191,7 +191,7 @@ setPlatformApplicationAttributes_platformApplicationArn = Lens.lens (\SetPlatfor
 -- -   @SuccessFeedbackSampleRate@ – Sample rate percentage (0-100) of
 --     successfully delivered messages.
 setPlatformApplicationAttributes_attributes :: Lens.Lens' SetPlatformApplicationAttributes (Prelude.HashMap Prelude.Text Prelude.Text)
-setPlatformApplicationAttributes_attributes = Lens.lens (\SetPlatformApplicationAttributes' {attributes} -> attributes) (\s@SetPlatformApplicationAttributes' {} a -> s {attributes = a} :: SetPlatformApplicationAttributes) Prelude.. Lens._Coerce
+setPlatformApplicationAttributes_attributes = Lens.lens (\SetPlatformApplicationAttributes' {attributes} -> attributes) (\s@SetPlatformApplicationAttributes' {} a -> s {attributes = a} :: SetPlatformApplicationAttributes) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

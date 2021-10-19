@@ -204,7 +204,7 @@ listSubscriptionsByTopicResponse_nextToken = Lens.lens (\ListSubscriptionsByTopi
 
 -- | A list of subscriptions.
 listSubscriptionsByTopicResponse_subscriptions :: Lens.Lens' ListSubscriptionsByTopicResponse (Prelude.Maybe [Subscription])
-listSubscriptionsByTopicResponse_subscriptions = Lens.lens (\ListSubscriptionsByTopicResponse' {subscriptions} -> subscriptions) (\s@ListSubscriptionsByTopicResponse' {} a -> s {subscriptions = a} :: ListSubscriptionsByTopicResponse) Prelude.. Lens.mapping Lens._Coerce
+listSubscriptionsByTopicResponse_subscriptions = Lens.lens (\ListSubscriptionsByTopicResponse' {subscriptions} -> subscriptions) (\s@ListSubscriptionsByTopicResponse' {} a -> s {subscriptions = a} :: ListSubscriptionsByTopicResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSubscriptionsByTopicResponse_httpStatus :: Lens.Lens' ListSubscriptionsByTopicResponse Prelude.Int

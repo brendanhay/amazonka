@@ -201,7 +201,7 @@ listOriginationNumbersResponse_nextToken = Lens.lens (\ListOriginationNumbersRes
 -- | A list of the calling account\'s verified and pending origination
 -- numbers.
 listOriginationNumbersResponse_phoneNumbers :: Lens.Lens' ListOriginationNumbersResponse (Prelude.Maybe [PhoneNumberInformation])
-listOriginationNumbersResponse_phoneNumbers = Lens.lens (\ListOriginationNumbersResponse' {phoneNumbers} -> phoneNumbers) (\s@ListOriginationNumbersResponse' {} a -> s {phoneNumbers = a} :: ListOriginationNumbersResponse) Prelude.. Lens.mapping Lens._Coerce
+listOriginationNumbersResponse_phoneNumbers = Lens.lens (\ListOriginationNumbersResponse' {phoneNumbers} -> phoneNumbers) (\s@ListOriginationNumbersResponse' {} a -> s {phoneNumbers = a} :: ListOriginationNumbersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listOriginationNumbersResponse_httpStatus :: Lens.Lens' ListOriginationNumbersResponse Prelude.Int

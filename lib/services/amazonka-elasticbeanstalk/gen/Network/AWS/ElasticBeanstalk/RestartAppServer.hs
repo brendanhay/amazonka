@@ -28,8 +28,8 @@ module Network.AWS.ElasticBeanstalk.RestartAppServer
     newRestartAppServer,
 
     -- * Request Lenses
-    restartAppServer_environmentId,
     restartAppServer_environmentName,
+    restartAppServer_environmentId,
 
     -- * Destructuring the Response
     RestartAppServerResponse (..),
@@ -48,18 +48,18 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newRestartAppServer' smart constructor.
 data RestartAppServer = RestartAppServer'
-  { -- | The ID of the environment to restart the server for.
-    --
-    -- Condition: You must specify either this or an EnvironmentName, or both.
-    -- If you do not specify either, AWS Elastic Beanstalk returns
-    -- @MissingRequiredParameter@ error.
-    environmentId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the environment to restart the server for.
+  { -- | The name of the environment to restart the server for.
     --
     -- Condition: You must specify either this or an EnvironmentId, or both. If
     -- you do not specify either, AWS Elastic Beanstalk returns
     -- @MissingRequiredParameter@ error.
-    environmentName :: Prelude.Maybe Prelude.Text
+    environmentName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the environment to restart the server for.
+    --
+    -- Condition: You must specify either this or an EnvironmentName, or both.
+    -- If you do not specify either, AWS Elastic Beanstalk returns
+    -- @MissingRequiredParameter@ error.
+    environmentId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,32 +71,25 @@ data RestartAppServer = RestartAppServer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'environmentId', 'restartAppServer_environmentId' - The ID of the environment to restart the server for.
---
--- Condition: You must specify either this or an EnvironmentName, or both.
--- If you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
---
 -- 'environmentName', 'restartAppServer_environmentName' - The name of the environment to restart the server for.
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-newRestartAppServer ::
-  RestartAppServer
-newRestartAppServer =
-  RestartAppServer'
-    { environmentId = Prelude.Nothing,
-      environmentName = Prelude.Nothing
-    }
-
--- | The ID of the environment to restart the server for.
+--
+-- 'environmentId', 'restartAppServer_environmentId' - The ID of the environment to restart the server for.
 --
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-restartAppServer_environmentId :: Lens.Lens' RestartAppServer (Prelude.Maybe Prelude.Text)
-restartAppServer_environmentId = Lens.lens (\RestartAppServer' {environmentId} -> environmentId) (\s@RestartAppServer' {} a -> s {environmentId = a} :: RestartAppServer)
+newRestartAppServer ::
+  RestartAppServer
+newRestartAppServer =
+  RestartAppServer'
+    { environmentName =
+        Prelude.Nothing,
+      environmentId = Prelude.Nothing
+    }
 
 -- | The name of the environment to restart the server for.
 --
@@ -105,6 +98,14 @@ restartAppServer_environmentId = Lens.lens (\RestartAppServer' {environmentId} -
 -- @MissingRequiredParameter@ error.
 restartAppServer_environmentName :: Lens.Lens' RestartAppServer (Prelude.Maybe Prelude.Text)
 restartAppServer_environmentName = Lens.lens (\RestartAppServer' {environmentName} -> environmentName) (\s@RestartAppServer' {} a -> s {environmentName = a} :: RestartAppServer)
+
+-- | The ID of the environment to restart the server for.
+--
+-- Condition: You must specify either this or an EnvironmentName, or both.
+-- If you do not specify either, AWS Elastic Beanstalk returns
+-- @MissingRequiredParameter@ error.
+restartAppServer_environmentId :: Lens.Lens' RestartAppServer (Prelude.Maybe Prelude.Text)
+restartAppServer_environmentId = Lens.lens (\RestartAppServer' {environmentId} -> environmentId) (\s@RestartAppServer' {} a -> s {environmentId = a} :: RestartAppServer)
 
 instance Core.AWSRequest RestartAppServer where
   type
@@ -131,8 +132,8 @@ instance Core.ToQuery RestartAppServer where
           Core.=: ("RestartAppServer" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentId" Core.=: environmentId,
-        "EnvironmentName" Core.=: environmentName
+        "EnvironmentName" Core.=: environmentName,
+        "EnvironmentId" Core.=: environmentId
       ]
 
 -- | /See:/ 'newRestartAppServerResponse' smart constructor.

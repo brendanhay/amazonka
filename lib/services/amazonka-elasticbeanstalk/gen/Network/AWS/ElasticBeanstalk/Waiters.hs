@@ -23,15 +23,15 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newEnvironmentTerminated :: Core.Wait DescribeEnvironments
-newEnvironmentTerminated =
+newEnvironmentExists :: Core.Wait DescribeEnvironments
+newEnvironmentExists =
   Core.Wait
-    { Core._waitName = "EnvironmentTerminated",
+    { Core._waitName = "EnvironmentExists",
       Core._waitAttempts = 20,
       Core._waitDelay = 20,
       Core._waitAcceptors =
         [ Core.matchAll
-            "Terminated"
+            "Ready"
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
@@ -44,7 +44,7 @@ newEnvironmentTerminated =
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
-            "Terminating"
+            "Launching"
             Core.AcceptRetry
             ( Lens.folding
                 ( Lens.concatOf
@@ -97,15 +97,15 @@ newEnvironmentUpdated =
     }
 
 -- | Polls 'Network.AWS.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newEnvironmentExists :: Core.Wait DescribeEnvironments
-newEnvironmentExists =
+newEnvironmentTerminated :: Core.Wait DescribeEnvironments
+newEnvironmentTerminated =
   Core.Wait
-    { Core._waitName = "EnvironmentExists",
+    { Core._waitName = "EnvironmentTerminated",
       Core._waitAttempts = 20,
       Core._waitDelay = 20,
       Core._waitAcceptors =
         [ Core.matchAll
-            "Ready"
+            "Terminated"
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
@@ -118,7 +118,7 @@ newEnvironmentExists =
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
-            "Launching"
+            "Terminating"
             Core.AcceptRetry
             ( Lens.folding
                 ( Lens.concatOf

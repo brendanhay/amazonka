@@ -28,18 +28,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEnvironmentInfoDescription' smart constructor.
 data EnvironmentInfoDescription = EnvironmentInfoDescription'
-  { -- | The retrieved information. Currently contains a presigned Amazon S3 URL.
+  { -- | The time stamp when this information was retrieved.
+    sampleTimestamp :: Prelude.Maybe Core.ISO8601,
+    -- | The Amazon EC2 Instance ID for this information.
+    ec2InstanceId :: Prelude.Maybe Prelude.Text,
+    -- | The type of information retrieved.
+    infoType :: Prelude.Maybe EnvironmentInfoType,
+    -- | The retrieved information. Currently contains a presigned Amazon S3 URL.
     -- The files are deleted after 15 minutes.
     --
     -- Anyone in possession of this URL can access the files before they are
     -- deleted. Make the URL available only to trusted parties.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The type of information retrieved.
-    infoType :: Prelude.Maybe EnvironmentInfoType,
-    -- | The time stamp when this information was retrieved.
-    sampleTimestamp :: Prelude.Maybe Core.ISO8601,
-    -- | The Amazon EC2 Instance ID for this information.
-    ec2InstanceId :: Prelude.Maybe Prelude.Text
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,39 +51,27 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sampleTimestamp', 'environmentInfoDescription_sampleTimestamp' - The time stamp when this information was retrieved.
+--
+-- 'ec2InstanceId', 'environmentInfoDescription_ec2InstanceId' - The Amazon EC2 Instance ID for this information.
+--
+-- 'infoType', 'environmentInfoDescription_infoType' - The type of information retrieved.
+--
 -- 'message', 'environmentInfoDescription_message' - The retrieved information. Currently contains a presigned Amazon S3 URL.
 -- The files are deleted after 15 minutes.
 --
 -- Anyone in possession of this URL can access the files before they are
 -- deleted. Make the URL available only to trusted parties.
---
--- 'infoType', 'environmentInfoDescription_infoType' - The type of information retrieved.
---
--- 'sampleTimestamp', 'environmentInfoDescription_sampleTimestamp' - The time stamp when this information was retrieved.
---
--- 'ec2InstanceId', 'environmentInfoDescription_ec2InstanceId' - The Amazon EC2 Instance ID for this information.
 newEnvironmentInfoDescription ::
   EnvironmentInfoDescription
 newEnvironmentInfoDescription =
   EnvironmentInfoDescription'
-    { message =
+    { sampleTimestamp =
         Prelude.Nothing,
+      ec2InstanceId = Prelude.Nothing,
       infoType = Prelude.Nothing,
-      sampleTimestamp = Prelude.Nothing,
-      ec2InstanceId = Prelude.Nothing
+      message = Prelude.Nothing
     }
-
--- | The retrieved information. Currently contains a presigned Amazon S3 URL.
--- The files are deleted after 15 minutes.
---
--- Anyone in possession of this URL can access the files before they are
--- deleted. Make the URL available only to trusted parties.
-environmentInfoDescription_message :: Lens.Lens' EnvironmentInfoDescription (Prelude.Maybe Prelude.Text)
-environmentInfoDescription_message = Lens.lens (\EnvironmentInfoDescription' {message} -> message) (\s@EnvironmentInfoDescription' {} a -> s {message = a} :: EnvironmentInfoDescription)
-
--- | The type of information retrieved.
-environmentInfoDescription_infoType :: Lens.Lens' EnvironmentInfoDescription (Prelude.Maybe EnvironmentInfoType)
-environmentInfoDescription_infoType = Lens.lens (\EnvironmentInfoDescription' {infoType} -> infoType) (\s@EnvironmentInfoDescription' {} a -> s {infoType = a} :: EnvironmentInfoDescription)
 
 -- | The time stamp when this information was retrieved.
 environmentInfoDescription_sampleTimestamp :: Lens.Lens' EnvironmentInfoDescription (Prelude.Maybe Prelude.UTCTime)
@@ -93,13 +81,25 @@ environmentInfoDescription_sampleTimestamp = Lens.lens (\EnvironmentInfoDescript
 environmentInfoDescription_ec2InstanceId :: Lens.Lens' EnvironmentInfoDescription (Prelude.Maybe Prelude.Text)
 environmentInfoDescription_ec2InstanceId = Lens.lens (\EnvironmentInfoDescription' {ec2InstanceId} -> ec2InstanceId) (\s@EnvironmentInfoDescription' {} a -> s {ec2InstanceId = a} :: EnvironmentInfoDescription)
 
+-- | The type of information retrieved.
+environmentInfoDescription_infoType :: Lens.Lens' EnvironmentInfoDescription (Prelude.Maybe EnvironmentInfoType)
+environmentInfoDescription_infoType = Lens.lens (\EnvironmentInfoDescription' {infoType} -> infoType) (\s@EnvironmentInfoDescription' {} a -> s {infoType = a} :: EnvironmentInfoDescription)
+
+-- | The retrieved information. Currently contains a presigned Amazon S3 URL.
+-- The files are deleted after 15 minutes.
+--
+-- Anyone in possession of this URL can access the files before they are
+-- deleted. Make the URL available only to trusted parties.
+environmentInfoDescription_message :: Lens.Lens' EnvironmentInfoDescription (Prelude.Maybe Prelude.Text)
+environmentInfoDescription_message = Lens.lens (\EnvironmentInfoDescription' {message} -> message) (\s@EnvironmentInfoDescription' {} a -> s {message = a} :: EnvironmentInfoDescription)
+
 instance Core.FromXML EnvironmentInfoDescription where
   parseXML x =
     EnvironmentInfoDescription'
-      Prelude.<$> (x Core..@? "Message")
-      Prelude.<*> (x Core..@? "InfoType")
-      Prelude.<*> (x Core..@? "SampleTimestamp")
+      Prelude.<$> (x Core..@? "SampleTimestamp")
       Prelude.<*> (x Core..@? "Ec2InstanceId")
+      Prelude.<*> (x Core..@? "InfoType")
+      Prelude.<*> (x Core..@? "Message")
 
 instance Prelude.Hashable EnvironmentInfoDescription
 

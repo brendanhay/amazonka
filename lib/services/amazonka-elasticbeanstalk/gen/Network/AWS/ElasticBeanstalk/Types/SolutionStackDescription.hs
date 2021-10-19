@@ -56,7 +56,7 @@ newSolutionStackDescription =
 
 -- | The permitted file types allowed for a solution stack.
 solutionStackDescription_permittedFileTypes :: Lens.Lens' SolutionStackDescription (Prelude.Maybe [Prelude.Text])
-solutionStackDescription_permittedFileTypes = Lens.lens (\SolutionStackDescription' {permittedFileTypes} -> permittedFileTypes) (\s@SolutionStackDescription' {} a -> s {permittedFileTypes = a} :: SolutionStackDescription) Prelude.. Lens.mapping Lens._Coerce
+solutionStackDescription_permittedFileTypes = Lens.lens (\SolutionStackDescription' {permittedFileTypes} -> permittedFileTypes) (\s@SolutionStackDescription' {} a -> s {permittedFileTypes = a} :: SolutionStackDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the solution stack.
 solutionStackDescription_solutionStackName :: Lens.Lens' SolutionStackDescription (Prelude.Maybe Prelude.Text)

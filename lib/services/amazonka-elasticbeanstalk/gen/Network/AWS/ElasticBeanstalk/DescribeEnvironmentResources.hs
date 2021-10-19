@@ -27,8 +27,8 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     newDescribeEnvironmentResources,
 
     -- * Request Lenses
-    describeEnvironmentResources_environmentId,
     describeEnvironmentResources_environmentName,
+    describeEnvironmentResources_environmentId,
 
     -- * Destructuring the Response
     DescribeEnvironmentResourcesResponse (..),
@@ -51,18 +51,18 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeEnvironmentResources' smart constructor.
 data DescribeEnvironmentResources = DescribeEnvironmentResources'
-  { -- | The ID of the environment to retrieve AWS resource usage data.
-    --
-    -- Condition: You must specify either this or an EnvironmentName, or both.
-    -- If you do not specify either, AWS Elastic Beanstalk returns
-    -- @MissingRequiredParameter@ error.
-    environmentId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the environment to retrieve AWS resource usage data.
+  { -- | The name of the environment to retrieve AWS resource usage data.
     --
     -- Condition: You must specify either this or an EnvironmentId, or both. If
     -- you do not specify either, AWS Elastic Beanstalk returns
     -- @MissingRequiredParameter@ error.
-    environmentName :: Prelude.Maybe Prelude.Text
+    environmentName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the environment to retrieve AWS resource usage data.
+    --
+    -- Condition: You must specify either this or an EnvironmentName, or both.
+    -- If you do not specify either, AWS Elastic Beanstalk returns
+    -- @MissingRequiredParameter@ error.
+    environmentId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,33 +74,25 @@ data DescribeEnvironmentResources = DescribeEnvironmentResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'environmentId', 'describeEnvironmentResources_environmentId' - The ID of the environment to retrieve AWS resource usage data.
---
--- Condition: You must specify either this or an EnvironmentName, or both.
--- If you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
---
 -- 'environmentName', 'describeEnvironmentResources_environmentName' - The name of the environment to retrieve AWS resource usage data.
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-newDescribeEnvironmentResources ::
-  DescribeEnvironmentResources
-newDescribeEnvironmentResources =
-  DescribeEnvironmentResources'
-    { environmentId =
-        Prelude.Nothing,
-      environmentName = Prelude.Nothing
-    }
-
--- | The ID of the environment to retrieve AWS resource usage data.
+--
+-- 'environmentId', 'describeEnvironmentResources_environmentId' - The ID of the environment to retrieve AWS resource usage data.
 --
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-describeEnvironmentResources_environmentId :: Lens.Lens' DescribeEnvironmentResources (Prelude.Maybe Prelude.Text)
-describeEnvironmentResources_environmentId = Lens.lens (\DescribeEnvironmentResources' {environmentId} -> environmentId) (\s@DescribeEnvironmentResources' {} a -> s {environmentId = a} :: DescribeEnvironmentResources)
+newDescribeEnvironmentResources ::
+  DescribeEnvironmentResources
+newDescribeEnvironmentResources =
+  DescribeEnvironmentResources'
+    { environmentName =
+        Prelude.Nothing,
+      environmentId = Prelude.Nothing
+    }
 
 -- | The name of the environment to retrieve AWS resource usage data.
 --
@@ -109,6 +101,14 @@ describeEnvironmentResources_environmentId = Lens.lens (\DescribeEnvironmentReso
 -- @MissingRequiredParameter@ error.
 describeEnvironmentResources_environmentName :: Lens.Lens' DescribeEnvironmentResources (Prelude.Maybe Prelude.Text)
 describeEnvironmentResources_environmentName = Lens.lens (\DescribeEnvironmentResources' {environmentName} -> environmentName) (\s@DescribeEnvironmentResources' {} a -> s {environmentName = a} :: DescribeEnvironmentResources)
+
+-- | The ID of the environment to retrieve AWS resource usage data.
+--
+-- Condition: You must specify either this or an EnvironmentName, or both.
+-- If you do not specify either, AWS Elastic Beanstalk returns
+-- @MissingRequiredParameter@ error.
+describeEnvironmentResources_environmentId :: Lens.Lens' DescribeEnvironmentResources (Prelude.Maybe Prelude.Text)
+describeEnvironmentResources_environmentId = Lens.lens (\DescribeEnvironmentResources' {environmentId} -> environmentId) (\s@DescribeEnvironmentResources' {} a -> s {environmentId = a} :: DescribeEnvironmentResources)
 
 instance Core.AWSRequest DescribeEnvironmentResources where
   type
@@ -145,8 +145,8 @@ instance Core.ToQuery DescribeEnvironmentResources where
                   ),
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentId" Core.=: environmentId,
-        "EnvironmentName" Core.=: environmentName
+        "EnvironmentName" Core.=: environmentName,
+        "EnvironmentId" Core.=: environmentId
       ]
 
 -- | Result message containing a list of environment resource descriptions.

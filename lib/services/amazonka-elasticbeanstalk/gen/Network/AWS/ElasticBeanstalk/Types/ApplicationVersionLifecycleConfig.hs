@@ -35,12 +35,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newApplicationVersionLifecycleConfig' smart constructor.
 data ApplicationVersionLifecycleConfig = ApplicationVersionLifecycleConfig'
-  { -- | Specify a max count rule to restrict the number of application versions
-    -- that are retained for an application.
-    maxCountRule :: Prelude.Maybe MaxCountRule,
-    -- | Specify a max age rule to restrict the length of time that application
+  { -- | Specify a max age rule to restrict the length of time that application
     -- versions are retained for an application.
-    maxAgeRule :: Prelude.Maybe MaxAgeRule
+    maxAgeRule :: Prelude.Maybe MaxAgeRule,
+    -- | Specify a max count rule to restrict the number of application versions
+    -- that are retained for an application.
+    maxCountRule :: Prelude.Maybe MaxCountRule
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,29 +52,29 @@ data ApplicationVersionLifecycleConfig = ApplicationVersionLifecycleConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxCountRule', 'applicationVersionLifecycleConfig_maxCountRule' - Specify a max count rule to restrict the number of application versions
--- that are retained for an application.
---
 -- 'maxAgeRule', 'applicationVersionLifecycleConfig_maxAgeRule' - Specify a max age rule to restrict the length of time that application
 -- versions are retained for an application.
+--
+-- 'maxCountRule', 'applicationVersionLifecycleConfig_maxCountRule' - Specify a max count rule to restrict the number of application versions
+-- that are retained for an application.
 newApplicationVersionLifecycleConfig ::
   ApplicationVersionLifecycleConfig
 newApplicationVersionLifecycleConfig =
   ApplicationVersionLifecycleConfig'
-    { maxCountRule =
+    { maxAgeRule =
         Prelude.Nothing,
-      maxAgeRule = Prelude.Nothing
+      maxCountRule = Prelude.Nothing
     }
-
--- | Specify a max count rule to restrict the number of application versions
--- that are retained for an application.
-applicationVersionLifecycleConfig_maxCountRule :: Lens.Lens' ApplicationVersionLifecycleConfig (Prelude.Maybe MaxCountRule)
-applicationVersionLifecycleConfig_maxCountRule = Lens.lens (\ApplicationVersionLifecycleConfig' {maxCountRule} -> maxCountRule) (\s@ApplicationVersionLifecycleConfig' {} a -> s {maxCountRule = a} :: ApplicationVersionLifecycleConfig)
 
 -- | Specify a max age rule to restrict the length of time that application
 -- versions are retained for an application.
 applicationVersionLifecycleConfig_maxAgeRule :: Lens.Lens' ApplicationVersionLifecycleConfig (Prelude.Maybe MaxAgeRule)
 applicationVersionLifecycleConfig_maxAgeRule = Lens.lens (\ApplicationVersionLifecycleConfig' {maxAgeRule} -> maxAgeRule) (\s@ApplicationVersionLifecycleConfig' {} a -> s {maxAgeRule = a} :: ApplicationVersionLifecycleConfig)
+
+-- | Specify a max count rule to restrict the number of application versions
+-- that are retained for an application.
+applicationVersionLifecycleConfig_maxCountRule :: Lens.Lens' ApplicationVersionLifecycleConfig (Prelude.Maybe MaxCountRule)
+applicationVersionLifecycleConfig_maxCountRule = Lens.lens (\ApplicationVersionLifecycleConfig' {maxCountRule} -> maxCountRule) (\s@ApplicationVersionLifecycleConfig' {} a -> s {maxCountRule = a} :: ApplicationVersionLifecycleConfig)
 
 instance
   Core.FromXML
@@ -82,8 +82,8 @@ instance
   where
   parseXML x =
     ApplicationVersionLifecycleConfig'
-      Prelude.<$> (x Core..@? "MaxCountRule")
-      Prelude.<*> (x Core..@? "MaxAgeRule")
+      Prelude.<$> (x Core..@? "MaxAgeRule")
+      Prelude.<*> (x Core..@? "MaxCountRule")
 
 instance
   Prelude.Hashable
@@ -99,6 +99,6 @@ instance
   where
   toQuery ApplicationVersionLifecycleConfig' {..} =
     Prelude.mconcat
-      [ "MaxCountRule" Core.=: maxCountRule,
-        "MaxAgeRule" Core.=: maxAgeRule
+      [ "MaxAgeRule" Core.=: maxAgeRule,
+        "MaxCountRule" Core.=: maxCountRule
       ]

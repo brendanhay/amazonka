@@ -35,8 +35,8 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationResourceLifecycle
     newUpdateApplicationResourceLifecycleResponse,
 
     -- * Response Lenses
-    updateApplicationResourceLifecycleResponse_resourceLifecycleConfig,
     updateApplicationResourceLifecycleResponse_applicationName,
+    updateApplicationResourceLifecycleResponse_resourceLifecycleConfig,
     updateApplicationResourceLifecycleResponse_httpStatus,
   )
 where
@@ -105,8 +105,8 @@ instance
       "UpdateApplicationResourceLifecycleResult"
       ( \s h x ->
           UpdateApplicationResourceLifecycleResponse'
-            Prelude.<$> (x Core..@? "ResourceLifecycleConfig")
-              Prelude.<*> (x Core..@? "ApplicationName")
+            Prelude.<$> (x Core..@? "ApplicationName")
+              Prelude.<*> (x Core..@? "ResourceLifecycleConfig")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,10 +149,10 @@ instance
 
 -- | /See:/ 'newUpdateApplicationResourceLifecycleResponse' smart constructor.
 data UpdateApplicationResourceLifecycleResponse = UpdateApplicationResourceLifecycleResponse'
-  { -- | The lifecycle configuration.
-    resourceLifecycleConfig :: Prelude.Maybe ApplicationResourceLifecycleConfig,
-    -- | The name of the application.
+  { -- | The name of the application.
     applicationName :: Prelude.Maybe Prelude.Text,
+    -- | The lifecycle configuration.
+    resourceLifecycleConfig :: Prelude.Maybe ApplicationResourceLifecycleConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,9 +166,9 @@ data UpdateApplicationResourceLifecycleResponse = UpdateApplicationResourceLifec
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceLifecycleConfig', 'updateApplicationResourceLifecycleResponse_resourceLifecycleConfig' - The lifecycle configuration.
---
 -- 'applicationName', 'updateApplicationResourceLifecycleResponse_applicationName' - The name of the application.
+--
+-- 'resourceLifecycleConfig', 'updateApplicationResourceLifecycleResponse_resourceLifecycleConfig' - The lifecycle configuration.
 --
 -- 'httpStatus', 'updateApplicationResourceLifecycleResponse_httpStatus' - The response's http status code.
 newUpdateApplicationResourceLifecycleResponse ::
@@ -178,20 +178,20 @@ newUpdateApplicationResourceLifecycleResponse ::
 newUpdateApplicationResourceLifecycleResponse
   pHttpStatus_ =
     UpdateApplicationResourceLifecycleResponse'
-      { resourceLifecycleConfig =
+      { applicationName =
           Prelude.Nothing,
-        applicationName =
+        resourceLifecycleConfig =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The lifecycle configuration.
-updateApplicationResourceLifecycleResponse_resourceLifecycleConfig :: Lens.Lens' UpdateApplicationResourceLifecycleResponse (Prelude.Maybe ApplicationResourceLifecycleConfig)
-updateApplicationResourceLifecycleResponse_resourceLifecycleConfig = Lens.lens (\UpdateApplicationResourceLifecycleResponse' {resourceLifecycleConfig} -> resourceLifecycleConfig) (\s@UpdateApplicationResourceLifecycleResponse' {} a -> s {resourceLifecycleConfig = a} :: UpdateApplicationResourceLifecycleResponse)
-
 -- | The name of the application.
 updateApplicationResourceLifecycleResponse_applicationName :: Lens.Lens' UpdateApplicationResourceLifecycleResponse (Prelude.Maybe Prelude.Text)
 updateApplicationResourceLifecycleResponse_applicationName = Lens.lens (\UpdateApplicationResourceLifecycleResponse' {applicationName} -> applicationName) (\s@UpdateApplicationResourceLifecycleResponse' {} a -> s {applicationName = a} :: UpdateApplicationResourceLifecycleResponse)
+
+-- | The lifecycle configuration.
+updateApplicationResourceLifecycleResponse_resourceLifecycleConfig :: Lens.Lens' UpdateApplicationResourceLifecycleResponse (Prelude.Maybe ApplicationResourceLifecycleConfig)
+updateApplicationResourceLifecycleResponse_resourceLifecycleConfig = Lens.lens (\UpdateApplicationResourceLifecycleResponse' {resourceLifecycleConfig} -> resourceLifecycleConfig) (\s@UpdateApplicationResourceLifecycleResponse' {} a -> s {resourceLifecycleConfig = a} :: UpdateApplicationResourceLifecycleResponse)
 
 -- | The response's http status code.
 updateApplicationResourceLifecycleResponse_httpStatus :: Lens.Lens' UpdateApplicationResourceLifecycleResponse Prelude.Int

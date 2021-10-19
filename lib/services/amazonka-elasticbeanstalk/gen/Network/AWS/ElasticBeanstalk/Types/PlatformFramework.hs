@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPlatformFramework' smart constructor.
 data PlatformFramework = PlatformFramework'
-  { -- | The version of the framework.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The name of the framework.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the framework.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The version of the framework.
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,30 +42,30 @@ data PlatformFramework = PlatformFramework'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'version', 'platformFramework_version' - The version of the framework.
---
 -- 'name', 'platformFramework_name' - The name of the framework.
+--
+-- 'version', 'platformFramework_version' - The version of the framework.
 newPlatformFramework ::
   PlatformFramework
 newPlatformFramework =
   PlatformFramework'
-    { version = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      version = Prelude.Nothing
     }
-
--- | The version of the framework.
-platformFramework_version :: Lens.Lens' PlatformFramework (Prelude.Maybe Prelude.Text)
-platformFramework_version = Lens.lens (\PlatformFramework' {version} -> version) (\s@PlatformFramework' {} a -> s {version = a} :: PlatformFramework)
 
 -- | The name of the framework.
 platformFramework_name :: Lens.Lens' PlatformFramework (Prelude.Maybe Prelude.Text)
 platformFramework_name = Lens.lens (\PlatformFramework' {name} -> name) (\s@PlatformFramework' {} a -> s {name = a} :: PlatformFramework)
 
+-- | The version of the framework.
+platformFramework_version :: Lens.Lens' PlatformFramework (Prelude.Maybe Prelude.Text)
+platformFramework_version = Lens.lens (\PlatformFramework' {version} -> version) (\s@PlatformFramework' {} a -> s {version = a} :: PlatformFramework)
+
 instance Core.FromXML PlatformFramework where
   parseXML x =
     PlatformFramework'
-      Prelude.<$> (x Core..@? "Version")
-      Prelude.<*> (x Core..@? "Name")
+      Prelude.<$> (x Core..@? "Name")
+      Prelude.<*> (x Core..@? "Version")
 
 instance Prelude.Hashable PlatformFramework
 

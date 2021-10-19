@@ -77,7 +77,7 @@ newDescribeApplications =
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include those with the specified names.
 describeApplications_applicationNames :: Lens.Lens' DescribeApplications (Prelude.Maybe [Prelude.Text])
-describeApplications_applicationNames = Lens.lens (\DescribeApplications' {applicationNames} -> applicationNames) (\s@DescribeApplications' {} a -> s {applicationNames = a} :: DescribeApplications) Prelude.. Lens.mapping Lens._Coerce
+describeApplications_applicationNames = Lens.lens (\DescribeApplications' {applicationNames} -> applicationNames) (\s@DescribeApplications' {} a -> s {applicationNames = a} :: DescribeApplications) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeApplications where
   type
@@ -154,7 +154,7 @@ newDescribeApplicationsResponse pHttpStatus_ =
 
 -- | This parameter contains a list of ApplicationDescription.
 describeApplicationsResponse_applications :: Lens.Lens' DescribeApplicationsResponse (Prelude.Maybe [ApplicationDescription])
-describeApplicationsResponse_applications = Lens.lens (\DescribeApplicationsResponse' {applications} -> applications) (\s@DescribeApplicationsResponse' {} a -> s {applications = a} :: DescribeApplicationsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeApplicationsResponse_applications = Lens.lens (\DescribeApplicationsResponse' {applications} -> applications) (\s@DescribeApplicationsResponse' {} a -> s {applications = a} :: DescribeApplicationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeApplicationsResponse_httpStatus :: Lens.Lens' DescribeApplicationsResponse Prelude.Int

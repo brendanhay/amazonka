@@ -39,29 +39,8 @@ module Network.AWS.ElasticBeanstalk
     -- * Errors
     -- $errors
 
-    -- ** TooManyPlatformsException
-    _TooManyPlatformsException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** TooManyApplicationsException
-    _TooManyApplicationsException,
-
-    -- ** TooManyEnvironmentsException
-    _TooManyEnvironmentsException,
-
-    -- ** InsufficientPrivilegesException
-    _InsufficientPrivilegesException,
-
-    -- ** ResourceTypeNotSupportedException
-    _ResourceTypeNotSupportedException,
-
-    -- ** TooManyConfigurationTemplatesException
-    _TooManyConfigurationTemplatesException,
-
-    -- ** OperationInProgressException
-    _OperationInProgressException,
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- ** TooManyBucketsException
     _TooManyBucketsException,
@@ -69,71 +48,68 @@ module Network.AWS.ElasticBeanstalk
     -- ** S3SubscriptionRequiredException
     _S3SubscriptionRequiredException,
 
-    -- ** SourceBundleDeletionException
-    _SourceBundleDeletionException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** ElasticBeanstalkServiceException
-    _ElasticBeanstalkServiceException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** TooManyApplicationVersionsException
-    _TooManyApplicationVersionsException,
-
-    -- ** CodeBuildNotInServiceRegionException
-    _CodeBuildNotInServiceRegionException,
+    -- ** OperationInProgressException
+    _OperationInProgressException,
 
     -- ** PlatformVersionStillReferencedException
     _PlatformVersionStillReferencedException,
 
-    -- ** S3LocationNotInServiceRegionException
-    _S3LocationNotInServiceRegionException,
+    -- ** TooManyApplicationVersionsException
+    _TooManyApplicationVersionsException,
+
+    -- ** TooManyConfigurationTemplatesException
+    _TooManyConfigurationTemplatesException,
+
+    -- ** ResourceTypeNotSupportedException
+    _ResourceTypeNotSupportedException,
+
+    -- ** InsufficientPrivilegesException
+    _InsufficientPrivilegesException,
+
+    -- ** ElasticBeanstalkServiceException
+    _ElasticBeanstalkServiceException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** TooManyApplicationsException
+    _TooManyApplicationsException,
+
+    -- ** TooManyPlatformsException
+    _TooManyPlatformsException,
 
     -- ** ManagedActionInvalidStateException
     _ManagedActionInvalidStateException,
 
+    -- ** SourceBundleDeletionException
+    _SourceBundleDeletionException,
+
+    -- ** S3LocationNotInServiceRegionException
+    _S3LocationNotInServiceRegionException,
+
+    -- ** CodeBuildNotInServiceRegionException
+    _CodeBuildNotInServiceRegionException,
+
+    -- ** TooManyEnvironmentsException
+    _TooManyEnvironmentsException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
     -- * Waiters
     -- $waiters
-
-    -- ** EnvironmentTerminated
-    newEnvironmentTerminated,
-
-    -- ** EnvironmentUpdated
-    newEnvironmentUpdated,
 
     -- ** EnvironmentExists
     newEnvironmentExists,
 
+    -- ** EnvironmentUpdated
+    newEnvironmentUpdated,
+
+    -- ** EnvironmentTerminated
+    newEnvironmentTerminated,
+
     -- * Operations
     -- $operations
-
-    -- ** ListPlatformBranches
-    ListPlatformBranches (ListPlatformBranches'),
-    newListPlatformBranches,
-    ListPlatformBranchesResponse (ListPlatformBranchesResponse'),
-    newListPlatformBranchesResponse,
-
-    -- ** SwapEnvironmentCNAMEs
-    SwapEnvironmentCNAMEs (SwapEnvironmentCNAMEs'),
-    newSwapEnvironmentCNAMEs,
-    SwapEnvironmentCNAMEsResponse (SwapEnvironmentCNAMEsResponse'),
-    newSwapEnvironmentCNAMEsResponse,
-
-    -- ** ListAvailableSolutionStacks
-    ListAvailableSolutionStacks (ListAvailableSolutionStacks'),
-    newListAvailableSolutionStacks,
-    ListAvailableSolutionStacksResponse (ListAvailableSolutionStacksResponse'),
-    newListAvailableSolutionStacksResponse,
-
-    -- ** ListPlatformVersions (Paginated)
-    ListPlatformVersions (ListPlatformVersions'),
-    newListPlatformVersions,
-    ListPlatformVersionsResponse (ListPlatformVersionsResponse'),
-    newListPlatformVersionsResponse,
 
     -- ** DescribeApplications
     DescribeApplications (DescribeApplications'),
@@ -141,23 +117,11 @@ module Network.AWS.ElasticBeanstalk
     DescribeApplicationsResponse (DescribeApplicationsResponse'),
     newDescribeApplicationsResponse,
 
-    -- ** CreateApplicationVersion
-    CreateApplicationVersion (CreateApplicationVersion'),
-    newCreateApplicationVersion,
-    ApplicationVersionDescriptionMessage (ApplicationVersionDescriptionMessage'),
-    newApplicationVersionDescriptionMessage,
-
-    -- ** DescribeEnvironmentHealth
-    DescribeEnvironmentHealth (DescribeEnvironmentHealth'),
-    newDescribeEnvironmentHealth,
-    DescribeEnvironmentHealthResponse (DescribeEnvironmentHealthResponse'),
-    newDescribeEnvironmentHealthResponse,
-
-    -- ** CreateConfigurationTemplate
-    CreateConfigurationTemplate (CreateConfigurationTemplate'),
-    newCreateConfigurationTemplate,
-    ConfigurationSettingsDescription (ConfigurationSettingsDescription'),
-    newConfigurationSettingsDescription,
+    -- ** UpdateEnvironment
+    UpdateEnvironment (UpdateEnvironment'),
+    newUpdateEnvironment,
+    EnvironmentDescription (EnvironmentDescription'),
+    newEnvironmentDescription,
 
     -- ** TerminateEnvironment
     TerminateEnvironment (TerminateEnvironment'),
@@ -165,95 +129,29 @@ module Network.AWS.ElasticBeanstalk
     EnvironmentDescription (EnvironmentDescription'),
     newEnvironmentDescription,
 
-    -- ** CreateEnvironment
-    CreateEnvironment (CreateEnvironment'),
-    newCreateEnvironment,
-    EnvironmentDescription (EnvironmentDescription'),
-    newEnvironmentDescription,
+    -- ** ListPlatformVersions (Paginated)
+    ListPlatformVersions (ListPlatformVersions'),
+    newListPlatformVersions,
+    ListPlatformVersionsResponse (ListPlatformVersionsResponse'),
+    newListPlatformVersionsResponse,
 
-    -- ** CreatePlatformVersion
-    CreatePlatformVersion (CreatePlatformVersion'),
-    newCreatePlatformVersion,
-    CreatePlatformVersionResponse (CreatePlatformVersionResponse'),
-    newCreatePlatformVersionResponse,
+    -- ** DeletePlatformVersion
+    DeletePlatformVersion (DeletePlatformVersion'),
+    newDeletePlatformVersion,
+    DeletePlatformVersionResponse (DeletePlatformVersionResponse'),
+    newDeletePlatformVersionResponse,
 
-    -- ** DescribeEnvironmentResources
-    DescribeEnvironmentResources (DescribeEnvironmentResources'),
-    newDescribeEnvironmentResources,
-    DescribeEnvironmentResourcesResponse (DescribeEnvironmentResourcesResponse'),
-    newDescribeEnvironmentResourcesResponse,
-
-    -- ** UpdateApplicationVersion
-    UpdateApplicationVersion (UpdateApplicationVersion'),
-    newUpdateApplicationVersion,
+    -- ** CreateApplicationVersion
+    CreateApplicationVersion (CreateApplicationVersion'),
+    newCreateApplicationVersion,
     ApplicationVersionDescriptionMessage (ApplicationVersionDescriptionMessage'),
     newApplicationVersionDescriptionMessage,
 
-    -- ** DeleteApplicationVersion
-    DeleteApplicationVersion (DeleteApplicationVersion'),
-    newDeleteApplicationVersion,
-    DeleteApplicationVersionResponse (DeleteApplicationVersionResponse'),
-    newDeleteApplicationVersionResponse,
-
-    -- ** CheckDNSAvailability
-    CheckDNSAvailability (CheckDNSAvailability'),
-    newCheckDNSAvailability,
-    CheckDNSAvailabilityResponse (CheckDNSAvailabilityResponse'),
-    newCheckDNSAvailabilityResponse,
-
-    -- ** ComposeEnvironments
-    ComposeEnvironments (ComposeEnvironments'),
-    newComposeEnvironments,
-    EnvironmentDescriptionsMessage (EnvironmentDescriptionsMessage'),
-    newEnvironmentDescriptionsMessage,
-
-    -- ** CreateApplication
-    CreateApplication (CreateApplication'),
-    newCreateApplication,
-    ApplicationDescriptionMessage (ApplicationDescriptionMessage'),
-    newApplicationDescriptionMessage,
-
-    -- ** DescribeAccountAttributes
-    DescribeAccountAttributes (DescribeAccountAttributes'),
-    newDescribeAccountAttributes,
-    DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
-    newDescribeAccountAttributesResponse,
-
-    -- ** ValidateConfigurationSettings
-    ValidateConfigurationSettings (ValidateConfigurationSettings'),
-    newValidateConfigurationSettings,
-    ValidateConfigurationSettingsResponse (ValidateConfigurationSettingsResponse'),
-    newValidateConfigurationSettingsResponse,
-
-    -- ** DescribeEnvironmentManagedActions
-    DescribeEnvironmentManagedActions (DescribeEnvironmentManagedActions'),
-    newDescribeEnvironmentManagedActions,
-    DescribeEnvironmentManagedActionsResponse (DescribeEnvironmentManagedActionsResponse'),
-    newDescribeEnvironmentManagedActionsResponse,
-
-    -- ** CreateStorageLocation
-    CreateStorageLocation (CreateStorageLocation'),
-    newCreateStorageLocation,
-    CreateStorageLocationResponse (CreateStorageLocationResponse'),
-    newCreateStorageLocationResponse,
-
-    -- ** DescribeConfigurationSettings
-    DescribeConfigurationSettings (DescribeConfigurationSettings'),
-    newDescribeConfigurationSettings,
-    DescribeConfigurationSettingsResponse (DescribeConfigurationSettingsResponse'),
-    newDescribeConfigurationSettingsResponse,
-
-    -- ** RetrieveEnvironmentInfo
-    RetrieveEnvironmentInfo (RetrieveEnvironmentInfo'),
-    newRetrieveEnvironmentInfo,
-    RetrieveEnvironmentInfoResponse (RetrieveEnvironmentInfoResponse'),
-    newRetrieveEnvironmentInfoResponse,
-
-    -- ** DescribeConfigurationOptions
-    DescribeConfigurationOptions (DescribeConfigurationOptions'),
-    newDescribeConfigurationOptions,
-    DescribeConfigurationOptionsResponse (DescribeConfigurationOptionsResponse'),
-    newDescribeConfigurationOptionsResponse,
+    -- ** ListPlatformBranches
+    ListPlatformBranches (ListPlatformBranches'),
+    newListPlatformBranches,
+    ListPlatformBranchesResponse (ListPlatformBranchesResponse'),
+    newListPlatformBranchesResponse,
 
     -- ** DescribeEvents (Paginated)
     DescribeEvents (DescribeEvents'),
@@ -267,17 +165,113 @@ module Network.AWS.ElasticBeanstalk
     RequestEnvironmentInfoResponse (RequestEnvironmentInfoResponse'),
     newRequestEnvironmentInfoResponse,
 
-    -- ** ApplyEnvironmentManagedAction
-    ApplyEnvironmentManagedAction (ApplyEnvironmentManagedAction'),
-    newApplyEnvironmentManagedAction,
-    ApplyEnvironmentManagedActionResponse (ApplyEnvironmentManagedActionResponse'),
-    newApplyEnvironmentManagedActionResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** UpdateApplicationResourceLifecycle
-    UpdateApplicationResourceLifecycle (UpdateApplicationResourceLifecycle'),
-    newUpdateApplicationResourceLifecycle,
-    UpdateApplicationResourceLifecycleResponse (UpdateApplicationResourceLifecycleResponse'),
-    newUpdateApplicationResourceLifecycleResponse,
+    -- ** RetrieveEnvironmentInfo
+    RetrieveEnvironmentInfo (RetrieveEnvironmentInfo'),
+    newRetrieveEnvironmentInfo,
+    RetrieveEnvironmentInfoResponse (RetrieveEnvironmentInfoResponse'),
+    newRetrieveEnvironmentInfoResponse,
+
+    -- ** DescribePlatformVersion
+    DescribePlatformVersion (DescribePlatformVersion'),
+    newDescribePlatformVersion,
+    DescribePlatformVersionResponse (DescribePlatformVersionResponse'),
+    newDescribePlatformVersionResponse,
+
+    -- ** DeleteApplication
+    DeleteApplication (DeleteApplication'),
+    newDeleteApplication,
+    DeleteApplicationResponse (DeleteApplicationResponse'),
+    newDeleteApplicationResponse,
+
+    -- ** UpdateApplication
+    UpdateApplication (UpdateApplication'),
+    newUpdateApplication,
+    ApplicationDescriptionMessage (ApplicationDescriptionMessage'),
+    newApplicationDescriptionMessage,
+
+    -- ** DescribeInstancesHealth
+    DescribeInstancesHealth (DescribeInstancesHealth'),
+    newDescribeInstancesHealth,
+    DescribeInstancesHealthResponse (DescribeInstancesHealthResponse'),
+    newDescribeInstancesHealthResponse,
+
+    -- ** CreateApplication
+    CreateApplication (CreateApplication'),
+    newCreateApplication,
+    ApplicationDescriptionMessage (ApplicationDescriptionMessage'),
+    newApplicationDescriptionMessage,
+
+    -- ** ComposeEnvironments
+    ComposeEnvironments (ComposeEnvironments'),
+    newComposeEnvironments,
+    EnvironmentDescriptionsMessage (EnvironmentDescriptionsMessage'),
+    newEnvironmentDescriptionsMessage,
+
+    -- ** AbortEnvironmentUpdate
+    AbortEnvironmentUpdate (AbortEnvironmentUpdate'),
+    newAbortEnvironmentUpdate,
+    AbortEnvironmentUpdateResponse (AbortEnvironmentUpdateResponse'),
+    newAbortEnvironmentUpdateResponse,
+
+    -- ** DeleteConfigurationTemplate
+    DeleteConfigurationTemplate (DeleteConfigurationTemplate'),
+    newDeleteConfigurationTemplate,
+    DeleteConfigurationTemplateResponse (DeleteConfigurationTemplateResponse'),
+    newDeleteConfigurationTemplateResponse,
+
+    -- ** UpdateConfigurationTemplate
+    UpdateConfigurationTemplate (UpdateConfigurationTemplate'),
+    newUpdateConfigurationTemplate,
+    ConfigurationSettingsDescription (ConfigurationSettingsDescription'),
+    newConfigurationSettingsDescription,
+
+    -- ** UpdateTagsForResource
+    UpdateTagsForResource (UpdateTagsForResource'),
+    newUpdateTagsForResource,
+    UpdateTagsForResourceResponse (UpdateTagsForResourceResponse'),
+    newUpdateTagsForResourceResponse,
+
+    -- ** DescribeEnvironmentResources
+    DescribeEnvironmentResources (DescribeEnvironmentResources'),
+    newDescribeEnvironmentResources,
+    DescribeEnvironmentResourcesResponse (DescribeEnvironmentResourcesResponse'),
+    newDescribeEnvironmentResourcesResponse,
+
+    -- ** DescribeEnvironmentManagedActionHistory (Paginated)
+    DescribeEnvironmentManagedActionHistory (DescribeEnvironmentManagedActionHistory'),
+    newDescribeEnvironmentManagedActionHistory,
+    DescribeEnvironmentManagedActionHistoryResponse (DescribeEnvironmentManagedActionHistoryResponse'),
+    newDescribeEnvironmentManagedActionHistoryResponse,
+
+    -- ** DeleteApplicationVersion
+    DeleteApplicationVersion (DeleteApplicationVersion'),
+    newDeleteApplicationVersion,
+    DeleteApplicationVersionResponse (DeleteApplicationVersionResponse'),
+    newDeleteApplicationVersionResponse,
+
+    -- ** UpdateApplicationVersion
+    UpdateApplicationVersion (UpdateApplicationVersion'),
+    newUpdateApplicationVersion,
+    ApplicationVersionDescriptionMessage (ApplicationVersionDescriptionMessage'),
+    newApplicationVersionDescriptionMessage,
+
+    -- ** CreateConfigurationTemplate
+    CreateConfigurationTemplate (CreateConfigurationTemplate'),
+    newCreateConfigurationTemplate,
+    ConfigurationSettingsDescription (ConfigurationSettingsDescription'),
+    newConfigurationSettingsDescription,
+
+    -- ** DescribeEnvironmentHealth
+    DescribeEnvironmentHealth (DescribeEnvironmentHealth'),
+    newDescribeEnvironmentHealth,
+    DescribeEnvironmentHealthResponse (DescribeEnvironmentHealthResponse'),
+    newDescribeEnvironmentHealthResponse,
 
     -- ** RebuildEnvironment
     RebuildEnvironment (RebuildEnvironment'),
@@ -291,71 +285,77 @@ module Network.AWS.ElasticBeanstalk
     DeleteEnvironmentConfigurationResponse (DeleteEnvironmentConfigurationResponse'),
     newDeleteEnvironmentConfigurationResponse,
 
-    -- ** DeletePlatformVersion
-    DeletePlatformVersion (DeletePlatformVersion'),
-    newDeletePlatformVersion,
-    DeletePlatformVersionResponse (DeletePlatformVersionResponse'),
-    newDeletePlatformVersionResponse,
+    -- ** UpdateApplicationResourceLifecycle
+    UpdateApplicationResourceLifecycle (UpdateApplicationResourceLifecycle'),
+    newUpdateApplicationResourceLifecycle,
+    UpdateApplicationResourceLifecycleResponse (UpdateApplicationResourceLifecycleResponse'),
+    newUpdateApplicationResourceLifecycleResponse,
 
-    -- ** UpdateEnvironment
-    UpdateEnvironment (UpdateEnvironment'),
-    newUpdateEnvironment,
-    EnvironmentDescription (EnvironmentDescription'),
-    newEnvironmentDescription,
+    -- ** SwapEnvironmentCNAMEs
+    SwapEnvironmentCNAMEs (SwapEnvironmentCNAMEs'),
+    newSwapEnvironmentCNAMEs,
+    SwapEnvironmentCNAMEsResponse (SwapEnvironmentCNAMEsResponse'),
+    newSwapEnvironmentCNAMEsResponse,
 
-    -- ** UpdateTagsForResource
-    UpdateTagsForResource (UpdateTagsForResource'),
-    newUpdateTagsForResource,
-    UpdateTagsForResourceResponse (UpdateTagsForResourceResponse'),
-    newUpdateTagsForResourceResponse,
+    -- ** ListAvailableSolutionStacks
+    ListAvailableSolutionStacks (ListAvailableSolutionStacks'),
+    newListAvailableSolutionStacks,
+    ListAvailableSolutionStacksResponse (ListAvailableSolutionStacksResponse'),
+    newListAvailableSolutionStacksResponse,
 
-    -- ** UpdateConfigurationTemplate
-    UpdateConfigurationTemplate (UpdateConfigurationTemplate'),
-    newUpdateConfigurationTemplate,
-    ConfigurationSettingsDescription (ConfigurationSettingsDescription'),
-    newConfigurationSettingsDescription,
+    -- ** ApplyEnvironmentManagedAction
+    ApplyEnvironmentManagedAction (ApplyEnvironmentManagedAction'),
+    newApplyEnvironmentManagedAction,
+    ApplyEnvironmentManagedActionResponse (ApplyEnvironmentManagedActionResponse'),
+    newApplyEnvironmentManagedActionResponse,
 
-    -- ** DescribeEnvironmentManagedActionHistory (Paginated)
-    DescribeEnvironmentManagedActionHistory (DescribeEnvironmentManagedActionHistory'),
-    newDescribeEnvironmentManagedActionHistory,
-    DescribeEnvironmentManagedActionHistoryResponse (DescribeEnvironmentManagedActionHistoryResponse'),
-    newDescribeEnvironmentManagedActionHistoryResponse,
+    -- ** DescribeConfigurationOptions
+    DescribeConfigurationOptions (DescribeConfigurationOptions'),
+    newDescribeConfigurationOptions,
+    DescribeConfigurationOptionsResponse (DescribeConfigurationOptionsResponse'),
+    newDescribeConfigurationOptionsResponse,
 
-    -- ** DeleteConfigurationTemplate
-    DeleteConfigurationTemplate (DeleteConfigurationTemplate'),
-    newDeleteConfigurationTemplate,
-    DeleteConfigurationTemplateResponse (DeleteConfigurationTemplateResponse'),
-    newDeleteConfigurationTemplateResponse,
+    -- ** DisassociateEnvironmentOperationsRole
+    DisassociateEnvironmentOperationsRole (DisassociateEnvironmentOperationsRole'),
+    newDisassociateEnvironmentOperationsRole,
+    DisassociateEnvironmentOperationsRoleResponse (DisassociateEnvironmentOperationsRoleResponse'),
+    newDisassociateEnvironmentOperationsRoleResponse,
 
-    -- ** DescribeApplicationVersions (Paginated)
-    DescribeApplicationVersions (DescribeApplicationVersions'),
-    newDescribeApplicationVersions,
-    DescribeApplicationVersionsResponse (DescribeApplicationVersionsResponse'),
-    newDescribeApplicationVersionsResponse,
+    -- ** CreateStorageLocation
+    CreateStorageLocation (CreateStorageLocation'),
+    newCreateStorageLocation,
+    CreateStorageLocationResponse (CreateStorageLocationResponse'),
+    newCreateStorageLocationResponse,
 
-    -- ** AbortEnvironmentUpdate
-    AbortEnvironmentUpdate (AbortEnvironmentUpdate'),
-    newAbortEnvironmentUpdate,
-    AbortEnvironmentUpdateResponse (AbortEnvironmentUpdateResponse'),
-    newAbortEnvironmentUpdateResponse,
+    -- ** DescribeEnvironmentManagedActions
+    DescribeEnvironmentManagedActions (DescribeEnvironmentManagedActions'),
+    newDescribeEnvironmentManagedActions,
+    DescribeEnvironmentManagedActionsResponse (DescribeEnvironmentManagedActionsResponse'),
+    newDescribeEnvironmentManagedActionsResponse,
 
-    -- ** DeleteApplication
-    DeleteApplication (DeleteApplication'),
-    newDeleteApplication,
-    DeleteApplicationResponse (DeleteApplicationResponse'),
-    newDeleteApplicationResponse,
+    -- ** DescribeConfigurationSettings
+    DescribeConfigurationSettings (DescribeConfigurationSettings'),
+    newDescribeConfigurationSettings,
+    DescribeConfigurationSettingsResponse (DescribeConfigurationSettingsResponse'),
+    newDescribeConfigurationSettingsResponse,
 
-    -- ** DescribeInstancesHealth
-    DescribeInstancesHealth (DescribeInstancesHealth'),
-    newDescribeInstancesHealth,
-    DescribeInstancesHealthResponse (DescribeInstancesHealthResponse'),
-    newDescribeInstancesHealthResponse,
+    -- ** ValidateConfigurationSettings
+    ValidateConfigurationSettings (ValidateConfigurationSettings'),
+    newValidateConfigurationSettings,
+    ValidateConfigurationSettingsResponse (ValidateConfigurationSettingsResponse'),
+    newValidateConfigurationSettingsResponse,
 
-    -- ** UpdateApplication
-    UpdateApplication (UpdateApplication'),
-    newUpdateApplication,
-    ApplicationDescriptionMessage (ApplicationDescriptionMessage'),
-    newApplicationDescriptionMessage,
+    -- ** DescribeAccountAttributes
+    DescribeAccountAttributes (DescribeAccountAttributes'),
+    newDescribeAccountAttributes,
+    DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
+    newDescribeAccountAttributesResponse,
+
+    -- ** AssociateEnvironmentOperationsRole
+    AssociateEnvironmentOperationsRole (AssociateEnvironmentOperationsRole'),
+    newAssociateEnvironmentOperationsRole,
+    AssociateEnvironmentOperationsRoleResponse (AssociateEnvironmentOperationsRoleResponse'),
+    newAssociateEnvironmentOperationsRoleResponse,
 
     -- ** RestartAppServer
     RestartAppServer (RestartAppServer'),
@@ -369,29 +369,29 @@ module Network.AWS.ElasticBeanstalk
     EnvironmentDescriptionsMessage (EnvironmentDescriptionsMessage'),
     newEnvironmentDescriptionsMessage,
 
-    -- ** AssociateEnvironmentOperationsRole
-    AssociateEnvironmentOperationsRole (AssociateEnvironmentOperationsRole'),
-    newAssociateEnvironmentOperationsRole,
-    AssociateEnvironmentOperationsRoleResponse (AssociateEnvironmentOperationsRoleResponse'),
-    newAssociateEnvironmentOperationsRoleResponse,
+    -- ** CheckDNSAvailability
+    CheckDNSAvailability (CheckDNSAvailability'),
+    newCheckDNSAvailability,
+    CheckDNSAvailabilityResponse (CheckDNSAvailabilityResponse'),
+    newCheckDNSAvailabilityResponse,
 
-    -- ** DescribePlatformVersion
-    DescribePlatformVersion (DescribePlatformVersion'),
-    newDescribePlatformVersion,
-    DescribePlatformVersionResponse (DescribePlatformVersionResponse'),
-    newDescribePlatformVersionResponse,
+    -- ** DescribeApplicationVersions (Paginated)
+    DescribeApplicationVersions (DescribeApplicationVersions'),
+    newDescribeApplicationVersions,
+    DescribeApplicationVersionsResponse (DescribeApplicationVersionsResponse'),
+    newDescribeApplicationVersionsResponse,
 
-    -- ** DisassociateEnvironmentOperationsRole
-    DisassociateEnvironmentOperationsRole (DisassociateEnvironmentOperationsRole'),
-    newDisassociateEnvironmentOperationsRole,
-    DisassociateEnvironmentOperationsRoleResponse (DisassociateEnvironmentOperationsRoleResponse'),
-    newDisassociateEnvironmentOperationsRoleResponse,
+    -- ** CreateEnvironment
+    CreateEnvironment (CreateEnvironment'),
+    newCreateEnvironment,
+    EnvironmentDescription (EnvironmentDescription'),
+    newEnvironmentDescription,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** CreatePlatformVersion
+    CreatePlatformVersion (CreatePlatformVersion'),
+    newCreatePlatformVersion,
+    CreatePlatformVersionResponse (CreatePlatformVersionResponse'),
+    newCreatePlatformVersionResponse,
 
     -- * Types
 

@@ -134,14 +134,14 @@ haskell_library(
         "gen/Network/AWS/ElasticBeanstalk/Waiters.hs",
     ],
     compiler_flags = [
-        "-DVERSION_amazonka_elasticbeanstalk=\"1.6.1\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
+        "-DVERSION_amazonka_elasticbeanstalk=\"2.0\"",
     ],
     hidden_modules = [],
-    version = "1.6.1",
+    version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
         "//lib/amazonka",
@@ -159,11 +159,11 @@ haskell_test(
         "test/Test/AWS/Gen/ElasticBeanstalk.hs",
     ],
     compiler_flags = [
-        "-DVERSION_amazonka_elasticbeanstalk=\"1.6.1\"",
         "-Wall",
         "-threaded",
+        "-DVERSION_amazonka_elasticbeanstalk=\"2.0\"",
     ],
-    version = "1.6.1",
+    version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
         ":amazonka-elasticbeanstalk",

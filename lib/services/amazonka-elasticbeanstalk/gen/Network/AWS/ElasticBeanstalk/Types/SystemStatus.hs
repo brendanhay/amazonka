@@ -66,7 +66,7 @@ systemStatus_cPUUtilization = Lens.lens (\SystemStatus' {cPUUtilization} -> cPUU
 -- more information, see
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics>.
 systemStatus_loadAverage :: Lens.Lens' SystemStatus (Prelude.Maybe [Prelude.Double])
-systemStatus_loadAverage = Lens.lens (\SystemStatus' {loadAverage} -> loadAverage) (\s@SystemStatus' {} a -> s {loadAverage = a} :: SystemStatus) Prelude.. Lens.mapping Lens._Coerce
+systemStatus_loadAverage = Lens.lens (\SystemStatus' {loadAverage} -> loadAverage) (\s@SystemStatus' {} a -> s {loadAverage = a} :: SystemStatus) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML SystemStatus where
   parseXML x =

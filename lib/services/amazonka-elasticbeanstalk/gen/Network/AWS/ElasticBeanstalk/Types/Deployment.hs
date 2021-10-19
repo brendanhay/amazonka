@@ -27,7 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeployment' smart constructor.
 data Deployment = Deployment'
-  { -- | The status of the deployment:
+  { -- | The ID of the deployment. This number increases by one each time that
+    -- you deploy source code or change instance configuration settings.
+    deploymentId :: Prelude.Maybe Prelude.Integer,
+    -- | The status of the deployment:
     --
     -- -   @In Progress@ : The deployment is in progress.
     --
@@ -35,15 +38,12 @@ data Deployment = Deployment'
     --
     -- -   @Failed@ : The deployment failed.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the deployment. This number increases by one each time that
-    -- you deploy source code or change instance configuration settings.
-    deploymentId :: Prelude.Maybe Prelude.Integer,
-    -- | The version label of the application version in the deployment.
-    versionLabel :: Prelude.Maybe Prelude.Text,
     -- | For in-progress deployments, the time that the deployment started.
     --
     -- For completed deployments, the time that the deployment ended.
-    deploymentTime :: Prelude.Maybe Core.ISO8601
+    deploymentTime :: Prelude.Maybe Core.ISO8601,
+    -- | The version label of the application version in the deployment.
+    versionLabel :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,6 +55,9 @@ data Deployment = Deployment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deploymentId', 'deployment_deploymentId' - The ID of the deployment. This number increases by one each time that
+-- you deploy source code or change instance configuration settings.
+--
 -- 'status', 'deployment_status' - The status of the deployment:
 --
 -- -   @In Progress@ : The deployment is in progress.
@@ -63,23 +66,25 @@ data Deployment = Deployment'
 --
 -- -   @Failed@ : The deployment failed.
 --
--- 'deploymentId', 'deployment_deploymentId' - The ID of the deployment. This number increases by one each time that
--- you deploy source code or change instance configuration settings.
---
--- 'versionLabel', 'deployment_versionLabel' - The version label of the application version in the deployment.
---
 -- 'deploymentTime', 'deployment_deploymentTime' - For in-progress deployments, the time that the deployment started.
 --
 -- For completed deployments, the time that the deployment ended.
+--
+-- 'versionLabel', 'deployment_versionLabel' - The version label of the application version in the deployment.
 newDeployment ::
   Deployment
 newDeployment =
   Deployment'
-    { status = Prelude.Nothing,
-      deploymentId = Prelude.Nothing,
-      versionLabel = Prelude.Nothing,
-      deploymentTime = Prelude.Nothing
+    { deploymentId = Prelude.Nothing,
+      status = Prelude.Nothing,
+      deploymentTime = Prelude.Nothing,
+      versionLabel = Prelude.Nothing
     }
+
+-- | The ID of the deployment. This number increases by one each time that
+-- you deploy source code or change instance configuration settings.
+deployment_deploymentId :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Integer)
+deployment_deploymentId = Lens.lens (\Deployment' {deploymentId} -> deploymentId) (\s@Deployment' {} a -> s {deploymentId = a} :: Deployment)
 
 -- | The status of the deployment:
 --
@@ -91,28 +96,23 @@ newDeployment =
 deployment_status :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_status = Lens.lens (\Deployment' {status} -> status) (\s@Deployment' {} a -> s {status = a} :: Deployment)
 
--- | The ID of the deployment. This number increases by one each time that
--- you deploy source code or change instance configuration settings.
-deployment_deploymentId :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Integer)
-deployment_deploymentId = Lens.lens (\Deployment' {deploymentId} -> deploymentId) (\s@Deployment' {} a -> s {deploymentId = a} :: Deployment)
-
--- | The version label of the application version in the deployment.
-deployment_versionLabel :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
-deployment_versionLabel = Lens.lens (\Deployment' {versionLabel} -> versionLabel) (\s@Deployment' {} a -> s {versionLabel = a} :: Deployment)
-
 -- | For in-progress deployments, the time that the deployment started.
 --
 -- For completed deployments, the time that the deployment ended.
 deployment_deploymentTime :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
 deployment_deploymentTime = Lens.lens (\Deployment' {deploymentTime} -> deploymentTime) (\s@Deployment' {} a -> s {deploymentTime = a} :: Deployment) Prelude.. Lens.mapping Core._Time
 
+-- | The version label of the application version in the deployment.
+deployment_versionLabel :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
+deployment_versionLabel = Lens.lens (\Deployment' {versionLabel} -> versionLabel) (\s@Deployment' {} a -> s {versionLabel = a} :: Deployment)
+
 instance Core.FromXML Deployment where
   parseXML x =
     Deployment'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "DeploymentId")
-      Prelude.<*> (x Core..@? "VersionLabel")
+      Prelude.<$> (x Core..@? "DeploymentId")
+      Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "DeploymentTime")
+      Prelude.<*> (x Core..@? "VersionLabel")
 
 instance Prelude.Hashable Deployment
 

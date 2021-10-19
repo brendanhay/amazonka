@@ -64,7 +64,7 @@ environmentDescriptionsMessage_nextToken = Lens.lens (\EnvironmentDescriptionsMe
 
 -- | Returns an EnvironmentDescription list.
 environmentDescriptionsMessage_environments :: Lens.Lens' EnvironmentDescriptionsMessage (Prelude.Maybe [EnvironmentDescription])
-environmentDescriptionsMessage_environments = Lens.lens (\EnvironmentDescriptionsMessage' {environments} -> environments) (\s@EnvironmentDescriptionsMessage' {} a -> s {environments = a} :: EnvironmentDescriptionsMessage) Prelude.. Lens.mapping Lens._Coerce
+environmentDescriptionsMessage_environments = Lens.lens (\EnvironmentDescriptionsMessage' {environments} -> environments) (\s@EnvironmentDescriptionsMessage' {} a -> s {environments = a} :: EnvironmentDescriptionsMessage) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML EnvironmentDescriptionsMessage where
   parseXML x =

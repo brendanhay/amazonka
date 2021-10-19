@@ -90,7 +90,7 @@ newPutCorsPolicy ::
 newPutCorsPolicy pContainerName_ pCorsPolicy_ =
   PutCorsPolicy'
     { containerName = pContainerName_,
-      corsPolicy = Lens._Coerce Lens.# pCorsPolicy_
+      corsPolicy = Lens.coerced Lens.# pCorsPolicy_
     }
 
 -- | The name of the container that you want to assign the CORS policy to.
@@ -99,7 +99,7 @@ putCorsPolicy_containerName = Lens.lens (\PutCorsPolicy' {containerName} -> cont
 
 -- | The CORS policy to apply to the container.
 putCorsPolicy_corsPolicy :: Lens.Lens' PutCorsPolicy (Prelude.NonEmpty CorsRule)
-putCorsPolicy_corsPolicy = Lens.lens (\PutCorsPolicy' {corsPolicy} -> corsPolicy) (\s@PutCorsPolicy' {} a -> s {corsPolicy = a} :: PutCorsPolicy) Prelude.. Lens._Coerce
+putCorsPolicy_corsPolicy = Lens.lens (\PutCorsPolicy' {corsPolicy} -> corsPolicy) (\s@PutCorsPolicy' {} a -> s {corsPolicy = a} :: PutCorsPolicy) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutCorsPolicy where
   type

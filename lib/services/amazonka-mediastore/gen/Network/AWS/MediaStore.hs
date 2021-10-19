@@ -21,23 +21,23 @@ module Network.AWS.MediaStore
     -- * Errors
     -- $errors
 
-    -- ** ContainerInUseException
-    _ContainerInUseException,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
     -- ** PolicyNotFoundException
     _PolicyNotFoundException,
 
     -- ** CorsPolicyNotFoundException
     _CorsPolicyNotFoundException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** ContainerInUseException
+    _ContainerInUseException,
+
+    -- ** InternalServerError
+    _InternalServerError,
 
     -- ** ContainerNotFoundException
     _ContainerNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -45,17 +45,41 @@ module Network.AWS.MediaStore
     -- * Operations
     -- $operations
 
+    -- ** StopAccessLogging
+    StopAccessLogging (StopAccessLogging'),
+    newStopAccessLogging,
+    StopAccessLoggingResponse (StopAccessLoggingResponse'),
+    newStopAccessLoggingResponse,
+
     -- ** PutLifecyclePolicy
     PutLifecyclePolicy (PutLifecyclePolicy'),
     newPutLifecyclePolicy,
     PutLifecyclePolicyResponse (PutLifecyclePolicyResponse'),
     newPutLifecyclePolicyResponse,
 
-    -- ** PutCorsPolicy
-    PutCorsPolicy (PutCorsPolicy'),
-    newPutCorsPolicy,
-    PutCorsPolicyResponse (PutCorsPolicyResponse'),
-    newPutCorsPolicyResponse,
+    -- ** DeleteLifecyclePolicy
+    DeleteLifecyclePolicy (DeleteLifecyclePolicy'),
+    newDeleteLifecyclePolicy,
+    DeleteLifecyclePolicyResponse (DeleteLifecyclePolicyResponse'),
+    newDeleteLifecyclePolicyResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** CreateContainer
+    CreateContainer (CreateContainer'),
+    newCreateContainer,
+    CreateContainerResponse (CreateContainerResponse'),
+    newCreateContainerResponse,
+
+    -- ** ListContainers (Paginated)
+    ListContainers (ListContainers'),
+    newListContainers,
+    ListContainersResponse (ListContainersResponse'),
+    newListContainersResponse,
 
     -- ** DeleteContainer
     DeleteContainer (DeleteContainer'),
@@ -63,35 +87,23 @@ module Network.AWS.MediaStore
     DeleteContainerResponse (DeleteContainerResponse'),
     newDeleteContainerResponse,
 
-    -- ** PutContainerPolicy
-    PutContainerPolicy (PutContainerPolicy'),
-    newPutContainerPolicy,
-    PutContainerPolicyResponse (PutContainerPolicyResponse'),
-    newPutContainerPolicyResponse,
+    -- ** PutCorsPolicy
+    PutCorsPolicy (PutCorsPolicy'),
+    newPutCorsPolicy,
+    PutCorsPolicyResponse (PutCorsPolicyResponse'),
+    newPutCorsPolicyResponse,
 
-    -- ** GetCorsPolicy
-    GetCorsPolicy (GetCorsPolicy'),
-    newGetCorsPolicy,
-    GetCorsPolicyResponse (GetCorsPolicyResponse'),
-    newGetCorsPolicyResponse,
+    -- ** DeleteCorsPolicy
+    DeleteCorsPolicy (DeleteCorsPolicy'),
+    newDeleteCorsPolicy,
+    DeleteCorsPolicyResponse (DeleteCorsPolicyResponse'),
+    newDeleteCorsPolicyResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DeleteMetricPolicy
-    DeleteMetricPolicy (DeleteMetricPolicy'),
-    newDeleteMetricPolicy,
-    DeleteMetricPolicyResponse (DeleteMetricPolicyResponse'),
-    newDeleteMetricPolicyResponse,
+    -- ** StartAccessLogging
+    StartAccessLogging (StartAccessLogging'),
+    newStartAccessLogging,
+    StartAccessLoggingResponse (StartAccessLoggingResponse'),
+    newStartAccessLoggingResponse,
 
     -- ** DescribeContainer
     DescribeContainer (DescribeContainer'),
@@ -105,59 +117,11 @@ module Network.AWS.MediaStore
     GetMetricPolicyResponse (GetMetricPolicyResponse'),
     newGetMetricPolicyResponse,
 
-    -- ** StopAccessLogging
-    StopAccessLogging (StopAccessLogging'),
-    newStopAccessLogging,
-    StopAccessLoggingResponse (StopAccessLoggingResponse'),
-    newStopAccessLoggingResponse,
-
-    -- ** StartAccessLogging
-    StartAccessLogging (StartAccessLogging'),
-    newStartAccessLogging,
-    StartAccessLoggingResponse (StartAccessLoggingResponse'),
-    newStartAccessLoggingResponse,
-
-    -- ** DeleteLifecyclePolicy
-    DeleteLifecyclePolicy (DeleteLifecyclePolicy'),
-    newDeleteLifecyclePolicy,
-    DeleteLifecyclePolicyResponse (DeleteLifecyclePolicyResponse'),
-    newDeleteLifecyclePolicyResponse,
-
-    -- ** DeleteCorsPolicy
-    DeleteCorsPolicy (DeleteCorsPolicy'),
-    newDeleteCorsPolicy,
-    DeleteCorsPolicyResponse (DeleteCorsPolicyResponse'),
-    newDeleteCorsPolicyResponse,
-
-    -- ** GetContainerPolicy
-    GetContainerPolicy (GetContainerPolicy'),
-    newGetContainerPolicy,
-    GetContainerPolicyResponse (GetContainerPolicyResponse'),
-    newGetContainerPolicyResponse,
-
-    -- ** DeleteContainerPolicy
-    DeleteContainerPolicy (DeleteContainerPolicy'),
-    newDeleteContainerPolicy,
-    DeleteContainerPolicyResponse (DeleteContainerPolicyResponse'),
-    newDeleteContainerPolicyResponse,
-
-    -- ** ListContainers (Paginated)
-    ListContainers (ListContainers'),
-    newListContainers,
-    ListContainersResponse (ListContainersResponse'),
-    newListContainersResponse,
-
-    -- ** CreateContainer
-    CreateContainer (CreateContainer'),
-    newCreateContainer,
-    CreateContainerResponse (CreateContainerResponse'),
-    newCreateContainerResponse,
-
-    -- ** GetLifecyclePolicy
-    GetLifecyclePolicy (GetLifecyclePolicy'),
-    newGetLifecyclePolicy,
-    GetLifecyclePolicyResponse (GetLifecyclePolicyResponse'),
-    newGetLifecyclePolicyResponse,
+    -- ** DeleteMetricPolicy
+    DeleteMetricPolicy (DeleteMetricPolicy'),
+    newDeleteMetricPolicy,
+    DeleteMetricPolicyResponse (DeleteMetricPolicyResponse'),
+    newDeleteMetricPolicyResponse,
 
     -- ** PutMetricPolicy
     PutMetricPolicy (PutMetricPolicy'),
@@ -165,11 +129,47 @@ module Network.AWS.MediaStore
     PutMetricPolicyResponse (PutMetricPolicyResponse'),
     newPutMetricPolicyResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** GetLifecyclePolicy
+    GetLifecyclePolicy (GetLifecyclePolicy'),
+    newGetLifecyclePolicy,
+    GetLifecyclePolicyResponse (GetLifecyclePolicyResponse'),
+    newGetLifecyclePolicyResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** GetCorsPolicy
+    GetCorsPolicy (GetCorsPolicy'),
+    newGetCorsPolicy,
+    GetCorsPolicyResponse (GetCorsPolicyResponse'),
+    newGetCorsPolicyResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** DeleteContainerPolicy
+    DeleteContainerPolicy (DeleteContainerPolicy'),
+    newDeleteContainerPolicy,
+    DeleteContainerPolicyResponse (DeleteContainerPolicyResponse'),
+    newDeleteContainerPolicyResponse,
+
+    -- ** PutContainerPolicy
+    PutContainerPolicy (PutContainerPolicy'),
+    newPutContainerPolicy,
+    PutContainerPolicyResponse (PutContainerPolicyResponse'),
+    newPutContainerPolicyResponse,
+
+    -- ** GetContainerPolicy
+    GetContainerPolicy (GetContainerPolicy'),
+    newGetContainerPolicy,
+    GetContainerPolicyResponse (GetContainerPolicyResponse'),
+    newGetContainerPolicyResponse,
 
     -- * Types
 

@@ -93,7 +93,7 @@ newTagResource ::
 newTagResource pResource_ pTags_ =
   TagResource'
     { resource = pResource_,
-      tags = Lens._Coerce Lens.# pTags_
+      tags = Lens.coerced Lens.# pTags_
     }
 
 -- | The Amazon Resource Name (ARN) for the container.
@@ -108,7 +108,7 @@ tagResource_resource = Lens.lens (\TagResource' {resource} -> resource) (\s@TagR
 -- priority:Medium, type:Contract. The result is that your container has
 -- three tags: customer:CompanyA, priority:Medium, and type:Contract.
 tagResource_tags :: Lens.Lens' TagResource (Prelude.NonEmpty Tag)
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse

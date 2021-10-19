@@ -226,6 +226,6 @@ listContainersResponse_httpStatus = Lens.lens (\ListContainersResponse' {httpSta
 
 -- | The names of the containers.
 listContainersResponse_containers :: Lens.Lens' ListContainersResponse [Container]
-listContainersResponse_containers = Lens.lens (\ListContainersResponse' {containers} -> containers) (\s@ListContainersResponse' {} a -> s {containers = a} :: ListContainersResponse) Prelude.. Lens._Coerce
+listContainersResponse_containers = Lens.lens (\ListContainersResponse' {containers} -> containers) (\s@ListContainersResponse' {} a -> s {containers = a} :: ListContainersResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListContainersResponse

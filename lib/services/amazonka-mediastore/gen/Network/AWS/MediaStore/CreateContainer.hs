@@ -106,7 +106,7 @@ newCreateContainer pContainerName_ =
 -- information about tagging, including naming and usage conventions, see
 -- <https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html Tagging Resources in MediaStore>.
 createContainer_tags :: Lens.Lens' CreateContainer (Prelude.Maybe (Prelude.NonEmpty Tag))
-createContainer_tags = Lens.lens (\CreateContainer' {tags} -> tags) (\s@CreateContainer' {} a -> s {tags = a} :: CreateContainer) Prelude.. Lens.mapping Lens._Coerce
+createContainer_tags = Lens.lens (\CreateContainer' {tags} -> tags) (\s@CreateContainer' {} a -> s {tags = a} :: CreateContainer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the container. The name must be from 1 to 255 characters.
 -- Container names must be unique to your AWS account within a specific

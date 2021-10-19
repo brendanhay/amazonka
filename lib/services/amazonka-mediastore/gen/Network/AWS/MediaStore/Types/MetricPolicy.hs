@@ -82,7 +82,7 @@ newMetricPolicy pContainerLevelMetrics_ =
 -- <https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas request a quota increase>
 -- to allow up to 300 rules per policy.
 metricPolicy_metricPolicyRules :: Lens.Lens' MetricPolicy (Prelude.Maybe (Prelude.NonEmpty MetricPolicyRule))
-metricPolicy_metricPolicyRules = Lens.lens (\MetricPolicy' {metricPolicyRules} -> metricPolicyRules) (\s@MetricPolicy' {} a -> s {metricPolicyRules = a} :: MetricPolicy) Prelude.. Lens.mapping Lens._Coerce
+metricPolicy_metricPolicyRules = Lens.lens (\MetricPolicy' {metricPolicyRules} -> metricPolicyRules) (\s@MetricPolicy' {} a -> s {metricPolicyRules = a} :: MetricPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | A setting to enable or disable metrics at the container level.
 metricPolicy_containerLevelMetrics :: Lens.Lens' MetricPolicy ContainerLevelMetrics

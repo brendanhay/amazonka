@@ -154,7 +154,7 @@ newGetCorsPolicyResponse ::
 newGetCorsPolicyResponse pHttpStatus_ pCorsPolicy_ =
   GetCorsPolicyResponse'
     { httpStatus = pHttpStatus_,
-      corsPolicy = Lens._Coerce Lens.# pCorsPolicy_
+      corsPolicy = Lens.coerced Lens.# pCorsPolicy_
     }
 
 -- | The response's http status code.
@@ -163,6 +163,6 @@ getCorsPolicyResponse_httpStatus = Lens.lens (\GetCorsPolicyResponse' {httpStatu
 
 -- | The CORS policy assigned to the container.
 getCorsPolicyResponse_corsPolicy :: Lens.Lens' GetCorsPolicyResponse (Prelude.NonEmpty CorsRule)
-getCorsPolicyResponse_corsPolicy = Lens.lens (\GetCorsPolicyResponse' {corsPolicy} -> corsPolicy) (\s@GetCorsPolicyResponse' {} a -> s {corsPolicy = a} :: GetCorsPolicyResponse) Prelude.. Lens._Coerce
+getCorsPolicyResponse_corsPolicy = Lens.lens (\GetCorsPolicyResponse' {corsPolicy} -> corsPolicy) (\s@GetCorsPolicyResponse' {} a -> s {corsPolicy = a} :: GetCorsPolicyResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetCorsPolicyResponse

@@ -88,7 +88,7 @@ newGetAuthorizationToken =
 -- registries for which to get AuthorizationData objects. If you do not
 -- specify a registry, the default registry is assumed.
 getAuthorizationToken_registryIds :: Lens.Lens' GetAuthorizationToken (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-getAuthorizationToken_registryIds = Lens.lens (\GetAuthorizationToken' {registryIds} -> registryIds) (\s@GetAuthorizationToken' {} a -> s {registryIds = a} :: GetAuthorizationToken) Prelude.. Lens.mapping Lens._Coerce
+getAuthorizationToken_registryIds = Lens.lens (\GetAuthorizationToken' {registryIds} -> registryIds) (\s@GetAuthorizationToken' {} a -> s {registryIds = a} :: GetAuthorizationToken) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest GetAuthorizationToken where
   type
@@ -173,7 +173,7 @@ newGetAuthorizationTokenResponse pHttpStatus_ =
 -- | A list of authorization token data objects that correspond to the
 -- @registryIds@ values in the request.
 getAuthorizationTokenResponse_authorizationData :: Lens.Lens' GetAuthorizationTokenResponse (Prelude.Maybe [AuthorizationData])
-getAuthorizationTokenResponse_authorizationData = Lens.lens (\GetAuthorizationTokenResponse' {authorizationData} -> authorizationData) (\s@GetAuthorizationTokenResponse' {} a -> s {authorizationData = a} :: GetAuthorizationTokenResponse) Prelude.. Lens.mapping Lens._Coerce
+getAuthorizationTokenResponse_authorizationData = Lens.lens (\GetAuthorizationTokenResponse' {authorizationData} -> authorizationData) (\s@GetAuthorizationTokenResponse' {} a -> s {authorizationData = a} :: GetAuthorizationTokenResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getAuthorizationTokenResponse_httpStatus :: Lens.Lens' GetAuthorizationTokenResponse Prelude.Int

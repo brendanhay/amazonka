@@ -52,7 +52,7 @@ newReplicationConfiguration =
 -- | An array of objects representing the replication destinations and
 -- repository filters for a replication configuration.
 replicationConfiguration_rules :: Lens.Lens' ReplicationConfiguration [ReplicationRule]
-replicationConfiguration_rules = Lens.lens (\ReplicationConfiguration' {rules} -> rules) (\s@ReplicationConfiguration' {} a -> s {rules = a} :: ReplicationConfiguration) Prelude.. Lens._Coerce
+replicationConfiguration_rules = Lens.lens (\ReplicationConfiguration' {rules} -> rules) (\s@ReplicationConfiguration' {} a -> s {rules = a} :: ReplicationConfiguration) Prelude.. Lens.coerced
 
 instance Core.FromJSON ReplicationConfiguration where
   parseJSON =

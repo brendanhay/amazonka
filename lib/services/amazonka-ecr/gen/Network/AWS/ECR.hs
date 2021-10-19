@@ -32,41 +32,14 @@ module Network.AWS.ECR
     -- * Errors
     -- $errors
 
-    -- ** UploadNotFoundException
-    _UploadNotFoundException,
-
     -- ** ImageTagAlreadyExistsException
     _ImageTagAlreadyExistsException,
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
+    -- ** ValidationException
+    _ValidationException,
 
-    -- ** RepositoryNotFoundException
-    _RepositoryNotFoundException,
-
-    -- ** ImageAlreadyExistsException
-    _ImageAlreadyExistsException,
-
-    -- ** ScanNotFoundException
-    _ScanNotFoundException,
-
-    -- ** ImageDigestDoesNotMatchException
-    _ImageDigestDoesNotMatchException,
-
-    -- ** ImageNotFoundException
-    _ImageNotFoundException,
-
-    -- ** LayerPartTooSmallException
-    _LayerPartTooSmallException,
-
-    -- ** InvalidTagParameterException
-    _InvalidTagParameterException,
-
-    -- ** InvalidLayerException
-    _InvalidLayerException,
-
-    -- ** InvalidLayerPartException
-    _InvalidLayerPartException,
+    -- ** LayersNotFoundException
+    _LayersNotFoundException,
 
     -- ** ReferencedImagesNotFoundException
     _ReferencedImagesNotFoundException,
@@ -74,35 +47,59 @@ module Network.AWS.ECR
     -- ** InvalidParameterException
     _InvalidParameterException,
 
-    -- ** LayersNotFoundException
-    _LayersNotFoundException,
+    -- ** LayerAlreadyExistsException
+    _LayerAlreadyExistsException,
 
-    -- ** ValidationException
-    _ValidationException,
+    -- ** ServerException
+    _ServerException,
 
-    -- ** EmptyUploadException
-    _EmptyUploadException,
+    -- ** LayerInaccessibleException
+    _LayerInaccessibleException,
 
-    -- ** RegistryPolicyNotFoundException
-    _RegistryPolicyNotFoundException,
+    -- ** InvalidLayerException
+    _InvalidLayerException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** LifecyclePolicyPreviewInProgressException
-    _LifecyclePolicyPreviewInProgressException,
-
-    -- ** RepositoryPolicyNotFoundException
-    _RepositoryPolicyNotFoundException,
-
-    -- ** RepositoryAlreadyExistsException
-    _RepositoryAlreadyExistsException,
+    -- ** LayerPartTooSmallException
+    _LayerPartTooSmallException,
 
     -- ** LifecyclePolicyPreviewNotFoundException
     _LifecyclePolicyPreviewNotFoundException,
 
-    -- ** LayerInaccessibleException
-    _LayerInaccessibleException,
+    -- ** ImageDigestDoesNotMatchException
+    _ImageDigestDoesNotMatchException,
+
+    -- ** ImageNotFoundException
+    _ImageNotFoundException,
+
+    -- ** ImageAlreadyExistsException
+    _ImageAlreadyExistsException,
+
+    -- ** RepositoryNotFoundException
+    _RepositoryNotFoundException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** RegistryPolicyNotFoundException
+    _RegistryPolicyNotFoundException,
+
+    -- ** LifecyclePolicyPreviewInProgressException
+    _LifecyclePolicyPreviewInProgressException,
+
+    -- ** UploadNotFoundException
+    _UploadNotFoundException,
+
+    -- ** LifecyclePolicyNotFoundException
+    _LifecyclePolicyNotFoundException,
+
+    -- ** KmsException
+    _KmsException,
+
+    -- ** InvalidLayerPartException
+    _InvalidLayerPartException,
+
+    -- ** InvalidTagParameterException
+    _InvalidTagParameterException,
 
     -- ** RepositoryNotEmptyException
     _RepositoryNotEmptyException,
@@ -110,143 +107,32 @@ module Network.AWS.ECR
     -- ** UnsupportedImageTypeException
     _UnsupportedImageTypeException,
 
-    -- ** LifecyclePolicyNotFoundException
-    _LifecyclePolicyNotFoundException,
+    -- ** RepositoryAlreadyExistsException
+    _RepositoryAlreadyExistsException,
 
-    -- ** LayerAlreadyExistsException
-    _LayerAlreadyExistsException,
+    -- ** ScanNotFoundException
+    _ScanNotFoundException,
 
-    -- ** ServerException
-    _ServerException,
+    -- ** RepositoryPolicyNotFoundException
+    _RepositoryPolicyNotFoundException,
 
-    -- ** KmsException
-    _KmsException,
+    -- ** EmptyUploadException
+    _EmptyUploadException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
 
-    -- ** ImageScanComplete
-    newImageScanComplete,
-
     -- ** LifecyclePolicyPreviewComplete
     newLifecyclePolicyPreviewComplete,
 
+    -- ** ImageScanComplete
+    newImageScanComplete,
+
     -- * Operations
     -- $operations
-
-    -- ** UploadLayerPart
-    UploadLayerPart (UploadLayerPart'),
-    newUploadLayerPart,
-    UploadLayerPartResponse (UploadLayerPartResponse'),
-    newUploadLayerPartResponse,
-
-    -- ** PutLifecyclePolicy
-    PutLifecyclePolicy (PutLifecyclePolicy'),
-    newPutLifecyclePolicy,
-    PutLifecyclePolicyResponse (PutLifecyclePolicyResponse'),
-    newPutLifecyclePolicyResponse,
-
-    -- ** PutRegistryPolicy
-    PutRegistryPolicy (PutRegistryPolicy'),
-    newPutRegistryPolicy,
-    PutRegistryPolicyResponse (PutRegistryPolicyResponse'),
-    newPutRegistryPolicyResponse,
-
-    -- ** StartLifecyclePolicyPreview
-    StartLifecyclePolicyPreview (StartLifecyclePolicyPreview'),
-    newStartLifecyclePolicyPreview,
-    StartLifecyclePolicyPreviewResponse (StartLifecyclePolicyPreviewResponse'),
-    newStartLifecyclePolicyPreviewResponse,
-
-    -- ** DescribeRepositories (Paginated)
-    DescribeRepositories (DescribeRepositories'),
-    newDescribeRepositories,
-    DescribeRepositoriesResponse (DescribeRepositoriesResponse'),
-    newDescribeRepositoriesResponse,
-
-    -- ** PutImage
-    PutImage (PutImage'),
-    newPutImage,
-    PutImageResponse (PutImageResponse'),
-    newPutImageResponse,
-
-    -- ** ListImages (Paginated)
-    ListImages (ListImages'),
-    newListImages,
-    ListImagesResponse (ListImagesResponse'),
-    newListImagesResponse,
-
-    -- ** GetRegistryPolicy
-    GetRegistryPolicy (GetRegistryPolicy'),
-    newGetRegistryPolicy,
-    GetRegistryPolicyResponse (GetRegistryPolicyResponse'),
-    newGetRegistryPolicyResponse,
-
-    -- ** InitiateLayerUpload
-    InitiateLayerUpload (InitiateLayerUpload'),
-    newInitiateLayerUpload,
-    InitiateLayerUploadResponse (InitiateLayerUploadResponse'),
-    newInitiateLayerUploadResponse,
-
-    -- ** DescribeImageScanFindings (Paginated)
-    DescribeImageScanFindings (DescribeImageScanFindings'),
-    newDescribeImageScanFindings,
-    DescribeImageScanFindingsResponse (DescribeImageScanFindingsResponse'),
-    newDescribeImageScanFindingsResponse,
-
-    -- ** DeleteRepositoryPolicy
-    DeleteRepositoryPolicy (DeleteRepositoryPolicy'),
-    newDeleteRepositoryPolicy,
-    DeleteRepositoryPolicyResponse (DeleteRepositoryPolicyResponse'),
-    newDeleteRepositoryPolicyResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** SetRepositoryPolicy
-    SetRepositoryPolicy (SetRepositoryPolicy'),
-    newSetRepositoryPolicy,
-    SetRepositoryPolicyResponse (SetRepositoryPolicyResponse'),
-    newSetRepositoryPolicyResponse,
-
-    -- ** DescribeRegistry
-    DescribeRegistry (DescribeRegistry'),
-    newDescribeRegistry,
-    DescribeRegistryResponse (DescribeRegistryResponse'),
-    newDescribeRegistryResponse,
-
-    -- ** BatchDeleteImage
-    BatchDeleteImage (BatchDeleteImage'),
-    newBatchDeleteImage,
-    BatchDeleteImageResponse (BatchDeleteImageResponse'),
-    newBatchDeleteImageResponse,
-
-    -- ** PutImageScanningConfiguration
-    PutImageScanningConfiguration (PutImageScanningConfiguration'),
-    newPutImageScanningConfiguration,
-    PutImageScanningConfigurationResponse (PutImageScanningConfigurationResponse'),
-    newPutImageScanningConfigurationResponse,
-
-    -- ** DeleteLifecyclePolicy
-    DeleteLifecyclePolicy (DeleteLifecyclePolicy'),
-    newDeleteLifecyclePolicy,
-    DeleteLifecyclePolicyResponse (DeleteLifecyclePolicyResponse'),
-    newDeleteLifecyclePolicyResponse,
-
-    -- ** DeleteRegistryPolicy
-    DeleteRegistryPolicy (DeleteRegistryPolicy'),
-    newDeleteRegistryPolicy,
-    DeleteRegistryPolicyResponse (DeleteRegistryPolicyResponse'),
-    newDeleteRegistryPolicyResponse,
 
     -- ** GetRepositoryPolicy
     GetRepositoryPolicy (GetRepositoryPolicy'),
@@ -254,29 +140,65 @@ module Network.AWS.ECR
     GetRepositoryPolicyResponse (GetRepositoryPolicyResponse'),
     newGetRepositoryPolicyResponse,
 
-    -- ** CompleteLayerUpload
-    CompleteLayerUpload (CompleteLayerUpload'),
-    newCompleteLayerUpload,
-    CompleteLayerUploadResponse (CompleteLayerUploadResponse'),
-    newCompleteLayerUploadResponse,
+    -- ** PutImageScanningConfiguration
+    PutImageScanningConfiguration (PutImageScanningConfiguration'),
+    newPutImageScanningConfiguration,
+    PutImageScanningConfigurationResponse (PutImageScanningConfigurationResponse'),
+    newPutImageScanningConfigurationResponse,
 
-    -- ** GetDownloadUrlForLayer
-    GetDownloadUrlForLayer (GetDownloadUrlForLayer'),
-    newGetDownloadUrlForLayer,
-    GetDownloadUrlForLayerResponse (GetDownloadUrlForLayerResponse'),
-    newGetDownloadUrlForLayerResponse,
+    -- ** PutLifecyclePolicy
+    PutLifecyclePolicy (PutLifecyclePolicy'),
+    newPutLifecyclePolicy,
+    PutLifecyclePolicyResponse (PutLifecyclePolicyResponse'),
+    newPutLifecyclePolicyResponse,
 
-    -- ** DescribeImages (Paginated)
-    DescribeImages (DescribeImages'),
-    newDescribeImages,
-    DescribeImagesResponse (DescribeImagesResponse'),
-    newDescribeImagesResponse,
+    -- ** DeleteLifecyclePolicy
+    DeleteLifecyclePolicy (DeleteLifecyclePolicy'),
+    newDeleteLifecyclePolicy,
+    DeleteLifecyclePolicyResponse (DeleteLifecyclePolicyResponse'),
+    newDeleteLifecyclePolicyResponse,
 
-    -- ** GetAuthorizationToken
-    GetAuthorizationToken (GetAuthorizationToken'),
-    newGetAuthorizationToken,
-    GetAuthorizationTokenResponse (GetAuthorizationTokenResponse'),
-    newGetAuthorizationTokenResponse,
+    -- ** PutImageTagMutability
+    PutImageTagMutability (PutImageTagMutability'),
+    newPutImageTagMutability,
+    PutImageTagMutabilityResponse (PutImageTagMutabilityResponse'),
+    newPutImageTagMutabilityResponse,
+
+    -- ** BatchDeleteImage
+    BatchDeleteImage (BatchDeleteImage'),
+    newBatchDeleteImage,
+    BatchDeleteImageResponse (BatchDeleteImageResponse'),
+    newBatchDeleteImageResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** GetLifecyclePolicyPreview (Paginated)
+    GetLifecyclePolicyPreview (GetLifecyclePolicyPreview'),
+    newGetLifecyclePolicyPreview,
+    GetLifecyclePolicyPreviewResponse (GetLifecyclePolicyPreviewResponse'),
+    newGetLifecyclePolicyPreviewResponse,
+
+    -- ** BatchCheckLayerAvailability
+    BatchCheckLayerAvailability (BatchCheckLayerAvailability'),
+    newBatchCheckLayerAvailability,
+    BatchCheckLayerAvailabilityResponse (BatchCheckLayerAvailabilityResponse'),
+    newBatchCheckLayerAvailabilityResponse,
+
+    -- ** DescribeRegistry
+    DescribeRegistry (DescribeRegistry'),
+    newDescribeRegistry,
+    DescribeRegistryResponse (DescribeRegistryResponse'),
+    newDescribeRegistryResponse,
+
+    -- ** DeleteRepositoryPolicy
+    DeleteRepositoryPolicy (DeleteRepositoryPolicy'),
+    newDeleteRepositoryPolicy,
+    DeleteRepositoryPolicyResponse (DeleteRepositoryPolicyResponse'),
+    newDeleteRepositoryPolicyResponse,
 
     -- ** CreateRepository
     CreateRepository (CreateRepository'),
@@ -284,29 +206,47 @@ module Network.AWS.ECR
     CreateRepositoryResponse (CreateRepositoryResponse'),
     newCreateRepositoryResponse,
 
-    -- ** DeleteRepository
-    DeleteRepository (DeleteRepository'),
-    newDeleteRepository,
-    DeleteRepositoryResponse (DeleteRepositoryResponse'),
-    newDeleteRepositoryResponse,
+    -- ** CompleteLayerUpload
+    CompleteLayerUpload (CompleteLayerUpload'),
+    newCompleteLayerUpload,
+    CompleteLayerUploadResponse (CompleteLayerUploadResponse'),
+    newCompleteLayerUploadResponse,
 
-    -- ** GetLifecyclePolicy
-    GetLifecyclePolicy (GetLifecyclePolicy'),
-    newGetLifecyclePolicy,
-    GetLifecyclePolicyResponse (GetLifecyclePolicyResponse'),
-    newGetLifecyclePolicyResponse,
+    -- ** DescribeRepositories (Paginated)
+    DescribeRepositories (DescribeRepositories'),
+    newDescribeRepositories,
+    DescribeRepositoriesResponse (DescribeRepositoriesResponse'),
+    newDescribeRepositoriesResponse,
 
-    -- ** StartImageScan
-    StartImageScan (StartImageScan'),
-    newStartImageScan,
-    StartImageScanResponse (StartImageScanResponse'),
-    newStartImageScanResponse,
+    -- ** StartLifecyclePolicyPreview
+    StartLifecyclePolicyPreview (StartLifecyclePolicyPreview'),
+    newStartLifecyclePolicyPreview,
+    StartLifecyclePolicyPreviewResponse (StartLifecyclePolicyPreviewResponse'),
+    newStartLifecyclePolicyPreviewResponse,
 
-    -- ** BatchCheckLayerAvailability
-    BatchCheckLayerAvailability (BatchCheckLayerAvailability'),
-    newBatchCheckLayerAvailability,
-    BatchCheckLayerAvailabilityResponse (BatchCheckLayerAvailabilityResponse'),
-    newBatchCheckLayerAvailabilityResponse,
+    -- ** DeleteRegistryPolicy
+    DeleteRegistryPolicy (DeleteRegistryPolicy'),
+    newDeleteRegistryPolicy,
+    DeleteRegistryPolicyResponse (DeleteRegistryPolicyResponse'),
+    newDeleteRegistryPolicyResponse,
+
+    -- ** PutRegistryPolicy
+    PutRegistryPolicy (PutRegistryPolicy'),
+    newPutRegistryPolicy,
+    PutRegistryPolicyResponse (PutRegistryPolicyResponse'),
+    newPutRegistryPolicyResponse,
+
+    -- ** UploadLayerPart
+    UploadLayerPart (UploadLayerPart'),
+    newUploadLayerPart,
+    UploadLayerPartResponse (UploadLayerPartResponse'),
+    newUploadLayerPartResponse,
+
+    -- ** DescribeImageReplicationStatus
+    DescribeImageReplicationStatus (DescribeImageReplicationStatus'),
+    newDescribeImageReplicationStatus,
+    DescribeImageReplicationStatusResponse (DescribeImageReplicationStatusResponse'),
+    newDescribeImageReplicationStatusResponse,
 
     -- ** BatchGetImage
     BatchGetImage (BatchGetImage'),
@@ -320,29 +260,89 @@ module Network.AWS.ECR
     PutReplicationConfigurationResponse (PutReplicationConfigurationResponse'),
     newPutReplicationConfigurationResponse,
 
-    -- ** PutImageTagMutability
-    PutImageTagMutability (PutImageTagMutability'),
-    newPutImageTagMutability,
-    PutImageTagMutabilityResponse (PutImageTagMutabilityResponse'),
-    newPutImageTagMutabilityResponse,
+    -- ** StartImageScan
+    StartImageScan (StartImageScan'),
+    newStartImageScan,
+    StartImageScanResponse (StartImageScanResponse'),
+    newStartImageScanResponse,
 
-    -- ** DescribeImageReplicationStatus
-    DescribeImageReplicationStatus (DescribeImageReplicationStatus'),
-    newDescribeImageReplicationStatus,
-    DescribeImageReplicationStatusResponse (DescribeImageReplicationStatusResponse'),
-    newDescribeImageReplicationStatusResponse,
+    -- ** GetLifecyclePolicy
+    GetLifecyclePolicy (GetLifecyclePolicy'),
+    newGetLifecyclePolicy,
+    GetLifecyclePolicyResponse (GetLifecyclePolicyResponse'),
+    newGetLifecyclePolicyResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
-    -- ** GetLifecyclePolicyPreview (Paginated)
-    GetLifecyclePolicyPreview (GetLifecyclePolicyPreview'),
-    newGetLifecyclePolicyPreview,
-    GetLifecyclePolicyPreviewResponse (GetLifecyclePolicyPreviewResponse'),
-    newGetLifecyclePolicyPreviewResponse,
+    -- ** SetRepositoryPolicy
+    SetRepositoryPolicy (SetRepositoryPolicy'),
+    newSetRepositoryPolicy,
+    SetRepositoryPolicyResponse (SetRepositoryPolicyResponse'),
+    newSetRepositoryPolicyResponse,
+
+    -- ** DescribeImageScanFindings (Paginated)
+    DescribeImageScanFindings (DescribeImageScanFindings'),
+    newDescribeImageScanFindings,
+    DescribeImageScanFindingsResponse (DescribeImageScanFindingsResponse'),
+    newDescribeImageScanFindingsResponse,
+
+    -- ** InitiateLayerUpload
+    InitiateLayerUpload (InitiateLayerUpload'),
+    newInitiateLayerUpload,
+    InitiateLayerUploadResponse (InitiateLayerUploadResponse'),
+    newInitiateLayerUploadResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** DeleteRepository
+    DeleteRepository (DeleteRepository'),
+    newDeleteRepository,
+    DeleteRepositoryResponse (DeleteRepositoryResponse'),
+    newDeleteRepositoryResponse,
+
+    -- ** GetRegistryPolicy
+    GetRegistryPolicy (GetRegistryPolicy'),
+    newGetRegistryPolicy,
+    GetRegistryPolicyResponse (GetRegistryPolicyResponse'),
+    newGetRegistryPolicyResponse,
+
+    -- ** PutImage
+    PutImage (PutImage'),
+    newPutImage,
+    PutImageResponse (PutImageResponse'),
+    newPutImageResponse,
+
+    -- ** ListImages (Paginated)
+    ListImages (ListImages'),
+    newListImages,
+    ListImagesResponse (ListImagesResponse'),
+    newListImagesResponse,
+
+    -- ** GetAuthorizationToken
+    GetAuthorizationToken (GetAuthorizationToken'),
+    newGetAuthorizationToken,
+    GetAuthorizationTokenResponse (GetAuthorizationTokenResponse'),
+    newGetAuthorizationTokenResponse,
+
+    -- ** GetDownloadUrlForLayer
+    GetDownloadUrlForLayer (GetDownloadUrlForLayer'),
+    newGetDownloadUrlForLayer,
+    GetDownloadUrlForLayerResponse (GetDownloadUrlForLayerResponse'),
+    newGetDownloadUrlForLayerResponse,
+
+    -- ** DescribeImages (Paginated)
+    DescribeImages (DescribeImages'),
+    newDescribeImages,
+    DescribeImagesResponse (DescribeImagesResponse'),
+    newDescribeImagesResponse,
 
     -- * Types
 

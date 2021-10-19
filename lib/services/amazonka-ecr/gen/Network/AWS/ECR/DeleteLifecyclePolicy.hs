@@ -36,9 +36,9 @@ module Network.AWS.ECR.DeleteLifecyclePolicy
 
     -- * Response Lenses
     deleteLifecyclePolicyResponse_registryId,
-    deleteLifecyclePolicyResponse_repositoryName,
-    deleteLifecyclePolicyResponse_lifecyclePolicyText,
     deleteLifecyclePolicyResponse_lastEvaluatedAt,
+    deleteLifecyclePolicyResponse_lifecyclePolicyText,
+    deleteLifecyclePolicyResponse_repositoryName,
     deleteLifecyclePolicyResponse_httpStatus,
   )
 where
@@ -105,9 +105,9 @@ instance Core.AWSRequest DeleteLifecyclePolicy where
       ( \s h x ->
           DeleteLifecyclePolicyResponse'
             Prelude.<$> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "lifecyclePolicyText")
             Prelude.<*> (x Core..?> "lastEvaluatedAt")
+            Prelude.<*> (x Core..?> "lifecyclePolicyText")
+            Prelude.<*> (x Core..?> "repositoryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,12 +150,12 @@ instance Core.ToQuery DeleteLifecyclePolicy where
 data DeleteLifecyclePolicyResponse = DeleteLifecyclePolicyResponse'
   { -- | The registry ID associated with the request.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The repository name associated with the request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
-    -- | The JSON lifecycle policy text.
-    lifecyclePolicyText :: Prelude.Maybe Prelude.Text,
     -- | The time stamp of the last time that the lifecycle policy was run.
     lastEvaluatedAt :: Prelude.Maybe Core.POSIX,
+    -- | The JSON lifecycle policy text.
+    lifecyclePolicyText :: Prelude.Maybe Prelude.Text,
+    -- | The repository name associated with the request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,11 +171,11 @@ data DeleteLifecyclePolicyResponse = DeleteLifecyclePolicyResponse'
 --
 -- 'registryId', 'deleteLifecyclePolicyResponse_registryId' - The registry ID associated with the request.
 --
--- 'repositoryName', 'deleteLifecyclePolicyResponse_repositoryName' - The repository name associated with the request.
+-- 'lastEvaluatedAt', 'deleteLifecyclePolicyResponse_lastEvaluatedAt' - The time stamp of the last time that the lifecycle policy was run.
 --
 -- 'lifecyclePolicyText', 'deleteLifecyclePolicyResponse_lifecyclePolicyText' - The JSON lifecycle policy text.
 --
--- 'lastEvaluatedAt', 'deleteLifecyclePolicyResponse_lastEvaluatedAt' - The time stamp of the last time that the lifecycle policy was run.
+-- 'repositoryName', 'deleteLifecyclePolicyResponse_repositoryName' - The repository name associated with the request.
 --
 -- 'httpStatus', 'deleteLifecyclePolicyResponse_httpStatus' - The response's http status code.
 newDeleteLifecyclePolicyResponse ::
@@ -186,9 +186,9 @@ newDeleteLifecyclePolicyResponse pHttpStatus_ =
   DeleteLifecyclePolicyResponse'
     { registryId =
         Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
-      lifecyclePolicyText = Prelude.Nothing,
       lastEvaluatedAt = Prelude.Nothing,
+      lifecyclePolicyText = Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -196,17 +196,17 @@ newDeleteLifecyclePolicyResponse pHttpStatus_ =
 deleteLifecyclePolicyResponse_registryId :: Lens.Lens' DeleteLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
 deleteLifecyclePolicyResponse_registryId = Lens.lens (\DeleteLifecyclePolicyResponse' {registryId} -> registryId) (\s@DeleteLifecyclePolicyResponse' {} a -> s {registryId = a} :: DeleteLifecyclePolicyResponse)
 
--- | The repository name associated with the request.
-deleteLifecyclePolicyResponse_repositoryName :: Lens.Lens' DeleteLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
-deleteLifecyclePolicyResponse_repositoryName = Lens.lens (\DeleteLifecyclePolicyResponse' {repositoryName} -> repositoryName) (\s@DeleteLifecyclePolicyResponse' {} a -> s {repositoryName = a} :: DeleteLifecyclePolicyResponse)
+-- | The time stamp of the last time that the lifecycle policy was run.
+deleteLifecyclePolicyResponse_lastEvaluatedAt :: Lens.Lens' DeleteLifecyclePolicyResponse (Prelude.Maybe Prelude.UTCTime)
+deleteLifecyclePolicyResponse_lastEvaluatedAt = Lens.lens (\DeleteLifecyclePolicyResponse' {lastEvaluatedAt} -> lastEvaluatedAt) (\s@DeleteLifecyclePolicyResponse' {} a -> s {lastEvaluatedAt = a} :: DeleteLifecyclePolicyResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The JSON lifecycle policy text.
 deleteLifecyclePolicyResponse_lifecyclePolicyText :: Lens.Lens' DeleteLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
 deleteLifecyclePolicyResponse_lifecyclePolicyText = Lens.lens (\DeleteLifecyclePolicyResponse' {lifecyclePolicyText} -> lifecyclePolicyText) (\s@DeleteLifecyclePolicyResponse' {} a -> s {lifecyclePolicyText = a} :: DeleteLifecyclePolicyResponse)
 
--- | The time stamp of the last time that the lifecycle policy was run.
-deleteLifecyclePolicyResponse_lastEvaluatedAt :: Lens.Lens' DeleteLifecyclePolicyResponse (Prelude.Maybe Prelude.UTCTime)
-deleteLifecyclePolicyResponse_lastEvaluatedAt = Lens.lens (\DeleteLifecyclePolicyResponse' {lastEvaluatedAt} -> lastEvaluatedAt) (\s@DeleteLifecyclePolicyResponse' {} a -> s {lastEvaluatedAt = a} :: DeleteLifecyclePolicyResponse) Prelude.. Lens.mapping Core._Time
+-- | The repository name associated with the request.
+deleteLifecyclePolicyResponse_repositoryName :: Lens.Lens' DeleteLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
+deleteLifecyclePolicyResponse_repositoryName = Lens.lens (\DeleteLifecyclePolicyResponse' {repositoryName} -> repositoryName) (\s@DeleteLifecyclePolicyResponse' {} a -> s {repositoryName = a} :: DeleteLifecyclePolicyResponse)
 
 -- | The response's http status code.
 deleteLifecyclePolicyResponse_httpStatus :: Lens.Lens' DeleteLifecyclePolicyResponse Prelude.Int

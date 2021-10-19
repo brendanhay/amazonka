@@ -44,8 +44,8 @@ module Network.AWS.ECR.BatchDeleteImage
     newBatchDeleteImageResponse,
 
     -- * Response Lenses
-    batchDeleteImageResponse_imageIds,
     batchDeleteImageResponse_failures,
+    batchDeleteImageResponse_imageIds,
     batchDeleteImageResponse_httpStatus,
   )
 where
@@ -117,7 +117,7 @@ batchDeleteImage_repositoryName = Lens.lens (\BatchDeleteImage' {repositoryName}
 -- format of the @imageIds@ reference is @imageTag=tag@ or
 -- @imageDigest=digest@.
 batchDeleteImage_imageIds :: Lens.Lens' BatchDeleteImage [ImageIdentifier]
-batchDeleteImage_imageIds = Lens.lens (\BatchDeleteImage' {imageIds} -> imageIds) (\s@BatchDeleteImage' {} a -> s {imageIds = a} :: BatchDeleteImage) Prelude.. Lens._Coerce
+batchDeleteImage_imageIds = Lens.lens (\BatchDeleteImage' {imageIds} -> imageIds) (\s@BatchDeleteImage' {} a -> s {imageIds = a} :: BatchDeleteImage) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchDeleteImage where
   type
@@ -128,8 +128,8 @@ instance Core.AWSRequest BatchDeleteImage where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteImageResponse'
-            Prelude.<$> (x Core..?> "imageIds" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "imageIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,10 +171,10 @@ instance Core.ToQuery BatchDeleteImage where
 
 -- | /See:/ 'newBatchDeleteImageResponse' smart constructor.
 data BatchDeleteImageResponse = BatchDeleteImageResponse'
-  { -- | The image IDs of the deleted images.
-    imageIds :: Prelude.Maybe [ImageIdentifier],
-    -- | Any failures associated with the call.
+  { -- | Any failures associated with the call.
     failures :: Prelude.Maybe [ImageFailure],
+    -- | The image IDs of the deleted images.
+    imageIds :: Prelude.Maybe [ImageIdentifier],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -188,9 +188,9 @@ data BatchDeleteImageResponse = BatchDeleteImageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageIds', 'batchDeleteImageResponse_imageIds' - The image IDs of the deleted images.
---
 -- 'failures', 'batchDeleteImageResponse_failures' - Any failures associated with the call.
+--
+-- 'imageIds', 'batchDeleteImageResponse_imageIds' - The image IDs of the deleted images.
 --
 -- 'httpStatus', 'batchDeleteImageResponse_httpStatus' - The response's http status code.
 newBatchDeleteImageResponse ::
@@ -199,19 +199,19 @@ newBatchDeleteImageResponse ::
   BatchDeleteImageResponse
 newBatchDeleteImageResponse pHttpStatus_ =
   BatchDeleteImageResponse'
-    { imageIds =
+    { failures =
         Prelude.Nothing,
-      failures = Prelude.Nothing,
+      imageIds = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The image IDs of the deleted images.
-batchDeleteImageResponse_imageIds :: Lens.Lens' BatchDeleteImageResponse (Prelude.Maybe [ImageIdentifier])
-batchDeleteImageResponse_imageIds = Lens.lens (\BatchDeleteImageResponse' {imageIds} -> imageIds) (\s@BatchDeleteImageResponse' {} a -> s {imageIds = a} :: BatchDeleteImageResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Any failures associated with the call.
 batchDeleteImageResponse_failures :: Lens.Lens' BatchDeleteImageResponse (Prelude.Maybe [ImageFailure])
-batchDeleteImageResponse_failures = Lens.lens (\BatchDeleteImageResponse' {failures} -> failures) (\s@BatchDeleteImageResponse' {} a -> s {failures = a} :: BatchDeleteImageResponse) Prelude.. Lens.mapping Lens._Coerce
+batchDeleteImageResponse_failures = Lens.lens (\BatchDeleteImageResponse' {failures} -> failures) (\s@BatchDeleteImageResponse' {} a -> s {failures = a} :: BatchDeleteImageResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The image IDs of the deleted images.
+batchDeleteImageResponse_imageIds :: Lens.Lens' BatchDeleteImageResponse (Prelude.Maybe [ImageIdentifier])
+batchDeleteImageResponse_imageIds = Lens.lens (\BatchDeleteImageResponse' {imageIds} -> imageIds) (\s@BatchDeleteImageResponse' {} a -> s {imageIds = a} :: BatchDeleteImageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchDeleteImageResponse_httpStatus :: Lens.Lens' BatchDeleteImageResponse Prelude.Int

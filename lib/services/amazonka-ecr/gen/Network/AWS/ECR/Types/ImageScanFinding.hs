@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newImageScanFinding' smart constructor.
 data ImageScanFinding = ImageScanFinding'
-  { -- | A link containing additional details about the security vulnerability.
-    uri :: Prelude.Maybe Prelude.Text,
-    -- | The finding severity.
+  { -- | The finding severity.
     severity :: Prelude.Maybe FindingSeverity,
+    -- | A link containing additional details about the security vulnerability.
+    uri :: Prelude.Maybe Prelude.Text,
     -- | The name associated with the finding, usually a CVE number.
     name :: Prelude.Maybe Prelude.Text,
     -- | A collection of attributes of the host from which the finding is
@@ -51,9 +51,9 @@ data ImageScanFinding = ImageScanFinding'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'uri', 'imageScanFinding_uri' - A link containing additional details about the security vulnerability.
---
 -- 'severity', 'imageScanFinding_severity' - The finding severity.
+--
+-- 'uri', 'imageScanFinding_uri' - A link containing additional details about the security vulnerability.
 --
 -- 'name', 'imageScanFinding_name' - The name associated with the finding, usually a CVE number.
 --
@@ -65,20 +65,20 @@ newImageScanFinding ::
   ImageScanFinding
 newImageScanFinding =
   ImageScanFinding'
-    { uri = Prelude.Nothing,
-      severity = Prelude.Nothing,
+    { severity = Prelude.Nothing,
+      uri = Prelude.Nothing,
       name = Prelude.Nothing,
       attributes = Prelude.Nothing,
       description = Prelude.Nothing
     }
 
--- | A link containing additional details about the security vulnerability.
-imageScanFinding_uri :: Lens.Lens' ImageScanFinding (Prelude.Maybe Prelude.Text)
-imageScanFinding_uri = Lens.lens (\ImageScanFinding' {uri} -> uri) (\s@ImageScanFinding' {} a -> s {uri = a} :: ImageScanFinding)
-
 -- | The finding severity.
 imageScanFinding_severity :: Lens.Lens' ImageScanFinding (Prelude.Maybe FindingSeverity)
 imageScanFinding_severity = Lens.lens (\ImageScanFinding' {severity} -> severity) (\s@ImageScanFinding' {} a -> s {severity = a} :: ImageScanFinding)
+
+-- | A link containing additional details about the security vulnerability.
+imageScanFinding_uri :: Lens.Lens' ImageScanFinding (Prelude.Maybe Prelude.Text)
+imageScanFinding_uri = Lens.lens (\ImageScanFinding' {uri} -> uri) (\s@ImageScanFinding' {} a -> s {uri = a} :: ImageScanFinding)
 
 -- | The name associated with the finding, usually a CVE number.
 imageScanFinding_name :: Lens.Lens' ImageScanFinding (Prelude.Maybe Prelude.Text)
@@ -87,7 +87,7 @@ imageScanFinding_name = Lens.lens (\ImageScanFinding' {name} -> name) (\s@ImageS
 -- | A collection of attributes of the host from which the finding is
 -- generated.
 imageScanFinding_attributes :: Lens.Lens' ImageScanFinding (Prelude.Maybe [Attribute])
-imageScanFinding_attributes = Lens.lens (\ImageScanFinding' {attributes} -> attributes) (\s@ImageScanFinding' {} a -> s {attributes = a} :: ImageScanFinding) Prelude.. Lens.mapping Lens._Coerce
+imageScanFinding_attributes = Lens.lens (\ImageScanFinding' {attributes} -> attributes) (\s@ImageScanFinding' {} a -> s {attributes = a} :: ImageScanFinding) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description of the finding.
 imageScanFinding_description :: Lens.Lens' ImageScanFinding (Prelude.Maybe Prelude.Text)
@@ -99,8 +99,8 @@ instance Core.FromJSON ImageScanFinding where
       "ImageScanFinding"
       ( \x ->
           ImageScanFinding'
-            Prelude.<$> (x Core..:? "uri")
-            Prelude.<*> (x Core..:? "severity")
+            Prelude.<$> (x Core..:? "severity")
+            Prelude.<*> (x Core..:? "uri")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "description")

@@ -30,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ImageReplicationStatus = ImageReplicationStatus'
   { -- | The image replication status.
     status :: Prelude.Maybe ReplicationStatus,
+    -- | The failure code for a replication that has failed.
+    failureCode :: Prelude.Maybe Prelude.Text,
     -- | The AWS account ID associated with the registry to which the image
     -- belongs.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The failure code for a replication that has failed.
-    failureCode :: Prelude.Maybe Prelude.Text,
     -- | The destination Region for the image replication.
     region :: Prelude.Maybe Prelude.Text
   }
@@ -50,10 +50,10 @@ data ImageReplicationStatus = ImageReplicationStatus'
 --
 -- 'status', 'imageReplicationStatus_status' - The image replication status.
 --
+-- 'failureCode', 'imageReplicationStatus_failureCode' - The failure code for a replication that has failed.
+--
 -- 'registryId', 'imageReplicationStatus_registryId' - The AWS account ID associated with the registry to which the image
 -- belongs.
---
--- 'failureCode', 'imageReplicationStatus_failureCode' - The failure code for a replication that has failed.
 --
 -- 'region', 'imageReplicationStatus_region' - The destination Region for the image replication.
 newImageReplicationStatus ::
@@ -61,8 +61,8 @@ newImageReplicationStatus ::
 newImageReplicationStatus =
   ImageReplicationStatus'
     { status = Prelude.Nothing,
-      registryId = Prelude.Nothing,
       failureCode = Prelude.Nothing,
+      registryId = Prelude.Nothing,
       region = Prelude.Nothing
     }
 
@@ -70,14 +70,14 @@ newImageReplicationStatus =
 imageReplicationStatus_status :: Lens.Lens' ImageReplicationStatus (Prelude.Maybe ReplicationStatus)
 imageReplicationStatus_status = Lens.lens (\ImageReplicationStatus' {status} -> status) (\s@ImageReplicationStatus' {} a -> s {status = a} :: ImageReplicationStatus)
 
+-- | The failure code for a replication that has failed.
+imageReplicationStatus_failureCode :: Lens.Lens' ImageReplicationStatus (Prelude.Maybe Prelude.Text)
+imageReplicationStatus_failureCode = Lens.lens (\ImageReplicationStatus' {failureCode} -> failureCode) (\s@ImageReplicationStatus' {} a -> s {failureCode = a} :: ImageReplicationStatus)
+
 -- | The AWS account ID associated with the registry to which the image
 -- belongs.
 imageReplicationStatus_registryId :: Lens.Lens' ImageReplicationStatus (Prelude.Maybe Prelude.Text)
 imageReplicationStatus_registryId = Lens.lens (\ImageReplicationStatus' {registryId} -> registryId) (\s@ImageReplicationStatus' {} a -> s {registryId = a} :: ImageReplicationStatus)
-
--- | The failure code for a replication that has failed.
-imageReplicationStatus_failureCode :: Lens.Lens' ImageReplicationStatus (Prelude.Maybe Prelude.Text)
-imageReplicationStatus_failureCode = Lens.lens (\ImageReplicationStatus' {failureCode} -> failureCode) (\s@ImageReplicationStatus' {} a -> s {failureCode = a} :: ImageReplicationStatus)
 
 -- | The destination Region for the image replication.
 imageReplicationStatus_region :: Lens.Lens' ImageReplicationStatus (Prelude.Maybe Prelude.Text)
@@ -90,8 +90,8 @@ instance Core.FromJSON ImageReplicationStatus where
       ( \x ->
           ImageReplicationStatus'
             Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "registryId")
             Prelude.<*> (x Core..:? "failureCode")
+            Prelude.<*> (x Core..:? "registryId")
             Prelude.<*> (x Core..:? "region")
       )
 

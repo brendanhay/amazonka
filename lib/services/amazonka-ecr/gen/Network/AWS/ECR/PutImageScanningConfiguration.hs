@@ -37,8 +37,8 @@ module Network.AWS.ECR.PutImageScanningConfiguration
 
     -- * Response Lenses
     putImageScanningConfigurationResponse_registryId,
-    putImageScanningConfigurationResponse_repositoryName,
     putImageScanningConfigurationResponse_imageScanningConfiguration,
+    putImageScanningConfigurationResponse_repositoryName,
     putImageScanningConfigurationResponse_httpStatus,
   )
 where
@@ -134,8 +134,8 @@ instance
       ( \s h x ->
           PutImageScanningConfigurationResponse'
             Prelude.<$> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "repositoryName")
             Prelude.<*> (x Core..?> "imageScanningConfiguration")
+            Prelude.<*> (x Core..?> "repositoryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,10 +184,10 @@ instance Core.ToQuery PutImageScanningConfiguration where
 data PutImageScanningConfigurationResponse = PutImageScanningConfigurationResponse'
   { -- | The registry ID associated with the request.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The repository name associated with the request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The image scanning configuration setting for the repository.
     imageScanningConfiguration :: Prelude.Maybe ImageScanningConfiguration,
+    -- | The repository name associated with the request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,9 +203,9 @@ data PutImageScanningConfigurationResponse = PutImageScanningConfigurationRespon
 --
 -- 'registryId', 'putImageScanningConfigurationResponse_registryId' - The registry ID associated with the request.
 --
--- 'repositoryName', 'putImageScanningConfigurationResponse_repositoryName' - The repository name associated with the request.
---
 -- 'imageScanningConfiguration', 'putImageScanningConfigurationResponse_imageScanningConfiguration' - The image scanning configuration setting for the repository.
+--
+-- 'repositoryName', 'putImageScanningConfigurationResponse_repositoryName' - The repository name associated with the request.
 --
 -- 'httpStatus', 'putImageScanningConfigurationResponse_httpStatus' - The response's http status code.
 newPutImageScanningConfigurationResponse ::
@@ -216,9 +216,9 @@ newPutImageScanningConfigurationResponse pHttpStatus_ =
   PutImageScanningConfigurationResponse'
     { registryId =
         Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
       imageScanningConfiguration =
         Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -226,13 +226,13 @@ newPutImageScanningConfigurationResponse pHttpStatus_ =
 putImageScanningConfigurationResponse_registryId :: Lens.Lens' PutImageScanningConfigurationResponse (Prelude.Maybe Prelude.Text)
 putImageScanningConfigurationResponse_registryId = Lens.lens (\PutImageScanningConfigurationResponse' {registryId} -> registryId) (\s@PutImageScanningConfigurationResponse' {} a -> s {registryId = a} :: PutImageScanningConfigurationResponse)
 
--- | The repository name associated with the request.
-putImageScanningConfigurationResponse_repositoryName :: Lens.Lens' PutImageScanningConfigurationResponse (Prelude.Maybe Prelude.Text)
-putImageScanningConfigurationResponse_repositoryName = Lens.lens (\PutImageScanningConfigurationResponse' {repositoryName} -> repositoryName) (\s@PutImageScanningConfigurationResponse' {} a -> s {repositoryName = a} :: PutImageScanningConfigurationResponse)
-
 -- | The image scanning configuration setting for the repository.
 putImageScanningConfigurationResponse_imageScanningConfiguration :: Lens.Lens' PutImageScanningConfigurationResponse (Prelude.Maybe ImageScanningConfiguration)
 putImageScanningConfigurationResponse_imageScanningConfiguration = Lens.lens (\PutImageScanningConfigurationResponse' {imageScanningConfiguration} -> imageScanningConfiguration) (\s@PutImageScanningConfigurationResponse' {} a -> s {imageScanningConfiguration = a} :: PutImageScanningConfigurationResponse)
+
+-- | The repository name associated with the request.
+putImageScanningConfigurationResponse_repositoryName :: Lens.Lens' PutImageScanningConfigurationResponse (Prelude.Maybe Prelude.Text)
+putImageScanningConfigurationResponse_repositoryName = Lens.lens (\PutImageScanningConfigurationResponse' {repositoryName} -> repositoryName) (\s@PutImageScanningConfigurationResponse' {} a -> s {repositoryName = a} :: PutImageScanningConfigurationResponse)
 
 -- | The response's http status code.
 putImageScanningConfigurationResponse_httpStatus :: Lens.Lens' PutImageScanningConfigurationResponse Prelude.Int

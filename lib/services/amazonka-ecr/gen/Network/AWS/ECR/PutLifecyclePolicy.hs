@@ -39,8 +39,8 @@ module Network.AWS.ECR.PutLifecyclePolicy
 
     -- * Response Lenses
     putLifecyclePolicyResponse_registryId,
-    putLifecyclePolicyResponse_repositoryName,
     putLifecyclePolicyResponse_lifecyclePolicyText,
+    putLifecyclePolicyResponse_repositoryName,
     putLifecyclePolicyResponse_httpStatus,
   )
 where
@@ -119,8 +119,8 @@ instance Core.AWSRequest PutLifecyclePolicy where
       ( \s h x ->
           PutLifecyclePolicyResponse'
             Prelude.<$> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "repositoryName")
             Prelude.<*> (x Core..?> "lifecyclePolicyText")
+            Prelude.<*> (x Core..?> "repositoryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,10 +165,10 @@ instance Core.ToQuery PutLifecyclePolicy where
 data PutLifecyclePolicyResponse = PutLifecyclePolicyResponse'
   { -- | The registry ID associated with the request.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The repository name associated with the request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The JSON repository policy text.
     lifecyclePolicyText :: Prelude.Maybe Prelude.Text,
+    -- | The repository name associated with the request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,9 +184,9 @@ data PutLifecyclePolicyResponse = PutLifecyclePolicyResponse'
 --
 -- 'registryId', 'putLifecyclePolicyResponse_registryId' - The registry ID associated with the request.
 --
--- 'repositoryName', 'putLifecyclePolicyResponse_repositoryName' - The repository name associated with the request.
---
 -- 'lifecyclePolicyText', 'putLifecyclePolicyResponse_lifecyclePolicyText' - The JSON repository policy text.
+--
+-- 'repositoryName', 'putLifecyclePolicyResponse_repositoryName' - The repository name associated with the request.
 --
 -- 'httpStatus', 'putLifecyclePolicyResponse_httpStatus' - The response's http status code.
 newPutLifecyclePolicyResponse ::
@@ -197,8 +197,8 @@ newPutLifecyclePolicyResponse pHttpStatus_ =
   PutLifecyclePolicyResponse'
     { registryId =
         Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
       lifecyclePolicyText = Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -206,13 +206,13 @@ newPutLifecyclePolicyResponse pHttpStatus_ =
 putLifecyclePolicyResponse_registryId :: Lens.Lens' PutLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
 putLifecyclePolicyResponse_registryId = Lens.lens (\PutLifecyclePolicyResponse' {registryId} -> registryId) (\s@PutLifecyclePolicyResponse' {} a -> s {registryId = a} :: PutLifecyclePolicyResponse)
 
--- | The repository name associated with the request.
-putLifecyclePolicyResponse_repositoryName :: Lens.Lens' PutLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
-putLifecyclePolicyResponse_repositoryName = Lens.lens (\PutLifecyclePolicyResponse' {repositoryName} -> repositoryName) (\s@PutLifecyclePolicyResponse' {} a -> s {repositoryName = a} :: PutLifecyclePolicyResponse)
-
 -- | The JSON repository policy text.
 putLifecyclePolicyResponse_lifecyclePolicyText :: Lens.Lens' PutLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
 putLifecyclePolicyResponse_lifecyclePolicyText = Lens.lens (\PutLifecyclePolicyResponse' {lifecyclePolicyText} -> lifecyclePolicyText) (\s@PutLifecyclePolicyResponse' {} a -> s {lifecyclePolicyText = a} :: PutLifecyclePolicyResponse)
+
+-- | The repository name associated with the request.
+putLifecyclePolicyResponse_repositoryName :: Lens.Lens' PutLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
+putLifecyclePolicyResponse_repositoryName = Lens.lens (\PutLifecyclePolicyResponse' {repositoryName} -> repositoryName) (\s@PutLifecyclePolicyResponse' {} a -> s {repositoryName = a} :: PutLifecyclePolicyResponse)
 
 -- | The response's http status code.
 putLifecyclePolicyResponse_httpStatus :: Lens.Lens' PutLifecyclePolicyResponse Prelude.Int

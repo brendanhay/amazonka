@@ -101,7 +101,7 @@ newBatchCheckLayerAvailability
           Prelude.Nothing,
         repositoryName = pRepositoryName_,
         layerDigests =
-          Lens._Coerce Lens.# pLayerDigests_
+          Lens.coerced Lens.# pLayerDigests_
       }
 
 -- | The Amazon Web Services account ID associated with the registry that
@@ -117,7 +117,7 @@ batchCheckLayerAvailability_repositoryName = Lens.lens (\BatchCheckLayerAvailabi
 
 -- | The digests of the image layers to check.
 batchCheckLayerAvailability_layerDigests :: Lens.Lens' BatchCheckLayerAvailability (Prelude.NonEmpty Prelude.Text)
-batchCheckLayerAvailability_layerDigests = Lens.lens (\BatchCheckLayerAvailability' {layerDigests} -> layerDigests) (\s@BatchCheckLayerAvailability' {} a -> s {layerDigests = a} :: BatchCheckLayerAvailability) Prelude.. Lens._Coerce
+batchCheckLayerAvailability_layerDigests = Lens.lens (\BatchCheckLayerAvailability' {layerDigests} -> layerDigests) (\s@BatchCheckLayerAvailability' {} a -> s {layerDigests = a} :: BatchCheckLayerAvailability) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchCheckLayerAvailability where
   type
@@ -209,12 +209,12 @@ newBatchCheckLayerAvailabilityResponse pHttpStatus_ =
 
 -- | Any failures associated with the call.
 batchCheckLayerAvailabilityResponse_failures :: Lens.Lens' BatchCheckLayerAvailabilityResponse (Prelude.Maybe [LayerFailure])
-batchCheckLayerAvailabilityResponse_failures = Lens.lens (\BatchCheckLayerAvailabilityResponse' {failures} -> failures) (\s@BatchCheckLayerAvailabilityResponse' {} a -> s {failures = a} :: BatchCheckLayerAvailabilityResponse) Prelude.. Lens.mapping Lens._Coerce
+batchCheckLayerAvailabilityResponse_failures = Lens.lens (\BatchCheckLayerAvailabilityResponse' {failures} -> failures) (\s@BatchCheckLayerAvailabilityResponse' {} a -> s {failures = a} :: BatchCheckLayerAvailabilityResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of image layer objects corresponding to the image layer
 -- references in the request.
 batchCheckLayerAvailabilityResponse_layers :: Lens.Lens' BatchCheckLayerAvailabilityResponse (Prelude.Maybe [Layer])
-batchCheckLayerAvailabilityResponse_layers = Lens.lens (\BatchCheckLayerAvailabilityResponse' {layers} -> layers) (\s@BatchCheckLayerAvailabilityResponse' {} a -> s {layers = a} :: BatchCheckLayerAvailabilityResponse) Prelude.. Lens.mapping Lens._Coerce
+batchCheckLayerAvailabilityResponse_layers = Lens.lens (\BatchCheckLayerAvailabilityResponse' {layers} -> layers) (\s@BatchCheckLayerAvailabilityResponse' {} a -> s {layers = a} :: BatchCheckLayerAvailabilityResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchCheckLayerAvailabilityResponse_httpStatus :: Lens.Lens' BatchCheckLayerAvailabilityResponse Prelude.Int

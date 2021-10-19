@@ -172,10 +172,10 @@ newVpcConfigurationDescription
   pVpcId_ =
     VpcConfigurationDescription'
       { subnetIds =
-          Lens._Coerce Lens.# pSubnetIds_,
+          Lens.coerced Lens.# pSubnetIds_,
         roleARN = pRoleARN_,
         securityGroupIds =
-          Lens._Coerce Lens.# pSecurityGroupIds_,
+          Lens.coerced Lens.# pSecurityGroupIds_,
         vpcId = pVpcId_
       }
 
@@ -197,7 +197,7 @@ newVpcConfigurationDescription
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis Network Interfaces>
 -- in the Amazon VPC Quotas topic.
 vpcConfigurationDescription_subnetIds :: Lens.Lens' VpcConfigurationDescription (Prelude.NonEmpty Prelude.Text)
-vpcConfigurationDescription_subnetIds = Lens.lens (\VpcConfigurationDescription' {subnetIds} -> subnetIds) (\s@VpcConfigurationDescription' {} a -> s {subnetIds = a} :: VpcConfigurationDescription) Prelude.. Lens._Coerce
+vpcConfigurationDescription_subnetIds = Lens.lens (\VpcConfigurationDescription' {subnetIds} -> subnetIds) (\s@VpcConfigurationDescription' {} a -> s {subnetIds = a} :: VpcConfigurationDescription) Prelude.. Lens.coerced
 
 -- | The ARN of the IAM role that the delivery stream uses to create
 -- endpoints in the destination VPC. You can use your existing Kinesis Data
@@ -240,7 +240,7 @@ vpcConfigurationDescription_roleARN = Lens.lens (\VpcConfigurationDescription' {
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules Security group rules>
 -- in the Amazon VPC documentation.
 vpcConfigurationDescription_securityGroupIds :: Lens.Lens' VpcConfigurationDescription (Prelude.NonEmpty Prelude.Text)
-vpcConfigurationDescription_securityGroupIds = Lens.lens (\VpcConfigurationDescription' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigurationDescription' {} a -> s {securityGroupIds = a} :: VpcConfigurationDescription) Prelude.. Lens._Coerce
+vpcConfigurationDescription_securityGroupIds = Lens.lens (\VpcConfigurationDescription' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigurationDescription' {} a -> s {securityGroupIds = a} :: VpcConfigurationDescription) Prelude.. Lens.coerced
 
 -- | The ID of the Amazon ES destination\'s VPC.
 vpcConfigurationDescription_vpcId :: Lens.Lens' VpcConfigurationDescription Prelude.Text

@@ -165,10 +165,10 @@ newVpcConfiguration
   pSecurityGroupIds_ =
     VpcConfiguration'
       { subnetIds =
-          Lens._Coerce Lens.# pSubnetIds_,
+          Lens.coerced Lens.# pSubnetIds_,
         roleARN = pRoleARN_,
         securityGroupIds =
-          Lens._Coerce Lens.# pSecurityGroupIds_
+          Lens.coerced Lens.# pSecurityGroupIds_
       }
 
 -- | The IDs of the subnets that you want Kinesis Data Firehose to use to
@@ -189,7 +189,7 @@ newVpcConfiguration
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis Network Interfaces>
 -- in the Amazon VPC Quotas topic.
 vpcConfiguration_subnetIds :: Lens.Lens' VpcConfiguration (Prelude.NonEmpty Prelude.Text)
-vpcConfiguration_subnetIds = Lens.lens (\VpcConfiguration' {subnetIds} -> subnetIds) (\s@VpcConfiguration' {} a -> s {subnetIds = a} :: VpcConfiguration) Prelude.. Lens._Coerce
+vpcConfiguration_subnetIds = Lens.lens (\VpcConfiguration' {subnetIds} -> subnetIds) (\s@VpcConfiguration' {} a -> s {subnetIds = a} :: VpcConfiguration) Prelude.. Lens.coerced
 
 -- | The ARN of the IAM role that you want the delivery stream to use to
 -- create endpoints in the destination VPC. You can use your existing
@@ -232,7 +232,7 @@ vpcConfiguration_roleARN = Lens.lens (\VpcConfiguration' {roleARN} -> roleARN) (
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules Security group rules>
 -- in the Amazon VPC documentation.
 vpcConfiguration_securityGroupIds :: Lens.Lens' VpcConfiguration (Prelude.NonEmpty Prelude.Text)
-vpcConfiguration_securityGroupIds = Lens.lens (\VpcConfiguration' {securityGroupIds} -> securityGroupIds) (\s@VpcConfiguration' {} a -> s {securityGroupIds = a} :: VpcConfiguration) Prelude.. Lens._Coerce
+vpcConfiguration_securityGroupIds = Lens.lens (\VpcConfiguration' {securityGroupIds} -> securityGroupIds) (\s@VpcConfiguration' {} a -> s {securityGroupIds = a} :: VpcConfiguration) Prelude.. Lens.coerced
 
 instance Prelude.Hashable VpcConfiguration
 

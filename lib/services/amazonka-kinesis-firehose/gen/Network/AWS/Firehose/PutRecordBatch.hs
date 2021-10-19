@@ -143,7 +143,7 @@ newPutRecordBatch pDeliveryStreamName_ pRecords_ =
   PutRecordBatch'
     { deliveryStreamName =
         pDeliveryStreamName_,
-      records = Lens._Coerce Lens.# pRecords_
+      records = Lens.coerced Lens.# pRecords_
     }
 
 -- | The name of the delivery stream.
@@ -152,7 +152,7 @@ putRecordBatch_deliveryStreamName = Lens.lens (\PutRecordBatch' {deliveryStreamN
 
 -- | One or more records.
 putRecordBatch_records :: Lens.Lens' PutRecordBatch (Prelude.NonEmpty Record)
-putRecordBatch_records = Lens.lens (\PutRecordBatch' {records} -> records) (\s@PutRecordBatch' {} a -> s {records = a} :: PutRecordBatch) Prelude.. Lens._Coerce
+putRecordBatch_records = Lens.lens (\PutRecordBatch' {records} -> records) (\s@PutRecordBatch' {} a -> s {records = a} :: PutRecordBatch) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutRecordBatch where
   type
@@ -260,7 +260,7 @@ newPutRecordBatchResponse
         httpStatus = pHttpStatus_,
         failedPutCount = pFailedPutCount_,
         requestResponses =
-          Lens._Coerce Lens.# pRequestResponses_
+          Lens.coerced Lens.# pRequestResponses_
       }
 
 -- | Indicates whether server-side encryption (SSE) was enabled during this
@@ -282,6 +282,6 @@ putRecordBatchResponse_failedPutCount = Lens.lens (\PutRecordBatchResponse' {fai
 -- | The results array. For each record, the index of the response element is
 -- the same as the index used in the request array.
 putRecordBatchResponse_requestResponses :: Lens.Lens' PutRecordBatchResponse (Prelude.NonEmpty PutRecordBatchResponseEntry)
-putRecordBatchResponse_requestResponses = Lens.lens (\PutRecordBatchResponse' {requestResponses} -> requestResponses) (\s@PutRecordBatchResponse' {} a -> s {requestResponses = a} :: PutRecordBatchResponse) Prelude.. Lens._Coerce
+putRecordBatchResponse_requestResponses = Lens.lens (\PutRecordBatchResponse' {requestResponses} -> requestResponses) (\s@PutRecordBatchResponse' {} a -> s {requestResponses = a} :: PutRecordBatchResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData PutRecordBatchResponse

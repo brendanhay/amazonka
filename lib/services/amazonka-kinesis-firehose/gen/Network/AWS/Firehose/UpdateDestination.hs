@@ -61,12 +61,13 @@ module Network.AWS.Firehose.UpdateDestination
     newUpdateDestination,
 
     -- * Request Lenses
-    updateDestination_redshiftDestinationUpdate,
+    updateDestination_amazonopensearchserviceDestinationUpdate,
+    updateDestination_splunkDestinationUpdate,
     updateDestination_s3DestinationUpdate,
+    updateDestination_redshiftDestinationUpdate,
+    updateDestination_elasticsearchDestinationUpdate,
     updateDestination_extendedS3DestinationUpdate,
     updateDestination_httpEndpointDestinationUpdate,
-    updateDestination_elasticsearchDestinationUpdate,
-    updateDestination_splunkDestinationUpdate,
     updateDestination_deliveryStreamName,
     updateDestination_currentDeliveryStreamVersionId,
     updateDestination_destinationId,
@@ -89,18 +90,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDestination' smart constructor.
 data UpdateDestination = UpdateDestination'
-  { -- | Describes an update for a destination in Amazon Redshift.
-    redshiftDestinationUpdate :: Prelude.Maybe RedshiftDestinationUpdate,
+  { amazonopensearchserviceDestinationUpdate :: Prelude.Maybe AmazonopensearchserviceDestinationUpdate,
+    -- | Describes an update for a destination in Splunk.
+    splunkDestinationUpdate :: Prelude.Maybe SplunkDestinationUpdate,
     -- | [Deprecated] Describes an update for a destination in Amazon S3.
     s3DestinationUpdate :: Prelude.Maybe S3DestinationUpdate,
+    -- | Describes an update for a destination in Amazon Redshift.
+    redshiftDestinationUpdate :: Prelude.Maybe RedshiftDestinationUpdate,
+    -- | Describes an update for a destination in Amazon ES.
+    elasticsearchDestinationUpdate :: Prelude.Maybe ElasticsearchDestinationUpdate,
     -- | Describes an update for a destination in Amazon S3.
     extendedS3DestinationUpdate :: Prelude.Maybe ExtendedS3DestinationUpdate,
     -- | Describes an update to the specified HTTP endpoint destination.
     httpEndpointDestinationUpdate :: Prelude.Maybe HttpEndpointDestinationUpdate,
-    -- | Describes an update for a destination in Amazon ES.
-    elasticsearchDestinationUpdate :: Prelude.Maybe ElasticsearchDestinationUpdate,
-    -- | Describes an update for a destination in Splunk.
-    splunkDestinationUpdate :: Prelude.Maybe SplunkDestinationUpdate,
     -- | The name of the delivery stream.
     deliveryStreamName :: Prelude.Text,
     -- | Obtain this value from the @VersionId@ result of
@@ -124,17 +126,19 @@ data UpdateDestination = UpdateDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'redshiftDestinationUpdate', 'updateDestination_redshiftDestinationUpdate' - Describes an update for a destination in Amazon Redshift.
+-- 'amazonopensearchserviceDestinationUpdate', 'updateDestination_amazonopensearchserviceDestinationUpdate' - Undocumented member.
+--
+-- 'splunkDestinationUpdate', 'updateDestination_splunkDestinationUpdate' - Describes an update for a destination in Splunk.
 --
 -- 's3DestinationUpdate', 'updateDestination_s3DestinationUpdate' - [Deprecated] Describes an update for a destination in Amazon S3.
+--
+-- 'redshiftDestinationUpdate', 'updateDestination_redshiftDestinationUpdate' - Describes an update for a destination in Amazon Redshift.
+--
+-- 'elasticsearchDestinationUpdate', 'updateDestination_elasticsearchDestinationUpdate' - Describes an update for a destination in Amazon ES.
 --
 -- 'extendedS3DestinationUpdate', 'updateDestination_extendedS3DestinationUpdate' - Describes an update for a destination in Amazon S3.
 --
 -- 'httpEndpointDestinationUpdate', 'updateDestination_httpEndpointDestinationUpdate' - Describes an update to the specified HTTP endpoint destination.
---
--- 'elasticsearchDestinationUpdate', 'updateDestination_elasticsearchDestinationUpdate' - Describes an update for a destination in Amazon ES.
---
--- 'splunkDestinationUpdate', 'updateDestination_splunkDestinationUpdate' - Describes an update for a destination in Splunk.
 --
 -- 'deliveryStreamName', 'updateDestination_deliveryStreamName' - The name of the delivery stream.
 --
@@ -160,26 +164,39 @@ newUpdateDestination
   pCurrentDeliveryStreamVersionId_
   pDestinationId_ =
     UpdateDestination'
-      { redshiftDestinationUpdate =
+      { amazonopensearchserviceDestinationUpdate =
           Prelude.Nothing,
+        splunkDestinationUpdate = Prelude.Nothing,
         s3DestinationUpdate = Prelude.Nothing,
+        redshiftDestinationUpdate = Prelude.Nothing,
+        elasticsearchDestinationUpdate = Prelude.Nothing,
         extendedS3DestinationUpdate = Prelude.Nothing,
         httpEndpointDestinationUpdate = Prelude.Nothing,
-        elasticsearchDestinationUpdate = Prelude.Nothing,
-        splunkDestinationUpdate = Prelude.Nothing,
         deliveryStreamName = pDeliveryStreamName_,
         currentDeliveryStreamVersionId =
           pCurrentDeliveryStreamVersionId_,
         destinationId = pDestinationId_
       }
 
--- | Describes an update for a destination in Amazon Redshift.
-updateDestination_redshiftDestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe RedshiftDestinationUpdate)
-updateDestination_redshiftDestinationUpdate = Lens.lens (\UpdateDestination' {redshiftDestinationUpdate} -> redshiftDestinationUpdate) (\s@UpdateDestination' {} a -> s {redshiftDestinationUpdate = a} :: UpdateDestination)
+-- | Undocumented member.
+updateDestination_amazonopensearchserviceDestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe AmazonopensearchserviceDestinationUpdate)
+updateDestination_amazonopensearchserviceDestinationUpdate = Lens.lens (\UpdateDestination' {amazonopensearchserviceDestinationUpdate} -> amazonopensearchserviceDestinationUpdate) (\s@UpdateDestination' {} a -> s {amazonopensearchserviceDestinationUpdate = a} :: UpdateDestination)
+
+-- | Describes an update for a destination in Splunk.
+updateDestination_splunkDestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe SplunkDestinationUpdate)
+updateDestination_splunkDestinationUpdate = Lens.lens (\UpdateDestination' {splunkDestinationUpdate} -> splunkDestinationUpdate) (\s@UpdateDestination' {} a -> s {splunkDestinationUpdate = a} :: UpdateDestination)
 
 -- | [Deprecated] Describes an update for a destination in Amazon S3.
 updateDestination_s3DestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe S3DestinationUpdate)
 updateDestination_s3DestinationUpdate = Lens.lens (\UpdateDestination' {s3DestinationUpdate} -> s3DestinationUpdate) (\s@UpdateDestination' {} a -> s {s3DestinationUpdate = a} :: UpdateDestination)
+
+-- | Describes an update for a destination in Amazon Redshift.
+updateDestination_redshiftDestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe RedshiftDestinationUpdate)
+updateDestination_redshiftDestinationUpdate = Lens.lens (\UpdateDestination' {redshiftDestinationUpdate} -> redshiftDestinationUpdate) (\s@UpdateDestination' {} a -> s {redshiftDestinationUpdate = a} :: UpdateDestination)
+
+-- | Describes an update for a destination in Amazon ES.
+updateDestination_elasticsearchDestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe ElasticsearchDestinationUpdate)
+updateDestination_elasticsearchDestinationUpdate = Lens.lens (\UpdateDestination' {elasticsearchDestinationUpdate} -> elasticsearchDestinationUpdate) (\s@UpdateDestination' {} a -> s {elasticsearchDestinationUpdate = a} :: UpdateDestination)
 
 -- | Describes an update for a destination in Amazon S3.
 updateDestination_extendedS3DestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe ExtendedS3DestinationUpdate)
@@ -188,14 +205,6 @@ updateDestination_extendedS3DestinationUpdate = Lens.lens (\UpdateDestination' {
 -- | Describes an update to the specified HTTP endpoint destination.
 updateDestination_httpEndpointDestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe HttpEndpointDestinationUpdate)
 updateDestination_httpEndpointDestinationUpdate = Lens.lens (\UpdateDestination' {httpEndpointDestinationUpdate} -> httpEndpointDestinationUpdate) (\s@UpdateDestination' {} a -> s {httpEndpointDestinationUpdate = a} :: UpdateDestination)
-
--- | Describes an update for a destination in Amazon ES.
-updateDestination_elasticsearchDestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe ElasticsearchDestinationUpdate)
-updateDestination_elasticsearchDestinationUpdate = Lens.lens (\UpdateDestination' {elasticsearchDestinationUpdate} -> elasticsearchDestinationUpdate) (\s@UpdateDestination' {} a -> s {elasticsearchDestinationUpdate = a} :: UpdateDestination)
-
--- | Describes an update for a destination in Splunk.
-updateDestination_splunkDestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe SplunkDestinationUpdate)
-updateDestination_splunkDestinationUpdate = Lens.lens (\UpdateDestination' {splunkDestinationUpdate} -> splunkDestinationUpdate) (\s@UpdateDestination' {} a -> s {splunkDestinationUpdate = a} :: UpdateDestination)
 
 -- | The name of the delivery stream.
 updateDestination_deliveryStreamName :: Lens.Lens' UpdateDestination Prelude.Text
@@ -250,18 +259,20 @@ instance Core.ToJSON UpdateDestination where
   toJSON UpdateDestination' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RedshiftDestinationUpdate" Core..=)
-              Prelude.<$> redshiftDestinationUpdate,
+          [ ("AmazonopensearchserviceDestinationUpdate" Core..=)
+              Prelude.<$> amazonopensearchserviceDestinationUpdate,
+            ("SplunkDestinationUpdate" Core..=)
+              Prelude.<$> splunkDestinationUpdate,
             ("S3DestinationUpdate" Core..=)
               Prelude.<$> s3DestinationUpdate,
+            ("RedshiftDestinationUpdate" Core..=)
+              Prelude.<$> redshiftDestinationUpdate,
+            ("ElasticsearchDestinationUpdate" Core..=)
+              Prelude.<$> elasticsearchDestinationUpdate,
             ("ExtendedS3DestinationUpdate" Core..=)
               Prelude.<$> extendedS3DestinationUpdate,
             ("HttpEndpointDestinationUpdate" Core..=)
               Prelude.<$> httpEndpointDestinationUpdate,
-            ("ElasticsearchDestinationUpdate" Core..=)
-              Prelude.<$> elasticsearchDestinationUpdate,
-            ("SplunkDestinationUpdate" Core..=)
-              Prelude.<$> splunkDestinationUpdate,
             Prelude.Just
               ("DeliveryStreamName" Core..= deliveryStreamName),
             Prelude.Just

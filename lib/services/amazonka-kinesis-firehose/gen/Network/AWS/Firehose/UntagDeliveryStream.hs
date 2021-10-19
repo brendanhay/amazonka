@@ -84,7 +84,7 @@ newUntagDeliveryStream pDeliveryStreamName_ pTagKeys_ =
   UntagDeliveryStream'
     { deliveryStreamName =
         pDeliveryStreamName_,
-      tagKeys = Lens._Coerce Lens.# pTagKeys_
+      tagKeys = Lens.coerced Lens.# pTagKeys_
     }
 
 -- | The name of the delivery stream.
@@ -94,7 +94,7 @@ untagDeliveryStream_deliveryStreamName = Lens.lens (\UntagDeliveryStream' {deliv
 -- | A list of tag keys. Each corresponding tag is removed from the delivery
 -- stream.
 untagDeliveryStream_tagKeys :: Lens.Lens' UntagDeliveryStream (Prelude.NonEmpty Prelude.Text)
-untagDeliveryStream_tagKeys = Lens.lens (\UntagDeliveryStream' {tagKeys} -> tagKeys) (\s@UntagDeliveryStream' {} a -> s {tagKeys = a} :: UntagDeliveryStream) Prelude.. Lens._Coerce
+untagDeliveryStream_tagKeys = Lens.lens (\UntagDeliveryStream' {tagKeys} -> tagKeys) (\s@UntagDeliveryStream' {} a -> s {tagKeys = a} :: UntagDeliveryStream) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagDeliveryStream where
   type

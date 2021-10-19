@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHttpEndpointConfiguration' smart constructor.
 data HttpEndpointConfiguration = HttpEndpointConfiguration'
-  { -- | The access key required for Kinesis Firehose to authenticate with the
+  { -- | The name of the HTTP endpoint selected as the destination.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The access key required for Kinesis Firehose to authenticate with the
     -- HTTP endpoint selected as the destination.
     accessKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The name of the HTTP endpoint selected as the destination.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The URL of the HTTP endpoint selected as the destination.
     --
     -- If you choose an HTTP endpoint as your destination, review and follow
@@ -50,10 +50,10 @@ data HttpEndpointConfiguration = HttpEndpointConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'httpEndpointConfiguration_name' - The name of the HTTP endpoint selected as the destination.
+--
 -- 'accessKey', 'httpEndpointConfiguration_accessKey' - The access key required for Kinesis Firehose to authenticate with the
 -- HTTP endpoint selected as the destination.
---
--- 'name', 'httpEndpointConfiguration_name' - The name of the HTTP endpoint selected as the destination.
 --
 -- 'url', 'httpEndpointConfiguration_url' - The URL of the HTTP endpoint selected as the destination.
 --
@@ -66,20 +66,19 @@ newHttpEndpointConfiguration ::
   HttpEndpointConfiguration
 newHttpEndpointConfiguration pUrl_ =
   HttpEndpointConfiguration'
-    { accessKey =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      accessKey = Prelude.Nothing,
       url = Core._Sensitive Lens.# pUrl_
     }
+
+-- | The name of the HTTP endpoint selected as the destination.
+httpEndpointConfiguration_name :: Lens.Lens' HttpEndpointConfiguration (Prelude.Maybe Prelude.Text)
+httpEndpointConfiguration_name = Lens.lens (\HttpEndpointConfiguration' {name} -> name) (\s@HttpEndpointConfiguration' {} a -> s {name = a} :: HttpEndpointConfiguration)
 
 -- | The access key required for Kinesis Firehose to authenticate with the
 -- HTTP endpoint selected as the destination.
 httpEndpointConfiguration_accessKey :: Lens.Lens' HttpEndpointConfiguration (Prelude.Maybe Prelude.Text)
 httpEndpointConfiguration_accessKey = Lens.lens (\HttpEndpointConfiguration' {accessKey} -> accessKey) (\s@HttpEndpointConfiguration' {} a -> s {accessKey = a} :: HttpEndpointConfiguration) Prelude.. Lens.mapping Core._Sensitive
-
--- | The name of the HTTP endpoint selected as the destination.
-httpEndpointConfiguration_name :: Lens.Lens' HttpEndpointConfiguration (Prelude.Maybe Prelude.Text)
-httpEndpointConfiguration_name = Lens.lens (\HttpEndpointConfiguration' {name} -> name) (\s@HttpEndpointConfiguration' {} a -> s {name = a} :: HttpEndpointConfiguration)
 
 -- | The URL of the HTTP endpoint selected as the destination.
 --
@@ -97,8 +96,8 @@ instance Core.ToJSON HttpEndpointConfiguration where
   toJSON HttpEndpointConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AccessKey" Core..=) Prelude.<$> accessKey,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("AccessKey" Core..=) Prelude.<$> accessKey,
             Prelude.Just ("Url" Core..= url)
           ]
       )

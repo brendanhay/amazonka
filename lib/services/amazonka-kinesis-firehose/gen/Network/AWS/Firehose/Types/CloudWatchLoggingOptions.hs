@@ -28,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchLoggingOptions' smart constructor.
 data CloudWatchLoggingOptions = CloudWatchLoggingOptions'
-  { -- | The CloudWatch log stream name for logging. This value is required if
-    -- CloudWatch logging is enabled.
-    logStreamName :: Prelude.Maybe Prelude.Text,
-    -- | Enables or disables CloudWatch logging.
+  { -- | Enables or disables CloudWatch logging.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The CloudWatch group name for logging. This value is required if
     -- CloudWatch logging is enabled.
-    logGroupName :: Prelude.Maybe Prelude.Text
+    logGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The CloudWatch log stream name for logging. This value is required if
+    -- CloudWatch logging is enabled.
+    logStreamName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,27 +47,22 @@ data CloudWatchLoggingOptions = CloudWatchLoggingOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logStreamName', 'cloudWatchLoggingOptions_logStreamName' - The CloudWatch log stream name for logging. This value is required if
--- CloudWatch logging is enabled.
---
 -- 'enabled', 'cloudWatchLoggingOptions_enabled' - Enables or disables CloudWatch logging.
 --
 -- 'logGroupName', 'cloudWatchLoggingOptions_logGroupName' - The CloudWatch group name for logging. This value is required if
+-- CloudWatch logging is enabled.
+--
+-- 'logStreamName', 'cloudWatchLoggingOptions_logStreamName' - The CloudWatch log stream name for logging. This value is required if
 -- CloudWatch logging is enabled.
 newCloudWatchLoggingOptions ::
   CloudWatchLoggingOptions
 newCloudWatchLoggingOptions =
   CloudWatchLoggingOptions'
-    { logStreamName =
+    { enabled =
         Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      logGroupName = Prelude.Nothing
+      logGroupName = Prelude.Nothing,
+      logStreamName = Prelude.Nothing
     }
-
--- | The CloudWatch log stream name for logging. This value is required if
--- CloudWatch logging is enabled.
-cloudWatchLoggingOptions_logStreamName :: Lens.Lens' CloudWatchLoggingOptions (Prelude.Maybe Prelude.Text)
-cloudWatchLoggingOptions_logStreamName = Lens.lens (\CloudWatchLoggingOptions' {logStreamName} -> logStreamName) (\s@CloudWatchLoggingOptions' {} a -> s {logStreamName = a} :: CloudWatchLoggingOptions)
 
 -- | Enables or disables CloudWatch logging.
 cloudWatchLoggingOptions_enabled :: Lens.Lens' CloudWatchLoggingOptions (Prelude.Maybe Prelude.Bool)
@@ -78,15 +73,20 @@ cloudWatchLoggingOptions_enabled = Lens.lens (\CloudWatchLoggingOptions' {enable
 cloudWatchLoggingOptions_logGroupName :: Lens.Lens' CloudWatchLoggingOptions (Prelude.Maybe Prelude.Text)
 cloudWatchLoggingOptions_logGroupName = Lens.lens (\CloudWatchLoggingOptions' {logGroupName} -> logGroupName) (\s@CloudWatchLoggingOptions' {} a -> s {logGroupName = a} :: CloudWatchLoggingOptions)
 
+-- | The CloudWatch log stream name for logging. This value is required if
+-- CloudWatch logging is enabled.
+cloudWatchLoggingOptions_logStreamName :: Lens.Lens' CloudWatchLoggingOptions (Prelude.Maybe Prelude.Text)
+cloudWatchLoggingOptions_logStreamName = Lens.lens (\CloudWatchLoggingOptions' {logStreamName} -> logStreamName) (\s@CloudWatchLoggingOptions' {} a -> s {logStreamName = a} :: CloudWatchLoggingOptions)
+
 instance Core.FromJSON CloudWatchLoggingOptions where
   parseJSON =
     Core.withObject
       "CloudWatchLoggingOptions"
       ( \x ->
           CloudWatchLoggingOptions'
-            Prelude.<$> (x Core..:? "LogStreamName")
-            Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<$> (x Core..:? "Enabled")
             Prelude.<*> (x Core..:? "LogGroupName")
+            Prelude.<*> (x Core..:? "LogStreamName")
       )
 
 instance Prelude.Hashable CloudWatchLoggingOptions
@@ -97,8 +97,8 @@ instance Core.ToJSON CloudWatchLoggingOptions where
   toJSON CloudWatchLoggingOptions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LogStreamName" Core..=) Prelude.<$> logStreamName,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("LogGroupName" Core..=) Prelude.<$> logGroupName
+          [ ("Enabled" Core..=) Prelude.<$> enabled,
+            ("LogGroupName" Core..=) Prelude.<$> logGroupName,
+            ("LogStreamName" Core..=) Prelude.<$> logStreamName
           ]
       )

@@ -73,7 +73,7 @@ newHiveJsonSerDe =
 -- milliseconds. If you don\'t specify a format, Kinesis Data Firehose uses
 -- @java.sql.Timestamp::valueOf@ by default.
 hiveJsonSerDe_timestampFormats :: Lens.Lens' HiveJsonSerDe (Prelude.Maybe [Prelude.Text])
-hiveJsonSerDe_timestampFormats = Lens.lens (\HiveJsonSerDe' {timestampFormats} -> timestampFormats) (\s@HiveJsonSerDe' {} a -> s {timestampFormats = a} :: HiveJsonSerDe) Prelude.. Lens.mapping Lens._Coerce
+hiveJsonSerDe_timestampFormats = Lens.lens (\HiveJsonSerDe' {timestampFormats} -> timestampFormats) (\s@HiveJsonSerDe' {} a -> s {timestampFormats = a} :: HiveJsonSerDe) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON HiveJsonSerDe where
   parseJSON =

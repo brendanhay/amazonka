@@ -33,18 +33,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeliveryStreamDescription' smart constructor.
 data DeliveryStreamDescription = DeliveryStreamDescription'
-  { -- | Indicates the server-side encryption (SSE) status for the delivery
-    -- stream.
-    deliveryStreamEncryptionConfiguration :: Prelude.Maybe DeliveryStreamEncryptionConfiguration,
-    -- | If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@, a
-    -- SourceDescription object describing the source Kinesis data stream.
-    source :: Prelude.Maybe SourceDescription,
-    -- | The date and time that the delivery stream was created.
-    createTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | Provides details in case one of the following operations fails due to an
+  { -- | Provides details in case one of the following operations fails due to an
     -- error related to KMS: CreateDeliveryStream, DeleteDeliveryStream,
     -- StartDeliveryStreamEncryption, StopDeliveryStreamEncryption.
     failureDescription :: Prelude.Maybe FailureDescription,
+    -- | Indicates the server-side encryption (SSE) status for the delivery
+    -- stream.
+    deliveryStreamEncryptionConfiguration :: Prelude.Maybe DeliveryStreamEncryptionConfiguration,
+    -- | The date and time that the delivery stream was created.
+    createTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@, a
+    -- SourceDescription object describing the source Kinesis data stream.
+    source :: Prelude.Maybe SourceDescription,
     -- | The date and time that the delivery stream was last updated.
     lastUpdateTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The name of the delivery stream.
@@ -86,17 +86,17 @@ data DeliveryStreamDescription = DeliveryStreamDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deliveryStreamEncryptionConfiguration', 'deliveryStreamDescription_deliveryStreamEncryptionConfiguration' - Indicates the server-side encryption (SSE) status for the delivery
--- stream.
---
--- 'source', 'deliveryStreamDescription_source' - If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@, a
--- SourceDescription object describing the source Kinesis data stream.
---
--- 'createTimestamp', 'deliveryStreamDescription_createTimestamp' - The date and time that the delivery stream was created.
---
 -- 'failureDescription', 'deliveryStreamDescription_failureDescription' - Provides details in case one of the following operations fails due to an
 -- error related to KMS: CreateDeliveryStream, DeleteDeliveryStream,
 -- StartDeliveryStreamEncryption, StopDeliveryStreamEncryption.
+--
+-- 'deliveryStreamEncryptionConfiguration', 'deliveryStreamDescription_deliveryStreamEncryptionConfiguration' - Indicates the server-side encryption (SSE) status for the delivery
+-- stream.
+--
+-- 'createTimestamp', 'deliveryStreamDescription_createTimestamp' - The date and time that the delivery stream was created.
+--
+-- 'source', 'deliveryStreamDescription_source' - If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@, a
+-- SourceDescription object describing the source Kinesis data stream.
 --
 -- 'lastUpdateTimestamp', 'deliveryStreamDescription_lastUpdateTimestamp' - The date and time that the delivery stream was last updated.
 --
@@ -149,11 +149,12 @@ newDeliveryStreamDescription
   pVersionId_
   pHasMoreDestinations_ =
     DeliveryStreamDescription'
-      { deliveryStreamEncryptionConfiguration =
+      { failureDescription =
           Prelude.Nothing,
-        source = Prelude.Nothing,
+        deliveryStreamEncryptionConfiguration =
+          Prelude.Nothing,
         createTimestamp = Prelude.Nothing,
-        failureDescription = Prelude.Nothing,
+        source = Prelude.Nothing,
         lastUpdateTimestamp = Prelude.Nothing,
         deliveryStreamName = pDeliveryStreamName_,
         deliveryStreamARN = pDeliveryStreamARN_,
@@ -164,25 +165,25 @@ newDeliveryStreamDescription
         hasMoreDestinations = pHasMoreDestinations_
       }
 
--- | Indicates the server-side encryption (SSE) status for the delivery
--- stream.
-deliveryStreamDescription_deliveryStreamEncryptionConfiguration :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe DeliveryStreamEncryptionConfiguration)
-deliveryStreamDescription_deliveryStreamEncryptionConfiguration = Lens.lens (\DeliveryStreamDescription' {deliveryStreamEncryptionConfiguration} -> deliveryStreamEncryptionConfiguration) (\s@DeliveryStreamDescription' {} a -> s {deliveryStreamEncryptionConfiguration = a} :: DeliveryStreamDescription)
-
--- | If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@, a
--- SourceDescription object describing the source Kinesis data stream.
-deliveryStreamDescription_source :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe SourceDescription)
-deliveryStreamDescription_source = Lens.lens (\DeliveryStreamDescription' {source} -> source) (\s@DeliveryStreamDescription' {} a -> s {source = a} :: DeliveryStreamDescription)
-
--- | The date and time that the delivery stream was created.
-deliveryStreamDescription_createTimestamp :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe Prelude.UTCTime)
-deliveryStreamDescription_createTimestamp = Lens.lens (\DeliveryStreamDescription' {createTimestamp} -> createTimestamp) (\s@DeliveryStreamDescription' {} a -> s {createTimestamp = a} :: DeliveryStreamDescription) Prelude.. Lens.mapping Core._Time
-
 -- | Provides details in case one of the following operations fails due to an
 -- error related to KMS: CreateDeliveryStream, DeleteDeliveryStream,
 -- StartDeliveryStreamEncryption, StopDeliveryStreamEncryption.
 deliveryStreamDescription_failureDescription :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe FailureDescription)
 deliveryStreamDescription_failureDescription = Lens.lens (\DeliveryStreamDescription' {failureDescription} -> failureDescription) (\s@DeliveryStreamDescription' {} a -> s {failureDescription = a} :: DeliveryStreamDescription)
+
+-- | Indicates the server-side encryption (SSE) status for the delivery
+-- stream.
+deliveryStreamDescription_deliveryStreamEncryptionConfiguration :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe DeliveryStreamEncryptionConfiguration)
+deliveryStreamDescription_deliveryStreamEncryptionConfiguration = Lens.lens (\DeliveryStreamDescription' {deliveryStreamEncryptionConfiguration} -> deliveryStreamEncryptionConfiguration) (\s@DeliveryStreamDescription' {} a -> s {deliveryStreamEncryptionConfiguration = a} :: DeliveryStreamDescription)
+
+-- | The date and time that the delivery stream was created.
+deliveryStreamDescription_createTimestamp :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe Prelude.UTCTime)
+deliveryStreamDescription_createTimestamp = Lens.lens (\DeliveryStreamDescription' {createTimestamp} -> createTimestamp) (\s@DeliveryStreamDescription' {} a -> s {createTimestamp = a} :: DeliveryStreamDescription) Prelude.. Lens.mapping Core._Time
+
+-- | If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@, a
+-- SourceDescription object describing the source Kinesis data stream.
+deliveryStreamDescription_source :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe SourceDescription)
+deliveryStreamDescription_source = Lens.lens (\DeliveryStreamDescription' {source} -> source) (\s@DeliveryStreamDescription' {} a -> s {source = a} :: DeliveryStreamDescription)
 
 -- | The date and time that the delivery stream was last updated.
 deliveryStreamDescription_lastUpdateTimestamp :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe Prelude.UTCTime)
@@ -224,7 +225,7 @@ deliveryStreamDescription_versionId = Lens.lens (\DeliveryStreamDescription' {ve
 
 -- | The destinations.
 deliveryStreamDescription_destinations :: Lens.Lens' DeliveryStreamDescription [DestinationDescription]
-deliveryStreamDescription_destinations = Lens.lens (\DeliveryStreamDescription' {destinations} -> destinations) (\s@DeliveryStreamDescription' {} a -> s {destinations = a} :: DeliveryStreamDescription) Prelude.. Lens._Coerce
+deliveryStreamDescription_destinations = Lens.lens (\DeliveryStreamDescription' {destinations} -> destinations) (\s@DeliveryStreamDescription' {} a -> s {destinations = a} :: DeliveryStreamDescription) Prelude.. Lens.coerced
 
 -- | Indicates whether there are more destinations available to list.
 deliveryStreamDescription_hasMoreDestinations :: Lens.Lens' DeliveryStreamDescription Prelude.Bool
@@ -236,10 +237,10 @@ instance Core.FromJSON DeliveryStreamDescription where
       "DeliveryStreamDescription"
       ( \x ->
           DeliveryStreamDescription'
-            Prelude.<$> (x Core..:? "DeliveryStreamEncryptionConfiguration")
-            Prelude.<*> (x Core..:? "Source")
+            Prelude.<$> (x Core..:? "FailureDescription")
+            Prelude.<*> (x Core..:? "DeliveryStreamEncryptionConfiguration")
             Prelude.<*> (x Core..:? "CreateTimestamp")
-            Prelude.<*> (x Core..:? "FailureDescription")
+            Prelude.<*> (x Core..:? "Source")
             Prelude.<*> (x Core..:? "LastUpdateTimestamp")
             Prelude.<*> (x Core..: "DeliveryStreamName")
             Prelude.<*> (x Core..: "DeliveryStreamARN")

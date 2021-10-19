@@ -88,7 +88,7 @@ newTagDeliveryStream pDeliveryStreamName_ pTags_ =
   TagDeliveryStream'
     { deliveryStreamName =
         pDeliveryStreamName_,
-      tags = Lens._Coerce Lens.# pTags_
+      tags = Lens.coerced Lens.# pTags_
     }
 
 -- | The name of the delivery stream to which you want to add the tags.
@@ -97,7 +97,7 @@ tagDeliveryStream_deliveryStreamName = Lens.lens (\TagDeliveryStream' {deliveryS
 
 -- | A set of key-value pairs to use to create the tags.
 tagDeliveryStream_tags :: Lens.Lens' TagDeliveryStream (Prelude.NonEmpty Tag)
-tagDeliveryStream_tags = Lens.lens (\TagDeliveryStream' {tags} -> tags) (\s@TagDeliveryStream' {} a -> s {tags = a} :: TagDeliveryStream) Prelude.. Lens._Coerce
+tagDeliveryStream_tags = Lens.lens (\TagDeliveryStream' {tags} -> tags) (\s@TagDeliveryStream' {} a -> s {tags = a} :: TagDeliveryStream) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagDeliveryStream where
   type

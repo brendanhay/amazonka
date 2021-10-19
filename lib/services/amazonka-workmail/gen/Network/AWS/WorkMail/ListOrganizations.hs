@@ -209,7 +209,7 @@ listOrganizationsResponse_nextToken = Lens.lens (\ListOrganizationsResponse' {ne
 -- | The overview of owned organizations presented as a list of organization
 -- summaries.
 listOrganizationsResponse_organizationSummaries :: Lens.Lens' ListOrganizationsResponse (Prelude.Maybe [OrganizationSummary])
-listOrganizationsResponse_organizationSummaries = Lens.lens (\ListOrganizationsResponse' {organizationSummaries} -> organizationSummaries) (\s@ListOrganizationsResponse' {} a -> s {organizationSummaries = a} :: ListOrganizationsResponse) Prelude.. Lens.mapping Lens._Coerce
+listOrganizationsResponse_organizationSummaries = Lens.lens (\ListOrganizationsResponse' {organizationSummaries} -> organizationSummaries) (\s@ListOrganizationsResponse' {} a -> s {organizationSummaries = a} :: ListOrganizationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listOrganizationsResponse_httpStatus :: Lens.Lens' ListOrganizationsResponse Prelude.Int

@@ -22,6 +22,10 @@
 --
 -- Deletes a mobile device access rule for the specified Amazon WorkMail
 -- organization.
+--
+-- Deleting already deleted and non-existing rules does not produce an
+-- error. In those cases, the service sends back an HTTP 200 response with
+-- an empty HTTP body.
 module Network.AWS.WorkMail.DeleteMobileDeviceAccessRule
   ( -- * Creating a Request
     DeleteMobileDeviceAccessRule (..),

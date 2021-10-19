@@ -138,7 +138,7 @@ putMailboxPermissions_granteeId = Lens.lens (\PutMailboxPermissions' {granteeId}
 -- access to the mailbox, irrespective of other folder-level permissions
 -- set on the mailbox.
 putMailboxPermissions_permissionValues :: Lens.Lens' PutMailboxPermissions [PermissionType]
-putMailboxPermissions_permissionValues = Lens.lens (\PutMailboxPermissions' {permissionValues} -> permissionValues) (\s@PutMailboxPermissions' {} a -> s {permissionValues = a} :: PutMailboxPermissions) Prelude.. Lens._Coerce
+putMailboxPermissions_permissionValues = Lens.lens (\PutMailboxPermissions' {permissionValues} -> permissionValues) (\s@PutMailboxPermissions' {} a -> s {permissionValues = a} :: PutMailboxPermissions) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutMailboxPermissions where
   type

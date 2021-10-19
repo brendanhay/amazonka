@@ -35,9 +35,9 @@ module Network.AWS.WorkMail.GetDefaultRetentionPolicy
     newGetDefaultRetentionPolicyResponse,
 
     -- * Response Lenses
+    getDefaultRetentionPolicyResponse_name,
     getDefaultRetentionPolicyResponse_id,
     getDefaultRetentionPolicyResponse_folderConfigurations,
-    getDefaultRetentionPolicyResponse_name,
     getDefaultRetentionPolicyResponse_description,
     getDefaultRetentionPolicyResponse_httpStatus,
   )
@@ -89,11 +89,11 @@ instance Core.AWSRequest GetDefaultRetentionPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetDefaultRetentionPolicyResponse'
-            Prelude.<$> (x Core..?> "Id")
+            Prelude.<$> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "Id")
             Prelude.<*> ( x Core..?> "FolderConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -134,12 +134,12 @@ instance Core.ToQuery GetDefaultRetentionPolicy where
 
 -- | /See:/ 'newGetDefaultRetentionPolicyResponse' smart constructor.
 data GetDefaultRetentionPolicyResponse = GetDefaultRetentionPolicyResponse'
-  { -- | The retention policy ID.
+  { -- | The retention policy name.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The retention policy ID.
     id :: Prelude.Maybe Prelude.Text,
     -- | The retention policy folder configurations.
     folderConfigurations :: Prelude.Maybe [FolderConfiguration],
-    -- | The retention policy name.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The retention policy description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -155,11 +155,11 @@ data GetDefaultRetentionPolicyResponse = GetDefaultRetentionPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'getDefaultRetentionPolicyResponse_name' - The retention policy name.
+--
 -- 'id', 'getDefaultRetentionPolicyResponse_id' - The retention policy ID.
 --
 -- 'folderConfigurations', 'getDefaultRetentionPolicyResponse_folderConfigurations' - The retention policy folder configurations.
---
--- 'name', 'getDefaultRetentionPolicyResponse_name' - The retention policy name.
 --
 -- 'description', 'getDefaultRetentionPolicyResponse_description' - The retention policy description.
 --
@@ -170,13 +170,17 @@ newGetDefaultRetentionPolicyResponse ::
   GetDefaultRetentionPolicyResponse
 newGetDefaultRetentionPolicyResponse pHttpStatus_ =
   GetDefaultRetentionPolicyResponse'
-    { id =
+    { name =
         Prelude.Nothing,
+      id = Prelude.Nothing,
       folderConfigurations = Prelude.Nothing,
-      name = Prelude.Nothing,
       description = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The retention policy name.
+getDefaultRetentionPolicyResponse_name :: Lens.Lens' GetDefaultRetentionPolicyResponse (Prelude.Maybe Prelude.Text)
+getDefaultRetentionPolicyResponse_name = Lens.lens (\GetDefaultRetentionPolicyResponse' {name} -> name) (\s@GetDefaultRetentionPolicyResponse' {} a -> s {name = a} :: GetDefaultRetentionPolicyResponse)
 
 -- | The retention policy ID.
 getDefaultRetentionPolicyResponse_id :: Lens.Lens' GetDefaultRetentionPolicyResponse (Prelude.Maybe Prelude.Text)
@@ -184,11 +188,7 @@ getDefaultRetentionPolicyResponse_id = Lens.lens (\GetDefaultRetentionPolicyResp
 
 -- | The retention policy folder configurations.
 getDefaultRetentionPolicyResponse_folderConfigurations :: Lens.Lens' GetDefaultRetentionPolicyResponse (Prelude.Maybe [FolderConfiguration])
-getDefaultRetentionPolicyResponse_folderConfigurations = Lens.lens (\GetDefaultRetentionPolicyResponse' {folderConfigurations} -> folderConfigurations) (\s@GetDefaultRetentionPolicyResponse' {} a -> s {folderConfigurations = a} :: GetDefaultRetentionPolicyResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The retention policy name.
-getDefaultRetentionPolicyResponse_name :: Lens.Lens' GetDefaultRetentionPolicyResponse (Prelude.Maybe Prelude.Text)
-getDefaultRetentionPolicyResponse_name = Lens.lens (\GetDefaultRetentionPolicyResponse' {name} -> name) (\s@GetDefaultRetentionPolicyResponse' {} a -> s {name = a} :: GetDefaultRetentionPolicyResponse)
+getDefaultRetentionPolicyResponse_folderConfigurations = Lens.lens (\GetDefaultRetentionPolicyResponse' {folderConfigurations} -> folderConfigurations) (\s@GetDefaultRetentionPolicyResponse' {} a -> s {folderConfigurations = a} :: GetDefaultRetentionPolicyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The retention policy description.
 getDefaultRetentionPolicyResponse_description :: Lens.Lens' GetDefaultRetentionPolicyResponse (Prelude.Maybe Prelude.Text)

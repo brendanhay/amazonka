@@ -156,7 +156,7 @@ newListAccessControlRulesResponse pHttpStatus_ =
 
 -- | The access control rules.
 listAccessControlRulesResponse_rules :: Lens.Lens' ListAccessControlRulesResponse (Prelude.Maybe [AccessControlRule])
-listAccessControlRulesResponse_rules = Lens.lens (\ListAccessControlRulesResponse' {rules} -> rules) (\s@ListAccessControlRulesResponse' {} a -> s {rules = a} :: ListAccessControlRulesResponse) Prelude.. Lens.mapping Lens._Coerce
+listAccessControlRulesResponse_rules = Lens.lens (\ListAccessControlRulesResponse' {rules} -> rules) (\s@ListAccessControlRulesResponse' {} a -> s {rules = a} :: ListAccessControlRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAccessControlRulesResponse_httpStatus :: Lens.Lens' ListAccessControlRulesResponse Prelude.Int

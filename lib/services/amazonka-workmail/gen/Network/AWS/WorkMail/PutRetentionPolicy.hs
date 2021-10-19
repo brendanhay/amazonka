@@ -114,7 +114,7 @@ putRetentionPolicy_name = Lens.lens (\PutRetentionPolicy' {name} -> name) (\s@Pu
 
 -- | The retention policy folder configurations.
 putRetentionPolicy_folderConfigurations :: Lens.Lens' PutRetentionPolicy [FolderConfiguration]
-putRetentionPolicy_folderConfigurations = Lens.lens (\PutRetentionPolicy' {folderConfigurations} -> folderConfigurations) (\s@PutRetentionPolicy' {} a -> s {folderConfigurations = a} :: PutRetentionPolicy) Prelude.. Lens._Coerce
+putRetentionPolicy_folderConfigurations = Lens.lens (\PutRetentionPolicy' {folderConfigurations} -> folderConfigurations) (\s@PutRetentionPolicy' {} a -> s {folderConfigurations = a} :: PutRetentionPolicy) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutRetentionPolicy where
   type

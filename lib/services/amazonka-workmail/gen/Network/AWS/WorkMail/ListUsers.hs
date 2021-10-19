@@ -38,8 +38,8 @@ module Network.AWS.WorkMail.ListUsers
     newListUsersResponse,
 
     -- * Response Lenses
-    listUsersResponse_nextToken,
     listUsersResponse_users,
+    listUsersResponse_nextToken,
     listUsersResponse_httpStatus,
   )
 where
@@ -127,8 +127,8 @@ instance Core.AWSRequest ListUsers where
     Response.receiveJSON
       ( \s h x ->
           ListUsersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Users" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Users" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,11 +168,11 @@ instance Core.ToQuery ListUsers where
 
 -- | /See:/ 'newListUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | The overview of users for an organization.
+    users :: Prelude.Maybe [User],
+    -- | The token to use to retrieve the next page of results. This value is
     -- \`null\` when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The overview of users for an organization.
-    users :: Prelude.Maybe [User],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,10 +186,10 @@ data ListUsersResponse = ListUsersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'users', 'listUsersResponse_users' - The overview of users for an organization.
+--
 -- 'nextToken', 'listUsersResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- \`null\` when there are no more results to return.
---
--- 'users', 'listUsersResponse_users' - The overview of users for an organization.
 --
 -- 'httpStatus', 'listUsersResponse_httpStatus' - The response's http status code.
 newListUsersResponse ::
@@ -198,19 +198,19 @@ newListUsersResponse ::
   ListUsersResponse
 newListUsersResponse pHttpStatus_ =
   ListUsersResponse'
-    { nextToken = Prelude.Nothing,
-      users = Prelude.Nothing,
+    { users = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The overview of users for an organization.
+listUsersResponse_users :: Lens.Lens' ListUsersResponse (Prelude.Maybe [User])
+listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@ListUsersResponse' {} a -> s {users = a} :: ListUsersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- \`null\` when there are no more results to return.
 listUsersResponse_nextToken :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Text)
 listUsersResponse_nextToken = Lens.lens (\ListUsersResponse' {nextToken} -> nextToken) (\s@ListUsersResponse' {} a -> s {nextToken = a} :: ListUsersResponse)
-
--- | The overview of users for an organization.
-listUsersResponse_users :: Lens.Lens' ListUsersResponse (Prelude.Maybe [User])
-listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@ListUsersResponse' {} a -> s {users = a} :: ListUsersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listUsersResponse_httpStatus :: Lens.Lens' ListUsersResponse Prelude.Int

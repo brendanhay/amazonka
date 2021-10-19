@@ -40,8 +40,8 @@ module Network.AWS.WorkMail.ListResourceDelegates
     newListResourceDelegatesResponse,
 
     -- * Response Lenses
-    listResourceDelegatesResponse_nextToken,
     listResourceDelegatesResponse_delegates,
+    listResourceDelegatesResponse_nextToken,
     listResourceDelegatesResponse_httpStatus,
   )
 where
@@ -150,8 +150,8 @@ instance Core.AWSRequest ListResourceDelegates where
     Response.receiveJSON
       ( \s h x ->
           ListResourceDelegatesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Delegates" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Delegates" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,12 +194,12 @@ instance Core.ToQuery ListResourceDelegates where
 
 -- | /See:/ 'newListResourceDelegatesResponse' smart constructor.
 data ListResourceDelegatesResponse = ListResourceDelegatesResponse'
-  { -- | The token used to paginate through the delegates associated with a
+  { -- | One page of the resource\'s delegates.
+    delegates :: Prelude.Maybe [Delegate],
+    -- | The token used to paginate through the delegates associated with a
     -- resource. While results are still available, it has an associated value.
     -- When the last page is reached, the token is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One page of the resource\'s delegates.
-    delegates :: Prelude.Maybe [Delegate],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,11 +213,11 @@ data ListResourceDelegatesResponse = ListResourceDelegatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'delegates', 'listResourceDelegatesResponse_delegates' - One page of the resource\'s delegates.
+--
 -- 'nextToken', 'listResourceDelegatesResponse_nextToken' - The token used to paginate through the delegates associated with a
 -- resource. While results are still available, it has an associated value.
 -- When the last page is reached, the token is empty.
---
--- 'delegates', 'listResourceDelegatesResponse_delegates' - One page of the resource\'s delegates.
 --
 -- 'httpStatus', 'listResourceDelegatesResponse_httpStatus' - The response's http status code.
 newListResourceDelegatesResponse ::
@@ -226,21 +226,21 @@ newListResourceDelegatesResponse ::
   ListResourceDelegatesResponse
 newListResourceDelegatesResponse pHttpStatus_ =
   ListResourceDelegatesResponse'
-    { nextToken =
+    { delegates =
         Prelude.Nothing,
-      delegates = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | One page of the resource\'s delegates.
+listResourceDelegatesResponse_delegates :: Lens.Lens' ListResourceDelegatesResponse (Prelude.Maybe [Delegate])
+listResourceDelegatesResponse_delegates = Lens.lens (\ListResourceDelegatesResponse' {delegates} -> delegates) (\s@ListResourceDelegatesResponse' {} a -> s {delegates = a} :: ListResourceDelegatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token used to paginate through the delegates associated with a
 -- resource. While results are still available, it has an associated value.
 -- When the last page is reached, the token is empty.
 listResourceDelegatesResponse_nextToken :: Lens.Lens' ListResourceDelegatesResponse (Prelude.Maybe Prelude.Text)
 listResourceDelegatesResponse_nextToken = Lens.lens (\ListResourceDelegatesResponse' {nextToken} -> nextToken) (\s@ListResourceDelegatesResponse' {} a -> s {nextToken = a} :: ListResourceDelegatesResponse)
-
--- | One page of the resource\'s delegates.
-listResourceDelegatesResponse_delegates :: Lens.Lens' ListResourceDelegatesResponse (Prelude.Maybe [Delegate])
-listResourceDelegatesResponse_delegates = Lens.lens (\ListResourceDelegatesResponse' {delegates} -> delegates) (\s@ListResourceDelegatesResponse' {} a -> s {delegates = a} :: ListResourceDelegatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listResourceDelegatesResponse_httpStatus :: Lens.Lens' ListResourceDelegatesResponse Prelude.Int

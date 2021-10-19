@@ -38,8 +38,8 @@ module Network.AWS.WorkMail.GetAccessControlEffect
     newGetAccessControlEffectResponse,
 
     -- * Response Lenses
-    getAccessControlEffectResponse_matchedRules,
     getAccessControlEffectResponse_effect,
+    getAccessControlEffectResponse_matchedRules,
     getAccessControlEffectResponse_httpStatus,
   )
 where
@@ -130,8 +130,8 @@ instance Core.AWSRequest GetAccessControlEffect where
     Response.receiveJSON
       ( \s h x ->
           GetAccessControlEffectResponse'
-            Prelude.<$> (x Core..?> "MatchedRules" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Effect")
+            Prelude.<$> (x Core..?> "Effect")
+            Prelude.<*> (x Core..?> "MatchedRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,10 +174,10 @@ instance Core.ToQuery GetAccessControlEffect where
 
 -- | /See:/ 'newGetAccessControlEffectResponse' smart constructor.
 data GetAccessControlEffectResponse = GetAccessControlEffectResponse'
-  { -- | The rules that match the given parameters, resulting in an effect.
-    matchedRules :: Prelude.Maybe [Prelude.Text],
-    -- | The rule effect.
+  { -- | The rule effect.
     effect :: Prelude.Maybe AccessControlRuleEffect,
+    -- | The rules that match the given parameters, resulting in an effect.
+    matchedRules :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,9 +191,9 @@ data GetAccessControlEffectResponse = GetAccessControlEffectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'matchedRules', 'getAccessControlEffectResponse_matchedRules' - The rules that match the given parameters, resulting in an effect.
---
 -- 'effect', 'getAccessControlEffectResponse_effect' - The rule effect.
+--
+-- 'matchedRules', 'getAccessControlEffectResponse_matchedRules' - The rules that match the given parameters, resulting in an effect.
 --
 -- 'httpStatus', 'getAccessControlEffectResponse_httpStatus' - The response's http status code.
 newGetAccessControlEffectResponse ::
@@ -202,19 +202,19 @@ newGetAccessControlEffectResponse ::
   GetAccessControlEffectResponse
 newGetAccessControlEffectResponse pHttpStatus_ =
   GetAccessControlEffectResponse'
-    { matchedRules =
+    { effect =
         Prelude.Nothing,
-      effect = Prelude.Nothing,
+      matchedRules = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The rules that match the given parameters, resulting in an effect.
-getAccessControlEffectResponse_matchedRules :: Lens.Lens' GetAccessControlEffectResponse (Prelude.Maybe [Prelude.Text])
-getAccessControlEffectResponse_matchedRules = Lens.lens (\GetAccessControlEffectResponse' {matchedRules} -> matchedRules) (\s@GetAccessControlEffectResponse' {} a -> s {matchedRules = a} :: GetAccessControlEffectResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The rule effect.
 getAccessControlEffectResponse_effect :: Lens.Lens' GetAccessControlEffectResponse (Prelude.Maybe AccessControlRuleEffect)
 getAccessControlEffectResponse_effect = Lens.lens (\GetAccessControlEffectResponse' {effect} -> effect) (\s@GetAccessControlEffectResponse' {} a -> s {effect = a} :: GetAccessControlEffectResponse)
+
+-- | The rules that match the given parameters, resulting in an effect.
+getAccessControlEffectResponse_matchedRules :: Lens.Lens' GetAccessControlEffectResponse (Prelude.Maybe [Prelude.Text])
+getAccessControlEffectResponse_matchedRules = Lens.lens (\GetAccessControlEffectResponse' {matchedRules} -> matchedRules) (\s@GetAccessControlEffectResponse' {} a -> s {matchedRules = a} :: GetAccessControlEffectResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getAccessControlEffectResponse_httpStatus :: Lens.Lens' GetAccessControlEffectResponse Prelude.Int

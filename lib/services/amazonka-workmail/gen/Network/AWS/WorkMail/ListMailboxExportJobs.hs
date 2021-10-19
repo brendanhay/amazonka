@@ -189,7 +189,7 @@ listMailboxExportJobsResponse_nextToken = Lens.lens (\ListMailboxExportJobsRespo
 
 -- | The mailbox export job details.
 listMailboxExportJobsResponse_jobs :: Lens.Lens' ListMailboxExportJobsResponse (Prelude.Maybe [MailboxExportJob])
-listMailboxExportJobsResponse_jobs = Lens.lens (\ListMailboxExportJobsResponse' {jobs} -> jobs) (\s@ListMailboxExportJobsResponse' {} a -> s {jobs = a} :: ListMailboxExportJobsResponse) Prelude.. Lens.mapping Lens._Coerce
+listMailboxExportJobsResponse_jobs = Lens.lens (\ListMailboxExportJobsResponse' {jobs} -> jobs) (\s@ListMailboxExportJobsResponse' {} a -> s {jobs = a} :: ListMailboxExportJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listMailboxExportJobsResponse_httpStatus :: Lens.Lens' ListMailboxExportJobsResponse Prelude.Int

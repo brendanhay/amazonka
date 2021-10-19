@@ -239,7 +239,7 @@ listMailboxPermissionsResponse_nextToken = Lens.lens (\ListMailboxPermissionsRes
 
 -- | One page of the user, group, or resource mailbox permissions.
 listMailboxPermissionsResponse_permissions :: Lens.Lens' ListMailboxPermissionsResponse (Prelude.Maybe [Permission])
-listMailboxPermissionsResponse_permissions = Lens.lens (\ListMailboxPermissionsResponse' {permissions} -> permissions) (\s@ListMailboxPermissionsResponse' {} a -> s {permissions = a} :: ListMailboxPermissionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listMailboxPermissionsResponse_permissions = Lens.lens (\ListMailboxPermissionsResponse' {permissions} -> permissions) (\s@ListMailboxPermissionsResponse' {} a -> s {permissions = a} :: ListMailboxPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listMailboxPermissionsResponse_httpStatus :: Lens.Lens' ListMailboxPermissionsResponse Prelude.Int

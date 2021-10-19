@@ -47,17 +47,26 @@ module Network.AWS.WorkMail
     -- * Errors
     -- $errors
 
-    -- ** OrganizationNotFoundException
-    _OrganizationNotFoundException,
+    -- ** DirectoryUnavailableException
+    _DirectoryUnavailableException,
 
-    -- ** EntityNotFoundException
-    _EntityNotFoundException,
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
-    -- ** ReservedNameException
-    _ReservedNameException,
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
 
-    -- ** NameAvailabilityException
-    _NameAvailabilityException,
+    -- ** DirectoryServiceAuthenticationFailedException
+    _DirectoryServiceAuthenticationFailedException,
+
+    -- ** OrganizationStateException
+    _OrganizationStateException,
+
+    -- ** EntityStateException
+    _EntityStateException,
+
+    -- ** InvalidConfigurationException
+    _InvalidConfigurationException,
 
     -- ** TooManyTagsException
     _TooManyTagsException,
@@ -65,47 +74,44 @@ module Network.AWS.WorkMail
     -- ** MailDomainStateException
     _MailDomainStateException,
 
-    -- ** InvalidConfigurationException
-    _InvalidConfigurationException,
+    -- ** ReservedNameException
+    _ReservedNameException,
 
-    -- ** EntityStateException
-    _EntityStateException,
+    -- ** OrganizationNotFoundException
+    _OrganizationNotFoundException,
 
-    -- ** OrganizationStateException
-    _OrganizationStateException,
+    -- ** EntityNotFoundException
+    _EntityNotFoundException,
+
+    -- ** EntityAlreadyRegisteredException
+    _EntityAlreadyRegisteredException,
 
     -- ** DirectoryInUseException
     _DirectoryInUseException,
 
-    -- ** UnsupportedOperationException
-    _UnsupportedOperationException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
-    -- ** DirectoryUnavailableException
-    _DirectoryUnavailableException,
-
-    -- ** InvalidPasswordException
-    _InvalidPasswordException,
-
-    -- ** EmailAddressInUseException
-    _EmailAddressInUseException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** DirectoryServiceAuthenticationFailedException
-    _DirectoryServiceAuthenticationFailedException,
+    -- ** MailDomainInUseException
+    _MailDomainInUseException,
 
     -- ** MailDomainNotFoundException
     _MailDomainNotFoundException,
 
-    -- ** EntityAlreadyRegisteredException
-    _EntityAlreadyRegisteredException,
+    -- ** InvalidCustomSesConfigurationException
+    _InvalidCustomSesConfigurationException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** EmailAddressInUseException
+    _EmailAddressInUseException,
+
+    -- ** NameAvailabilityException
+    _NameAvailabilityException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** InvalidPasswordException
+    _InvalidPasswordException,
 
     -- * Waiters
     -- $waiters
@@ -113,17 +119,29 @@ module Network.AWS.WorkMail
     -- * Operations
     -- $operations
 
+    -- ** DescribeInboundDmarcSettings
+    DescribeInboundDmarcSettings (DescribeInboundDmarcSettings'),
+    newDescribeInboundDmarcSettings,
+    DescribeInboundDmarcSettingsResponse (DescribeInboundDmarcSettingsResponse'),
+    newDescribeInboundDmarcSettingsResponse,
+
+    -- ** GetMailDomain
+    GetMailDomain (GetMailDomain'),
+    newGetMailDomain,
+    GetMailDomainResponse (GetMailDomainResponse'),
+    newGetMailDomainResponse,
+
+    -- ** UpdatePrimaryEmailAddress
+    UpdatePrimaryEmailAddress (UpdatePrimaryEmailAddress'),
+    newUpdatePrimaryEmailAddress,
+    UpdatePrimaryEmailAddressResponse (UpdatePrimaryEmailAddressResponse'),
+    newUpdatePrimaryEmailAddressResponse,
+
     -- ** DescribeResource
     DescribeResource (DescribeResource'),
     newDescribeResource,
     DescribeResourceResponse (DescribeResourceResponse'),
     newDescribeResourceResponse,
-
-    -- ** DeleteAlias
-    DeleteAlias (DeleteAlias'),
-    newDeleteAlias,
-    DeleteAliasResponse (DeleteAliasResponse'),
-    newDeleteAliasResponse,
 
     -- ** CreateOrganization
     CreateOrganization (CreateOrganization'),
@@ -131,113 +149,53 @@ module Network.AWS.WorkMail
     CreateOrganizationResponse (CreateOrganizationResponse'),
     newCreateOrganizationResponse,
 
-    -- ** StartMailboxExportJob
-    StartMailboxExportJob (StartMailboxExportJob'),
-    newStartMailboxExportJob,
-    StartMailboxExportJobResponse (StartMailboxExportJobResponse'),
-    newStartMailboxExportJobResponse,
+    -- ** CreateAlias
+    CreateAlias (CreateAlias'),
+    newCreateAlias,
+    CreateAliasResponse (CreateAliasResponse'),
+    newCreateAliasResponse,
 
-    -- ** DeleteAccessControlRule
-    DeleteAccessControlRule (DeleteAccessControlRule'),
-    newDeleteAccessControlRule,
-    DeleteAccessControlRuleResponse (DeleteAccessControlRuleResponse'),
-    newDeleteAccessControlRuleResponse,
+    -- ** DeleteOrganization
+    DeleteOrganization (DeleteOrganization'),
+    newDeleteOrganization,
+    DeleteOrganizationResponse (DeleteOrganizationResponse'),
+    newDeleteOrganizationResponse,
 
-    -- ** ListResourceDelegates (Paginated)
-    ListResourceDelegates (ListResourceDelegates'),
-    newListResourceDelegates,
-    ListResourceDelegatesResponse (ListResourceDelegatesResponse'),
-    newListResourceDelegatesResponse,
+    -- ** ResetPassword
+    ResetPassword (ResetPassword'),
+    newResetPassword,
+    ResetPasswordResponse (ResetPasswordResponse'),
+    newResetPasswordResponse,
 
-    -- ** DisassociateDelegateFromResource
-    DisassociateDelegateFromResource (DisassociateDelegateFromResource'),
-    newDisassociateDelegateFromResource,
-    DisassociateDelegateFromResourceResponse (DisassociateDelegateFromResourceResponse'),
-    newDisassociateDelegateFromResourceResponse,
+    -- ** DescribeGroup
+    DescribeGroup (DescribeGroup'),
+    newDescribeGroup,
+    DescribeGroupResponse (DescribeGroupResponse'),
+    newDescribeGroupResponse,
 
-    -- ** GetDefaultRetentionPolicy
-    GetDefaultRetentionPolicy (GetDefaultRetentionPolicy'),
-    newGetDefaultRetentionPolicy,
-    GetDefaultRetentionPolicyResponse (GetDefaultRetentionPolicyResponse'),
-    newGetDefaultRetentionPolicyResponse,
+    -- ** DescribeMailboxExportJob
+    DescribeMailboxExportJob (DescribeMailboxExportJob'),
+    newDescribeMailboxExportJob,
+    DescribeMailboxExportJobResponse (DescribeMailboxExportJobResponse'),
+    newDescribeMailboxExportJobResponse,
 
-    -- ** ListGroups (Paginated)
-    ListGroups (ListGroups'),
-    newListGroups,
-    ListGroupsResponse (ListGroupsResponse'),
-    newListGroupsResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** CreateResource
-    CreateResource (CreateResource'),
-    newCreateResource,
-    CreateResourceResponse (CreateResourceResponse'),
-    newCreateResourceResponse,
+    -- ** RegisterToWorkMail
+    RegisterToWorkMail (RegisterToWorkMail'),
+    newRegisterToWorkMail,
+    RegisterToWorkMailResponse (RegisterToWorkMailResponse'),
+    newRegisterToWorkMailResponse,
 
-    -- ** ListMailboxExportJobs
-    ListMailboxExportJobs (ListMailboxExportJobs'),
-    newListMailboxExportJobs,
-    ListMailboxExportJobsResponse (ListMailboxExportJobsResponse'),
-    newListMailboxExportJobsResponse,
-
-    -- ** DescribeOrganization
-    DescribeOrganization (DescribeOrganization'),
-    newDescribeOrganization,
-    DescribeOrganizationResponse (DescribeOrganizationResponse'),
-    newDescribeOrganizationResponse,
-
-    -- ** UpdateResource
-    UpdateResource (UpdateResource'),
-    newUpdateResource,
-    UpdateResourceResponse (UpdateResourceResponse'),
-    newUpdateResourceResponse,
-
-    -- ** DeleteResource
-    DeleteResource (DeleteResource'),
-    newDeleteResource,
-    DeleteResourceResponse (DeleteResourceResponse'),
-    newDeleteResourceResponse,
-
-    -- ** ListMobileDeviceAccessRules
-    ListMobileDeviceAccessRules (ListMobileDeviceAccessRules'),
-    newListMobileDeviceAccessRules,
-    ListMobileDeviceAccessRulesResponse (ListMobileDeviceAccessRulesResponse'),
-    newListMobileDeviceAccessRulesResponse,
-
-    -- ** CreateGroup
-    CreateGroup (CreateGroup'),
-    newCreateGroup,
-    CreateGroupResponse (CreateGroupResponse'),
-    newCreateGroupResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** AssociateMemberToGroup
-    AssociateMemberToGroup (AssociateMemberToGroup'),
-    newAssociateMemberToGroup,
-    AssociateMemberToGroupResponse (AssociateMemberToGroupResponse'),
-    newAssociateMemberToGroupResponse,
-
-    -- ** PutRetentionPolicy
-    PutRetentionPolicy (PutRetentionPolicy'),
-    newPutRetentionPolicy,
-    PutRetentionPolicyResponse (PutRetentionPolicyResponse'),
-    newPutRetentionPolicyResponse,
-
-    -- ** CreateUser
-    CreateUser (CreateUser'),
-    newCreateUser,
-    CreateUserResponse (CreateUserResponse'),
-    newCreateUserResponse,
+    -- ** ListAliases (Paginated)
+    ListAliases (ListAliases'),
+    newListAliases,
+    ListAliasesResponse (ListAliasesResponse'),
+    newListAliasesResponse,
 
     -- ** PutMailboxPermissions
     PutMailboxPermissions (PutMailboxPermissions'),
@@ -251,113 +209,47 @@ module Network.AWS.WorkMail
     GetMobileDeviceAccessEffectResponse (GetMobileDeviceAccessEffectResponse'),
     newGetMobileDeviceAccessEffectResponse,
 
-    -- ** RegisterToWorkMail
-    RegisterToWorkMail (RegisterToWorkMail'),
-    newRegisterToWorkMail,
-    RegisterToWorkMailResponse (RegisterToWorkMailResponse'),
-    newRegisterToWorkMailResponse,
+    -- ** DeleteMailboxPermissions
+    DeleteMailboxPermissions (DeleteMailboxPermissions'),
+    newDeleteMailboxPermissions,
+    DeleteMailboxPermissionsResponse (DeleteMailboxPermissionsResponse'),
+    newDeleteMailboxPermissionsResponse,
 
-    -- ** DeleteOrganization
-    DeleteOrganization (DeleteOrganization'),
-    newDeleteOrganization,
-    DeleteOrganizationResponse (DeleteOrganizationResponse'),
-    newDeleteOrganizationResponse,
+    -- ** ListUsers (Paginated)
+    ListUsers (ListUsers'),
+    newListUsers,
+    ListUsersResponse (ListUsersResponse'),
+    newListUsersResponse,
 
-    -- ** DescribeMailboxExportJob
-    DescribeMailboxExportJob (DescribeMailboxExportJob'),
-    newDescribeMailboxExportJob,
-    DescribeMailboxExportJobResponse (DescribeMailboxExportJobResponse'),
-    newDescribeMailboxExportJobResponse,
+    -- ** PutInboundDmarcSettings
+    PutInboundDmarcSettings (PutInboundDmarcSettings'),
+    newPutInboundDmarcSettings,
+    PutInboundDmarcSettingsResponse (PutInboundDmarcSettingsResponse'),
+    newPutInboundDmarcSettingsResponse,
 
-    -- ** AssociateDelegateToResource
-    AssociateDelegateToResource (AssociateDelegateToResource'),
-    newAssociateDelegateToResource,
-    AssociateDelegateToResourceResponse (AssociateDelegateToResourceResponse'),
-    newAssociateDelegateToResourceResponse,
+    -- ** GetMailboxDetails
+    GetMailboxDetails (GetMailboxDetails'),
+    newGetMailboxDetails,
+    GetMailboxDetailsResponse (GetMailboxDetailsResponse'),
+    newGetMailboxDetailsResponse,
 
-    -- ** ListOrganizations (Paginated)
-    ListOrganizations (ListOrganizations'),
-    newListOrganizations,
-    ListOrganizationsResponse (ListOrganizationsResponse'),
-    newListOrganizationsResponse,
+    -- ** AssociateMemberToGroup
+    AssociateMemberToGroup (AssociateMemberToGroup'),
+    newAssociateMemberToGroup,
+    AssociateMemberToGroupResponse (AssociateMemberToGroupResponse'),
+    newAssociateMemberToGroupResponse,
 
-    -- ** UpdatePrimaryEmailAddress
-    UpdatePrimaryEmailAddress (UpdatePrimaryEmailAddress'),
-    newUpdatePrimaryEmailAddress,
-    UpdatePrimaryEmailAddressResponse (UpdatePrimaryEmailAddressResponse'),
-    newUpdatePrimaryEmailAddressResponse,
+    -- ** DeleteResource
+    DeleteResource (DeleteResource'),
+    newDeleteResource,
+    DeleteResourceResponse (DeleteResourceResponse'),
+    newDeleteResourceResponse,
 
-    -- ** ListAccessControlRules
-    ListAccessControlRules (ListAccessControlRules'),
-    newListAccessControlRules,
-    ListAccessControlRulesResponse (ListAccessControlRulesResponse'),
-    newListAccessControlRulesResponse,
-
-    -- ** PutAccessControlRule
-    PutAccessControlRule (PutAccessControlRule'),
-    newPutAccessControlRule,
-    PutAccessControlRuleResponse (PutAccessControlRuleResponse'),
-    newPutAccessControlRuleResponse,
-
-    -- ** DescribeUser
-    DescribeUser (DescribeUser'),
-    newDescribeUser,
-    DescribeUserResponse (DescribeUserResponse'),
-    newDescribeUserResponse,
-
-    -- ** CancelMailboxExportJob
-    CancelMailboxExportJob (CancelMailboxExportJob'),
-    newCancelMailboxExportJob,
-    CancelMailboxExportJobResponse (CancelMailboxExportJobResponse'),
-    newCancelMailboxExportJobResponse,
-
-    -- ** CreateMobileDeviceAccessRule
-    CreateMobileDeviceAccessRule (CreateMobileDeviceAccessRule'),
-    newCreateMobileDeviceAccessRule,
-    CreateMobileDeviceAccessRuleResponse (CreateMobileDeviceAccessRuleResponse'),
-    newCreateMobileDeviceAccessRuleResponse,
-
-    -- ** DeleteGroup
-    DeleteGroup (DeleteGroup'),
-    newDeleteGroup,
-    DeleteGroupResponse (DeleteGroupResponse'),
-    newDeleteGroupResponse,
-
-    -- ** ListGroupMembers (Paginated)
-    ListGroupMembers (ListGroupMembers'),
-    newListGroupMembers,
-    ListGroupMembersResponse (ListGroupMembersResponse'),
-    newListGroupMembersResponse,
-
-    -- ** ListMailboxPermissions (Paginated)
-    ListMailboxPermissions (ListMailboxPermissions'),
-    newListMailboxPermissions,
-    ListMailboxPermissionsResponse (ListMailboxPermissionsResponse'),
-    newListMailboxPermissionsResponse,
-
-    -- ** DeregisterFromWorkMail
-    DeregisterFromWorkMail (DeregisterFromWorkMail'),
-    newDeregisterFromWorkMail,
-    DeregisterFromWorkMailResponse (DeregisterFromWorkMailResponse'),
-    newDeregisterFromWorkMailResponse,
-
-    -- ** UpdateMailboxQuota
-    UpdateMailboxQuota (UpdateMailboxQuota'),
-    newUpdateMailboxQuota,
-    UpdateMailboxQuotaResponse (UpdateMailboxQuotaResponse'),
-    newUpdateMailboxQuotaResponse,
-
-    -- ** UpdateMobileDeviceAccessRule
-    UpdateMobileDeviceAccessRule (UpdateMobileDeviceAccessRule'),
-    newUpdateMobileDeviceAccessRule,
-    UpdateMobileDeviceAccessRuleResponse (UpdateMobileDeviceAccessRuleResponse'),
-    newUpdateMobileDeviceAccessRuleResponse,
-
-    -- ** DeleteMobileDeviceAccessRule
-    DeleteMobileDeviceAccessRule (DeleteMobileDeviceAccessRule'),
-    newDeleteMobileDeviceAccessRule,
-    DeleteMobileDeviceAccessRuleResponse (DeleteMobileDeviceAccessRuleResponse'),
-    newDeleteMobileDeviceAccessRuleResponse,
+    -- ** UpdateResource
+    UpdateResource (UpdateResource'),
+    newUpdateResource,
+    UpdateResourceResponse (UpdateResourceResponse'),
+    newUpdateResourceResponse,
 
     -- ** DisassociateMemberFromGroup
     DisassociateMemberFromGroup (DisassociateMemberFromGroup'),
@@ -371,59 +263,101 @@ module Network.AWS.WorkMail
     ListResourcesResponse (ListResourcesResponse'),
     newListResourcesResponse,
 
-    -- ** GetMailboxDetails
-    GetMailboxDetails (GetMailboxDetails'),
-    newGetMailboxDetails,
-    GetMailboxDetailsResponse (GetMailboxDetailsResponse'),
-    newGetMailboxDetailsResponse,
+    -- ** DeregisterFromWorkMail
+    DeregisterFromWorkMail (DeregisterFromWorkMail'),
+    newDeregisterFromWorkMail,
+    DeregisterFromWorkMailResponse (DeregisterFromWorkMailResponse'),
+    newDeregisterFromWorkMailResponse,
 
-    -- ** ListUsers (Paginated)
-    ListUsers (ListUsers'),
-    newListUsers,
-    ListUsersResponse (ListUsersResponse'),
-    newListUsersResponse,
+    -- ** ListMailboxExportJobs
+    ListMailboxExportJobs (ListMailboxExportJobs'),
+    newListMailboxExportJobs,
+    ListMailboxExportJobsResponse (ListMailboxExportJobsResponse'),
+    newListMailboxExportJobsResponse,
 
-    -- ** DeleteUser
-    DeleteUser (DeleteUser'),
-    newDeleteUser,
-    DeleteUserResponse (DeleteUserResponse'),
-    newDeleteUserResponse,
+    -- ** CreateMobileDeviceAccessRule
+    CreateMobileDeviceAccessRule (CreateMobileDeviceAccessRule'),
+    newCreateMobileDeviceAccessRule,
+    CreateMobileDeviceAccessRuleResponse (CreateMobileDeviceAccessRuleResponse'),
+    newCreateMobileDeviceAccessRuleResponse,
 
-    -- ** DeleteRetentionPolicy
-    DeleteRetentionPolicy (DeleteRetentionPolicy'),
-    newDeleteRetentionPolicy,
-    DeleteRetentionPolicyResponse (DeleteRetentionPolicyResponse'),
-    newDeleteRetentionPolicyResponse,
+    -- ** ListMailboxPermissions (Paginated)
+    ListMailboxPermissions (ListMailboxPermissions'),
+    newListMailboxPermissions,
+    ListMailboxPermissionsResponse (ListMailboxPermissionsResponse'),
+    newListMailboxPermissionsResponse,
 
-    -- ** DeleteMailboxPermissions
-    DeleteMailboxPermissions (DeleteMailboxPermissions'),
-    newDeleteMailboxPermissions,
-    DeleteMailboxPermissionsResponse (DeleteMailboxPermissionsResponse'),
-    newDeleteMailboxPermissionsResponse,
+    -- ** GetMobileDeviceAccessOverride
+    GetMobileDeviceAccessOverride (GetMobileDeviceAccessOverride'),
+    newGetMobileDeviceAccessOverride,
+    GetMobileDeviceAccessOverrideResponse (GetMobileDeviceAccessOverrideResponse'),
+    newGetMobileDeviceAccessOverrideResponse,
 
-    -- ** ResetPassword
-    ResetPassword (ResetPassword'),
-    newResetPassword,
-    ResetPasswordResponse (ResetPasswordResponse'),
-    newResetPasswordResponse,
+    -- ** ListGroupMembers (Paginated)
+    ListGroupMembers (ListGroupMembers'),
+    newListGroupMembers,
+    ListGroupMembersResponse (ListGroupMembersResponse'),
+    newListGroupMembersResponse,
 
-    -- ** ListAliases (Paginated)
-    ListAliases (ListAliases'),
-    newListAliases,
-    ListAliasesResponse (ListAliasesResponse'),
-    newListAliasesResponse,
+    -- ** DisassociateDelegateFromResource
+    DisassociateDelegateFromResource (DisassociateDelegateFromResource'),
+    newDisassociateDelegateFromResource,
+    DisassociateDelegateFromResourceResponse (DisassociateDelegateFromResourceResponse'),
+    newDisassociateDelegateFromResourceResponse,
 
-    -- ** DescribeGroup
-    DescribeGroup (DescribeGroup'),
-    newDescribeGroup,
-    DescribeGroupResponse (DescribeGroupResponse'),
-    newDescribeGroupResponse,
+    -- ** DeleteAccessControlRule
+    DeleteAccessControlRule (DeleteAccessControlRule'),
+    newDeleteAccessControlRule,
+    DeleteAccessControlRuleResponse (DeleteAccessControlRuleResponse'),
+    newDeleteAccessControlRuleResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** ListResourceDelegates (Paginated)
+    ListResourceDelegates (ListResourceDelegates'),
+    newListResourceDelegates,
+    ListResourceDelegatesResponse (ListResourceDelegatesResponse'),
+    newListResourceDelegatesResponse,
+
+    -- ** ListAccessControlRules
+    ListAccessControlRules (ListAccessControlRules'),
+    newListAccessControlRules,
+    ListAccessControlRulesResponse (ListAccessControlRulesResponse'),
+    newListAccessControlRulesResponse,
+
+    -- ** DescribeUser
+    DescribeUser (DescribeUser'),
+    newDescribeUser,
+    DescribeUserResponse (DescribeUserResponse'),
+    newDescribeUserResponse,
+
+    -- ** PutAccessControlRule
+    PutAccessControlRule (PutAccessControlRule'),
+    newPutAccessControlRule,
+    PutAccessControlRuleResponse (PutAccessControlRuleResponse'),
+    newPutAccessControlRuleResponse,
+
+    -- ** StartMailboxExportJob
+    StartMailboxExportJob (StartMailboxExportJob'),
+    newStartMailboxExportJob,
+    StartMailboxExportJobResponse (StartMailboxExportJobResponse'),
+    newStartMailboxExportJobResponse,
+
+    -- ** DeleteAlias
+    DeleteAlias (DeleteAlias'),
+    newDeleteAlias,
+    DeleteAliasResponse (DeleteAliasResponse'),
+    newDeleteAliasResponse,
+
+    -- ** ListOrganizations (Paginated)
+    ListOrganizations (ListOrganizations'),
+    newListOrganizations,
+    ListOrganizationsResponse (ListOrganizationsResponse'),
+    newListOrganizationsResponse,
+
+    -- ** AssociateDelegateToResource
+    AssociateDelegateToResource (AssociateDelegateToResource'),
+    newAssociateDelegateToResource,
+    AssociateDelegateToResourceResponse (AssociateDelegateToResourceResponse'),
+    newAssociateDelegateToResourceResponse,
 
     -- ** GetAccessControlEffect
     GetAccessControlEffect (GetAccessControlEffect'),
@@ -431,16 +365,157 @@ module Network.AWS.WorkMail
     GetAccessControlEffectResponse (GetAccessControlEffectResponse'),
     newGetAccessControlEffectResponse,
 
-    -- ** CreateAlias
-    CreateAlias (CreateAlias'),
-    newCreateAlias,
-    CreateAliasResponse (CreateAliasResponse'),
-    newCreateAliasResponse,
+    -- ** DeleteRetentionPolicy
+    DeleteRetentionPolicy (DeleteRetentionPolicy'),
+    newDeleteRetentionPolicy,
+    DeleteRetentionPolicyResponse (DeleteRetentionPolicyResponse'),
+    newDeleteRetentionPolicyResponse,
+
+    -- ** CreateUser
+    CreateUser (CreateUser'),
+    newCreateUser,
+    CreateUserResponse (CreateUserResponse'),
+    newCreateUserResponse,
+
+    -- ** PutRetentionPolicy
+    PutRetentionPolicy (PutRetentionPolicy'),
+    newPutRetentionPolicy,
+    PutRetentionPolicyResponse (PutRetentionPolicyResponse'),
+    newPutRetentionPolicyResponse,
+
+    -- ** ListMailDomains
+    ListMailDomains (ListMailDomains'),
+    newListMailDomains,
+    ListMailDomainsResponse (ListMailDomainsResponse'),
+    newListMailDomainsResponse,
+
+    -- ** DeleteUser
+    DeleteUser (DeleteUser'),
+    newDeleteUser,
+    DeleteUserResponse (DeleteUserResponse'),
+    newDeleteUserResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** RegisterMailDomain
+    RegisterMailDomain (RegisterMailDomain'),
+    newRegisterMailDomain,
+    RegisterMailDomainResponse (RegisterMailDomainResponse'),
+    newRegisterMailDomainResponse,
+
+    -- ** UpdateDefaultMailDomain
+    UpdateDefaultMailDomain (UpdateDefaultMailDomain'),
+    newUpdateDefaultMailDomain,
+    UpdateDefaultMailDomainResponse (UpdateDefaultMailDomainResponse'),
+    newUpdateDefaultMailDomainResponse,
+
+    -- ** UpdateMobileDeviceAccessRule
+    UpdateMobileDeviceAccessRule (UpdateMobileDeviceAccessRule'),
+    newUpdateMobileDeviceAccessRule,
+    UpdateMobileDeviceAccessRuleResponse (UpdateMobileDeviceAccessRuleResponse'),
+    newUpdateMobileDeviceAccessRuleResponse,
+
+    -- ** DeleteMobileDeviceAccessRule
+    DeleteMobileDeviceAccessRule (DeleteMobileDeviceAccessRule'),
+    newDeleteMobileDeviceAccessRule,
+    DeleteMobileDeviceAccessRuleResponse (DeleteMobileDeviceAccessRuleResponse'),
+    newDeleteMobileDeviceAccessRuleResponse,
+
+    -- ** CreateGroup
+    CreateGroup (CreateGroup'),
+    newCreateGroup,
+    CreateGroupResponse (CreateGroupResponse'),
+    newCreateGroupResponse,
+
+    -- ** UpdateMailboxQuota
+    UpdateMailboxQuota (UpdateMailboxQuota'),
+    newUpdateMailboxQuota,
+    UpdateMailboxQuotaResponse (UpdateMailboxQuotaResponse'),
+    newUpdateMailboxQuotaResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** ListMobileDeviceAccessRules
+    ListMobileDeviceAccessRules (ListMobileDeviceAccessRules'),
+    newListMobileDeviceAccessRules,
+    ListMobileDeviceAccessRulesResponse (ListMobileDeviceAccessRulesResponse'),
+    newListMobileDeviceAccessRulesResponse,
+
+    -- ** DeleteGroup
+    DeleteGroup (DeleteGroup'),
+    newDeleteGroup,
+    DeleteGroupResponse (DeleteGroupResponse'),
+    newDeleteGroupResponse,
+
+    -- ** ListGroups (Paginated)
+    ListGroups (ListGroups'),
+    newListGroups,
+    ListGroupsResponse (ListGroupsResponse'),
+    newListGroupsResponse,
+
+    -- ** DescribeOrganization
+    DescribeOrganization (DescribeOrganization'),
+    newDescribeOrganization,
+    DescribeOrganizationResponse (DescribeOrganizationResponse'),
+    newDescribeOrganizationResponse,
+
+    -- ** CreateResource
+    CreateResource (CreateResource'),
+    newCreateResource,
+    CreateResourceResponse (CreateResourceResponse'),
+    newCreateResourceResponse,
+
+    -- ** GetDefaultRetentionPolicy
+    GetDefaultRetentionPolicy (GetDefaultRetentionPolicy'),
+    newGetDefaultRetentionPolicy,
+    GetDefaultRetentionPolicyResponse (GetDefaultRetentionPolicyResponse'),
+    newGetDefaultRetentionPolicyResponse,
+
+    -- ** DeregisterMailDomain
+    DeregisterMailDomain (DeregisterMailDomain'),
+    newDeregisterMailDomain,
+    DeregisterMailDomainResponse (DeregisterMailDomainResponse'),
+    newDeregisterMailDomainResponse,
+
+    -- ** CancelMailboxExportJob
+    CancelMailboxExportJob (CancelMailboxExportJob'),
+    newCancelMailboxExportJob,
+    CancelMailboxExportJobResponse (CancelMailboxExportJobResponse'),
+    newCancelMailboxExportJobResponse,
+
+    -- ** ListMobileDeviceAccessOverrides
+    ListMobileDeviceAccessOverrides (ListMobileDeviceAccessOverrides'),
+    newListMobileDeviceAccessOverrides,
+    ListMobileDeviceAccessOverridesResponse (ListMobileDeviceAccessOverridesResponse'),
+    newListMobileDeviceAccessOverridesResponse,
+
+    -- ** DeleteMobileDeviceAccessOverride
+    DeleteMobileDeviceAccessOverride (DeleteMobileDeviceAccessOverride'),
+    newDeleteMobileDeviceAccessOverride,
+    DeleteMobileDeviceAccessOverrideResponse (DeleteMobileDeviceAccessOverrideResponse'),
+    newDeleteMobileDeviceAccessOverrideResponse,
+
+    -- ** PutMobileDeviceAccessOverride
+    PutMobileDeviceAccessOverride (PutMobileDeviceAccessOverride'),
+    newPutMobileDeviceAccessOverride,
+    PutMobileDeviceAccessOverrideResponse (PutMobileDeviceAccessOverrideResponse'),
+    newPutMobileDeviceAccessOverrideResponse,
 
     -- * Types
 
     -- ** AccessControlRuleEffect
     AccessControlRuleEffect (..),
+
+    -- ** DnsRecordVerificationStatus
+    DnsRecordVerificationStatus (..),
 
     -- ** EntityState
     EntityState (..),
@@ -481,6 +556,10 @@ module Network.AWS.WorkMail
     Delegate (Delegate'),
     newDelegate,
 
+    -- ** DnsRecord
+    DnsRecord (DnsRecord'),
+    newDnsRecord,
+
     -- ** Domain
     Domain (Domain'),
     newDomain,
@@ -493,6 +572,10 @@ module Network.AWS.WorkMail
     Group (Group'),
     newGroup,
 
+    -- ** MailDomainSummary
+    MailDomainSummary (MailDomainSummary'),
+    newMailDomainSummary,
+
     -- ** MailboxExportJob
     MailboxExportJob (MailboxExportJob'),
     newMailboxExportJob,
@@ -504,6 +587,10 @@ module Network.AWS.WorkMail
     -- ** MobileDeviceAccessMatchedRule
     MobileDeviceAccessMatchedRule (MobileDeviceAccessMatchedRule'),
     newMobileDeviceAccessMatchedRule,
+
+    -- ** MobileDeviceAccessOverride
+    MobileDeviceAccessOverride (MobileDeviceAccessOverride'),
+    newMobileDeviceAccessOverride,
 
     -- ** MobileDeviceAccessRule
     MobileDeviceAccessRule (MobileDeviceAccessRule'),
@@ -544,13 +631,16 @@ import Network.AWS.WorkMail.DeleteAccessControlRule
 import Network.AWS.WorkMail.DeleteAlias
 import Network.AWS.WorkMail.DeleteGroup
 import Network.AWS.WorkMail.DeleteMailboxPermissions
+import Network.AWS.WorkMail.DeleteMobileDeviceAccessOverride
 import Network.AWS.WorkMail.DeleteMobileDeviceAccessRule
 import Network.AWS.WorkMail.DeleteOrganization
 import Network.AWS.WorkMail.DeleteResource
 import Network.AWS.WorkMail.DeleteRetentionPolicy
 import Network.AWS.WorkMail.DeleteUser
 import Network.AWS.WorkMail.DeregisterFromWorkMail
+import Network.AWS.WorkMail.DeregisterMailDomain
 import Network.AWS.WorkMail.DescribeGroup
+import Network.AWS.WorkMail.DescribeInboundDmarcSettings
 import Network.AWS.WorkMail.DescribeMailboxExportJob
 import Network.AWS.WorkMail.DescribeOrganization
 import Network.AWS.WorkMail.DescribeResource
@@ -559,15 +649,19 @@ import Network.AWS.WorkMail.DisassociateDelegateFromResource
 import Network.AWS.WorkMail.DisassociateMemberFromGroup
 import Network.AWS.WorkMail.GetAccessControlEffect
 import Network.AWS.WorkMail.GetDefaultRetentionPolicy
+import Network.AWS.WorkMail.GetMailDomain
 import Network.AWS.WorkMail.GetMailboxDetails
 import Network.AWS.WorkMail.GetMobileDeviceAccessEffect
+import Network.AWS.WorkMail.GetMobileDeviceAccessOverride
 import Network.AWS.WorkMail.Lens
 import Network.AWS.WorkMail.ListAccessControlRules
 import Network.AWS.WorkMail.ListAliases
 import Network.AWS.WorkMail.ListGroupMembers
 import Network.AWS.WorkMail.ListGroups
+import Network.AWS.WorkMail.ListMailDomains
 import Network.AWS.WorkMail.ListMailboxExportJobs
 import Network.AWS.WorkMail.ListMailboxPermissions
+import Network.AWS.WorkMail.ListMobileDeviceAccessOverrides
 import Network.AWS.WorkMail.ListMobileDeviceAccessRules
 import Network.AWS.WorkMail.ListOrganizations
 import Network.AWS.WorkMail.ListResourceDelegates
@@ -575,14 +669,18 @@ import Network.AWS.WorkMail.ListResources
 import Network.AWS.WorkMail.ListTagsForResource
 import Network.AWS.WorkMail.ListUsers
 import Network.AWS.WorkMail.PutAccessControlRule
+import Network.AWS.WorkMail.PutInboundDmarcSettings
 import Network.AWS.WorkMail.PutMailboxPermissions
+import Network.AWS.WorkMail.PutMobileDeviceAccessOverride
 import Network.AWS.WorkMail.PutRetentionPolicy
+import Network.AWS.WorkMail.RegisterMailDomain
 import Network.AWS.WorkMail.RegisterToWorkMail
 import Network.AWS.WorkMail.ResetPassword
 import Network.AWS.WorkMail.StartMailboxExportJob
 import Network.AWS.WorkMail.TagResource
 import Network.AWS.WorkMail.Types
 import Network.AWS.WorkMail.UntagResource
+import Network.AWS.WorkMail.UpdateDefaultMailDomain
 import Network.AWS.WorkMail.UpdateMailboxQuota
 import Network.AWS.WorkMail.UpdateMobileDeviceAccessRule
 import Network.AWS.WorkMail.UpdatePrimaryEmailAddress

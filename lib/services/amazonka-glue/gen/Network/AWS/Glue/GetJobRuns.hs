@@ -203,7 +203,7 @@ getJobRunsResponse_nextToken = Lens.lens (\GetJobRunsResponse' {nextToken} -> ne
 
 -- | A list of job-run metadata objects.
 getJobRunsResponse_jobRuns :: Lens.Lens' GetJobRunsResponse (Prelude.Maybe [JobRun])
-getJobRunsResponse_jobRuns = Lens.lens (\GetJobRunsResponse' {jobRuns} -> jobRuns) (\s@GetJobRunsResponse' {} a -> s {jobRuns = a} :: GetJobRunsResponse) Prelude.. Lens.mapping Lens._Coerce
+getJobRunsResponse_jobRuns = Lens.lens (\GetJobRunsResponse' {jobRuns} -> jobRuns) (\s@GetJobRunsResponse' {} a -> s {jobRuns = a} :: GetJobRunsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getJobRunsResponse_httpStatus :: Lens.Lens' GetJobRunsResponse Prelude.Int

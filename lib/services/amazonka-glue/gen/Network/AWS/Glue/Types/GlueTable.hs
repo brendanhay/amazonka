@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGlueTable' smart constructor.
 data GlueTable = GlueTable'
-  { -- | The name of the connection to the Glue Data Catalog.
-    connectionName :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the Glue Data Catalog.
+  { -- | A unique identifier for the Glue Data Catalog.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the connection to the Glue Data Catalog.
+    connectionName :: Prelude.Maybe Prelude.Text,
     -- | A database name in the Glue Data Catalog.
     databaseName :: Prelude.Text,
     -- | A table name in the Glue Data Catalog.
@@ -47,9 +47,9 @@ data GlueTable = GlueTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionName', 'glueTable_connectionName' - The name of the connection to the Glue Data Catalog.
---
 -- 'catalogId', 'glueTable_catalogId' - A unique identifier for the Glue Data Catalog.
+--
+-- 'connectionName', 'glueTable_connectionName' - The name of the connection to the Glue Data Catalog.
 --
 -- 'databaseName', 'glueTable_databaseName' - A database name in the Glue Data Catalog.
 --
@@ -62,19 +62,19 @@ newGlueTable ::
   GlueTable
 newGlueTable pDatabaseName_ pTableName_ =
   GlueTable'
-    { connectionName = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
+      connectionName = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
     }
 
--- | The name of the connection to the Glue Data Catalog.
-glueTable_connectionName :: Lens.Lens' GlueTable (Prelude.Maybe Prelude.Text)
-glueTable_connectionName = Lens.lens (\GlueTable' {connectionName} -> connectionName) (\s@GlueTable' {} a -> s {connectionName = a} :: GlueTable)
-
 -- | A unique identifier for the Glue Data Catalog.
 glueTable_catalogId :: Lens.Lens' GlueTable (Prelude.Maybe Prelude.Text)
 glueTable_catalogId = Lens.lens (\GlueTable' {catalogId} -> catalogId) (\s@GlueTable' {} a -> s {catalogId = a} :: GlueTable)
+
+-- | The name of the connection to the Glue Data Catalog.
+glueTable_connectionName :: Lens.Lens' GlueTable (Prelude.Maybe Prelude.Text)
+glueTable_connectionName = Lens.lens (\GlueTable' {connectionName} -> connectionName) (\s@GlueTable' {} a -> s {connectionName = a} :: GlueTable)
 
 -- | A database name in the Glue Data Catalog.
 glueTable_databaseName :: Lens.Lens' GlueTable Prelude.Text
@@ -90,8 +90,8 @@ instance Core.FromJSON GlueTable where
       "GlueTable"
       ( \x ->
           GlueTable'
-            Prelude.<$> (x Core..:? "ConnectionName")
-            Prelude.<*> (x Core..:? "CatalogId")
+            Prelude.<$> (x Core..:? "CatalogId")
+            Prelude.<*> (x Core..:? "ConnectionName")
             Prelude.<*> (x Core..: "DatabaseName")
             Prelude.<*> (x Core..: "TableName")
       )
@@ -104,9 +104,9 @@ instance Core.ToJSON GlueTable where
   toJSON GlueTable' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConnectionName" Core..=)
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("ConnectionName" Core..=)
               Prelude.<$> connectionName,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
             Prelude.Just ("DatabaseName" Core..= databaseName),
             Prelude.Just ("TableName" Core..= tableName)
           ]

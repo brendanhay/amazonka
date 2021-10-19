@@ -79,7 +79,7 @@ newBatchStopJobRun ::
 newBatchStopJobRun pJobName_ pJobRunIds_ =
   BatchStopJobRun'
     { jobName = pJobName_,
-      jobRunIds = Lens._Coerce Lens.# pJobRunIds_
+      jobRunIds = Lens.coerced Lens.# pJobRunIds_
     }
 
 -- | The name of the job definition for which to stop job runs.
@@ -89,7 +89,7 @@ batchStopJobRun_jobName = Lens.lens (\BatchStopJobRun' {jobName} -> jobName) (\s
 -- | A list of the @JobRunIds@ that should be stopped for that job
 -- definition.
 batchStopJobRun_jobRunIds :: Lens.Lens' BatchStopJobRun (Prelude.NonEmpty Prelude.Text)
-batchStopJobRun_jobRunIds = Lens.lens (\BatchStopJobRun' {jobRunIds} -> jobRunIds) (\s@BatchStopJobRun' {} a -> s {jobRunIds = a} :: BatchStopJobRun) Prelude.. Lens._Coerce
+batchStopJobRun_jobRunIds = Lens.lens (\BatchStopJobRun' {jobRunIds} -> jobRunIds) (\s@BatchStopJobRun' {} a -> s {jobRunIds = a} :: BatchStopJobRun) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchStopJobRun where
   type
@@ -181,13 +181,13 @@ newBatchStopJobRunResponse pHttpStatus_ =
 
 -- | A list of the JobRuns that were successfully submitted for stopping.
 batchStopJobRunResponse_successfulSubmissions :: Lens.Lens' BatchStopJobRunResponse (Prelude.Maybe [BatchStopJobRunSuccessfulSubmission])
-batchStopJobRunResponse_successfulSubmissions = Lens.lens (\BatchStopJobRunResponse' {successfulSubmissions} -> successfulSubmissions) (\s@BatchStopJobRunResponse' {} a -> s {successfulSubmissions = a} :: BatchStopJobRunResponse) Prelude.. Lens.mapping Lens._Coerce
+batchStopJobRunResponse_successfulSubmissions = Lens.lens (\BatchStopJobRunResponse' {successfulSubmissions} -> successfulSubmissions) (\s@BatchStopJobRunResponse' {} a -> s {successfulSubmissions = a} :: BatchStopJobRunResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of the errors that were encountered in trying to stop @JobRuns@,
 -- including the @JobRunId@ for which each error was encountered and
 -- details about the error.
 batchStopJobRunResponse_errors :: Lens.Lens' BatchStopJobRunResponse (Prelude.Maybe [BatchStopJobRunError])
-batchStopJobRunResponse_errors = Lens.lens (\BatchStopJobRunResponse' {errors} -> errors) (\s@BatchStopJobRunResponse' {} a -> s {errors = a} :: BatchStopJobRunResponse) Prelude.. Lens.mapping Lens._Coerce
+batchStopJobRunResponse_errors = Lens.lens (\BatchStopJobRunResponse' {errors} -> errors) (\s@BatchStopJobRunResponse' {} a -> s {errors = a} :: BatchStopJobRunResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchStopJobRunResponse_httpStatus :: Lens.Lens' BatchStopJobRunResponse Prelude.Int

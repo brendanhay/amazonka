@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGetConnectionsFilter' smart constructor.
 data GetConnectionsFilter = GetConnectionsFilter'
-  { -- | The type of connections to return. Currently, SFTP is not supported.
-    connectionType :: Prelude.Maybe ConnectionType,
-    -- | A criteria string that must match the criteria recorded in the
+  { -- | A criteria string that must match the criteria recorded in the
     -- connection definition for that connection definition to be returned.
-    matchCriteria :: Prelude.Maybe [Prelude.Text]
+    matchCriteria :: Prelude.Maybe [Prelude.Text],
+    -- | The type of connections to return. Currently, SFTP is not supported.
+    connectionType :: Prelude.Maybe ConnectionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data GetConnectionsFilter = GetConnectionsFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionType', 'getConnectionsFilter_connectionType' - The type of connections to return. Currently, SFTP is not supported.
---
 -- 'matchCriteria', 'getConnectionsFilter_matchCriteria' - A criteria string that must match the criteria recorded in the
 -- connection definition for that connection definition to be returned.
+--
+-- 'connectionType', 'getConnectionsFilter_connectionType' - The type of connections to return. Currently, SFTP is not supported.
 newGetConnectionsFilter ::
   GetConnectionsFilter
 newGetConnectionsFilter =
   GetConnectionsFilter'
-    { connectionType =
+    { matchCriteria =
         Prelude.Nothing,
-      matchCriteria = Prelude.Nothing
+      connectionType = Prelude.Nothing
     }
-
--- | The type of connections to return. Currently, SFTP is not supported.
-getConnectionsFilter_connectionType :: Lens.Lens' GetConnectionsFilter (Prelude.Maybe ConnectionType)
-getConnectionsFilter_connectionType = Lens.lens (\GetConnectionsFilter' {connectionType} -> connectionType) (\s@GetConnectionsFilter' {} a -> s {connectionType = a} :: GetConnectionsFilter)
 
 -- | A criteria string that must match the criteria recorded in the
 -- connection definition for that connection definition to be returned.
 getConnectionsFilter_matchCriteria :: Lens.Lens' GetConnectionsFilter (Prelude.Maybe [Prelude.Text])
-getConnectionsFilter_matchCriteria = Lens.lens (\GetConnectionsFilter' {matchCriteria} -> matchCriteria) (\s@GetConnectionsFilter' {} a -> s {matchCriteria = a} :: GetConnectionsFilter) Prelude.. Lens.mapping Lens._Coerce
+getConnectionsFilter_matchCriteria = Lens.lens (\GetConnectionsFilter' {matchCriteria} -> matchCriteria) (\s@GetConnectionsFilter' {} a -> s {matchCriteria = a} :: GetConnectionsFilter) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of connections to return. Currently, SFTP is not supported.
+getConnectionsFilter_connectionType :: Lens.Lens' GetConnectionsFilter (Prelude.Maybe ConnectionType)
+getConnectionsFilter_connectionType = Lens.lens (\GetConnectionsFilter' {connectionType} -> connectionType) (\s@GetConnectionsFilter' {} a -> s {connectionType = a} :: GetConnectionsFilter)
 
 instance Prelude.Hashable GetConnectionsFilter
 
@@ -75,8 +75,8 @@ instance Core.ToJSON GetConnectionsFilter where
   toJSON GetConnectionsFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConnectionType" Core..=)
-              Prelude.<$> connectionType,
-            ("MatchCriteria" Core..=) Prelude.<$> matchCriteria
+          [ ("MatchCriteria" Core..=) Prelude.<$> matchCriteria,
+            ("ConnectionType" Core..=)
+              Prelude.<$> connectionType
           ]
       )

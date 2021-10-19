@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSortCriterion' smart constructor.
 data SortCriterion = SortCriterion'
-  { -- | The name of the field on which to sort.
-    fieldName :: Prelude.Maybe Prelude.Text,
-    -- | An ascending or descending sort.
-    sort :: Prelude.Maybe Sort
+  { -- | An ascending or descending sort.
+    sort :: Prelude.Maybe Sort,
+    -- | The name of the field on which to sort.
+    fieldName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data SortCriterion = SortCriterion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fieldName', 'sortCriterion_fieldName' - The name of the field on which to sort.
---
 -- 'sort', 'sortCriterion_sort' - An ascending or descending sort.
+--
+-- 'fieldName', 'sortCriterion_fieldName' - The name of the field on which to sort.
 newSortCriterion ::
   SortCriterion
 newSortCriterion =
   SortCriterion'
-    { fieldName = Prelude.Nothing,
-      sort = Prelude.Nothing
+    { sort = Prelude.Nothing,
+      fieldName = Prelude.Nothing
     }
-
--- | The name of the field on which to sort.
-sortCriterion_fieldName :: Lens.Lens' SortCriterion (Prelude.Maybe Prelude.Text)
-sortCriterion_fieldName = Lens.lens (\SortCriterion' {fieldName} -> fieldName) (\s@SortCriterion' {} a -> s {fieldName = a} :: SortCriterion)
 
 -- | An ascending or descending sort.
 sortCriterion_sort :: Lens.Lens' SortCriterion (Prelude.Maybe Sort)
 sortCriterion_sort = Lens.lens (\SortCriterion' {sort} -> sort) (\s@SortCriterion' {} a -> s {sort = a} :: SortCriterion)
+
+-- | The name of the field on which to sort.
+sortCriterion_fieldName :: Lens.Lens' SortCriterion (Prelude.Maybe Prelude.Text)
+sortCriterion_fieldName = Lens.lens (\SortCriterion' {fieldName} -> fieldName) (\s@SortCriterion' {} a -> s {fieldName = a} :: SortCriterion)
 
 instance Prelude.Hashable SortCriterion
 
@@ -70,7 +70,7 @@ instance Core.ToJSON SortCriterion where
   toJSON SortCriterion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FieldName" Core..=) Prelude.<$> fieldName,
-            ("Sort" Core..=) Prelude.<$> sort
+          [ ("Sort" Core..=) Prelude.<$> sort,
+            ("FieldName" Core..=) Prelude.<$> fieldName
           ]
       )

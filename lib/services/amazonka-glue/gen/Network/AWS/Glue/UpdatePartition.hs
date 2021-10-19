@@ -124,7 +124,7 @@ updatePartition_tableName = Lens.lens (\UpdatePartition' {tableName} -> tableNam
 
 -- | List of partition key values that define the partition to update.
 updatePartition_partitionValueList :: Lens.Lens' UpdatePartition [Prelude.Text]
-updatePartition_partitionValueList = Lens.lens (\UpdatePartition' {partitionValueList} -> partitionValueList) (\s@UpdatePartition' {} a -> s {partitionValueList = a} :: UpdatePartition) Prelude.. Lens._Coerce
+updatePartition_partitionValueList = Lens.lens (\UpdatePartition' {partitionValueList} -> partitionValueList) (\s@UpdatePartition' {} a -> s {partitionValueList = a} :: UpdatePartition) Prelude.. Lens.coerced
 
 -- | The new partition object to update the partition to.
 --

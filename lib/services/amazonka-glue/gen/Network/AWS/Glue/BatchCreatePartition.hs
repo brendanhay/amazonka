@@ -114,7 +114,7 @@ batchCreatePartition_tableName = Lens.lens (\BatchCreatePartition' {tableName} -
 -- | A list of @PartitionInput@ structures that define the partitions to be
 -- created.
 batchCreatePartition_partitionInputList :: Lens.Lens' BatchCreatePartition [PartitionInput]
-batchCreatePartition_partitionInputList = Lens.lens (\BatchCreatePartition' {partitionInputList} -> partitionInputList) (\s@BatchCreatePartition' {} a -> s {partitionInputList = a} :: BatchCreatePartition) Prelude.. Lens._Coerce
+batchCreatePartition_partitionInputList = Lens.lens (\BatchCreatePartition' {partitionInputList} -> partitionInputList) (\s@BatchCreatePartition' {} a -> s {partitionInputList = a} :: BatchCreatePartition) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchCreatePartition where
   type
@@ -199,7 +199,7 @@ newBatchCreatePartitionResponse pHttpStatus_ =
 
 -- | The errors encountered when trying to create the requested partitions.
 batchCreatePartitionResponse_errors :: Lens.Lens' BatchCreatePartitionResponse (Prelude.Maybe [PartitionError])
-batchCreatePartitionResponse_errors = Lens.lens (\BatchCreatePartitionResponse' {errors} -> errors) (\s@BatchCreatePartitionResponse' {} a -> s {errors = a} :: BatchCreatePartitionResponse) Prelude.. Lens.mapping Lens._Coerce
+batchCreatePartitionResponse_errors = Lens.lens (\BatchCreatePartitionResponse' {errors} -> errors) (\s@BatchCreatePartitionResponse' {} a -> s {errors = a} :: BatchCreatePartitionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchCreatePartitionResponse_httpStatus :: Lens.Lens' BatchCreatePartitionResponse Prelude.Int

@@ -27,8 +27,8 @@ module Network.AWS.Glue.DeleteResourcePolicy
     newDeleteResourcePolicy,
 
     -- * Request Lenses
-    deleteResourcePolicy_resourceArn,
     deleteResourcePolicy_policyHashCondition,
+    deleteResourcePolicy_resourceArn,
 
     -- * Destructuring the Response
     DeleteResourcePolicyResponse (..),
@@ -48,10 +48,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteResourcePolicy' smart constructor.
 data DeleteResourcePolicy = DeleteResourcePolicy'
-  { -- | The ARN of the Glue resource for the resource policy to be deleted.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The hash value returned when this policy was set.
-    policyHashCondition :: Prelude.Maybe Prelude.Text
+  { -- | The hash value returned when this policy was set.
+    policyHashCondition :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the Glue resource for the resource policy to be deleted.
+    resourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,25 +63,25 @@ data DeleteResourcePolicy = DeleteResourcePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'deleteResourcePolicy_resourceArn' - The ARN of the Glue resource for the resource policy to be deleted.
---
 -- 'policyHashCondition', 'deleteResourcePolicy_policyHashCondition' - The hash value returned when this policy was set.
+--
+-- 'resourceArn', 'deleteResourcePolicy_resourceArn' - The ARN of the Glue resource for the resource policy to be deleted.
 newDeleteResourcePolicy ::
   DeleteResourcePolicy
 newDeleteResourcePolicy =
   DeleteResourcePolicy'
-    { resourceArn =
+    { policyHashCondition =
         Prelude.Nothing,
-      policyHashCondition = Prelude.Nothing
+      resourceArn = Prelude.Nothing
     }
-
--- | The ARN of the Glue resource for the resource policy to be deleted.
-deleteResourcePolicy_resourceArn :: Lens.Lens' DeleteResourcePolicy (Prelude.Maybe Prelude.Text)
-deleteResourcePolicy_resourceArn = Lens.lens (\DeleteResourcePolicy' {resourceArn} -> resourceArn) (\s@DeleteResourcePolicy' {} a -> s {resourceArn = a} :: DeleteResourcePolicy)
 
 -- | The hash value returned when this policy was set.
 deleteResourcePolicy_policyHashCondition :: Lens.Lens' DeleteResourcePolicy (Prelude.Maybe Prelude.Text)
 deleteResourcePolicy_policyHashCondition = Lens.lens (\DeleteResourcePolicy' {policyHashCondition} -> policyHashCondition) (\s@DeleteResourcePolicy' {} a -> s {policyHashCondition = a} :: DeleteResourcePolicy)
+
+-- | The ARN of the Glue resource for the resource policy to be deleted.
+deleteResourcePolicy_resourceArn :: Lens.Lens' DeleteResourcePolicy (Prelude.Maybe Prelude.Text)
+deleteResourcePolicy_resourceArn = Lens.lens (\DeleteResourcePolicy' {resourceArn} -> resourceArn) (\s@DeleteResourcePolicy' {} a -> s {resourceArn = a} :: DeleteResourcePolicy)
 
 instance Core.AWSRequest DeleteResourcePolicy where
   type
@@ -118,9 +118,9 @@ instance Core.ToJSON DeleteResourcePolicy where
   toJSON DeleteResourcePolicy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceArn" Core..=) Prelude.<$> resourceArn,
-            ("PolicyHashCondition" Core..=)
-              Prelude.<$> policyHashCondition
+          [ ("PolicyHashCondition" Core..=)
+              Prelude.<$> policyHashCondition,
+            ("ResourceArn" Core..=) Prelude.<$> resourceArn
           ]
       )
 

@@ -27,14 +27,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDynamoDBTarget' smart constructor.
 data DynamoDBTarget = DynamoDBTarget'
-  { -- | Indicates whether to scan all the records, or to sample rows from the
-    -- table. Scanning all the records can take a long time when the table is
-    -- not a high throughput table.
-    --
-    -- A value of @true@ means to scan all records, while a value of @false@
-    -- means to sample the records. If no value is specified, the value
-    -- defaults to @true@.
-    scanAll :: Prelude.Maybe Prelude.Bool,
+  { -- | The name of the DynamoDB table to crawl.
+    path :: Prelude.Maybe Prelude.Text,
     -- | The percentage of the configured read capacity units to use by the Glue
     -- crawler. Read capacity units is a term defined by DynamoDB, and is a
     -- numeric value that acts as rate limiter for the number of reads that can
@@ -45,8 +39,14 @@ data DynamoDBTarget = DynamoDBTarget'
     -- configured Read Capacity Unit (for provisioned tables), or 0.25 of the
     -- max configured Read Capacity Unit (for tables using on-demand mode).
     scanRate :: Prelude.Maybe Prelude.Double,
-    -- | The name of the DynamoDB table to crawl.
-    path :: Prelude.Maybe Prelude.Text
+    -- | Indicates whether to scan all the records, or to sample rows from the
+    -- table. Scanning all the records can take a long time when the table is
+    -- not a high throughput table.
+    --
+    -- A value of @true@ means to scan all records, while a value of @false@
+    -- means to sample the records. If no value is specified, the value
+    -- defaults to @true@.
+    scanAll :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,13 +58,7 @@ data DynamoDBTarget = DynamoDBTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scanAll', 'dynamoDBTarget_scanAll' - Indicates whether to scan all the records, or to sample rows from the
--- table. Scanning all the records can take a long time when the table is
--- not a high throughput table.
---
--- A value of @true@ means to scan all records, while a value of @false@
--- means to sample the records. If no value is specified, the value
--- defaults to @true@.
+-- 'path', 'dynamoDBTarget_path' - The name of the DynamoDB table to crawl.
 --
 -- 'scanRate', 'dynamoDBTarget_scanRate' - The percentage of the configured read capacity units to use by the Glue
 -- crawler. Read capacity units is a term defined by DynamoDB, and is a
@@ -76,25 +70,25 @@ data DynamoDBTarget = DynamoDBTarget'
 -- configured Read Capacity Unit (for provisioned tables), or 0.25 of the
 -- max configured Read Capacity Unit (for tables using on-demand mode).
 --
--- 'path', 'dynamoDBTarget_path' - The name of the DynamoDB table to crawl.
-newDynamoDBTarget ::
-  DynamoDBTarget
-newDynamoDBTarget =
-  DynamoDBTarget'
-    { scanAll = Prelude.Nothing,
-      scanRate = Prelude.Nothing,
-      path = Prelude.Nothing
-    }
-
--- | Indicates whether to scan all the records, or to sample rows from the
+-- 'scanAll', 'dynamoDBTarget_scanAll' - Indicates whether to scan all the records, or to sample rows from the
 -- table. Scanning all the records can take a long time when the table is
 -- not a high throughput table.
 --
 -- A value of @true@ means to scan all records, while a value of @false@
 -- means to sample the records. If no value is specified, the value
 -- defaults to @true@.
-dynamoDBTarget_scanAll :: Lens.Lens' DynamoDBTarget (Prelude.Maybe Prelude.Bool)
-dynamoDBTarget_scanAll = Lens.lens (\DynamoDBTarget' {scanAll} -> scanAll) (\s@DynamoDBTarget' {} a -> s {scanAll = a} :: DynamoDBTarget)
+newDynamoDBTarget ::
+  DynamoDBTarget
+newDynamoDBTarget =
+  DynamoDBTarget'
+    { path = Prelude.Nothing,
+      scanRate = Prelude.Nothing,
+      scanAll = Prelude.Nothing
+    }
+
+-- | The name of the DynamoDB table to crawl.
+dynamoDBTarget_path :: Lens.Lens' DynamoDBTarget (Prelude.Maybe Prelude.Text)
+dynamoDBTarget_path = Lens.lens (\DynamoDBTarget' {path} -> path) (\s@DynamoDBTarget' {} a -> s {path = a} :: DynamoDBTarget)
 
 -- | The percentage of the configured read capacity units to use by the Glue
 -- crawler. Read capacity units is a term defined by DynamoDB, and is a
@@ -108,9 +102,15 @@ dynamoDBTarget_scanAll = Lens.lens (\DynamoDBTarget' {scanAll} -> scanAll) (\s@D
 dynamoDBTarget_scanRate :: Lens.Lens' DynamoDBTarget (Prelude.Maybe Prelude.Double)
 dynamoDBTarget_scanRate = Lens.lens (\DynamoDBTarget' {scanRate} -> scanRate) (\s@DynamoDBTarget' {} a -> s {scanRate = a} :: DynamoDBTarget)
 
--- | The name of the DynamoDB table to crawl.
-dynamoDBTarget_path :: Lens.Lens' DynamoDBTarget (Prelude.Maybe Prelude.Text)
-dynamoDBTarget_path = Lens.lens (\DynamoDBTarget' {path} -> path) (\s@DynamoDBTarget' {} a -> s {path = a} :: DynamoDBTarget)
+-- | Indicates whether to scan all the records, or to sample rows from the
+-- table. Scanning all the records can take a long time when the table is
+-- not a high throughput table.
+--
+-- A value of @true@ means to scan all records, while a value of @false@
+-- means to sample the records. If no value is specified, the value
+-- defaults to @true@.
+dynamoDBTarget_scanAll :: Lens.Lens' DynamoDBTarget (Prelude.Maybe Prelude.Bool)
+dynamoDBTarget_scanAll = Lens.lens (\DynamoDBTarget' {scanAll} -> scanAll) (\s@DynamoDBTarget' {} a -> s {scanAll = a} :: DynamoDBTarget)
 
 instance Core.FromJSON DynamoDBTarget where
   parseJSON =
@@ -118,9 +118,9 @@ instance Core.FromJSON DynamoDBTarget where
       "DynamoDBTarget"
       ( \x ->
           DynamoDBTarget'
-            Prelude.<$> (x Core..:? "scanAll")
+            Prelude.<$> (x Core..:? "Path")
             Prelude.<*> (x Core..:? "scanRate")
-            Prelude.<*> (x Core..:? "Path")
+            Prelude.<*> (x Core..:? "scanAll")
       )
 
 instance Prelude.Hashable DynamoDBTarget
@@ -131,8 +131,8 @@ instance Core.ToJSON DynamoDBTarget where
   toJSON DynamoDBTarget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("scanAll" Core..=) Prelude.<$> scanAll,
+          [ ("Path" Core..=) Prelude.<$> path,
             ("scanRate" Core..=) Prelude.<$> scanRate,
-            ("Path" Core..=) Prelude.<$> path
+            ("scanAll" Core..=) Prelude.<$> scanAll
           ]
       )

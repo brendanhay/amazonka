@@ -29,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUserDefinedFunctionInput' smart constructor.
 data UserDefinedFunctionInput = UserDefinedFunctionInput'
-  { -- | The Java class that contains the function code.
-    className :: Prelude.Maybe Prelude.Text,
-    -- | The owner type.
-    ownerType :: Prelude.Maybe PrincipalType,
-    -- | The owner of the function.
+  { -- | The owner of the function.
     ownerName :: Prelude.Maybe Prelude.Text,
+    -- | The resource URIs for the function.
+    resourceUris :: Prelude.Maybe [ResourceUri],
     -- | The name of the function.
     functionName :: Prelude.Maybe Prelude.Text,
-    -- | The resource URIs for the function.
-    resourceUris :: Prelude.Maybe [ResourceUri]
+    -- | The owner type.
+    ownerType :: Prelude.Maybe PrincipalType,
+    -- | The Java class that contains the function code.
+    className :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,46 +50,46 @@ data UserDefinedFunctionInput = UserDefinedFunctionInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'className', 'userDefinedFunctionInput_className' - The Java class that contains the function code.
---
--- 'ownerType', 'userDefinedFunctionInput_ownerType' - The owner type.
---
 -- 'ownerName', 'userDefinedFunctionInput_ownerName' - The owner of the function.
+--
+-- 'resourceUris', 'userDefinedFunctionInput_resourceUris' - The resource URIs for the function.
 --
 -- 'functionName', 'userDefinedFunctionInput_functionName' - The name of the function.
 --
--- 'resourceUris', 'userDefinedFunctionInput_resourceUris' - The resource URIs for the function.
+-- 'ownerType', 'userDefinedFunctionInput_ownerType' - The owner type.
+--
+-- 'className', 'userDefinedFunctionInput_className' - The Java class that contains the function code.
 newUserDefinedFunctionInput ::
   UserDefinedFunctionInput
 newUserDefinedFunctionInput =
   UserDefinedFunctionInput'
-    { className =
+    { ownerName =
         Prelude.Nothing,
-      ownerType = Prelude.Nothing,
-      ownerName = Prelude.Nothing,
+      resourceUris = Prelude.Nothing,
       functionName = Prelude.Nothing,
-      resourceUris = Prelude.Nothing
+      ownerType = Prelude.Nothing,
+      className = Prelude.Nothing
     }
-
--- | The Java class that contains the function code.
-userDefinedFunctionInput_className :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe Prelude.Text)
-userDefinedFunctionInput_className = Lens.lens (\UserDefinedFunctionInput' {className} -> className) (\s@UserDefinedFunctionInput' {} a -> s {className = a} :: UserDefinedFunctionInput)
-
--- | The owner type.
-userDefinedFunctionInput_ownerType :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe PrincipalType)
-userDefinedFunctionInput_ownerType = Lens.lens (\UserDefinedFunctionInput' {ownerType} -> ownerType) (\s@UserDefinedFunctionInput' {} a -> s {ownerType = a} :: UserDefinedFunctionInput)
 
 -- | The owner of the function.
 userDefinedFunctionInput_ownerName :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe Prelude.Text)
 userDefinedFunctionInput_ownerName = Lens.lens (\UserDefinedFunctionInput' {ownerName} -> ownerName) (\s@UserDefinedFunctionInput' {} a -> s {ownerName = a} :: UserDefinedFunctionInput)
 
+-- | The resource URIs for the function.
+userDefinedFunctionInput_resourceUris :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe [ResourceUri])
+userDefinedFunctionInput_resourceUris = Lens.lens (\UserDefinedFunctionInput' {resourceUris} -> resourceUris) (\s@UserDefinedFunctionInput' {} a -> s {resourceUris = a} :: UserDefinedFunctionInput) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the function.
 userDefinedFunctionInput_functionName :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe Prelude.Text)
 userDefinedFunctionInput_functionName = Lens.lens (\UserDefinedFunctionInput' {functionName} -> functionName) (\s@UserDefinedFunctionInput' {} a -> s {functionName = a} :: UserDefinedFunctionInput)
 
--- | The resource URIs for the function.
-userDefinedFunctionInput_resourceUris :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe [ResourceUri])
-userDefinedFunctionInput_resourceUris = Lens.lens (\UserDefinedFunctionInput' {resourceUris} -> resourceUris) (\s@UserDefinedFunctionInput' {} a -> s {resourceUris = a} :: UserDefinedFunctionInput) Prelude.. Lens.mapping Lens._Coerce
+-- | The owner type.
+userDefinedFunctionInput_ownerType :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe PrincipalType)
+userDefinedFunctionInput_ownerType = Lens.lens (\UserDefinedFunctionInput' {ownerType} -> ownerType) (\s@UserDefinedFunctionInput' {} a -> s {ownerType = a} :: UserDefinedFunctionInput)
+
+-- | The Java class that contains the function code.
+userDefinedFunctionInput_className :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe Prelude.Text)
+userDefinedFunctionInput_className = Lens.lens (\UserDefinedFunctionInput' {className} -> className) (\s@UserDefinedFunctionInput' {} a -> s {className = a} :: UserDefinedFunctionInput)
 
 instance Prelude.Hashable UserDefinedFunctionInput
 
@@ -99,10 +99,10 @@ instance Core.ToJSON UserDefinedFunctionInput where
   toJSON UserDefinedFunctionInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ClassName" Core..=) Prelude.<$> className,
-            ("OwnerType" Core..=) Prelude.<$> ownerType,
-            ("OwnerName" Core..=) Prelude.<$> ownerName,
+          [ ("OwnerName" Core..=) Prelude.<$> ownerName,
+            ("ResourceUris" Core..=) Prelude.<$> resourceUris,
             ("FunctionName" Core..=) Prelude.<$> functionName,
-            ("ResourceUris" Core..=) Prelude.<$> resourceUris
+            ("OwnerType" Core..=) Prelude.<$> ownerType,
+            ("ClassName" Core..=) Prelude.<$> className
           ]
       )

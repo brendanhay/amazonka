@@ -14,101 +14,6 @@
 module Network.AWS.Glue.Lens
   ( -- * Operations
 
-    -- ** UpdateConnection
-    updateConnection_catalogId,
-    updateConnection_name,
-    updateConnection_connectionInput,
-    updateConnectionResponse_httpStatus,
-
-    -- ** UpdateColumnStatisticsForTable
-    updateColumnStatisticsForTable_catalogId,
-    updateColumnStatisticsForTable_databaseName,
-    updateColumnStatisticsForTable_tableName,
-    updateColumnStatisticsForTable_columnStatisticsList,
-    updateColumnStatisticsForTableResponse_errors,
-    updateColumnStatisticsForTableResponse_httpStatus,
-
-    -- ** DeleteSecurityConfiguration
-    deleteSecurityConfiguration_name,
-    deleteSecurityConfigurationResponse_httpStatus,
-
-    -- ** CreateWorkflow
-    createWorkflow_defaultRunProperties,
-    createWorkflow_maxConcurrentRuns,
-    createWorkflow_tags,
-    createWorkflow_description,
-    createWorkflow_name,
-    createWorkflowResponse_name,
-    createWorkflowResponse_httpStatus,
-
-    -- ** StartMLLabelingSetGenerationTaskRun
-    startMLLabelingSetGenerationTaskRun_transformId,
-    startMLLabelingSetGenerationTaskRun_outputS3Path,
-    startMLLabelingSetGenerationTaskRunResponse_taskRunId,
-    startMLLabelingSetGenerationTaskRunResponse_httpStatus,
-
-    -- ** GetPartitions
-    getPartitions_nextToken,
-    getPartitions_maxResults,
-    getPartitions_catalogId,
-    getPartitions_segment,
-    getPartitions_excludeColumnSchema,
-    getPartitions_expression,
-    getPartitions_databaseName,
-    getPartitions_tableName,
-    getPartitionsResponse_nextToken,
-    getPartitionsResponse_partitions,
-    getPartitionsResponse_httpStatus,
-
-    -- ** DeleteColumnStatisticsForTable
-    deleteColumnStatisticsForTable_catalogId,
-    deleteColumnStatisticsForTable_databaseName,
-    deleteColumnStatisticsForTable_tableName,
-    deleteColumnStatisticsForTable_columnName,
-    deleteColumnStatisticsForTableResponse_httpStatus,
-
-    -- ** GetDataCatalogEncryptionSettings
-    getDataCatalogEncryptionSettings_catalogId,
-    getDataCatalogEncryptionSettingsResponse_dataCatalogEncryptionSettings,
-    getDataCatalogEncryptionSettingsResponse_httpStatus,
-
-    -- ** DeleteConnection
-    deleteConnection_catalogId,
-    deleteConnection_connectionName,
-    deleteConnectionResponse_httpStatus,
-
-    -- ** GetSchema
-    getSchema_schemaId,
-    getSchemaResponse_schemaArn,
-    getSchemaResponse_nextSchemaVersion,
-    getSchemaResponse_schemaCheckpoint,
-    getSchemaResponse_dataFormat,
-    getSchemaResponse_updatedTime,
-    getSchemaResponse_createdTime,
-    getSchemaResponse_registryName,
-    getSchemaResponse_compatibility,
-    getSchemaResponse_description,
-    getSchemaResponse_schemaName,
-    getSchemaResponse_registryArn,
-    getSchemaResponse_latestSchemaVersion,
-    getSchemaResponse_schemaStatus,
-    getSchemaResponse_httpStatus,
-
-    -- ** CheckSchemaVersionValidity
-    checkSchemaVersionValidity_dataFormat,
-    checkSchemaVersionValidity_schemaDefinition,
-    checkSchemaVersionValidityResponse_valid,
-    checkSchemaVersionValidityResponse_error,
-    checkSchemaVersionValidityResponse_httpStatus,
-
-    -- ** GetResourcePolicy
-    getResourcePolicy_resourceArn,
-    getResourcePolicyResponse_policyInJson,
-    getResourcePolicyResponse_updateTime,
-    getResourcePolicyResponse_createTime,
-    getResourcePolicyResponse_policyHash,
-    getResourcePolicyResponse_httpStatus,
-
     -- ** StartImportLabelsTaskRun
     startImportLabelsTaskRun_replaceAllLabels,
     startImportLabelsTaskRun_transformId,
@@ -116,23 +21,20 @@ module Network.AWS.Glue.Lens
     startImportLabelsTaskRunResponse_taskRunId,
     startImportLabelsTaskRunResponse_httpStatus,
 
-    -- ** GetPartitionIndexes
-    getPartitionIndexes_nextToken,
-    getPartitionIndexes_catalogId,
-    getPartitionIndexes_databaseName,
-    getPartitionIndexes_tableName,
-    getPartitionIndexesResponse_nextToken,
-    getPartitionIndexesResponse_partitionIndexDescriptorList,
-    getPartitionIndexesResponse_httpStatus,
-
-    -- ** GetCatalogImportStatus
-    getCatalogImportStatus_catalogId,
-    getCatalogImportStatusResponse_importStatus,
-    getCatalogImportStatusResponse_httpStatus,
-
-    -- ** StopCrawler
-    stopCrawler_name,
-    stopCrawlerResponse_httpStatus,
+    -- ** UpdateMLTransform
+    updateMLTransform_numberOfWorkers,
+    updateMLTransform_workerType,
+    updateMLTransform_glueVersion,
+    updateMLTransform_role,
+    updateMLTransform_name,
+    updateMLTransform_parameters,
+    updateMLTransform_maxRetries,
+    updateMLTransform_maxCapacity,
+    updateMLTransform_timeout,
+    updateMLTransform_description,
+    updateMLTransform_transformId,
+    updateMLTransformResponse_transformId,
+    updateMLTransformResponse_httpStatus,
 
     -- ** UpdateRegistry
     updateRegistry_registryId,
@@ -141,24 +43,36 @@ module Network.AWS.Glue.Lens
     updateRegistryResponse_registryArn,
     updateRegistryResponse_httpStatus,
 
-    -- ** QuerySchemaVersionMetadata
-    querySchemaVersionMetadata_nextToken,
-    querySchemaVersionMetadata_maxResults,
-    querySchemaVersionMetadata_schemaVersionId,
-    querySchemaVersionMetadata_schemaVersionNumber,
-    querySchemaVersionMetadata_metadataList,
-    querySchemaVersionMetadata_schemaId,
-    querySchemaVersionMetadataResponse_metadataInfoMap,
-    querySchemaVersionMetadataResponse_nextToken,
-    querySchemaVersionMetadataResponse_schemaVersionId,
-    querySchemaVersionMetadataResponse_httpStatus,
-
     -- ** DeleteRegistry
     deleteRegistry_registryId,
     deleteRegistryResponse_status,
     deleteRegistryResponse_registryName,
     deleteRegistryResponse_registryArn,
     deleteRegistryResponse_httpStatus,
+
+    -- ** DeleteMLTransform
+    deleteMLTransform_transformId,
+    deleteMLTransformResponse_transformId,
+    deleteMLTransformResponse_httpStatus,
+
+    -- ** StartCrawler
+    startCrawler_name,
+    startCrawlerResponse_httpStatus,
+
+    -- ** GetCatalogImportStatus
+    getCatalogImportStatus_catalogId,
+    getCatalogImportStatusResponse_importStatus,
+    getCatalogImportStatusResponse_httpStatus,
+
+    -- ** ListMLTransforms
+    listMLTransforms_nextToken,
+    listMLTransforms_sort,
+    listMLTransforms_filter,
+    listMLTransforms_maxResults,
+    listMLTransforms_tags,
+    listMLTransformsResponse_nextToken,
+    listMLTransformsResponse_httpStatus,
+    listMLTransformsResponse_transformIds,
 
     -- ** GetPartition
     getPartition_catalogId,
@@ -168,87 +82,535 @@ module Network.AWS.Glue.Lens
     getPartitionResponse_partition,
     getPartitionResponse_httpStatus,
 
-    -- ** ListMLTransforms
-    listMLTransforms_nextToken,
-    listMLTransforms_maxResults,
-    listMLTransforms_tags,
-    listMLTransforms_filter,
-    listMLTransforms_sort,
-    listMLTransformsResponse_nextToken,
-    listMLTransformsResponse_httpStatus,
-    listMLTransformsResponse_transformIds,
+    -- ** QuerySchemaVersionMetadata
+    querySchemaVersionMetadata_schemaVersionId,
+    querySchemaVersionMetadata_schemaId,
+    querySchemaVersionMetadata_nextToken,
+    querySchemaVersionMetadata_metadataList,
+    querySchemaVersionMetadata_schemaVersionNumber,
+    querySchemaVersionMetadata_maxResults,
+    querySchemaVersionMetadataResponse_schemaVersionId,
+    querySchemaVersionMetadataResponse_nextToken,
+    querySchemaVersionMetadataResponse_metadataInfoMap,
+    querySchemaVersionMetadataResponse_httpStatus,
 
-    -- ** StartCrawler
-    startCrawler_name,
-    startCrawlerResponse_httpStatus,
+    -- ** CreateTrigger
+    createTrigger_workflowName,
+    createTrigger_schedule,
+    createTrigger_predicate,
+    createTrigger_startOnCreation,
+    createTrigger_eventBatchingCondition,
+    createTrigger_description,
+    createTrigger_tags,
+    createTrigger_name,
+    createTrigger_type,
+    createTrigger_actions,
+    createTriggerResponse_name,
+    createTriggerResponse_httpStatus,
 
-    -- ** GetColumnStatisticsForPartition
-    getColumnStatisticsForPartition_catalogId,
-    getColumnStatisticsForPartition_databaseName,
-    getColumnStatisticsForPartition_tableName,
-    getColumnStatisticsForPartition_partitionValues,
-    getColumnStatisticsForPartition_columnNames,
-    getColumnStatisticsForPartitionResponse_columnStatisticsList,
-    getColumnStatisticsForPartitionResponse_errors,
-    getColumnStatisticsForPartitionResponse_httpStatus,
+    -- ** CheckSchemaVersionValidity
+    checkSchemaVersionValidity_dataFormat,
+    checkSchemaVersionValidity_schemaDefinition,
+    checkSchemaVersionValidityResponse_error,
+    checkSchemaVersionValidityResponse_valid,
+    checkSchemaVersionValidityResponse_httpStatus,
 
-    -- ** ListRegistries
-    listRegistries_nextToken,
-    listRegistries_maxResults,
-    listRegistriesResponse_nextToken,
-    listRegistriesResponse_registries,
-    listRegistriesResponse_httpStatus,
+    -- ** DeleteTable
+    deleteTable_catalogId,
+    deleteTable_databaseName,
+    deleteTable_name,
+    deleteTableResponse_httpStatus,
+
+    -- ** UpdateTable
+    updateTable_skipArchive,
+    updateTable_catalogId,
+    updateTable_databaseName,
+    updateTable_tableInput,
+    updateTableResponse_httpStatus,
+
+    -- ** GetWorkflowRuns
+    getWorkflowRuns_includeGraph,
+    getWorkflowRuns_nextToken,
+    getWorkflowRuns_maxResults,
+    getWorkflowRuns_name,
+    getWorkflowRunsResponse_runs,
+    getWorkflowRunsResponse_nextToken,
+    getWorkflowRunsResponse_httpStatus,
+
+    -- ** CreateWorkflow
+    createWorkflow_maxConcurrentRuns,
+    createWorkflow_defaultRunProperties,
+    createWorkflow_description,
+    createWorkflow_tags,
+    createWorkflow_name,
+    createWorkflowResponse_name,
+    createWorkflowResponse_httpStatus,
+
+    -- ** UpdateColumnStatisticsForTable
+    updateColumnStatisticsForTable_catalogId,
+    updateColumnStatisticsForTable_databaseName,
+    updateColumnStatisticsForTable_tableName,
+    updateColumnStatisticsForTable_columnStatisticsList,
+    updateColumnStatisticsForTableResponse_errors,
+    updateColumnStatisticsForTableResponse_httpStatus,
+
+    -- ** DeleteColumnStatisticsForTable
+    deleteColumnStatisticsForTable_catalogId,
+    deleteColumnStatisticsForTable_databaseName,
+    deleteColumnStatisticsForTable_tableName,
+    deleteColumnStatisticsForTable_columnName,
+    deleteColumnStatisticsForTableResponse_httpStatus,
+
+    -- ** DeleteConnection
+    deleteConnection_catalogId,
+    deleteConnection_connectionName,
+    deleteConnectionResponse_httpStatus,
+
+    -- ** UpdateConnection
+    updateConnection_catalogId,
+    updateConnection_name,
+    updateConnection_connectionInput,
+    updateConnectionResponse_httpStatus,
+
+    -- ** GetUserDefinedFunctions
+    getUserDefinedFunctions_catalogId,
+    getUserDefinedFunctions_nextToken,
+    getUserDefinedFunctions_databaseName,
+    getUserDefinedFunctions_maxResults,
+    getUserDefinedFunctions_pattern,
+    getUserDefinedFunctionsResponse_nextToken,
+    getUserDefinedFunctionsResponse_userDefinedFunctions,
+    getUserDefinedFunctionsResponse_httpStatus,
+
+    -- ** GetTags
+    getTags_resourceArn,
+    getTagsResponse_tags,
+    getTagsResponse_httpStatus,
+
+    -- ** GetDataCatalogEncryptionSettings
+    getDataCatalogEncryptionSettings_catalogId,
+    getDataCatalogEncryptionSettingsResponse_dataCatalogEncryptionSettings,
+    getDataCatalogEncryptionSettingsResponse_httpStatus,
+
+    -- ** BatchCreatePartition
+    batchCreatePartition_catalogId,
+    batchCreatePartition_databaseName,
+    batchCreatePartition_tableName,
+    batchCreatePartition_partitionInputList,
+    batchCreatePartitionResponse_errors,
+    batchCreatePartitionResponse_httpStatus,
+
+    -- ** GetMapping
+    getMapping_sinks,
+    getMapping_location,
+    getMapping_source,
+    getMappingResponse_httpStatus,
+    getMappingResponse_mapping,
+
+    -- ** DeleteWorkflow
+    deleteWorkflow_name,
+    deleteWorkflowResponse_name,
+    deleteWorkflowResponse_httpStatus,
+
+    -- ** UpdateWorkflow
+    updateWorkflow_maxConcurrentRuns,
+    updateWorkflow_defaultRunProperties,
+    updateWorkflow_description,
+    updateWorkflow_name,
+    updateWorkflowResponse_name,
+    updateWorkflowResponse_httpStatus,
+
+    -- ** GetTableVersion
+    getTableVersion_versionId,
+    getTableVersion_catalogId,
+    getTableVersion_databaseName,
+    getTableVersion_tableName,
+    getTableVersionResponse_tableVersion,
+    getTableVersionResponse_httpStatus,
+
+    -- ** CreateSecurityConfiguration
+    createSecurityConfiguration_name,
+    createSecurityConfiguration_encryptionConfiguration,
+    createSecurityConfigurationResponse_name,
+    createSecurityConfigurationResponse_createdTimestamp,
+    createSecurityConfigurationResponse_httpStatus,
+
+    -- ** StartWorkflowRun
+    startWorkflowRun_name,
+    startWorkflowRunResponse_runId,
+    startWorkflowRunResponse_httpStatus,
+
+    -- ** GetJobs
+    getJobs_nextToken,
+    getJobs_maxResults,
+    getJobsResponse_nextToken,
+    getJobsResponse_jobs,
+    getJobsResponse_httpStatus,
+
+    -- ** BatchGetWorkflows
+    batchGetWorkflows_includeGraph,
+    batchGetWorkflows_names,
+    batchGetWorkflowsResponse_missingWorkflows,
+    batchGetWorkflowsResponse_workflows,
+    batchGetWorkflowsResponse_httpStatus,
+
+    -- ** GetClassifiers
+    getClassifiers_nextToken,
+    getClassifiers_maxResults,
+    getClassifiersResponse_nextToken,
+    getClassifiersResponse_classifiers,
+    getClassifiersResponse_httpStatus,
+
+    -- ** GetResourcePolicies
+    getResourcePolicies_nextToken,
+    getResourcePolicies_maxResults,
+    getResourcePoliciesResponse_getResourcePoliciesResponseList,
+    getResourcePoliciesResponse_nextToken,
+    getResourcePoliciesResponse_httpStatus,
+
+    -- ** CreateConnection
+    createConnection_catalogId,
+    createConnection_tags,
+    createConnection_connectionInput,
+    createConnectionResponse_httpStatus,
+
+    -- ** ListSchemaVersions
+    listSchemaVersions_nextToken,
+    listSchemaVersions_maxResults,
+    listSchemaVersions_schemaId,
+    listSchemaVersionsResponse_schemas,
+    listSchemaVersionsResponse_nextToken,
+    listSchemaVersionsResponse_httpStatus,
+
+    -- ** GetWorkflowRunProperties
+    getWorkflowRunProperties_name,
+    getWorkflowRunProperties_runId,
+    getWorkflowRunPropertiesResponse_runProperties,
+    getWorkflowRunPropertiesResponse_httpStatus,
+
+    -- ** BatchGetDevEndpoints
+    batchGetDevEndpoints_devEndpointNames,
+    batchGetDevEndpointsResponse_devEndpointsNotFound,
+    batchGetDevEndpointsResponse_devEndpoints,
+    batchGetDevEndpointsResponse_httpStatus,
+
+    -- ** DeletePartitionIndex
+    deletePartitionIndex_catalogId,
+    deletePartitionIndex_databaseName,
+    deletePartitionIndex_tableName,
+    deletePartitionIndex_indexName,
+    deletePartitionIndexResponse_httpStatus,
+
+    -- ** DeleteTableVersion
+    deleteTableVersion_catalogId,
+    deleteTableVersion_databaseName,
+    deleteTableVersion_tableName,
+    deleteTableVersion_versionId,
+    deleteTableVersionResponse_httpStatus,
+
+    -- ** DeleteDevEndpoint
+    deleteDevEndpoint_endpointName,
+    deleteDevEndpointResponse_httpStatus,
+
+    -- ** UpdateDevEndpoint
+    updateDevEndpoint_addPublicKeys,
+    updateDevEndpoint_customLibraries,
+    updateDevEndpoint_publicKey,
+    updateDevEndpoint_deleteArguments,
+    updateDevEndpoint_deletePublicKeys,
+    updateDevEndpoint_updateEtlLibraries,
+    updateDevEndpoint_addArguments,
+    updateDevEndpoint_endpointName,
+    updateDevEndpointResponse_httpStatus,
+
+    -- ** GetWorkflow
+    getWorkflow_includeGraph,
+    getWorkflow_name,
+    getWorkflowResponse_workflow,
+    getWorkflowResponse_httpStatus,
+
+    -- ** BatchGetCrawlers
+    batchGetCrawlers_crawlerNames,
+    batchGetCrawlersResponse_crawlersNotFound,
+    batchGetCrawlersResponse_crawlers,
+    batchGetCrawlersResponse_httpStatus,
+
+    -- ** GetJobBookmark
+    getJobBookmark_runId,
+    getJobBookmark_jobName,
+    getJobBookmarkResponse_jobBookmarkEntry,
+    getJobBookmarkResponse_httpStatus,
+
+    -- ** DeleteCrawler
+    deleteCrawler_name,
+    deleteCrawlerResponse_httpStatus,
+
+    -- ** UpdateCrawler
+    updateCrawler_schemaChangePolicy,
+    updateCrawler_schedule,
+    updateCrawler_recrawlPolicy,
+    updateCrawler_classifiers,
+    updateCrawler_role,
+    updateCrawler_targets,
+    updateCrawler_databaseName,
+    updateCrawler_crawlerSecurityConfiguration,
+    updateCrawler_lineageConfiguration,
+    updateCrawler_configuration,
+    updateCrawler_tablePrefix,
+    updateCrawler_description,
+    updateCrawler_name,
+    updateCrawlerResponse_httpStatus,
+
+    -- ** StartExportLabelsTaskRun
+    startExportLabelsTaskRun_transformId,
+    startExportLabelsTaskRun_outputS3Path,
+    startExportLabelsTaskRunResponse_taskRunId,
+    startExportLabelsTaskRunResponse_httpStatus,
+
+    -- ** GetSecurityConfiguration
+    getSecurityConfiguration_name,
+    getSecurityConfigurationResponse_securityConfiguration,
+    getSecurityConfigurationResponse_httpStatus,
+
+    -- ** CreatePartitionIndex
+    createPartitionIndex_catalogId,
+    createPartitionIndex_databaseName,
+    createPartitionIndex_tableName,
+    createPartitionIndex_partitionIndex,
+    createPartitionIndexResponse_httpStatus,
+
+    -- ** GetBlueprintRun
+    getBlueprintRun_blueprintName,
+    getBlueprintRun_runId,
+    getBlueprintRunResponse_blueprintRun,
+    getBlueprintRunResponse_httpStatus,
+
+    -- ** RemoveSchemaVersionMetadata
+    removeSchemaVersionMetadata_schemaVersionId,
+    removeSchemaVersionMetadata_schemaId,
+    removeSchemaVersionMetadata_schemaVersionNumber,
+    removeSchemaVersionMetadata_metadataKeyValue,
+    removeSchemaVersionMetadataResponse_registryName,
+    removeSchemaVersionMetadataResponse_schemaName,
+    removeSchemaVersionMetadataResponse_schemaVersionId,
+    removeSchemaVersionMetadataResponse_versionNumber,
+    removeSchemaVersionMetadataResponse_schemaArn,
+    removeSchemaVersionMetadataResponse_metadataKey,
+    removeSchemaVersionMetadataResponse_metadataValue,
+    removeSchemaVersionMetadataResponse_latestVersion,
+    removeSchemaVersionMetadataResponse_httpStatus,
+
+    -- ** ListSchemas
+    listSchemas_registryId,
+    listSchemas_nextToken,
+    listSchemas_maxResults,
+    listSchemasResponse_schemas,
+    listSchemasResponse_nextToken,
+    listSchemasResponse_httpStatus,
+
+    -- ** GetConnection
+    getConnection_catalogId,
+    getConnection_hidePassword,
+    getConnection_name,
+    getConnectionResponse_connection,
+    getConnectionResponse_httpStatus,
+
+    -- ** GetColumnStatisticsForTable
+    getColumnStatisticsForTable_catalogId,
+    getColumnStatisticsForTable_databaseName,
+    getColumnStatisticsForTable_tableName,
+    getColumnStatisticsForTable_columnNames,
+    getColumnStatisticsForTableResponse_errors,
+    getColumnStatisticsForTableResponse_columnStatisticsList,
+    getColumnStatisticsForTableResponse_httpStatus,
+
+    -- ** BatchGetPartition
+    batchGetPartition_catalogId,
+    batchGetPartition_databaseName,
+    batchGetPartition_tableName,
+    batchGetPartition_partitionsToGet,
+    batchGetPartitionResponse_unprocessedKeys,
+    batchGetPartitionResponse_partitions,
+    batchGetPartitionResponse_httpStatus,
+
+    -- ** StopTrigger
+    stopTrigger_name,
+    stopTriggerResponse_name,
+    stopTriggerResponse_httpStatus,
+
+    -- ** UpdateCrawlerSchedule
+    updateCrawlerSchedule_schedule,
+    updateCrawlerSchedule_crawlerName,
+    updateCrawlerScheduleResponse_httpStatus,
+
+    -- ** StartMLEvaluationTaskRun
+    startMLEvaluationTaskRun_transformId,
+    startMLEvaluationTaskRunResponse_taskRunId,
+    startMLEvaluationTaskRunResponse_httpStatus,
+
+    -- ** DeleteUserDefinedFunction
+    deleteUserDefinedFunction_catalogId,
+    deleteUserDefinedFunction_databaseName,
+    deleteUserDefinedFunction_functionName,
+    deleteUserDefinedFunctionResponse_httpStatus,
+
+    -- ** UpdateUserDefinedFunction
+    updateUserDefinedFunction_catalogId,
+    updateUserDefinedFunction_databaseName,
+    updateUserDefinedFunction_functionName,
+    updateUserDefinedFunction_functionInput,
+    updateUserDefinedFunctionResponse_httpStatus,
+
+    -- ** GetRegistry
+    getRegistry_registryId,
+    getRegistryResponse_status,
+    getRegistryResponse_registryName,
+    getRegistryResponse_createdTime,
+    getRegistryResponse_registryArn,
+    getRegistryResponse_updatedTime,
+    getRegistryResponse_description,
+    getRegistryResponse_httpStatus,
+
+    -- ** BatchDeleteTable
+    batchDeleteTable_catalogId,
+    batchDeleteTable_databaseName,
+    batchDeleteTable_tablesToDelete,
+    batchDeleteTableResponse_errors,
+    batchDeleteTableResponse_httpStatus,
+
+    -- ** CancelMLTaskRun
+    cancelMLTaskRun_transformId,
+    cancelMLTaskRun_taskRunId,
+    cancelMLTaskRunResponse_status,
+    cancelMLTaskRunResponse_transformId,
+    cancelMLTaskRunResponse_taskRunId,
+    cancelMLTaskRunResponse_httpStatus,
+
+    -- ** GetTables
+    getTables_catalogId,
+    getTables_nextToken,
+    getTables_expression,
+    getTables_maxResults,
+    getTables_databaseName,
+    getTablesResponse_tableList,
+    getTablesResponse_nextToken,
+    getTablesResponse_httpStatus,
+
+    -- ** ResumeWorkflowRun
+    resumeWorkflowRun_name,
+    resumeWorkflowRun_runId,
+    resumeWorkflowRun_nodeIds,
+    resumeWorkflowRunResponse_nodeIds,
+    resumeWorkflowRunResponse_runId,
+    resumeWorkflowRunResponse_httpStatus,
+
+    -- ** CreateClassifier
+    createClassifier_grokClassifier,
+    createClassifier_xMLClassifier,
+    createClassifier_csvClassifier,
+    createClassifier_jsonClassifier,
+    createClassifierResponse_httpStatus,
+
+    -- ** BatchDeleteConnection
+    batchDeleteConnection_catalogId,
+    batchDeleteConnection_connectionNameList,
+    batchDeleteConnectionResponse_succeeded,
+    batchDeleteConnectionResponse_errors,
+    batchDeleteConnectionResponse_httpStatus,
+
+    -- ** CreateJob
+    createJob_numberOfWorkers,
+    createJob_notificationProperty,
+    createJob_connections,
+    createJob_workerType,
+    createJob_securityConfiguration,
+    createJob_glueVersion,
+    createJob_nonOverridableArguments,
+    createJob_logUri,
+    createJob_maxRetries,
+    createJob_executionProperty,
+    createJob_allocatedCapacity,
+    createJob_maxCapacity,
+    createJob_timeout,
+    createJob_defaultArguments,
+    createJob_description,
+    createJob_tags,
+    createJob_name,
+    createJob_role,
+    createJob_command,
+    createJobResponse_name,
+    createJobResponse_httpStatus,
+
+    -- ** GetJobRuns
+    getJobRuns_nextToken,
+    getJobRuns_maxResults,
+    getJobRuns_jobName,
+    getJobRunsResponse_nextToken,
+    getJobRunsResponse_jobRuns,
+    getJobRunsResponse_httpStatus,
+
+    -- ** CreateUserDefinedFunction
+    createUserDefinedFunction_catalogId,
+    createUserDefinedFunction_databaseName,
+    createUserDefinedFunction_functionInput,
+    createUserDefinedFunctionResponse_httpStatus,
+
+    -- ** ResetJobBookmark
+    resetJobBookmark_runId,
+    resetJobBookmark_jobName,
+    resetJobBookmarkResponse_jobBookmarkEntry,
+    resetJobBookmarkResponse_httpStatus,
+
+    -- ** ListJobs
+    listJobs_nextToken,
+    listJobs_maxResults,
+    listJobs_tags,
+    listJobsResponse_nextToken,
+    listJobsResponse_jobNames,
+    listJobsResponse_httpStatus,
+
+    -- ** StartBlueprintRun
+    startBlueprintRun_parameters,
+    startBlueprintRun_blueprintName,
+    startBlueprintRun_roleArn,
+    startBlueprintRunResponse_runId,
+    startBlueprintRunResponse_httpStatus,
+
+    -- ** BatchGetBlueprints
+    batchGetBlueprints_includeParameterSpec,
+    batchGetBlueprints_includeBlueprint,
+    batchGetBlueprints_names,
+    batchGetBlueprintsResponse_blueprints,
+    batchGetBlueprintsResponse_missingBlueprints,
+    batchGetBlueprintsResponse_httpStatus,
+
+    -- ** DeleteJob
+    deleteJob_jobName,
+    deleteJobResponse_jobName,
+    deleteJobResponse_httpStatus,
+
+    -- ** UpdateJob
+    updateJob_jobName,
+    updateJob_jobUpdate,
+    updateJobResponse_jobName,
+    updateJobResponse_httpStatus,
 
     -- ** CreateRegistry
-    createRegistry_tags,
     createRegistry_description,
+    createRegistry_tags,
     createRegistry_registryName,
     createRegistryResponse_registryName,
-    createRegistryResponse_tags,
-    createRegistryResponse_description,
     createRegistryResponse_registryArn,
+    createRegistryResponse_description,
+    createRegistryResponse_tags,
     createRegistryResponse_httpStatus,
 
-    -- ** StartCrawlerSchedule
-    startCrawlerSchedule_crawlerName,
-    startCrawlerScheduleResponse_httpStatus,
-
-    -- ** GetJob
-    getJob_jobName,
-    getJobResponse_job,
-    getJobResponse_httpStatus,
-
-    -- ** DeleteTrigger
-    deleteTrigger_name,
-    deleteTriggerResponse_name,
-    deleteTriggerResponse_httpStatus,
-
-    -- ** CreateMLTransform
-    createMLTransform_transformEncryption,
-    createMLTransform_timeout,
-    createMLTransform_maxCapacity,
-    createMLTransform_numberOfWorkers,
-    createMLTransform_glueVersion,
-    createMLTransform_tags,
-    createMLTransform_workerType,
-    createMLTransform_description,
-    createMLTransform_maxRetries,
-    createMLTransform_name,
-    createMLTransform_inputRecordTables,
-    createMLTransform_parameters,
-    createMLTransform_role,
-    createMLTransformResponse_transformId,
-    createMLTransformResponse_httpStatus,
-
-    -- ** StopCrawlerSchedule
-    stopCrawlerSchedule_crawlerName,
-    stopCrawlerScheduleResponse_httpStatus,
-
-    -- ** UpdateTrigger
-    updateTrigger_name,
-    updateTrigger_triggerUpdate,
-    updateTriggerResponse_trigger,
-    updateTriggerResponse_httpStatus,
+    -- ** GetCrawlers
+    getCrawlers_nextToken,
+    getCrawlers_maxResults,
+    getCrawlersResponse_nextToken,
+    getCrawlersResponse_crawlers,
+    getCrawlersResponse_httpStatus,
 
     -- ** ListTriggers
     listTriggers_nextToken,
@@ -259,406 +621,168 @@ module Network.AWS.Glue.Lens
     listTriggersResponse_nextToken,
     listTriggersResponse_httpStatus,
 
-    -- ** GetSchemaByDefinition
-    getSchemaByDefinition_schemaId,
-    getSchemaByDefinition_schemaDefinition,
-    getSchemaByDefinitionResponse_status,
-    getSchemaByDefinitionResponse_schemaArn,
-    getSchemaByDefinitionResponse_schemaVersionId,
-    getSchemaByDefinitionResponse_dataFormat,
-    getSchemaByDefinitionResponse_createdTime,
-    getSchemaByDefinitionResponse_httpStatus,
+    -- ** GetClassifier
+    getClassifier_name,
+    getClassifierResponse_classifier,
+    getClassifierResponse_httpStatus,
 
-    -- ** DeleteClassifier
-    deleteClassifier_name,
-    deleteClassifierResponse_httpStatus,
+    -- ** GetJob
+    getJob_jobName,
+    getJobResponse_job,
+    getJobResponse_httpStatus,
 
-    -- ** StartBlueprintRun
-    startBlueprintRun_parameters,
-    startBlueprintRun_blueprintName,
-    startBlueprintRun_roleArn,
-    startBlueprintRunResponse_runId,
-    startBlueprintRunResponse_httpStatus,
+    -- ** ListRegistries
+    listRegistries_nextToken,
+    listRegistries_maxResults,
+    listRegistriesResponse_registries,
+    listRegistriesResponse_nextToken,
+    listRegistriesResponse_httpStatus,
 
-    -- ** UpdateJob
-    updateJob_jobName,
-    updateJob_jobUpdate,
-    updateJobResponse_jobName,
-    updateJobResponse_httpStatus,
+    -- ** BatchDeleteTableVersion
+    batchDeleteTableVersion_catalogId,
+    batchDeleteTableVersion_databaseName,
+    batchDeleteTableVersion_tableName,
+    batchDeleteTableVersion_versionIds,
+    batchDeleteTableVersionResponse_errors,
+    batchDeleteTableVersionResponse_httpStatus,
 
-    -- ** DeleteJob
-    deleteJob_jobName,
-    deleteJobResponse_jobName,
-    deleteJobResponse_httpStatus,
+    -- ** GetDevEndpoints
+    getDevEndpoints_nextToken,
+    getDevEndpoints_maxResults,
+    getDevEndpointsResponse_nextToken,
+    getDevEndpointsResponse_devEndpoints,
+    getDevEndpointsResponse_httpStatus,
 
-    -- ** UpdateClassifier
-    updateClassifier_xMLClassifier,
-    updateClassifier_jsonClassifier,
-    updateClassifier_csvClassifier,
-    updateClassifier_grokClassifier,
-    updateClassifierResponse_httpStatus,
+    -- ** StartCrawlerSchedule
+    startCrawlerSchedule_crawlerName,
+    startCrawlerScheduleResponse_httpStatus,
 
-    -- ** ListBlueprints
-    listBlueprints_nextToken,
-    listBlueprints_maxResults,
-    listBlueprints_tags,
-    listBlueprintsResponse_nextToken,
-    listBlueprintsResponse_blueprints,
-    listBlueprintsResponse_httpStatus,
+    -- ** GetPartitionIndexes
+    getPartitionIndexes_catalogId,
+    getPartitionIndexes_nextToken,
+    getPartitionIndexes_databaseName,
+    getPartitionIndexes_tableName,
+    getPartitionIndexesResponse_partitionIndexDescriptorList,
+    getPartitionIndexesResponse_nextToken,
+    getPartitionIndexesResponse_httpStatus,
 
-    -- ** CreateUserDefinedFunction
-    createUserDefinedFunction_catalogId,
-    createUserDefinedFunction_databaseName,
-    createUserDefinedFunction_functionInput,
-    createUserDefinedFunctionResponse_httpStatus,
+    -- ** GetUserDefinedFunction
+    getUserDefinedFunction_catalogId,
+    getUserDefinedFunction_databaseName,
+    getUserDefinedFunction_functionName,
+    getUserDefinedFunctionResponse_userDefinedFunction,
+    getUserDefinedFunctionResponse_httpStatus,
 
-    -- ** GetTrigger
-    getTrigger_name,
-    getTriggerResponse_trigger,
-    getTriggerResponse_httpStatus,
+    -- ** GetResourcePolicy
+    getResourcePolicy_resourceArn,
+    getResourcePolicyResponse_policyInJson,
+    getResourcePolicyResponse_updateTime,
+    getResourcePolicyResponse_policyHash,
+    getResourcePolicyResponse_createTime,
+    getResourcePolicyResponse_httpStatus,
 
-    -- ** BatchGetJobs
-    batchGetJobs_jobNames,
-    batchGetJobsResponse_jobsNotFound,
-    batchGetJobsResponse_jobs,
-    batchGetJobsResponse_httpStatus,
+    -- ** GetWorkflowRun
+    getWorkflowRun_includeGraph,
+    getWorkflowRun_name,
+    getWorkflowRun_runId,
+    getWorkflowRunResponse_run,
+    getWorkflowRunResponse_httpStatus,
 
-    -- ** GetDatabase
-    getDatabase_catalogId,
-    getDatabase_name,
-    getDatabaseResponse_database,
-    getDatabaseResponse_httpStatus,
+    -- ** DeleteDatabase
+    deleteDatabase_catalogId,
+    deleteDatabase_name,
+    deleteDatabaseResponse_httpStatus,
 
-    -- ** PutResourcePolicy
-    putResourcePolicy_resourceArn,
-    putResourcePolicy_enableHybrid,
-    putResourcePolicy_policyHashCondition,
-    putResourcePolicy_policyExistsCondition,
-    putResourcePolicy_policyInJson,
-    putResourcePolicyResponse_policyHash,
-    putResourcePolicyResponse_httpStatus,
+    -- ** UpdateDatabase
+    updateDatabase_catalogId,
+    updateDatabase_name,
+    updateDatabase_databaseInput,
+    updateDatabaseResponse_httpStatus,
 
-    -- ** StartMLEvaluationTaskRun
-    startMLEvaluationTaskRun_transformId,
-    startMLEvaluationTaskRunResponse_taskRunId,
-    startMLEvaluationTaskRunResponse_httpStatus,
+    -- ** GetColumnStatisticsForPartition
+    getColumnStatisticsForPartition_catalogId,
+    getColumnStatisticsForPartition_databaseName,
+    getColumnStatisticsForPartition_tableName,
+    getColumnStatisticsForPartition_partitionValues,
+    getColumnStatisticsForPartition_columnNames,
+    getColumnStatisticsForPartitionResponse_errors,
+    getColumnStatisticsForPartitionResponse_columnStatisticsList,
+    getColumnStatisticsForPartitionResponse_httpStatus,
 
-    -- ** DeletePartition
-    deletePartition_catalogId,
-    deletePartition_databaseName,
-    deletePartition_tableName,
-    deletePartition_partitionValues,
-    deletePartitionResponse_httpStatus,
+    -- ** StopCrawler
+    stopCrawler_name,
+    stopCrawlerResponse_httpStatus,
 
-    -- ** CreateBlueprint
-    createBlueprint_tags,
-    createBlueprint_description,
-    createBlueprint_name,
-    createBlueprint_blueprintLocation,
-    createBlueprintResponse_name,
-    createBlueprintResponse_httpStatus,
+    -- ** DeleteSecurityConfiguration
+    deleteSecurityConfiguration_name,
+    deleteSecurityConfigurationResponse_httpStatus,
 
-    -- ** BatchDeleteTable
-    batchDeleteTable_catalogId,
-    batchDeleteTable_databaseName,
-    batchDeleteTable_tablesToDelete,
-    batchDeleteTableResponse_errors,
-    batchDeleteTableResponse_httpStatus,
+    -- ** GetPartitions
+    getPartitions_catalogId,
+    getPartitions_excludeColumnSchema,
+    getPartitions_nextToken,
+    getPartitions_expression,
+    getPartitions_segment,
+    getPartitions_maxResults,
+    getPartitions_databaseName,
+    getPartitions_tableName,
+    getPartitionsResponse_partitions,
+    getPartitionsResponse_nextToken,
+    getPartitionsResponse_httpStatus,
 
-    -- ** UpdatePartition
-    updatePartition_catalogId,
-    updatePartition_databaseName,
-    updatePartition_tableName,
-    updatePartition_partitionValueList,
-    updatePartition_partitionInput,
-    updatePartitionResponse_httpStatus,
+    -- ** PutSchemaVersionMetadata
+    putSchemaVersionMetadata_schemaVersionId,
+    putSchemaVersionMetadata_schemaId,
+    putSchemaVersionMetadata_schemaVersionNumber,
+    putSchemaVersionMetadata_metadataKeyValue,
+    putSchemaVersionMetadataResponse_registryName,
+    putSchemaVersionMetadataResponse_schemaName,
+    putSchemaVersionMetadataResponse_schemaVersionId,
+    putSchemaVersionMetadataResponse_versionNumber,
+    putSchemaVersionMetadataResponse_schemaArn,
+    putSchemaVersionMetadataResponse_metadataKey,
+    putSchemaVersionMetadataResponse_metadataValue,
+    putSchemaVersionMetadataResponse_latestVersion,
+    putSchemaVersionMetadataResponse_httpStatus,
 
-    -- ** GetSchemaVersionsDiff
-    getSchemaVersionsDiff_schemaId,
-    getSchemaVersionsDiff_firstSchemaVersionNumber,
-    getSchemaVersionsDiff_secondSchemaVersionNumber,
-    getSchemaVersionsDiff_schemaDiffType,
-    getSchemaVersionsDiffResponse_diff,
-    getSchemaVersionsDiffResponse_httpStatus,
+    -- ** GetSchema
+    getSchema_schemaId,
+    getSchemaResponse_registryName,
+    getSchemaResponse_createdTime,
+    getSchemaResponse_schemaStatus,
+    getSchemaResponse_registryArn,
+    getSchemaResponse_latestSchemaVersion,
+    getSchemaResponse_dataFormat,
+    getSchemaResponse_schemaCheckpoint,
+    getSchemaResponse_schemaName,
+    getSchemaResponse_schemaArn,
+    getSchemaResponse_nextSchemaVersion,
+    getSchemaResponse_updatedTime,
+    getSchemaResponse_description,
+    getSchemaResponse_compatibility,
+    getSchemaResponse_httpStatus,
 
-    -- ** GetJobRuns
-    getJobRuns_nextToken,
-    getJobRuns_maxResults,
-    getJobRuns_jobName,
-    getJobRunsResponse_nextToken,
-    getJobRunsResponse_jobRuns,
-    getJobRunsResponse_httpStatus,
+    -- ** BatchDeletePartition
+    batchDeletePartition_catalogId,
+    batchDeletePartition_databaseName,
+    batchDeletePartition_tableName,
+    batchDeletePartition_partitionsToDelete,
+    batchDeletePartitionResponse_errors,
+    batchDeletePartitionResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagsToRemove,
-    untagResourceResponse_httpStatus,
+    -- ** StartMLLabelingSetGenerationTaskRun
+    startMLLabelingSetGenerationTaskRun_transformId,
+    startMLLabelingSetGenerationTaskRun_outputS3Path,
+    startMLLabelingSetGenerationTaskRunResponse_taskRunId,
+    startMLLabelingSetGenerationTaskRunResponse_httpStatus,
 
-    -- ** GetSecurityConfigurations
-    getSecurityConfigurations_nextToken,
-    getSecurityConfigurations_maxResults,
-    getSecurityConfigurationsResponse_nextToken,
-    getSecurityConfigurationsResponse_securityConfigurations,
-    getSecurityConfigurationsResponse_httpStatus,
-
-    -- ** CreateClassifier
-    createClassifier_xMLClassifier,
-    createClassifier_jsonClassifier,
-    createClassifier_csvClassifier,
-    createClassifier_grokClassifier,
-    createClassifierResponse_httpStatus,
-
-    -- ** CreatePartitionIndex
-    createPartitionIndex_catalogId,
-    createPartitionIndex_databaseName,
-    createPartitionIndex_tableName,
-    createPartitionIndex_partitionIndex,
-    createPartitionIndexResponse_httpStatus,
-
-    -- ** GetSecurityConfiguration
-    getSecurityConfiguration_name,
-    getSecurityConfigurationResponse_securityConfiguration,
-    getSecurityConfigurationResponse_httpStatus,
-
-    -- ** GetMLTransforms
-    getMLTransforms_nextToken,
-    getMLTransforms_maxResults,
-    getMLTransforms_filter,
-    getMLTransforms_sort,
-    getMLTransformsResponse_nextToken,
-    getMLTransformsResponse_httpStatus,
-    getMLTransformsResponse_transforms,
-
-    -- ** GetJobRun
-    getJobRun_predecessorsIncluded,
-    getJobRun_jobName,
-    getJobRun_runId,
-    getJobRunResponse_jobRun,
-    getJobRunResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tagsToAdd,
-    tagResourceResponse_httpStatus,
-
-    -- ** CreateCrawler
-    createCrawler_schemaChangePolicy,
-    createCrawler_recrawlPolicy,
-    createCrawler_classifiers,
-    createCrawler_configuration,
-    createCrawler_lineageConfiguration,
-    createCrawler_tags,
-    createCrawler_description,
-    createCrawler_tablePrefix,
-    createCrawler_schedule,
-    createCrawler_crawlerSecurityConfiguration,
-    createCrawler_databaseName,
-    createCrawler_name,
-    createCrawler_role,
-    createCrawler_targets,
-    createCrawlerResponse_httpStatus,
-
-    -- ** CreateDevEndpoint
-    createDevEndpoint_securityGroupIds,
-    createDevEndpoint_securityConfiguration,
-    createDevEndpoint_publicKey,
-    createDevEndpoint_numberOfWorkers,
-    createDevEndpoint_extraPythonLibsS3Path,
-    createDevEndpoint_glueVersion,
-    createDevEndpoint_tags,
-    createDevEndpoint_numberOfNodes,
-    createDevEndpoint_workerType,
-    createDevEndpoint_subnetId,
-    createDevEndpoint_arguments,
-    createDevEndpoint_extraJarsS3Path,
-    createDevEndpoint_publicKeys,
-    createDevEndpoint_endpointName,
-    createDevEndpoint_roleArn,
-    createDevEndpointResponse_securityGroupIds,
-    createDevEndpointResponse_status,
-    createDevEndpointResponse_endpointName,
-    createDevEndpointResponse_roleArn,
-    createDevEndpointResponse_yarnEndpointAddress,
-    createDevEndpointResponse_securityConfiguration,
-    createDevEndpointResponse_createdTimestamp,
-    createDevEndpointResponse_numberOfWorkers,
-    createDevEndpointResponse_zeppelinRemoteSparkInterpreterPort,
-    createDevEndpointResponse_extraPythonLibsS3Path,
-    createDevEndpointResponse_availabilityZone,
-    createDevEndpointResponse_failureReason,
-    createDevEndpointResponse_glueVersion,
-    createDevEndpointResponse_numberOfNodes,
-    createDevEndpointResponse_workerType,
-    createDevEndpointResponse_subnetId,
-    createDevEndpointResponse_arguments,
-    createDevEndpointResponse_vpcId,
-    createDevEndpointResponse_extraJarsS3Path,
-    createDevEndpointResponse_httpStatus,
-
-    -- ** GetMLTaskRuns
-    getMLTaskRuns_nextToken,
-    getMLTaskRuns_maxResults,
-    getMLTaskRuns_filter,
-    getMLTaskRuns_sort,
-    getMLTaskRuns_transformId,
-    getMLTaskRunsResponse_nextToken,
-    getMLTaskRunsResponse_taskRuns,
-    getMLTaskRunsResponse_httpStatus,
-
-    -- ** DeleteCrawler
-    deleteCrawler_name,
-    deleteCrawlerResponse_httpStatus,
-
-    -- ** ListDevEndpoints
-    listDevEndpoints_nextToken,
-    listDevEndpoints_maxResults,
-    listDevEndpoints_tags,
-    listDevEndpointsResponse_nextToken,
-    listDevEndpointsResponse_devEndpointNames,
-    listDevEndpointsResponse_httpStatus,
-
-    -- ** DeleteDevEndpoint
-    deleteDevEndpoint_endpointName,
-    deleteDevEndpointResponse_httpStatus,
-
-    -- ** UpdateDevEndpoint
-    updateDevEndpoint_publicKey,
-    updateDevEndpoint_updateEtlLibraries,
-    updateDevEndpoint_addPublicKeys,
-    updateDevEndpoint_deletePublicKeys,
-    updateDevEndpoint_deleteArguments,
-    updateDevEndpoint_addArguments,
-    updateDevEndpoint_customLibraries,
-    updateDevEndpoint_endpointName,
-    updateDevEndpointResponse_httpStatus,
-
-    -- ** UpdateCrawler
-    updateCrawler_schemaChangePolicy,
-    updateCrawler_recrawlPolicy,
-    updateCrawler_classifiers,
-    updateCrawler_configuration,
-    updateCrawler_lineageConfiguration,
-    updateCrawler_targets,
-    updateCrawler_role,
-    updateCrawler_description,
-    updateCrawler_tablePrefix,
-    updateCrawler_schedule,
-    updateCrawler_crawlerSecurityConfiguration,
-    updateCrawler_databaseName,
-    updateCrawler_name,
-    updateCrawlerResponse_httpStatus,
-
-    -- ** GetSchemaVersion
-    getSchemaVersion_schemaVersionId,
-    getSchemaVersion_schemaVersionNumber,
-    getSchemaVersion_schemaId,
-    getSchemaVersionResponse_status,
-    getSchemaVersionResponse_schemaDefinition,
-    getSchemaVersionResponse_schemaArn,
-    getSchemaVersionResponse_schemaVersionId,
-    getSchemaVersionResponse_dataFormat,
-    getSchemaVersionResponse_createdTime,
-    getSchemaVersionResponse_versionNumber,
-    getSchemaVersionResponse_httpStatus,
-
-    -- ** CreateSchema
-    createSchema_schemaDefinition,
-    createSchema_registryId,
-    createSchema_tags,
-    createSchema_compatibility,
-    createSchema_description,
-    createSchema_schemaName,
-    createSchema_dataFormat,
-    createSchemaResponse_schemaArn,
-    createSchemaResponse_nextSchemaVersion,
-    createSchemaResponse_schemaVersionId,
-    createSchemaResponse_schemaCheckpoint,
-    createSchemaResponse_dataFormat,
-    createSchemaResponse_registryName,
-    createSchemaResponse_schemaVersionStatus,
-    createSchemaResponse_tags,
-    createSchemaResponse_compatibility,
-    createSchemaResponse_description,
-    createSchemaResponse_schemaName,
-    createSchemaResponse_registryArn,
-    createSchemaResponse_latestSchemaVersion,
-    createSchemaResponse_schemaStatus,
-    createSchemaResponse_httpStatus,
-
-    -- ** GetWorkflow
-    getWorkflow_includeGraph,
-    getWorkflow_name,
-    getWorkflowResponse_workflow,
-    getWorkflowResponse_httpStatus,
-
-    -- ** ListCrawlers
-    listCrawlers_nextToken,
-    listCrawlers_maxResults,
-    listCrawlers_tags,
-    listCrawlersResponse_nextToken,
-    listCrawlersResponse_crawlerNames,
-    listCrawlersResponse_httpStatus,
-
-    -- ** CreateTable
-    createTable_catalogId,
-    createTable_partitionIndexes,
-    createTable_databaseName,
-    createTable_tableInput,
-    createTableResponse_httpStatus,
-
-    -- ** GetMapping
-    getMapping_sinks,
-    getMapping_location,
-    getMapping_source,
-    getMappingResponse_httpStatus,
-    getMappingResponse_mapping,
-
-    -- ** BatchStopJobRun
-    batchStopJobRun_jobName,
-    batchStopJobRun_jobRunIds,
-    batchStopJobRunResponse_successfulSubmissions,
-    batchStopJobRunResponse_errors,
-    batchStopJobRunResponse_httpStatus,
-
-    -- ** StartWorkflowRun
-    startWorkflowRun_name,
-    startWorkflowRunResponse_runId,
-    startWorkflowRunResponse_httpStatus,
-
-    -- ** CreateConnection
-    createConnection_catalogId,
-    createConnection_connectionInput,
-    createConnectionResponse_httpStatus,
-
-    -- ** GetClassifiers
-    getClassifiers_nextToken,
-    getClassifiers_maxResults,
-    getClassifiersResponse_classifiers,
-    getClassifiersResponse_nextToken,
-    getClassifiersResponse_httpStatus,
-
-    -- ** BatchCreatePartition
-    batchCreatePartition_catalogId,
-    batchCreatePartition_databaseName,
-    batchCreatePartition_tableName,
-    batchCreatePartition_partitionInputList,
-    batchCreatePartitionResponse_errors,
-    batchCreatePartitionResponse_httpStatus,
-
-    -- ** ListWorkflows
-    listWorkflows_nextToken,
-    listWorkflows_maxResults,
-    listWorkflowsResponse_nextToken,
-    listWorkflowsResponse_workflows,
-    listWorkflowsResponse_httpStatus,
-
-    -- ** UpdateWorkflow
-    updateWorkflow_defaultRunProperties,
-    updateWorkflow_maxConcurrentRuns,
-    updateWorkflow_description,
-    updateWorkflow_name,
-    updateWorkflowResponse_name,
-    updateWorkflowResponse_httpStatus,
+    -- ** BatchUpdatePartition
+    batchUpdatePartition_catalogId,
+    batchUpdatePartition_databaseName,
+    batchUpdatePartition_tableName,
+    batchUpdatePartition_entries,
+    batchUpdatePartitionResponse_errors,
+    batchUpdatePartitionResponse_httpStatus,
 
     -- ** RegisterSchemaVersion
     registerSchemaVersion_schemaId,
@@ -673,640 +797,24 @@ module Network.AWS.Glue.Lens
     stopWorkflowRun_runId,
     stopWorkflowRunResponse_httpStatus,
 
-    -- ** DeleteWorkflow
-    deleteWorkflow_name,
-    deleteWorkflowResponse_name,
-    deleteWorkflowResponse_httpStatus,
-
-    -- ** ListSchemaVersions
-    listSchemaVersions_nextToken,
-    listSchemaVersions_maxResults,
-    listSchemaVersions_schemaId,
-    listSchemaVersionsResponse_nextToken,
-    listSchemaVersionsResponse_schemas,
-    listSchemaVersionsResponse_httpStatus,
-
-    -- ** BatchUpdatePartition
-    batchUpdatePartition_catalogId,
-    batchUpdatePartition_databaseName,
-    batchUpdatePartition_tableName,
-    batchUpdatePartition_entries,
-    batchUpdatePartitionResponse_errors,
-    batchUpdatePartitionResponse_httpStatus,
-
-    -- ** BatchDeletePartition
-    batchDeletePartition_catalogId,
-    batchDeletePartition_databaseName,
-    batchDeletePartition_tableName,
-    batchDeletePartition_partitionsToDelete,
-    batchDeletePartitionResponse_errors,
-    batchDeletePartitionResponse_httpStatus,
-
-    -- ** GetWorkflowRuns
-    getWorkflowRuns_nextToken,
-    getWorkflowRuns_maxResults,
-    getWorkflowRuns_includeGraph,
-    getWorkflowRuns_name,
-    getWorkflowRunsResponse_nextToken,
-    getWorkflowRunsResponse_runs,
-    getWorkflowRunsResponse_httpStatus,
-
-    -- ** GetTags
-    getTags_resourceArn,
-    getTagsResponse_tags,
-    getTagsResponse_httpStatus,
-
-    -- ** UpdateTable
-    updateTable_catalogId,
-    updateTable_skipArchive,
-    updateTable_databaseName,
-    updateTable_tableInput,
-    updateTableResponse_httpStatus,
-
-    -- ** DeleteTable
-    deleteTable_catalogId,
-    deleteTable_databaseName,
-    deleteTable_name,
-    deleteTableResponse_httpStatus,
-
-    -- ** GetUserDefinedFunctions
-    getUserDefinedFunctions_nextToken,
-    getUserDefinedFunctions_maxResults,
-    getUserDefinedFunctions_catalogId,
-    getUserDefinedFunctions_databaseName,
-    getUserDefinedFunctions_pattern,
-    getUserDefinedFunctionsResponse_nextToken,
-    getUserDefinedFunctionsResponse_userDefinedFunctions,
-    getUserDefinedFunctionsResponse_httpStatus,
-
-    -- ** PutSchemaVersionMetadata
-    putSchemaVersionMetadata_schemaVersionId,
-    putSchemaVersionMetadata_schemaVersionNumber,
-    putSchemaVersionMetadata_schemaId,
-    putSchemaVersionMetadata_metadataKeyValue,
-    putSchemaVersionMetadataResponse_schemaArn,
-    putSchemaVersionMetadataResponse_latestVersion,
-    putSchemaVersionMetadataResponse_schemaVersionId,
-    putSchemaVersionMetadataResponse_registryName,
-    putSchemaVersionMetadataResponse_metadataKey,
-    putSchemaVersionMetadataResponse_versionNumber,
-    putSchemaVersionMetadataResponse_metadataValue,
-    putSchemaVersionMetadataResponse_schemaName,
-    putSchemaVersionMetadataResponse_httpStatus,
-
-    -- ** UpdateDatabase
-    updateDatabase_catalogId,
-    updateDatabase_name,
-    updateDatabase_databaseInput,
-    updateDatabaseResponse_httpStatus,
-
-    -- ** GetUserDefinedFunction
-    getUserDefinedFunction_catalogId,
-    getUserDefinedFunction_databaseName,
-    getUserDefinedFunction_functionName,
-    getUserDefinedFunctionResponse_userDefinedFunction,
-    getUserDefinedFunctionResponse_httpStatus,
-
-    -- ** CreateTrigger
-    createTrigger_workflowName,
-    createTrigger_startOnCreation,
-    createTrigger_tags,
-    createTrigger_predicate,
-    createTrigger_description,
-    createTrigger_eventBatchingCondition,
-    createTrigger_schedule,
-    createTrigger_name,
-    createTrigger_type,
-    createTrigger_actions,
-    createTriggerResponse_name,
-    createTriggerResponse_httpStatus,
-
-    -- ** DeleteDatabase
-    deleteDatabase_catalogId,
-    deleteDatabase_name,
-    deleteDatabaseResponse_httpStatus,
-
-    -- ** UpdateMLTransform
-    updateMLTransform_timeout,
-    updateMLTransform_maxCapacity,
-    updateMLTransform_numberOfWorkers,
-    updateMLTransform_name,
-    updateMLTransform_role,
-    updateMLTransform_glueVersion,
-    updateMLTransform_workerType,
-    updateMLTransform_description,
-    updateMLTransform_maxRetries,
-    updateMLTransform_parameters,
-    updateMLTransform_transformId,
-    updateMLTransformResponse_transformId,
-    updateMLTransformResponse_httpStatus,
-
-    -- ** DeleteMLTransform
-    deleteMLTransform_transformId,
-    deleteMLTransformResponse_transformId,
-    deleteMLTransformResponse_httpStatus,
-
-    -- ** GetWorkflowRun
-    getWorkflowRun_includeGraph,
-    getWorkflowRun_name,
-    getWorkflowRun_runId,
-    getWorkflowRunResponse_run,
-    getWorkflowRunResponse_httpStatus,
-
-    -- ** GetTableVersions
-    getTableVersions_nextToken,
-    getTableVersions_maxResults,
-    getTableVersions_catalogId,
-    getTableVersions_databaseName,
-    getTableVersions_tableName,
-    getTableVersionsResponse_nextToken,
-    getTableVersionsResponse_tableVersions,
-    getTableVersionsResponse_httpStatus,
-
-    -- ** DeleteSchemaVersions
-    deleteSchemaVersions_schemaId,
-    deleteSchemaVersions_versions,
-    deleteSchemaVersionsResponse_schemaVersionErrors,
-    deleteSchemaVersionsResponse_httpStatus,
-
-    -- ** BatchGetTriggers
-    batchGetTriggers_triggerNames,
-    batchGetTriggersResponse_triggers,
-    batchGetTriggersResponse_triggersNotFound,
-    batchGetTriggersResponse_httpStatus,
-
-    -- ** GetClassifier
-    getClassifier_name,
-    getClassifierResponse_classifier,
-    getClassifierResponse_httpStatus,
-
-    -- ** CreateDatabase
-    createDatabase_catalogId,
-    createDatabase_databaseInput,
-    createDatabaseResponse_httpStatus,
-
-    -- ** GetCrawlers
-    getCrawlers_nextToken,
-    getCrawlers_maxResults,
-    getCrawlersResponse_nextToken,
-    getCrawlersResponse_crawlers,
-    getCrawlersResponse_httpStatus,
-
-    -- ** GetBlueprint
-    getBlueprint_includeBlueprint,
-    getBlueprint_includeParameterSpec,
-    getBlueprint_name,
-    getBlueprintResponse_blueprint,
-    getBlueprintResponse_httpStatus,
-
-    -- ** GetDevEndpoints
-    getDevEndpoints_nextToken,
-    getDevEndpoints_maxResults,
-    getDevEndpointsResponse_nextToken,
-    getDevEndpointsResponse_devEndpoints,
-    getDevEndpointsResponse_httpStatus,
-
-    -- ** BatchDeleteTableVersion
-    batchDeleteTableVersion_catalogId,
-    batchDeleteTableVersion_databaseName,
-    batchDeleteTableVersion_tableName,
-    batchDeleteTableVersion_versionIds,
-    batchDeleteTableVersionResponse_errors,
-    batchDeleteTableVersionResponse_httpStatus,
-
-    -- ** DeleteBlueprint
-    deleteBlueprint_name,
-    deleteBlueprintResponse_name,
-    deleteBlueprintResponse_httpStatus,
-
-    -- ** StartJobRun
-    startJobRun_securityConfiguration,
-    startJobRun_timeout,
-    startJobRun_maxCapacity,
-    startJobRun_notificationProperty,
-    startJobRun_numberOfWorkers,
-    startJobRun_workerType,
-    startJobRun_jobRunId,
-    startJobRun_arguments,
-    startJobRun_allocatedCapacity,
-    startJobRun_jobName,
-    startJobRunResponse_jobRunId,
-    startJobRunResponse_httpStatus,
-
-    -- ** ImportCatalogToGlue
-    importCatalogToGlue_catalogId,
-    importCatalogToGlueResponse_httpStatus,
-
-    -- ** CreatePartition
-    createPartition_catalogId,
-    createPartition_databaseName,
-    createPartition_tableName,
-    createPartition_partitionInput,
-    createPartitionResponse_httpStatus,
-
-    -- ** UpdateBlueprint
-    updateBlueprint_description,
-    updateBlueprint_name,
-    updateBlueprint_blueprintLocation,
-    updateBlueprintResponse_name,
-    updateBlueprintResponse_httpStatus,
-
-    -- ** ListJobs
-    listJobs_nextToken,
-    listJobs_maxResults,
-    listJobs_tags,
-    listJobsResponse_nextToken,
-    listJobsResponse_jobNames,
-    listJobsResponse_httpStatus,
-
-    -- ** ResetJobBookmark
-    resetJobBookmark_runId,
-    resetJobBookmark_jobName,
-    resetJobBookmarkResponse_jobBookmarkEntry,
-    resetJobBookmarkResponse_httpStatus,
-
-    -- ** BatchGetBlueprints
-    batchGetBlueprints_includeBlueprint,
-    batchGetBlueprints_includeParameterSpec,
-    batchGetBlueprints_names,
-    batchGetBlueprintsResponse_blueprints,
-    batchGetBlueprintsResponse_missingBlueprints,
-    batchGetBlueprintsResponse_httpStatus,
-
-    -- ** GetMLTransform
-    getMLTransform_transformId,
-    getMLTransformResponse_status,
-    getMLTransformResponse_createdOn,
-    getMLTransformResponse_schema,
-    getMLTransformResponse_transformId,
-    getMLTransformResponse_inputRecordTables,
-    getMLTransformResponse_transformEncryption,
-    getMLTransformResponse_timeout,
-    getMLTransformResponse_maxCapacity,
-    getMLTransformResponse_lastModifiedOn,
-    getMLTransformResponse_numberOfWorkers,
-    getMLTransformResponse_name,
-    getMLTransformResponse_role,
-    getMLTransformResponse_glueVersion,
-    getMLTransformResponse_evaluationMetrics,
-    getMLTransformResponse_workerType,
-    getMLTransformResponse_description,
-    getMLTransformResponse_labelCount,
-    getMLTransformResponse_maxRetries,
-    getMLTransformResponse_parameters,
-    getMLTransformResponse_httpStatus,
-
-    -- ** CreateScript
-    createScript_dagNodes,
-    createScript_language,
-    createScript_dagEdges,
-    createScriptResponse_pythonScript,
-    createScriptResponse_scalaCode,
-    createScriptResponse_httpStatus,
-
-    -- ** DeleteResourcePolicy
-    deleteResourcePolicy_resourceArn,
-    deleteResourcePolicy_policyHashCondition,
-    deleteResourcePolicyResponse_httpStatus,
-
-    -- ** GetRegistry
-    getRegistry_registryId,
-    getRegistryResponse_status,
-    getRegistryResponse_updatedTime,
-    getRegistryResponse_createdTime,
-    getRegistryResponse_registryName,
-    getRegistryResponse_description,
-    getRegistryResponse_registryArn,
-    getRegistryResponse_httpStatus,
-
-    -- ** GetMLTaskRun
-    getMLTaskRun_transformId,
-    getMLTaskRun_taskRunId,
-    getMLTaskRunResponse_executionTime,
-    getMLTaskRunResponse_status,
-    getMLTaskRunResponse_taskRunId,
-    getMLTaskRunResponse_transformId,
-    getMLTaskRunResponse_errorString,
-    getMLTaskRunResponse_lastModifiedOn,
-    getMLTaskRunResponse_completedOn,
-    getMLTaskRunResponse_logGroupName,
-    getMLTaskRunResponse_properties,
-    getMLTaskRunResponse_startedOn,
-    getMLTaskRunResponse_httpStatus,
-
-    -- ** CreateJob
-    createJob_nonOverridableArguments,
-    createJob_securityConfiguration,
-    createJob_timeout,
-    createJob_maxCapacity,
-    createJob_connections,
-    createJob_notificationProperty,
-    createJob_numberOfWorkers,
-    createJob_glueVersion,
-    createJob_tags,
-    createJob_workerType,
-    createJob_description,
-    createJob_defaultArguments,
-    createJob_executionProperty,
-    createJob_allocatedCapacity,
-    createJob_logUri,
-    createJob_maxRetries,
-    createJob_name,
-    createJob_role,
-    createJob_command,
-    createJobResponse_name,
-    createJobResponse_httpStatus,
-
-    -- ** UpdateUserDefinedFunction
-    updateUserDefinedFunction_catalogId,
-    updateUserDefinedFunction_databaseName,
-    updateUserDefinedFunction_functionName,
-    updateUserDefinedFunction_functionInput,
-    updateUserDefinedFunctionResponse_httpStatus,
-
-    -- ** DeleteColumnStatisticsForPartition
-    deleteColumnStatisticsForPartition_catalogId,
-    deleteColumnStatisticsForPartition_databaseName,
-    deleteColumnStatisticsForPartition_tableName,
-    deleteColumnStatisticsForPartition_partitionValues,
-    deleteColumnStatisticsForPartition_columnName,
-    deleteColumnStatisticsForPartitionResponse_httpStatus,
-
-    -- ** DeleteUserDefinedFunction
-    deleteUserDefinedFunction_catalogId,
-    deleteUserDefinedFunction_databaseName,
-    deleteUserDefinedFunction_functionName,
-    deleteUserDefinedFunctionResponse_httpStatus,
-
-    -- ** CancelMLTaskRun
-    cancelMLTaskRun_transformId,
-    cancelMLTaskRun_taskRunId,
-    cancelMLTaskRunResponse_status,
-    cancelMLTaskRunResponse_taskRunId,
-    cancelMLTaskRunResponse_transformId,
-    cancelMLTaskRunResponse_httpStatus,
-
-    -- ** SearchTables
-    searchTables_nextToken,
-    searchTables_sortCriteria,
-    searchTables_maxResults,
-    searchTables_catalogId,
-    searchTables_searchText,
-    searchTables_resourceShareType,
-    searchTables_filters,
-    searchTablesResponse_nextToken,
-    searchTablesResponse_tableList,
-    searchTablesResponse_httpStatus,
-
-    -- ** UpdateColumnStatisticsForPartition
-    updateColumnStatisticsForPartition_catalogId,
-    updateColumnStatisticsForPartition_databaseName,
-    updateColumnStatisticsForPartition_tableName,
-    updateColumnStatisticsForPartition_partitionValues,
-    updateColumnStatisticsForPartition_columnStatisticsList,
-    updateColumnStatisticsForPartitionResponse_errors,
-    updateColumnStatisticsForPartitionResponse_httpStatus,
-
-    -- ** GetTables
-    getTables_nextToken,
-    getTables_maxResults,
-    getTables_catalogId,
-    getTables_expression,
-    getTables_databaseName,
-    getTablesResponse_nextToken,
-    getTablesResponse_tableList,
-    getTablesResponse_httpStatus,
-
-    -- ** BatchDeleteConnection
-    batchDeleteConnection_catalogId,
-    batchDeleteConnection_connectionNameList,
-    batchDeleteConnectionResponse_succeeded,
-    batchDeleteConnectionResponse_errors,
-    batchDeleteConnectionResponse_httpStatus,
-
-    -- ** GetConnections
-    getConnections_nextToken,
-    getConnections_maxResults,
-    getConnections_catalogId,
-    getConnections_hidePassword,
-    getConnections_filter,
-    getConnectionsResponse_nextToken,
-    getConnectionsResponse_connectionList,
-    getConnectionsResponse_httpStatus,
-
-    -- ** GetBlueprintRuns
-    getBlueprintRuns_nextToken,
-    getBlueprintRuns_maxResults,
-    getBlueprintRuns_blueprintName,
-    getBlueprintRunsResponse_nextToken,
-    getBlueprintRunsResponse_blueprintRuns,
-    getBlueprintRunsResponse_httpStatus,
-
-    -- ** ResumeWorkflowRun
-    resumeWorkflowRun_name,
-    resumeWorkflowRun_runId,
-    resumeWorkflowRun_nodeIds,
-    resumeWorkflowRunResponse_runId,
-    resumeWorkflowRunResponse_nodeIds,
-    resumeWorkflowRunResponse_httpStatus,
-
-    -- ** UpdateCrawlerSchedule
-    updateCrawlerSchedule_schedule,
-    updateCrawlerSchedule_crawlerName,
-    updateCrawlerScheduleResponse_httpStatus,
-
-    -- ** StartTrigger
-    startTrigger_name,
-    startTriggerResponse_name,
-    startTriggerResponse_httpStatus,
-
-    -- ** GetConnection
-    getConnection_catalogId,
-    getConnection_hidePassword,
-    getConnection_name,
-    getConnectionResponse_connection,
-    getConnectionResponse_httpStatus,
-
-    -- ** RemoveSchemaVersionMetadata
-    removeSchemaVersionMetadata_schemaVersionId,
-    removeSchemaVersionMetadata_schemaVersionNumber,
-    removeSchemaVersionMetadata_schemaId,
-    removeSchemaVersionMetadata_metadataKeyValue,
-    removeSchemaVersionMetadataResponse_schemaArn,
-    removeSchemaVersionMetadataResponse_latestVersion,
-    removeSchemaVersionMetadataResponse_schemaVersionId,
-    removeSchemaVersionMetadataResponse_registryName,
-    removeSchemaVersionMetadataResponse_metadataKey,
-    removeSchemaVersionMetadataResponse_versionNumber,
-    removeSchemaVersionMetadataResponse_metadataValue,
-    removeSchemaVersionMetadataResponse_schemaName,
-    removeSchemaVersionMetadataResponse_httpStatus,
-
-    -- ** GetTable
-    getTable_catalogId,
-    getTable_databaseName,
-    getTable_name,
-    getTableResponse_table,
-    getTableResponse_httpStatus,
-
-    -- ** DeleteSchema
-    deleteSchema_schemaId,
-    deleteSchemaResponse_status,
-    deleteSchemaResponse_schemaArn,
-    deleteSchemaResponse_schemaName,
-    deleteSchemaResponse_httpStatus,
-
-    -- ** PutDataCatalogEncryptionSettings
-    putDataCatalogEncryptionSettings_catalogId,
-    putDataCatalogEncryptionSettings_dataCatalogEncryptionSettings,
-    putDataCatalogEncryptionSettingsResponse_httpStatus,
-
-    -- ** GetBlueprintRun
-    getBlueprintRun_blueprintName,
-    getBlueprintRun_runId,
-    getBlueprintRunResponse_blueprintRun,
-    getBlueprintRunResponse_httpStatus,
-
-    -- ** UpdateSchema
-    updateSchema_schemaVersionNumber,
-    updateSchema_compatibility,
-    updateSchema_description,
-    updateSchema_schemaId,
-    updateSchemaResponse_schemaArn,
-    updateSchemaResponse_registryName,
-    updateSchemaResponse_schemaName,
-    updateSchemaResponse_httpStatus,
-
-    -- ** StopTrigger
-    stopTrigger_name,
-    stopTriggerResponse_name,
-    stopTriggerResponse_httpStatus,
-
-    -- ** ListSchemas
-    listSchemas_nextToken,
-    listSchemas_maxResults,
-    listSchemas_registryId,
-    listSchemasResponse_nextToken,
-    listSchemasResponse_schemas,
-    listSchemasResponse_httpStatus,
-
-    -- ** GetDataflowGraph
-    getDataflowGraph_pythonScript,
-    getDataflowGraphResponse_dagNodes,
-    getDataflowGraphResponse_dagEdges,
-    getDataflowGraphResponse_httpStatus,
-
-    -- ** BatchGetPartition
-    batchGetPartition_catalogId,
-    batchGetPartition_databaseName,
-    batchGetPartition_tableName,
-    batchGetPartition_partitionsToGet,
-    batchGetPartitionResponse_partitions,
-    batchGetPartitionResponse_unprocessedKeys,
-    batchGetPartitionResponse_httpStatus,
-
-    -- ** GetColumnStatisticsForTable
-    getColumnStatisticsForTable_catalogId,
-    getColumnStatisticsForTable_databaseName,
-    getColumnStatisticsForTable_tableName,
-    getColumnStatisticsForTable_columnNames,
-    getColumnStatisticsForTableResponse_columnStatisticsList,
-    getColumnStatisticsForTableResponse_errors,
-    getColumnStatisticsForTableResponse_httpStatus,
-
-    -- ** GetDatabases
-    getDatabases_nextToken,
-    getDatabases_maxResults,
-    getDatabases_catalogId,
-    getDatabases_resourceShareType,
-    getDatabasesResponse_nextToken,
-    getDatabasesResponse_httpStatus,
-    getDatabasesResponse_databaseList,
-
-    -- ** DeleteTableVersion
-    deleteTableVersion_catalogId,
-    deleteTableVersion_databaseName,
-    deleteTableVersion_tableName,
-    deleteTableVersion_versionId,
-    deleteTableVersionResponse_httpStatus,
-
-    -- ** GetTriggers
-    getTriggers_nextToken,
-    getTriggers_maxResults,
-    getTriggers_dependentJobName,
-    getTriggersResponse_nextToken,
-    getTriggersResponse_triggers,
-    getTriggersResponse_httpStatus,
-
-    -- ** BatchGetCrawlers
-    batchGetCrawlers_crawlerNames,
-    batchGetCrawlersResponse_crawlers,
-    batchGetCrawlersResponse_crawlersNotFound,
-    batchGetCrawlersResponse_httpStatus,
-
-    -- ** GetJobBookmark
-    getJobBookmark_runId,
-    getJobBookmark_jobName,
-    getJobBookmarkResponse_jobBookmarkEntry,
-    getJobBookmarkResponse_httpStatus,
-
-    -- ** StartExportLabelsTaskRun
-    startExportLabelsTaskRun_transformId,
-    startExportLabelsTaskRun_outputS3Path,
-    startExportLabelsTaskRunResponse_taskRunId,
-    startExportLabelsTaskRunResponse_httpStatus,
-
-    -- ** GetWorkflowRunProperties
-    getWorkflowRunProperties_name,
-    getWorkflowRunProperties_runId,
-    getWorkflowRunPropertiesResponse_runProperties,
-    getWorkflowRunPropertiesResponse_httpStatus,
-
-    -- ** GetCrawlerMetrics
-    getCrawlerMetrics_nextToken,
-    getCrawlerMetrics_crawlerNameList,
-    getCrawlerMetrics_maxResults,
-    getCrawlerMetricsResponse_nextToken,
-    getCrawlerMetricsResponse_crawlerMetricsList,
-    getCrawlerMetricsResponse_httpStatus,
-
-    -- ** DeletePartitionIndex
-    deletePartitionIndex_catalogId,
-    deletePartitionIndex_databaseName,
-    deletePartitionIndex_tableName,
-    deletePartitionIndex_indexName,
-    deletePartitionIndexResponse_httpStatus,
-
-    -- ** BatchGetDevEndpoints
-    batchGetDevEndpoints_devEndpointNames,
-    batchGetDevEndpointsResponse_devEndpoints,
-    batchGetDevEndpointsResponse_devEndpointsNotFound,
-    batchGetDevEndpointsResponse_httpStatus,
-
-    -- ** GetPlan
-    getPlan_additionalPlanOptionsMap,
-    getPlan_sinks,
-    getPlan_location,
-    getPlan_language,
-    getPlan_mapping,
-    getPlan_source,
-    getPlanResponse_pythonScript,
-    getPlanResponse_scalaCode,
-    getPlanResponse_httpStatus,
-
-    -- ** CreateSecurityConfiguration
-    createSecurityConfiguration_name,
-    createSecurityConfiguration_encryptionConfiguration,
-    createSecurityConfigurationResponse_createdTimestamp,
-    createSecurityConfigurationResponse_name,
-    createSecurityConfigurationResponse_httpStatus,
-
-    -- ** GetResourcePolicies
-    getResourcePolicies_nextToken,
-    getResourcePolicies_maxResults,
-    getResourcePoliciesResponse_nextToken,
-    getResourcePoliciesResponse_getResourcePoliciesResponseList,
-    getResourcePoliciesResponse_httpStatus,
+    -- ** GetCrawler
+    getCrawler_name,
+    getCrawlerResponse_crawler,
+    getCrawlerResponse_httpStatus,
+
+    -- ** ListWorkflows
+    listWorkflows_nextToken,
+    listWorkflows_maxResults,
+    listWorkflowsResponse_nextToken,
+    listWorkflowsResponse_workflows,
+    listWorkflowsResponse_httpStatus,
+
+    -- ** BatchStopJobRun
+    batchStopJobRun_jobName,
+    batchStopJobRun_jobRunIds,
+    batchStopJobRunResponse_successfulSubmissions,
+    batchStopJobRunResponse_errors,
+    batchStopJobRunResponse_httpStatus,
 
     -- ** GetDevEndpoint
     getDevEndpoint_endpointName,
@@ -1319,59 +827,552 @@ module Network.AWS.Glue.Lens
     putWorkflowRunProperties_runProperties,
     putWorkflowRunPropertiesResponse_httpStatus,
 
-    -- ** BatchGetWorkflows
-    batchGetWorkflows_includeGraph,
-    batchGetWorkflows_names,
-    batchGetWorkflowsResponse_missingWorkflows,
-    batchGetWorkflowsResponse_workflows,
-    batchGetWorkflowsResponse_httpStatus,
+    -- ** CreateTable
+    createTable_partitionIndexes,
+    createTable_catalogId,
+    createTable_databaseName,
+    createTable_tableInput,
+    createTableResponse_httpStatus,
 
-    -- ** GetTableVersion
-    getTableVersion_catalogId,
-    getTableVersion_versionId,
-    getTableVersion_databaseName,
-    getTableVersion_tableName,
-    getTableVersionResponse_tableVersion,
-    getTableVersionResponse_httpStatus,
+    -- ** ListCrawlers
+    listCrawlers_nextToken,
+    listCrawlers_maxResults,
+    listCrawlers_tags,
+    listCrawlersResponse_nextToken,
+    listCrawlersResponse_crawlerNames,
+    listCrawlersResponse_httpStatus,
 
-    -- ** GetJobs
-    getJobs_nextToken,
-    getJobs_maxResults,
-    getJobsResponse_nextToken,
-    getJobsResponse_jobs,
-    getJobsResponse_httpStatus,
+    -- ** GetCrawlerMetrics
+    getCrawlerMetrics_nextToken,
+    getCrawlerMetrics_maxResults,
+    getCrawlerMetrics_crawlerNameList,
+    getCrawlerMetricsResponse_crawlerMetricsList,
+    getCrawlerMetricsResponse_nextToken,
+    getCrawlerMetricsResponse_httpStatus,
 
-    -- ** GetCrawler
-    getCrawler_name,
-    getCrawlerResponse_crawler,
-    getCrawlerResponse_httpStatus,
+    -- ** GetSchemaVersion
+    getSchemaVersion_schemaVersionId,
+    getSchemaVersion_schemaId,
+    getSchemaVersion_schemaVersionNumber,
+    getSchemaVersionResponse_status,
+    getSchemaVersionResponse_schemaDefinition,
+    getSchemaVersionResponse_createdTime,
+    getSchemaVersionResponse_dataFormat,
+    getSchemaVersionResponse_schemaVersionId,
+    getSchemaVersionResponse_versionNumber,
+    getSchemaVersionResponse_schemaArn,
+    getSchemaVersionResponse_httpStatus,
+
+    -- ** GetPlan
+    getPlan_sinks,
+    getPlan_location,
+    getPlan_language,
+    getPlan_additionalPlanOptionsMap,
+    getPlan_mapping,
+    getPlan_source,
+    getPlanResponse_pythonScript,
+    getPlanResponse_scalaCode,
+    getPlanResponse_httpStatus,
+
+    -- ** GetTriggers
+    getTriggers_nextToken,
+    getTriggers_maxResults,
+    getTriggers_dependentJobName,
+    getTriggersResponse_triggers,
+    getTriggersResponse_nextToken,
+    getTriggersResponse_httpStatus,
+
+    -- ** CreateSchema
+    createSchema_schemaDefinition,
+    createSchema_registryId,
+    createSchema_description,
+    createSchema_compatibility,
+    createSchema_tags,
+    createSchema_schemaName,
+    createSchema_dataFormat,
+    createSchemaResponse_schemaVersionStatus,
+    createSchemaResponse_registryName,
+    createSchemaResponse_schemaStatus,
+    createSchemaResponse_registryArn,
+    createSchemaResponse_latestSchemaVersion,
+    createSchemaResponse_dataFormat,
+    createSchemaResponse_schemaCheckpoint,
+    createSchemaResponse_schemaName,
+    createSchemaResponse_schemaVersionId,
+    createSchemaResponse_schemaArn,
+    createSchemaResponse_nextSchemaVersion,
+    createSchemaResponse_description,
+    createSchemaResponse_compatibility,
+    createSchemaResponse_tags,
+    createSchemaResponse_httpStatus,
+
+    -- ** ListDevEndpoints
+    listDevEndpoints_nextToken,
+    listDevEndpoints_maxResults,
+    listDevEndpoints_tags,
+    listDevEndpointsResponse_nextToken,
+    listDevEndpointsResponse_devEndpointNames,
+    listDevEndpointsResponse_httpStatus,
+
+    -- ** StartTrigger
+    startTrigger_name,
+    startTriggerResponse_name,
+    startTriggerResponse_httpStatus,
+
+    -- ** GetDataflowGraph
+    getDataflowGraph_pythonScript,
+    getDataflowGraphResponse_dagEdges,
+    getDataflowGraphResponse_dagNodes,
+    getDataflowGraphResponse_httpStatus,
+
+    -- ** GetDatabases
+    getDatabases_resourceShareType,
+    getDatabases_catalogId,
+    getDatabases_nextToken,
+    getDatabases_maxResults,
+    getDatabasesResponse_nextToken,
+    getDatabasesResponse_httpStatus,
+    getDatabasesResponse_databaseList,
+
+    -- ** GetTable
+    getTable_catalogId,
+    getTable_databaseName,
+    getTable_name,
+    getTableResponse_table,
+    getTableResponse_httpStatus,
+
+    -- ** CreateCrawler
+    createCrawler_schemaChangePolicy,
+    createCrawler_schedule,
+    createCrawler_recrawlPolicy,
+    createCrawler_classifiers,
+    createCrawler_databaseName,
+    createCrawler_crawlerSecurityConfiguration,
+    createCrawler_lineageConfiguration,
+    createCrawler_configuration,
+    createCrawler_tablePrefix,
+    createCrawler_description,
+    createCrawler_tags,
+    createCrawler_name,
+    createCrawler_role,
+    createCrawler_targets,
+    createCrawlerResponse_httpStatus,
+
+    -- ** GetJobRun
+    getJobRun_predecessorsIncluded,
+    getJobRun_jobName,
+    getJobRun_runId,
+    getJobRunResponse_jobRun,
+    getJobRunResponse_httpStatus,
+
+    -- ** CreateDevEndpoint
+    createDevEndpoint_numberOfWorkers,
+    createDevEndpoint_extraPythonLibsS3Path,
+    createDevEndpoint_securityGroupIds,
+    createDevEndpoint_publicKeys,
+    createDevEndpoint_arguments,
+    createDevEndpoint_workerType,
+    createDevEndpoint_securityConfiguration,
+    createDevEndpoint_publicKey,
+    createDevEndpoint_subnetId,
+    createDevEndpoint_glueVersion,
+    createDevEndpoint_numberOfNodes,
+    createDevEndpoint_extraJarsS3Path,
+    createDevEndpoint_tags,
+    createDevEndpoint_endpointName,
+    createDevEndpoint_roleArn,
+    createDevEndpointResponse_status,
+    createDevEndpointResponse_failureReason,
+    createDevEndpointResponse_endpointName,
+    createDevEndpointResponse_numberOfWorkers,
+    createDevEndpointResponse_extraPythonLibsS3Path,
+    createDevEndpointResponse_securityGroupIds,
+    createDevEndpointResponse_vpcId,
+    createDevEndpointResponse_arguments,
+    createDevEndpointResponse_workerType,
+    createDevEndpointResponse_securityConfiguration,
+    createDevEndpointResponse_subnetId,
+    createDevEndpointResponse_glueVersion,
+    createDevEndpointResponse_numberOfNodes,
+    createDevEndpointResponse_availabilityZone,
+    createDevEndpointResponse_zeppelinRemoteSparkInterpreterPort,
+    createDevEndpointResponse_extraJarsS3Path,
+    createDevEndpointResponse_createdTimestamp,
+    createDevEndpointResponse_yarnEndpointAddress,
+    createDevEndpointResponse_roleArn,
+    createDevEndpointResponse_httpStatus,
+
+    -- ** GetMLTaskRuns
+    getMLTaskRuns_nextToken,
+    getMLTaskRuns_sort,
+    getMLTaskRuns_filter,
+    getMLTaskRuns_maxResults,
+    getMLTaskRuns_transformId,
+    getMLTaskRunsResponse_nextToken,
+    getMLTaskRunsResponse_taskRuns,
+    getMLTaskRunsResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tagsToAdd,
+    tagResourceResponse_httpStatus,
+
+    -- ** PutDataCatalogEncryptionSettings
+    putDataCatalogEncryptionSettings_catalogId,
+    putDataCatalogEncryptionSettings_dataCatalogEncryptionSettings,
+    putDataCatalogEncryptionSettingsResponse_httpStatus,
+
+    -- ** GetMLTransforms
+    getMLTransforms_nextToken,
+    getMLTransforms_sort,
+    getMLTransforms_filter,
+    getMLTransforms_maxResults,
+    getMLTransformsResponse_nextToken,
+    getMLTransformsResponse_httpStatus,
+    getMLTransformsResponse_transforms,
+
+    -- ** UpdateSchema
+    updateSchema_schemaVersionNumber,
+    updateSchema_description,
+    updateSchema_compatibility,
+    updateSchema_schemaId,
+    updateSchemaResponse_registryName,
+    updateSchemaResponse_schemaName,
+    updateSchemaResponse_schemaArn,
+    updateSchemaResponse_httpStatus,
+
+    -- ** DeleteSchema
+    deleteSchema_schemaId,
+    deleteSchemaResponse_status,
+    deleteSchemaResponse_schemaName,
+    deleteSchemaResponse_schemaArn,
+    deleteSchemaResponse_httpStatus,
+
+    -- ** GetDatabase
+    getDatabase_catalogId,
+    getDatabase_name,
+    getDatabaseResponse_database,
+    getDatabaseResponse_httpStatus,
+
+    -- ** DeleteColumnStatisticsForPartition
+    deleteColumnStatisticsForPartition_catalogId,
+    deleteColumnStatisticsForPartition_databaseName,
+    deleteColumnStatisticsForPartition_tableName,
+    deleteColumnStatisticsForPartition_partitionValues,
+    deleteColumnStatisticsForPartition_columnName,
+    deleteColumnStatisticsForPartitionResponse_httpStatus,
+
+    -- ** UpdateColumnStatisticsForPartition
+    updateColumnStatisticsForPartition_catalogId,
+    updateColumnStatisticsForPartition_databaseName,
+    updateColumnStatisticsForPartition_tableName,
+    updateColumnStatisticsForPartition_partitionValues,
+    updateColumnStatisticsForPartition_columnStatisticsList,
+    updateColumnStatisticsForPartitionResponse_errors,
+    updateColumnStatisticsForPartitionResponse_httpStatus,
+
+    -- ** CreateBlueprint
+    createBlueprint_description,
+    createBlueprint_tags,
+    createBlueprint_name,
+    createBlueprint_blueprintLocation,
+    createBlueprintResponse_name,
+    createBlueprintResponse_httpStatus,
+
+    -- ** GetMLTaskRun
+    getMLTaskRun_transformId,
+    getMLTaskRun_taskRunId,
+    getMLTaskRunResponse_completedOn,
+    getMLTaskRunResponse_status,
+    getMLTaskRunResponse_lastModifiedOn,
+    getMLTaskRunResponse_errorString,
+    getMLTaskRunResponse_startedOn,
+    getMLTaskRunResponse_logGroupName,
+    getMLTaskRunResponse_executionTime,
+    getMLTaskRunResponse_properties,
+    getMLTaskRunResponse_transformId,
+    getMLTaskRunResponse_taskRunId,
+    getMLTaskRunResponse_httpStatus,
+
+    -- ** DeletePartition
+    deletePartition_catalogId,
+    deletePartition_databaseName,
+    deletePartition_tableName,
+    deletePartition_partitionValues,
+    deletePartitionResponse_httpStatus,
+
+    -- ** UpdatePartition
+    updatePartition_catalogId,
+    updatePartition_databaseName,
+    updatePartition_tableName,
+    updatePartition_partitionValueList,
+    updatePartition_partitionInput,
+    updatePartitionResponse_httpStatus,
+
+    -- ** GetMLTransform
+    getMLTransform_transformId,
+    getMLTransformResponse_status,
+    getMLTransformResponse_numberOfWorkers,
+    getMLTransformResponse_lastModifiedOn,
+    getMLTransformResponse_labelCount,
+    getMLTransformResponse_workerType,
+    getMLTransformResponse_inputRecordTables,
+    getMLTransformResponse_glueVersion,
+    getMLTransformResponse_evaluationMetrics,
+    getMLTransformResponse_schema,
+    getMLTransformResponse_role,
+    getMLTransformResponse_name,
+    getMLTransformResponse_parameters,
+    getMLTransformResponse_maxRetries,
+    getMLTransformResponse_maxCapacity,
+    getMLTransformResponse_timeout,
+    getMLTransformResponse_transformEncryption,
+    getMLTransformResponse_description,
+    getMLTransformResponse_createdOn,
+    getMLTransformResponse_transformId,
+    getMLTransformResponse_httpStatus,
+
+    -- ** CreateScript
+    createScript_dagEdges,
+    createScript_language,
+    createScript_dagNodes,
+    createScriptResponse_pythonScript,
+    createScriptResponse_scalaCode,
+    createScriptResponse_httpStatus,
+
+    -- ** PutResourcePolicy
+    putResourcePolicy_policyExistsCondition,
+    putResourcePolicy_policyHashCondition,
+    putResourcePolicy_resourceArn,
+    putResourcePolicy_enableHybrid,
+    putResourcePolicy_policyInJson,
+    putResourcePolicyResponse_policyHash,
+    putResourcePolicyResponse_httpStatus,
+
+    -- ** GetBlueprintRuns
+    getBlueprintRuns_nextToken,
+    getBlueprintRuns_maxResults,
+    getBlueprintRuns_blueprintName,
+    getBlueprintRunsResponse_blueprintRuns,
+    getBlueprintRunsResponse_nextToken,
+    getBlueprintRunsResponse_httpStatus,
+
+    -- ** GetSecurityConfigurations
+    getSecurityConfigurations_nextToken,
+    getSecurityConfigurations_maxResults,
+    getSecurityConfigurationsResponse_securityConfigurations,
+    getSecurityConfigurationsResponse_nextToken,
+    getSecurityConfigurationsResponse_httpStatus,
+
+    -- ** DeleteResourcePolicy
+    deleteResourcePolicy_policyHashCondition,
+    deleteResourcePolicy_resourceArn,
+    deleteResourcePolicyResponse_httpStatus,
+
+    -- ** GetConnections
+    getConnections_catalogId,
+    getConnections_nextToken,
+    getConnections_hidePassword,
+    getConnections_filter,
+    getConnections_maxResults,
+    getConnectionsResponse_nextToken,
+    getConnectionsResponse_connectionList,
+    getConnectionsResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagsToRemove,
+    untagResourceResponse_httpStatus,
+
+    -- ** GetSchemaVersionsDiff
+    getSchemaVersionsDiff_schemaId,
+    getSchemaVersionsDiff_firstSchemaVersionNumber,
+    getSchemaVersionsDiff_secondSchemaVersionNumber,
+    getSchemaVersionsDiff_schemaDiffType,
+    getSchemaVersionsDiffResponse_diff,
+    getSchemaVersionsDiffResponse_httpStatus,
+
+    -- ** SearchTables
+    searchTables_resourceShareType,
+    searchTables_searchText,
+    searchTables_filters,
+    searchTables_catalogId,
+    searchTables_sortCriteria,
+    searchTables_nextToken,
+    searchTables_maxResults,
+    searchTablesResponse_tableList,
+    searchTablesResponse_nextToken,
+    searchTablesResponse_httpStatus,
+
+    -- ** GetTrigger
+    getTrigger_name,
+    getTriggerResponse_trigger,
+    getTriggerResponse_httpStatus,
+
+    -- ** BatchGetJobs
+    batchGetJobs_jobNames,
+    batchGetJobsResponse_jobs,
+    batchGetJobsResponse_jobsNotFound,
+    batchGetJobsResponse_httpStatus,
+
+    -- ** ImportCatalogToGlue
+    importCatalogToGlue_catalogId,
+    importCatalogToGlueResponse_httpStatus,
+
+    -- ** DeleteClassifier
+    deleteClassifier_name,
+    deleteClassifierResponse_httpStatus,
+
+    -- ** UpdateClassifier
+    updateClassifier_grokClassifier,
+    updateClassifier_xMLClassifier,
+    updateClassifier_csvClassifier,
+    updateClassifier_jsonClassifier,
+    updateClassifierResponse_httpStatus,
+
+    -- ** StartJobRun
+    startJobRun_numberOfWorkers,
+    startJobRun_notificationProperty,
+    startJobRun_arguments,
+    startJobRun_workerType,
+    startJobRun_securityConfiguration,
+    startJobRun_allocatedCapacity,
+    startJobRun_maxCapacity,
+    startJobRun_timeout,
+    startJobRun_jobRunId,
+    startJobRun_jobName,
+    startJobRunResponse_jobRunId,
+    startJobRunResponse_httpStatus,
+
+    -- ** DeleteBlueprint
+    deleteBlueprint_name,
+    deleteBlueprintResponse_name,
+    deleteBlueprintResponse_httpStatus,
+
+    -- ** UpdateBlueprint
+    updateBlueprint_description,
+    updateBlueprint_name,
+    updateBlueprint_blueprintLocation,
+    updateBlueprintResponse_name,
+    updateBlueprintResponse_httpStatus,
+
+    -- ** ListBlueprints
+    listBlueprints_nextToken,
+    listBlueprints_maxResults,
+    listBlueprints_tags,
+    listBlueprintsResponse_blueprints,
+    listBlueprintsResponse_nextToken,
+    listBlueprintsResponse_httpStatus,
+
+    -- ** CreatePartition
+    createPartition_catalogId,
+    createPartition_databaseName,
+    createPartition_tableName,
+    createPartition_partitionInput,
+    createPartitionResponse_httpStatus,
+
+    -- ** BatchGetTriggers
+    batchGetTriggers_triggerNames,
+    batchGetTriggersResponse_triggersNotFound,
+    batchGetTriggersResponse_triggers,
+    batchGetTriggersResponse_httpStatus,
+
+    -- ** GetBlueprint
+    getBlueprint_includeParameterSpec,
+    getBlueprint_includeBlueprint,
+    getBlueprint_name,
+    getBlueprintResponse_blueprint,
+    getBlueprintResponse_httpStatus,
+
+    -- ** StopCrawlerSchedule
+    stopCrawlerSchedule_crawlerName,
+    stopCrawlerScheduleResponse_httpStatus,
+
+    -- ** GetSchemaByDefinition
+    getSchemaByDefinition_schemaId,
+    getSchemaByDefinition_schemaDefinition,
+    getSchemaByDefinitionResponse_status,
+    getSchemaByDefinitionResponse_createdTime,
+    getSchemaByDefinitionResponse_dataFormat,
+    getSchemaByDefinitionResponse_schemaVersionId,
+    getSchemaByDefinitionResponse_schemaArn,
+    getSchemaByDefinitionResponse_httpStatus,
+
+    -- ** CreateDatabase
+    createDatabase_catalogId,
+    createDatabase_databaseInput,
+    createDatabaseResponse_httpStatus,
+
+    -- ** GetTableVersions
+    getTableVersions_catalogId,
+    getTableVersions_nextToken,
+    getTableVersions_maxResults,
+    getTableVersions_databaseName,
+    getTableVersions_tableName,
+    getTableVersionsResponse_tableVersions,
+    getTableVersionsResponse_nextToken,
+    getTableVersionsResponse_httpStatus,
+
+    -- ** CreateMLTransform
+    createMLTransform_numberOfWorkers,
+    createMLTransform_workerType,
+    createMLTransform_glueVersion,
+    createMLTransform_maxRetries,
+    createMLTransform_maxCapacity,
+    createMLTransform_timeout,
+    createMLTransform_transformEncryption,
+    createMLTransform_description,
+    createMLTransform_tags,
+    createMLTransform_name,
+    createMLTransform_inputRecordTables,
+    createMLTransform_parameters,
+    createMLTransform_role,
+    createMLTransformResponse_transformId,
+    createMLTransformResponse_httpStatus,
+
+    -- ** DeleteSchemaVersions
+    deleteSchemaVersions_schemaId,
+    deleteSchemaVersions_versions,
+    deleteSchemaVersionsResponse_schemaVersionErrors,
+    deleteSchemaVersionsResponse_httpStatus,
+
+    -- ** DeleteTrigger
+    deleteTrigger_name,
+    deleteTriggerResponse_name,
+    deleteTriggerResponse_httpStatus,
+
+    -- ** UpdateTrigger
+    updateTrigger_name,
+    updateTrigger_triggerUpdate,
+    updateTriggerResponse_trigger,
+    updateTriggerResponse_httpStatus,
 
     -- * Types
 
     -- ** Action
-    action_securityConfiguration,
-    action_timeout,
-    action_crawlerName,
     action_notificationProperty,
     action_arguments,
     action_jobName,
+    action_securityConfiguration,
+    action_timeout,
+    action_crawlerName,
 
     -- ** BackfillError
     backfillError_partitions,
     backfillError_code,
 
     -- ** BatchStopJobRunError
-    batchStopJobRunError_errorDetail,
-    batchStopJobRunError_jobRunId,
     batchStopJobRunError_jobName,
+    batchStopJobRunError_jobRunId,
+    batchStopJobRunError_errorDetail,
 
     -- ** BatchStopJobRunSuccessfulSubmission
-    batchStopJobRunSuccessfulSubmission_jobRunId,
     batchStopJobRunSuccessfulSubmission_jobName,
+    batchStopJobRunSuccessfulSubmission_jobRunId,
 
     -- ** BatchUpdatePartitionFailureEntry
-    batchUpdatePartitionFailureEntry_errorDetail,
     batchUpdatePartitionFailureEntry_partitionValueList,
+    batchUpdatePartitionFailureEntry_errorDetail,
 
     -- ** BatchUpdatePartitionRequestEntry
     batchUpdatePartitionRequestEntry_partitionValueList,
@@ -1384,31 +1385,31 @@ module Network.AWS.Glue.Lens
 
     -- ** Blueprint
     blueprint_status,
-    blueprint_createdOn,
-    blueprint_lastActiveDefinition,
+    blueprint_parameterSpec,
+    blueprint_blueprintLocation,
     blueprint_lastModifiedOn,
+    blueprint_lastActiveDefinition,
     blueprint_name,
     blueprint_blueprintServiceLocation,
-    blueprint_parameterSpec,
-    blueprint_description,
     blueprint_errorMessage,
-    blueprint_blueprintLocation,
+    blueprint_description,
+    blueprint_createdOn,
 
     -- ** BlueprintDetails
     blueprintDetails_runId,
     blueprintDetails_blueprintName,
 
     -- ** BlueprintRun
-    blueprintRun_runId,
     blueprintRun_workflowName,
-    blueprintRun_roleArn,
-    blueprintRun_blueprintName,
-    blueprintRun_state,
     blueprintRun_completedOn,
-    blueprintRun_errorMessage,
-    blueprintRun_startedOn,
+    blueprintRun_state,
     blueprintRun_rollbackErrorMessage,
+    blueprintRun_startedOn,
+    blueprintRun_runId,
     blueprintRun_parameters,
+    blueprintRun_blueprintName,
+    blueprintRun_errorMessage,
+    blueprintRun_roleArn,
 
     -- ** BooleanColumnStatisticsData
     booleanColumnStatisticsData_numberOfTrues,
@@ -1421,18 +1422,18 @@ module Network.AWS.Glue.Lens
 
     -- ** CatalogImportStatus
     catalogImportStatus_importedBy,
-    catalogImportStatus_importCompleted,
     catalogImportStatus_importTime,
+    catalogImportStatus_importCompleted,
 
     -- ** CatalogTarget
     catalogTarget_databaseName,
     catalogTarget_tables,
 
     -- ** Classifier
-    classifier_xMLClassifier,
-    classifier_jsonClassifier,
-    classifier_csvClassifier,
     classifier_grokClassifier,
+    classifier_xMLClassifier,
+    classifier_csvClassifier,
+    classifier_jsonClassifier,
 
     -- ** CloudWatchEncryption
     cloudWatchEncryption_cloudWatchEncryptionMode,
@@ -1455,14 +1456,14 @@ module Network.AWS.Glue.Lens
     codeGenNodeArg_value,
 
     -- ** Column
-    column_comment,
-    column_type,
     column_parameters,
+    column_type,
+    column_comment,
     column_name,
 
     -- ** ColumnError
-    columnError_columnName,
     columnError_error,
+    columnError_columnName,
 
     -- ** ColumnImportance
     columnImportance_importance,
@@ -1475,47 +1476,47 @@ module Network.AWS.Glue.Lens
     columnStatistics_statisticsData,
 
     -- ** ColumnStatisticsData
-    columnStatisticsData_dateColumnStatisticsData,
     columnStatisticsData_binaryColumnStatisticsData,
+    columnStatisticsData_dateColumnStatisticsData,
     columnStatisticsData_booleanColumnStatisticsData,
-    columnStatisticsData_longColumnStatisticsData,
-    columnStatisticsData_stringColumnStatisticsData,
-    columnStatisticsData_doubleColumnStatisticsData,
     columnStatisticsData_decimalColumnStatisticsData,
+    columnStatisticsData_doubleColumnStatisticsData,
+    columnStatisticsData_stringColumnStatisticsData,
+    columnStatisticsData_longColumnStatisticsData,
     columnStatisticsData_type,
 
     -- ** ColumnStatisticsError
-    columnStatisticsError_columnStatistics,
     columnStatisticsError_error,
+    columnStatisticsError_columnStatistics,
 
     -- ** Condition
     condition_crawlState,
-    condition_crawlerName,
     condition_state,
-    condition_logicalOperator,
     condition_jobName,
+    condition_logicalOperator,
+    condition_crawlerName,
 
     -- ** ConfusionMatrix
-    confusionMatrix_numFalsePositives,
     confusionMatrix_numTrueNegatives,
     confusionMatrix_numFalseNegatives,
     confusionMatrix_numTruePositives,
+    confusionMatrix_numFalsePositives,
 
     -- ** Connection
-    connection_connectionProperties,
     connection_creationTime,
-    connection_connectionType,
-    connection_name,
-    connection_physicalConnectionRequirements,
     connection_lastUpdatedBy,
-    connection_description,
-    connection_matchCriteria,
+    connection_connectionProperties,
     connection_lastUpdatedTime,
+    connection_matchCriteria,
+    connection_physicalConnectionRequirements,
+    connection_name,
+    connection_description,
+    connection_connectionType,
 
     -- ** ConnectionInput
+    connectionInput_matchCriteria,
     connectionInput_physicalConnectionRequirements,
     connectionInput_description,
-    connectionInput_matchCriteria,
     connectionInput_name,
     connectionInput_connectionType,
     connectionInput_connectionProperties,
@@ -1528,61 +1529,61 @@ module Network.AWS.Glue.Lens
     connectionsList_connections,
 
     -- ** Crawl
-    crawl_logGroup,
-    crawl_state,
     crawl_completedOn,
-    crawl_errorMessage,
+    crawl_state,
     crawl_startedOn,
     crawl_logStream,
+    crawl_logGroup,
+    crawl_errorMessage,
 
     -- ** Crawler
-    crawler_schemaChangePolicy,
     crawler_creationTime,
+    crawler_state,
+    crawler_schemaChangePolicy,
+    crawler_lastUpdated,
+    crawler_schedule,
+    crawler_lastCrawl,
+    crawler_crawlElapsedTime,
     crawler_recrawlPolicy,
     crawler_classifiers,
-    crawler_configuration,
-    crawler_lineageConfiguration,
-    crawler_version,
-    crawler_targets,
-    crawler_name,
-    crawler_state,
-    crawler_lastUpdated,
-    crawler_crawlElapsedTime,
     crawler_role,
-    crawler_lastCrawl,
-    crawler_description,
-    crawler_tablePrefix,
-    crawler_schedule,
-    crawler_crawlerSecurityConfiguration,
+    crawler_name,
+    crawler_targets,
+    crawler_version,
     crawler_databaseName,
+    crawler_crawlerSecurityConfiguration,
+    crawler_lineageConfiguration,
+    crawler_configuration,
+    crawler_tablePrefix,
+    crawler_description,
 
     -- ** CrawlerMetrics
-    crawlerMetrics_crawlerName,
+    crawlerMetrics_lastRuntimeSeconds,
+    crawlerMetrics_tablesCreated,
+    crawlerMetrics_stillEstimating,
+    crawlerMetrics_medianRuntimeSeconds,
+    crawlerMetrics_timeLeftSeconds,
     crawlerMetrics_tablesDeleted,
     crawlerMetrics_tablesUpdated,
-    crawlerMetrics_medianRuntimeSeconds,
-    crawlerMetrics_stillEstimating,
-    crawlerMetrics_tablesCreated,
-    crawlerMetrics_timeLeftSeconds,
-    crawlerMetrics_lastRuntimeSeconds,
+    crawlerMetrics_crawlerName,
 
     -- ** CrawlerNodeDetails
     crawlerNodeDetails_crawls,
 
     -- ** CrawlerTargets
-    crawlerTargets_catalogTargets,
-    crawlerTargets_mongoDBTargets,
     crawlerTargets_dynamoDBTargets,
-    crawlerTargets_jdbcTargets,
     crawlerTargets_s3Targets,
+    crawlerTargets_mongoDBTargets,
+    crawlerTargets_catalogTargets,
+    crawlerTargets_jdbcTargets,
 
     -- ** CreateCsvClassifierRequest
+    createCsvClassifierRequest_quoteSymbol,
     createCsvClassifierRequest_containsHeader,
-    createCsvClassifierRequest_delimiter,
     createCsvClassifierRequest_disableValueTrimming,
     createCsvClassifierRequest_header,
-    createCsvClassifierRequest_quoteSymbol,
     createCsvClassifierRequest_allowSingleColumn,
+    createCsvClassifierRequest_delimiter,
     createCsvClassifierRequest_name,
 
     -- ** CreateGrokClassifierRequest
@@ -1602,14 +1603,14 @@ module Network.AWS.Glue.Lens
 
     -- ** CsvClassifier
     csvClassifier_creationTime,
-    csvClassifier_containsHeader,
-    csvClassifier_delimiter,
-    csvClassifier_disableValueTrimming,
-    csvClassifier_version,
-    csvClassifier_header,
-    csvClassifier_lastUpdated,
     csvClassifier_quoteSymbol,
+    csvClassifier_containsHeader,
+    csvClassifier_lastUpdated,
+    csvClassifier_disableValueTrimming,
+    csvClassifier_header,
+    csvClassifier_version,
     csvClassifier_allowSingleColumn,
+    csvClassifier_delimiter,
     csvClassifier_name,
 
     -- ** DataCatalogEncryptionSettings
@@ -1620,13 +1621,13 @@ module Network.AWS.Glue.Lens
     dataLakePrincipal_dataLakePrincipalIdentifier,
 
     -- ** Database
-    database_createTableDefaultPermissions,
+    database_locationUri,
     database_catalogId,
     database_targetDatabase,
-    database_createTime,
-    database_description,
-    database_locationUri,
     database_parameters,
+    database_description,
+    database_createTime,
+    database_createTableDefaultPermissions,
     database_name,
 
     -- ** DatabaseIdentifier
@@ -1634,11 +1635,11 @@ module Network.AWS.Glue.Lens
     databaseIdentifier_databaseName,
 
     -- ** DatabaseInput
-    databaseInput_createTableDefaultPermissions,
-    databaseInput_targetDatabase,
-    databaseInput_description,
     databaseInput_locationUri,
+    databaseInput_targetDatabase,
     databaseInput_parameters,
+    databaseInput_description,
+    databaseInput_createTableDefaultPermissions,
     databaseInput_name,
 
     -- ** DateColumnStatisticsData
@@ -1658,31 +1659,31 @@ module Network.AWS.Glue.Lens
     decimalNumber_scale,
 
     -- ** DevEndpoint
-    devEndpoint_lastUpdateStatus,
-    devEndpoint_publicAddress,
-    devEndpoint_securityGroupIds,
     devEndpoint_status,
+    devEndpoint_failureReason,
     devEndpoint_endpointName,
-    devEndpoint_roleArn,
-    devEndpoint_yarnEndpointAddress,
+    devEndpoint_numberOfWorkers,
+    devEndpoint_extraPythonLibsS3Path,
+    devEndpoint_lastUpdateStatus,
+    devEndpoint_securityGroupIds,
+    devEndpoint_lastModifiedTimestamp,
+    devEndpoint_publicKeys,
+    devEndpoint_vpcId,
+    devEndpoint_arguments,
+    devEndpoint_privateAddress,
+    devEndpoint_workerType,
     devEndpoint_securityConfiguration,
     devEndpoint_publicKey,
-    devEndpoint_createdTimestamp,
-    devEndpoint_privateAddress,
-    devEndpoint_lastModifiedTimestamp,
-    devEndpoint_numberOfWorkers,
-    devEndpoint_zeppelinRemoteSparkInterpreterPort,
-    devEndpoint_extraPythonLibsS3Path,
-    devEndpoint_availabilityZone,
-    devEndpoint_failureReason,
+    devEndpoint_subnetId,
     devEndpoint_glueVersion,
     devEndpoint_numberOfNodes,
-    devEndpoint_workerType,
-    devEndpoint_subnetId,
-    devEndpoint_arguments,
-    devEndpoint_vpcId,
+    devEndpoint_publicAddress,
+    devEndpoint_availabilityZone,
+    devEndpoint_zeppelinRemoteSparkInterpreterPort,
     devEndpoint_extraJarsS3Path,
-    devEndpoint_publicKeys,
+    devEndpoint_createdTimestamp,
+    devEndpoint_yarnEndpointAddress,
+    devEndpoint_roleArn,
 
     -- ** DevEndpointCustomLibraries
     devEndpointCustomLibraries_extraPythonLibsS3Path,
@@ -1695,13 +1696,13 @@ module Network.AWS.Glue.Lens
     doubleColumnStatisticsData_numberOfDistinctValues,
 
     -- ** DynamoDBTarget
-    dynamoDBTarget_scanAll,
-    dynamoDBTarget_scanRate,
     dynamoDBTarget_path,
+    dynamoDBTarget_scanRate,
+    dynamoDBTarget_scanAll,
 
     -- ** Edge
-    edge_destinationId,
     edge_sourceId,
+    edge_destinationId,
 
     -- ** EncryptionAtRest
     encryptionAtRest_sseAwsKmsKeyId,
@@ -1709,16 +1710,16 @@ module Network.AWS.Glue.Lens
 
     -- ** EncryptionConfiguration
     encryptionConfiguration_s3Encryption,
-    encryptionConfiguration_cloudWatchEncryption,
     encryptionConfiguration_jobBookmarksEncryption,
+    encryptionConfiguration_cloudWatchEncryption,
 
     -- ** ErrorDetail
-    errorDetail_errorMessage,
     errorDetail_errorCode,
+    errorDetail_errorMessage,
 
     -- ** ErrorDetails
-    errorDetails_errorMessage,
     errorDetails_errorCode,
+    errorDetails_errorMessage,
 
     -- ** EvaluationMetrics
     evaluationMetrics_findMatchesMetrics,
@@ -1736,43 +1737,43 @@ module Network.AWS.Glue.Lens
 
     -- ** FindMatchesMetrics
     findMatchesMetrics_f1,
-    findMatchesMetrics_columnImportances,
-    findMatchesMetrics_confusionMatrix,
-    findMatchesMetrics_precision,
     findMatchesMetrics_areaUnderPRCurve,
     findMatchesMetrics_recall,
+    findMatchesMetrics_precision,
+    findMatchesMetrics_columnImportances,
+    findMatchesMetrics_confusionMatrix,
 
     -- ** FindMatchesParameters
-    findMatchesParameters_accuracyCostTradeoff,
     findMatchesParameters_enforceProvidedLabels,
-    findMatchesParameters_primaryKeyColumnName,
+    findMatchesParameters_accuracyCostTradeoff,
     findMatchesParameters_precisionRecallTradeoff,
+    findMatchesParameters_primaryKeyColumnName,
 
     -- ** FindMatchesTaskRunProperties
-    findMatchesTaskRunProperties_jobRunId,
-    findMatchesTaskRunProperties_jobName,
     findMatchesTaskRunProperties_jobId,
+    findMatchesTaskRunProperties_jobName,
+    findMatchesTaskRunProperties_jobRunId,
 
     -- ** GetConnectionsFilter
-    getConnectionsFilter_connectionType,
     getConnectionsFilter_matchCriteria,
+    getConnectionsFilter_connectionType,
 
     -- ** GluePolicy
     gluePolicy_policyInJson,
     gluePolicy_updateTime,
-    gluePolicy_createTime,
     gluePolicy_policyHash,
+    gluePolicy_createTime,
 
     -- ** GlueTable
-    glueTable_connectionName,
     glueTable_catalogId,
+    glueTable_connectionName,
     glueTable_databaseName,
     glueTable_tableName,
 
     -- ** GrokClassifier
     grokClassifier_creationTime,
-    grokClassifier_version,
     grokClassifier_lastUpdated,
+    grokClassifier_version,
     grokClassifier_customPatterns,
     grokClassifier_name,
     grokClassifier_classification,
@@ -1783,100 +1784,100 @@ module Network.AWS.Glue.Lens
     importLabelsTaskRunProperties_inputS3Path,
 
     -- ** JdbcTarget
+    jdbcTarget_path,
     jdbcTarget_connectionName,
     jdbcTarget_exclusions,
-    jdbcTarget_path,
 
     -- ** Job
-    job_nonOverridableArguments,
-    job_createdOn,
-    job_securityConfiguration,
-    job_timeout,
-    job_maxCapacity,
-    job_connections,
-    job_lastModifiedOn,
-    job_notificationProperty,
     job_numberOfWorkers,
-    job_name,
     job_command,
-    job_role,
-    job_glueVersion,
+    job_notificationProperty,
+    job_lastModifiedOn,
+    job_connections,
     job_workerType,
-    job_description,
-    job_defaultArguments,
-    job_executionProperty,
-    job_allocatedCapacity,
+    job_securityConfiguration,
+    job_glueVersion,
+    job_nonOverridableArguments,
+    job_role,
+    job_name,
     job_logUri,
     job_maxRetries,
+    job_executionProperty,
+    job_allocatedCapacity,
+    job_maxCapacity,
+    job_timeout,
+    job_defaultArguments,
+    job_description,
+    job_createdOn,
 
     -- ** JobBookmarkEntry
-    jobBookmarkEntry_runId,
-    jobBookmarkEntry_jobBookmark,
-    jobBookmarkEntry_version,
-    jobBookmarkEntry_run,
     jobBookmarkEntry_jobName,
-    jobBookmarkEntry_attempt,
+    jobBookmarkEntry_run,
+    jobBookmarkEntry_runId,
+    jobBookmarkEntry_version,
     jobBookmarkEntry_previousRunId,
+    jobBookmarkEntry_attempt,
+    jobBookmarkEntry_jobBookmark,
 
     -- ** JobBookmarksEncryption
     jobBookmarksEncryption_jobBookmarksEncryptionMode,
     jobBookmarksEncryption_kmsKeyArn,
 
     -- ** JobCommand
-    jobCommand_pythonVersion,
     jobCommand_scriptLocation,
+    jobCommand_pythonVersion,
     jobCommand_name,
 
     -- ** JobNodeDetails
     jobNodeDetails_jobRuns,
 
     -- ** JobRun
-    jobRun_executionTime,
-    jobRun_predecessorRuns,
-    jobRun_securityConfiguration,
-    jobRun_timeout,
-    jobRun_maxCapacity,
-    jobRun_id,
-    jobRun_lastModifiedOn,
-    jobRun_notificationProperty,
+    jobRun_completedOn,
     jobRun_numberOfWorkers,
     jobRun_triggerName,
-    jobRun_completedOn,
-    jobRun_logGroupName,
+    jobRun_notificationProperty,
+    jobRun_lastModifiedOn,
+    jobRun_arguments,
+    jobRun_jobName,
+    jobRun_startedOn,
+    jobRun_workerType,
+    jobRun_securityConfiguration,
     jobRun_glueVersion,
     jobRun_jobRunState,
-    jobRun_workerType,
-    jobRun_errorMessage,
-    jobRun_arguments,
-    jobRun_startedOn,
-    jobRun_jobName,
-    jobRun_allocatedCapacity,
-    jobRun_attempt,
+    jobRun_logGroupName,
+    jobRun_executionTime,
+    jobRun_predecessorRuns,
     jobRun_previousRunId,
+    jobRun_id,
+    jobRun_attempt,
+    jobRun_allocatedCapacity,
+    jobRun_maxCapacity,
+    jobRun_timeout,
+    jobRun_errorMessage,
 
     -- ** JobUpdate
-    jobUpdate_nonOverridableArguments,
-    jobUpdate_securityConfiguration,
-    jobUpdate_timeout,
-    jobUpdate_maxCapacity,
-    jobUpdate_connections,
-    jobUpdate_notificationProperty,
     jobUpdate_numberOfWorkers,
     jobUpdate_command,
-    jobUpdate_role,
-    jobUpdate_glueVersion,
+    jobUpdate_notificationProperty,
+    jobUpdate_connections,
     jobUpdate_workerType,
-    jobUpdate_description,
-    jobUpdate_defaultArguments,
-    jobUpdate_executionProperty,
-    jobUpdate_allocatedCapacity,
+    jobUpdate_securityConfiguration,
+    jobUpdate_glueVersion,
+    jobUpdate_nonOverridableArguments,
+    jobUpdate_role,
     jobUpdate_logUri,
     jobUpdate_maxRetries,
+    jobUpdate_executionProperty,
+    jobUpdate_allocatedCapacity,
+    jobUpdate_maxCapacity,
+    jobUpdate_timeout,
+    jobUpdate_defaultArguments,
+    jobUpdate_description,
 
     -- ** JsonClassifier
     jsonClassifier_creationTime,
-    jsonClassifier_version,
     jsonClassifier_lastUpdated,
+    jsonClassifier_version,
     jsonClassifier_name,
     jsonClassifier_jsonPath,
 
@@ -1888,26 +1889,26 @@ module Network.AWS.Glue.Lens
     labelingSetGenerationTaskRunProperties_outputS3Path,
 
     -- ** LastActiveDefinition
+    lastActiveDefinition_parameterSpec,
+    lastActiveDefinition_blueprintLocation,
     lastActiveDefinition_lastModifiedOn,
     lastActiveDefinition_blueprintServiceLocation,
-    lastActiveDefinition_parameterSpec,
     lastActiveDefinition_description,
-    lastActiveDefinition_blueprintLocation,
 
     -- ** LastCrawlInfo
     lastCrawlInfo_status,
+    lastCrawlInfo_startTime,
+    lastCrawlInfo_logStream,
     lastCrawlInfo_logGroup,
     lastCrawlInfo_messagePrefix,
-    lastCrawlInfo_startTime,
     lastCrawlInfo_errorMessage,
-    lastCrawlInfo_logStream,
 
     -- ** LineageConfiguration
     lineageConfiguration_crawlerLineageSettings,
 
     -- ** Location
-    location_jdbc,
     location_dynamoDB,
+    location_jdbc,
     location_s3,
 
     -- ** LongColumnStatisticsData
@@ -1918,40 +1919,40 @@ module Network.AWS.Glue.Lens
 
     -- ** MLTransform
     mLTransform_status,
-    mLTransform_createdOn,
-    mLTransform_schema,
-    mLTransform_transformId,
-    mLTransform_inputRecordTables,
-    mLTransform_transformEncryption,
-    mLTransform_timeout,
-    mLTransform_maxCapacity,
-    mLTransform_lastModifiedOn,
     mLTransform_numberOfWorkers,
-    mLTransform_name,
-    mLTransform_role,
+    mLTransform_lastModifiedOn,
+    mLTransform_labelCount,
+    mLTransform_workerType,
+    mLTransform_inputRecordTables,
     mLTransform_glueVersion,
     mLTransform_evaluationMetrics,
-    mLTransform_workerType,
-    mLTransform_description,
-    mLTransform_labelCount,
-    mLTransform_maxRetries,
+    mLTransform_schema,
+    mLTransform_role,
+    mLTransform_name,
     mLTransform_parameters,
+    mLTransform_maxRetries,
+    mLTransform_maxCapacity,
+    mLTransform_timeout,
+    mLTransform_transformEncryption,
+    mLTransform_description,
+    mLTransform_createdOn,
+    mLTransform_transformId,
 
     -- ** MLUserDataEncryption
     mLUserDataEncryption_kmsKeyId,
     mLUserDataEncryption_mlUserDataEncryptionMode,
 
     -- ** MappingEntry
-    mappingEntry_targetType,
     mappingEntry_targetTable,
-    mappingEntry_targetPath,
-    mappingEntry_sourceTable,
-    mappingEntry_sourcePath,
     mappingEntry_sourceType,
+    mappingEntry_sourceTable,
+    mappingEntry_targetType,
+    mappingEntry_targetPath,
+    mappingEntry_sourcePath,
 
     -- ** MetadataInfo
-    metadataInfo_otherMetadataValueList,
     metadataInfo_createdTime,
+    metadataInfo_otherMetadataValueList,
     metadataInfo_metadataValue,
 
     -- ** MetadataKeyValuePair
@@ -1959,16 +1960,16 @@ module Network.AWS.Glue.Lens
     metadataKeyValuePair_metadataValue,
 
     -- ** MongoDBTarget
+    mongoDBTarget_path,
     mongoDBTarget_connectionName,
     mongoDBTarget_scanAll,
-    mongoDBTarget_path,
 
     -- ** Node
-    node_jobDetails,
     node_triggerDetails,
-    node_name,
-    node_crawlerDetails,
     node_uniqueId,
+    node_crawlerDetails,
+    node_name,
+    node_jobDetails,
     node_type,
 
     -- ** NotificationProperty
@@ -1984,18 +1985,18 @@ module Network.AWS.Glue.Lens
 
     -- ** Partition
     partition_creationTime,
-    partition_tableName,
-    partition_catalogId,
     partition_values,
-    partition_storageDescriptor,
+    partition_catalogId,
     partition_lastAnalyzedTime,
-    partition_lastAccessTime,
-    partition_parameters,
+    partition_storageDescriptor,
     partition_databaseName,
+    partition_parameters,
+    partition_lastAccessTime,
+    partition_tableName,
 
     -- ** PartitionError
-    partitionError_errorDetail,
     partitionError_partitionValues,
+    partitionError_errorDetail,
 
     -- ** PartitionIndex
     partitionIndex_keys,
@@ -2009,34 +2010,34 @@ module Network.AWS.Glue.Lens
 
     -- ** PartitionInput
     partitionInput_values,
-    partitionInput_storageDescriptor,
     partitionInput_lastAnalyzedTime,
-    partitionInput_lastAccessTime,
+    partitionInput_storageDescriptor,
     partitionInput_parameters,
+    partitionInput_lastAccessTime,
 
     -- ** PartitionValueList
     partitionValueList_values,
 
     -- ** PhysicalConnectionRequirements
     physicalConnectionRequirements_securityGroupIdList,
-    physicalConnectionRequirements_availabilityZone,
     physicalConnectionRequirements_subnetId,
+    physicalConnectionRequirements_availabilityZone,
 
     -- ** Predecessor
-    predecessor_runId,
     predecessor_jobName,
+    predecessor_runId,
 
     -- ** Predicate
     predicate_logical,
     predicate_conditions,
 
     -- ** PrincipalPermissions
-    principalPermissions_permissions,
     principalPermissions_principal,
+    principalPermissions_permissions,
 
     -- ** PropertyPredicate
-    propertyPredicate_key,
     propertyPredicate_value,
+    propertyPredicate_key,
     propertyPredicate_comparator,
 
     -- ** RecrawlPolicy
@@ -2048,56 +2049,58 @@ module Network.AWS.Glue.Lens
 
     -- ** RegistryListItem
     registryListItem_status,
-    registryListItem_updatedTime,
-    registryListItem_createdTime,
     registryListItem_registryName,
-    registryListItem_description,
+    registryListItem_createdTime,
     registryListItem_registryArn,
+    registryListItem_updatedTime,
+    registryListItem_description,
 
     -- ** ResourceUri
-    resourceUri_uri,
     resourceUri_resourceType,
+    resourceUri_uri,
 
     -- ** S3Encryption
     s3Encryption_s3EncryptionMode,
     s3Encryption_kmsKeyArn,
 
     -- ** S3Target
-    s3Target_connectionName,
-    s3Target_sampleSize,
-    s3Target_exclusions,
     s3Target_path,
+    s3Target_sampleSize,
+    s3Target_connectionName,
+    s3Target_exclusions,
+    s3Target_eventQueueArn,
+    s3Target_dlqEventQueueArn,
 
     -- ** Schedule
-    schedule_scheduleExpression,
     schedule_state,
+    schedule_scheduleExpression,
 
     -- ** SchemaChangePolicy
-    schemaChangePolicy_updateBehavior,
     schemaChangePolicy_deleteBehavior,
+    schemaChangePolicy_updateBehavior,
 
     -- ** SchemaColumn
     schemaColumn_name,
     schemaColumn_dataType,
 
     -- ** SchemaId
-    schemaId_schemaArn,
     schemaId_registryName,
     schemaId_schemaName,
+    schemaId_schemaArn,
 
     -- ** SchemaListItem
+    schemaListItem_registryName,
+    schemaListItem_createdTime,
+    schemaListItem_schemaStatus,
+    schemaListItem_schemaName,
     schemaListItem_schemaArn,
     schemaListItem_updatedTime,
-    schemaListItem_createdTime,
-    schemaListItem_registryName,
     schemaListItem_description,
-    schemaListItem_schemaName,
-    schemaListItem_schemaStatus,
 
     -- ** SchemaReference
     schemaReference_schemaVersionId,
-    schemaReference_schemaVersionNumber,
     schemaReference_schemaId,
+    schemaReference_schemaVersionNumber,
 
     -- ** SchemaVersionErrorItem
     schemaVersionErrorItem_versionNumber,
@@ -2105,19 +2108,19 @@ module Network.AWS.Glue.Lens
 
     -- ** SchemaVersionListItem
     schemaVersionListItem_status,
-    schemaVersionListItem_schemaArn,
-    schemaVersionListItem_schemaVersionId,
     schemaVersionListItem_createdTime,
+    schemaVersionListItem_schemaVersionId,
     schemaVersionListItem_versionNumber,
+    schemaVersionListItem_schemaArn,
 
     -- ** SchemaVersionNumber
-    schemaVersionNumber_latestVersion,
     schemaVersionNumber_versionNumber,
+    schemaVersionNumber_latestVersion,
 
     -- ** SecurityConfiguration
+    securityConfiguration_name,
     securityConfiguration_encryptionConfiguration,
     securityConfiguration_createdTimeStamp,
-    securityConfiguration_name,
 
     -- ** Segment
     segment_segmentNumber,
@@ -2129,32 +2132,32 @@ module Network.AWS.Glue.Lens
     serDeInfo_parameters,
 
     -- ** SkewedInfo
-    skewedInfo_skewedColumnNames,
-    skewedInfo_skewedColumnValues,
     skewedInfo_skewedColumnValueLocationMaps,
+    skewedInfo_skewedColumnValues,
+    skewedInfo_skewedColumnNames,
 
     -- ** SortCriterion
-    sortCriterion_fieldName,
     sortCriterion_sort,
+    sortCriterion_fieldName,
 
     -- ** StartingEventBatchCondition
-    startingEventBatchCondition_batchSize,
     startingEventBatchCondition_batchWindow,
+    startingEventBatchCondition_batchSize,
 
     -- ** StorageDescriptor
-    storageDescriptor_compressed,
-    storageDescriptor_numberOfBuckets,
-    storageDescriptor_skewedInfo,
-    storageDescriptor_schemaReference,
     storageDescriptor_sortColumns,
-    storageDescriptor_outputFormat,
+    storageDescriptor_compressed,
+    storageDescriptor_location,
     storageDescriptor_bucketColumns,
     storageDescriptor_serdeInfo,
-    storageDescriptor_location,
-    storageDescriptor_inputFormat,
-    storageDescriptor_columns,
+    storageDescriptor_outputFormat,
+    storageDescriptor_numberOfBuckets,
+    storageDescriptor_schemaReference,
     storageDescriptor_storedAsSubDirectories,
     storageDescriptor_parameters,
+    storageDescriptor_inputFormat,
+    storageDescriptor_skewedInfo,
+    storageDescriptor_columns,
 
     -- ** StringColumnStatisticsData
     stringColumnStatisticsData_maximumLength,
@@ -2163,24 +2166,24 @@ module Network.AWS.Glue.Lens
     stringColumnStatisticsData_numberOfDistinctValues,
 
     -- ** Table
-    table_viewOriginalText,
+    table_retention,
+    table_targetTable,
+    table_isRegisteredWithLakeFormation,
+    table_createdBy,
     table_tableType,
     table_catalogId,
-    table_storageDescriptor,
-    table_lastAnalyzedTime,
-    table_viewExpandedText,
-    table_targetTable,
-    table_retention,
-    table_updateTime,
-    table_createTime,
     table_owner,
+    table_viewOriginalText,
+    table_updateTime,
+    table_viewExpandedText,
+    table_lastAnalyzedTime,
+    table_storageDescriptor,
+    table_databaseName,
+    table_parameters,
+    table_lastAccessTime,
     table_description,
     table_partitionKeys,
-    table_createdBy,
-    table_lastAccessTime,
-    table_isRegisteredWithLakeFormation,
-    table_parameters,
-    table_databaseName,
+    table_createTime,
     table_name,
 
     -- ** TableError
@@ -2193,18 +2196,18 @@ module Network.AWS.Glue.Lens
     tableIdentifier_databaseName,
 
     -- ** TableInput
-    tableInput_viewOriginalText,
-    tableInput_tableType,
-    tableInput_storageDescriptor,
-    tableInput_lastAnalyzedTime,
-    tableInput_viewExpandedText,
-    tableInput_targetTable,
     tableInput_retention,
+    tableInput_targetTable,
+    tableInput_tableType,
     tableInput_owner,
+    tableInput_viewOriginalText,
+    tableInput_viewExpandedText,
+    tableInput_lastAnalyzedTime,
+    tableInput_storageDescriptor,
+    tableInput_parameters,
+    tableInput_lastAccessTime,
     tableInput_description,
     tableInput_partitionKeys,
-    tableInput_lastAccessTime,
-    tableInput_parameters,
     tableInput_name,
 
     -- ** TableVersion
@@ -2212,33 +2215,33 @@ module Network.AWS.Glue.Lens
     tableVersion_table,
 
     -- ** TableVersionError
+    tableVersionError_versionId,
     tableVersionError_tableName,
     tableVersionError_errorDetail,
-    tableVersionError_versionId,
 
     -- ** TaskRun
-    taskRun_executionTime,
-    taskRun_status,
-    taskRun_taskRunId,
-    taskRun_transformId,
-    taskRun_errorString,
-    taskRun_lastModifiedOn,
     taskRun_completedOn,
-    taskRun_logGroupName,
-    taskRun_properties,
+    taskRun_status,
+    taskRun_lastModifiedOn,
+    taskRun_errorString,
     taskRun_startedOn,
+    taskRun_logGroupName,
+    taskRun_executionTime,
+    taskRun_properties,
+    taskRun_transformId,
+    taskRun_taskRunId,
 
     -- ** TaskRunFilterCriteria
-    taskRunFilterCriteria_taskRunType,
     taskRunFilterCriteria_status,
-    taskRunFilterCriteria_startedBefore,
     taskRunFilterCriteria_startedAfter,
+    taskRunFilterCriteria_startedBefore,
+    taskRunFilterCriteria_taskRunType,
 
     -- ** TaskRunProperties
-    taskRunProperties_exportLabelsTaskRunProperties,
-    taskRunProperties_findMatchesTaskRunProperties,
-    taskRunProperties_labelingSetGenerationTaskRunProperties,
     taskRunProperties_taskType,
+    taskRunProperties_exportLabelsTaskRunProperties,
+    taskRunProperties_labelingSetGenerationTaskRunProperties,
+    taskRunProperties_findMatchesTaskRunProperties,
     taskRunProperties_importLabelsTaskRunProperties,
 
     -- ** TaskRunSortCriteria
@@ -2250,15 +2253,15 @@ module Network.AWS.Glue.Lens
     transformEncryption_taskRunSecurityConfigurationName,
 
     -- ** TransformFilterCriteria
-    transformFilterCriteria_status,
-    transformFilterCriteria_transformType,
     transformFilterCriteria_createdAfter,
-    transformFilterCriteria_createdBefore,
-    transformFilterCriteria_schema,
-    transformFilterCriteria_lastModifiedBefore,
-    transformFilterCriteria_name,
+    transformFilterCriteria_status,
     transformFilterCriteria_lastModifiedAfter,
+    transformFilterCriteria_lastModifiedBefore,
     transformFilterCriteria_glueVersion,
+    transformFilterCriteria_schema,
+    transformFilterCriteria_transformType,
+    transformFilterCriteria_name,
+    transformFilterCriteria_createdBefore,
 
     -- ** TransformParameters
     transformParameters_findMatchesParameters,
@@ -2270,40 +2273,40 @@ module Network.AWS.Glue.Lens
 
     -- ** Trigger
     trigger_workflowName,
-    trigger_id,
-    trigger_actions,
-    trigger_name,
     trigger_state,
-    trigger_predicate,
-    trigger_description,
-    trigger_eventBatchingCondition,
-    trigger_type,
+    trigger_actions,
     trigger_schedule,
+    trigger_predicate,
+    trigger_name,
+    trigger_id,
+    trigger_type,
+    trigger_eventBatchingCondition,
+    trigger_description,
 
     -- ** TriggerNodeDetails
     triggerNodeDetails_trigger,
 
     -- ** TriggerUpdate
     triggerUpdate_actions,
-    triggerUpdate_name,
-    triggerUpdate_predicate,
-    triggerUpdate_description,
-    triggerUpdate_eventBatchingCondition,
     triggerUpdate_schedule,
+    triggerUpdate_predicate,
+    triggerUpdate_name,
+    triggerUpdate_eventBatchingCondition,
+    triggerUpdate_description,
 
     -- ** UpdateCsvClassifierRequest
+    updateCsvClassifierRequest_quoteSymbol,
     updateCsvClassifierRequest_containsHeader,
-    updateCsvClassifierRequest_delimiter,
     updateCsvClassifierRequest_disableValueTrimming,
     updateCsvClassifierRequest_header,
-    updateCsvClassifierRequest_quoteSymbol,
     updateCsvClassifierRequest_allowSingleColumn,
+    updateCsvClassifierRequest_delimiter,
     updateCsvClassifierRequest_name,
 
     -- ** UpdateGrokClassifierRequest
-    updateGrokClassifierRequest_grokPattern,
     updateGrokClassifierRequest_classification,
     updateGrokClassifierRequest_customPatterns,
+    updateGrokClassifierRequest_grokPattern,
     updateGrokClassifierRequest_name,
 
     -- ** UpdateJsonClassifierRequest
@@ -2316,62 +2319,62 @@ module Network.AWS.Glue.Lens
     updateXMLClassifierRequest_name,
 
     -- ** UserDefinedFunction
-    userDefinedFunction_className,
-    userDefinedFunction_ownerType,
     userDefinedFunction_ownerName,
     userDefinedFunction_catalogId,
-    userDefinedFunction_functionName,
     userDefinedFunction_resourceUris,
-    userDefinedFunction_createTime,
     userDefinedFunction_databaseName,
+    userDefinedFunction_functionName,
+    userDefinedFunction_ownerType,
+    userDefinedFunction_createTime,
+    userDefinedFunction_className,
 
     -- ** UserDefinedFunctionInput
-    userDefinedFunctionInput_className,
-    userDefinedFunctionInput_ownerType,
     userDefinedFunctionInput_ownerName,
-    userDefinedFunctionInput_functionName,
     userDefinedFunctionInput_resourceUris,
+    userDefinedFunctionInput_functionName,
+    userDefinedFunctionInput_ownerType,
+    userDefinedFunctionInput_className,
 
     -- ** Workflow
-    workflow_createdOn,
-    workflow_defaultRunProperties,
-    workflow_lastRun,
-    workflow_maxConcurrentRuns,
-    workflow_lastModifiedOn,
-    workflow_name,
     workflow_graph,
-    workflow_description,
+    workflow_lastModifiedOn,
     workflow_blueprintDetails,
+    workflow_maxConcurrentRuns,
+    workflow_defaultRunProperties,
+    workflow_name,
+    workflow_lastRun,
+    workflow_description,
+    workflow_createdOn,
 
     -- ** WorkflowGraph
-    workflowGraph_nodes,
     workflowGraph_edges,
+    workflowGraph_nodes,
 
     -- ** WorkflowRun
-    workflowRun_workflowRunId,
-    workflowRun_status,
-    workflowRun_startingEventBatchCondition,
-    workflowRun_workflowRunProperties,
-    workflowRun_statistics,
-    workflowRun_name,
-    workflowRun_graph,
     workflowRun_completedOn,
-    workflowRun_errorMessage,
+    workflowRun_status,
+    workflowRun_graph,
     workflowRun_startedOn,
+    workflowRun_workflowRunId,
+    workflowRun_name,
     workflowRun_previousRunId,
+    workflowRun_statistics,
+    workflowRun_startingEventBatchCondition,
+    workflowRun_errorMessage,
+    workflowRun_workflowRunProperties,
 
     -- ** WorkflowRunStatistics
+    workflowRunStatistics_runningActions,
+    workflowRunStatistics_stoppedActions,
+    workflowRunStatistics_totalActions,
+    workflowRunStatistics_failedActions,
     workflowRunStatistics_timeoutActions,
     workflowRunStatistics_succeededActions,
-    workflowRunStatistics_runningActions,
-    workflowRunStatistics_totalActions,
-    workflowRunStatistics_stoppedActions,
-    workflowRunStatistics_failedActions,
 
     -- ** XMLClassifier
     xMLClassifier_creationTime,
-    xMLClassifier_version,
     xMLClassifier_lastUpdated,
+    xMLClassifier_version,
     xMLClassifier_rowTag,
     xMLClassifier_name,
     xMLClassifier_classification,

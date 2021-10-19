@@ -110,7 +110,7 @@ listTriggers_maxResults = Lens.lens (\ListTriggers' {maxResults} -> maxResults) 
 
 -- | Specifies to return only these tagged resources.
 listTriggers_tags :: Lens.Lens' ListTriggers (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listTriggers_tags = Lens.lens (\ListTriggers' {tags} -> tags) (\s@ListTriggers' {} a -> s {tags = a} :: ListTriggers) Prelude.. Lens.mapping Lens._Coerce
+listTriggers_tags = Lens.lens (\ListTriggers' {tags} -> tags) (\s@ListTriggers' {} a -> s {tags = a} :: ListTriggers) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the job for which to retrieve triggers. The trigger that can
 -- start this job is returned. If there is no such trigger, all triggers
@@ -208,7 +208,7 @@ newListTriggersResponse pHttpStatus_ =
 -- | The names of all triggers in the account, or the triggers with the
 -- specified tags.
 listTriggersResponse_triggerNames :: Lens.Lens' ListTriggersResponse (Prelude.Maybe [Prelude.Text])
-listTriggersResponse_triggerNames = Lens.lens (\ListTriggersResponse' {triggerNames} -> triggerNames) (\s@ListTriggersResponse' {} a -> s {triggerNames = a} :: ListTriggersResponse) Prelude.. Lens.mapping Lens._Coerce
+listTriggersResponse_triggerNames = Lens.lens (\ListTriggersResponse' {triggerNames} -> triggerNames) (\s@ListTriggersResponse' {} a -> s {triggerNames = a} :: ListTriggersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token, if the returned list does not contain the last
 -- metric available.

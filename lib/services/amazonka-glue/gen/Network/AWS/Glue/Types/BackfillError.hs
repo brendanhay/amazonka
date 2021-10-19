@@ -77,7 +77,7 @@ newBackfillError =
 
 -- | A list of a limited number of partitions in the response.
 backfillError_partitions :: Lens.Lens' BackfillError (Prelude.Maybe [PartitionValueList])
-backfillError_partitions = Lens.lens (\BackfillError' {partitions} -> partitions) (\s@BackfillError' {} a -> s {partitions = a} :: BackfillError) Prelude.. Lens.mapping Lens._Coerce
+backfillError_partitions = Lens.lens (\BackfillError' {partitions} -> partitions) (\s@BackfillError' {} a -> s {partitions = a} :: BackfillError) Prelude.. Lens.mapping Lens.coerced
 
 -- | The error code for an error that occurred when registering partition
 -- indexes for an existing table.

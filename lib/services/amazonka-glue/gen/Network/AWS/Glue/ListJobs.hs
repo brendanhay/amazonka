@@ -100,7 +100,7 @@ listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@List
 
 -- | Specifies to return only these tagged resources.
 listJobs_tags :: Lens.Lens' ListJobs (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listJobs_tags = Lens.lens (\ListJobs' {tags} -> tags) (\s@ListJobs' {} a -> s {tags = a} :: ListJobs) Prelude.. Lens.mapping Lens._Coerce
+listJobs_tags = Lens.lens (\ListJobs' {tags} -> tags) (\s@ListJobs' {} a -> s {tags = a} :: ListJobs) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest ListJobs where
   type AWSResponse ListJobs = ListJobsResponse
@@ -194,7 +194,7 @@ listJobsResponse_nextToken = Lens.lens (\ListJobsResponse' {nextToken} -> nextTo
 -- | The names of all jobs in the account, or the jobs with the specified
 -- tags.
 listJobsResponse_jobNames :: Lens.Lens' ListJobsResponse (Prelude.Maybe [Prelude.Text])
-listJobsResponse_jobNames = Lens.lens (\ListJobsResponse' {jobNames} -> jobNames) (\s@ListJobsResponse' {} a -> s {jobNames = a} :: ListJobsResponse) Prelude.. Lens.mapping Lens._Coerce
+listJobsResponse_jobNames = Lens.lens (\ListJobsResponse' {jobNames} -> jobNames) (\s@ListJobsResponse' {} a -> s {jobNames = a} :: ListJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listJobsResponse_httpStatus :: Lens.Lens' ListJobsResponse Prelude.Int

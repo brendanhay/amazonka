@@ -37,8 +37,8 @@ module Network.AWS.Glue.BatchGetPartition
     newBatchGetPartitionResponse,
 
     -- * Response Lenses
-    batchGetPartitionResponse_partitions,
     batchGetPartitionResponse_unprocessedKeys,
+    batchGetPartitionResponse_partitions,
     batchGetPartitionResponse_httpStatus,
   )
 where
@@ -109,7 +109,7 @@ batchGetPartition_tableName = Lens.lens (\BatchGetPartition' {tableName} -> tabl
 
 -- | A list of partition values identifying the partitions to retrieve.
 batchGetPartition_partitionsToGet :: Lens.Lens' BatchGetPartition [PartitionValueList]
-batchGetPartition_partitionsToGet = Lens.lens (\BatchGetPartition' {partitionsToGet} -> partitionsToGet) (\s@BatchGetPartition' {} a -> s {partitionsToGet = a} :: BatchGetPartition) Prelude.. Lens._Coerce
+batchGetPartition_partitionsToGet = Lens.lens (\BatchGetPartition' {partitionsToGet} -> partitionsToGet) (\s@BatchGetPartition' {} a -> s {partitionsToGet = a} :: BatchGetPartition) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchGetPartition where
   type
@@ -120,10 +120,10 @@ instance Core.AWSRequest BatchGetPartition where
     Response.receiveJSON
       ( \s h x ->
           BatchGetPartitionResponse'
-            Prelude.<$> (x Core..?> "Partitions" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "UnprocessedKeys"
+            Prelude.<$> ( x Core..?> "UnprocessedKeys"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "Partitions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,11 +164,11 @@ instance Core.ToQuery BatchGetPartition where
 
 -- | /See:/ 'newBatchGetPartitionResponse' smart constructor.
 data BatchGetPartitionResponse = BatchGetPartitionResponse'
-  { -- | A list of the requested partitions.
-    partitions :: Prelude.Maybe [Partition],
-    -- | A list of the partition values in the request for which partitions were
+  { -- | A list of the partition values in the request for which partitions were
     -- not returned.
     unprocessedKeys :: Prelude.Maybe [PartitionValueList],
+    -- | A list of the requested partitions.
+    partitions :: Prelude.Maybe [Partition],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,10 +182,10 @@ data BatchGetPartitionResponse = BatchGetPartitionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'partitions', 'batchGetPartitionResponse_partitions' - A list of the requested partitions.
---
 -- 'unprocessedKeys', 'batchGetPartitionResponse_unprocessedKeys' - A list of the partition values in the request for which partitions were
 -- not returned.
+--
+-- 'partitions', 'batchGetPartitionResponse_partitions' - A list of the requested partitions.
 --
 -- 'httpStatus', 'batchGetPartitionResponse_httpStatus' - The response's http status code.
 newBatchGetPartitionResponse ::
@@ -194,20 +194,20 @@ newBatchGetPartitionResponse ::
   BatchGetPartitionResponse
 newBatchGetPartitionResponse pHttpStatus_ =
   BatchGetPartitionResponse'
-    { partitions =
+    { unprocessedKeys =
         Prelude.Nothing,
-      unprocessedKeys = Prelude.Nothing,
+      partitions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of the requested partitions.
-batchGetPartitionResponse_partitions :: Lens.Lens' BatchGetPartitionResponse (Prelude.Maybe [Partition])
-batchGetPartitionResponse_partitions = Lens.lens (\BatchGetPartitionResponse' {partitions} -> partitions) (\s@BatchGetPartitionResponse' {} a -> s {partitions = a} :: BatchGetPartitionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of the partition values in the request for which partitions were
 -- not returned.
 batchGetPartitionResponse_unprocessedKeys :: Lens.Lens' BatchGetPartitionResponse (Prelude.Maybe [PartitionValueList])
-batchGetPartitionResponse_unprocessedKeys = Lens.lens (\BatchGetPartitionResponse' {unprocessedKeys} -> unprocessedKeys) (\s@BatchGetPartitionResponse' {} a -> s {unprocessedKeys = a} :: BatchGetPartitionResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetPartitionResponse_unprocessedKeys = Lens.lens (\BatchGetPartitionResponse' {unprocessedKeys} -> unprocessedKeys) (\s@BatchGetPartitionResponse' {} a -> s {unprocessedKeys = a} :: BatchGetPartitionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of the requested partitions.
+batchGetPartitionResponse_partitions :: Lens.Lens' BatchGetPartitionResponse (Prelude.Maybe [Partition])
+batchGetPartitionResponse_partitions = Lens.lens (\BatchGetPartitionResponse' {partitions} -> partitions) (\s@BatchGetPartitionResponse' {} a -> s {partitions = a} :: BatchGetPartitionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetPartitionResponse_httpStatus :: Lens.Lens' BatchGetPartitionResponse Prelude.Int

@@ -31,16 +31,16 @@ module Network.AWS.Glue.CreateCrawler
 
     -- * Request Lenses
     createCrawler_schemaChangePolicy,
+    createCrawler_schedule,
     createCrawler_recrawlPolicy,
     createCrawler_classifiers,
-    createCrawler_configuration,
-    createCrawler_lineageConfiguration,
-    createCrawler_tags,
-    createCrawler_description,
-    createCrawler_tablePrefix,
-    createCrawler_schedule,
-    createCrawler_crawlerSecurityConfiguration,
     createCrawler_databaseName,
+    createCrawler_crawlerSecurityConfiguration,
+    createCrawler_lineageConfiguration,
+    createCrawler_configuration,
+    createCrawler_tablePrefix,
+    createCrawler_description,
+    createCrawler_tags,
     createCrawler_name,
     createCrawler_role,
     createCrawler_targets,
@@ -65,6 +65,11 @@ import qualified Network.AWS.Response as Response
 data CreateCrawler = CreateCrawler'
   { -- | The policy for the crawler\'s update and deletion behavior.
     schemaChangePolicy :: Prelude.Maybe SchemaChangePolicy,
+    -- | A @cron@ expression used to specify the schedule (see
+    -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
+    -- For example, to run something every day at 12:15 UTC, you would specify:
+    -- @cron(15 12 * * ? *)@.
+    schedule :: Prelude.Maybe Prelude.Text,
     -- | A policy that specifies whether to crawl the entire dataset again, or to
     -- crawl only folders that were added since the last crawler run.
     recrawlPolicy :: Prelude.Maybe RecrawlPolicy,
@@ -73,33 +78,28 @@ data CreateCrawler = CreateCrawler'
     -- classifiers always override the default classifiers for a given
     -- classification.
     classifiers :: Prelude.Maybe [Prelude.Text],
+    -- | The Glue database where results are written, such as:
+    -- @arn:aws:daylight:us-east-1::database\/sometable\/*@.
+    databaseName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the @SecurityConfiguration@ structure to be used by this
+    -- crawler.
+    crawlerSecurityConfiguration :: Prelude.Maybe Prelude.Text,
+    -- | Specifies data lineage configuration settings for the crawler.
+    lineageConfiguration :: Prelude.Maybe LineageConfiguration,
     -- | Crawler configuration information. This versioned JSON string allows
     -- users to specify aspects of a crawler\'s behavior. For more information,
     -- see
     -- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Configuring a Crawler>.
     configuration :: Prelude.Maybe Prelude.Text,
-    -- | Specifies data lineage configuration settings for the crawler.
-    lineageConfiguration :: Prelude.Maybe LineageConfiguration,
+    -- | The table prefix used for catalog tables that are created.
+    tablePrefix :: Prelude.Maybe Prelude.Text,
+    -- | A description of the new crawler.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The tags to use with this crawler request. You may use tags to limit
     -- access to the crawler. For more information about tags in Glue, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
     -- in the developer guide.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A description of the new crawler.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The table prefix used for catalog tables that are created.
-    tablePrefix :: Prelude.Maybe Prelude.Text,
-    -- | A @cron@ expression used to specify the schedule (see
-    -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
-    -- For example, to run something every day at 12:15 UTC, you would specify:
-    -- @cron(15 12 * * ? *)@.
-    schedule :: Prelude.Maybe Prelude.Text,
-    -- | The name of the @SecurityConfiguration@ structure to be used by this
-    -- crawler.
-    crawlerSecurityConfiguration :: Prelude.Maybe Prelude.Text,
-    -- | The Glue database where results are written, such as:
-    -- @arn:aws:daylight:us-east-1::database\/sometable\/*@.
-    databaseName :: Prelude.Maybe Prelude.Text,
     -- | Name of the new crawler.
     name :: Prelude.Text,
     -- | The IAM role or Amazon Resource Name (ARN) of an IAM role used by the
@@ -120,6 +120,11 @@ data CreateCrawler = CreateCrawler'
 --
 -- 'schemaChangePolicy', 'createCrawler_schemaChangePolicy' - The policy for the crawler\'s update and deletion behavior.
 --
+-- 'schedule', 'createCrawler_schedule' - A @cron@ expression used to specify the schedule (see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
+-- For example, to run something every day at 12:15 UTC, you would specify:
+-- @cron(15 12 * * ? *)@.
+--
 -- 'recrawlPolicy', 'createCrawler_recrawlPolicy' - A policy that specifies whether to crawl the entire dataset again, or to
 -- crawl only folders that were added since the last crawler run.
 --
@@ -128,32 +133,27 @@ data CreateCrawler = CreateCrawler'
 -- classifiers always override the default classifiers for a given
 -- classification.
 --
+-- 'databaseName', 'createCrawler_databaseName' - The Glue database where results are written, such as:
+-- @arn:aws:daylight:us-east-1::database\/sometable\/*@.
+--
+-- 'crawlerSecurityConfiguration', 'createCrawler_crawlerSecurityConfiguration' - The name of the @SecurityConfiguration@ structure to be used by this
+-- crawler.
+--
+-- 'lineageConfiguration', 'createCrawler_lineageConfiguration' - Specifies data lineage configuration settings for the crawler.
+--
 -- 'configuration', 'createCrawler_configuration' - Crawler configuration information. This versioned JSON string allows
 -- users to specify aspects of a crawler\'s behavior. For more information,
 -- see
 -- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Configuring a Crawler>.
 --
--- 'lineageConfiguration', 'createCrawler_lineageConfiguration' - Specifies data lineage configuration settings for the crawler.
+-- 'tablePrefix', 'createCrawler_tablePrefix' - The table prefix used for catalog tables that are created.
+--
+-- 'description', 'createCrawler_description' - A description of the new crawler.
 --
 -- 'tags', 'createCrawler_tags' - The tags to use with this crawler request. You may use tags to limit
 -- access to the crawler. For more information about tags in Glue, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
 -- in the developer guide.
---
--- 'description', 'createCrawler_description' - A description of the new crawler.
---
--- 'tablePrefix', 'createCrawler_tablePrefix' - The table prefix used for catalog tables that are created.
---
--- 'schedule', 'createCrawler_schedule' - A @cron@ expression used to specify the schedule (see
--- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
--- For example, to run something every day at 12:15 UTC, you would specify:
--- @cron(15 12 * * ? *)@.
---
--- 'crawlerSecurityConfiguration', 'createCrawler_crawlerSecurityConfiguration' - The name of the @SecurityConfiguration@ structure to be used by this
--- crawler.
---
--- 'databaseName', 'createCrawler_databaseName' - The Glue database where results are written, such as:
--- @arn:aws:daylight:us-east-1::database\/sometable\/*@.
 --
 -- 'name', 'createCrawler_name' - Name of the new crawler.
 --
@@ -173,16 +173,16 @@ newCreateCrawler pName_ pRole_ pTargets_ =
   CreateCrawler'
     { schemaChangePolicy =
         Prelude.Nothing,
+      schedule = Prelude.Nothing,
       recrawlPolicy = Prelude.Nothing,
       classifiers = Prelude.Nothing,
-      configuration = Prelude.Nothing,
-      lineageConfiguration = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      tablePrefix = Prelude.Nothing,
-      schedule = Prelude.Nothing,
-      crawlerSecurityConfiguration = Prelude.Nothing,
       databaseName = Prelude.Nothing,
+      crawlerSecurityConfiguration = Prelude.Nothing,
+      lineageConfiguration = Prelude.Nothing,
+      configuration = Prelude.Nothing,
+      tablePrefix = Prelude.Nothing,
+      description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       role' = pRole_,
       targets = pTargets_
@@ -191,6 +191,13 @@ newCreateCrawler pName_ pRole_ pTargets_ =
 -- | The policy for the crawler\'s update and deletion behavior.
 createCrawler_schemaChangePolicy :: Lens.Lens' CreateCrawler (Prelude.Maybe SchemaChangePolicy)
 createCrawler_schemaChangePolicy = Lens.lens (\CreateCrawler' {schemaChangePolicy} -> schemaChangePolicy) (\s@CreateCrawler' {} a -> s {schemaChangePolicy = a} :: CreateCrawler)
+
+-- | A @cron@ expression used to specify the schedule (see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
+-- For example, to run something every day at 12:15 UTC, you would specify:
+-- @cron(15 12 * * ? *)@.
+createCrawler_schedule :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
+createCrawler_schedule = Lens.lens (\CreateCrawler' {schedule} -> schedule) (\s@CreateCrawler' {} a -> s {schedule = a} :: CreateCrawler)
 
 -- | A policy that specifies whether to crawl the entire dataset again, or to
 -- crawl only folders that were added since the last crawler run.
@@ -202,7 +209,21 @@ createCrawler_recrawlPolicy = Lens.lens (\CreateCrawler' {recrawlPolicy} -> recr
 -- classifiers always override the default classifiers for a given
 -- classification.
 createCrawler_classifiers :: Lens.Lens' CreateCrawler (Prelude.Maybe [Prelude.Text])
-createCrawler_classifiers = Lens.lens (\CreateCrawler' {classifiers} -> classifiers) (\s@CreateCrawler' {} a -> s {classifiers = a} :: CreateCrawler) Prelude.. Lens.mapping Lens._Coerce
+createCrawler_classifiers = Lens.lens (\CreateCrawler' {classifiers} -> classifiers) (\s@CreateCrawler' {} a -> s {classifiers = a} :: CreateCrawler) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Glue database where results are written, such as:
+-- @arn:aws:daylight:us-east-1::database\/sometable\/*@.
+createCrawler_databaseName :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
+createCrawler_databaseName = Lens.lens (\CreateCrawler' {databaseName} -> databaseName) (\s@CreateCrawler' {} a -> s {databaseName = a} :: CreateCrawler)
+
+-- | The name of the @SecurityConfiguration@ structure to be used by this
+-- crawler.
+createCrawler_crawlerSecurityConfiguration :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
+createCrawler_crawlerSecurityConfiguration = Lens.lens (\CreateCrawler' {crawlerSecurityConfiguration} -> crawlerSecurityConfiguration) (\s@CreateCrawler' {} a -> s {crawlerSecurityConfiguration = a} :: CreateCrawler)
+
+-- | Specifies data lineage configuration settings for the crawler.
+createCrawler_lineageConfiguration :: Lens.Lens' CreateCrawler (Prelude.Maybe LineageConfiguration)
+createCrawler_lineageConfiguration = Lens.lens (\CreateCrawler' {lineageConfiguration} -> lineageConfiguration) (\s@CreateCrawler' {} a -> s {lineageConfiguration = a} :: CreateCrawler)
 
 -- | Crawler configuration information. This versioned JSON string allows
 -- users to specify aspects of a crawler\'s behavior. For more information,
@@ -211,41 +232,20 @@ createCrawler_classifiers = Lens.lens (\CreateCrawler' {classifiers} -> classifi
 createCrawler_configuration :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
 createCrawler_configuration = Lens.lens (\CreateCrawler' {configuration} -> configuration) (\s@CreateCrawler' {} a -> s {configuration = a} :: CreateCrawler)
 
--- | Specifies data lineage configuration settings for the crawler.
-createCrawler_lineageConfiguration :: Lens.Lens' CreateCrawler (Prelude.Maybe LineageConfiguration)
-createCrawler_lineageConfiguration = Lens.lens (\CreateCrawler' {lineageConfiguration} -> lineageConfiguration) (\s@CreateCrawler' {} a -> s {lineageConfiguration = a} :: CreateCrawler)
+-- | The table prefix used for catalog tables that are created.
+createCrawler_tablePrefix :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
+createCrawler_tablePrefix = Lens.lens (\CreateCrawler' {tablePrefix} -> tablePrefix) (\s@CreateCrawler' {} a -> s {tablePrefix = a} :: CreateCrawler)
+
+-- | A description of the new crawler.
+createCrawler_description :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
+createCrawler_description = Lens.lens (\CreateCrawler' {description} -> description) (\s@CreateCrawler' {} a -> s {description = a} :: CreateCrawler)
 
 -- | The tags to use with this crawler request. You may use tags to limit
 -- access to the crawler. For more information about tags in Glue, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
 -- in the developer guide.
 createCrawler_tags :: Lens.Lens' CreateCrawler (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createCrawler_tags = Lens.lens (\CreateCrawler' {tags} -> tags) (\s@CreateCrawler' {} a -> s {tags = a} :: CreateCrawler) Prelude.. Lens.mapping Lens._Coerce
-
--- | A description of the new crawler.
-createCrawler_description :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
-createCrawler_description = Lens.lens (\CreateCrawler' {description} -> description) (\s@CreateCrawler' {} a -> s {description = a} :: CreateCrawler)
-
--- | The table prefix used for catalog tables that are created.
-createCrawler_tablePrefix :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
-createCrawler_tablePrefix = Lens.lens (\CreateCrawler' {tablePrefix} -> tablePrefix) (\s@CreateCrawler' {} a -> s {tablePrefix = a} :: CreateCrawler)
-
--- | A @cron@ expression used to specify the schedule (see
--- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
--- For example, to run something every day at 12:15 UTC, you would specify:
--- @cron(15 12 * * ? *)@.
-createCrawler_schedule :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
-createCrawler_schedule = Lens.lens (\CreateCrawler' {schedule} -> schedule) (\s@CreateCrawler' {} a -> s {schedule = a} :: CreateCrawler)
-
--- | The name of the @SecurityConfiguration@ structure to be used by this
--- crawler.
-createCrawler_crawlerSecurityConfiguration :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
-createCrawler_crawlerSecurityConfiguration = Lens.lens (\CreateCrawler' {crawlerSecurityConfiguration} -> crawlerSecurityConfiguration) (\s@CreateCrawler' {} a -> s {crawlerSecurityConfiguration = a} :: CreateCrawler)
-
--- | The Glue database where results are written, such as:
--- @arn:aws:daylight:us-east-1::database\/sometable\/*@.
-createCrawler_databaseName :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
-createCrawler_databaseName = Lens.lens (\CreateCrawler' {databaseName} -> databaseName) (\s@CreateCrawler' {} a -> s {databaseName = a} :: CreateCrawler)
+createCrawler_tags = Lens.lens (\CreateCrawler' {tags} -> tags) (\s@CreateCrawler' {} a -> s {tags = a} :: CreateCrawler) Prelude.. Lens.mapping Lens.coerced
 
 -- | Name of the new crawler.
 createCrawler_name :: Lens.Lens' CreateCrawler Prelude.Text
@@ -295,18 +295,18 @@ instance Core.ToJSON CreateCrawler where
       ( Prelude.catMaybes
           [ ("SchemaChangePolicy" Core..=)
               Prelude.<$> schemaChangePolicy,
+            ("Schedule" Core..=) Prelude.<$> schedule,
             ("RecrawlPolicy" Core..=) Prelude.<$> recrawlPolicy,
             ("Classifiers" Core..=) Prelude.<$> classifiers,
-            ("Configuration" Core..=) Prelude.<$> configuration,
-            ("LineageConfiguration" Core..=)
-              Prelude.<$> lineageConfiguration,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("TablePrefix" Core..=) Prelude.<$> tablePrefix,
-            ("Schedule" Core..=) Prelude.<$> schedule,
+            ("DatabaseName" Core..=) Prelude.<$> databaseName,
             ("CrawlerSecurityConfiguration" Core..=)
               Prelude.<$> crawlerSecurityConfiguration,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
+            ("LineageConfiguration" Core..=)
+              Prelude.<$> lineageConfiguration,
+            ("Configuration" Core..=) Prelude.<$> configuration,
+            ("TablePrefix" Core..=) Prelude.<$> tablePrefix,
+            ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Role" Core..= role'),
             Prelude.Just ("Targets" Core..= targets)

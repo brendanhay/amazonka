@@ -54,7 +54,7 @@ newCatalogTarget ::
 newCatalogTarget pDatabaseName_ pTables_ =
   CatalogTarget'
     { databaseName = pDatabaseName_,
-      tables = Lens._Coerce Lens.# pTables_
+      tables = Lens.coerced Lens.# pTables_
     }
 
 -- | The name of the database to be synchronized.
@@ -63,7 +63,7 @@ catalogTarget_databaseName = Lens.lens (\CatalogTarget' {databaseName} -> databa
 
 -- | A list of the tables to be synchronized.
 catalogTarget_tables :: Lens.Lens' CatalogTarget (Prelude.NonEmpty Prelude.Text)
-catalogTarget_tables = Lens.lens (\CatalogTarget' {tables} -> tables) (\s@CatalogTarget' {} a -> s {tables = a} :: CatalogTarget) Prelude.. Lens._Coerce
+catalogTarget_tables = Lens.lens (\CatalogTarget' {tables} -> tables) (\s@CatalogTarget' {} a -> s {tables = a} :: CatalogTarget) Prelude.. Lens.coerced
 
 instance Core.FromJSON CatalogTarget where
   parseJSON =

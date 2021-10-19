@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data PhysicalConnectionRequirements = PhysicalConnectionRequirements'
   { -- | The security group ID list used by the connection.
     securityGroupIdList :: Prelude.Maybe [Prelude.Text],
+    -- | The subnet ID used by the connection.
+    subnetId :: Prelude.Maybe Prelude.Text,
     -- | The connection\'s Availability Zone. This field is redundant because the
     -- specified subnet implies the Availability Zone to be used. Currently the
     -- field must be populated, but it will be deprecated in the future.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The subnet ID used by the connection.
-    subnetId :: Prelude.Maybe Prelude.Text
+    availabilityZone :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,34 +48,34 @@ data PhysicalConnectionRequirements = PhysicalConnectionRequirements'
 --
 -- 'securityGroupIdList', 'physicalConnectionRequirements_securityGroupIdList' - The security group ID list used by the connection.
 --
+-- 'subnetId', 'physicalConnectionRequirements_subnetId' - The subnet ID used by the connection.
+--
 -- 'availabilityZone', 'physicalConnectionRequirements_availabilityZone' - The connection\'s Availability Zone. This field is redundant because the
 -- specified subnet implies the Availability Zone to be used. Currently the
 -- field must be populated, but it will be deprecated in the future.
---
--- 'subnetId', 'physicalConnectionRequirements_subnetId' - The subnet ID used by the connection.
 newPhysicalConnectionRequirements ::
   PhysicalConnectionRequirements
 newPhysicalConnectionRequirements =
   PhysicalConnectionRequirements'
     { securityGroupIdList =
         Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
-      subnetId = Prelude.Nothing
+      subnetId = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing
     }
 
 -- | The security group ID list used by the connection.
 physicalConnectionRequirements_securityGroupIdList :: Lens.Lens' PhysicalConnectionRequirements (Prelude.Maybe [Prelude.Text])
-physicalConnectionRequirements_securityGroupIdList = Lens.lens (\PhysicalConnectionRequirements' {securityGroupIdList} -> securityGroupIdList) (\s@PhysicalConnectionRequirements' {} a -> s {securityGroupIdList = a} :: PhysicalConnectionRequirements) Prelude.. Lens.mapping Lens._Coerce
+physicalConnectionRequirements_securityGroupIdList = Lens.lens (\PhysicalConnectionRequirements' {securityGroupIdList} -> securityGroupIdList) (\s@PhysicalConnectionRequirements' {} a -> s {securityGroupIdList = a} :: PhysicalConnectionRequirements) Prelude.. Lens.mapping Lens.coerced
+
+-- | The subnet ID used by the connection.
+physicalConnectionRequirements_subnetId :: Lens.Lens' PhysicalConnectionRequirements (Prelude.Maybe Prelude.Text)
+physicalConnectionRequirements_subnetId = Lens.lens (\PhysicalConnectionRequirements' {subnetId} -> subnetId) (\s@PhysicalConnectionRequirements' {} a -> s {subnetId = a} :: PhysicalConnectionRequirements)
 
 -- | The connection\'s Availability Zone. This field is redundant because the
 -- specified subnet implies the Availability Zone to be used. Currently the
 -- field must be populated, but it will be deprecated in the future.
 physicalConnectionRequirements_availabilityZone :: Lens.Lens' PhysicalConnectionRequirements (Prelude.Maybe Prelude.Text)
 physicalConnectionRequirements_availabilityZone = Lens.lens (\PhysicalConnectionRequirements' {availabilityZone} -> availabilityZone) (\s@PhysicalConnectionRequirements' {} a -> s {availabilityZone = a} :: PhysicalConnectionRequirements)
-
--- | The subnet ID used by the connection.
-physicalConnectionRequirements_subnetId :: Lens.Lens' PhysicalConnectionRequirements (Prelude.Maybe Prelude.Text)
-physicalConnectionRequirements_subnetId = Lens.lens (\PhysicalConnectionRequirements' {subnetId} -> subnetId) (\s@PhysicalConnectionRequirements' {} a -> s {subnetId = a} :: PhysicalConnectionRequirements)
 
 instance Core.FromJSON PhysicalConnectionRequirements where
   parseJSON =
@@ -86,8 +86,8 @@ instance Core.FromJSON PhysicalConnectionRequirements where
             Prelude.<$> ( x Core..:? "SecurityGroupIdList"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AvailabilityZone")
             Prelude.<*> (x Core..:? "SubnetId")
+            Prelude.<*> (x Core..:? "AvailabilityZone")
       )
 
 instance
@@ -104,8 +104,8 @@ instance Core.ToJSON PhysicalConnectionRequirements where
       ( Prelude.catMaybes
           [ ("SecurityGroupIdList" Core..=)
               Prelude.<$> securityGroupIdList,
+            ("SubnetId" Core..=) Prelude.<$> subnetId,
             ("AvailabilityZone" Core..=)
-              Prelude.<$> availabilityZone,
-            ("SubnetId" Core..=) Prelude.<$> subnetId
+              Prelude.<$> availabilityZone
           ]
       )

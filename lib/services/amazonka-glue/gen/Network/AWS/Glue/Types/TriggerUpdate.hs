@@ -34,20 +34,20 @@ import qualified Network.AWS.Prelude as Prelude
 data TriggerUpdate = TriggerUpdate'
   { -- | The actions initiated by this trigger.
     actions :: Prelude.Maybe [Action],
-    -- | Reserved for future use.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The predicate of this trigger, which defines when it will fire.
-    predicate :: Prelude.Maybe Predicate,
-    -- | A description of this trigger.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Batch condition that must be met (specified number of events received or
-    -- batch time window expired) before EventBridge event trigger fires.
-    eventBatchingCondition :: Prelude.Maybe EventBatchingCondition,
     -- | A @cron@ expression used to specify the schedule (see
     -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
     -- For example, to run something every day at 12:15 UTC, you would specify:
     -- @cron(15 12 * * ? *)@.
-    schedule :: Prelude.Maybe Prelude.Text
+    schedule :: Prelude.Maybe Prelude.Text,
+    -- | The predicate of this trigger, which defines when it will fire.
+    predicate :: Prelude.Maybe Predicate,
+    -- | Reserved for future use.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Batch condition that must be met (specified number of events received or
+    -- batch time window expired) before EventBridge event trigger fires.
+    eventBatchingCondition :: Prelude.Maybe EventBatchingCondition,
+    -- | A description of this trigger.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,51 +61,34 @@ data TriggerUpdate = TriggerUpdate'
 --
 -- 'actions', 'triggerUpdate_actions' - The actions initiated by this trigger.
 --
--- 'name', 'triggerUpdate_name' - Reserved for future use.
---
--- 'predicate', 'triggerUpdate_predicate' - The predicate of this trigger, which defines when it will fire.
---
--- 'description', 'triggerUpdate_description' - A description of this trigger.
---
--- 'eventBatchingCondition', 'triggerUpdate_eventBatchingCondition' - Batch condition that must be met (specified number of events received or
--- batch time window expired) before EventBridge event trigger fires.
---
 -- 'schedule', 'triggerUpdate_schedule' - A @cron@ expression used to specify the schedule (see
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
 -- For example, to run something every day at 12:15 UTC, you would specify:
 -- @cron(15 12 * * ? *)@.
+--
+-- 'predicate', 'triggerUpdate_predicate' - The predicate of this trigger, which defines when it will fire.
+--
+-- 'name', 'triggerUpdate_name' - Reserved for future use.
+--
+-- 'eventBatchingCondition', 'triggerUpdate_eventBatchingCondition' - Batch condition that must be met (specified number of events received or
+-- batch time window expired) before EventBridge event trigger fires.
+--
+-- 'description', 'triggerUpdate_description' - A description of this trigger.
 newTriggerUpdate ::
   TriggerUpdate
 newTriggerUpdate =
   TriggerUpdate'
     { actions = Prelude.Nothing,
-      name = Prelude.Nothing,
+      schedule = Prelude.Nothing,
       predicate = Prelude.Nothing,
-      description = Prelude.Nothing,
+      name = Prelude.Nothing,
       eventBatchingCondition = Prelude.Nothing,
-      schedule = Prelude.Nothing
+      description = Prelude.Nothing
     }
 
 -- | The actions initiated by this trigger.
 triggerUpdate_actions :: Lens.Lens' TriggerUpdate (Prelude.Maybe [Action])
-triggerUpdate_actions = Lens.lens (\TriggerUpdate' {actions} -> actions) (\s@TriggerUpdate' {} a -> s {actions = a} :: TriggerUpdate) Prelude.. Lens.mapping Lens._Coerce
-
--- | Reserved for future use.
-triggerUpdate_name :: Lens.Lens' TriggerUpdate (Prelude.Maybe Prelude.Text)
-triggerUpdate_name = Lens.lens (\TriggerUpdate' {name} -> name) (\s@TriggerUpdate' {} a -> s {name = a} :: TriggerUpdate)
-
--- | The predicate of this trigger, which defines when it will fire.
-triggerUpdate_predicate :: Lens.Lens' TriggerUpdate (Prelude.Maybe Predicate)
-triggerUpdate_predicate = Lens.lens (\TriggerUpdate' {predicate} -> predicate) (\s@TriggerUpdate' {} a -> s {predicate = a} :: TriggerUpdate)
-
--- | A description of this trigger.
-triggerUpdate_description :: Lens.Lens' TriggerUpdate (Prelude.Maybe Prelude.Text)
-triggerUpdate_description = Lens.lens (\TriggerUpdate' {description} -> description) (\s@TriggerUpdate' {} a -> s {description = a} :: TriggerUpdate)
-
--- | Batch condition that must be met (specified number of events received or
--- batch time window expired) before EventBridge event trigger fires.
-triggerUpdate_eventBatchingCondition :: Lens.Lens' TriggerUpdate (Prelude.Maybe EventBatchingCondition)
-triggerUpdate_eventBatchingCondition = Lens.lens (\TriggerUpdate' {eventBatchingCondition} -> eventBatchingCondition) (\s@TriggerUpdate' {} a -> s {eventBatchingCondition = a} :: TriggerUpdate)
+triggerUpdate_actions = Lens.lens (\TriggerUpdate' {actions} -> actions) (\s@TriggerUpdate' {} a -> s {actions = a} :: TriggerUpdate) Prelude.. Lens.mapping Lens.coerced
 
 -- | A @cron@ expression used to specify the schedule (see
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
@@ -113,6 +96,23 @@ triggerUpdate_eventBatchingCondition = Lens.lens (\TriggerUpdate' {eventBatching
 -- @cron(15 12 * * ? *)@.
 triggerUpdate_schedule :: Lens.Lens' TriggerUpdate (Prelude.Maybe Prelude.Text)
 triggerUpdate_schedule = Lens.lens (\TriggerUpdate' {schedule} -> schedule) (\s@TriggerUpdate' {} a -> s {schedule = a} :: TriggerUpdate)
+
+-- | The predicate of this trigger, which defines when it will fire.
+triggerUpdate_predicate :: Lens.Lens' TriggerUpdate (Prelude.Maybe Predicate)
+triggerUpdate_predicate = Lens.lens (\TriggerUpdate' {predicate} -> predicate) (\s@TriggerUpdate' {} a -> s {predicate = a} :: TriggerUpdate)
+
+-- | Reserved for future use.
+triggerUpdate_name :: Lens.Lens' TriggerUpdate (Prelude.Maybe Prelude.Text)
+triggerUpdate_name = Lens.lens (\TriggerUpdate' {name} -> name) (\s@TriggerUpdate' {} a -> s {name = a} :: TriggerUpdate)
+
+-- | Batch condition that must be met (specified number of events received or
+-- batch time window expired) before EventBridge event trigger fires.
+triggerUpdate_eventBatchingCondition :: Lens.Lens' TriggerUpdate (Prelude.Maybe EventBatchingCondition)
+triggerUpdate_eventBatchingCondition = Lens.lens (\TriggerUpdate' {eventBatchingCondition} -> eventBatchingCondition) (\s@TriggerUpdate' {} a -> s {eventBatchingCondition = a} :: TriggerUpdate)
+
+-- | A description of this trigger.
+triggerUpdate_description :: Lens.Lens' TriggerUpdate (Prelude.Maybe Prelude.Text)
+triggerUpdate_description = Lens.lens (\TriggerUpdate' {description} -> description) (\s@TriggerUpdate' {} a -> s {description = a} :: TriggerUpdate)
 
 instance Prelude.Hashable TriggerUpdate
 
@@ -123,11 +123,11 @@ instance Core.ToJSON TriggerUpdate where
     Core.object
       ( Prelude.catMaybes
           [ ("Actions" Core..=) Prelude.<$> actions,
-            ("Name" Core..=) Prelude.<$> name,
+            ("Schedule" Core..=) Prelude.<$> schedule,
             ("Predicate" Core..=) Prelude.<$> predicate,
-            ("Description" Core..=) Prelude.<$> description,
+            ("Name" Core..=) Prelude.<$> name,
             ("EventBatchingCondition" Core..=)
               Prelude.<$> eventBatchingCondition,
-            ("Schedule" Core..=) Prelude.<$> schedule
+            ("Description" Core..=) Prelude.<$> description
           ]
       )

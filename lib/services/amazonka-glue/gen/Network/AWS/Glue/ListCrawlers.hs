@@ -100,7 +100,7 @@ listCrawlers_maxResults = Lens.lens (\ListCrawlers' {maxResults} -> maxResults) 
 
 -- | Specifies to return only these tagged resources.
 listCrawlers_tags :: Lens.Lens' ListCrawlers (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listCrawlers_tags = Lens.lens (\ListCrawlers' {tags} -> tags) (\s@ListCrawlers' {} a -> s {tags = a} :: ListCrawlers) Prelude.. Lens.mapping Lens._Coerce
+listCrawlers_tags = Lens.lens (\ListCrawlers' {tags} -> tags) (\s@ListCrawlers' {} a -> s {tags = a} :: ListCrawlers) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest ListCrawlers where
   type AWSResponse ListCrawlers = ListCrawlersResponse
@@ -194,7 +194,7 @@ listCrawlersResponse_nextToken = Lens.lens (\ListCrawlersResponse' {nextToken} -
 -- | The names of all crawlers in the account, or the crawlers with the
 -- specified tags.
 listCrawlersResponse_crawlerNames :: Lens.Lens' ListCrawlersResponse (Prelude.Maybe [Prelude.Text])
-listCrawlersResponse_crawlerNames = Lens.lens (\ListCrawlersResponse' {crawlerNames} -> crawlerNames) (\s@ListCrawlersResponse' {} a -> s {crawlerNames = a} :: ListCrawlersResponse) Prelude.. Lens.mapping Lens._Coerce
+listCrawlersResponse_crawlerNames = Lens.lens (\ListCrawlersResponse' {crawlerNames} -> crawlerNames) (\s@ListCrawlersResponse' {} a -> s {crawlerNames = a} :: ListCrawlersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCrawlersResponse_httpStatus :: Lens.Lens' ListCrawlersResponse Prelude.Int

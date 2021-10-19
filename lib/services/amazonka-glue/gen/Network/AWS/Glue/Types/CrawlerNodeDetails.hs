@@ -49,7 +49,7 @@ newCrawlerNodeDetails =
 
 -- | A list of crawls represented by the crawl node.
 crawlerNodeDetails_crawls :: Lens.Lens' CrawlerNodeDetails (Prelude.Maybe [Crawl])
-crawlerNodeDetails_crawls = Lens.lens (\CrawlerNodeDetails' {crawls} -> crawls) (\s@CrawlerNodeDetails' {} a -> s {crawls = a} :: CrawlerNodeDetails) Prelude.. Lens.mapping Lens._Coerce
+crawlerNodeDetails_crawls = Lens.lens (\CrawlerNodeDetails' {crawls} -> crawls) (\s@CrawlerNodeDetails' {} a -> s {crawls = a} :: CrawlerNodeDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON CrawlerNodeDetails where
   parseJSON =

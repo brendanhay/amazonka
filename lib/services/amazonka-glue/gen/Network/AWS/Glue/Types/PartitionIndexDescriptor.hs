@@ -98,14 +98,14 @@ newPartitionIndexDescriptor
       { backfillErrors =
           Prelude.Nothing,
         indexName = pIndexName_,
-        keys = Lens._Coerce Lens.# pKeys_,
+        keys = Lens.coerced Lens.# pKeys_,
         indexStatus = pIndexStatus_
       }
 
 -- | A list of errors that can occur when registering partition indexes for
 -- an existing table.
 partitionIndexDescriptor_backfillErrors :: Lens.Lens' PartitionIndexDescriptor (Prelude.Maybe [BackfillError])
-partitionIndexDescriptor_backfillErrors = Lens.lens (\PartitionIndexDescriptor' {backfillErrors} -> backfillErrors) (\s@PartitionIndexDescriptor' {} a -> s {backfillErrors = a} :: PartitionIndexDescriptor) Prelude.. Lens.mapping Lens._Coerce
+partitionIndexDescriptor_backfillErrors = Lens.lens (\PartitionIndexDescriptor' {backfillErrors} -> backfillErrors) (\s@PartitionIndexDescriptor' {} a -> s {backfillErrors = a} :: PartitionIndexDescriptor) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the partition index.
 partitionIndexDescriptor_indexName :: Lens.Lens' PartitionIndexDescriptor Prelude.Text
@@ -114,7 +114,7 @@ partitionIndexDescriptor_indexName = Lens.lens (\PartitionIndexDescriptor' {inde
 -- | A list of one or more keys, as @KeySchemaElement@ structures, for the
 -- partition index.
 partitionIndexDescriptor_keys :: Lens.Lens' PartitionIndexDescriptor (Prelude.NonEmpty KeySchemaElement)
-partitionIndexDescriptor_keys = Lens.lens (\PartitionIndexDescriptor' {keys} -> keys) (\s@PartitionIndexDescriptor' {} a -> s {keys = a} :: PartitionIndexDescriptor) Prelude.. Lens._Coerce
+partitionIndexDescriptor_keys = Lens.lens (\PartitionIndexDescriptor' {keys} -> keys) (\s@PartitionIndexDescriptor' {} a -> s {keys = a} :: PartitionIndexDescriptor) Prelude.. Lens.coerced
 
 -- | The status of the partition index.
 --

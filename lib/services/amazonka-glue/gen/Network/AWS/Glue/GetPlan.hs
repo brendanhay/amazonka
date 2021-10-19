@@ -27,10 +27,10 @@ module Network.AWS.Glue.GetPlan
     newGetPlan,
 
     -- * Request Lenses
-    getPlan_additionalPlanOptionsMap,
     getPlan_sinks,
     getPlan_location,
     getPlan_language,
+    getPlan_additionalPlanOptionsMap,
     getPlan_mapping,
     getPlan_source,
 
@@ -54,7 +54,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetPlan' smart constructor.
 data GetPlan = GetPlan'
-  { -- | A map to hold additional optional key-value parameters.
+  { -- | The target tables.
+    sinks :: Prelude.Maybe [CatalogEntry],
+    -- | The parameters for the mapping.
+    location :: Prelude.Maybe Location,
+    -- | The programming language of the code to perform the mapping.
+    language :: Prelude.Maybe Language,
+    -- | A map to hold additional optional key-value parameters.
     --
     -- Currently, these key-value pairs are supported:
     --
@@ -64,12 +70,6 @@ data GetPlan = GetPlan'
     --
     --     @--additional-plan-options-map \'{\"inferSchema\":\"true\"}\'@
     additionalPlanOptionsMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The target tables.
-    sinks :: Prelude.Maybe [CatalogEntry],
-    -- | The parameters for the mapping.
-    location :: Prelude.Maybe Location,
-    -- | The programming language of the code to perform the mapping.
-    language :: Prelude.Maybe Language,
     -- | The list of mappings from a source table to target tables.
     mapping :: [MappingEntry],
     -- | The source table.
@@ -85,6 +85,12 @@ data GetPlan = GetPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sinks', 'getPlan_sinks' - The target tables.
+--
+-- 'location', 'getPlan_location' - The parameters for the mapping.
+--
+-- 'language', 'getPlan_language' - The programming language of the code to perform the mapping.
+--
 -- 'additionalPlanOptionsMap', 'getPlan_additionalPlanOptionsMap' - A map to hold additional optional key-value parameters.
 --
 -- Currently, these key-value pairs are supported:
@@ -95,12 +101,6 @@ data GetPlan = GetPlan'
 --
 --     @--additional-plan-options-map \'{\"inferSchema\":\"true\"}\'@
 --
--- 'sinks', 'getPlan_sinks' - The target tables.
---
--- 'location', 'getPlan_location' - The parameters for the mapping.
---
--- 'language', 'getPlan_language' - The programming language of the code to perform the mapping.
---
 -- 'mapping', 'getPlan_mapping' - The list of mappings from a source table to target tables.
 --
 -- 'source', 'getPlan_source' - The source table.
@@ -110,14 +110,25 @@ newGetPlan ::
   GetPlan
 newGetPlan pSource_ =
   GetPlan'
-    { additionalPlanOptionsMap =
-        Prelude.Nothing,
-      sinks = Prelude.Nothing,
+    { sinks = Prelude.Nothing,
       location = Prelude.Nothing,
       language = Prelude.Nothing,
+      additionalPlanOptionsMap = Prelude.Nothing,
       mapping = Prelude.mempty,
       source = pSource_
     }
+
+-- | The target tables.
+getPlan_sinks :: Lens.Lens' GetPlan (Prelude.Maybe [CatalogEntry])
+getPlan_sinks = Lens.lens (\GetPlan' {sinks} -> sinks) (\s@GetPlan' {} a -> s {sinks = a} :: GetPlan) Prelude.. Lens.mapping Lens.coerced
+
+-- | The parameters for the mapping.
+getPlan_location :: Lens.Lens' GetPlan (Prelude.Maybe Location)
+getPlan_location = Lens.lens (\GetPlan' {location} -> location) (\s@GetPlan' {} a -> s {location = a} :: GetPlan)
+
+-- | The programming language of the code to perform the mapping.
+getPlan_language :: Lens.Lens' GetPlan (Prelude.Maybe Language)
+getPlan_language = Lens.lens (\GetPlan' {language} -> language) (\s@GetPlan' {} a -> s {language = a} :: GetPlan)
 
 -- | A map to hold additional optional key-value parameters.
 --
@@ -129,23 +140,11 @@ newGetPlan pSource_ =
 --
 --     @--additional-plan-options-map \'{\"inferSchema\":\"true\"}\'@
 getPlan_additionalPlanOptionsMap :: Lens.Lens' GetPlan (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getPlan_additionalPlanOptionsMap = Lens.lens (\GetPlan' {additionalPlanOptionsMap} -> additionalPlanOptionsMap) (\s@GetPlan' {} a -> s {additionalPlanOptionsMap = a} :: GetPlan) Prelude.. Lens.mapping Lens._Coerce
-
--- | The target tables.
-getPlan_sinks :: Lens.Lens' GetPlan (Prelude.Maybe [CatalogEntry])
-getPlan_sinks = Lens.lens (\GetPlan' {sinks} -> sinks) (\s@GetPlan' {} a -> s {sinks = a} :: GetPlan) Prelude.. Lens.mapping Lens._Coerce
-
--- | The parameters for the mapping.
-getPlan_location :: Lens.Lens' GetPlan (Prelude.Maybe Location)
-getPlan_location = Lens.lens (\GetPlan' {location} -> location) (\s@GetPlan' {} a -> s {location = a} :: GetPlan)
-
--- | The programming language of the code to perform the mapping.
-getPlan_language :: Lens.Lens' GetPlan (Prelude.Maybe Language)
-getPlan_language = Lens.lens (\GetPlan' {language} -> language) (\s@GetPlan' {} a -> s {language = a} :: GetPlan)
+getPlan_additionalPlanOptionsMap = Lens.lens (\GetPlan' {additionalPlanOptionsMap} -> additionalPlanOptionsMap) (\s@GetPlan' {} a -> s {additionalPlanOptionsMap = a} :: GetPlan) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of mappings from a source table to target tables.
 getPlan_mapping :: Lens.Lens' GetPlan [MappingEntry]
-getPlan_mapping = Lens.lens (\GetPlan' {mapping} -> mapping) (\s@GetPlan' {} a -> s {mapping = a} :: GetPlan) Prelude.. Lens._Coerce
+getPlan_mapping = Lens.lens (\GetPlan' {mapping} -> mapping) (\s@GetPlan' {} a -> s {mapping = a} :: GetPlan) Prelude.. Lens.coerced
 
 -- | The source table.
 getPlan_source :: Lens.Lens' GetPlan CatalogEntry
@@ -184,11 +183,11 @@ instance Core.ToJSON GetPlan where
   toJSON GetPlan' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AdditionalPlanOptionsMap" Core..=)
-              Prelude.<$> additionalPlanOptionsMap,
-            ("Sinks" Core..=) Prelude.<$> sinks,
+          [ ("Sinks" Core..=) Prelude.<$> sinks,
             ("Location" Core..=) Prelude.<$> location,
             ("Language" Core..=) Prelude.<$> language,
+            ("AdditionalPlanOptionsMap" Core..=)
+              Prelude.<$> additionalPlanOptionsMap,
             Prelude.Just ("Mapping" Core..= mapping),
             Prelude.Just ("Source" Core..= source)
           ]

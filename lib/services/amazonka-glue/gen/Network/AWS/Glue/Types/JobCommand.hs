@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newJobCommand' smart constructor.
 data JobCommand = JobCommand'
-  { -- | The Python version being used to run a Python shell job. Allowed values
-    -- are 2 or 3.
-    pythonVersion :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the Amazon Simple Storage Service (Amazon S3) path to a script
+  { -- | Specifies the Amazon Simple Storage Service (Amazon S3) path to a script
     -- that runs a job.
     scriptLocation :: Prelude.Maybe Prelude.Text,
+    -- | The Python version being used to run a Python shell job. Allowed values
+    -- are 2 or 3.
+    pythonVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the job command. For an Apache Spark ETL job, this must be
     -- @glueetl@. For a Python shell job, it must be @pythonshell@. For an
     -- Apache Spark streaming ETL job, this must be @gluestreaming@.
@@ -48,11 +48,11 @@ data JobCommand = JobCommand'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pythonVersion', 'jobCommand_pythonVersion' - The Python version being used to run a Python shell job. Allowed values
--- are 2 or 3.
---
 -- 'scriptLocation', 'jobCommand_scriptLocation' - Specifies the Amazon Simple Storage Service (Amazon S3) path to a script
 -- that runs a job.
+--
+-- 'pythonVersion', 'jobCommand_pythonVersion' - The Python version being used to run a Python shell job. Allowed values
+-- are 2 or 3.
 --
 -- 'name', 'jobCommand_name' - The name of the job command. For an Apache Spark ETL job, this must be
 -- @glueetl@. For a Python shell job, it must be @pythonshell@. For an
@@ -61,20 +61,20 @@ newJobCommand ::
   JobCommand
 newJobCommand =
   JobCommand'
-    { pythonVersion = Prelude.Nothing,
-      scriptLocation = Prelude.Nothing,
+    { scriptLocation = Prelude.Nothing,
+      pythonVersion = Prelude.Nothing,
       name = Prelude.Nothing
     }
-
--- | The Python version being used to run a Python shell job. Allowed values
--- are 2 or 3.
-jobCommand_pythonVersion :: Lens.Lens' JobCommand (Prelude.Maybe Prelude.Text)
-jobCommand_pythonVersion = Lens.lens (\JobCommand' {pythonVersion} -> pythonVersion) (\s@JobCommand' {} a -> s {pythonVersion = a} :: JobCommand)
 
 -- | Specifies the Amazon Simple Storage Service (Amazon S3) path to a script
 -- that runs a job.
 jobCommand_scriptLocation :: Lens.Lens' JobCommand (Prelude.Maybe Prelude.Text)
 jobCommand_scriptLocation = Lens.lens (\JobCommand' {scriptLocation} -> scriptLocation) (\s@JobCommand' {} a -> s {scriptLocation = a} :: JobCommand)
+
+-- | The Python version being used to run a Python shell job. Allowed values
+-- are 2 or 3.
+jobCommand_pythonVersion :: Lens.Lens' JobCommand (Prelude.Maybe Prelude.Text)
+jobCommand_pythonVersion = Lens.lens (\JobCommand' {pythonVersion} -> pythonVersion) (\s@JobCommand' {} a -> s {pythonVersion = a} :: JobCommand)
 
 -- | The name of the job command. For an Apache Spark ETL job, this must be
 -- @glueetl@. For a Python shell job, it must be @pythonshell@. For an
@@ -88,8 +88,8 @@ instance Core.FromJSON JobCommand where
       "JobCommand"
       ( \x ->
           JobCommand'
-            Prelude.<$> (x Core..:? "PythonVersion")
-            Prelude.<*> (x Core..:? "ScriptLocation")
+            Prelude.<$> (x Core..:? "ScriptLocation")
+            Prelude.<*> (x Core..:? "PythonVersion")
             Prelude.<*> (x Core..:? "Name")
       )
 
@@ -101,9 +101,9 @@ instance Core.ToJSON JobCommand where
   toJSON JobCommand' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PythonVersion" Core..=) Prelude.<$> pythonVersion,
-            ("ScriptLocation" Core..=)
+          [ ("ScriptLocation" Core..=)
               Prelude.<$> scriptLocation,
+            ("PythonVersion" Core..=) Prelude.<$> pythonVersion,
             ("Name" Core..=) Prelude.<$> name
           ]
       )

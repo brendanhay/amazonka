@@ -49,7 +49,7 @@ newJobNodeDetails =
 
 -- | The information for the job runs represented by the job node.
 jobNodeDetails_jobRuns :: Lens.Lens' JobNodeDetails (Prelude.Maybe [JobRun])
-jobNodeDetails_jobRuns = Lens.lens (\JobNodeDetails' {jobRuns} -> jobRuns) (\s@JobNodeDetails' {} a -> s {jobRuns = a} :: JobNodeDetails) Prelude.. Lens.mapping Lens._Coerce
+jobNodeDetails_jobRuns = Lens.lens (\JobNodeDetails' {jobRuns} -> jobRuns) (\s@JobNodeDetails' {} a -> s {jobRuns = a} :: JobNodeDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON JobNodeDetails where
   parseJSON =

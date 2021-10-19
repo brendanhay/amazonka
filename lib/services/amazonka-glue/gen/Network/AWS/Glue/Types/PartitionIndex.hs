@@ -53,13 +53,13 @@ newPartitionIndex ::
   PartitionIndex
 newPartitionIndex pKeys_ pIndexName_ =
   PartitionIndex'
-    { keys = Lens._Coerce Lens.# pKeys_,
+    { keys = Lens.coerced Lens.# pKeys_,
       indexName = pIndexName_
     }
 
 -- | The keys for the partition index.
 partitionIndex_keys :: Lens.Lens' PartitionIndex (Prelude.NonEmpty Prelude.Text)
-partitionIndex_keys = Lens.lens (\PartitionIndex' {keys} -> keys) (\s@PartitionIndex' {} a -> s {keys = a} :: PartitionIndex) Prelude.. Lens._Coerce
+partitionIndex_keys = Lens.lens (\PartitionIndex' {keys} -> keys) (\s@PartitionIndex' {} a -> s {keys = a} :: PartitionIndex) Prelude.. Lens.coerced
 
 -- | The name of the partition index.
 partitionIndex_indexName :: Lens.Lens' PartitionIndex Prelude.Text

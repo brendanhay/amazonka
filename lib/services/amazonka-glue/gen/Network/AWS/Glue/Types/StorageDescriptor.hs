@@ -32,41 +32,41 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStorageDescriptor' smart constructor.
 data StorageDescriptor = StorageDescriptor'
-  { -- | @True@ if the data in the table is compressed, or @False@ if not.
-    compressed :: Prelude.Maybe Prelude.Bool,
-    -- | Must be specified if the table contains any dimension columns.
-    numberOfBuckets :: Prelude.Maybe Prelude.Int,
-    -- | The information about values that appear frequently in a column (skewed
-    -- values).
-    skewedInfo :: Prelude.Maybe SkewedInfo,
-    -- | An object that references a schema stored in the Glue Schema Registry.
-    --
-    -- When creating a table, you can pass an empty list of columns for the
-    -- schema, and instead use a schema reference.
-    schemaReference :: Prelude.Maybe SchemaReference,
-    -- | A list specifying the sort order of each bucket in the table.
+  { -- | A list specifying the sort order of each bucket in the table.
     sortColumns :: Prelude.Maybe [Order],
-    -- | The output format: @SequenceFileOutputFormat@ (binary), or
-    -- @IgnoreKeyTextOutputFormat@, or a custom format.
-    outputFormat :: Prelude.Maybe Prelude.Text,
+    -- | @True@ if the data in the table is compressed, or @False@ if not.
+    compressed :: Prelude.Maybe Prelude.Bool,
+    -- | The physical location of the table. By default, this takes the form of
+    -- the warehouse location, followed by the database location in the
+    -- warehouse, followed by the table name.
+    location :: Prelude.Maybe Prelude.Text,
     -- | A list of reducer grouping columns, clustering columns, and bucketing
     -- columns in the table.
     bucketColumns :: Prelude.Maybe [Prelude.Text],
     -- | The serialization\/deserialization (SerDe) information.
     serdeInfo :: Prelude.Maybe SerDeInfo,
-    -- | The physical location of the table. By default, this takes the form of
-    -- the warehouse location, followed by the database location in the
-    -- warehouse, followed by the table name.
-    location :: Prelude.Maybe Prelude.Text,
-    -- | The input format: @SequenceFileInputFormat@ (binary), or
-    -- @TextInputFormat@, or a custom format.
-    inputFormat :: Prelude.Maybe Prelude.Text,
-    -- | A list of the @Columns@ in the table.
-    columns :: Prelude.Maybe [Column],
+    -- | The output format: @SequenceFileOutputFormat@ (binary), or
+    -- @IgnoreKeyTextOutputFormat@, or a custom format.
+    outputFormat :: Prelude.Maybe Prelude.Text,
+    -- | Must be specified if the table contains any dimension columns.
+    numberOfBuckets :: Prelude.Maybe Prelude.Int,
+    -- | An object that references a schema stored in the Glue Schema Registry.
+    --
+    -- When creating a table, you can pass an empty list of columns for the
+    -- schema, and instead use a schema reference.
+    schemaReference :: Prelude.Maybe SchemaReference,
     -- | @True@ if the table data is stored in subdirectories, or @False@ if not.
     storedAsSubDirectories :: Prelude.Maybe Prelude.Bool,
     -- | The user-supplied properties in key-value form.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The input format: @SequenceFileInputFormat@ (binary), or
+    -- @TextInputFormat@, or a custom format.
+    inputFormat :: Prelude.Maybe Prelude.Text,
+    -- | The information about values that appear frequently in a column (skewed
+    -- values).
+    skewedInfo :: Prelude.Maybe SkewedInfo,
+    -- | A list of the @Columns@ in the table.
+    columns :: Prelude.Maybe [Column]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,71 +78,90 @@ data StorageDescriptor = StorageDescriptor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'compressed', 'storageDescriptor_compressed' - @True@ if the data in the table is compressed, or @False@ if not.
---
--- 'numberOfBuckets', 'storageDescriptor_numberOfBuckets' - Must be specified if the table contains any dimension columns.
---
--- 'skewedInfo', 'storageDescriptor_skewedInfo' - The information about values that appear frequently in a column (skewed
--- values).
---
--- 'schemaReference', 'storageDescriptor_schemaReference' - An object that references a schema stored in the Glue Schema Registry.
---
--- When creating a table, you can pass an empty list of columns for the
--- schema, and instead use a schema reference.
---
 -- 'sortColumns', 'storageDescriptor_sortColumns' - A list specifying the sort order of each bucket in the table.
 --
--- 'outputFormat', 'storageDescriptor_outputFormat' - The output format: @SequenceFileOutputFormat@ (binary), or
--- @IgnoreKeyTextOutputFormat@, or a custom format.
+-- 'compressed', 'storageDescriptor_compressed' - @True@ if the data in the table is compressed, or @False@ if not.
+--
+-- 'location', 'storageDescriptor_location' - The physical location of the table. By default, this takes the form of
+-- the warehouse location, followed by the database location in the
+-- warehouse, followed by the table name.
 --
 -- 'bucketColumns', 'storageDescriptor_bucketColumns' - A list of reducer grouping columns, clustering columns, and bucketing
 -- columns in the table.
 --
 -- 'serdeInfo', 'storageDescriptor_serdeInfo' - The serialization\/deserialization (SerDe) information.
 --
--- 'location', 'storageDescriptor_location' - The physical location of the table. By default, this takes the form of
--- the warehouse location, followed by the database location in the
--- warehouse, followed by the table name.
+-- 'outputFormat', 'storageDescriptor_outputFormat' - The output format: @SequenceFileOutputFormat@ (binary), or
+-- @IgnoreKeyTextOutputFormat@, or a custom format.
 --
--- 'inputFormat', 'storageDescriptor_inputFormat' - The input format: @SequenceFileInputFormat@ (binary), or
--- @TextInputFormat@, or a custom format.
+-- 'numberOfBuckets', 'storageDescriptor_numberOfBuckets' - Must be specified if the table contains any dimension columns.
 --
--- 'columns', 'storageDescriptor_columns' - A list of the @Columns@ in the table.
+-- 'schemaReference', 'storageDescriptor_schemaReference' - An object that references a schema stored in the Glue Schema Registry.
+--
+-- When creating a table, you can pass an empty list of columns for the
+-- schema, and instead use a schema reference.
 --
 -- 'storedAsSubDirectories', 'storageDescriptor_storedAsSubDirectories' - @True@ if the table data is stored in subdirectories, or @False@ if not.
 --
 -- 'parameters', 'storageDescriptor_parameters' - The user-supplied properties in key-value form.
+--
+-- 'inputFormat', 'storageDescriptor_inputFormat' - The input format: @SequenceFileInputFormat@ (binary), or
+-- @TextInputFormat@, or a custom format.
+--
+-- 'skewedInfo', 'storageDescriptor_skewedInfo' - The information about values that appear frequently in a column (skewed
+-- values).
+--
+-- 'columns', 'storageDescriptor_columns' - A list of the @Columns@ in the table.
 newStorageDescriptor ::
   StorageDescriptor
 newStorageDescriptor =
   StorageDescriptor'
-    { compressed = Prelude.Nothing,
-      numberOfBuckets = Prelude.Nothing,
-      skewedInfo = Prelude.Nothing,
-      schemaReference = Prelude.Nothing,
-      sortColumns = Prelude.Nothing,
-      outputFormat = Prelude.Nothing,
+    { sortColumns = Prelude.Nothing,
+      compressed = Prelude.Nothing,
+      location = Prelude.Nothing,
       bucketColumns = Prelude.Nothing,
       serdeInfo = Prelude.Nothing,
-      location = Prelude.Nothing,
-      inputFormat = Prelude.Nothing,
-      columns = Prelude.Nothing,
+      outputFormat = Prelude.Nothing,
+      numberOfBuckets = Prelude.Nothing,
+      schemaReference = Prelude.Nothing,
       storedAsSubDirectories = Prelude.Nothing,
-      parameters = Prelude.Nothing
+      parameters = Prelude.Nothing,
+      inputFormat = Prelude.Nothing,
+      skewedInfo = Prelude.Nothing,
+      columns = Prelude.Nothing
     }
+
+-- | A list specifying the sort order of each bucket in the table.
+storageDescriptor_sortColumns :: Lens.Lens' StorageDescriptor (Prelude.Maybe [Order])
+storageDescriptor_sortColumns = Lens.lens (\StorageDescriptor' {sortColumns} -> sortColumns) (\s@StorageDescriptor' {} a -> s {sortColumns = a} :: StorageDescriptor) Prelude.. Lens.mapping Lens.coerced
 
 -- | @True@ if the data in the table is compressed, or @False@ if not.
 storageDescriptor_compressed :: Lens.Lens' StorageDescriptor (Prelude.Maybe Prelude.Bool)
 storageDescriptor_compressed = Lens.lens (\StorageDescriptor' {compressed} -> compressed) (\s@StorageDescriptor' {} a -> s {compressed = a} :: StorageDescriptor)
 
+-- | The physical location of the table. By default, this takes the form of
+-- the warehouse location, followed by the database location in the
+-- warehouse, followed by the table name.
+storageDescriptor_location :: Lens.Lens' StorageDescriptor (Prelude.Maybe Prelude.Text)
+storageDescriptor_location = Lens.lens (\StorageDescriptor' {location} -> location) (\s@StorageDescriptor' {} a -> s {location = a} :: StorageDescriptor)
+
+-- | A list of reducer grouping columns, clustering columns, and bucketing
+-- columns in the table.
+storageDescriptor_bucketColumns :: Lens.Lens' StorageDescriptor (Prelude.Maybe [Prelude.Text])
+storageDescriptor_bucketColumns = Lens.lens (\StorageDescriptor' {bucketColumns} -> bucketColumns) (\s@StorageDescriptor' {} a -> s {bucketColumns = a} :: StorageDescriptor) Prelude.. Lens.mapping Lens.coerced
+
+-- | The serialization\/deserialization (SerDe) information.
+storageDescriptor_serdeInfo :: Lens.Lens' StorageDescriptor (Prelude.Maybe SerDeInfo)
+storageDescriptor_serdeInfo = Lens.lens (\StorageDescriptor' {serdeInfo} -> serdeInfo) (\s@StorageDescriptor' {} a -> s {serdeInfo = a} :: StorageDescriptor)
+
+-- | The output format: @SequenceFileOutputFormat@ (binary), or
+-- @IgnoreKeyTextOutputFormat@, or a custom format.
+storageDescriptor_outputFormat :: Lens.Lens' StorageDescriptor (Prelude.Maybe Prelude.Text)
+storageDescriptor_outputFormat = Lens.lens (\StorageDescriptor' {outputFormat} -> outputFormat) (\s@StorageDescriptor' {} a -> s {outputFormat = a} :: StorageDescriptor)
+
 -- | Must be specified if the table contains any dimension columns.
 storageDescriptor_numberOfBuckets :: Lens.Lens' StorageDescriptor (Prelude.Maybe Prelude.Int)
 storageDescriptor_numberOfBuckets = Lens.lens (\StorageDescriptor' {numberOfBuckets} -> numberOfBuckets) (\s@StorageDescriptor' {} a -> s {numberOfBuckets = a} :: StorageDescriptor)
-
--- | The information about values that appear frequently in a column (skewed
--- values).
-storageDescriptor_skewedInfo :: Lens.Lens' StorageDescriptor (Prelude.Maybe SkewedInfo)
-storageDescriptor_skewedInfo = Lens.lens (\StorageDescriptor' {skewedInfo} -> skewedInfo) (\s@StorageDescriptor' {} a -> s {skewedInfo = a} :: StorageDescriptor)
 
 -- | An object that references a schema stored in the Glue Schema Registry.
 --
@@ -151,46 +170,27 @@ storageDescriptor_skewedInfo = Lens.lens (\StorageDescriptor' {skewedInfo} -> sk
 storageDescriptor_schemaReference :: Lens.Lens' StorageDescriptor (Prelude.Maybe SchemaReference)
 storageDescriptor_schemaReference = Lens.lens (\StorageDescriptor' {schemaReference} -> schemaReference) (\s@StorageDescriptor' {} a -> s {schemaReference = a} :: StorageDescriptor)
 
--- | A list specifying the sort order of each bucket in the table.
-storageDescriptor_sortColumns :: Lens.Lens' StorageDescriptor (Prelude.Maybe [Order])
-storageDescriptor_sortColumns = Lens.lens (\StorageDescriptor' {sortColumns} -> sortColumns) (\s@StorageDescriptor' {} a -> s {sortColumns = a} :: StorageDescriptor) Prelude.. Lens.mapping Lens._Coerce
-
--- | The output format: @SequenceFileOutputFormat@ (binary), or
--- @IgnoreKeyTextOutputFormat@, or a custom format.
-storageDescriptor_outputFormat :: Lens.Lens' StorageDescriptor (Prelude.Maybe Prelude.Text)
-storageDescriptor_outputFormat = Lens.lens (\StorageDescriptor' {outputFormat} -> outputFormat) (\s@StorageDescriptor' {} a -> s {outputFormat = a} :: StorageDescriptor)
-
--- | A list of reducer grouping columns, clustering columns, and bucketing
--- columns in the table.
-storageDescriptor_bucketColumns :: Lens.Lens' StorageDescriptor (Prelude.Maybe [Prelude.Text])
-storageDescriptor_bucketColumns = Lens.lens (\StorageDescriptor' {bucketColumns} -> bucketColumns) (\s@StorageDescriptor' {} a -> s {bucketColumns = a} :: StorageDescriptor) Prelude.. Lens.mapping Lens._Coerce
-
--- | The serialization\/deserialization (SerDe) information.
-storageDescriptor_serdeInfo :: Lens.Lens' StorageDescriptor (Prelude.Maybe SerDeInfo)
-storageDescriptor_serdeInfo = Lens.lens (\StorageDescriptor' {serdeInfo} -> serdeInfo) (\s@StorageDescriptor' {} a -> s {serdeInfo = a} :: StorageDescriptor)
-
--- | The physical location of the table. By default, this takes the form of
--- the warehouse location, followed by the database location in the
--- warehouse, followed by the table name.
-storageDescriptor_location :: Lens.Lens' StorageDescriptor (Prelude.Maybe Prelude.Text)
-storageDescriptor_location = Lens.lens (\StorageDescriptor' {location} -> location) (\s@StorageDescriptor' {} a -> s {location = a} :: StorageDescriptor)
-
--- | The input format: @SequenceFileInputFormat@ (binary), or
--- @TextInputFormat@, or a custom format.
-storageDescriptor_inputFormat :: Lens.Lens' StorageDescriptor (Prelude.Maybe Prelude.Text)
-storageDescriptor_inputFormat = Lens.lens (\StorageDescriptor' {inputFormat} -> inputFormat) (\s@StorageDescriptor' {} a -> s {inputFormat = a} :: StorageDescriptor)
-
--- | A list of the @Columns@ in the table.
-storageDescriptor_columns :: Lens.Lens' StorageDescriptor (Prelude.Maybe [Column])
-storageDescriptor_columns = Lens.lens (\StorageDescriptor' {columns} -> columns) (\s@StorageDescriptor' {} a -> s {columns = a} :: StorageDescriptor) Prelude.. Lens.mapping Lens._Coerce
-
 -- | @True@ if the table data is stored in subdirectories, or @False@ if not.
 storageDescriptor_storedAsSubDirectories :: Lens.Lens' StorageDescriptor (Prelude.Maybe Prelude.Bool)
 storageDescriptor_storedAsSubDirectories = Lens.lens (\StorageDescriptor' {storedAsSubDirectories} -> storedAsSubDirectories) (\s@StorageDescriptor' {} a -> s {storedAsSubDirectories = a} :: StorageDescriptor)
 
 -- | The user-supplied properties in key-value form.
 storageDescriptor_parameters :: Lens.Lens' StorageDescriptor (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-storageDescriptor_parameters = Lens.lens (\StorageDescriptor' {parameters} -> parameters) (\s@StorageDescriptor' {} a -> s {parameters = a} :: StorageDescriptor) Prelude.. Lens.mapping Lens._Coerce
+storageDescriptor_parameters = Lens.lens (\StorageDescriptor' {parameters} -> parameters) (\s@StorageDescriptor' {} a -> s {parameters = a} :: StorageDescriptor) Prelude.. Lens.mapping Lens.coerced
+
+-- | The input format: @SequenceFileInputFormat@ (binary), or
+-- @TextInputFormat@, or a custom format.
+storageDescriptor_inputFormat :: Lens.Lens' StorageDescriptor (Prelude.Maybe Prelude.Text)
+storageDescriptor_inputFormat = Lens.lens (\StorageDescriptor' {inputFormat} -> inputFormat) (\s@StorageDescriptor' {} a -> s {inputFormat = a} :: StorageDescriptor)
+
+-- | The information about values that appear frequently in a column (skewed
+-- values).
+storageDescriptor_skewedInfo :: Lens.Lens' StorageDescriptor (Prelude.Maybe SkewedInfo)
+storageDescriptor_skewedInfo = Lens.lens (\StorageDescriptor' {skewedInfo} -> skewedInfo) (\s@StorageDescriptor' {} a -> s {skewedInfo = a} :: StorageDescriptor)
+
+-- | A list of the @Columns@ in the table.
+storageDescriptor_columns :: Lens.Lens' StorageDescriptor (Prelude.Maybe [Column])
+storageDescriptor_columns = Lens.lens (\StorageDescriptor' {columns} -> columns) (\s@StorageDescriptor' {} a -> s {columns = a} :: StorageDescriptor) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON StorageDescriptor where
   parseJSON =
@@ -198,19 +198,19 @@ instance Core.FromJSON StorageDescriptor where
       "StorageDescriptor"
       ( \x ->
           StorageDescriptor'
-            Prelude.<$> (x Core..:? "Compressed")
-            Prelude.<*> (x Core..:? "NumberOfBuckets")
-            Prelude.<*> (x Core..:? "SkewedInfo")
-            Prelude.<*> (x Core..:? "SchemaReference")
-            Prelude.<*> (x Core..:? "SortColumns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OutputFormat")
+            Prelude.<$> (x Core..:? "SortColumns" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Compressed")
+            Prelude.<*> (x Core..:? "Location")
             Prelude.<*> (x Core..:? "BucketColumns" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "SerdeInfo")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "InputFormat")
-            Prelude.<*> (x Core..:? "Columns" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "OutputFormat")
+            Prelude.<*> (x Core..:? "NumberOfBuckets")
+            Prelude.<*> (x Core..:? "SchemaReference")
             Prelude.<*> (x Core..:? "StoredAsSubDirectories")
             Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "InputFormat")
+            Prelude.<*> (x Core..:? "SkewedInfo")
+            Prelude.<*> (x Core..:? "Columns" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable StorageDescriptor
@@ -221,21 +221,21 @@ instance Core.ToJSON StorageDescriptor where
   toJSON StorageDescriptor' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Compressed" Core..=) Prelude.<$> compressed,
-            ("NumberOfBuckets" Core..=)
-              Prelude.<$> numberOfBuckets,
-            ("SkewedInfo" Core..=) Prelude.<$> skewedInfo,
-            ("SchemaReference" Core..=)
-              Prelude.<$> schemaReference,
-            ("SortColumns" Core..=) Prelude.<$> sortColumns,
-            ("OutputFormat" Core..=) Prelude.<$> outputFormat,
+          [ ("SortColumns" Core..=) Prelude.<$> sortColumns,
+            ("Compressed" Core..=) Prelude.<$> compressed,
+            ("Location" Core..=) Prelude.<$> location,
             ("BucketColumns" Core..=) Prelude.<$> bucketColumns,
             ("SerdeInfo" Core..=) Prelude.<$> serdeInfo,
-            ("Location" Core..=) Prelude.<$> location,
-            ("InputFormat" Core..=) Prelude.<$> inputFormat,
-            ("Columns" Core..=) Prelude.<$> columns,
+            ("OutputFormat" Core..=) Prelude.<$> outputFormat,
+            ("NumberOfBuckets" Core..=)
+              Prelude.<$> numberOfBuckets,
+            ("SchemaReference" Core..=)
+              Prelude.<$> schemaReference,
             ("StoredAsSubDirectories" Core..=)
               Prelude.<$> storedAsSubDirectories,
-            ("Parameters" Core..=) Prelude.<$> parameters
+            ("Parameters" Core..=) Prelude.<$> parameters,
+            ("InputFormat" Core..=) Prelude.<$> inputFormat,
+            ("SkewedInfo" Core..=) Prelude.<$> skewedInfo,
+            ("Columns" Core..=) Prelude.<$> columns
           ]
       )

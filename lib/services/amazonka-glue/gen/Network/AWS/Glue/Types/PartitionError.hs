@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPartitionError' smart constructor.
 data PartitionError = PartitionError'
-  { -- | The details about the partition error.
-    errorDetail :: Prelude.Maybe ErrorDetail,
-    -- | The values that define the partition.
-    partitionValues :: Prelude.Maybe [Prelude.Text]
+  { -- | The values that define the partition.
+    partitionValues :: Prelude.Maybe [Prelude.Text],
+    -- | The details about the partition error.
+    errorDetail :: Prelude.Maybe ErrorDetail
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data PartitionError = PartitionError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorDetail', 'partitionError_errorDetail' - The details about the partition error.
---
 -- 'partitionValues', 'partitionError_partitionValues' - The values that define the partition.
+--
+-- 'errorDetail', 'partitionError_errorDetail' - The details about the partition error.
 newPartitionError ::
   PartitionError
 newPartitionError =
   PartitionError'
-    { errorDetail = Prelude.Nothing,
-      partitionValues = Prelude.Nothing
+    { partitionValues = Prelude.Nothing,
+      errorDetail = Prelude.Nothing
     }
+
+-- | The values that define the partition.
+partitionError_partitionValues :: Lens.Lens' PartitionError (Prelude.Maybe [Prelude.Text])
+partitionError_partitionValues = Lens.lens (\PartitionError' {partitionValues} -> partitionValues) (\s@PartitionError' {} a -> s {partitionValues = a} :: PartitionError) Prelude.. Lens.mapping Lens.coerced
 
 -- | The details about the partition error.
 partitionError_errorDetail :: Lens.Lens' PartitionError (Prelude.Maybe ErrorDetail)
 partitionError_errorDetail = Lens.lens (\PartitionError' {errorDetail} -> errorDetail) (\s@PartitionError' {} a -> s {errorDetail = a} :: PartitionError)
-
--- | The values that define the partition.
-partitionError_partitionValues :: Lens.Lens' PartitionError (Prelude.Maybe [Prelude.Text])
-partitionError_partitionValues = Lens.lens (\PartitionError' {partitionValues} -> partitionValues) (\s@PartitionError' {} a -> s {partitionValues = a} :: PartitionError) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON PartitionError where
   parseJSON =
@@ -68,10 +68,10 @@ instance Core.FromJSON PartitionError where
       "PartitionError"
       ( \x ->
           PartitionError'
-            Prelude.<$> (x Core..:? "ErrorDetail")
-            Prelude.<*> ( x Core..:? "PartitionValues"
+            Prelude.<$> ( x Core..:? "PartitionValues"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "ErrorDetail")
       )
 
 instance Prelude.Hashable PartitionError

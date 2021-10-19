@@ -28,20 +28,20 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCreateCsvClassifierRequest' smart constructor.
 data CreateCsvClassifierRequest = CreateCsvClassifierRequest'
-  { -- | Indicates whether the CSV file contains a header.
+  { -- | A custom symbol to denote what combines content into a single column
+    -- value. Must be different from the column delimiter.
+    quoteSymbol :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the CSV file contains a header.
     containsHeader :: Prelude.Maybe CsvHeaderOption,
-    -- | A custom symbol to denote what separates each column entry in the row.
-    delimiter :: Prelude.Maybe Prelude.Text,
     -- | Specifies not to trim values before identifying the type of column
     -- values. The default value is true.
     disableValueTrimming :: Prelude.Maybe Prelude.Bool,
     -- | A list of strings representing column names.
     header :: Prelude.Maybe [Prelude.Text],
-    -- | A custom symbol to denote what combines content into a single column
-    -- value. Must be different from the column delimiter.
-    quoteSymbol :: Prelude.Maybe Prelude.Text,
     -- | Enables the processing of files that contain only one column.
     allowSingleColumn :: Prelude.Maybe Prelude.Bool,
+    -- | A custom symbol to denote what separates each column entry in the row.
+    delimiter :: Prelude.Maybe Prelude.Text,
     -- | The name of the classifier.
     name :: Prelude.Text
   }
@@ -55,19 +55,19 @@ data CreateCsvClassifierRequest = CreateCsvClassifierRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'containsHeader', 'createCsvClassifierRequest_containsHeader' - Indicates whether the CSV file contains a header.
+-- 'quoteSymbol', 'createCsvClassifierRequest_quoteSymbol' - A custom symbol to denote what combines content into a single column
+-- value. Must be different from the column delimiter.
 --
--- 'delimiter', 'createCsvClassifierRequest_delimiter' - A custom symbol to denote what separates each column entry in the row.
+-- 'containsHeader', 'createCsvClassifierRequest_containsHeader' - Indicates whether the CSV file contains a header.
 --
 -- 'disableValueTrimming', 'createCsvClassifierRequest_disableValueTrimming' - Specifies not to trim values before identifying the type of column
 -- values. The default value is true.
 --
 -- 'header', 'createCsvClassifierRequest_header' - A list of strings representing column names.
 --
--- 'quoteSymbol', 'createCsvClassifierRequest_quoteSymbol' - A custom symbol to denote what combines content into a single column
--- value. Must be different from the column delimiter.
---
 -- 'allowSingleColumn', 'createCsvClassifierRequest_allowSingleColumn' - Enables the processing of files that contain only one column.
+--
+-- 'delimiter', 'createCsvClassifierRequest_delimiter' - A custom symbol to denote what separates each column entry in the row.
 --
 -- 'name', 'createCsvClassifierRequest_name' - The name of the classifier.
 newCreateCsvClassifierRequest ::
@@ -76,23 +76,24 @@ newCreateCsvClassifierRequest ::
   CreateCsvClassifierRequest
 newCreateCsvClassifierRequest pName_ =
   CreateCsvClassifierRequest'
-    { containsHeader =
+    { quoteSymbol =
         Prelude.Nothing,
-      delimiter = Prelude.Nothing,
+      containsHeader = Prelude.Nothing,
       disableValueTrimming = Prelude.Nothing,
       header = Prelude.Nothing,
-      quoteSymbol = Prelude.Nothing,
       allowSingleColumn = Prelude.Nothing,
+      delimiter = Prelude.Nothing,
       name = pName_
     }
+
+-- | A custom symbol to denote what combines content into a single column
+-- value. Must be different from the column delimiter.
+createCsvClassifierRequest_quoteSymbol :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe Prelude.Text)
+createCsvClassifierRequest_quoteSymbol = Lens.lens (\CreateCsvClassifierRequest' {quoteSymbol} -> quoteSymbol) (\s@CreateCsvClassifierRequest' {} a -> s {quoteSymbol = a} :: CreateCsvClassifierRequest)
 
 -- | Indicates whether the CSV file contains a header.
 createCsvClassifierRequest_containsHeader :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe CsvHeaderOption)
 createCsvClassifierRequest_containsHeader = Lens.lens (\CreateCsvClassifierRequest' {containsHeader} -> containsHeader) (\s@CreateCsvClassifierRequest' {} a -> s {containsHeader = a} :: CreateCsvClassifierRequest)
-
--- | A custom symbol to denote what separates each column entry in the row.
-createCsvClassifierRequest_delimiter :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe Prelude.Text)
-createCsvClassifierRequest_delimiter = Lens.lens (\CreateCsvClassifierRequest' {delimiter} -> delimiter) (\s@CreateCsvClassifierRequest' {} a -> s {delimiter = a} :: CreateCsvClassifierRequest)
 
 -- | Specifies not to trim values before identifying the type of column
 -- values. The default value is true.
@@ -101,16 +102,15 @@ createCsvClassifierRequest_disableValueTrimming = Lens.lens (\CreateCsvClassifie
 
 -- | A list of strings representing column names.
 createCsvClassifierRequest_header :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe [Prelude.Text])
-createCsvClassifierRequest_header = Lens.lens (\CreateCsvClassifierRequest' {header} -> header) (\s@CreateCsvClassifierRequest' {} a -> s {header = a} :: CreateCsvClassifierRequest) Prelude.. Lens.mapping Lens._Coerce
-
--- | A custom symbol to denote what combines content into a single column
--- value. Must be different from the column delimiter.
-createCsvClassifierRequest_quoteSymbol :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe Prelude.Text)
-createCsvClassifierRequest_quoteSymbol = Lens.lens (\CreateCsvClassifierRequest' {quoteSymbol} -> quoteSymbol) (\s@CreateCsvClassifierRequest' {} a -> s {quoteSymbol = a} :: CreateCsvClassifierRequest)
+createCsvClassifierRequest_header = Lens.lens (\CreateCsvClassifierRequest' {header} -> header) (\s@CreateCsvClassifierRequest' {} a -> s {header = a} :: CreateCsvClassifierRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | Enables the processing of files that contain only one column.
 createCsvClassifierRequest_allowSingleColumn :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe Prelude.Bool)
 createCsvClassifierRequest_allowSingleColumn = Lens.lens (\CreateCsvClassifierRequest' {allowSingleColumn} -> allowSingleColumn) (\s@CreateCsvClassifierRequest' {} a -> s {allowSingleColumn = a} :: CreateCsvClassifierRequest)
+
+-- | A custom symbol to denote what separates each column entry in the row.
+createCsvClassifierRequest_delimiter :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe Prelude.Text)
+createCsvClassifierRequest_delimiter = Lens.lens (\CreateCsvClassifierRequest' {delimiter} -> delimiter) (\s@CreateCsvClassifierRequest' {} a -> s {delimiter = a} :: CreateCsvClassifierRequest)
 
 -- | The name of the classifier.
 createCsvClassifierRequest_name :: Lens.Lens' CreateCsvClassifierRequest Prelude.Text
@@ -124,15 +124,15 @@ instance Core.ToJSON CreateCsvClassifierRequest where
   toJSON CreateCsvClassifierRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ContainsHeader" Core..=)
+          [ ("QuoteSymbol" Core..=) Prelude.<$> quoteSymbol,
+            ("ContainsHeader" Core..=)
               Prelude.<$> containsHeader,
-            ("Delimiter" Core..=) Prelude.<$> delimiter,
             ("DisableValueTrimming" Core..=)
               Prelude.<$> disableValueTrimming,
             ("Header" Core..=) Prelude.<$> header,
-            ("QuoteSymbol" Core..=) Prelude.<$> quoteSymbol,
             ("AllowSingleColumn" Core..=)
               Prelude.<$> allowSingleColumn,
+            ("Delimiter" Core..=) Prelude.<$> delimiter,
             Prelude.Just ("Name" Core..= name)
           ]
       )

@@ -41,8 +41,8 @@ module Network.AWS.Glue.UpdateSchema
 
     -- * Request Lenses
     updateSchema_schemaVersionNumber,
-    updateSchema_compatibility,
     updateSchema_description,
+    updateSchema_compatibility,
     updateSchema_schemaId,
 
     -- * Destructuring the Response
@@ -50,9 +50,9 @@ module Network.AWS.Glue.UpdateSchema
     newUpdateSchemaResponse,
 
     -- * Response Lenses
-    updateSchemaResponse_schemaArn,
     updateSchemaResponse_registryName,
     updateSchemaResponse_schemaName,
+    updateSchemaResponse_schemaArn,
     updateSchemaResponse_httpStatus,
   )
 where
@@ -69,10 +69,10 @@ data UpdateSchema = UpdateSchema'
   { -- | Version number required for check pointing. One of @VersionNumber@ or
     -- @Compatibility@ has to be provided.
     schemaVersionNumber :: Prelude.Maybe SchemaVersionNumber,
-    -- | The new compatibility setting for the schema.
-    compatibility :: Prelude.Maybe Compatibility,
     -- | The new description for the schema.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The new compatibility setting for the schema.
+    compatibility :: Prelude.Maybe Compatibility,
     -- | This is a wrapper structure to contain schema identity fields. The
     -- structure contains:
     --
@@ -96,9 +96,9 @@ data UpdateSchema = UpdateSchema'
 -- 'schemaVersionNumber', 'updateSchema_schemaVersionNumber' - Version number required for check pointing. One of @VersionNumber@ or
 -- @Compatibility@ has to be provided.
 --
--- 'compatibility', 'updateSchema_compatibility' - The new compatibility setting for the schema.
---
 -- 'description', 'updateSchema_description' - The new description for the schema.
+--
+-- 'compatibility', 'updateSchema_compatibility' - The new compatibility setting for the schema.
 --
 -- 'schemaId', 'updateSchema_schemaId' - This is a wrapper structure to contain schema identity fields. The
 -- structure contains:
@@ -116,8 +116,8 @@ newUpdateSchema pSchemaId_ =
   UpdateSchema'
     { schemaVersionNumber =
         Prelude.Nothing,
-      compatibility = Prelude.Nothing,
       description = Prelude.Nothing,
+      compatibility = Prelude.Nothing,
       schemaId = pSchemaId_
     }
 
@@ -126,13 +126,13 @@ newUpdateSchema pSchemaId_ =
 updateSchema_schemaVersionNumber :: Lens.Lens' UpdateSchema (Prelude.Maybe SchemaVersionNumber)
 updateSchema_schemaVersionNumber = Lens.lens (\UpdateSchema' {schemaVersionNumber} -> schemaVersionNumber) (\s@UpdateSchema' {} a -> s {schemaVersionNumber = a} :: UpdateSchema)
 
--- | The new compatibility setting for the schema.
-updateSchema_compatibility :: Lens.Lens' UpdateSchema (Prelude.Maybe Compatibility)
-updateSchema_compatibility = Lens.lens (\UpdateSchema' {compatibility} -> compatibility) (\s@UpdateSchema' {} a -> s {compatibility = a} :: UpdateSchema)
-
 -- | The new description for the schema.
 updateSchema_description :: Lens.Lens' UpdateSchema (Prelude.Maybe Prelude.Text)
 updateSchema_description = Lens.lens (\UpdateSchema' {description} -> description) (\s@UpdateSchema' {} a -> s {description = a} :: UpdateSchema)
+
+-- | The new compatibility setting for the schema.
+updateSchema_compatibility :: Lens.Lens' UpdateSchema (Prelude.Maybe Compatibility)
+updateSchema_compatibility = Lens.lens (\UpdateSchema' {compatibility} -> compatibility) (\s@UpdateSchema' {} a -> s {compatibility = a} :: UpdateSchema)
 
 -- | This is a wrapper structure to contain schema identity fields. The
 -- structure contains:
@@ -152,9 +152,9 @@ instance Core.AWSRequest UpdateSchema where
     Response.receiveJSON
       ( \s h x ->
           UpdateSchemaResponse'
-            Prelude.<$> (x Core..?> "SchemaArn")
-            Prelude.<*> (x Core..?> "RegistryName")
+            Prelude.<$> (x Core..?> "RegistryName")
             Prelude.<*> (x Core..?> "SchemaName")
+            Prelude.<*> (x Core..?> "SchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,8 +181,8 @@ instance Core.ToJSON UpdateSchema where
       ( Prelude.catMaybes
           [ ("SchemaVersionNumber" Core..=)
               Prelude.<$> schemaVersionNumber,
-            ("Compatibility" Core..=) Prelude.<$> compatibility,
             ("Description" Core..=) Prelude.<$> description,
+            ("Compatibility" Core..=) Prelude.<$> compatibility,
             Prelude.Just ("SchemaId" Core..= schemaId)
           ]
       )
@@ -195,12 +195,12 @@ instance Core.ToQuery UpdateSchema where
 
 -- | /See:/ 'newUpdateSchemaResponse' smart constructor.
 data UpdateSchemaResponse = UpdateSchemaResponse'
-  { -- | The Amazon Resource Name (ARN) of the schema.
-    schemaArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the registry that contains the schema.
+  { -- | The name of the registry that contains the schema.
     registryName :: Prelude.Maybe Prelude.Text,
     -- | The name of the schema.
     schemaName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the schema.
+    schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,11 +214,11 @@ data UpdateSchemaResponse = UpdateSchemaResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaArn', 'updateSchemaResponse_schemaArn' - The Amazon Resource Name (ARN) of the schema.
---
 -- 'registryName', 'updateSchemaResponse_registryName' - The name of the registry that contains the schema.
 --
 -- 'schemaName', 'updateSchemaResponse_schemaName' - The name of the schema.
+--
+-- 'schemaArn', 'updateSchemaResponse_schemaArn' - The Amazon Resource Name (ARN) of the schema.
 --
 -- 'httpStatus', 'updateSchemaResponse_httpStatus' - The response's http status code.
 newUpdateSchemaResponse ::
@@ -227,15 +227,12 @@ newUpdateSchemaResponse ::
   UpdateSchemaResponse
 newUpdateSchemaResponse pHttpStatus_ =
   UpdateSchemaResponse'
-    { schemaArn = Prelude.Nothing,
-      registryName = Prelude.Nothing,
+    { registryName =
+        Prelude.Nothing,
       schemaName = Prelude.Nothing,
+      schemaArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the schema.
-updateSchemaResponse_schemaArn :: Lens.Lens' UpdateSchemaResponse (Prelude.Maybe Prelude.Text)
-updateSchemaResponse_schemaArn = Lens.lens (\UpdateSchemaResponse' {schemaArn} -> schemaArn) (\s@UpdateSchemaResponse' {} a -> s {schemaArn = a} :: UpdateSchemaResponse)
 
 -- | The name of the registry that contains the schema.
 updateSchemaResponse_registryName :: Lens.Lens' UpdateSchemaResponse (Prelude.Maybe Prelude.Text)
@@ -244,6 +241,10 @@ updateSchemaResponse_registryName = Lens.lens (\UpdateSchemaResponse' {registryN
 -- | The name of the schema.
 updateSchemaResponse_schemaName :: Lens.Lens' UpdateSchemaResponse (Prelude.Maybe Prelude.Text)
 updateSchemaResponse_schemaName = Lens.lens (\UpdateSchemaResponse' {schemaName} -> schemaName) (\s@UpdateSchemaResponse' {} a -> s {schemaName = a} :: UpdateSchemaResponse)
+
+-- | The Amazon Resource Name (ARN) of the schema.
+updateSchemaResponse_schemaArn :: Lens.Lens' UpdateSchemaResponse (Prelude.Maybe Prelude.Text)
+updateSchemaResponse_schemaArn = Lens.lens (\UpdateSchemaResponse' {schemaArn} -> schemaArn) (\s@UpdateSchemaResponse' {} a -> s {schemaArn = a} :: UpdateSchemaResponse)
 
 -- | The response's http status code.
 updateSchemaResponse_httpStatus :: Lens.Lens' UpdateSchemaResponse Prelude.Int

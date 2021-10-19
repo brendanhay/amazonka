@@ -28,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSecurityConfiguration' smart constructor.
 data SecurityConfiguration = SecurityConfiguration'
-  { -- | The encryption configuration associated with this security
+  { -- | The name of the security configuration.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The encryption configuration associated with this security
     -- configuration.
     encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | The time at which this security configuration was created.
-    createdTimeStamp :: Prelude.Maybe Core.POSIX,
-    -- | The name of the security configuration.
-    name :: Prelude.Maybe Prelude.Text
+    createdTimeStamp :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,21 +46,24 @@ data SecurityConfiguration = SecurityConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'securityConfiguration_name' - The name of the security configuration.
+--
 -- 'encryptionConfiguration', 'securityConfiguration_encryptionConfiguration' - The encryption configuration associated with this security
 -- configuration.
 --
 -- 'createdTimeStamp', 'securityConfiguration_createdTimeStamp' - The time at which this security configuration was created.
---
--- 'name', 'securityConfiguration_name' - The name of the security configuration.
 newSecurityConfiguration ::
   SecurityConfiguration
 newSecurityConfiguration =
   SecurityConfiguration'
-    { encryptionConfiguration =
-        Prelude.Nothing,
-      createdTimeStamp = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      encryptionConfiguration = Prelude.Nothing,
+      createdTimeStamp = Prelude.Nothing
     }
+
+-- | The name of the security configuration.
+securityConfiguration_name :: Lens.Lens' SecurityConfiguration (Prelude.Maybe Prelude.Text)
+securityConfiguration_name = Lens.lens (\SecurityConfiguration' {name} -> name) (\s@SecurityConfiguration' {} a -> s {name = a} :: SecurityConfiguration)
 
 -- | The encryption configuration associated with this security
 -- configuration.
@@ -71,19 +74,15 @@ securityConfiguration_encryptionConfiguration = Lens.lens (\SecurityConfiguratio
 securityConfiguration_createdTimeStamp :: Lens.Lens' SecurityConfiguration (Prelude.Maybe Prelude.UTCTime)
 securityConfiguration_createdTimeStamp = Lens.lens (\SecurityConfiguration' {createdTimeStamp} -> createdTimeStamp) (\s@SecurityConfiguration' {} a -> s {createdTimeStamp = a} :: SecurityConfiguration) Prelude.. Lens.mapping Core._Time
 
--- | The name of the security configuration.
-securityConfiguration_name :: Lens.Lens' SecurityConfiguration (Prelude.Maybe Prelude.Text)
-securityConfiguration_name = Lens.lens (\SecurityConfiguration' {name} -> name) (\s@SecurityConfiguration' {} a -> s {name = a} :: SecurityConfiguration)
-
 instance Core.FromJSON SecurityConfiguration where
   parseJSON =
     Core.withObject
       "SecurityConfiguration"
       ( \x ->
           SecurityConfiguration'
-            Prelude.<$> (x Core..:? "EncryptionConfiguration")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "EncryptionConfiguration")
             Prelude.<*> (x Core..:? "CreatedTimeStamp")
-            Prelude.<*> (x Core..:? "Name")
       )
 
 instance Prelude.Hashable SecurityConfiguration

@@ -108,7 +108,7 @@ getPartition_tableName = Lens.lens (\GetPartition' {tableName} -> tableName) (\s
 
 -- | The values that define the partition.
 getPartition_partitionValues :: Lens.Lens' GetPartition [Prelude.Text]
-getPartition_partitionValues = Lens.lens (\GetPartition' {partitionValues} -> partitionValues) (\s@GetPartition' {} a -> s {partitionValues = a} :: GetPartition) Prelude.. Lens._Coerce
+getPartition_partitionValues = Lens.lens (\GetPartition' {partitionValues} -> partitionValues) (\s@GetPartition' {} a -> s {partitionValues = a} :: GetPartition) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetPartition where
   type AWSResponse GetPartition = GetPartitionResponse

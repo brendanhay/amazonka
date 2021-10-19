@@ -42,9 +42,9 @@ module Network.AWS.Glue.CreateSchema
     -- * Request Lenses
     createSchema_schemaDefinition,
     createSchema_registryId,
-    createSchema_tags,
-    createSchema_compatibility,
     createSchema_description,
+    createSchema_compatibility,
+    createSchema_tags,
     createSchema_schemaName,
     createSchema_dataFormat,
 
@@ -53,20 +53,20 @@ module Network.AWS.Glue.CreateSchema
     newCreateSchemaResponse,
 
     -- * Response Lenses
-    createSchemaResponse_schemaArn,
-    createSchemaResponse_nextSchemaVersion,
-    createSchemaResponse_schemaVersionId,
-    createSchemaResponse_schemaCheckpoint,
-    createSchemaResponse_dataFormat,
-    createSchemaResponse_registryName,
     createSchemaResponse_schemaVersionStatus,
-    createSchemaResponse_tags,
-    createSchemaResponse_compatibility,
-    createSchemaResponse_description,
-    createSchemaResponse_schemaName,
+    createSchemaResponse_registryName,
+    createSchemaResponse_schemaStatus,
     createSchemaResponse_registryArn,
     createSchemaResponse_latestSchemaVersion,
-    createSchemaResponse_schemaStatus,
+    createSchemaResponse_dataFormat,
+    createSchemaResponse_schemaCheckpoint,
+    createSchemaResponse_schemaName,
+    createSchemaResponse_schemaVersionId,
+    createSchemaResponse_schemaArn,
+    createSchemaResponse_nextSchemaVersion,
+    createSchemaResponse_description,
+    createSchemaResponse_compatibility,
+    createSchemaResponse_tags,
     createSchemaResponse_httpStatus,
   )
 where
@@ -87,10 +87,9 @@ data CreateSchema = CreateSchema'
     -- the same will be:
     -- @arn:aws:glue:us-east-2:\<customer id>:registry\/default-registry:random-5-letter-id@.
     registryId :: Prelude.Maybe RegistryId,
-    -- | Amazon Web Services tags that contain a key value pair and may be
-    -- searched by console, command line, or API. If specified, follows the
-    -- Amazon Web Services tags-on-create pattern.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An optional description of the schema. If description is not provided,
+    -- there will not be any automatic default value for this.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The compatibility mode of the schema. The possible values are:
     --
     -- -   /NONE/: No compatibility mode applies. You can use this choice in
@@ -135,9 +134,10 @@ data CreateSchema = CreateSchema'
     --     can use this choice when you need to add or remove optional fields,
     --     and check compatibility against all previous schema versions.
     compatibility :: Prelude.Maybe Compatibility,
-    -- | An optional description of the schema. If description is not provided,
-    -- there will not be any automatic default value for this.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | Amazon Web Services tags that contain a key value pair and may be
+    -- searched by console, command line, or API. If specified, follows the
+    -- Amazon Web Services tags-on-create pattern.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Name of the schema to be created of max length of 255, and may only
     -- contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.
     -- No whitespace.
@@ -163,9 +163,8 @@ data CreateSchema = CreateSchema'
 -- the same will be:
 -- @arn:aws:glue:us-east-2:\<customer id>:registry\/default-registry:random-5-letter-id@.
 --
--- 'tags', 'createSchema_tags' - Amazon Web Services tags that contain a key value pair and may be
--- searched by console, command line, or API. If specified, follows the
--- Amazon Web Services tags-on-create pattern.
+-- 'description', 'createSchema_description' - An optional description of the schema. If description is not provided,
+-- there will not be any automatic default value for this.
 --
 -- 'compatibility', 'createSchema_compatibility' - The compatibility mode of the schema. The possible values are:
 --
@@ -211,8 +210,9 @@ data CreateSchema = CreateSchema'
 --     can use this choice when you need to add or remove optional fields,
 --     and check compatibility against all previous schema versions.
 --
--- 'description', 'createSchema_description' - An optional description of the schema. If description is not provided,
--- there will not be any automatic default value for this.
+-- 'tags', 'createSchema_tags' - Amazon Web Services tags that contain a key value pair and may be
+-- searched by console, command line, or API. If specified, follows the
+-- Amazon Web Services tags-on-create pattern.
 --
 -- 'schemaName', 'createSchema_schemaName' - Name of the schema to be created of max length of 255, and may only
 -- contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.
@@ -230,9 +230,9 @@ newCreateSchema pSchemaName_ pDataFormat_ =
   CreateSchema'
     { schemaDefinition = Prelude.Nothing,
       registryId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      compatibility = Prelude.Nothing,
       description = Prelude.Nothing,
+      compatibility = Prelude.Nothing,
+      tags = Prelude.Nothing,
       schemaName = pSchemaName_,
       dataFormat = pDataFormat_
     }
@@ -248,11 +248,10 @@ createSchema_schemaDefinition = Lens.lens (\CreateSchema' {schemaDefinition} -> 
 createSchema_registryId :: Lens.Lens' CreateSchema (Prelude.Maybe RegistryId)
 createSchema_registryId = Lens.lens (\CreateSchema' {registryId} -> registryId) (\s@CreateSchema' {} a -> s {registryId = a} :: CreateSchema)
 
--- | Amazon Web Services tags that contain a key value pair and may be
--- searched by console, command line, or API. If specified, follows the
--- Amazon Web Services tags-on-create pattern.
-createSchema_tags :: Lens.Lens' CreateSchema (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createSchema_tags = Lens.lens (\CreateSchema' {tags} -> tags) (\s@CreateSchema' {} a -> s {tags = a} :: CreateSchema) Prelude.. Lens.mapping Lens._Coerce
+-- | An optional description of the schema. If description is not provided,
+-- there will not be any automatic default value for this.
+createSchema_description :: Lens.Lens' CreateSchema (Prelude.Maybe Prelude.Text)
+createSchema_description = Lens.lens (\CreateSchema' {description} -> description) (\s@CreateSchema' {} a -> s {description = a} :: CreateSchema)
 
 -- | The compatibility mode of the schema. The possible values are:
 --
@@ -300,10 +299,11 @@ createSchema_tags = Lens.lens (\CreateSchema' {tags} -> tags) (\s@CreateSchema' 
 createSchema_compatibility :: Lens.Lens' CreateSchema (Prelude.Maybe Compatibility)
 createSchema_compatibility = Lens.lens (\CreateSchema' {compatibility} -> compatibility) (\s@CreateSchema' {} a -> s {compatibility = a} :: CreateSchema)
 
--- | An optional description of the schema. If description is not provided,
--- there will not be any automatic default value for this.
-createSchema_description :: Lens.Lens' CreateSchema (Prelude.Maybe Prelude.Text)
-createSchema_description = Lens.lens (\CreateSchema' {description} -> description) (\s@CreateSchema' {} a -> s {description = a} :: CreateSchema)
+-- | Amazon Web Services tags that contain a key value pair and may be
+-- searched by console, command line, or API. If specified, follows the
+-- Amazon Web Services tags-on-create pattern.
+createSchema_tags :: Lens.Lens' CreateSchema (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createSchema_tags = Lens.lens (\CreateSchema' {tags} -> tags) (\s@CreateSchema' {} a -> s {tags = a} :: CreateSchema) Prelude.. Lens.mapping Lens.coerced
 
 -- | Name of the schema to be created of max length of 255, and may only
 -- contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.
@@ -323,20 +323,20 @@ instance Core.AWSRequest CreateSchema where
     Response.receiveJSON
       ( \s h x ->
           CreateSchemaResponse'
-            Prelude.<$> (x Core..?> "SchemaArn")
-            Prelude.<*> (x Core..?> "NextSchemaVersion")
-            Prelude.<*> (x Core..?> "SchemaVersionId")
-            Prelude.<*> (x Core..?> "SchemaCheckpoint")
-            Prelude.<*> (x Core..?> "DataFormat")
+            Prelude.<$> (x Core..?> "SchemaVersionStatus")
             Prelude.<*> (x Core..?> "RegistryName")
-            Prelude.<*> (x Core..?> "SchemaVersionStatus")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Compatibility")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "SchemaName")
+            Prelude.<*> (x Core..?> "SchemaStatus")
             Prelude.<*> (x Core..?> "RegistryArn")
             Prelude.<*> (x Core..?> "LatestSchemaVersion")
-            Prelude.<*> (x Core..?> "SchemaStatus")
+            Prelude.<*> (x Core..?> "DataFormat")
+            Prelude.<*> (x Core..?> "SchemaCheckpoint")
+            Prelude.<*> (x Core..?> "SchemaName")
+            Prelude.<*> (x Core..?> "SchemaVersionId")
+            Prelude.<*> (x Core..?> "SchemaArn")
+            Prelude.<*> (x Core..?> "NextSchemaVersion")
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "Compatibility")
+            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -364,9 +364,9 @@ instance Core.ToJSON CreateSchema where
           [ ("SchemaDefinition" Core..=)
               Prelude.<$> schemaDefinition,
             ("RegistryId" Core..=) Prelude.<$> registryId,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("Compatibility" Core..=) Prelude.<$> compatibility,
             ("Description" Core..=) Prelude.<$> description,
+            ("Compatibility" Core..=) Prelude.<$> compatibility,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("SchemaName" Core..= schemaName),
             Prelude.Just ("DataFormat" Core..= dataFormat)
           ]
@@ -380,38 +380,38 @@ instance Core.ToQuery CreateSchema where
 
 -- | /See:/ 'newCreateSchemaResponse' smart constructor.
 data CreateSchemaResponse = CreateSchemaResponse'
-  { -- | The Amazon Resource Name (ARN) of the schema.
-    schemaArn :: Prelude.Maybe Prelude.Text,
-    -- | The next version of the schema associated with the returned schema
-    -- definition.
-    nextSchemaVersion :: Prelude.Maybe Prelude.Natural,
-    -- | The unique identifier of the first schema version.
-    schemaVersionId :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the checkpoint (the last time the compatibility
-    -- mode was changed).
-    schemaCheckpoint :: Prelude.Maybe Prelude.Natural,
-    -- | The data format of the schema definition. Currently @AVRO@ and @JSON@
-    -- are supported.
-    dataFormat :: Prelude.Maybe DataFormat,
+  { -- | The status of the first schema version created.
+    schemaVersionStatus :: Prelude.Maybe SchemaVersionStatus,
     -- | The name of the registry.
     registryName :: Prelude.Maybe Prelude.Text,
-    -- | The status of the first schema version created.
-    schemaVersionStatus :: Prelude.Maybe SchemaVersionStatus,
-    -- | The tags for the schema.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The schema compatibility mode.
-    compatibility :: Prelude.Maybe Compatibility,
-    -- | A description of the schema if specified when created.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The name of the schema.
-    schemaName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the schema.
+    schemaStatus :: Prelude.Maybe SchemaStatus,
     -- | The Amazon Resource Name (ARN) of the registry.
     registryArn :: Prelude.Maybe Prelude.Text,
     -- | The latest version of the schema associated with the returned schema
     -- definition.
     latestSchemaVersion :: Prelude.Maybe Prelude.Natural,
-    -- | The status of the schema.
-    schemaStatus :: Prelude.Maybe SchemaStatus,
+    -- | The data format of the schema definition. Currently @AVRO@ and @JSON@
+    -- are supported.
+    dataFormat :: Prelude.Maybe DataFormat,
+    -- | The version number of the checkpoint (the last time the compatibility
+    -- mode was changed).
+    schemaCheckpoint :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the schema.
+    schemaName :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the first schema version.
+    schemaVersionId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the schema.
+    schemaArn :: Prelude.Maybe Prelude.Text,
+    -- | The next version of the schema associated with the returned schema
+    -- definition.
+    nextSchemaVersion :: Prelude.Maybe Prelude.Natural,
+    -- | A description of the schema if specified when created.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The schema compatibility mode.
+    compatibility :: Prelude.Maybe Compatibility,
+    -- | The tags for the schema.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -425,37 +425,37 @@ data CreateSchemaResponse = CreateSchemaResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaArn', 'createSchemaResponse_schemaArn' - The Amazon Resource Name (ARN) of the schema.
---
--- 'nextSchemaVersion', 'createSchemaResponse_nextSchemaVersion' - The next version of the schema associated with the returned schema
--- definition.
---
--- 'schemaVersionId', 'createSchemaResponse_schemaVersionId' - The unique identifier of the first schema version.
---
--- 'schemaCheckpoint', 'createSchemaResponse_schemaCheckpoint' - The version number of the checkpoint (the last time the compatibility
--- mode was changed).
---
--- 'dataFormat', 'createSchemaResponse_dataFormat' - The data format of the schema definition. Currently @AVRO@ and @JSON@
--- are supported.
+-- 'schemaVersionStatus', 'createSchemaResponse_schemaVersionStatus' - The status of the first schema version created.
 --
 -- 'registryName', 'createSchemaResponse_registryName' - The name of the registry.
 --
--- 'schemaVersionStatus', 'createSchemaResponse_schemaVersionStatus' - The status of the first schema version created.
---
--- 'tags', 'createSchemaResponse_tags' - The tags for the schema.
---
--- 'compatibility', 'createSchemaResponse_compatibility' - The schema compatibility mode.
---
--- 'description', 'createSchemaResponse_description' - A description of the schema if specified when created.
---
--- 'schemaName', 'createSchemaResponse_schemaName' - The name of the schema.
+-- 'schemaStatus', 'createSchemaResponse_schemaStatus' - The status of the schema.
 --
 -- 'registryArn', 'createSchemaResponse_registryArn' - The Amazon Resource Name (ARN) of the registry.
 --
 -- 'latestSchemaVersion', 'createSchemaResponse_latestSchemaVersion' - The latest version of the schema associated with the returned schema
 -- definition.
 --
--- 'schemaStatus', 'createSchemaResponse_schemaStatus' - The status of the schema.
+-- 'dataFormat', 'createSchemaResponse_dataFormat' - The data format of the schema definition. Currently @AVRO@ and @JSON@
+-- are supported.
+--
+-- 'schemaCheckpoint', 'createSchemaResponse_schemaCheckpoint' - The version number of the checkpoint (the last time the compatibility
+-- mode was changed).
+--
+-- 'schemaName', 'createSchemaResponse_schemaName' - The name of the schema.
+--
+-- 'schemaVersionId', 'createSchemaResponse_schemaVersionId' - The unique identifier of the first schema version.
+--
+-- 'schemaArn', 'createSchemaResponse_schemaArn' - The Amazon Resource Name (ARN) of the schema.
+--
+-- 'nextSchemaVersion', 'createSchemaResponse_nextSchemaVersion' - The next version of the schema associated with the returned schema
+-- definition.
+--
+-- 'description', 'createSchemaResponse_description' - A description of the schema if specified when created.
+--
+-- 'compatibility', 'createSchemaResponse_compatibility' - The schema compatibility mode.
+--
+-- 'tags', 'createSchemaResponse_tags' - The tags for the schema.
 --
 -- 'httpStatus', 'createSchemaResponse_httpStatus' - The response's http status code.
 newCreateSchemaResponse ::
@@ -464,69 +464,35 @@ newCreateSchemaResponse ::
   CreateSchemaResponse
 newCreateSchemaResponse pHttpStatus_ =
   CreateSchemaResponse'
-    { schemaArn = Prelude.Nothing,
-      nextSchemaVersion = Prelude.Nothing,
-      schemaVersionId = Prelude.Nothing,
-      schemaCheckpoint = Prelude.Nothing,
-      dataFormat = Prelude.Nothing,
+    { schemaVersionStatus =
+        Prelude.Nothing,
       registryName = Prelude.Nothing,
-      schemaVersionStatus = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      compatibility = Prelude.Nothing,
-      description = Prelude.Nothing,
-      schemaName = Prelude.Nothing,
+      schemaStatus = Prelude.Nothing,
       registryArn = Prelude.Nothing,
       latestSchemaVersion = Prelude.Nothing,
-      schemaStatus = Prelude.Nothing,
+      dataFormat = Prelude.Nothing,
+      schemaCheckpoint = Prelude.Nothing,
+      schemaName = Prelude.Nothing,
+      schemaVersionId = Prelude.Nothing,
+      schemaArn = Prelude.Nothing,
+      nextSchemaVersion = Prelude.Nothing,
+      description = Prelude.Nothing,
+      compatibility = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the schema.
-createSchemaResponse_schemaArn :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
-createSchemaResponse_schemaArn = Lens.lens (\CreateSchemaResponse' {schemaArn} -> schemaArn) (\s@CreateSchemaResponse' {} a -> s {schemaArn = a} :: CreateSchemaResponse)
-
--- | The next version of the schema associated with the returned schema
--- definition.
-createSchemaResponse_nextSchemaVersion :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Natural)
-createSchemaResponse_nextSchemaVersion = Lens.lens (\CreateSchemaResponse' {nextSchemaVersion} -> nextSchemaVersion) (\s@CreateSchemaResponse' {} a -> s {nextSchemaVersion = a} :: CreateSchemaResponse)
-
--- | The unique identifier of the first schema version.
-createSchemaResponse_schemaVersionId :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
-createSchemaResponse_schemaVersionId = Lens.lens (\CreateSchemaResponse' {schemaVersionId} -> schemaVersionId) (\s@CreateSchemaResponse' {} a -> s {schemaVersionId = a} :: CreateSchemaResponse)
-
--- | The version number of the checkpoint (the last time the compatibility
--- mode was changed).
-createSchemaResponse_schemaCheckpoint :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Natural)
-createSchemaResponse_schemaCheckpoint = Lens.lens (\CreateSchemaResponse' {schemaCheckpoint} -> schemaCheckpoint) (\s@CreateSchemaResponse' {} a -> s {schemaCheckpoint = a} :: CreateSchemaResponse)
-
--- | The data format of the schema definition. Currently @AVRO@ and @JSON@
--- are supported.
-createSchemaResponse_dataFormat :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe DataFormat)
-createSchemaResponse_dataFormat = Lens.lens (\CreateSchemaResponse' {dataFormat} -> dataFormat) (\s@CreateSchemaResponse' {} a -> s {dataFormat = a} :: CreateSchemaResponse)
-
--- | The name of the registry.
-createSchemaResponse_registryName :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
-createSchemaResponse_registryName = Lens.lens (\CreateSchemaResponse' {registryName} -> registryName) (\s@CreateSchemaResponse' {} a -> s {registryName = a} :: CreateSchemaResponse)
 
 -- | The status of the first schema version created.
 createSchemaResponse_schemaVersionStatus :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe SchemaVersionStatus)
 createSchemaResponse_schemaVersionStatus = Lens.lens (\CreateSchemaResponse' {schemaVersionStatus} -> schemaVersionStatus) (\s@CreateSchemaResponse' {} a -> s {schemaVersionStatus = a} :: CreateSchemaResponse)
 
--- | The tags for the schema.
-createSchemaResponse_tags :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createSchemaResponse_tags = Lens.lens (\CreateSchemaResponse' {tags} -> tags) (\s@CreateSchemaResponse' {} a -> s {tags = a} :: CreateSchemaResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | The name of the registry.
+createSchemaResponse_registryName :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
+createSchemaResponse_registryName = Lens.lens (\CreateSchemaResponse' {registryName} -> registryName) (\s@CreateSchemaResponse' {} a -> s {registryName = a} :: CreateSchemaResponse)
 
--- | The schema compatibility mode.
-createSchemaResponse_compatibility :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Compatibility)
-createSchemaResponse_compatibility = Lens.lens (\CreateSchemaResponse' {compatibility} -> compatibility) (\s@CreateSchemaResponse' {} a -> s {compatibility = a} :: CreateSchemaResponse)
-
--- | A description of the schema if specified when created.
-createSchemaResponse_description :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
-createSchemaResponse_description = Lens.lens (\CreateSchemaResponse' {description} -> description) (\s@CreateSchemaResponse' {} a -> s {description = a} :: CreateSchemaResponse)
-
--- | The name of the schema.
-createSchemaResponse_schemaName :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
-createSchemaResponse_schemaName = Lens.lens (\CreateSchemaResponse' {schemaName} -> schemaName) (\s@CreateSchemaResponse' {} a -> s {schemaName = a} :: CreateSchemaResponse)
+-- | The status of the schema.
+createSchemaResponse_schemaStatus :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe SchemaStatus)
+createSchemaResponse_schemaStatus = Lens.lens (\CreateSchemaResponse' {schemaStatus} -> schemaStatus) (\s@CreateSchemaResponse' {} a -> s {schemaStatus = a} :: CreateSchemaResponse)
 
 -- | The Amazon Resource Name (ARN) of the registry.
 createSchemaResponse_registryArn :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
@@ -537,9 +503,44 @@ createSchemaResponse_registryArn = Lens.lens (\CreateSchemaResponse' {registryAr
 createSchemaResponse_latestSchemaVersion :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Natural)
 createSchemaResponse_latestSchemaVersion = Lens.lens (\CreateSchemaResponse' {latestSchemaVersion} -> latestSchemaVersion) (\s@CreateSchemaResponse' {} a -> s {latestSchemaVersion = a} :: CreateSchemaResponse)
 
--- | The status of the schema.
-createSchemaResponse_schemaStatus :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe SchemaStatus)
-createSchemaResponse_schemaStatus = Lens.lens (\CreateSchemaResponse' {schemaStatus} -> schemaStatus) (\s@CreateSchemaResponse' {} a -> s {schemaStatus = a} :: CreateSchemaResponse)
+-- | The data format of the schema definition. Currently @AVRO@ and @JSON@
+-- are supported.
+createSchemaResponse_dataFormat :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe DataFormat)
+createSchemaResponse_dataFormat = Lens.lens (\CreateSchemaResponse' {dataFormat} -> dataFormat) (\s@CreateSchemaResponse' {} a -> s {dataFormat = a} :: CreateSchemaResponse)
+
+-- | The version number of the checkpoint (the last time the compatibility
+-- mode was changed).
+createSchemaResponse_schemaCheckpoint :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Natural)
+createSchemaResponse_schemaCheckpoint = Lens.lens (\CreateSchemaResponse' {schemaCheckpoint} -> schemaCheckpoint) (\s@CreateSchemaResponse' {} a -> s {schemaCheckpoint = a} :: CreateSchemaResponse)
+
+-- | The name of the schema.
+createSchemaResponse_schemaName :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
+createSchemaResponse_schemaName = Lens.lens (\CreateSchemaResponse' {schemaName} -> schemaName) (\s@CreateSchemaResponse' {} a -> s {schemaName = a} :: CreateSchemaResponse)
+
+-- | The unique identifier of the first schema version.
+createSchemaResponse_schemaVersionId :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
+createSchemaResponse_schemaVersionId = Lens.lens (\CreateSchemaResponse' {schemaVersionId} -> schemaVersionId) (\s@CreateSchemaResponse' {} a -> s {schemaVersionId = a} :: CreateSchemaResponse)
+
+-- | The Amazon Resource Name (ARN) of the schema.
+createSchemaResponse_schemaArn :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
+createSchemaResponse_schemaArn = Lens.lens (\CreateSchemaResponse' {schemaArn} -> schemaArn) (\s@CreateSchemaResponse' {} a -> s {schemaArn = a} :: CreateSchemaResponse)
+
+-- | The next version of the schema associated with the returned schema
+-- definition.
+createSchemaResponse_nextSchemaVersion :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Natural)
+createSchemaResponse_nextSchemaVersion = Lens.lens (\CreateSchemaResponse' {nextSchemaVersion} -> nextSchemaVersion) (\s@CreateSchemaResponse' {} a -> s {nextSchemaVersion = a} :: CreateSchemaResponse)
+
+-- | A description of the schema if specified when created.
+createSchemaResponse_description :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
+createSchemaResponse_description = Lens.lens (\CreateSchemaResponse' {description} -> description) (\s@CreateSchemaResponse' {} a -> s {description = a} :: CreateSchemaResponse)
+
+-- | The schema compatibility mode.
+createSchemaResponse_compatibility :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Compatibility)
+createSchemaResponse_compatibility = Lens.lens (\CreateSchemaResponse' {compatibility} -> compatibility) (\s@CreateSchemaResponse' {} a -> s {compatibility = a} :: CreateSchemaResponse)
+
+-- | The tags for the schema.
+createSchemaResponse_tags :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createSchemaResponse_tags = Lens.lens (\CreateSchemaResponse' {tags} -> tags) (\s@CreateSchemaResponse' {} a -> s {tags = a} :: CreateSchemaResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createSchemaResponse_httpStatus :: Lens.Lens' CreateSchemaResponse Prelude.Int

@@ -27,8 +27,8 @@ module Network.AWS.Glue.UpdateWorkflow
     newUpdateWorkflow,
 
     -- * Request Lenses
-    updateWorkflow_defaultRunProperties,
     updateWorkflow_maxConcurrentRuns,
+    updateWorkflow_defaultRunProperties,
     updateWorkflow_description,
     updateWorkflow_name,
 
@@ -51,15 +51,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateWorkflow' smart constructor.
 data UpdateWorkflow = UpdateWorkflow'
-  { -- | A collection of properties to be used as part of each execution of the
-    -- workflow.
-    defaultRunProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | You can use this parameter to prevent unwanted multiple updates to data,
+  { -- | You can use this parameter to prevent unwanted multiple updates to data,
     -- to control costs, or in some cases, to prevent exceeding the maximum
     -- number of concurrent runs of any of the component jobs. If you leave
     -- this parameter blank, there is no limit to the number of concurrent
     -- workflow runs.
     maxConcurrentRuns :: Prelude.Maybe Prelude.Int,
+    -- | A collection of properties to be used as part of each execution of the
+    -- workflow.
+    defaultRunProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the workflow.
     description :: Prelude.Maybe Prelude.Text,
     -- | Name of the workflow to be updated.
@@ -75,14 +75,14 @@ data UpdateWorkflow = UpdateWorkflow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultRunProperties', 'updateWorkflow_defaultRunProperties' - A collection of properties to be used as part of each execution of the
--- workflow.
---
 -- 'maxConcurrentRuns', 'updateWorkflow_maxConcurrentRuns' - You can use this parameter to prevent unwanted multiple updates to data,
 -- to control costs, or in some cases, to prevent exceeding the maximum
 -- number of concurrent runs of any of the component jobs. If you leave
 -- this parameter blank, there is no limit to the number of concurrent
 -- workflow runs.
+--
+-- 'defaultRunProperties', 'updateWorkflow_defaultRunProperties' - A collection of properties to be used as part of each execution of the
+-- workflow.
 --
 -- 'description', 'updateWorkflow_description' - The description of the workflow.
 --
@@ -93,17 +93,12 @@ newUpdateWorkflow ::
   UpdateWorkflow
 newUpdateWorkflow pName_ =
   UpdateWorkflow'
-    { defaultRunProperties =
+    { maxConcurrentRuns =
         Prelude.Nothing,
-      maxConcurrentRuns = Prelude.Nothing,
+      defaultRunProperties = Prelude.Nothing,
       description = Prelude.Nothing,
       name = pName_
     }
-
--- | A collection of properties to be used as part of each execution of the
--- workflow.
-updateWorkflow_defaultRunProperties :: Lens.Lens' UpdateWorkflow (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateWorkflow_defaultRunProperties = Lens.lens (\UpdateWorkflow' {defaultRunProperties} -> defaultRunProperties) (\s@UpdateWorkflow' {} a -> s {defaultRunProperties = a} :: UpdateWorkflow) Prelude.. Lens.mapping Lens._Coerce
 
 -- | You can use this parameter to prevent unwanted multiple updates to data,
 -- to control costs, or in some cases, to prevent exceeding the maximum
@@ -112,6 +107,11 @@ updateWorkflow_defaultRunProperties = Lens.lens (\UpdateWorkflow' {defaultRunPro
 -- workflow runs.
 updateWorkflow_maxConcurrentRuns :: Lens.Lens' UpdateWorkflow (Prelude.Maybe Prelude.Int)
 updateWorkflow_maxConcurrentRuns = Lens.lens (\UpdateWorkflow' {maxConcurrentRuns} -> maxConcurrentRuns) (\s@UpdateWorkflow' {} a -> s {maxConcurrentRuns = a} :: UpdateWorkflow)
+
+-- | A collection of properties to be used as part of each execution of the
+-- workflow.
+updateWorkflow_defaultRunProperties :: Lens.Lens' UpdateWorkflow (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateWorkflow_defaultRunProperties = Lens.lens (\UpdateWorkflow' {defaultRunProperties} -> defaultRunProperties) (\s@UpdateWorkflow' {} a -> s {defaultRunProperties = a} :: UpdateWorkflow) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description of the workflow.
 updateWorkflow_description :: Lens.Lens' UpdateWorkflow (Prelude.Maybe Prelude.Text)
@@ -155,10 +155,10 @@ instance Core.ToJSON UpdateWorkflow where
   toJSON UpdateWorkflow' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DefaultRunProperties" Core..=)
-              Prelude.<$> defaultRunProperties,
-            ("MaxConcurrentRuns" Core..=)
+          [ ("MaxConcurrentRuns" Core..=)
               Prelude.<$> maxConcurrentRuns,
+            ("DefaultRunProperties" Core..=)
+              Prelude.<$> defaultRunProperties,
             ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("Name" Core..= name)
           ]

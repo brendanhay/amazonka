@@ -31,11 +31,11 @@ data SchemaReference = SchemaReference'
   { -- | The unique ID assigned to a version of the schema. Either this or the
     -- @SchemaId@ has to be provided.
     schemaVersionId :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the schema.
-    schemaVersionNumber :: Prelude.Maybe Prelude.Natural,
     -- | A structure that contains schema identity fields. Either this or the
     -- @SchemaVersionId@ has to be provided.
-    schemaId :: Prelude.Maybe SchemaId
+    schemaId :: Prelude.Maybe SchemaId,
+    -- | The version number of the schema.
+    schemaVersionNumber :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,17 +50,17 @@ data SchemaReference = SchemaReference'
 -- 'schemaVersionId', 'schemaReference_schemaVersionId' - The unique ID assigned to a version of the schema. Either this or the
 -- @SchemaId@ has to be provided.
 --
--- 'schemaVersionNumber', 'schemaReference_schemaVersionNumber' - The version number of the schema.
---
 -- 'schemaId', 'schemaReference_schemaId' - A structure that contains schema identity fields. Either this or the
 -- @SchemaVersionId@ has to be provided.
+--
+-- 'schemaVersionNumber', 'schemaReference_schemaVersionNumber' - The version number of the schema.
 newSchemaReference ::
   SchemaReference
 newSchemaReference =
   SchemaReference'
     { schemaVersionId = Prelude.Nothing,
-      schemaVersionNumber = Prelude.Nothing,
-      schemaId = Prelude.Nothing
+      schemaId = Prelude.Nothing,
+      schemaVersionNumber = Prelude.Nothing
     }
 
 -- | The unique ID assigned to a version of the schema. Either this or the
@@ -68,14 +68,14 @@ newSchemaReference =
 schemaReference_schemaVersionId :: Lens.Lens' SchemaReference (Prelude.Maybe Prelude.Text)
 schemaReference_schemaVersionId = Lens.lens (\SchemaReference' {schemaVersionId} -> schemaVersionId) (\s@SchemaReference' {} a -> s {schemaVersionId = a} :: SchemaReference)
 
--- | The version number of the schema.
-schemaReference_schemaVersionNumber :: Lens.Lens' SchemaReference (Prelude.Maybe Prelude.Natural)
-schemaReference_schemaVersionNumber = Lens.lens (\SchemaReference' {schemaVersionNumber} -> schemaVersionNumber) (\s@SchemaReference' {} a -> s {schemaVersionNumber = a} :: SchemaReference)
-
 -- | A structure that contains schema identity fields. Either this or the
 -- @SchemaVersionId@ has to be provided.
 schemaReference_schemaId :: Lens.Lens' SchemaReference (Prelude.Maybe SchemaId)
 schemaReference_schemaId = Lens.lens (\SchemaReference' {schemaId} -> schemaId) (\s@SchemaReference' {} a -> s {schemaId = a} :: SchemaReference)
+
+-- | The version number of the schema.
+schemaReference_schemaVersionNumber :: Lens.Lens' SchemaReference (Prelude.Maybe Prelude.Natural)
+schemaReference_schemaVersionNumber = Lens.lens (\SchemaReference' {schemaVersionNumber} -> schemaVersionNumber) (\s@SchemaReference' {} a -> s {schemaVersionNumber = a} :: SchemaReference)
 
 instance Core.FromJSON SchemaReference where
   parseJSON =
@@ -84,8 +84,8 @@ instance Core.FromJSON SchemaReference where
       ( \x ->
           SchemaReference'
             Prelude.<$> (x Core..:? "SchemaVersionId")
-            Prelude.<*> (x Core..:? "SchemaVersionNumber")
             Prelude.<*> (x Core..:? "SchemaId")
+            Prelude.<*> (x Core..:? "SchemaVersionNumber")
       )
 
 instance Prelude.Hashable SchemaReference
@@ -98,8 +98,8 @@ instance Core.ToJSON SchemaReference where
       ( Prelude.catMaybes
           [ ("SchemaVersionId" Core..=)
               Prelude.<$> schemaVersionId,
+            ("SchemaId" Core..=) Prelude.<$> schemaId,
             ("SchemaVersionNumber" Core..=)
-              Prelude.<$> schemaVersionNumber,
-            ("SchemaId" Core..=) Prelude.<$> schemaId
+              Prelude.<$> schemaVersionNumber
           ]
       )

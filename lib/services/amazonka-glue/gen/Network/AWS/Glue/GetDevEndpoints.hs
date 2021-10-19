@@ -204,7 +204,7 @@ getDevEndpointsResponse_nextToken = Lens.lens (\GetDevEndpointsResponse' {nextTo
 
 -- | A list of @DevEndpoint@ definitions.
 getDevEndpointsResponse_devEndpoints :: Lens.Lens' GetDevEndpointsResponse (Prelude.Maybe [DevEndpoint])
-getDevEndpointsResponse_devEndpoints = Lens.lens (\GetDevEndpointsResponse' {devEndpoints} -> devEndpoints) (\s@GetDevEndpointsResponse' {} a -> s {devEndpoints = a} :: GetDevEndpointsResponse) Prelude.. Lens.mapping Lens._Coerce
+getDevEndpointsResponse_devEndpoints = Lens.lens (\GetDevEndpointsResponse' {devEndpoints} -> devEndpoints) (\s@GetDevEndpointsResponse' {} a -> s {devEndpoints = a} :: GetDevEndpointsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDevEndpointsResponse_httpStatus :: Lens.Lens' GetDevEndpointsResponse Prelude.Int

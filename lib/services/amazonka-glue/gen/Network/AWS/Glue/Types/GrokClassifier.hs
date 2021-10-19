@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data GrokClassifier = GrokClassifier'
   { -- | The time that this classifier was registered.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The version of this classifier.
-    version :: Prelude.Maybe Prelude.Integer,
     -- | The time that this classifier was last updated.
     lastUpdated :: Prelude.Maybe Core.POSIX,
+    -- | The version of this classifier.
+    version :: Prelude.Maybe Prelude.Integer,
     -- | Optional custom grok patterns defined by this classifier. For more
     -- information, see custom patterns in
     -- <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers>.
@@ -59,9 +59,9 @@ data GrokClassifier = GrokClassifier'
 --
 -- 'creationTime', 'grokClassifier_creationTime' - The time that this classifier was registered.
 --
--- 'version', 'grokClassifier_version' - The version of this classifier.
---
 -- 'lastUpdated', 'grokClassifier_lastUpdated' - The time that this classifier was last updated.
+--
+-- 'version', 'grokClassifier_version' - The version of this classifier.
 --
 -- 'customPatterns', 'grokClassifier_customPatterns' - Optional custom grok patterns defined by this classifier. For more
 -- information, see custom patterns in
@@ -89,8 +89,8 @@ newGrokClassifier
   pGrokPattern_ =
     GrokClassifier'
       { creationTime = Prelude.Nothing,
-        version = Prelude.Nothing,
         lastUpdated = Prelude.Nothing,
+        version = Prelude.Nothing,
         customPatterns = Prelude.Nothing,
         name = pName_,
         classification = pClassification_,
@@ -101,13 +101,13 @@ newGrokClassifier
 grokClassifier_creationTime :: Lens.Lens' GrokClassifier (Prelude.Maybe Prelude.UTCTime)
 grokClassifier_creationTime = Lens.lens (\GrokClassifier' {creationTime} -> creationTime) (\s@GrokClassifier' {} a -> s {creationTime = a} :: GrokClassifier) Prelude.. Lens.mapping Core._Time
 
--- | The version of this classifier.
-grokClassifier_version :: Lens.Lens' GrokClassifier (Prelude.Maybe Prelude.Integer)
-grokClassifier_version = Lens.lens (\GrokClassifier' {version} -> version) (\s@GrokClassifier' {} a -> s {version = a} :: GrokClassifier)
-
 -- | The time that this classifier was last updated.
 grokClassifier_lastUpdated :: Lens.Lens' GrokClassifier (Prelude.Maybe Prelude.UTCTime)
 grokClassifier_lastUpdated = Lens.lens (\GrokClassifier' {lastUpdated} -> lastUpdated) (\s@GrokClassifier' {} a -> s {lastUpdated = a} :: GrokClassifier) Prelude.. Lens.mapping Core._Time
+
+-- | The version of this classifier.
+grokClassifier_version :: Lens.Lens' GrokClassifier (Prelude.Maybe Prelude.Integer)
+grokClassifier_version = Lens.lens (\GrokClassifier' {version} -> version) (\s@GrokClassifier' {} a -> s {version = a} :: GrokClassifier)
 
 -- | Optional custom grok patterns defined by this classifier. For more
 -- information, see custom patterns in
@@ -137,8 +137,8 @@ instance Core.FromJSON GrokClassifier where
       ( \x ->
           GrokClassifier'
             Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "LastUpdated")
+            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "CustomPatterns")
             Prelude.<*> (x Core..: "Name")
             Prelude.<*> (x Core..: "Classification")

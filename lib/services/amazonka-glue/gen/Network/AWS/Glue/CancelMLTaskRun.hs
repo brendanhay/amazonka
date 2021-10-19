@@ -40,8 +40,8 @@ module Network.AWS.Glue.CancelMLTaskRun
 
     -- * Response Lenses
     cancelMLTaskRunResponse_status,
-    cancelMLTaskRunResponse_taskRunId,
     cancelMLTaskRunResponse_transformId,
+    cancelMLTaskRunResponse_taskRunId,
     cancelMLTaskRunResponse_httpStatus,
   )
 where
@@ -103,8 +103,8 @@ instance Core.AWSRequest CancelMLTaskRun where
       ( \s h x ->
           CancelMLTaskRunResponse'
             Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "TaskRunId")
             Prelude.<*> (x Core..?> "TransformId")
+            Prelude.<*> (x Core..?> "TaskRunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,10 +144,10 @@ instance Core.ToQuery CancelMLTaskRun where
 data CancelMLTaskRunResponse = CancelMLTaskRunResponse'
   { -- | The status for this run.
     status :: Prelude.Maybe TaskStatusType,
-    -- | The unique identifier for the task run.
-    taskRunId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the machine learning transform.
     transformId :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the task run.
+    taskRunId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,9 +163,9 @@ data CancelMLTaskRunResponse = CancelMLTaskRunResponse'
 --
 -- 'status', 'cancelMLTaskRunResponse_status' - The status for this run.
 --
--- 'taskRunId', 'cancelMLTaskRunResponse_taskRunId' - The unique identifier for the task run.
---
 -- 'transformId', 'cancelMLTaskRunResponse_transformId' - The unique identifier of the machine learning transform.
+--
+-- 'taskRunId', 'cancelMLTaskRunResponse_taskRunId' - The unique identifier for the task run.
 --
 -- 'httpStatus', 'cancelMLTaskRunResponse_httpStatus' - The response's http status code.
 newCancelMLTaskRunResponse ::
@@ -175,8 +175,8 @@ newCancelMLTaskRunResponse ::
 newCancelMLTaskRunResponse pHttpStatus_ =
   CancelMLTaskRunResponse'
     { status = Prelude.Nothing,
-      taskRunId = Prelude.Nothing,
       transformId = Prelude.Nothing,
+      taskRunId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -184,13 +184,13 @@ newCancelMLTaskRunResponse pHttpStatus_ =
 cancelMLTaskRunResponse_status :: Lens.Lens' CancelMLTaskRunResponse (Prelude.Maybe TaskStatusType)
 cancelMLTaskRunResponse_status = Lens.lens (\CancelMLTaskRunResponse' {status} -> status) (\s@CancelMLTaskRunResponse' {} a -> s {status = a} :: CancelMLTaskRunResponse)
 
--- | The unique identifier for the task run.
-cancelMLTaskRunResponse_taskRunId :: Lens.Lens' CancelMLTaskRunResponse (Prelude.Maybe Prelude.Text)
-cancelMLTaskRunResponse_taskRunId = Lens.lens (\CancelMLTaskRunResponse' {taskRunId} -> taskRunId) (\s@CancelMLTaskRunResponse' {} a -> s {taskRunId = a} :: CancelMLTaskRunResponse)
-
 -- | The unique identifier of the machine learning transform.
 cancelMLTaskRunResponse_transformId :: Lens.Lens' CancelMLTaskRunResponse (Prelude.Maybe Prelude.Text)
 cancelMLTaskRunResponse_transformId = Lens.lens (\CancelMLTaskRunResponse' {transformId} -> transformId) (\s@CancelMLTaskRunResponse' {} a -> s {transformId = a} :: CancelMLTaskRunResponse)
+
+-- | The unique identifier for the task run.
+cancelMLTaskRunResponse_taskRunId :: Lens.Lens' CancelMLTaskRunResponse (Prelude.Maybe Prelude.Text)
+cancelMLTaskRunResponse_taskRunId = Lens.lens (\CancelMLTaskRunResponse' {taskRunId} -> taskRunId) (\s@CancelMLTaskRunResponse' {} a -> s {taskRunId = a} :: CancelMLTaskRunResponse)
 
 -- | The response's http status code.
 cancelMLTaskRunResponse_httpStatus :: Lens.Lens' CancelMLTaskRunResponse Prelude.Int

@@ -33,10 +33,10 @@ module Network.AWS.Glue.ListMLTransforms
 
     -- * Request Lenses
     listMLTransforms_nextToken,
+    listMLTransforms_sort,
+    listMLTransforms_filter,
     listMLTransforms_maxResults,
     listMLTransforms_tags,
-    listMLTransforms_filter,
-    listMLTransforms_sort,
 
     -- * Destructuring the Response
     ListMLTransformsResponse (..),
@@ -60,15 +60,15 @@ import qualified Network.AWS.Response as Response
 data ListMLTransforms = ListMLTransforms'
   { -- | A continuation token, if this is a continuation request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum size of a list to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies to return only these tagged resources.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A @TransformSortCriteria@ used to sort the machine learning transforms.
+    sort :: Prelude.Maybe TransformSortCriteria,
     -- | A @TransformFilterCriteria@ used to filter the machine learning
     -- transforms.
     filter' :: Prelude.Maybe TransformFilterCriteria,
-    -- | A @TransformSortCriteria@ used to sort the machine learning transforms.
-    sort :: Prelude.Maybe TransformSortCriteria
+    -- | The maximum size of a list to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies to return only these tagged resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,28 +82,37 @@ data ListMLTransforms = ListMLTransforms'
 --
 -- 'nextToken', 'listMLTransforms_nextToken' - A continuation token, if this is a continuation request.
 --
--- 'maxResults', 'listMLTransforms_maxResults' - The maximum size of a list to return.
---
--- 'tags', 'listMLTransforms_tags' - Specifies to return only these tagged resources.
+-- 'sort', 'listMLTransforms_sort' - A @TransformSortCriteria@ used to sort the machine learning transforms.
 --
 -- 'filter'', 'listMLTransforms_filter' - A @TransformFilterCriteria@ used to filter the machine learning
 -- transforms.
 --
--- 'sort', 'listMLTransforms_sort' - A @TransformSortCriteria@ used to sort the machine learning transforms.
+-- 'maxResults', 'listMLTransforms_maxResults' - The maximum size of a list to return.
+--
+-- 'tags', 'listMLTransforms_tags' - Specifies to return only these tagged resources.
 newListMLTransforms ::
   ListMLTransforms
 newListMLTransforms =
   ListMLTransforms'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      sort = Prelude.Nothing,
       filter' = Prelude.Nothing,
-      sort = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | A continuation token, if this is a continuation request.
 listMLTransforms_nextToken :: Lens.Lens' ListMLTransforms (Prelude.Maybe Prelude.Text)
 listMLTransforms_nextToken = Lens.lens (\ListMLTransforms' {nextToken} -> nextToken) (\s@ListMLTransforms' {} a -> s {nextToken = a} :: ListMLTransforms)
+
+-- | A @TransformSortCriteria@ used to sort the machine learning transforms.
+listMLTransforms_sort :: Lens.Lens' ListMLTransforms (Prelude.Maybe TransformSortCriteria)
+listMLTransforms_sort = Lens.lens (\ListMLTransforms' {sort} -> sort) (\s@ListMLTransforms' {} a -> s {sort = a} :: ListMLTransforms)
+
+-- | A @TransformFilterCriteria@ used to filter the machine learning
+-- transforms.
+listMLTransforms_filter :: Lens.Lens' ListMLTransforms (Prelude.Maybe TransformFilterCriteria)
+listMLTransforms_filter = Lens.lens (\ListMLTransforms' {filter'} -> filter') (\s@ListMLTransforms' {} a -> s {filter' = a} :: ListMLTransforms)
 
 -- | The maximum size of a list to return.
 listMLTransforms_maxResults :: Lens.Lens' ListMLTransforms (Prelude.Maybe Prelude.Natural)
@@ -111,16 +120,7 @@ listMLTransforms_maxResults = Lens.lens (\ListMLTransforms' {maxResults} -> maxR
 
 -- | Specifies to return only these tagged resources.
 listMLTransforms_tags :: Lens.Lens' ListMLTransforms (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listMLTransforms_tags = Lens.lens (\ListMLTransforms' {tags} -> tags) (\s@ListMLTransforms' {} a -> s {tags = a} :: ListMLTransforms) Prelude.. Lens.mapping Lens._Coerce
-
--- | A @TransformFilterCriteria@ used to filter the machine learning
--- transforms.
-listMLTransforms_filter :: Lens.Lens' ListMLTransforms (Prelude.Maybe TransformFilterCriteria)
-listMLTransforms_filter = Lens.lens (\ListMLTransforms' {filter'} -> filter') (\s@ListMLTransforms' {} a -> s {filter' = a} :: ListMLTransforms)
-
--- | A @TransformSortCriteria@ used to sort the machine learning transforms.
-listMLTransforms_sort :: Lens.Lens' ListMLTransforms (Prelude.Maybe TransformSortCriteria)
-listMLTransforms_sort = Lens.lens (\ListMLTransforms' {sort} -> sort) (\s@ListMLTransforms' {} a -> s {sort = a} :: ListMLTransforms)
+listMLTransforms_tags = Lens.lens (\ListMLTransforms' {tags} -> tags) (\s@ListMLTransforms' {} a -> s {tags = a} :: ListMLTransforms) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest ListMLTransforms where
   type
@@ -158,10 +158,10 @@ instance Core.ToJSON ListMLTransforms where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("Sort" Core..=) Prelude.<$> sort,
             ("Filter" Core..=) Prelude.<$> filter',
-            ("Sort" Core..=) Prelude.<$> sort
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Tags" Core..=) Prelude.<$> tags
           ]
       )
 
@@ -223,6 +223,6 @@ listMLTransformsResponse_httpStatus = Lens.lens (\ListMLTransformsResponse' {htt
 -- | The identifiers of all the machine learning transforms in the account,
 -- or the machine learning transforms with the specified tags.
 listMLTransformsResponse_transformIds :: Lens.Lens' ListMLTransformsResponse [Prelude.Text]
-listMLTransformsResponse_transformIds = Lens.lens (\ListMLTransformsResponse' {transformIds} -> transformIds) (\s@ListMLTransformsResponse' {} a -> s {transformIds = a} :: ListMLTransformsResponse) Prelude.. Lens._Coerce
+listMLTransformsResponse_transformIds = Lens.lens (\ListMLTransformsResponse' {transformIds} -> transformIds) (\s@ListMLTransformsResponse' {} a -> s {transformIds = a} :: ListMLTransformsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListMLTransformsResponse

@@ -82,7 +82,7 @@ codeGenNode_nodeType = Lens.lens (\CodeGenNode' {nodeType} -> nodeType) (\s@Code
 
 -- | Properties of the node, in the form of name-value pairs.
 codeGenNode_args :: Lens.Lens' CodeGenNode [CodeGenNodeArg]
-codeGenNode_args = Lens.lens (\CodeGenNode' {args} -> args) (\s@CodeGenNode' {} a -> s {args = a} :: CodeGenNode) Prelude.. Lens._Coerce
+codeGenNode_args = Lens.lens (\CodeGenNode' {args} -> args) (\s@CodeGenNode' {} a -> s {args = a} :: CodeGenNode) Prelude.. Lens.coerced
 
 instance Core.FromJSON CodeGenNode where
   parseJSON =

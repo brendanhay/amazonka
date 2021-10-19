@@ -110,7 +110,7 @@ batchDeleteTable_databaseName = Lens.lens (\BatchDeleteTable' {databaseName} -> 
 
 -- | A list of the table to delete.
 batchDeleteTable_tablesToDelete :: Lens.Lens' BatchDeleteTable [Prelude.Text]
-batchDeleteTable_tablesToDelete = Lens.lens (\BatchDeleteTable' {tablesToDelete} -> tablesToDelete) (\s@BatchDeleteTable' {} a -> s {tablesToDelete = a} :: BatchDeleteTable) Prelude.. Lens._Coerce
+batchDeleteTable_tablesToDelete = Lens.lens (\BatchDeleteTable' {tablesToDelete} -> tablesToDelete) (\s@BatchDeleteTable' {} a -> s {tablesToDelete = a} :: BatchDeleteTable) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchDeleteTable where
   type
@@ -194,7 +194,7 @@ newBatchDeleteTableResponse pHttpStatus_ =
 -- | A list of errors encountered in attempting to delete the specified
 -- tables.
 batchDeleteTableResponse_errors :: Lens.Lens' BatchDeleteTableResponse (Prelude.Maybe [TableError])
-batchDeleteTableResponse_errors = Lens.lens (\BatchDeleteTableResponse' {errors} -> errors) (\s@BatchDeleteTableResponse' {} a -> s {errors = a} :: BatchDeleteTableResponse) Prelude.. Lens.mapping Lens._Coerce
+batchDeleteTableResponse_errors = Lens.lens (\BatchDeleteTableResponse' {errors} -> errors) (\s@BatchDeleteTableResponse' {} a -> s {errors = a} :: BatchDeleteTableResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchDeleteTableResponse_httpStatus :: Lens.Lens' BatchDeleteTableResponse Prelude.Int

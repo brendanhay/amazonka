@@ -27,14 +27,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSchemaId' smart constructor.
 data SchemaId = SchemaId'
-  { -- | The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or
-    -- @SchemaName@ has to be provided.
-    schemaArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the schema registry that contains the schema.
+  { -- | The name of the schema registry that contains the schema.
     registryName :: Prelude.Maybe Prelude.Text,
     -- | The name of the schema. One of @SchemaArn@ or @SchemaName@ has to be
     -- provided.
-    schemaName :: Prelude.Maybe Prelude.Text
+    schemaName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or
+    -- @SchemaName@ has to be provided.
+    schemaArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,21 @@ data SchemaId = SchemaId'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaArn', 'schemaId_schemaArn' - The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or
--- @SchemaName@ has to be provided.
---
 -- 'registryName', 'schemaId_registryName' - The name of the schema registry that contains the schema.
 --
 -- 'schemaName', 'schemaId_schemaName' - The name of the schema. One of @SchemaArn@ or @SchemaName@ has to be
 -- provided.
+--
+-- 'schemaArn', 'schemaId_schemaArn' - The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or
+-- @SchemaName@ has to be provided.
 newSchemaId ::
   SchemaId
 newSchemaId =
   SchemaId'
-    { schemaArn = Prelude.Nothing,
-      registryName = Prelude.Nothing,
-      schemaName = Prelude.Nothing
+    { registryName = Prelude.Nothing,
+      schemaName = Prelude.Nothing,
+      schemaArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or
--- @SchemaName@ has to be provided.
-schemaId_schemaArn :: Lens.Lens' SchemaId (Prelude.Maybe Prelude.Text)
-schemaId_schemaArn = Lens.lens (\SchemaId' {schemaArn} -> schemaArn) (\s@SchemaId' {} a -> s {schemaArn = a} :: SchemaId)
 
 -- | The name of the schema registry that contains the schema.
 schemaId_registryName :: Lens.Lens' SchemaId (Prelude.Maybe Prelude.Text)
@@ -76,15 +71,20 @@ schemaId_registryName = Lens.lens (\SchemaId' {registryName} -> registryName) (\
 schemaId_schemaName :: Lens.Lens' SchemaId (Prelude.Maybe Prelude.Text)
 schemaId_schemaName = Lens.lens (\SchemaId' {schemaName} -> schemaName) (\s@SchemaId' {} a -> s {schemaName = a} :: SchemaId)
 
+-- | The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or
+-- @SchemaName@ has to be provided.
+schemaId_schemaArn :: Lens.Lens' SchemaId (Prelude.Maybe Prelude.Text)
+schemaId_schemaArn = Lens.lens (\SchemaId' {schemaArn} -> schemaArn) (\s@SchemaId' {} a -> s {schemaArn = a} :: SchemaId)
+
 instance Core.FromJSON SchemaId where
   parseJSON =
     Core.withObject
       "SchemaId"
       ( \x ->
           SchemaId'
-            Prelude.<$> (x Core..:? "SchemaArn")
-            Prelude.<*> (x Core..:? "RegistryName")
+            Prelude.<$> (x Core..:? "RegistryName")
             Prelude.<*> (x Core..:? "SchemaName")
+            Prelude.<*> (x Core..:? "SchemaArn")
       )
 
 instance Prelude.Hashable SchemaId
@@ -95,8 +95,8 @@ instance Core.ToJSON SchemaId where
   toJSON SchemaId' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SchemaArn" Core..=) Prelude.<$> schemaArn,
-            ("RegistryName" Core..=) Prelude.<$> registryName,
-            ("SchemaName" Core..=) Prelude.<$> schemaName
+          [ ("RegistryName" Core..=) Prelude.<$> registryName,
+            ("SchemaName" Core..=) Prelude.<$> schemaName,
+            ("SchemaArn" Core..=) Prelude.<$> schemaArn
           ]
       )

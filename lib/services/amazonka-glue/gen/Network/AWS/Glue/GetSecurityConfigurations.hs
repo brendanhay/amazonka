@@ -37,8 +37,8 @@ module Network.AWS.Glue.GetSecurityConfigurations
     newGetSecurityConfigurationsResponse,
 
     -- * Response Lenses
-    getSecurityConfigurationsResponse_nextToken,
     getSecurityConfigurationsResponse_securityConfigurations,
+    getSecurityConfigurationsResponse_nextToken,
     getSecurityConfigurationsResponse_httpStatus,
   )
 where
@@ -118,10 +118,10 @@ instance Core.AWSRequest GetSecurityConfigurations where
     Response.receiveJSON
       ( \s h x ->
           GetSecurityConfigurationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "SecurityConfigurations"
+            Prelude.<$> ( x Core..?> "SecurityConfigurations"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,11 +161,11 @@ instance Core.ToQuery GetSecurityConfigurations where
 
 -- | /See:/ 'newGetSecurityConfigurationsResponse' smart constructor.
 data GetSecurityConfigurationsResponse = GetSecurityConfigurationsResponse'
-  { -- | A continuation token, if there are more security configurations to
+  { -- | A list of security configurations.
+    securityConfigurations :: Prelude.Maybe [SecurityConfiguration],
+    -- | A continuation token, if there are more security configurations to
     -- return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of security configurations.
-    securityConfigurations :: Prelude.Maybe [SecurityConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,10 +179,10 @@ data GetSecurityConfigurationsResponse = GetSecurityConfigurationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'securityConfigurations', 'getSecurityConfigurationsResponse_securityConfigurations' - A list of security configurations.
+--
 -- 'nextToken', 'getSecurityConfigurationsResponse_nextToken' - A continuation token, if there are more security configurations to
 -- return.
---
--- 'securityConfigurations', 'getSecurityConfigurationsResponse_securityConfigurations' - A list of security configurations.
 --
 -- 'httpStatus', 'getSecurityConfigurationsResponse_httpStatus' - The response's http status code.
 newGetSecurityConfigurationsResponse ::
@@ -191,20 +191,20 @@ newGetSecurityConfigurationsResponse ::
   GetSecurityConfigurationsResponse
 newGetSecurityConfigurationsResponse pHttpStatus_ =
   GetSecurityConfigurationsResponse'
-    { nextToken =
+    { securityConfigurations =
         Prelude.Nothing,
-      securityConfigurations = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of security configurations.
+getSecurityConfigurationsResponse_securityConfigurations :: Lens.Lens' GetSecurityConfigurationsResponse (Prelude.Maybe [SecurityConfiguration])
+getSecurityConfigurationsResponse_securityConfigurations = Lens.lens (\GetSecurityConfigurationsResponse' {securityConfigurations} -> securityConfigurations) (\s@GetSecurityConfigurationsResponse' {} a -> s {securityConfigurations = a} :: GetSecurityConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token, if there are more security configurations to
 -- return.
 getSecurityConfigurationsResponse_nextToken :: Lens.Lens' GetSecurityConfigurationsResponse (Prelude.Maybe Prelude.Text)
 getSecurityConfigurationsResponse_nextToken = Lens.lens (\GetSecurityConfigurationsResponse' {nextToken} -> nextToken) (\s@GetSecurityConfigurationsResponse' {} a -> s {nextToken = a} :: GetSecurityConfigurationsResponse)
-
--- | A list of security configurations.
-getSecurityConfigurationsResponse_securityConfigurations :: Lens.Lens' GetSecurityConfigurationsResponse (Prelude.Maybe [SecurityConfiguration])
-getSecurityConfigurationsResponse_securityConfigurations = Lens.lens (\GetSecurityConfigurationsResponse' {securityConfigurations} -> securityConfigurations) (\s@GetSecurityConfigurationsResponse' {} a -> s {securityConfigurations = a} :: GetSecurityConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getSecurityConfigurationsResponse_httpStatus :: Lens.Lens' GetSecurityConfigurationsResponse Prelude.Int

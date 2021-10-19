@@ -91,7 +91,7 @@ tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn)
 
 -- | Tags to add to this resource.
 tagResource_tagsToAdd :: Lens.Lens' TagResource (Prelude.HashMap Prelude.Text Prelude.Text)
-tagResource_tagsToAdd = Lens.lens (\TagResource' {tagsToAdd} -> tagsToAdd) (\s@TagResource' {} a -> s {tagsToAdd = a} :: TagResource) Prelude.. Lens._Coerce
+tagResource_tagsToAdd = Lens.lens (\TagResource' {tagsToAdd} -> tagsToAdd) (\s@TagResource' {} a -> s {tagsToAdd = a} :: TagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse

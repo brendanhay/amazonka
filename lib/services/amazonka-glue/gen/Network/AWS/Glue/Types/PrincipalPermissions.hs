@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPrincipalPermissions' smart constructor.
 data PrincipalPermissions = PrincipalPermissions'
-  { -- | The permissions that are granted to the principal.
-    permissions :: Prelude.Maybe [Permission],
-    -- | The principal who is granted permissions.
-    principal :: Prelude.Maybe DataLakePrincipal
+  { -- | The principal who is granted permissions.
+    principal :: Prelude.Maybe DataLakePrincipal,
+    -- | The permissions that are granted to the principal.
+    permissions :: Prelude.Maybe [Permission]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,24 @@ data PrincipalPermissions = PrincipalPermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'permissions', 'principalPermissions_permissions' - The permissions that are granted to the principal.
---
 -- 'principal', 'principalPermissions_principal' - The principal who is granted permissions.
+--
+-- 'permissions', 'principalPermissions_permissions' - The permissions that are granted to the principal.
 newPrincipalPermissions ::
   PrincipalPermissions
 newPrincipalPermissions =
   PrincipalPermissions'
-    { permissions =
-        Prelude.Nothing,
-      principal = Prelude.Nothing
+    { principal = Prelude.Nothing,
+      permissions = Prelude.Nothing
     }
-
--- | The permissions that are granted to the principal.
-principalPermissions_permissions :: Lens.Lens' PrincipalPermissions (Prelude.Maybe [Permission])
-principalPermissions_permissions = Lens.lens (\PrincipalPermissions' {permissions} -> permissions) (\s@PrincipalPermissions' {} a -> s {permissions = a} :: PrincipalPermissions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The principal who is granted permissions.
 principalPermissions_principal :: Lens.Lens' PrincipalPermissions (Prelude.Maybe DataLakePrincipal)
 principalPermissions_principal = Lens.lens (\PrincipalPermissions' {principal} -> principal) (\s@PrincipalPermissions' {} a -> s {principal = a} :: PrincipalPermissions)
+
+-- | The permissions that are granted to the principal.
+principalPermissions_permissions :: Lens.Lens' PrincipalPermissions (Prelude.Maybe [Permission])
+principalPermissions_permissions = Lens.lens (\PrincipalPermissions' {permissions} -> permissions) (\s@PrincipalPermissions' {} a -> s {permissions = a} :: PrincipalPermissions) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON PrincipalPermissions where
   parseJSON =
@@ -70,8 +69,8 @@ instance Core.FromJSON PrincipalPermissions where
       "PrincipalPermissions"
       ( \x ->
           PrincipalPermissions'
-            Prelude.<$> (x Core..:? "Permissions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Principal")
+            Prelude.<$> (x Core..:? "Principal")
+            Prelude.<*> (x Core..:? "Permissions" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PrincipalPermissions
@@ -82,7 +81,7 @@ instance Core.ToJSON PrincipalPermissions where
   toJSON PrincipalPermissions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Permissions" Core..=) Prelude.<$> permissions,
-            ("Principal" Core..=) Prelude.<$> principal
+          [ ("Principal" Core..=) Prelude.<$> principal,
+            ("Permissions" Core..=) Prelude.<$> permissions
           ]
       )

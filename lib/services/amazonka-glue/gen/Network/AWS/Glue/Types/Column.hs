@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newColumn' smart constructor.
 data Column = Column'
-  { -- | A free-form text comment.
-    comment :: Prelude.Maybe Prelude.Text,
+  { -- | These key-value pairs define properties associated with the column.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The data type of the @Column@.
     type' :: Prelude.Maybe Prelude.Text,
-    -- | These key-value pairs define properties associated with the column.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A free-form text comment.
+    comment :: Prelude.Maybe Prelude.Text,
     -- | The name of the @Column@.
     name :: Prelude.Text
   }
@@ -46,11 +46,11 @@ data Column = Column'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comment', 'column_comment' - A free-form text comment.
+-- 'parameters', 'column_parameters' - These key-value pairs define properties associated with the column.
 --
 -- 'type'', 'column_type' - The data type of the @Column@.
 --
--- 'parameters', 'column_parameters' - These key-value pairs define properties associated with the column.
+-- 'comment', 'column_comment' - A free-form text comment.
 --
 -- 'name', 'column_name' - The name of the @Column@.
 newColumn ::
@@ -59,23 +59,23 @@ newColumn ::
   Column
 newColumn pName_ =
   Column'
-    { comment = Prelude.Nothing,
+    { parameters = Prelude.Nothing,
       type' = Prelude.Nothing,
-      parameters = Prelude.Nothing,
+      comment = Prelude.Nothing,
       name = pName_
     }
 
--- | A free-form text comment.
-column_comment :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
-column_comment = Lens.lens (\Column' {comment} -> comment) (\s@Column' {} a -> s {comment = a} :: Column)
+-- | These key-value pairs define properties associated with the column.
+column_parameters :: Lens.Lens' Column (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+column_parameters = Lens.lens (\Column' {parameters} -> parameters) (\s@Column' {} a -> s {parameters = a} :: Column) Prelude.. Lens.mapping Lens.coerced
 
 -- | The data type of the @Column@.
 column_type :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
 column_type = Lens.lens (\Column' {type'} -> type') (\s@Column' {} a -> s {type' = a} :: Column)
 
--- | These key-value pairs define properties associated with the column.
-column_parameters :: Lens.Lens' Column (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-column_parameters = Lens.lens (\Column' {parameters} -> parameters) (\s@Column' {} a -> s {parameters = a} :: Column) Prelude.. Lens.mapping Lens._Coerce
+-- | A free-form text comment.
+column_comment :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
+column_comment = Lens.lens (\Column' {comment} -> comment) (\s@Column' {} a -> s {comment = a} :: Column)
 
 -- | The name of the @Column@.
 column_name :: Lens.Lens' Column Prelude.Text
@@ -87,9 +87,9 @@ instance Core.FromJSON Column where
       "Column"
       ( \x ->
           Column'
-            Prelude.<$> (x Core..:? "Comment")
+            Prelude.<$> (x Core..:? "Parameters" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Comment")
             Prelude.<*> (x Core..: "Name")
       )
 
@@ -101,9 +101,9 @@ instance Core.ToJSON Column where
   toJSON Column' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Comment" Core..=) Prelude.<$> comment,
+          [ ("Parameters" Core..=) Prelude.<$> parameters,
             ("Type" Core..=) Prelude.<$> type',
-            ("Parameters" Core..=) Prelude.<$> parameters,
+            ("Comment" Core..=) Prelude.<$> comment,
             Prelude.Just ("Name" Core..= name)
           ]
       )

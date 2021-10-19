@@ -33,9 +33,9 @@ module Network.AWS.Glue.GetMLTransforms
 
     -- * Request Lenses
     getMLTransforms_nextToken,
-    getMLTransforms_maxResults,
-    getMLTransforms_filter,
     getMLTransforms_sort,
+    getMLTransforms_filter,
+    getMLTransforms_maxResults,
 
     -- * Destructuring the Response
     GetMLTransformsResponse (..),
@@ -59,12 +59,12 @@ import qualified Network.AWS.Response as Response
 data GetMLTransforms = GetMLTransforms'
   { -- | A paginated token to offset the results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The sorting criteria.
+    sort :: Prelude.Maybe TransformSortCriteria,
     -- | The filter transformation criteria.
     filter' :: Prelude.Maybe TransformFilterCriteria,
-    -- | The sorting criteria.
-    sort :: Prelude.Maybe TransformSortCriteria
+    -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,36 +78,36 @@ data GetMLTransforms = GetMLTransforms'
 --
 -- 'nextToken', 'getMLTransforms_nextToken' - A paginated token to offset the results.
 --
--- 'maxResults', 'getMLTransforms_maxResults' - The maximum number of results to return.
+-- 'sort', 'getMLTransforms_sort' - The sorting criteria.
 --
 -- 'filter'', 'getMLTransforms_filter' - The filter transformation criteria.
 --
--- 'sort', 'getMLTransforms_sort' - The sorting criteria.
+-- 'maxResults', 'getMLTransforms_maxResults' - The maximum number of results to return.
 newGetMLTransforms ::
   GetMLTransforms
 newGetMLTransforms =
   GetMLTransforms'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      sort = Prelude.Nothing,
       filter' = Prelude.Nothing,
-      sort = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
 
 -- | A paginated token to offset the results.
 getMLTransforms_nextToken :: Lens.Lens' GetMLTransforms (Prelude.Maybe Prelude.Text)
 getMLTransforms_nextToken = Lens.lens (\GetMLTransforms' {nextToken} -> nextToken) (\s@GetMLTransforms' {} a -> s {nextToken = a} :: GetMLTransforms)
 
--- | The maximum number of results to return.
-getMLTransforms_maxResults :: Lens.Lens' GetMLTransforms (Prelude.Maybe Prelude.Natural)
-getMLTransforms_maxResults = Lens.lens (\GetMLTransforms' {maxResults} -> maxResults) (\s@GetMLTransforms' {} a -> s {maxResults = a} :: GetMLTransforms)
+-- | The sorting criteria.
+getMLTransforms_sort :: Lens.Lens' GetMLTransforms (Prelude.Maybe TransformSortCriteria)
+getMLTransforms_sort = Lens.lens (\GetMLTransforms' {sort} -> sort) (\s@GetMLTransforms' {} a -> s {sort = a} :: GetMLTransforms)
 
 -- | The filter transformation criteria.
 getMLTransforms_filter :: Lens.Lens' GetMLTransforms (Prelude.Maybe TransformFilterCriteria)
 getMLTransforms_filter = Lens.lens (\GetMLTransforms' {filter'} -> filter') (\s@GetMLTransforms' {} a -> s {filter' = a} :: GetMLTransforms)
 
--- | The sorting criteria.
-getMLTransforms_sort :: Lens.Lens' GetMLTransforms (Prelude.Maybe TransformSortCriteria)
-getMLTransforms_sort = Lens.lens (\GetMLTransforms' {sort} -> sort) (\s@GetMLTransforms' {} a -> s {sort = a} :: GetMLTransforms)
+-- | The maximum number of results to return.
+getMLTransforms_maxResults :: Lens.Lens' GetMLTransforms (Prelude.Maybe Prelude.Natural)
+getMLTransforms_maxResults = Lens.lens (\GetMLTransforms' {maxResults} -> maxResults) (\s@GetMLTransforms' {} a -> s {maxResults = a} :: GetMLTransforms)
 
 instance Core.AWSRequest GetMLTransforms where
   type
@@ -145,9 +145,9 @@ instance Core.ToJSON GetMLTransforms where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Sort" Core..=) Prelude.<$> sort,
             ("Filter" Core..=) Prelude.<$> filter',
-            ("Sort" Core..=) Prelude.<$> sort
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -203,6 +203,6 @@ getMLTransformsResponse_httpStatus = Lens.lens (\GetMLTransformsResponse' {httpS
 
 -- | A list of machine learning transforms.
 getMLTransformsResponse_transforms :: Lens.Lens' GetMLTransformsResponse [MLTransform]
-getMLTransformsResponse_transforms = Lens.lens (\GetMLTransformsResponse' {transforms} -> transforms) (\s@GetMLTransformsResponse' {} a -> s {transforms = a} :: GetMLTransformsResponse) Prelude.. Lens._Coerce
+getMLTransformsResponse_transforms = Lens.lens (\GetMLTransformsResponse' {transforms} -> transforms) (\s@GetMLTransformsResponse' {} a -> s {transforms = a} :: GetMLTransformsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetMLTransformsResponse

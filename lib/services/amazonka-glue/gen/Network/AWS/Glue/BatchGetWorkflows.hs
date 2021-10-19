@@ -83,7 +83,7 @@ newBatchGetWorkflows ::
 newBatchGetWorkflows pNames_ =
   BatchGetWorkflows'
     { includeGraph = Prelude.Nothing,
-      names = Lens._Coerce Lens.# pNames_
+      names = Lens.coerced Lens.# pNames_
     }
 
 -- | Specifies whether to include a graph when returning the workflow
@@ -94,7 +94,7 @@ batchGetWorkflows_includeGraph = Lens.lens (\BatchGetWorkflows' {includeGraph} -
 -- | A list of workflow names, which may be the names returned from the
 -- @ListWorkflows@ operation.
 batchGetWorkflows_names :: Lens.Lens' BatchGetWorkflows (Prelude.NonEmpty Prelude.Text)
-batchGetWorkflows_names = Lens.lens (\BatchGetWorkflows' {names} -> names) (\s@BatchGetWorkflows' {} a -> s {names = a} :: BatchGetWorkflows) Prelude.. Lens._Coerce
+batchGetWorkflows_names = Lens.lens (\BatchGetWorkflows' {names} -> names) (\s@BatchGetWorkflows' {} a -> s {names = a} :: BatchGetWorkflows) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchGetWorkflows where
   type
@@ -180,11 +180,11 @@ newBatchGetWorkflowsResponse pHttpStatus_ =
 
 -- | A list of names of workflows not found.
 batchGetWorkflowsResponse_missingWorkflows :: Lens.Lens' BatchGetWorkflowsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-batchGetWorkflowsResponse_missingWorkflows = Lens.lens (\BatchGetWorkflowsResponse' {missingWorkflows} -> missingWorkflows) (\s@BatchGetWorkflowsResponse' {} a -> s {missingWorkflows = a} :: BatchGetWorkflowsResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetWorkflowsResponse_missingWorkflows = Lens.lens (\BatchGetWorkflowsResponse' {missingWorkflows} -> missingWorkflows) (\s@BatchGetWorkflowsResponse' {} a -> s {missingWorkflows = a} :: BatchGetWorkflowsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of workflow resource metadata.
 batchGetWorkflowsResponse_workflows :: Lens.Lens' BatchGetWorkflowsResponse (Prelude.Maybe (Prelude.NonEmpty Workflow))
-batchGetWorkflowsResponse_workflows = Lens.lens (\BatchGetWorkflowsResponse' {workflows} -> workflows) (\s@BatchGetWorkflowsResponse' {} a -> s {workflows = a} :: BatchGetWorkflowsResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetWorkflowsResponse_workflows = Lens.lens (\BatchGetWorkflowsResponse' {workflows} -> workflows) (\s@BatchGetWorkflowsResponse' {} a -> s {workflows = a} :: BatchGetWorkflowsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetWorkflowsResponse_httpStatus :: Lens.Lens' BatchGetWorkflowsResponse Prelude.Int

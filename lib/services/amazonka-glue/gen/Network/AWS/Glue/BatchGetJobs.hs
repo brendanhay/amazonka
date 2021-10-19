@@ -38,8 +38,8 @@ module Network.AWS.Glue.BatchGetJobs
     newBatchGetJobsResponse,
 
     -- * Response Lenses
-    batchGetJobsResponse_jobsNotFound,
     batchGetJobsResponse_jobs,
+    batchGetJobsResponse_jobsNotFound,
     batchGetJobsResponse_httpStatus,
   )
 where
@@ -77,7 +77,7 @@ newBatchGetJobs =
 -- | A list of job names, which might be the names returned from the
 -- @ListJobs@ operation.
 batchGetJobs_jobNames :: Lens.Lens' BatchGetJobs [Prelude.Text]
-batchGetJobs_jobNames = Lens.lens (\BatchGetJobs' {jobNames} -> jobNames) (\s@BatchGetJobs' {} a -> s {jobNames = a} :: BatchGetJobs) Prelude.. Lens._Coerce
+batchGetJobs_jobNames = Lens.lens (\BatchGetJobs' {jobNames} -> jobNames) (\s@BatchGetJobs' {} a -> s {jobNames = a} :: BatchGetJobs) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchGetJobs where
   type AWSResponse BatchGetJobs = BatchGetJobsResponse
@@ -86,8 +86,8 @@ instance Core.AWSRequest BatchGetJobs where
     Response.receiveJSON
       ( \s h x ->
           BatchGetJobsResponse'
-            Prelude.<$> (x Core..?> "JobsNotFound" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Jobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "JobsNotFound" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,10 +123,10 @@ instance Core.ToQuery BatchGetJobs where
 
 -- | /See:/ 'newBatchGetJobsResponse' smart constructor.
 data BatchGetJobsResponse = BatchGetJobsResponse'
-  { -- | A list of names of jobs not found.
-    jobsNotFound :: Prelude.Maybe [Prelude.Text],
-    -- | A list of job definitions.
+  { -- | A list of job definitions.
     jobs :: Prelude.Maybe [Job],
+    -- | A list of names of jobs not found.
+    jobsNotFound :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -140,9 +140,9 @@ data BatchGetJobsResponse = BatchGetJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobsNotFound', 'batchGetJobsResponse_jobsNotFound' - A list of names of jobs not found.
---
 -- 'jobs', 'batchGetJobsResponse_jobs' - A list of job definitions.
+--
+-- 'jobsNotFound', 'batchGetJobsResponse_jobsNotFound' - A list of names of jobs not found.
 --
 -- 'httpStatus', 'batchGetJobsResponse_httpStatus' - The response's http status code.
 newBatchGetJobsResponse ::
@@ -151,19 +151,18 @@ newBatchGetJobsResponse ::
   BatchGetJobsResponse
 newBatchGetJobsResponse pHttpStatus_ =
   BatchGetJobsResponse'
-    { jobsNotFound =
-        Prelude.Nothing,
-      jobs = Prelude.Nothing,
+    { jobs = Prelude.Nothing,
+      jobsNotFound = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A list of names of jobs not found.
-batchGetJobsResponse_jobsNotFound :: Lens.Lens' BatchGetJobsResponse (Prelude.Maybe [Prelude.Text])
-batchGetJobsResponse_jobsNotFound = Lens.lens (\BatchGetJobsResponse' {jobsNotFound} -> jobsNotFound) (\s@BatchGetJobsResponse' {} a -> s {jobsNotFound = a} :: BatchGetJobsResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A list of job definitions.
 batchGetJobsResponse_jobs :: Lens.Lens' BatchGetJobsResponse (Prelude.Maybe [Job])
-batchGetJobsResponse_jobs = Lens.lens (\BatchGetJobsResponse' {jobs} -> jobs) (\s@BatchGetJobsResponse' {} a -> s {jobs = a} :: BatchGetJobsResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetJobsResponse_jobs = Lens.lens (\BatchGetJobsResponse' {jobs} -> jobs) (\s@BatchGetJobsResponse' {} a -> s {jobs = a} :: BatchGetJobsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of names of jobs not found.
+batchGetJobsResponse_jobsNotFound :: Lens.Lens' BatchGetJobsResponse (Prelude.Maybe [Prelude.Text])
+batchGetJobsResponse_jobsNotFound = Lens.lens (\BatchGetJobsResponse' {jobsNotFound} -> jobsNotFound) (\s@BatchGetJobsResponse' {} a -> s {jobsNotFound = a} :: BatchGetJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetJobsResponse_httpStatus :: Lens.Lens' BatchGetJobsResponse Prelude.Int

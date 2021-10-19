@@ -38,8 +38,8 @@ module Network.AWS.Glue.ResumeWorkflowRun
     newResumeWorkflowRunResponse,
 
     -- * Response Lenses
-    resumeWorkflowRunResponse_runId,
     resumeWorkflowRunResponse_nodeIds,
+    resumeWorkflowRunResponse_runId,
     resumeWorkflowRunResponse_httpStatus,
   )
 where
@@ -101,7 +101,7 @@ resumeWorkflowRun_runId = Lens.lens (\ResumeWorkflowRun' {runId} -> runId) (\s@R
 -- | A list of the node IDs for the nodes you want to restart. The nodes that
 -- are to be restarted must have a run attempt in the original run.
 resumeWorkflowRun_nodeIds :: Lens.Lens' ResumeWorkflowRun [Prelude.Text]
-resumeWorkflowRun_nodeIds = Lens.lens (\ResumeWorkflowRun' {nodeIds} -> nodeIds) (\s@ResumeWorkflowRun' {} a -> s {nodeIds = a} :: ResumeWorkflowRun) Prelude.. Lens._Coerce
+resumeWorkflowRun_nodeIds = Lens.lens (\ResumeWorkflowRun' {nodeIds} -> nodeIds) (\s@ResumeWorkflowRun' {} a -> s {nodeIds = a} :: ResumeWorkflowRun) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ResumeWorkflowRun where
   type
@@ -112,8 +112,8 @@ instance Core.AWSRequest ResumeWorkflowRun where
     Response.receiveJSON
       ( \s h x ->
           ResumeWorkflowRunResponse'
-            Prelude.<$> (x Core..?> "RunId")
-            Prelude.<*> (x Core..?> "NodeIds" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "NodeIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "RunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,11 +152,11 @@ instance Core.ToQuery ResumeWorkflowRun where
 
 -- | /See:/ 'newResumeWorkflowRunResponse' smart constructor.
 data ResumeWorkflowRunResponse = ResumeWorkflowRunResponse'
-  { -- | The new ID assigned to the resumed workflow run. Each resume of a
+  { -- | A list of the node IDs for the nodes that were actually restarted.
+    nodeIds :: Prelude.Maybe [Prelude.Text],
+    -- | The new ID assigned to the resumed workflow run. Each resume of a
     -- workflow run will have a new run ID.
     runId :: Prelude.Maybe Prelude.Text,
-    -- | A list of the node IDs for the nodes that were actually restarted.
-    nodeIds :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,10 +170,10 @@ data ResumeWorkflowRunResponse = ResumeWorkflowRunResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nodeIds', 'resumeWorkflowRunResponse_nodeIds' - A list of the node IDs for the nodes that were actually restarted.
+--
 -- 'runId', 'resumeWorkflowRunResponse_runId' - The new ID assigned to the resumed workflow run. Each resume of a
 -- workflow run will have a new run ID.
---
--- 'nodeIds', 'resumeWorkflowRunResponse_nodeIds' - A list of the node IDs for the nodes that were actually restarted.
 --
 -- 'httpStatus', 'resumeWorkflowRunResponse_httpStatus' - The response's http status code.
 newResumeWorkflowRunResponse ::
@@ -182,19 +182,20 @@ newResumeWorkflowRunResponse ::
   ResumeWorkflowRunResponse
 newResumeWorkflowRunResponse pHttpStatus_ =
   ResumeWorkflowRunResponse'
-    { runId = Prelude.Nothing,
-      nodeIds = Prelude.Nothing,
+    { nodeIds =
+        Prelude.Nothing,
+      runId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of the node IDs for the nodes that were actually restarted.
+resumeWorkflowRunResponse_nodeIds :: Lens.Lens' ResumeWorkflowRunResponse (Prelude.Maybe [Prelude.Text])
+resumeWorkflowRunResponse_nodeIds = Lens.lens (\ResumeWorkflowRunResponse' {nodeIds} -> nodeIds) (\s@ResumeWorkflowRunResponse' {} a -> s {nodeIds = a} :: ResumeWorkflowRunResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The new ID assigned to the resumed workflow run. Each resume of a
 -- workflow run will have a new run ID.
 resumeWorkflowRunResponse_runId :: Lens.Lens' ResumeWorkflowRunResponse (Prelude.Maybe Prelude.Text)
 resumeWorkflowRunResponse_runId = Lens.lens (\ResumeWorkflowRunResponse' {runId} -> runId) (\s@ResumeWorkflowRunResponse' {} a -> s {runId = a} :: ResumeWorkflowRunResponse)
-
--- | A list of the node IDs for the nodes that were actually restarted.
-resumeWorkflowRunResponse_nodeIds :: Lens.Lens' ResumeWorkflowRunResponse (Prelude.Maybe [Prelude.Text])
-resumeWorkflowRunResponse_nodeIds = Lens.lens (\ResumeWorkflowRunResponse' {nodeIds} -> nodeIds) (\s@ResumeWorkflowRunResponse' {} a -> s {nodeIds = a} :: ResumeWorkflowRunResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 resumeWorkflowRunResponse_httpStatus :: Lens.Lens' ResumeWorkflowRunResponse Prelude.Int

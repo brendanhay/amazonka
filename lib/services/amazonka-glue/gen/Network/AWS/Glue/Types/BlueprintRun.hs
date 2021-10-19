@@ -28,17 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBlueprintRun' smart constructor.
 data BlueprintRun = BlueprintRun'
-  { -- | The run ID for this blueprint run.
-    runId :: Prelude.Maybe Prelude.Text,
-    -- | The name of a workflow that is created as a result of a successful
+  { -- | The name of a workflow that is created as a result of a successful
     -- blueprint run. If a blueprint run has an error, there will not be a
     -- workflow created.
     workflowName :: Prelude.Maybe Prelude.Text,
-    -- | The role ARN. This role will be assumed by the Glue service and will be
-    -- used to create the workflow and other entities of a workflow.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the blueprint.
-    blueprintName :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the blueprint run completed.
+    completedOn :: Prelude.Maybe Core.POSIX,
     -- | The state of the blueprint run. Possible values are:
     --
     -- -   Running — The blueprint run is in progress.
@@ -49,21 +44,26 @@ data BlueprintRun = BlueprintRun'
     --
     -- -   Rolling Back — The blueprint run failed and rollback is in progress.
     state :: Prelude.Maybe BlueprintRunState,
-    -- | The date and time that the blueprint run completed.
-    completedOn :: Prelude.Maybe Core.POSIX,
-    -- | Indicates any errors that are seen while running the blueprint.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the blueprint run started.
-    startedOn :: Prelude.Maybe Core.POSIX,
     -- | If there are any errors while creating the entities of a workflow, we
     -- try to roll back the created entities until that point and delete them.
     -- This attribute indicates the errors seen while trying to delete the
     -- entities that are created.
     rollbackErrorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the blueprint run started.
+    startedOn :: Prelude.Maybe Core.POSIX,
+    -- | The run ID for this blueprint run.
+    runId :: Prelude.Maybe Prelude.Text,
     -- | The blueprint parameters as a string. You will have to provide a value
     -- for each key that is required from the parameter spec that is defined in
     -- the @Blueprint$ParameterSpec@.
-    parameters :: Prelude.Maybe Prelude.Text
+    parameters :: Prelude.Maybe Prelude.Text,
+    -- | The name of the blueprint.
+    blueprintName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates any errors that are seen while running the blueprint.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The role ARN. This role will be assumed by the Glue service and will be
+    -- used to create the workflow and other entities of a workflow.
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,16 +75,11 @@ data BlueprintRun = BlueprintRun'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'runId', 'blueprintRun_runId' - The run ID for this blueprint run.
---
 -- 'workflowName', 'blueprintRun_workflowName' - The name of a workflow that is created as a result of a successful
 -- blueprint run. If a blueprint run has an error, there will not be a
 -- workflow created.
 --
--- 'roleArn', 'blueprintRun_roleArn' - The role ARN. This role will be assumed by the Glue service and will be
--- used to create the workflow and other entities of a workflow.
---
--- 'blueprintName', 'blueprintRun_blueprintName' - The name of the blueprint.
+-- 'completedOn', 'blueprintRun_completedOn' - The date and time that the blueprint run completed.
 --
 -- 'state', 'blueprintRun_state' - The state of the blueprint run. Possible values are:
 --
@@ -96,39 +91,40 @@ data BlueprintRun = BlueprintRun'
 --
 -- -   Rolling Back — The blueprint run failed and rollback is in progress.
 --
--- 'completedOn', 'blueprintRun_completedOn' - The date and time that the blueprint run completed.
---
--- 'errorMessage', 'blueprintRun_errorMessage' - Indicates any errors that are seen while running the blueprint.
---
--- 'startedOn', 'blueprintRun_startedOn' - The date and time that the blueprint run started.
---
 -- 'rollbackErrorMessage', 'blueprintRun_rollbackErrorMessage' - If there are any errors while creating the entities of a workflow, we
 -- try to roll back the created entities until that point and delete them.
 -- This attribute indicates the errors seen while trying to delete the
 -- entities that are created.
 --
+-- 'startedOn', 'blueprintRun_startedOn' - The date and time that the blueprint run started.
+--
+-- 'runId', 'blueprintRun_runId' - The run ID for this blueprint run.
+--
 -- 'parameters', 'blueprintRun_parameters' - The blueprint parameters as a string. You will have to provide a value
 -- for each key that is required from the parameter spec that is defined in
 -- the @Blueprint$ParameterSpec@.
+--
+-- 'blueprintName', 'blueprintRun_blueprintName' - The name of the blueprint.
+--
+-- 'errorMessage', 'blueprintRun_errorMessage' - Indicates any errors that are seen while running the blueprint.
+--
+-- 'roleArn', 'blueprintRun_roleArn' - The role ARN. This role will be assumed by the Glue service and will be
+-- used to create the workflow and other entities of a workflow.
 newBlueprintRun ::
   BlueprintRun
 newBlueprintRun =
   BlueprintRun'
-    { runId = Prelude.Nothing,
-      workflowName = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      blueprintName = Prelude.Nothing,
-      state = Prelude.Nothing,
+    { workflowName = Prelude.Nothing,
       completedOn = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      startedOn = Prelude.Nothing,
+      state = Prelude.Nothing,
       rollbackErrorMessage = Prelude.Nothing,
-      parameters = Prelude.Nothing
+      startedOn = Prelude.Nothing,
+      runId = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      blueprintName = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      roleArn = Prelude.Nothing
     }
-
--- | The run ID for this blueprint run.
-blueprintRun_runId :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.Text)
-blueprintRun_runId = Lens.lens (\BlueprintRun' {runId} -> runId) (\s@BlueprintRun' {} a -> s {runId = a} :: BlueprintRun)
 
 -- | The name of a workflow that is created as a result of a successful
 -- blueprint run. If a blueprint run has an error, there will not be a
@@ -136,14 +132,9 @@ blueprintRun_runId = Lens.lens (\BlueprintRun' {runId} -> runId) (\s@BlueprintRu
 blueprintRun_workflowName :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.Text)
 blueprintRun_workflowName = Lens.lens (\BlueprintRun' {workflowName} -> workflowName) (\s@BlueprintRun' {} a -> s {workflowName = a} :: BlueprintRun)
 
--- | The role ARN. This role will be assumed by the Glue service and will be
--- used to create the workflow and other entities of a workflow.
-blueprintRun_roleArn :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.Text)
-blueprintRun_roleArn = Lens.lens (\BlueprintRun' {roleArn} -> roleArn) (\s@BlueprintRun' {} a -> s {roleArn = a} :: BlueprintRun)
-
--- | The name of the blueprint.
-blueprintRun_blueprintName :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.Text)
-blueprintRun_blueprintName = Lens.lens (\BlueprintRun' {blueprintName} -> blueprintName) (\s@BlueprintRun' {} a -> s {blueprintName = a} :: BlueprintRun)
+-- | The date and time that the blueprint run completed.
+blueprintRun_completedOn :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.UTCTime)
+blueprintRun_completedOn = Lens.lens (\BlueprintRun' {completedOn} -> completedOn) (\s@BlueprintRun' {} a -> s {completedOn = a} :: BlueprintRun) Prelude.. Lens.mapping Core._Time
 
 -- | The state of the blueprint run. Possible values are:
 --
@@ -157,18 +148,6 @@ blueprintRun_blueprintName = Lens.lens (\BlueprintRun' {blueprintName} -> bluepr
 blueprintRun_state :: Lens.Lens' BlueprintRun (Prelude.Maybe BlueprintRunState)
 blueprintRun_state = Lens.lens (\BlueprintRun' {state} -> state) (\s@BlueprintRun' {} a -> s {state = a} :: BlueprintRun)
 
--- | The date and time that the blueprint run completed.
-blueprintRun_completedOn :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.UTCTime)
-blueprintRun_completedOn = Lens.lens (\BlueprintRun' {completedOn} -> completedOn) (\s@BlueprintRun' {} a -> s {completedOn = a} :: BlueprintRun) Prelude.. Lens.mapping Core._Time
-
--- | Indicates any errors that are seen while running the blueprint.
-blueprintRun_errorMessage :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.Text)
-blueprintRun_errorMessage = Lens.lens (\BlueprintRun' {errorMessage} -> errorMessage) (\s@BlueprintRun' {} a -> s {errorMessage = a} :: BlueprintRun)
-
--- | The date and time that the blueprint run started.
-blueprintRun_startedOn :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.UTCTime)
-blueprintRun_startedOn = Lens.lens (\BlueprintRun' {startedOn} -> startedOn) (\s@BlueprintRun' {} a -> s {startedOn = a} :: BlueprintRun) Prelude.. Lens.mapping Core._Time
-
 -- | If there are any errors while creating the entities of a workflow, we
 -- try to roll back the created entities until that point and delete them.
 -- This attribute indicates the errors seen while trying to delete the
@@ -176,11 +155,32 @@ blueprintRun_startedOn = Lens.lens (\BlueprintRun' {startedOn} -> startedOn) (\s
 blueprintRun_rollbackErrorMessage :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.Text)
 blueprintRun_rollbackErrorMessage = Lens.lens (\BlueprintRun' {rollbackErrorMessage} -> rollbackErrorMessage) (\s@BlueprintRun' {} a -> s {rollbackErrorMessage = a} :: BlueprintRun)
 
+-- | The date and time that the blueprint run started.
+blueprintRun_startedOn :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.UTCTime)
+blueprintRun_startedOn = Lens.lens (\BlueprintRun' {startedOn} -> startedOn) (\s@BlueprintRun' {} a -> s {startedOn = a} :: BlueprintRun) Prelude.. Lens.mapping Core._Time
+
+-- | The run ID for this blueprint run.
+blueprintRun_runId :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.Text)
+blueprintRun_runId = Lens.lens (\BlueprintRun' {runId} -> runId) (\s@BlueprintRun' {} a -> s {runId = a} :: BlueprintRun)
+
 -- | The blueprint parameters as a string. You will have to provide a value
 -- for each key that is required from the parameter spec that is defined in
 -- the @Blueprint$ParameterSpec@.
 blueprintRun_parameters :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.Text)
 blueprintRun_parameters = Lens.lens (\BlueprintRun' {parameters} -> parameters) (\s@BlueprintRun' {} a -> s {parameters = a} :: BlueprintRun)
+
+-- | The name of the blueprint.
+blueprintRun_blueprintName :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.Text)
+blueprintRun_blueprintName = Lens.lens (\BlueprintRun' {blueprintName} -> blueprintName) (\s@BlueprintRun' {} a -> s {blueprintName = a} :: BlueprintRun)
+
+-- | Indicates any errors that are seen while running the blueprint.
+blueprintRun_errorMessage :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.Text)
+blueprintRun_errorMessage = Lens.lens (\BlueprintRun' {errorMessage} -> errorMessage) (\s@BlueprintRun' {} a -> s {errorMessage = a} :: BlueprintRun)
+
+-- | The role ARN. This role will be assumed by the Glue service and will be
+-- used to create the workflow and other entities of a workflow.
+blueprintRun_roleArn :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.Text)
+blueprintRun_roleArn = Lens.lens (\BlueprintRun' {roleArn} -> roleArn) (\s@BlueprintRun' {} a -> s {roleArn = a} :: BlueprintRun)
 
 instance Core.FromJSON BlueprintRun where
   parseJSON =
@@ -188,16 +188,16 @@ instance Core.FromJSON BlueprintRun where
       "BlueprintRun"
       ( \x ->
           BlueprintRun'
-            Prelude.<$> (x Core..:? "RunId")
-            Prelude.<*> (x Core..:? "WorkflowName")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "BlueprintName")
-            Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Core..:? "WorkflowName")
             Prelude.<*> (x Core..:? "CompletedOn")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "StartedOn")
+            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "RollbackErrorMessage")
+            Prelude.<*> (x Core..:? "StartedOn")
+            Prelude.<*> (x Core..:? "RunId")
             Prelude.<*> (x Core..:? "Parameters")
+            Prelude.<*> (x Core..:? "BlueprintName")
+            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "RoleArn")
       )
 
 instance Prelude.Hashable BlueprintRun

@@ -41,14 +41,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newClassifier' smart constructor.
 data Classifier = Classifier'
-  { -- | A classifier for XML content.
+  { -- | A classifier that uses @grok@.
+    grokClassifier :: Prelude.Maybe GrokClassifier,
+    -- | A classifier for XML content.
     xMLClassifier :: Prelude.Maybe XMLClassifier,
-    -- | A classifier for JSON content.
-    jsonClassifier :: Prelude.Maybe JsonClassifier,
     -- | A classifier for comma-separated values (CSV).
     csvClassifier :: Prelude.Maybe CsvClassifier,
-    -- | A classifier that uses @grok@.
-    grokClassifier :: Prelude.Maybe GrokClassifier
+    -- | A classifier for JSON content.
+    jsonClassifier :: Prelude.Maybe JsonClassifier
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,38 +60,38 @@ data Classifier = Classifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'xMLClassifier', 'classifier_xMLClassifier' - A classifier for XML content.
+-- 'grokClassifier', 'classifier_grokClassifier' - A classifier that uses @grok@.
 --
--- 'jsonClassifier', 'classifier_jsonClassifier' - A classifier for JSON content.
+-- 'xMLClassifier', 'classifier_xMLClassifier' - A classifier for XML content.
 --
 -- 'csvClassifier', 'classifier_csvClassifier' - A classifier for comma-separated values (CSV).
 --
--- 'grokClassifier', 'classifier_grokClassifier' - A classifier that uses @grok@.
+-- 'jsonClassifier', 'classifier_jsonClassifier' - A classifier for JSON content.
 newClassifier ::
   Classifier
 newClassifier =
   Classifier'
-    { xMLClassifier = Prelude.Nothing,
-      jsonClassifier = Prelude.Nothing,
+    { grokClassifier = Prelude.Nothing,
+      xMLClassifier = Prelude.Nothing,
       csvClassifier = Prelude.Nothing,
-      grokClassifier = Prelude.Nothing
+      jsonClassifier = Prelude.Nothing
     }
+
+-- | A classifier that uses @grok@.
+classifier_grokClassifier :: Lens.Lens' Classifier (Prelude.Maybe GrokClassifier)
+classifier_grokClassifier = Lens.lens (\Classifier' {grokClassifier} -> grokClassifier) (\s@Classifier' {} a -> s {grokClassifier = a} :: Classifier)
 
 -- | A classifier for XML content.
 classifier_xMLClassifier :: Lens.Lens' Classifier (Prelude.Maybe XMLClassifier)
 classifier_xMLClassifier = Lens.lens (\Classifier' {xMLClassifier} -> xMLClassifier) (\s@Classifier' {} a -> s {xMLClassifier = a} :: Classifier)
 
--- | A classifier for JSON content.
-classifier_jsonClassifier :: Lens.Lens' Classifier (Prelude.Maybe JsonClassifier)
-classifier_jsonClassifier = Lens.lens (\Classifier' {jsonClassifier} -> jsonClassifier) (\s@Classifier' {} a -> s {jsonClassifier = a} :: Classifier)
-
 -- | A classifier for comma-separated values (CSV).
 classifier_csvClassifier :: Lens.Lens' Classifier (Prelude.Maybe CsvClassifier)
 classifier_csvClassifier = Lens.lens (\Classifier' {csvClassifier} -> csvClassifier) (\s@Classifier' {} a -> s {csvClassifier = a} :: Classifier)
 
--- | A classifier that uses @grok@.
-classifier_grokClassifier :: Lens.Lens' Classifier (Prelude.Maybe GrokClassifier)
-classifier_grokClassifier = Lens.lens (\Classifier' {grokClassifier} -> grokClassifier) (\s@Classifier' {} a -> s {grokClassifier = a} :: Classifier)
+-- | A classifier for JSON content.
+classifier_jsonClassifier :: Lens.Lens' Classifier (Prelude.Maybe JsonClassifier)
+classifier_jsonClassifier = Lens.lens (\Classifier' {jsonClassifier} -> jsonClassifier) (\s@Classifier' {} a -> s {jsonClassifier = a} :: Classifier)
 
 instance Core.FromJSON Classifier where
   parseJSON =
@@ -99,10 +99,10 @@ instance Core.FromJSON Classifier where
       "Classifier"
       ( \x ->
           Classifier'
-            Prelude.<$> (x Core..:? "XMLClassifier")
-            Prelude.<*> (x Core..:? "JsonClassifier")
+            Prelude.<$> (x Core..:? "GrokClassifier")
+            Prelude.<*> (x Core..:? "XMLClassifier")
             Prelude.<*> (x Core..:? "CsvClassifier")
-            Prelude.<*> (x Core..:? "GrokClassifier")
+            Prelude.<*> (x Core..:? "JsonClassifier")
       )
 
 instance Prelude.Hashable Classifier

@@ -33,17 +33,16 @@ import qualified Network.AWS.Prelude as Prelude
 data Voice = Voice'
   { -- | Language code of the voice.
     languageCode :: Prelude.Maybe LanguageCode,
-    -- | Amazon Polly assigned voice ID. This is the ID that you specify when
-    -- calling the @SynthesizeSpeech@ operation.
-    id :: Prelude.Maybe VoiceId,
+    -- | Human readable name of the language in English.
+    languageName :: Prelude.Maybe Prelude.Text,
+    -- | Gender of the voice.
+    gender :: Prelude.Maybe Gender,
     -- | Name of the voice (for example, Salli, Kendra, etc.). This provides a
     -- human readable voice name that you might display in your application.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Gender of the voice.
-    gender :: Prelude.Maybe Gender,
-    -- | Specifies which engines (@standard@ or @neural@) that are supported by a
-    -- given voice.
-    supportedEngines :: Prelude.Maybe [Engine],
+    -- | Amazon Polly assigned voice ID. This is the ID that you specify when
+    -- calling the @SynthesizeSpeech@ operation.
+    id :: Prelude.Maybe VoiceId,
     -- | Additional codes for languages available for the specified voice in
     -- addition to its default language.
     --
@@ -52,8 +51,9 @@ data Voice = Voice'
     -- and fluent in both Indian English and Hindi, this parameter would show
     -- the code @hi-IN@.
     additionalLanguageCodes :: Prelude.Maybe [LanguageCode],
-    -- | Human readable name of the language in English.
-    languageName :: Prelude.Maybe Prelude.Text
+    -- | Specifies which engines (@standard@ or @neural@) that are supported by a
+    -- given voice.
+    supportedEngines :: Prelude.Maybe [Engine]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,16 +67,15 @@ data Voice = Voice'
 --
 -- 'languageCode', 'voice_languageCode' - Language code of the voice.
 --
--- 'id', 'voice_id' - Amazon Polly assigned voice ID. This is the ID that you specify when
--- calling the @SynthesizeSpeech@ operation.
+-- 'languageName', 'voice_languageName' - Human readable name of the language in English.
+--
+-- 'gender', 'voice_gender' - Gender of the voice.
 --
 -- 'name', 'voice_name' - Name of the voice (for example, Salli, Kendra, etc.). This provides a
 -- human readable voice name that you might display in your application.
 --
--- 'gender', 'voice_gender' - Gender of the voice.
---
--- 'supportedEngines', 'voice_supportedEngines' - Specifies which engines (@standard@ or @neural@) that are supported by a
--- given voice.
+-- 'id', 'voice_id' - Amazon Polly assigned voice ID. This is the ID that you specify when
+-- calling the @SynthesizeSpeech@ operation.
 --
 -- 'additionalLanguageCodes', 'voice_additionalLanguageCodes' - Additional codes for languages available for the specified voice in
 -- addition to its default language.
@@ -86,42 +85,42 @@ data Voice = Voice'
 -- and fluent in both Indian English and Hindi, this parameter would show
 -- the code @hi-IN@.
 --
--- 'languageName', 'voice_languageName' - Human readable name of the language in English.
+-- 'supportedEngines', 'voice_supportedEngines' - Specifies which engines (@standard@ or @neural@) that are supported by a
+-- given voice.
 newVoice ::
   Voice
 newVoice =
   Voice'
     { languageCode = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing,
+      languageName = Prelude.Nothing,
       gender = Prelude.Nothing,
-      supportedEngines = Prelude.Nothing,
+      name = Prelude.Nothing,
+      id = Prelude.Nothing,
       additionalLanguageCodes = Prelude.Nothing,
-      languageName = Prelude.Nothing
+      supportedEngines = Prelude.Nothing
     }
 
 -- | Language code of the voice.
 voice_languageCode :: Lens.Lens' Voice (Prelude.Maybe LanguageCode)
 voice_languageCode = Lens.lens (\Voice' {languageCode} -> languageCode) (\s@Voice' {} a -> s {languageCode = a} :: Voice)
 
--- | Amazon Polly assigned voice ID. This is the ID that you specify when
--- calling the @SynthesizeSpeech@ operation.
-voice_id :: Lens.Lens' Voice (Prelude.Maybe VoiceId)
-voice_id = Lens.lens (\Voice' {id} -> id) (\s@Voice' {} a -> s {id = a} :: Voice)
+-- | Human readable name of the language in English.
+voice_languageName :: Lens.Lens' Voice (Prelude.Maybe Prelude.Text)
+voice_languageName = Lens.lens (\Voice' {languageName} -> languageName) (\s@Voice' {} a -> s {languageName = a} :: Voice)
+
+-- | Gender of the voice.
+voice_gender :: Lens.Lens' Voice (Prelude.Maybe Gender)
+voice_gender = Lens.lens (\Voice' {gender} -> gender) (\s@Voice' {} a -> s {gender = a} :: Voice)
 
 -- | Name of the voice (for example, Salli, Kendra, etc.). This provides a
 -- human readable voice name that you might display in your application.
 voice_name :: Lens.Lens' Voice (Prelude.Maybe Prelude.Text)
 voice_name = Lens.lens (\Voice' {name} -> name) (\s@Voice' {} a -> s {name = a} :: Voice)
 
--- | Gender of the voice.
-voice_gender :: Lens.Lens' Voice (Prelude.Maybe Gender)
-voice_gender = Lens.lens (\Voice' {gender} -> gender) (\s@Voice' {} a -> s {gender = a} :: Voice)
-
--- | Specifies which engines (@standard@ or @neural@) that are supported by a
--- given voice.
-voice_supportedEngines :: Lens.Lens' Voice (Prelude.Maybe [Engine])
-voice_supportedEngines = Lens.lens (\Voice' {supportedEngines} -> supportedEngines) (\s@Voice' {} a -> s {supportedEngines = a} :: Voice) Prelude.. Lens.mapping Lens._Coerce
+-- | Amazon Polly assigned voice ID. This is the ID that you specify when
+-- calling the @SynthesizeSpeech@ operation.
+voice_id :: Lens.Lens' Voice (Prelude.Maybe VoiceId)
+voice_id = Lens.lens (\Voice' {id} -> id) (\s@Voice' {} a -> s {id = a} :: Voice)
 
 -- | Additional codes for languages available for the specified voice in
 -- addition to its default language.
@@ -131,11 +130,12 @@ voice_supportedEngines = Lens.lens (\Voice' {supportedEngines} -> supportedEngin
 -- and fluent in both Indian English and Hindi, this parameter would show
 -- the code @hi-IN@.
 voice_additionalLanguageCodes :: Lens.Lens' Voice (Prelude.Maybe [LanguageCode])
-voice_additionalLanguageCodes = Lens.lens (\Voice' {additionalLanguageCodes} -> additionalLanguageCodes) (\s@Voice' {} a -> s {additionalLanguageCodes = a} :: Voice) Prelude.. Lens.mapping Lens._Coerce
+voice_additionalLanguageCodes = Lens.lens (\Voice' {additionalLanguageCodes} -> additionalLanguageCodes) (\s@Voice' {} a -> s {additionalLanguageCodes = a} :: Voice) Prelude.. Lens.mapping Lens.coerced
 
--- | Human readable name of the language in English.
-voice_languageName :: Lens.Lens' Voice (Prelude.Maybe Prelude.Text)
-voice_languageName = Lens.lens (\Voice' {languageName} -> languageName) (\s@Voice' {} a -> s {languageName = a} :: Voice)
+-- | Specifies which engines (@standard@ or @neural@) that are supported by a
+-- given voice.
+voice_supportedEngines :: Lens.Lens' Voice (Prelude.Maybe [Engine])
+voice_supportedEngines = Lens.lens (\Voice' {supportedEngines} -> supportedEngines) (\s@Voice' {} a -> s {supportedEngines = a} :: Voice) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Voice where
   parseJSON =
@@ -144,16 +144,16 @@ instance Core.FromJSON Voice where
       ( \x ->
           Voice'
             Prelude.<$> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "LanguageName")
             Prelude.<*> (x Core..:? "Gender")
-            Prelude.<*> ( x Core..:? "SupportedEngines"
-                            Core..!= Prelude.mempty
-                        )
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> ( x Core..:? "AdditionalLanguageCodes"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LanguageName")
+            Prelude.<*> ( x Core..:? "SupportedEngines"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable Voice

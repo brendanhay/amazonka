@@ -36,13 +36,13 @@ module Network.AWS.Polly.StartSpeechSynthesisTask
 
     -- * Request Lenses
     startSpeechSynthesisTask_languageCode,
-    startSpeechSynthesisTask_lexiconNames,
-    startSpeechSynthesisTask_speechMarkTypes,
-    startSpeechSynthesisTask_textType,
-    startSpeechSynthesisTask_sampleRate,
-    startSpeechSynthesisTask_engine,
-    startSpeechSynthesisTask_outputS3KeyPrefix,
     startSpeechSynthesisTask_snsTopicArn,
+    startSpeechSynthesisTask_outputS3KeyPrefix,
+    startSpeechSynthesisTask_engine,
+    startSpeechSynthesisTask_speechMarkTypes,
+    startSpeechSynthesisTask_sampleRate,
+    startSpeechSynthesisTask_textType,
+    startSpeechSynthesisTask_lexiconNames,
     startSpeechSynthesisTask_outputFormat,
     startSpeechSynthesisTask_outputS3BucketName,
     startSpeechSynthesisTask_text,
@@ -78,15 +78,17 @@ data StartSpeechSynthesisTask = StartSpeechSynthesisTask'
     -- operation for the @LanguageCode@ parameter. For example, if no language
     -- code is specified, Aditi will use Indian English rather than Hindi.
     languageCode :: Prelude.Maybe LanguageCode,
-    -- | List of one or more pronunciation lexicon names you want the service to
-    -- apply during synthesis. Lexicons are applied only if the language of the
-    -- lexicon is the same as the language of the voice.
-    lexiconNames :: Prelude.Maybe [Prelude.Text],
+    -- | ARN for the SNS topic optionally used for providing status notification
+    -- for a speech synthesis task.
+    snsTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 key prefix for the output speech file.
+    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the engine (@standard@ or @neural@) for Amazon Polly to use
+    -- when processing input text for speech synthesis. Using a voice that is
+    -- not supported for the engine selected will result in an error.
+    engine :: Prelude.Maybe Engine,
     -- | The type of speech marks returned for the input text.
     speechMarkTypes :: Prelude.Maybe [SpeechMarkType],
-    -- | Specifies whether the input text is plain text or SSML. The default
-    -- value is plain text.
-    textType :: Prelude.Maybe TextType,
     -- | The audio frequency specified in Hz.
     --
     -- The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\",
@@ -96,15 +98,13 @@ data StartSpeechSynthesisTask = StartSpeechSynthesisTask'
     -- Valid values for pcm are \"8000\" and \"16000\" The default value is
     -- \"16000\".
     sampleRate :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the engine (@standard@ or @neural@) for Amazon Polly to use
-    -- when processing input text for speech synthesis. Using a voice that is
-    -- not supported for the engine selected will result in an error.
-    engine :: Prelude.Maybe Engine,
-    -- | The Amazon S3 key prefix for the output speech file.
-    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | ARN for the SNS topic optionally used for providing status notification
-    -- for a speech synthesis task.
-    snsTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the input text is plain text or SSML. The default
+    -- value is plain text.
+    textType :: Prelude.Maybe TextType,
+    -- | List of one or more pronunciation lexicon names you want the service to
+    -- apply during synthesis. Lexicons are applied only if the language of the
+    -- lexicon is the same as the language of the voice.
+    lexiconNames :: Prelude.Maybe [Prelude.Text],
     -- | The format in which the returned output will be encoded. For audio
     -- stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
     -- will be json.
@@ -138,14 +138,16 @@ data StartSpeechSynthesisTask = StartSpeechSynthesisTask'
 -- operation for the @LanguageCode@ parameter. For example, if no language
 -- code is specified, Aditi will use Indian English rather than Hindi.
 --
--- 'lexiconNames', 'startSpeechSynthesisTask_lexiconNames' - List of one or more pronunciation lexicon names you want the service to
--- apply during synthesis. Lexicons are applied only if the language of the
--- lexicon is the same as the language of the voice.
+-- 'snsTopicArn', 'startSpeechSynthesisTask_snsTopicArn' - ARN for the SNS topic optionally used for providing status notification
+-- for a speech synthesis task.
+--
+-- 'outputS3KeyPrefix', 'startSpeechSynthesisTask_outputS3KeyPrefix' - The Amazon S3 key prefix for the output speech file.
+--
+-- 'engine', 'startSpeechSynthesisTask_engine' - Specifies the engine (@standard@ or @neural@) for Amazon Polly to use
+-- when processing input text for speech synthesis. Using a voice that is
+-- not supported for the engine selected will result in an error.
 --
 -- 'speechMarkTypes', 'startSpeechSynthesisTask_speechMarkTypes' - The type of speech marks returned for the input text.
---
--- 'textType', 'startSpeechSynthesisTask_textType' - Specifies whether the input text is plain text or SSML. The default
--- value is plain text.
 --
 -- 'sampleRate', 'startSpeechSynthesisTask_sampleRate' - The audio frequency specified in Hz.
 --
@@ -156,14 +158,12 @@ data StartSpeechSynthesisTask = StartSpeechSynthesisTask'
 -- Valid values for pcm are \"8000\" and \"16000\" The default value is
 -- \"16000\".
 --
--- 'engine', 'startSpeechSynthesisTask_engine' - Specifies the engine (@standard@ or @neural@) for Amazon Polly to use
--- when processing input text for speech synthesis. Using a voice that is
--- not supported for the engine selected will result in an error.
+-- 'textType', 'startSpeechSynthesisTask_textType' - Specifies whether the input text is plain text or SSML. The default
+-- value is plain text.
 --
--- 'outputS3KeyPrefix', 'startSpeechSynthesisTask_outputS3KeyPrefix' - The Amazon S3 key prefix for the output speech file.
---
--- 'snsTopicArn', 'startSpeechSynthesisTask_snsTopicArn' - ARN for the SNS topic optionally used for providing status notification
--- for a speech synthesis task.
+-- 'lexiconNames', 'startSpeechSynthesisTask_lexiconNames' - List of one or more pronunciation lexicon names you want the service to
+-- apply during synthesis. Lexicons are applied only if the language of the
+-- lexicon is the same as the language of the voice.
 --
 -- 'outputFormat', 'startSpeechSynthesisTask_outputFormat' - The format in which the returned output will be encoded. For audio
 -- stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
@@ -193,13 +193,13 @@ newStartSpeechSynthesisTask
     StartSpeechSynthesisTask'
       { languageCode =
           Prelude.Nothing,
-        lexiconNames = Prelude.Nothing,
-        speechMarkTypes = Prelude.Nothing,
-        textType = Prelude.Nothing,
-        sampleRate = Prelude.Nothing,
-        engine = Prelude.Nothing,
-        outputS3KeyPrefix = Prelude.Nothing,
         snsTopicArn = Prelude.Nothing,
+        outputS3KeyPrefix = Prelude.Nothing,
+        engine = Prelude.Nothing,
+        speechMarkTypes = Prelude.Nothing,
+        sampleRate = Prelude.Nothing,
+        textType = Prelude.Nothing,
+        lexiconNames = Prelude.Nothing,
         outputFormat = pOutputFormat_,
         outputS3BucketName = pOutputS3BucketName_,
         text = pText_,
@@ -219,20 +219,24 @@ newStartSpeechSynthesisTask
 startSpeechSynthesisTask_languageCode :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe LanguageCode)
 startSpeechSynthesisTask_languageCode = Lens.lens (\StartSpeechSynthesisTask' {languageCode} -> languageCode) (\s@StartSpeechSynthesisTask' {} a -> s {languageCode = a} :: StartSpeechSynthesisTask)
 
--- | List of one or more pronunciation lexicon names you want the service to
--- apply during synthesis. Lexicons are applied only if the language of the
--- lexicon is the same as the language of the voice.
-startSpeechSynthesisTask_lexiconNames :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe [Prelude.Text])
-startSpeechSynthesisTask_lexiconNames = Lens.lens (\StartSpeechSynthesisTask' {lexiconNames} -> lexiconNames) (\s@StartSpeechSynthesisTask' {} a -> s {lexiconNames = a} :: StartSpeechSynthesisTask) Prelude.. Lens.mapping Lens._Coerce
+-- | ARN for the SNS topic optionally used for providing status notification
+-- for a speech synthesis task.
+startSpeechSynthesisTask_snsTopicArn :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe Prelude.Text)
+startSpeechSynthesisTask_snsTopicArn = Lens.lens (\StartSpeechSynthesisTask' {snsTopicArn} -> snsTopicArn) (\s@StartSpeechSynthesisTask' {} a -> s {snsTopicArn = a} :: StartSpeechSynthesisTask)
+
+-- | The Amazon S3 key prefix for the output speech file.
+startSpeechSynthesisTask_outputS3KeyPrefix :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe Prelude.Text)
+startSpeechSynthesisTask_outputS3KeyPrefix = Lens.lens (\StartSpeechSynthesisTask' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@StartSpeechSynthesisTask' {} a -> s {outputS3KeyPrefix = a} :: StartSpeechSynthesisTask)
+
+-- | Specifies the engine (@standard@ or @neural@) for Amazon Polly to use
+-- when processing input text for speech synthesis. Using a voice that is
+-- not supported for the engine selected will result in an error.
+startSpeechSynthesisTask_engine :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe Engine)
+startSpeechSynthesisTask_engine = Lens.lens (\StartSpeechSynthesisTask' {engine} -> engine) (\s@StartSpeechSynthesisTask' {} a -> s {engine = a} :: StartSpeechSynthesisTask)
 
 -- | The type of speech marks returned for the input text.
 startSpeechSynthesisTask_speechMarkTypes :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe [SpeechMarkType])
-startSpeechSynthesisTask_speechMarkTypes = Lens.lens (\StartSpeechSynthesisTask' {speechMarkTypes} -> speechMarkTypes) (\s@StartSpeechSynthesisTask' {} a -> s {speechMarkTypes = a} :: StartSpeechSynthesisTask) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specifies whether the input text is plain text or SSML. The default
--- value is plain text.
-startSpeechSynthesisTask_textType :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe TextType)
-startSpeechSynthesisTask_textType = Lens.lens (\StartSpeechSynthesisTask' {textType} -> textType) (\s@StartSpeechSynthesisTask' {} a -> s {textType = a} :: StartSpeechSynthesisTask)
+startSpeechSynthesisTask_speechMarkTypes = Lens.lens (\StartSpeechSynthesisTask' {speechMarkTypes} -> speechMarkTypes) (\s@StartSpeechSynthesisTask' {} a -> s {speechMarkTypes = a} :: StartSpeechSynthesisTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The audio frequency specified in Hz.
 --
@@ -245,20 +249,16 @@ startSpeechSynthesisTask_textType = Lens.lens (\StartSpeechSynthesisTask' {textT
 startSpeechSynthesisTask_sampleRate :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe Prelude.Text)
 startSpeechSynthesisTask_sampleRate = Lens.lens (\StartSpeechSynthesisTask' {sampleRate} -> sampleRate) (\s@StartSpeechSynthesisTask' {} a -> s {sampleRate = a} :: StartSpeechSynthesisTask)
 
--- | Specifies the engine (@standard@ or @neural@) for Amazon Polly to use
--- when processing input text for speech synthesis. Using a voice that is
--- not supported for the engine selected will result in an error.
-startSpeechSynthesisTask_engine :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe Engine)
-startSpeechSynthesisTask_engine = Lens.lens (\StartSpeechSynthesisTask' {engine} -> engine) (\s@StartSpeechSynthesisTask' {} a -> s {engine = a} :: StartSpeechSynthesisTask)
+-- | Specifies whether the input text is plain text or SSML. The default
+-- value is plain text.
+startSpeechSynthesisTask_textType :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe TextType)
+startSpeechSynthesisTask_textType = Lens.lens (\StartSpeechSynthesisTask' {textType} -> textType) (\s@StartSpeechSynthesisTask' {} a -> s {textType = a} :: StartSpeechSynthesisTask)
 
--- | The Amazon S3 key prefix for the output speech file.
-startSpeechSynthesisTask_outputS3KeyPrefix :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe Prelude.Text)
-startSpeechSynthesisTask_outputS3KeyPrefix = Lens.lens (\StartSpeechSynthesisTask' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@StartSpeechSynthesisTask' {} a -> s {outputS3KeyPrefix = a} :: StartSpeechSynthesisTask)
-
--- | ARN for the SNS topic optionally used for providing status notification
--- for a speech synthesis task.
-startSpeechSynthesisTask_snsTopicArn :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe Prelude.Text)
-startSpeechSynthesisTask_snsTopicArn = Lens.lens (\StartSpeechSynthesisTask' {snsTopicArn} -> snsTopicArn) (\s@StartSpeechSynthesisTask' {} a -> s {snsTopicArn = a} :: StartSpeechSynthesisTask)
+-- | List of one or more pronunciation lexicon names you want the service to
+-- apply during synthesis. Lexicons are applied only if the language of the
+-- lexicon is the same as the language of the voice.
+startSpeechSynthesisTask_lexiconNames :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe [Prelude.Text])
+startSpeechSynthesisTask_lexiconNames = Lens.lens (\StartSpeechSynthesisTask' {lexiconNames} -> lexiconNames) (\s@StartSpeechSynthesisTask' {} a -> s {lexiconNames = a} :: StartSpeechSynthesisTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The format in which the returned output will be encoded. For audio
 -- stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
@@ -304,15 +304,15 @@ instance Core.ToJSON StartSpeechSynthesisTask where
     Core.object
       ( Prelude.catMaybes
           [ ("LanguageCode" Core..=) Prelude.<$> languageCode,
-            ("LexiconNames" Core..=) Prelude.<$> lexiconNames,
-            ("SpeechMarkTypes" Core..=)
-              Prelude.<$> speechMarkTypes,
-            ("TextType" Core..=) Prelude.<$> textType,
-            ("SampleRate" Core..=) Prelude.<$> sampleRate,
-            ("Engine" Core..=) Prelude.<$> engine,
+            ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
             ("OutputS3KeyPrefix" Core..=)
               Prelude.<$> outputS3KeyPrefix,
-            ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
+            ("Engine" Core..=) Prelude.<$> engine,
+            ("SpeechMarkTypes" Core..=)
+              Prelude.<$> speechMarkTypes,
+            ("SampleRate" Core..=) Prelude.<$> sampleRate,
+            ("TextType" Core..=) Prelude.<$> textType,
+            ("LexiconNames" Core..=) Prelude.<$> lexiconNames,
             Prelude.Just ("OutputFormat" Core..= outputFormat),
             Prelude.Just
               ("OutputS3BucketName" Core..= outputS3BucketName),

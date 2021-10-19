@@ -49,9 +49,9 @@ module Network.AWS.Polly.DescribeVoices
 
     -- * Request Lenses
     describeVoices_languageCode,
+    describeVoices_engine,
     describeVoices_nextToken,
     describeVoices_includeAdditionalLanguageCodes,
-    describeVoices_engine,
 
     -- * Destructuring the Response
     DescribeVoicesResponse (..),
@@ -78,6 +78,9 @@ data DescribeVoices = DescribeVoices'
     -- don\'t specify this optional parameter, all available voices are
     -- returned.
     languageCode :: Prelude.Maybe LanguageCode,
+    -- | Specifies the engine (@standard@ or @neural@) used by Amazon Polly when
+    -- processing input text for speech synthesis.
+    engine :: Prelude.Maybe Engine,
     -- | An opaque pagination token returned from the previous @DescribeVoices@
     -- operation. If present, this indicates where to continue the listing.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -86,10 +89,7 @@ data DescribeVoices = DescribeVoices'
     -- request all languages that use US English (es-US), and there is an
     -- Italian voice that speaks both Italian (it-IT) and US English, that
     -- voice will be included if you specify @yes@ but not if you specify @no@.
-    includeAdditionalLanguageCodes :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the engine (@standard@ or @neural@) used by Amazon Polly when
-    -- processing input text for speech synthesis.
-    engine :: Prelude.Maybe Engine
+    includeAdditionalLanguageCodes :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,6 +106,9 @@ data DescribeVoices = DescribeVoices'
 -- don\'t specify this optional parameter, all available voices are
 -- returned.
 --
+-- 'engine', 'describeVoices_engine' - Specifies the engine (@standard@ or @neural@) used by Amazon Polly when
+-- processing input text for speech synthesis.
+--
 -- 'nextToken', 'describeVoices_nextToken' - An opaque pagination token returned from the previous @DescribeVoices@
 -- operation. If present, this indicates where to continue the listing.
 --
@@ -114,17 +117,14 @@ data DescribeVoices = DescribeVoices'
 -- request all languages that use US English (es-US), and there is an
 -- Italian voice that speaks both Italian (it-IT) and US English, that
 -- voice will be included if you specify @yes@ but not if you specify @no@.
---
--- 'engine', 'describeVoices_engine' - Specifies the engine (@standard@ or @neural@) used by Amazon Polly when
--- processing input text for speech synthesis.
 newDescribeVoices ::
   DescribeVoices
 newDescribeVoices =
   DescribeVoices'
     { languageCode = Prelude.Nothing,
+      engine = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      includeAdditionalLanguageCodes = Prelude.Nothing,
-      engine = Prelude.Nothing
+      includeAdditionalLanguageCodes = Prelude.Nothing
     }
 
 -- | The language identification tag (ISO 639 code for the language name-ISO
@@ -133,6 +133,11 @@ newDescribeVoices =
 -- returned.
 describeVoices_languageCode :: Lens.Lens' DescribeVoices (Prelude.Maybe LanguageCode)
 describeVoices_languageCode = Lens.lens (\DescribeVoices' {languageCode} -> languageCode) (\s@DescribeVoices' {} a -> s {languageCode = a} :: DescribeVoices)
+
+-- | Specifies the engine (@standard@ or @neural@) used by Amazon Polly when
+-- processing input text for speech synthesis.
+describeVoices_engine :: Lens.Lens' DescribeVoices (Prelude.Maybe Engine)
+describeVoices_engine = Lens.lens (\DescribeVoices' {engine} -> engine) (\s@DescribeVoices' {} a -> s {engine = a} :: DescribeVoices)
 
 -- | An opaque pagination token returned from the previous @DescribeVoices@
 -- operation. If present, this indicates where to continue the listing.
@@ -146,11 +151,6 @@ describeVoices_nextToken = Lens.lens (\DescribeVoices' {nextToken} -> nextToken)
 -- voice will be included if you specify @yes@ but not if you specify @no@.
 describeVoices_includeAdditionalLanguageCodes :: Lens.Lens' DescribeVoices (Prelude.Maybe Prelude.Bool)
 describeVoices_includeAdditionalLanguageCodes = Lens.lens (\DescribeVoices' {includeAdditionalLanguageCodes} -> includeAdditionalLanguageCodes) (\s@DescribeVoices' {} a -> s {includeAdditionalLanguageCodes = a} :: DescribeVoices)
-
--- | Specifies the engine (@standard@ or @neural@) used by Amazon Polly when
--- processing input text for speech synthesis.
-describeVoices_engine :: Lens.Lens' DescribeVoices (Prelude.Maybe Engine)
-describeVoices_engine = Lens.lens (\DescribeVoices' {engine} -> engine) (\s@DescribeVoices' {} a -> s {engine = a} :: DescribeVoices)
 
 instance Core.AWSPager DescribeVoices where
   page rq rs
@@ -200,10 +200,10 @@ instance Core.ToQuery DescribeVoices where
   toQuery DescribeVoices' {..} =
     Prelude.mconcat
       [ "LanguageCode" Core.=: languageCode,
+        "Engine" Core.=: engine,
         "NextToken" Core.=: nextToken,
         "IncludeAdditionalLanguageCodes"
-          Core.=: includeAdditionalLanguageCodes,
-        "Engine" Core.=: engine
+          Core.=: includeAdditionalLanguageCodes
       ]
 
 -- | /See:/ 'newDescribeVoicesResponse' smart constructor.
@@ -251,7 +251,7 @@ describeVoicesResponse_nextToken = Lens.lens (\DescribeVoicesResponse' {nextToke
 
 -- | A list of voices with their properties.
 describeVoicesResponse_voices :: Lens.Lens' DescribeVoicesResponse (Prelude.Maybe [Voice])
-describeVoicesResponse_voices = Lens.lens (\DescribeVoicesResponse' {voices} -> voices) (\s@DescribeVoicesResponse' {} a -> s {voices = a} :: DescribeVoicesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeVoicesResponse_voices = Lens.lens (\DescribeVoicesResponse' {voices} -> voices) (\s@DescribeVoicesResponse' {} a -> s {voices = a} :: DescribeVoicesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeVoicesResponse_httpStatus :: Lens.Lens' DescribeVoicesResponse Prelude.Int

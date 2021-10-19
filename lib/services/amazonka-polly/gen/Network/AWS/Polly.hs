@@ -25,38 +25,38 @@ module Network.AWS.Polly
     -- * Errors
     -- $errors
 
+    -- ** InvalidSnsTopicArnException
+    _InvalidSnsTopicArnException,
+
+    -- ** UnsupportedPlsLanguageException
+    _UnsupportedPlsLanguageException,
+
     -- ** InvalidSsmlException
     _InvalidSsmlException,
-
-    -- ** InvalidLexiconException
-    _InvalidLexiconException,
-
-    -- ** InvalidS3KeyException
-    _InvalidS3KeyException,
-
-    -- ** LexiconNotFoundException
-    _LexiconNotFoundException,
-
-    -- ** MaxLexemeLengthExceededException
-    _MaxLexemeLengthExceededException,
-
-    -- ** TextLengthExceededException
-    _TextLengthExceededException,
-
-    -- ** SynthesisTaskNotFoundException
-    _SynthesisTaskNotFoundException,
 
     -- ** InvalidSampleRateException
     _InvalidSampleRateException,
 
-    -- ** ServiceFailureException
-    _ServiceFailureException,
-
-    -- ** MarksNotSupportedForFormatException
-    _MarksNotSupportedForFormatException,
+    -- ** EngineNotSupportedException
+    _EngineNotSupportedException,
 
     -- ** MaxLexiconsNumberExceededException
     _MaxLexiconsNumberExceededException,
+
+    -- ** TextLengthExceededException
+    _TextLengthExceededException,
+
+    -- ** MaxLexemeLengthExceededException
+    _MaxLexemeLengthExceededException,
+
+    -- ** InvalidTaskIdException
+    _InvalidTaskIdException,
+
+    -- ** InvalidLexiconException
+    _InvalidLexiconException,
+
+    -- ** ServiceFailureException
+    _ServiceFailureException,
 
     -- ** UnsupportedPlsAlphabetException
     _UnsupportedPlsAlphabetException,
@@ -64,29 +64,29 @@ module Network.AWS.Polly
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
 
-    -- ** UnsupportedPlsLanguageException
-    _UnsupportedPlsLanguageException,
+    -- ** MarksNotSupportedForFormatException
+    _MarksNotSupportedForFormatException,
 
-    -- ** InvalidSnsTopicArnException
-    _InvalidSnsTopicArnException,
-
-    -- ** InvalidTaskIdException
-    _InvalidTaskIdException,
-
-    -- ** LanguageNotSupportedException
-    _LanguageNotSupportedException,
-
-    -- ** LexiconSizeExceededException
-    _LexiconSizeExceededException,
-
-    -- ** InvalidS3BucketException
-    _InvalidS3BucketException,
+    -- ** SynthesisTaskNotFoundException
+    _SynthesisTaskNotFoundException,
 
     -- ** SsmlMarksNotSupportedForTextTypeException
     _SsmlMarksNotSupportedForTextTypeException,
 
-    -- ** EngineNotSupportedException
-    _EngineNotSupportedException,
+    -- ** InvalidS3BucketException
+    _InvalidS3BucketException,
+
+    -- ** LexiconSizeExceededException
+    _LexiconSizeExceededException,
+
+    -- ** LanguageNotSupportedException
+    _LanguageNotSupportedException,
+
+    -- ** LexiconNotFoundException
+    _LexiconNotFoundException,
+
+    -- ** InvalidS3KeyException
+    _InvalidS3KeyException,
 
     -- * Waiters
     -- $waiters
@@ -94,29 +94,17 @@ module Network.AWS.Polly
     -- * Operations
     -- $operations
 
-    -- ** GetSpeechSynthesisTask
-    GetSpeechSynthesisTask (GetSpeechSynthesisTask'),
-    newGetSpeechSynthesisTask,
-    GetSpeechSynthesisTaskResponse (GetSpeechSynthesisTaskResponse'),
-    newGetSpeechSynthesisTaskResponse,
-
     -- ** GetLexicon
     GetLexicon (GetLexicon'),
     newGetLexicon,
     GetLexiconResponse (GetLexiconResponse'),
     newGetLexiconResponse,
 
-    -- ** DeleteLexicon
-    DeleteLexicon (DeleteLexicon'),
-    newDeleteLexicon,
-    DeleteLexiconResponse (DeleteLexiconResponse'),
-    newDeleteLexiconResponse,
-
-    -- ** ListLexicons (Paginated)
-    ListLexicons (ListLexicons'),
-    newListLexicons,
-    ListLexiconsResponse (ListLexiconsResponse'),
-    newListLexiconsResponse,
+    -- ** GetSpeechSynthesisTask
+    GetSpeechSynthesisTask (GetSpeechSynthesisTask'),
+    newGetSpeechSynthesisTask,
+    GetSpeechSynthesisTaskResponse (GetSpeechSynthesisTaskResponse'),
+    newGetSpeechSynthesisTaskResponse,
 
     -- ** DescribeVoices (Paginated)
     DescribeVoices (DescribeVoices'),
@@ -124,17 +112,11 @@ module Network.AWS.Polly
     DescribeVoicesResponse (DescribeVoicesResponse'),
     newDescribeVoicesResponse,
 
-    -- ** StartSpeechSynthesisTask
-    StartSpeechSynthesisTask (StartSpeechSynthesisTask'),
-    newStartSpeechSynthesisTask,
-    StartSpeechSynthesisTaskResponse (StartSpeechSynthesisTaskResponse'),
-    newStartSpeechSynthesisTaskResponse,
-
-    -- ** PutLexicon
-    PutLexicon (PutLexicon'),
-    newPutLexicon,
-    PutLexiconResponse (PutLexiconResponse'),
-    newPutLexiconResponse,
+    -- ** ListLexicons (Paginated)
+    ListLexicons (ListLexicons'),
+    newListLexicons,
+    ListLexiconsResponse (ListLexiconsResponse'),
+    newListLexiconsResponse,
 
     -- ** SynthesizeSpeech
     SynthesizeSpeech (SynthesizeSpeech'),
@@ -147,6 +129,24 @@ module Network.AWS.Polly
     newListSpeechSynthesisTasks,
     ListSpeechSynthesisTasksResponse (ListSpeechSynthesisTasksResponse'),
     newListSpeechSynthesisTasksResponse,
+
+    -- ** PutLexicon
+    PutLexicon (PutLexicon'),
+    newPutLexicon,
+    PutLexiconResponse (PutLexiconResponse'),
+    newPutLexiconResponse,
+
+    -- ** DeleteLexicon
+    DeleteLexicon (DeleteLexicon'),
+    newDeleteLexicon,
+    DeleteLexiconResponse (DeleteLexiconResponse'),
+    newDeleteLexiconResponse,
+
+    -- ** StartSpeechSynthesisTask
+    StartSpeechSynthesisTask (StartSpeechSynthesisTask'),
+    newStartSpeechSynthesisTask,
+    StartSpeechSynthesisTaskResponse (StartSpeechSynthesisTaskResponse'),
+    newStartSpeechSynthesisTaskResponse,
 
     -- * Types
 

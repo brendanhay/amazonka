@@ -14,69 +14,44 @@
 module Network.AWS.Polly.Lens
   ( -- * Operations
 
-    -- ** GetSpeechSynthesisTask
-    getSpeechSynthesisTask_taskId,
-    getSpeechSynthesisTaskResponse_synthesisTask,
-    getSpeechSynthesisTaskResponse_httpStatus,
-
     -- ** GetLexicon
     getLexicon_name,
     getLexiconResponse_lexiconAttributes,
     getLexiconResponse_lexicon,
     getLexiconResponse_httpStatus,
 
-    -- ** DeleteLexicon
-    deleteLexicon_name,
-    deleteLexiconResponse_httpStatus,
-
-    -- ** ListLexicons
-    listLexicons_nextToken,
-    listLexiconsResponse_nextToken,
-    listLexiconsResponse_lexicons,
-    listLexiconsResponse_httpStatus,
+    -- ** GetSpeechSynthesisTask
+    getSpeechSynthesisTask_taskId,
+    getSpeechSynthesisTaskResponse_synthesisTask,
+    getSpeechSynthesisTaskResponse_httpStatus,
 
     -- ** DescribeVoices
     describeVoices_languageCode,
+    describeVoices_engine,
     describeVoices_nextToken,
     describeVoices_includeAdditionalLanguageCodes,
-    describeVoices_engine,
     describeVoicesResponse_nextToken,
     describeVoicesResponse_voices,
     describeVoicesResponse_httpStatus,
 
-    -- ** StartSpeechSynthesisTask
-    startSpeechSynthesisTask_languageCode,
-    startSpeechSynthesisTask_lexiconNames,
-    startSpeechSynthesisTask_speechMarkTypes,
-    startSpeechSynthesisTask_textType,
-    startSpeechSynthesisTask_sampleRate,
-    startSpeechSynthesisTask_engine,
-    startSpeechSynthesisTask_outputS3KeyPrefix,
-    startSpeechSynthesisTask_snsTopicArn,
-    startSpeechSynthesisTask_outputFormat,
-    startSpeechSynthesisTask_outputS3BucketName,
-    startSpeechSynthesisTask_text,
-    startSpeechSynthesisTask_voiceId,
-    startSpeechSynthesisTaskResponse_synthesisTask,
-    startSpeechSynthesisTaskResponse_httpStatus,
-
-    -- ** PutLexicon
-    putLexicon_name,
-    putLexicon_content,
-    putLexiconResponse_httpStatus,
+    -- ** ListLexicons
+    listLexicons_nextToken,
+    listLexiconsResponse_lexicons,
+    listLexiconsResponse_nextToken,
+    listLexiconsResponse_httpStatus,
 
     -- ** SynthesizeSpeech
     synthesizeSpeech_languageCode,
-    synthesizeSpeech_lexiconNames,
-    synthesizeSpeech_speechMarkTypes,
-    synthesizeSpeech_textType,
-    synthesizeSpeech_sampleRate,
     synthesizeSpeech_engine,
+    synthesizeSpeech_speechMarkTypes,
+    synthesizeSpeech_sampleRate,
+    synthesizeSpeech_textType,
+    synthesizeSpeech_lexiconNames,
     synthesizeSpeech_outputFormat,
     synthesizeSpeech_text,
     synthesizeSpeech_voiceId,
-    synthesizeSpeechResponse_contentType,
     synthesizeSpeechResponse_requestCharacters,
+    synthesizeSpeechResponse_contentType,
     synthesizeSpeechResponse_httpStatus,
     synthesizeSpeechResponse_audioStream,
 
@@ -88,49 +63,74 @@ module Network.AWS.Polly.Lens
     listSpeechSynthesisTasksResponse_synthesisTasks,
     listSpeechSynthesisTasksResponse_httpStatus,
 
+    -- ** PutLexicon
+    putLexicon_name,
+    putLexicon_content,
+    putLexiconResponse_httpStatus,
+
+    -- ** DeleteLexicon
+    deleteLexicon_name,
+    deleteLexiconResponse_httpStatus,
+
+    -- ** StartSpeechSynthesisTask
+    startSpeechSynthesisTask_languageCode,
+    startSpeechSynthesisTask_snsTopicArn,
+    startSpeechSynthesisTask_outputS3KeyPrefix,
+    startSpeechSynthesisTask_engine,
+    startSpeechSynthesisTask_speechMarkTypes,
+    startSpeechSynthesisTask_sampleRate,
+    startSpeechSynthesisTask_textType,
+    startSpeechSynthesisTask_lexiconNames,
+    startSpeechSynthesisTask_outputFormat,
+    startSpeechSynthesisTask_outputS3BucketName,
+    startSpeechSynthesisTask_text,
+    startSpeechSynthesisTask_voiceId,
+    startSpeechSynthesisTaskResponse_synthesisTask,
+    startSpeechSynthesisTaskResponse_httpStatus,
+
     -- * Types
 
     -- ** Lexicon
-    lexicon_name,
     lexicon_content,
+    lexicon_name,
 
     -- ** LexiconAttributes
     lexiconAttributes_languageCode,
-    lexiconAttributes_alphabet,
-    lexiconAttributes_lexiconArn,
-    lexiconAttributes_lexemesCount,
-    lexiconAttributes_lastModified,
     lexiconAttributes_size,
+    lexiconAttributes_lexemesCount,
+    lexiconAttributes_lexiconArn,
+    lexiconAttributes_alphabet,
+    lexiconAttributes_lastModified,
 
     -- ** LexiconDescription
-    lexiconDescription_name,
     lexiconDescription_attributes,
+    lexiconDescription_name,
 
     -- ** SynthesisTask
-    synthesisTask_languageCode,
     synthesisTask_creationTime,
-    synthesisTask_outputUri,
-    synthesisTask_lexiconNames,
-    synthesisTask_speechMarkTypes,
-    synthesisTask_voiceId,
-    synthesisTask_taskId,
-    synthesisTask_textType,
-    synthesisTask_outputFormat,
-    synthesisTask_sampleRate,
-    synthesisTask_taskStatus,
-    synthesisTask_engine,
-    synthesisTask_requestCharacters,
-    synthesisTask_taskStatusReason,
+    synthesisTask_languageCode,
     synthesisTask_snsTopicArn,
+    synthesisTask_taskStatusReason,
+    synthesisTask_taskId,
+    synthesisTask_requestCharacters,
+    synthesisTask_engine,
+    synthesisTask_speechMarkTypes,
+    synthesisTask_sampleRate,
+    synthesisTask_outputFormat,
+    synthesisTask_textType,
+    synthesisTask_voiceId,
+    synthesisTask_lexiconNames,
+    synthesisTask_taskStatus,
+    synthesisTask_outputUri,
 
     -- ** Voice
     voice_languageCode,
-    voice_id,
-    voice_name,
-    voice_gender,
-    voice_supportedEngines,
-    voice_additionalLanguageCodes,
     voice_languageName,
+    voice_gender,
+    voice_name,
+    voice_id,
+    voice_additionalLanguageCodes,
+    voice_supportedEngines,
   )
 where
 

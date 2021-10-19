@@ -61,7 +61,7 @@ newLineItemGroup =
 
 -- | The breakdown of information on a particular line of a table.
 lineItemGroup_lineItems :: Lens.Lens' LineItemGroup (Prelude.Maybe [LineItemFields])
-lineItemGroup_lineItems = Lens.lens (\LineItemGroup' {lineItems} -> lineItems) (\s@LineItemGroup' {} a -> s {lineItems = a} :: LineItemGroup) Prelude.. Lens.mapping Lens._Coerce
+lineItemGroup_lineItems = Lens.lens (\LineItemGroup' {lineItems} -> lineItems) (\s@LineItemGroup' {} a -> s {lineItems = a} :: LineItemGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number used to identify a specific table in a document. The first
 -- table encountered will have a LineItemGroupIndex of 1, the second 2,

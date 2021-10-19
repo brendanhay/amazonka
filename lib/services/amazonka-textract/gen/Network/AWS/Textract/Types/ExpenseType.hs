@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newExpenseType' smart constructor.
 data ExpenseType = ExpenseType'
-  { -- | The confidence of accuracy, as a percentage.
-    confidence :: Prelude.Maybe Prelude.Double,
-    -- | The word or line of text detected by Amazon Textract.
-    text :: Prelude.Maybe Prelude.Text
+  { -- | The word or line of text detected by Amazon Textract.
+    text :: Prelude.Maybe Prelude.Text,
+    -- | The confidence of accuracy, as a percentage.
+    confidence :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data ExpenseType = ExpenseType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'confidence', 'expenseType_confidence' - The confidence of accuracy, as a percentage.
---
 -- 'text', 'expenseType_text' - The word or line of text detected by Amazon Textract.
+--
+-- 'confidence', 'expenseType_confidence' - The confidence of accuracy, as a percentage.
 newExpenseType ::
   ExpenseType
 newExpenseType =
   ExpenseType'
-    { confidence = Prelude.Nothing,
-      text = Prelude.Nothing
+    { text = Prelude.Nothing,
+      confidence = Prelude.Nothing
     }
-
--- | The confidence of accuracy, as a percentage.
-expenseType_confidence :: Lens.Lens' ExpenseType (Prelude.Maybe Prelude.Double)
-expenseType_confidence = Lens.lens (\ExpenseType' {confidence} -> confidence) (\s@ExpenseType' {} a -> s {confidence = a} :: ExpenseType)
 
 -- | The word or line of text detected by Amazon Textract.
 expenseType_text :: Lens.Lens' ExpenseType (Prelude.Maybe Prelude.Text)
 expenseType_text = Lens.lens (\ExpenseType' {text} -> text) (\s@ExpenseType' {} a -> s {text = a} :: ExpenseType)
+
+-- | The confidence of accuracy, as a percentage.
+expenseType_confidence :: Lens.Lens' ExpenseType (Prelude.Maybe Prelude.Double)
+expenseType_confidence = Lens.lens (\ExpenseType' {confidence} -> confidence) (\s@ExpenseType' {} a -> s {confidence = a} :: ExpenseType)
 
 instance Core.FromJSON ExpenseType where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON ExpenseType where
       "ExpenseType"
       ( \x ->
           ExpenseType'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<$> (x Core..:? "Text")
+            Prelude.<*> (x Core..:? "Confidence")
       )
 
 instance Prelude.Hashable ExpenseType

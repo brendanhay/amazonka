@@ -57,7 +57,7 @@ newWarning =
 
 -- | A list of the pages that the warning applies to.
 warning_pages :: Lens.Lens' Warning (Prelude.Maybe [Prelude.Natural])
-warning_pages = Lens.lens (\Warning' {pages} -> pages) (\s@Warning' {} a -> s {pages = a} :: Warning) Prelude.. Lens.mapping Lens._Coerce
+warning_pages = Lens.lens (\Warning' {pages} -> pages) (\s@Warning' {} a -> s {pages = a} :: Warning) Prelude.. Lens.mapping Lens.coerced
 
 -- | The error code for the warning.
 warning_errorCode :: Lens.Lens' Warning (Prelude.Maybe Prelude.Text)

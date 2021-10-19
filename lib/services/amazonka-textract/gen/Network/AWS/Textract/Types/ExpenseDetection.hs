@@ -29,10 +29,10 @@ import Network.AWS.Textract.Types.Geometry
 --
 -- /See:/ 'newExpenseDetection' smart constructor.
 data ExpenseDetection = ExpenseDetection'
-  { -- | The confidence in detection, as a percentage
-    confidence :: Prelude.Maybe Prelude.Double,
-    -- | The word or line of text recognized by Amazon Textract
+  { -- | The word or line of text recognized by Amazon Textract
     text :: Prelude.Maybe Prelude.Text,
+    -- | The confidence in detection, as a percentage
+    confidence :: Prelude.Maybe Prelude.Double,
     geometry :: Prelude.Maybe Geometry
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,27 +45,27 @@ data ExpenseDetection = ExpenseDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'confidence', 'expenseDetection_confidence' - The confidence in detection, as a percentage
---
 -- 'text', 'expenseDetection_text' - The word or line of text recognized by Amazon Textract
+--
+-- 'confidence', 'expenseDetection_confidence' - The confidence in detection, as a percentage
 --
 -- 'geometry', 'expenseDetection_geometry' - Undocumented member.
 newExpenseDetection ::
   ExpenseDetection
 newExpenseDetection =
   ExpenseDetection'
-    { confidence = Prelude.Nothing,
-      text = Prelude.Nothing,
+    { text = Prelude.Nothing,
+      confidence = Prelude.Nothing,
       geometry = Prelude.Nothing
     }
-
--- | The confidence in detection, as a percentage
-expenseDetection_confidence :: Lens.Lens' ExpenseDetection (Prelude.Maybe Prelude.Double)
-expenseDetection_confidence = Lens.lens (\ExpenseDetection' {confidence} -> confidence) (\s@ExpenseDetection' {} a -> s {confidence = a} :: ExpenseDetection)
 
 -- | The word or line of text recognized by Amazon Textract
 expenseDetection_text :: Lens.Lens' ExpenseDetection (Prelude.Maybe Prelude.Text)
 expenseDetection_text = Lens.lens (\ExpenseDetection' {text} -> text) (\s@ExpenseDetection' {} a -> s {text = a} :: ExpenseDetection)
+
+-- | The confidence in detection, as a percentage
+expenseDetection_confidence :: Lens.Lens' ExpenseDetection (Prelude.Maybe Prelude.Double)
+expenseDetection_confidence = Lens.lens (\ExpenseDetection' {confidence} -> confidence) (\s@ExpenseDetection' {} a -> s {confidence = a} :: ExpenseDetection)
 
 -- | Undocumented member.
 expenseDetection_geometry :: Lens.Lens' ExpenseDetection (Prelude.Maybe Geometry)
@@ -77,8 +77,8 @@ instance Core.FromJSON ExpenseDetection where
       "ExpenseDetection"
       ( \x ->
           ExpenseDetection'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<$> (x Core..:? "Text")
+            Prelude.<*> (x Core..:? "Confidence")
             Prelude.<*> (x Core..:? "Geometry")
       )
 

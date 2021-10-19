@@ -45,12 +45,12 @@ data BoundingBox = BoundingBox'
   { -- | The height of the bounding box as a ratio of the overall document page
     -- height.
     height :: Prelude.Maybe Prelude.Double,
-    -- | The width of the bounding box as a ratio of the overall document page
-    -- width.
-    width :: Prelude.Maybe Prelude.Double,
     -- | The left coordinate of the bounding box as a ratio of overall document
     -- page width.
     left :: Prelude.Maybe Prelude.Double,
+    -- | The width of the bounding box as a ratio of the overall document page
+    -- width.
+    width :: Prelude.Maybe Prelude.Double,
     -- | The top coordinate of the bounding box as a ratio of overall document
     -- page height.
     top :: Prelude.Maybe Prelude.Double
@@ -68,11 +68,11 @@ data BoundingBox = BoundingBox'
 -- 'height', 'boundingBox_height' - The height of the bounding box as a ratio of the overall document page
 -- height.
 --
--- 'width', 'boundingBox_width' - The width of the bounding box as a ratio of the overall document page
--- width.
---
 -- 'left', 'boundingBox_left' - The left coordinate of the bounding box as a ratio of overall document
 -- page width.
+--
+-- 'width', 'boundingBox_width' - The width of the bounding box as a ratio of the overall document page
+-- width.
 --
 -- 'top', 'boundingBox_top' - The top coordinate of the bounding box as a ratio of overall document
 -- page height.
@@ -81,8 +81,8 @@ newBoundingBox ::
 newBoundingBox =
   BoundingBox'
     { height = Prelude.Nothing,
-      width = Prelude.Nothing,
       left = Prelude.Nothing,
+      width = Prelude.Nothing,
       top = Prelude.Nothing
     }
 
@@ -91,15 +91,15 @@ newBoundingBox =
 boundingBox_height :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
 boundingBox_height = Lens.lens (\BoundingBox' {height} -> height) (\s@BoundingBox' {} a -> s {height = a} :: BoundingBox)
 
--- | The width of the bounding box as a ratio of the overall document page
--- width.
-boundingBox_width :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
-boundingBox_width = Lens.lens (\BoundingBox' {width} -> width) (\s@BoundingBox' {} a -> s {width = a} :: BoundingBox)
-
 -- | The left coordinate of the bounding box as a ratio of overall document
 -- page width.
 boundingBox_left :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
 boundingBox_left = Lens.lens (\BoundingBox' {left} -> left) (\s@BoundingBox' {} a -> s {left = a} :: BoundingBox)
+
+-- | The width of the bounding box as a ratio of the overall document page
+-- width.
+boundingBox_width :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
+boundingBox_width = Lens.lens (\BoundingBox' {width} -> width) (\s@BoundingBox' {} a -> s {width = a} :: BoundingBox)
 
 -- | The top coordinate of the bounding box as a ratio of overall document
 -- page height.
@@ -113,8 +113,8 @@ instance Core.FromJSON BoundingBox where
       ( \x ->
           BoundingBox'
             Prelude.<$> (x Core..:? "Height")
-            Prelude.<*> (x Core..:? "Width")
             Prelude.<*> (x Core..:? "Left")
+            Prelude.<*> (x Core..:? "Width")
             Prelude.<*> (x Core..:? "Top")
       )
 

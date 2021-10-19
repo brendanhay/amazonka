@@ -170,7 +170,7 @@ analyzeExpenseResponse_documentMetadata = Lens.lens (\AnalyzeExpenseResponse' {d
 
 -- | The expenses detected by Amazon Textract.
 analyzeExpenseResponse_expenseDocuments :: Lens.Lens' AnalyzeExpenseResponse (Prelude.Maybe [ExpenseDocument])
-analyzeExpenseResponse_expenseDocuments = Lens.lens (\AnalyzeExpenseResponse' {expenseDocuments} -> expenseDocuments) (\s@AnalyzeExpenseResponse' {} a -> s {expenseDocuments = a} :: AnalyzeExpenseResponse) Prelude.. Lens.mapping Lens._Coerce
+analyzeExpenseResponse_expenseDocuments = Lens.lens (\AnalyzeExpenseResponse' {expenseDocuments} -> expenseDocuments) (\s@AnalyzeExpenseResponse' {} a -> s {expenseDocuments = a} :: AnalyzeExpenseResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 analyzeExpenseResponse_httpStatus :: Lens.Lens' AnalyzeExpenseResponse Prelude.Int

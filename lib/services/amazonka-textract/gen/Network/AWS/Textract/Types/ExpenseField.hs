@@ -35,11 +35,11 @@ data ExpenseField = ExpenseField'
     -- | The value of a detected element. Present in explicit and implicit
     -- elements.
     valueDetection :: Prelude.Maybe ExpenseDetection,
-    -- | The page number the value was detected on.
-    pageNumber :: Prelude.Maybe Prelude.Natural,
     -- | The implied label of a detected element. Present alongside
     -- LabelDetection for explicit elements.
-    type' :: Prelude.Maybe ExpenseType
+    type' :: Prelude.Maybe ExpenseType,
+    -- | The page number the value was detected on.
+    pageNumber :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,18 +56,18 @@ data ExpenseField = ExpenseField'
 -- 'valueDetection', 'expenseField_valueDetection' - The value of a detected element. Present in explicit and implicit
 -- elements.
 --
--- 'pageNumber', 'expenseField_pageNumber' - The page number the value was detected on.
---
 -- 'type'', 'expenseField_type' - The implied label of a detected element. Present alongside
 -- LabelDetection for explicit elements.
+--
+-- 'pageNumber', 'expenseField_pageNumber' - The page number the value was detected on.
 newExpenseField ::
   ExpenseField
 newExpenseField =
   ExpenseField'
     { labelDetection = Prelude.Nothing,
       valueDetection = Prelude.Nothing,
-      pageNumber = Prelude.Nothing,
-      type' = Prelude.Nothing
+      type' = Prelude.Nothing,
+      pageNumber = Prelude.Nothing
     }
 
 -- | The explicitly stated label of a detected element.
@@ -79,14 +79,14 @@ expenseField_labelDetection = Lens.lens (\ExpenseField' {labelDetection} -> labe
 expenseField_valueDetection :: Lens.Lens' ExpenseField (Prelude.Maybe ExpenseDetection)
 expenseField_valueDetection = Lens.lens (\ExpenseField' {valueDetection} -> valueDetection) (\s@ExpenseField' {} a -> s {valueDetection = a} :: ExpenseField)
 
--- | The page number the value was detected on.
-expenseField_pageNumber :: Lens.Lens' ExpenseField (Prelude.Maybe Prelude.Natural)
-expenseField_pageNumber = Lens.lens (\ExpenseField' {pageNumber} -> pageNumber) (\s@ExpenseField' {} a -> s {pageNumber = a} :: ExpenseField)
-
 -- | The implied label of a detected element. Present alongside
 -- LabelDetection for explicit elements.
 expenseField_type :: Lens.Lens' ExpenseField (Prelude.Maybe ExpenseType)
 expenseField_type = Lens.lens (\ExpenseField' {type'} -> type') (\s@ExpenseField' {} a -> s {type' = a} :: ExpenseField)
+
+-- | The page number the value was detected on.
+expenseField_pageNumber :: Lens.Lens' ExpenseField (Prelude.Maybe Prelude.Natural)
+expenseField_pageNumber = Lens.lens (\ExpenseField' {pageNumber} -> pageNumber) (\s@ExpenseField' {} a -> s {pageNumber = a} :: ExpenseField)
 
 instance Core.FromJSON ExpenseField where
   parseJSON =
@@ -96,8 +96,8 @@ instance Core.FromJSON ExpenseField where
           ExpenseField'
             Prelude.<$> (x Core..:? "LabelDetection")
             Prelude.<*> (x Core..:? "ValueDetection")
-            Prelude.<*> (x Core..:? "PageNumber")
             Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "PageNumber")
       )
 
 instance Prelude.Hashable ExpenseField

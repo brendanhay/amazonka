@@ -103,7 +103,7 @@ addWorkingStorage_gatewayARN = Lens.lens (\AddWorkingStorage' {gatewayARN} -> ga
 -- working storage. Each string has a minimum length of 1 and maximum
 -- length of 300. You can get the disk IDs from the ListLocalDisks API.
 addWorkingStorage_diskIds :: Lens.Lens' AddWorkingStorage [Prelude.Text]
-addWorkingStorage_diskIds = Lens.lens (\AddWorkingStorage' {diskIds} -> diskIds) (\s@AddWorkingStorage' {} a -> s {diskIds = a} :: AddWorkingStorage) Prelude.. Lens._Coerce
+addWorkingStorage_diskIds = Lens.lens (\AddWorkingStorage' {diskIds} -> diskIds) (\s@AddWorkingStorage' {} a -> s {diskIds = a} :: AddWorkingStorage) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddWorkingStorage where
   type

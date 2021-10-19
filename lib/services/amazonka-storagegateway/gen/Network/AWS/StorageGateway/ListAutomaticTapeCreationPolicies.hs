@@ -183,7 +183,7 @@ newListAutomaticTapeCreationPoliciesResponse
 -- creation policies, including the automatic tape creation rules and the
 -- gateway that is using the policies.
 listAutomaticTapeCreationPoliciesResponse_automaticTapeCreationPolicyInfos :: Lens.Lens' ListAutomaticTapeCreationPoliciesResponse (Prelude.Maybe [AutomaticTapeCreationPolicyInfo])
-listAutomaticTapeCreationPoliciesResponse_automaticTapeCreationPolicyInfos = Lens.lens (\ListAutomaticTapeCreationPoliciesResponse' {automaticTapeCreationPolicyInfos} -> automaticTapeCreationPolicyInfos) (\s@ListAutomaticTapeCreationPoliciesResponse' {} a -> s {automaticTapeCreationPolicyInfos = a} :: ListAutomaticTapeCreationPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
+listAutomaticTapeCreationPoliciesResponse_automaticTapeCreationPolicyInfos = Lens.lens (\ListAutomaticTapeCreationPoliciesResponse' {automaticTapeCreationPolicyInfos} -> automaticTapeCreationPolicyInfos) (\s@ListAutomaticTapeCreationPoliciesResponse' {} a -> s {automaticTapeCreationPolicyInfos = a} :: ListAutomaticTapeCreationPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAutomaticTapeCreationPoliciesResponse_httpStatus :: Lens.Lens' ListAutomaticTapeCreationPoliciesResponse Prelude.Int

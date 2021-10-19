@@ -143,7 +143,7 @@ newCreateSnapshotFromVolumeRecoveryPoint
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
 createSnapshotFromVolumeRecoveryPoint_tags :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint (Prelude.Maybe [Tag])
-createSnapshotFromVolumeRecoveryPoint_tags = Lens.lens (\CreateSnapshotFromVolumeRecoveryPoint' {tags} -> tags) (\s@CreateSnapshotFromVolumeRecoveryPoint' {} a -> s {tags = a} :: CreateSnapshotFromVolumeRecoveryPoint) Prelude.. Lens.mapping Lens._Coerce
+createSnapshotFromVolumeRecoveryPoint_tags = Lens.lens (\CreateSnapshotFromVolumeRecoveryPoint' {tags} -> tags) (\s@CreateSnapshotFromVolumeRecoveryPoint' {} a -> s {tags = a} :: CreateSnapshotFromVolumeRecoveryPoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN

@@ -164,7 +164,7 @@ newListVolumeInitiatorsResponse pHttpStatus_ =
 -- | The host names and port numbers of all iSCSI initiators that are
 -- connected to the gateway.
 listVolumeInitiatorsResponse_initiators :: Lens.Lens' ListVolumeInitiatorsResponse (Prelude.Maybe [Prelude.Text])
-listVolumeInitiatorsResponse_initiators = Lens.lens (\ListVolumeInitiatorsResponse' {initiators} -> initiators) (\s@ListVolumeInitiatorsResponse' {} a -> s {initiators = a} :: ListVolumeInitiatorsResponse) Prelude.. Lens.mapping Lens._Coerce
+listVolumeInitiatorsResponse_initiators = Lens.lens (\ListVolumeInitiatorsResponse' {initiators} -> initiators) (\s@ListVolumeInitiatorsResponse' {} a -> s {initiators = a} :: ListVolumeInitiatorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listVolumeInitiatorsResponse_httpStatus :: Lens.Lens' ListVolumeInitiatorsResponse Prelude.Int

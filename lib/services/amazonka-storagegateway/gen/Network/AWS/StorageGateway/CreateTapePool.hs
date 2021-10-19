@@ -54,10 +54,11 @@ import Network.AWS.StorageGateway.Types
 -- | /See:/ 'newCreateTapePool' smart constructor.
 data CreateTapePool = CreateTapePool'
   { -- | Tape retention lock can be configured in two modes. When configured in
-    -- governance mode, accounts with specific IAM permissions are authorized
-    -- to remove the tape retention lock from archived virtual tapes. When
-    -- configured in compliance mode, the tape retention lock cannot be removed
-    -- by any user, including the root account.
+    -- governance mode, Amazon Web Services accounts with specific IAM
+    -- permissions are authorized to remove the tape retention lock from
+    -- archived virtual tapes. When configured in compliance mode, the tape
+    -- retention lock cannot be removed by any user, including the root Amazon
+    -- Web Services account.
     retentionLockType :: Prelude.Maybe RetentionLockType,
     -- | Tape retention lock time is set in days. Tape retention lock can be
     -- enabled for up to 100 years (36,500 days).
@@ -89,10 +90,11 @@ data CreateTapePool = CreateTapePool'
 -- for backwards compatibility:
 --
 -- 'retentionLockType', 'createTapePool_retentionLockType' - Tape retention lock can be configured in two modes. When configured in
--- governance mode, accounts with specific IAM permissions are authorized
--- to remove the tape retention lock from archived virtual tapes. When
--- configured in compliance mode, the tape retention lock cannot be removed
--- by any user, including the root account.
+-- governance mode, Amazon Web Services accounts with specific IAM
+-- permissions are authorized to remove the tape retention lock from
+-- archived virtual tapes. When configured in compliance mode, the tape
+-- retention lock cannot be removed by any user, including the root Amazon
+-- Web Services account.
 --
 -- 'retentionLockTimeInDays', 'createTapePool_retentionLockTimeInDays' - Tape retention lock time is set in days. Tape retention lock can be
 -- enabled for up to 100 years (36,500 days).
@@ -128,10 +130,11 @@ newCreateTapePool pPoolName_ pStorageClass_ =
     }
 
 -- | Tape retention lock can be configured in two modes. When configured in
--- governance mode, accounts with specific IAM permissions are authorized
--- to remove the tape retention lock from archived virtual tapes. When
--- configured in compliance mode, the tape retention lock cannot be removed
--- by any user, including the root account.
+-- governance mode, Amazon Web Services accounts with specific IAM
+-- permissions are authorized to remove the tape retention lock from
+-- archived virtual tapes. When configured in compliance mode, the tape
+-- retention lock cannot be removed by any user, including the root Amazon
+-- Web Services account.
 createTapePool_retentionLockType :: Lens.Lens' CreateTapePool (Prelude.Maybe RetentionLockType)
 createTapePool_retentionLockType = Lens.lens (\CreateTapePool' {retentionLockType} -> retentionLockType) (\s@CreateTapePool' {} a -> s {retentionLockType = a} :: CreateTapePool)
 
@@ -148,7 +151,7 @@ createTapePool_retentionLockTimeInDays = Lens.lens (\CreateTapePool' {retentionL
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
 createTapePool_tags :: Lens.Lens' CreateTapePool (Prelude.Maybe [Tag])
-createTapePool_tags = Lens.lens (\CreateTapePool' {tags} -> tags) (\s@CreateTapePool' {} a -> s {tags = a} :: CreateTapePool) Prelude.. Lens.mapping Lens._Coerce
+createTapePool_tags = Lens.lens (\CreateTapePool' {tags} -> tags) (\s@CreateTapePool' {} a -> s {tags = a} :: CreateTapePool) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new custom tape pool.
 createTapePool_poolName :: Lens.Lens' CreateTapePool Prelude.Text
@@ -217,7 +220,7 @@ instance Core.ToQuery CreateTapePool where
 data CreateTapePoolResponse = CreateTapePoolResponse'
   { -- | The unique Amazon Resource Name (ARN) that represents the custom tape
     -- pool. Use the ListTapePools operation to return a list of tape pools for
-    -- your account and Region.
+    -- your account and Amazon Web Services Region.
     poolARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -234,7 +237,7 @@ data CreateTapePoolResponse = CreateTapePoolResponse'
 --
 -- 'poolARN', 'createTapePoolResponse_poolARN' - The unique Amazon Resource Name (ARN) that represents the custom tape
 -- pool. Use the ListTapePools operation to return a list of tape pools for
--- your account and Region.
+-- your account and Amazon Web Services Region.
 --
 -- 'httpStatus', 'createTapePoolResponse_httpStatus' - The response's http status code.
 newCreateTapePoolResponse ::
@@ -249,7 +252,7 @@ newCreateTapePoolResponse pHttpStatus_ =
 
 -- | The unique Amazon Resource Name (ARN) that represents the custom tape
 -- pool. Use the ListTapePools operation to return a list of tape pools for
--- your account and Region.
+-- your account and Amazon Web Services Region.
 createTapePoolResponse_poolARN :: Lens.Lens' CreateTapePoolResponse (Prelude.Maybe Prelude.Text)
 createTapePoolResponse_poolARN = Lens.lens (\CreateTapePoolResponse' {poolARN} -> poolARN) (\s@CreateTapePoolResponse' {} a -> s {poolARN = a} :: CreateTapePoolResponse)
 

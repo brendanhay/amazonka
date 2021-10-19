@@ -95,7 +95,7 @@ addCache_gatewayARN = Lens.lens (\AddCache' {gatewayARN} -> gatewayARN) (\s@AddC
 -- working storage. Each string has a minimum length of 1 and maximum
 -- length of 300. You can get the disk IDs from the ListLocalDisks API.
 addCache_diskIds :: Lens.Lens' AddCache [Prelude.Text]
-addCache_diskIds = Lens.lens (\AddCache' {diskIds} -> diskIds) (\s@AddCache' {} a -> s {diskIds = a} :: AddCache) Prelude.. Lens._Coerce
+addCache_diskIds = Lens.lens (\AddCache' {diskIds} -> diskIds) (\s@AddCache' {} a -> s {diskIds = a} :: AddCache) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddCache where
   type AWSResponse AddCache = AddCacheResponse

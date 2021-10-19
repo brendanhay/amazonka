@@ -86,7 +86,7 @@ newDescribeCachediSCSIVolumes =
 -- be from the same gateway. Use ListVolumes to get volume ARNs for a
 -- gateway.
 describeCachediSCSIVolumes_volumeARNs :: Lens.Lens' DescribeCachediSCSIVolumes [Prelude.Text]
-describeCachediSCSIVolumes_volumeARNs = Lens.lens (\DescribeCachediSCSIVolumes' {volumeARNs} -> volumeARNs) (\s@DescribeCachediSCSIVolumes' {} a -> s {volumeARNs = a} :: DescribeCachediSCSIVolumes) Prelude.. Lens._Coerce
+describeCachediSCSIVolumes_volumeARNs = Lens.lens (\DescribeCachediSCSIVolumes' {volumeARNs} -> volumeARNs) (\s@DescribeCachediSCSIVolumes' {} a -> s {volumeARNs = a} :: DescribeCachediSCSIVolumes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeCachediSCSIVolumes where
   type
@@ -173,7 +173,7 @@ newDescribeCachediSCSIVolumesResponse pHttpStatus_ =
 -- | An array of objects where each object contains metadata about one cached
 -- volume.
 describeCachediSCSIVolumesResponse_cachediSCSIVolumes :: Lens.Lens' DescribeCachediSCSIVolumesResponse (Prelude.Maybe [CachediSCSIVolume])
-describeCachediSCSIVolumesResponse_cachediSCSIVolumes = Lens.lens (\DescribeCachediSCSIVolumesResponse' {cachediSCSIVolumes} -> cachediSCSIVolumes) (\s@DescribeCachediSCSIVolumesResponse' {} a -> s {cachediSCSIVolumes = a} :: DescribeCachediSCSIVolumesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeCachediSCSIVolumesResponse_cachediSCSIVolumes = Lens.lens (\DescribeCachediSCSIVolumesResponse' {cachediSCSIVolumes} -> cachediSCSIVolumes) (\s@DescribeCachediSCSIVolumesResponse' {} a -> s {cachediSCSIVolumes = a} :: DescribeCachediSCSIVolumesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeCachediSCSIVolumesResponse_httpStatus :: Lens.Lens' DescribeCachediSCSIVolumesResponse Prelude.Int

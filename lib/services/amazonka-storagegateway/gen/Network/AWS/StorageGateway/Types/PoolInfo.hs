@@ -31,10 +31,11 @@ import Network.AWS.StorageGateway.Types.TapeStorageClass
 -- /See:/ 'newPoolInfo' smart constructor.
 data PoolInfo = PoolInfo'
   { -- | Tape retention lock type, which can be configured in two modes. When
-    -- configured in governance mode, accounts with specific IAM permissions
-    -- are authorized to remove the tape retention lock from archived virtual
-    -- tapes. When configured in compliance mode, the tape retention lock
-    -- cannot be removed by any user, including the root account.
+    -- configured in governance mode, Amazon Web Services accounts with
+    -- specific IAM permissions are authorized to remove the tape retention
+    -- lock from archived virtual tapes. When configured in compliance mode,
+    -- the tape retention lock cannot be removed by any user, including the
+    -- root Amazon Web Services account.
     retentionLockType :: Prelude.Maybe RetentionLockType,
     -- | Tape retention lock time is set in days. Tape retention lock can be
     -- enabled for up to 100 years (36,500 days).
@@ -51,7 +52,7 @@ data PoolInfo = PoolInfo'
     poolStatus :: Prelude.Maybe PoolStatus,
     -- | The Amazon Resource Name (ARN) of the custom tape pool. Use the
     -- ListTapePools operation to return a list of custom tape pools for your
-    -- account and Region.
+    -- account and Amazon Web Services Region.
     poolARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,10 +66,11 @@ data PoolInfo = PoolInfo'
 -- for backwards compatibility:
 --
 -- 'retentionLockType', 'poolInfo_retentionLockType' - Tape retention lock type, which can be configured in two modes. When
--- configured in governance mode, accounts with specific IAM permissions
--- are authorized to remove the tape retention lock from archived virtual
--- tapes. When configured in compliance mode, the tape retention lock
--- cannot be removed by any user, including the root account.
+-- configured in governance mode, Amazon Web Services accounts with
+-- specific IAM permissions are authorized to remove the tape retention
+-- lock from archived virtual tapes. When configured in compliance mode,
+-- the tape retention lock cannot be removed by any user, including the
+-- root Amazon Web Services account.
 --
 -- 'retentionLockTimeInDays', 'poolInfo_retentionLockTimeInDays' - Tape retention lock time is set in days. Tape retention lock can be
 -- enabled for up to 100 years (36,500 days).
@@ -85,7 +87,7 @@ data PoolInfo = PoolInfo'
 --
 -- 'poolARN', 'poolInfo_poolARN' - The Amazon Resource Name (ARN) of the custom tape pool. Use the
 -- ListTapePools operation to return a list of custom tape pools for your
--- account and Region.
+-- account and Amazon Web Services Region.
 newPoolInfo ::
   PoolInfo
 newPoolInfo =
@@ -99,10 +101,11 @@ newPoolInfo =
     }
 
 -- | Tape retention lock type, which can be configured in two modes. When
--- configured in governance mode, accounts with specific IAM permissions
--- are authorized to remove the tape retention lock from archived virtual
--- tapes. When configured in compliance mode, the tape retention lock
--- cannot be removed by any user, including the root account.
+-- configured in governance mode, Amazon Web Services accounts with
+-- specific IAM permissions are authorized to remove the tape retention
+-- lock from archived virtual tapes. When configured in compliance mode,
+-- the tape retention lock cannot be removed by any user, including the
+-- root Amazon Web Services account.
 poolInfo_retentionLockType :: Lens.Lens' PoolInfo (Prelude.Maybe RetentionLockType)
 poolInfo_retentionLockType = Lens.lens (\PoolInfo' {retentionLockType} -> retentionLockType) (\s@PoolInfo' {} a -> s {retentionLockType = a} :: PoolInfo)
 
@@ -129,7 +132,7 @@ poolInfo_poolStatus = Lens.lens (\PoolInfo' {poolStatus} -> poolStatus) (\s@Pool
 
 -- | The Amazon Resource Name (ARN) of the custom tape pool. Use the
 -- ListTapePools operation to return a list of custom tape pools for your
--- account and Region.
+-- account and Amazon Web Services Region.
 poolInfo_poolARN :: Lens.Lens' PoolInfo (Prelude.Maybe Prelude.Text)
 poolInfo_poolARN = Lens.lens (\PoolInfo' {poolARN} -> poolARN) (\s@PoolInfo' {} a -> s {poolARN = a} :: PoolInfo)
 

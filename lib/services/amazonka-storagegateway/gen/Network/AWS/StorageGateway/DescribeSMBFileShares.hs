@@ -75,13 +75,13 @@ newDescribeSMBFileShares ::
 newDescribeSMBFileShares pFileShareARNList_ =
   DescribeSMBFileShares'
     { fileShareARNList =
-        Lens._Coerce Lens.# pFileShareARNList_
+        Lens.coerced Lens.# pFileShareARNList_
     }
 
 -- | An array containing the Amazon Resource Name (ARN) of each file share to
 -- be described.
 describeSMBFileShares_fileShareARNList :: Lens.Lens' DescribeSMBFileShares (Prelude.NonEmpty Prelude.Text)
-describeSMBFileShares_fileShareARNList = Lens.lens (\DescribeSMBFileShares' {fileShareARNList} -> fileShareARNList) (\s@DescribeSMBFileShares' {} a -> s {fileShareARNList = a} :: DescribeSMBFileShares) Prelude.. Lens._Coerce
+describeSMBFileShares_fileShareARNList = Lens.lens (\DescribeSMBFileShares' {fileShareARNList} -> fileShareARNList) (\s@DescribeSMBFileShares' {} a -> s {fileShareARNList = a} :: DescribeSMBFileShares) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeSMBFileShares where
   type
@@ -167,7 +167,7 @@ newDescribeSMBFileSharesResponse pHttpStatus_ =
 
 -- | An array containing a description for each requested file share.
 describeSMBFileSharesResponse_sMBFileShareInfoList :: Lens.Lens' DescribeSMBFileSharesResponse (Prelude.Maybe [SMBFileShareInfo])
-describeSMBFileSharesResponse_sMBFileShareInfoList = Lens.lens (\DescribeSMBFileSharesResponse' {sMBFileShareInfoList} -> sMBFileShareInfoList) (\s@DescribeSMBFileSharesResponse' {} a -> s {sMBFileShareInfoList = a} :: DescribeSMBFileSharesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeSMBFileSharesResponse_sMBFileShareInfoList = Lens.lens (\DescribeSMBFileSharesResponse' {sMBFileShareInfoList} -> sMBFileShareInfoList) (\s@DescribeSMBFileSharesResponse' {} a -> s {sMBFileShareInfoList = a} :: DescribeSMBFileSharesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeSMBFileSharesResponse_httpStatus :: Lens.Lens' DescribeSMBFileSharesResponse Prelude.Int

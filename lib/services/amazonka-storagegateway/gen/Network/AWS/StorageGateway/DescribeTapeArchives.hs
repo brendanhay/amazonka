@@ -110,7 +110,7 @@ describeTapeArchives_limit = Lens.lens (\DescribeTapeArchives' {limit} -> limit)
 -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
 -- the virtual tapes you want to describe.
 describeTapeArchives_tapeARNs :: Lens.Lens' DescribeTapeArchives (Prelude.Maybe [Prelude.Text])
-describeTapeArchives_tapeARNs = Lens.lens (\DescribeTapeArchives' {tapeARNs} -> tapeARNs) (\s@DescribeTapeArchives' {} a -> s {tapeARNs = a} :: DescribeTapeArchives) Prelude.. Lens.mapping Lens._Coerce
+describeTapeArchives_tapeARNs = Lens.lens (\DescribeTapeArchives' {tapeARNs} -> tapeARNs) (\s@DescribeTapeArchives' {} a -> s {tapeARNs = a} :: DescribeTapeArchives) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeTapeArchives where
   page rq rs
@@ -243,7 +243,7 @@ newDescribeTapeArchivesResponse pHttpStatus_ =
 -- (ARNs) of the tapes, size of the tapes, status of the tapes, progress of
 -- the description, and tape barcode.
 describeTapeArchivesResponse_tapeArchives :: Lens.Lens' DescribeTapeArchivesResponse (Prelude.Maybe [TapeArchive])
-describeTapeArchivesResponse_tapeArchives = Lens.lens (\DescribeTapeArchivesResponse' {tapeArchives} -> tapeArchives) (\s@DescribeTapeArchivesResponse' {} a -> s {tapeArchives = a} :: DescribeTapeArchivesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTapeArchivesResponse_tapeArchives = Lens.lens (\DescribeTapeArchivesResponse' {tapeArchives} -> tapeArchives) (\s@DescribeTapeArchivesResponse' {} a -> s {tapeArchives = a} :: DescribeTapeArchivesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An opaque string that indicates the position at which the virtual tapes
 -- that were fetched for description ended. Use this marker in your next

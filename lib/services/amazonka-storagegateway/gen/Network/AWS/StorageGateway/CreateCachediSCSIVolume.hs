@@ -251,7 +251,7 @@ createCachediSCSIVolume_kmsEncrypted = Lens.lens (\CreateCachediSCSIVolume' {kms
 -- + - = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters,
 -- and the maximum length for a tag\'s value is 256 characters.
 createCachediSCSIVolume_tags :: Lens.Lens' CreateCachediSCSIVolume (Prelude.Maybe [Tag])
-createCachediSCSIVolume_tags = Lens.lens (\CreateCachediSCSIVolume' {tags} -> tags) (\s@CreateCachediSCSIVolume' {} a -> s {tags = a} :: CreateCachediSCSIVolume) Prelude.. Lens.mapping Lens._Coerce
+createCachediSCSIVolume_tags = Lens.lens (\CreateCachediSCSIVolume' {tags} -> tags) (\s@CreateCachediSCSIVolume' {} a -> s {tags = a} :: CreateCachediSCSIVolume) Prelude.. Lens.mapping Lens.coerced
 
 -- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as
 -- the new cached volume. Specify this field if you want to create the

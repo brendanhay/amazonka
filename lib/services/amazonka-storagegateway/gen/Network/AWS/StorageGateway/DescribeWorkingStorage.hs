@@ -202,7 +202,7 @@ describeWorkingStorageResponse_gatewayARN = Lens.lens (\DescribeWorkingStorageRe
 -- 1 and maximum length of 300). If no local disks are configured as
 -- working storage, then the DiskIds array is empty.
 describeWorkingStorageResponse_diskIds :: Lens.Lens' DescribeWorkingStorageResponse (Prelude.Maybe [Prelude.Text])
-describeWorkingStorageResponse_diskIds = Lens.lens (\DescribeWorkingStorageResponse' {diskIds} -> diskIds) (\s@DescribeWorkingStorageResponse' {} a -> s {diskIds = a} :: DescribeWorkingStorageResponse) Prelude.. Lens.mapping Lens._Coerce
+describeWorkingStorageResponse_diskIds = Lens.lens (\DescribeWorkingStorageResponse' {diskIds} -> diskIds) (\s@DescribeWorkingStorageResponse' {} a -> s {diskIds = a} :: DescribeWorkingStorageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total working storage in bytes allocated for the gateway. If no
 -- working storage is configured for the gateway, this field returns 0.

@@ -118,7 +118,7 @@ newBandwidthRateLimitInterval
         startMinuteOfHour = pStartMinuteOfHour_,
         endHourOfDay = pEndHourOfDay_,
         endMinuteOfHour = pEndMinuteOfHour_,
-        daysOfWeek = Lens._Coerce Lens.# pDaysOfWeek_
+        daysOfWeek = Lens.coerced Lens.# pDaysOfWeek_
       }
 
 -- | The average upload rate limit component of the bandwidth rate limit
@@ -158,7 +158,7 @@ bandwidthRateLimitInterval_endMinuteOfHour = Lens.lens (\BandwidthRateLimitInter
 -- represented as ordinal numbers from 0 to 6, where 0 represents Sunday
 -- and 6 represents Saturday.
 bandwidthRateLimitInterval_daysOfWeek :: Lens.Lens' BandwidthRateLimitInterval (Prelude.NonEmpty Prelude.Natural)
-bandwidthRateLimitInterval_daysOfWeek = Lens.lens (\BandwidthRateLimitInterval' {daysOfWeek} -> daysOfWeek) (\s@BandwidthRateLimitInterval' {} a -> s {daysOfWeek = a} :: BandwidthRateLimitInterval) Prelude.. Lens._Coerce
+bandwidthRateLimitInterval_daysOfWeek = Lens.lens (\BandwidthRateLimitInterval' {daysOfWeek} -> daysOfWeek) (\s@BandwidthRateLimitInterval' {} a -> s {daysOfWeek = a} :: BandwidthRateLimitInterval) Prelude.. Lens.coerced
 
 instance Core.FromJSON BandwidthRateLimitInterval where
   parseJSON =

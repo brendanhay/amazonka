@@ -26,12 +26,13 @@
 -- To leave a file share field unchanged, set the corresponding input field
 -- to null.
 --
--- File gateways require Security Token Service (STS) to be activated to
--- enable you to create a file share. Make sure that STS is activated in
--- the Region you are creating your file gateway in. If STS is not
--- activated in this Region, activate it. For information about how to
--- activate STS, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an Region>
+-- File gateways require Security Token Service (Amazon Web Services STS)
+-- to be activated to enable you to create a file share. Make sure that
+-- Amazon Web Services STS is activated in the Amazon Web Services Region
+-- you are creating your file gateway in. If Amazon Web Services STS is not
+-- activated in this Amazon Web Services Region, activate it. For
+-- information about how to activate Amazon Web Services STS, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating Amazon Web Services STS in an Amazon Web Services Region>
 -- in the /Identity and Access Management User Guide/.
 --
 -- File gateways don\'t support creating hard or symbolic links on a file
@@ -132,7 +133,7 @@ data UpdateSMBFileShare = UpdateSMBFileShare'
     -- | The name of the file share. Optional.
     --
     -- @FileShareName@ must be set if an S3 prefix name is set in
-    -- @LocationARN@.
+    -- @LocationARN@, or if an access point or access point alias is used.
     fileShareName :: Prelude.Maybe Prelude.Text,
     -- | Set this value to @true@ to enable access control list (ACL) on the SMB
     -- file share. Set it to @false@ to map file and directory permissions to
@@ -262,7 +263,7 @@ data UpdateSMBFileShare = UpdateSMBFileShare'
 -- 'fileShareName', 'updateSMBFileShare_fileShareName' - The name of the file share. Optional.
 --
 -- @FileShareName@ must be set if an S3 prefix name is set in
--- @LocationARN@.
+-- @LocationARN@, or if an access point or access point alias is used.
 --
 -- 'sMBACLEnabled', 'updateSMBFileShare_sMBACLEnabled' - Set this value to @true@ to enable access control list (ACL) on the SMB
 -- file share. Set it to @false@ to map file and directory permissions to
@@ -370,7 +371,7 @@ updateSMBFileShare_accessBasedEnumeration = Lens.lens (\UpdateSMBFileShare' {acc
 -- @\@group1@, and @\@DOMAIN\\group1@. Can only be set if Authentication is
 -- set to @ActiveDirectory@.
 updateSMBFileShare_adminUserList :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe [Prelude.Text])
-updateSMBFileShare_adminUserList = Lens.lens (\UpdateSMBFileShare' {adminUserList} -> adminUserList) (\s@UpdateSMBFileShare' {} a -> s {adminUserList = a} :: UpdateSMBFileShare) Prelude.. Lens.mapping Lens._Coerce
+updateSMBFileShare_adminUserList = Lens.lens (\UpdateSMBFileShare' {adminUserList} -> adminUserList) (\s@UpdateSMBFileShare' {} a -> s {adminUserList = a} :: UpdateSMBFileShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the storage used for audit logs.
 updateSMBFileShare_auditDestinationARN :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe Prelude.Text)
@@ -382,7 +383,7 @@ updateSMBFileShare_auditDestinationARN = Lens.lens (\UpdateSMBFileShare' {auditD
 -- @\@group1@, and @\@DOMAIN\\group1@. Can only be set if Authentication is
 -- set to @ActiveDirectory@.
 updateSMBFileShare_invalidUserList :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe [Prelude.Text])
-updateSMBFileShare_invalidUserList = Lens.lens (\UpdateSMBFileShare' {invalidUserList} -> invalidUserList) (\s@UpdateSMBFileShare' {} a -> s {invalidUserList = a} :: UpdateSMBFileShare) Prelude.. Lens.mapping Lens._Coerce
+updateSMBFileShare_invalidUserList = Lens.lens (\UpdateSMBFileShare' {invalidUserList} -> invalidUserList) (\s@UpdateSMBFileShare' {} a -> s {invalidUserList = a} :: UpdateSMBFileShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
 -- used for Amazon S3 server-side encryption. Storage Gateway does not
@@ -397,7 +398,7 @@ updateSMBFileShare_kmsKey = Lens.lens (\UpdateSMBFileShare' {kmsKey} -> kmsKey) 
 -- @\@DOMAIN\\group1@. Can only be set if Authentication is set to
 -- @ActiveDirectory@.
 updateSMBFileShare_validUserList :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe [Prelude.Text])
-updateSMBFileShare_validUserList = Lens.lens (\UpdateSMBFileShare' {validUserList} -> validUserList) (\s@UpdateSMBFileShare' {} a -> s {validUserList = a} :: UpdateSMBFileShare) Prelude.. Lens.mapping Lens._Coerce
+updateSMBFileShare_validUserList = Lens.lens (\UpdateSMBFileShare' {validUserList} -> validUserList) (\s@UpdateSMBFileShare' {} a -> s {validUserList = a} :: UpdateSMBFileShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies refresh cache information for the file share.
 updateSMBFileShare_cacheAttributes :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe CacheAttributes)
@@ -428,7 +429,7 @@ updateSMBFileShare_defaultStorageClass = Lens.lens (\UpdateSMBFileShare' {defaul
 -- | The name of the file share. Optional.
 --
 -- @FileShareName@ must be set if an S3 prefix name is set in
--- @LocationARN@.
+-- @LocationARN@, or if an access point or access point alias is used.
 updateSMBFileShare_fileShareName :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe Prelude.Text)
 updateSMBFileShare_fileShareName = Lens.lens (\UpdateSMBFileShare' {fileShareName} -> fileShareName) (\s@UpdateSMBFileShare' {} a -> s {fileShareName = a} :: UpdateSMBFileShare)
 

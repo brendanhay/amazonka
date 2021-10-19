@@ -171,7 +171,7 @@ associateFileSystem_endpointNetworkConfiguration = Lens.lens (\AssociateFileSyst
 -- | A list of up to 50 tags that can be assigned to the file system
 -- association. Each tag is a key-value pair.
 associateFileSystem_tags :: Lens.Lens' AssociateFileSystem (Prelude.Maybe [Tag])
-associateFileSystem_tags = Lens.lens (\AssociateFileSystem' {tags} -> tags) (\s@AssociateFileSystem' {} a -> s {tags = a} :: AssociateFileSystem) Prelude.. Lens.mapping Lens._Coerce
+associateFileSystem_tags = Lens.lens (\AssociateFileSystem' {tags} -> tags) (\s@AssociateFileSystem' {} a -> s {tags = a} :: AssociateFileSystem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user name of the user credential that has permission to access the
 -- root share D$ of the Amazon FSx file system. The user account must

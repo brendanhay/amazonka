@@ -247,7 +247,7 @@ createStorediSCSIVolume_kmsEncrypted = Lens.lens (\CreateStorediSCSIVolume' {kms
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
 createStorediSCSIVolume_tags :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe [Tag])
-createStorediSCSIVolume_tags = Lens.lens (\CreateStorediSCSIVolume' {tags} -> tags) (\s@CreateStorediSCSIVolume' {} a -> s {tags = a} :: CreateStorediSCSIVolume) Prelude.. Lens.mapping Lens._Coerce
+createStorediSCSIVolume_tags = Lens.lens (\CreateStorediSCSIVolume' {tags} -> tags) (\s@CreateStorediSCSIVolume' {} a -> s {tags = a} :: CreateStorediSCSIVolume) Prelude.. Lens.mapping Lens.coerced
 
 -- | The snapshot ID (e.g., \"snap-1122aabb\") of the snapshot to restore as
 -- the new stored volume. Specify this field if you want to create the

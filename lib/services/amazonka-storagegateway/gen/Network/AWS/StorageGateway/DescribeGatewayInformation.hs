@@ -173,7 +173,7 @@ instance Core.ToQuery DescribeGatewayInformation where
 data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
   { -- | A value that indicates the operating state of the gateway.
     gatewayState :: Prelude.Maybe Prelude.Text,
-    -- | The Region where the Amazon EC2 instance is located.
+    -- | The Amazon Web Services Region where the Amazon EC2 instance is located.
     ec2InstanceRegion :: Prelude.Maybe Prelude.Text,
     gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | A NetworkInterface array that contains descriptions of the gateway
@@ -242,7 +242,7 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
 --
 -- 'gatewayState', 'describeGatewayInformationResponse_gatewayState' - A value that indicates the operating state of the gateway.
 --
--- 'ec2InstanceRegion', 'describeGatewayInformationResponse_ec2InstanceRegion' - The Region where the Amazon EC2 instance is located.
+-- 'ec2InstanceRegion', 'describeGatewayInformationResponse_ec2InstanceRegion' - The Amazon Web Services Region where the Amazon EC2 instance is located.
 --
 -- 'gatewayARN', 'describeGatewayInformationResponse_gatewayARN' - Undocumented member.
 --
@@ -336,7 +336,7 @@ newDescribeGatewayInformationResponse pHttpStatus_ =
 describeGatewayInformationResponse_gatewayState :: Lens.Lens' DescribeGatewayInformationResponse (Prelude.Maybe Prelude.Text)
 describeGatewayInformationResponse_gatewayState = Lens.lens (\DescribeGatewayInformationResponse' {gatewayState} -> gatewayState) (\s@DescribeGatewayInformationResponse' {} a -> s {gatewayState = a} :: DescribeGatewayInformationResponse)
 
--- | The Region where the Amazon EC2 instance is located.
+-- | The Amazon Web Services Region where the Amazon EC2 instance is located.
 describeGatewayInformationResponse_ec2InstanceRegion :: Lens.Lens' DescribeGatewayInformationResponse (Prelude.Maybe Prelude.Text)
 describeGatewayInformationResponse_ec2InstanceRegion = Lens.lens (\DescribeGatewayInformationResponse' {ec2InstanceRegion} -> ec2InstanceRegion) (\s@DescribeGatewayInformationResponse' {} a -> s {ec2InstanceRegion = a} :: DescribeGatewayInformationResponse)
 
@@ -347,7 +347,7 @@ describeGatewayInformationResponse_gatewayARN = Lens.lens (\DescribeGatewayInfor
 -- | A NetworkInterface array that contains descriptions of the gateway
 -- network interfaces.
 describeGatewayInformationResponse_gatewayNetworkInterfaces :: Lens.Lens' DescribeGatewayInformationResponse (Prelude.Maybe [NetworkInterface])
-describeGatewayInformationResponse_gatewayNetworkInterfaces = Lens.lens (\DescribeGatewayInformationResponse' {gatewayNetworkInterfaces} -> gatewayNetworkInterfaces) (\s@DescribeGatewayInformationResponse' {} a -> s {gatewayNetworkInterfaces = a} :: DescribeGatewayInformationResponse) Prelude.. Lens.mapping Lens._Coerce
+describeGatewayInformationResponse_gatewayNetworkInterfaces = Lens.lens (\DescribeGatewayInformationResponse' {gatewayNetworkInterfaces} -> gatewayNetworkInterfaces) (\s@DescribeGatewayInformationResponse' {} a -> s {gatewayNetworkInterfaces = a} :: DescribeGatewayInformationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Amazon EC2 instance that was used to launch the gateway.
 describeGatewayInformationResponse_ec2InstanceId :: Lens.Lens' DescribeGatewayInformationResponse (Prelude.Maybe Prelude.Text)
@@ -383,7 +383,7 @@ describeGatewayInformationResponse_gatewayCapacity = Lens.lens (\DescribeGateway
 -- | A list of the metadata cache sizes that the gateway can support based on
 -- its current hardware specifications.
 describeGatewayInformationResponse_supportedGatewayCapacities :: Lens.Lens' DescribeGatewayInformationResponse (Prelude.Maybe [GatewayCapacity])
-describeGatewayInformationResponse_supportedGatewayCapacities = Lens.lens (\DescribeGatewayInformationResponse' {supportedGatewayCapacities} -> supportedGatewayCapacities) (\s@DescribeGatewayInformationResponse' {} a -> s {supportedGatewayCapacities = a} :: DescribeGatewayInformationResponse) Prelude.. Lens.mapping Lens._Coerce
+describeGatewayInformationResponse_supportedGatewayCapacities = Lens.lens (\DescribeGatewayInformationResponse' {supportedGatewayCapacities} -> supportedGatewayCapacities) (\s@DescribeGatewayInformationResponse' {} a -> s {supportedGatewayCapacities = a} :: DescribeGatewayInformationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name you configured for your gateway.
 describeGatewayInformationResponse_gatewayName :: Lens.Lens' DescribeGatewayInformationResponse (Prelude.Maybe Prelude.Text)
@@ -427,7 +427,7 @@ describeGatewayInformationResponse_vPCEndpoint = Lens.lens (\DescribeGatewayInfo
 -- 10 tags assigned, you can view all tags using the @ListTagsForResource@
 -- API operation.
 describeGatewayInformationResponse_tags :: Lens.Lens' DescribeGatewayInformationResponse (Prelude.Maybe [Tag])
-describeGatewayInformationResponse_tags = Lens.lens (\DescribeGatewayInformationResponse' {tags} -> tags) (\s@DescribeGatewayInformationResponse' {} a -> s {tags = a} :: DescribeGatewayInformationResponse) Prelude.. Lens.mapping Lens._Coerce
+describeGatewayInformationResponse_tags = Lens.lens (\DescribeGatewayInformationResponse' {tags} -> tags) (\s@DescribeGatewayInformationResponse' {} a -> s {tags = a} :: DescribeGatewayInformationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeGatewayInformationResponse_httpStatus :: Lens.Lens' DescribeGatewayInformationResponse Prelude.Int

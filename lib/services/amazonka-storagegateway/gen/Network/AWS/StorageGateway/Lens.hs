@@ -40,7 +40,14 @@ module Network.AWS.StorageGateway.Lens
     describeFileSystemAssociationsResponse_fileSystemAssociationInfoList,
     describeFileSystemAssociationsResponse_httpStatus,
 
+    -- ** UpdateSMBLocalGroups
+    updateSMBLocalGroups_gatewayARN,
+    updateSMBLocalGroups_sMBLocalGroups,
+    updateSMBLocalGroupsResponse_gatewayARN,
+    updateSMBLocalGroupsResponse_httpStatus,
+
     -- ** CreateNFSFileShare
+    createNFSFileShare_auditDestinationARN,
     createNFSFileShare_kmsKey,
     createNFSFileShare_vPCEndpointDNSName,
     createNFSFileShare_cacheAttributes,
@@ -450,6 +457,7 @@ module Network.AWS.StorageGateway.Lens
     refreshCacheResponse_httpStatus,
 
     -- ** UpdateNFSFileShare
+    updateNFSFileShare_auditDestinationARN,
     updateNFSFileShare_kmsKey,
     updateNFSFileShare_cacheAttributes,
     updateNFSFileShare_objectACL,
@@ -498,6 +506,7 @@ module Network.AWS.StorageGateway.Lens
     describeSMBSettingsResponse_fileSharesVisible,
     describeSMBSettingsResponse_activeDirectoryStatus,
     describeSMBSettingsResponse_domainName,
+    describeSMBSettingsResponse_sMBLocalGroups,
     describeSMBSettingsResponse_sMBGuestPasswordSet,
     describeSMBSettingsResponse_sMBSecurityStrategy,
     describeSMBSettingsResponse_httpStatus,
@@ -832,10 +841,14 @@ module Network.AWS.StorageGateway.Lens
     fileSystemAssociationInfo_fileSystemAssociationARN,
     fileSystemAssociationInfo_gatewayARN,
     fileSystemAssociationInfo_cacheAttributes,
+    fileSystemAssociationInfo_fileSystemAssociationStatusDetails,
     fileSystemAssociationInfo_endpointNetworkConfiguration,
     fileSystemAssociationInfo_locationARN,
     fileSystemAssociationInfo_fileSystemAssociationStatus,
     fileSystemAssociationInfo_tags,
+
+    -- ** FileSystemAssociationStatusDetail
+    fileSystemAssociationStatusDetail_errorCode,
 
     -- ** FileSystemAssociationSummary
     fileSystemAssociationSummary_fileSystemAssociationARN,
@@ -859,6 +872,7 @@ module Network.AWS.StorageGateway.Lens
     nFSFileShareDefaults_groupId,
 
     -- ** NFSFileShareInfo
+    nFSFileShareInfo_auditDestinationARN,
     nFSFileShareInfo_fileShareStatus,
     nFSFileShareInfo_kmsKey,
     nFSFileShareInfo_gatewayARN,
@@ -926,6 +940,9 @@ module Network.AWS.StorageGateway.Lens
     sMBFileShareInfo_bucketRegion,
     sMBFileShareInfo_caseSensitivity,
     sMBFileShareInfo_tags,
+
+    -- ** SMBLocalGroups
+    sMBLocalGroups_gatewayAdmins,
 
     -- ** StorediSCSIVolume
     storediSCSIVolume_volumeiSCSIAttributes,
@@ -1111,6 +1128,7 @@ import Network.AWS.StorageGateway.Types.Disk
 import Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration
 import Network.AWS.StorageGateway.Types.FileShareInfo
 import Network.AWS.StorageGateway.Types.FileSystemAssociationInfo
+import Network.AWS.StorageGateway.Types.FileSystemAssociationStatusDetail
 import Network.AWS.StorageGateway.Types.FileSystemAssociationSummary
 import Network.AWS.StorageGateway.Types.GatewayInfo
 import Network.AWS.StorageGateway.Types.NFSFileShareDefaults
@@ -1118,6 +1136,7 @@ import Network.AWS.StorageGateway.Types.NFSFileShareInfo
 import Network.AWS.StorageGateway.Types.NetworkInterface
 import Network.AWS.StorageGateway.Types.PoolInfo
 import Network.AWS.StorageGateway.Types.SMBFileShareInfo
+import Network.AWS.StorageGateway.Types.SMBLocalGroups
 import Network.AWS.StorageGateway.Types.StorediSCSIVolume
 import Network.AWS.StorageGateway.Types.Tag
 import Network.AWS.StorageGateway.Types.Tape
@@ -1139,6 +1158,7 @@ import Network.AWS.StorageGateway.UpdateMaintenanceStartTime
 import Network.AWS.StorageGateway.UpdateNFSFileShare
 import Network.AWS.StorageGateway.UpdateSMBFileShare
 import Network.AWS.StorageGateway.UpdateSMBFileShareVisibility
+import Network.AWS.StorageGateway.UpdateSMBLocalGroups
 import Network.AWS.StorageGateway.UpdateSMBSecurityStrategy
 import Network.AWS.StorageGateway.UpdateSnapshotSchedule
 import Network.AWS.StorageGateway.UpdateVTLDeviceType

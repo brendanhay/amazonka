@@ -26,12 +26,13 @@
 -- using an SMB interface. This operation is only supported for S3 File
 -- Gateways.
 --
--- S3 File Gateways require Security Token Service (STS) to be activated to
--- enable you to create a file share. Make sure that STS is activated in
--- the Region you are creating your S3 File Gateway in. If STS is not
--- activated in this Region, activate it. For information about how to
--- activate STS, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an Region>
+-- S3 File Gateways require Security Token Service (Amazon Web Services
+-- STS) to be activated to enable you to create a file share. Make sure
+-- that Amazon Web Services STS is activated in the Amazon Web Services
+-- Region you are creating your S3 File Gateway in. If Amazon Web Services
+-- STS is not activated in this Amazon Web Services Region, activate it.
+-- For information about how to activate Amazon Web Services STS, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating Amazon Web Services STS in an Amazon Web Services Region>
 -- in the /Identity and Access Management User Guide/.
 --
 -- File gateways don\'t support creating hard or symbolic links on a file
@@ -153,7 +154,7 @@ data CreateSMBFileShare = CreateSMBFileShare'
     -- | The name of the file share. Optional.
     --
     -- @FileShareName@ must be set if an S3 prefix name is set in
-    -- @LocationARN@.
+    -- @LocationARN@, or if an access point or access point alias is used.
     fileShareName :: Prelude.Maybe Prelude.Text,
     -- | Set this value to @true@ to enable access control list (ACL) on the SMB
     -- file share. Set it to @false@ to map file and directory permissions to
@@ -243,19 +244,29 @@ data CreateSMBFileShare = CreateSMBFileShare'
     -- | The ARN of the Identity and Access Management (IAM) role that an S3 File
     -- Gateway assumes when it accesses the underlying storage.
     role' :: Prelude.Text,
-    -- | The ARN of the backend storage used for storing file data. A prefix name
-    -- can be added to the S3 bucket name. It must end with a \"\/\".
+    -- | A custom ARN for the backend storage used for storing data for file
+    -- shares. It includes a resource ARN with an optional prefix
+    -- concatenation. The prefix must end with a forward slash (\/).
     --
-    -- You can specify a bucket attached to an access point using a complete
-    -- ARN that includes the bucket region as shown:
+    -- You can specify LocationARN as a bucket ARN, access point ARN or access
+    -- point alias, as shown in the following examples.
     --
-    -- @arn:aws:s3:region:account-id:accesspoint\/access-point-name @
+    -- Bucket ARN:
     --
-    -- If you specify a bucket attached to an access point, the bucket policy
-    -- must be configured to delegate access control to the access point. For
-    -- information, see
+    -- @arn:aws:s3:::my-bucket\/prefix\/@
+    --
+    -- Access point ARN:
+    --
+    -- @arn:aws:s3:region:account-id:accesspoint\/access-point-name\/prefix\/@
+    --
+    -- If you specify an access point, the bucket policy must be configured to
+    -- delegate access control to the access point. For information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control Delegating access control to access points>
     -- in the /Amazon S3 User Guide/.
+    --
+    -- Access point alias:
+    --
+    -- @test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias@
     locationARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -331,7 +342,7 @@ data CreateSMBFileShare = CreateSMBFileShare'
 -- 'fileShareName', 'createSMBFileShare_fileShareName' - The name of the file share. Optional.
 --
 -- @FileShareName@ must be set if an S3 prefix name is set in
--- @LocationARN@.
+-- @LocationARN@, or if an access point or access point alias is used.
 --
 -- 'sMBACLEnabled', 'createSMBFileShare_sMBACLEnabled' - Set this value to @true@ to enable access control list (ACL) on the SMB
 -- file share. Set it to @false@ to map file and directory permissions to
@@ -421,19 +432,29 @@ data CreateSMBFileShare = CreateSMBFileShare'
 -- 'role'', 'createSMBFileShare_role' - The ARN of the Identity and Access Management (IAM) role that an S3 File
 -- Gateway assumes when it accesses the underlying storage.
 --
--- 'locationARN', 'createSMBFileShare_locationARN' - The ARN of the backend storage used for storing file data. A prefix name
--- can be added to the S3 bucket name. It must end with a \"\/\".
+-- 'locationARN', 'createSMBFileShare_locationARN' - A custom ARN for the backend storage used for storing data for file
+-- shares. It includes a resource ARN with an optional prefix
+-- concatenation. The prefix must end with a forward slash (\/).
 --
--- You can specify a bucket attached to an access point using a complete
--- ARN that includes the bucket region as shown:
+-- You can specify LocationARN as a bucket ARN, access point ARN or access
+-- point alias, as shown in the following examples.
 --
--- @arn:aws:s3:region:account-id:accesspoint\/access-point-name @
+-- Bucket ARN:
 --
--- If you specify a bucket attached to an access point, the bucket policy
--- must be configured to delegate access control to the access point. For
--- information, see
+-- @arn:aws:s3:::my-bucket\/prefix\/@
+--
+-- Access point ARN:
+--
+-- @arn:aws:s3:region:account-id:accesspoint\/access-point-name\/prefix\/@
+--
+-- If you specify an access point, the bucket policy must be configured to
+-- delegate access control to the access point. For information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control Delegating access control to access points>
 -- in the /Amazon S3 User Guide/.
+--
+-- Access point alias:
+--
+-- @test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias@
 newCreateSMBFileShare ::
   -- | 'clientToken'
   Prelude.Text ->
@@ -492,7 +513,7 @@ createSMBFileShare_accessBasedEnumeration = Lens.lens (\CreateSMBFileShare' {acc
 -- Use this option very carefully, because any user in this list can do
 -- anything they like on the file share, regardless of file permissions.
 createSMBFileShare_adminUserList :: Lens.Lens' CreateSMBFileShare (Prelude.Maybe [Prelude.Text])
-createSMBFileShare_adminUserList = Lens.lens (\CreateSMBFileShare' {adminUserList} -> adminUserList) (\s@CreateSMBFileShare' {} a -> s {adminUserList = a} :: CreateSMBFileShare) Prelude.. Lens.mapping Lens._Coerce
+createSMBFileShare_adminUserList = Lens.lens (\CreateSMBFileShare' {adminUserList} -> adminUserList) (\s@CreateSMBFileShare' {} a -> s {adminUserList = a} :: CreateSMBFileShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the storage used for audit logs.
 createSMBFileShare_auditDestinationARN :: Lens.Lens' CreateSMBFileShare (Prelude.Maybe Prelude.Text)
@@ -504,7 +525,7 @@ createSMBFileShare_auditDestinationARN = Lens.lens (\CreateSMBFileShare' {auditD
 -- @\@group1@, and @\@DOMAIN\\group1@. Can only be set if Authentication is
 -- set to @ActiveDirectory@.
 createSMBFileShare_invalidUserList :: Lens.Lens' CreateSMBFileShare (Prelude.Maybe [Prelude.Text])
-createSMBFileShare_invalidUserList = Lens.lens (\CreateSMBFileShare' {invalidUserList} -> invalidUserList) (\s@CreateSMBFileShare' {} a -> s {invalidUserList = a} :: CreateSMBFileShare) Prelude.. Lens.mapping Lens._Coerce
+createSMBFileShare_invalidUserList = Lens.lens (\CreateSMBFileShare' {invalidUserList} -> invalidUserList) (\s@CreateSMBFileShare' {} a -> s {invalidUserList = a} :: CreateSMBFileShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
 -- used for Amazon S3 server-side encryption. Storage Gateway does not
@@ -519,7 +540,7 @@ createSMBFileShare_kmsKey = Lens.lens (\CreateSMBFileShare' {kmsKey} -> kmsKey) 
 -- @\@group1@, and @\@DOMAIN\\group1@. Can only be set if Authentication is
 -- set to @ActiveDirectory@.
 createSMBFileShare_validUserList :: Lens.Lens' CreateSMBFileShare (Prelude.Maybe [Prelude.Text])
-createSMBFileShare_validUserList = Lens.lens (\CreateSMBFileShare' {validUserList} -> validUserList) (\s@CreateSMBFileShare' {} a -> s {validUserList = a} :: CreateSMBFileShare) Prelude.. Lens.mapping Lens._Coerce
+createSMBFileShare_validUserList = Lens.lens (\CreateSMBFileShare' {validUserList} -> validUserList) (\s@CreateSMBFileShare' {} a -> s {validUserList = a} :: CreateSMBFileShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the DNS name for the VPC endpoint that the SMB file share uses
 -- to connect to Amazon S3.
@@ -566,7 +587,7 @@ createSMBFileShare_defaultStorageClass = Lens.lens (\CreateSMBFileShare' {defaul
 -- | The name of the file share. Optional.
 --
 -- @FileShareName@ must be set if an S3 prefix name is set in
--- @LocationARN@.
+-- @LocationARN@, or if an access point or access point alias is used.
 createSMBFileShare_fileShareName :: Lens.Lens' CreateSMBFileShare (Prelude.Maybe Prelude.Text)
 createSMBFileShare_fileShareName = Lens.lens (\CreateSMBFileShare' {fileShareName} -> fileShareName) (\s@CreateSMBFileShare' {} a -> s {fileShareName = a} :: CreateSMBFileShare)
 
@@ -666,7 +687,7 @@ createSMBFileShare_caseSensitivity = Lens.lens (\CreateSMBFileShare' {caseSensit
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
 createSMBFileShare_tags :: Lens.Lens' CreateSMBFileShare (Prelude.Maybe [Tag])
-createSMBFileShare_tags = Lens.lens (\CreateSMBFileShare' {tags} -> tags) (\s@CreateSMBFileShare' {} a -> s {tags = a} :: CreateSMBFileShare) Prelude.. Lens.mapping Lens._Coerce
+createSMBFileShare_tags = Lens.lens (\CreateSMBFileShare' {tags} -> tags) (\s@CreateSMBFileShare' {} a -> s {tags = a} :: CreateSMBFileShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique string value that you supply that is used by S3 File Gateway to
 -- ensure idempotent file share creation.
@@ -682,19 +703,29 @@ createSMBFileShare_gatewayARN = Lens.lens (\CreateSMBFileShare' {gatewayARN} -> 
 createSMBFileShare_role :: Lens.Lens' CreateSMBFileShare Prelude.Text
 createSMBFileShare_role = Lens.lens (\CreateSMBFileShare' {role'} -> role') (\s@CreateSMBFileShare' {} a -> s {role' = a} :: CreateSMBFileShare)
 
--- | The ARN of the backend storage used for storing file data. A prefix name
--- can be added to the S3 bucket name. It must end with a \"\/\".
+-- | A custom ARN for the backend storage used for storing data for file
+-- shares. It includes a resource ARN with an optional prefix
+-- concatenation. The prefix must end with a forward slash (\/).
 --
--- You can specify a bucket attached to an access point using a complete
--- ARN that includes the bucket region as shown:
+-- You can specify LocationARN as a bucket ARN, access point ARN or access
+-- point alias, as shown in the following examples.
 --
--- @arn:aws:s3:region:account-id:accesspoint\/access-point-name @
+-- Bucket ARN:
 --
--- If you specify a bucket attached to an access point, the bucket policy
--- must be configured to delegate access control to the access point. For
--- information, see
+-- @arn:aws:s3:::my-bucket\/prefix\/@
+--
+-- Access point ARN:
+--
+-- @arn:aws:s3:region:account-id:accesspoint\/access-point-name\/prefix\/@
+--
+-- If you specify an access point, the bucket policy must be configured to
+-- delegate access control to the access point. For information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control Delegating access control to access points>
 -- in the /Amazon S3 User Guide/.
+--
+-- Access point alias:
+--
+-- @test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias@
 createSMBFileShare_locationARN :: Lens.Lens' CreateSMBFileShare Prelude.Text
 createSMBFileShare_locationARN = Lens.lens (\CreateSMBFileShare' {locationARN} -> locationARN) (\s@CreateSMBFileShare' {} a -> s {locationARN = a} :: CreateSMBFileShare)
 

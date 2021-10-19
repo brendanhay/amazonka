@@ -151,10 +151,16 @@ module Network.AWS.StorageGateway.Types
     fileSystemAssociationInfo_fileSystemAssociationARN,
     fileSystemAssociationInfo_gatewayARN,
     fileSystemAssociationInfo_cacheAttributes,
+    fileSystemAssociationInfo_fileSystemAssociationStatusDetails,
     fileSystemAssociationInfo_endpointNetworkConfiguration,
     fileSystemAssociationInfo_locationARN,
     fileSystemAssociationInfo_fileSystemAssociationStatus,
     fileSystemAssociationInfo_tags,
+
+    -- * FileSystemAssociationStatusDetail
+    FileSystemAssociationStatusDetail (..),
+    newFileSystemAssociationStatusDetail,
+    fileSystemAssociationStatusDetail_errorCode,
 
     -- * FileSystemAssociationSummary
     FileSystemAssociationSummary (..),
@@ -186,6 +192,7 @@ module Network.AWS.StorageGateway.Types
     -- * NFSFileShareInfo
     NFSFileShareInfo (..),
     newNFSFileShareInfo,
+    nFSFileShareInfo_auditDestinationARN,
     nFSFileShareInfo_fileShareStatus,
     nFSFileShareInfo_kmsKey,
     nFSFileShareInfo_gatewayARN,
@@ -259,6 +266,11 @@ module Network.AWS.StorageGateway.Types
     sMBFileShareInfo_bucketRegion,
     sMBFileShareInfo_caseSensitivity,
     sMBFileShareInfo_tags,
+
+    -- * SMBLocalGroups
+    SMBLocalGroups (..),
+    newSMBLocalGroups,
+    sMBLocalGroups_gatewayAdmins,
 
     -- * StorediSCSIVolume
     StorediSCSIVolume (..),
@@ -397,6 +409,7 @@ import Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration
 import Network.AWS.StorageGateway.Types.FileShareInfo
 import Network.AWS.StorageGateway.Types.FileShareType
 import Network.AWS.StorageGateway.Types.FileSystemAssociationInfo
+import Network.AWS.StorageGateway.Types.FileSystemAssociationStatusDetail
 import Network.AWS.StorageGateway.Types.FileSystemAssociationSummary
 import Network.AWS.StorageGateway.Types.GatewayCapacity
 import Network.AWS.StorageGateway.Types.GatewayInfo
@@ -409,6 +422,7 @@ import Network.AWS.StorageGateway.Types.PoolInfo
 import Network.AWS.StorageGateway.Types.PoolStatus
 import Network.AWS.StorageGateway.Types.RetentionLockType
 import Network.AWS.StorageGateway.Types.SMBFileShareInfo
+import Network.AWS.StorageGateway.Types.SMBLocalGroups
 import Network.AWS.StorageGateway.Types.SMBSecurityStrategy
 import Network.AWS.StorageGateway.Types.StorediSCSIVolume
 import Network.AWS.StorageGateway.Types.Tag
@@ -496,7 +510,7 @@ defaultService =
 
 -- | An exception occurred because an invalid gateway request was issued to
 -- the service. For more information, see the error and message fields.
-_InvalidGatewayRequestException :: (Core.AsError a) => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidGatewayRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidGatewayRequestException =
   Core._MatchServiceError
     defaultService
@@ -504,7 +518,7 @@ _InvalidGatewayRequestException =
 
 -- | An internal server error has occurred because the service is
 -- unavailable. For more information, see the error and message fields.
-_ServiceUnavailableError :: (Core.AsError a) => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceUnavailableError =
   Core._MatchServiceError
     defaultService
@@ -512,7 +526,7 @@ _ServiceUnavailableError =
 
 -- | An internal server error has occurred during the request. For more
 -- information, see the error and message fields.
-_InternalServerError :: (Core.AsError a) => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService

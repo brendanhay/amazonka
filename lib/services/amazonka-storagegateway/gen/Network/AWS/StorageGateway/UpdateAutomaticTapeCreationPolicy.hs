@@ -87,7 +87,7 @@ newUpdateAutomaticTapeCreationPolicy
   pGatewayARN_ =
     UpdateAutomaticTapeCreationPolicy'
       { automaticTapeCreationRules =
-          Lens._Coerce
+          Lens.coerced
             Lens.# pAutomaticTapeCreationRules_,
         gatewayARN = pGatewayARN_
       }
@@ -96,7 +96,7 @@ newUpdateAutomaticTapeCreationPolicy
 -- creation rules. The rules determine when and how to automatically create
 -- new tapes.
 updateAutomaticTapeCreationPolicy_automaticTapeCreationRules :: Lens.Lens' UpdateAutomaticTapeCreationPolicy (Prelude.NonEmpty AutomaticTapeCreationRule)
-updateAutomaticTapeCreationPolicy_automaticTapeCreationRules = Lens.lens (\UpdateAutomaticTapeCreationPolicy' {automaticTapeCreationRules} -> automaticTapeCreationRules) (\s@UpdateAutomaticTapeCreationPolicy' {} a -> s {automaticTapeCreationRules = a} :: UpdateAutomaticTapeCreationPolicy) Prelude.. Lens._Coerce
+updateAutomaticTapeCreationPolicy_automaticTapeCreationRules = Lens.lens (\UpdateAutomaticTapeCreationPolicy' {automaticTapeCreationRules} -> automaticTapeCreationRules) (\s@UpdateAutomaticTapeCreationPolicy' {} a -> s {automaticTapeCreationRules = a} :: UpdateAutomaticTapeCreationPolicy) Prelude.. Lens.coerced
 
 -- | Undocumented member.
 updateAutomaticTapeCreationPolicy_gatewayARN :: Lens.Lens' UpdateAutomaticTapeCreationPolicy Prelude.Text

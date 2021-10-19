@@ -215,7 +215,7 @@ newDescribeChapCredentialsResponse pHttpStatus_ =
 --
 -- -   __TargetARN__: The Amazon Resource Name (ARN) of the storage volume.
 describeChapCredentialsResponse_chapCredentials :: Lens.Lens' DescribeChapCredentialsResponse (Prelude.Maybe [ChapInfo])
-describeChapCredentialsResponse_chapCredentials = Lens.lens (\DescribeChapCredentialsResponse' {chapCredentials} -> chapCredentials) (\s@DescribeChapCredentialsResponse' {} a -> s {chapCredentials = a} :: DescribeChapCredentialsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeChapCredentialsResponse_chapCredentials = Lens.lens (\DescribeChapCredentialsResponse' {chapCredentials} -> chapCredentials) (\s@DescribeChapCredentialsResponse' {} a -> s {chapCredentials = a} :: DescribeChapCredentialsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeChapCredentialsResponse_httpStatus :: Lens.Lens' DescribeChapCredentialsResponse Prelude.Int

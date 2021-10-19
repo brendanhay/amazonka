@@ -133,7 +133,7 @@ describeTapes_limit = Lens.lens (\DescribeTapes' {limit} -> limit) (\s@DescribeT
 -- specified, Tape gateway returns a description of all virtual tapes
 -- associated with the specified gateway.
 describeTapes_tapeARNs :: Lens.Lens' DescribeTapes (Prelude.Maybe [Prelude.Text])
-describeTapes_tapeARNs = Lens.lens (\DescribeTapes' {tapeARNs} -> tapeARNs) (\s@DescribeTapes' {} a -> s {tapeARNs = a} :: DescribeTapes) Prelude.. Lens.mapping Lens._Coerce
+describeTapes_tapeARNs = Lens.lens (\DescribeTapes' {tapeARNs} -> tapeARNs) (\s@DescribeTapes' {} a -> s {tapeARNs = a} :: DescribeTapes) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 describeTapes_gatewayARN :: Lens.Lens' DescribeTapes Prelude.Text
@@ -263,7 +263,7 @@ describeTapesResponse_marker = Lens.lens (\DescribeTapesResponse' {marker} -> ma
 
 -- | An array of virtual tape descriptions.
 describeTapesResponse_tapes :: Lens.Lens' DescribeTapesResponse (Prelude.Maybe [Tape])
-describeTapesResponse_tapes = Lens.lens (\DescribeTapesResponse' {tapes} -> tapes) (\s@DescribeTapesResponse' {} a -> s {tapes = a} :: DescribeTapesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTapesResponse_tapes = Lens.lens (\DescribeTapesResponse' {tapes} -> tapes) (\s@DescribeTapesResponse' {} a -> s {tapes = a} :: DescribeTapesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTapesResponse_httpStatus :: Lens.Lens' DescribeTapesResponse Prelude.Int

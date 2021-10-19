@@ -88,7 +88,7 @@ newDescribeStorediSCSIVolumes =
 -- be from the same gateway. Use ListVolumes to get volume ARNs for a
 -- gateway.
 describeStorediSCSIVolumes_volumeARNs :: Lens.Lens' DescribeStorediSCSIVolumes [Prelude.Text]
-describeStorediSCSIVolumes_volumeARNs = Lens.lens (\DescribeStorediSCSIVolumes' {volumeARNs} -> volumeARNs) (\s@DescribeStorediSCSIVolumes' {} a -> s {volumeARNs = a} :: DescribeStorediSCSIVolumes) Prelude.. Lens._Coerce
+describeStorediSCSIVolumes_volumeARNs = Lens.lens (\DescribeStorediSCSIVolumes' {volumeARNs} -> volumeARNs) (\s@DescribeStorediSCSIVolumes' {} a -> s {volumeARNs = a} :: DescribeStorediSCSIVolumes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeStorediSCSIVolumes where
   type
@@ -314,7 +314,7 @@ newDescribeStorediSCSIVolumesResponse pHttpStatus_ =
 -- -   @VolumeType@: One of the enumeration values describing the type of
 --     the volume. Currently, only @STORED@ volumes are supported.
 describeStorediSCSIVolumesResponse_storediSCSIVolumes :: Lens.Lens' DescribeStorediSCSIVolumesResponse (Prelude.Maybe [StorediSCSIVolume])
-describeStorediSCSIVolumesResponse_storediSCSIVolumes = Lens.lens (\DescribeStorediSCSIVolumesResponse' {storediSCSIVolumes} -> storediSCSIVolumes) (\s@DescribeStorediSCSIVolumesResponse' {} a -> s {storediSCSIVolumes = a} :: DescribeStorediSCSIVolumesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeStorediSCSIVolumesResponse_storediSCSIVolumes = Lens.lens (\DescribeStorediSCSIVolumesResponse' {storediSCSIVolumes} -> storediSCSIVolumes) (\s@DescribeStorediSCSIVolumesResponse' {} a -> s {storediSCSIVolumes = a} :: DescribeStorediSCSIVolumesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeStorediSCSIVolumesResponse_httpStatus :: Lens.Lens' DescribeStorediSCSIVolumesResponse Prelude.Int

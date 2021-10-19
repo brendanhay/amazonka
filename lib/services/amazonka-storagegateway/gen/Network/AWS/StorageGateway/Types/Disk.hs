@@ -126,7 +126,7 @@ disk_diskId = Lens.lens (\Disk' {diskId} -> diskId) (\s@Disk' {} a -> s {diskId 
 
 -- | Undocumented member.
 disk_diskAttributeList :: Lens.Lens' Disk (Prelude.Maybe [Prelude.Text])
-disk_diskAttributeList = Lens.lens (\Disk' {diskAttributeList} -> diskAttributeList) (\s@Disk' {} a -> s {diskAttributeList = a} :: Disk) Prelude.. Lens.mapping Lens._Coerce
+disk_diskAttributeList = Lens.lens (\Disk' {diskAttributeList} -> diskAttributeList) (\s@Disk' {} a -> s {diskAttributeList = a} :: Disk) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Disk where
   parseJSON =

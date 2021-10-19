@@ -149,7 +149,7 @@ newCreateSnapshot pVolumeARN_ pSnapshotDescription_ =
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
 createSnapshot_tags :: Lens.Lens' CreateSnapshot (Prelude.Maybe [Tag])
-createSnapshot_tags = Lens.lens (\CreateSnapshot' {tags} -> tags) (\s@CreateSnapshot' {} a -> s {tags = a} :: CreateSnapshot) Prelude.. Lens.mapping Lens._Coerce
+createSnapshot_tags = Lens.lens (\CreateSnapshot' {tags} -> tags) (\s@CreateSnapshot' {} a -> s {tags = a} :: CreateSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.

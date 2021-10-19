@@ -240,7 +240,7 @@ newListFileSystemAssociationsResponse pHttpStatus_ =
 -- | An array of information about the Amazon FSx gateway\'s file system
 -- associations.
 listFileSystemAssociationsResponse_fileSystemAssociationSummaryList :: Lens.Lens' ListFileSystemAssociationsResponse (Prelude.Maybe [FileSystemAssociationSummary])
-listFileSystemAssociationsResponse_fileSystemAssociationSummaryList = Lens.lens (\ListFileSystemAssociationsResponse' {fileSystemAssociationSummaryList} -> fileSystemAssociationSummaryList) (\s@ListFileSystemAssociationsResponse' {} a -> s {fileSystemAssociationSummaryList = a} :: ListFileSystemAssociationsResponse) Prelude.. Lens.mapping Lens._Coerce
+listFileSystemAssociationsResponse_fileSystemAssociationSummaryList = Lens.lens (\ListFileSystemAssociationsResponse' {fileSystemAssociationSummaryList} -> fileSystemAssociationSummaryList) (\s@ListFileSystemAssociationsResponse' {} a -> s {fileSystemAssociationSummaryList = a} :: ListFileSystemAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the request includes @Marker@, the response returns that value in
 -- this field.

@@ -73,14 +73,14 @@ newDescribeFileSystemAssociations
   pFileSystemAssociationARNList_ =
     DescribeFileSystemAssociations'
       { fileSystemAssociationARNList =
-          Lens._Coerce
+          Lens.coerced
             Lens.# pFileSystemAssociationARNList_
       }
 
 -- | An array containing the Amazon Resource Name (ARN) of each file system
 -- association to be described.
 describeFileSystemAssociations_fileSystemAssociationARNList :: Lens.Lens' DescribeFileSystemAssociations (Prelude.NonEmpty Prelude.Text)
-describeFileSystemAssociations_fileSystemAssociationARNList = Lens.lens (\DescribeFileSystemAssociations' {fileSystemAssociationARNList} -> fileSystemAssociationARNList) (\s@DescribeFileSystemAssociations' {} a -> s {fileSystemAssociationARNList = a} :: DescribeFileSystemAssociations) Prelude.. Lens._Coerce
+describeFileSystemAssociations_fileSystemAssociationARNList = Lens.lens (\DescribeFileSystemAssociations' {fileSystemAssociationARNList} -> fileSystemAssociationARNList) (\s@DescribeFileSystemAssociations' {} a -> s {fileSystemAssociationARNList = a} :: DescribeFileSystemAssociations) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -180,7 +180,7 @@ newDescribeFileSystemAssociationsResponse
 -- | An array containing the @FileSystemAssociationInfo@ data type of each
 -- file system association to be described.
 describeFileSystemAssociationsResponse_fileSystemAssociationInfoList :: Lens.Lens' DescribeFileSystemAssociationsResponse (Prelude.Maybe [FileSystemAssociationInfo])
-describeFileSystemAssociationsResponse_fileSystemAssociationInfoList = Lens.lens (\DescribeFileSystemAssociationsResponse' {fileSystemAssociationInfoList} -> fileSystemAssociationInfoList) (\s@DescribeFileSystemAssociationsResponse' {} a -> s {fileSystemAssociationInfoList = a} :: DescribeFileSystemAssociationsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeFileSystemAssociationsResponse_fileSystemAssociationInfoList = Lens.lens (\DescribeFileSystemAssociationsResponse' {fileSystemAssociationInfoList} -> fileSystemAssociationInfoList) (\s@DescribeFileSystemAssociationsResponse' {} a -> s {fileSystemAssociationInfoList = a} :: DescribeFileSystemAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeFileSystemAssociationsResponse_httpStatus :: Lens.Lens' DescribeFileSystemAssociationsResponse Prelude.Int

@@ -35,8 +35,8 @@ module Network.AWS.Translate.ListParallelData
     newListParallelDataResponse,
 
     -- * Response Lenses
-    listParallelDataResponse_nextToken,
     listParallelDataResponse_parallelDataPropertiesList,
+    listParallelDataResponse_nextToken,
     listParallelDataResponse_httpStatus,
   )
 where
@@ -96,10 +96,10 @@ instance Core.AWSRequest ListParallelData where
     Response.receiveJSON
       ( \s h x ->
           ListParallelDataResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ParallelDataPropertiesList"
+            Prelude.<$> ( x Core..?> "ParallelDataPropertiesList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,12 +139,12 @@ instance Core.ToQuery ListParallelData where
 
 -- | /See:/ 'newListParallelDataResponse' smart constructor.
 data ListParallelDataResponse = ListParallelDataResponse'
-  { -- | The string to use in a subsequent request to get the next page of
+  { -- | The properties of the parallel data resources returned by this request.
+    parallelDataPropertiesList :: Prelude.Maybe [ParallelDataProperties],
+    -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The properties of the parallel data resources returned by this request.
-    parallelDataPropertiesList :: Prelude.Maybe [ParallelDataProperties],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -158,11 +158,11 @@ data ListParallelDataResponse = ListParallelDataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'parallelDataPropertiesList', 'listParallelDataResponse_parallelDataPropertiesList' - The properties of the parallel data resources returned by this request.
+--
 -- 'nextToken', 'listParallelDataResponse_nextToken' - The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
---
--- 'parallelDataPropertiesList', 'listParallelDataResponse_parallelDataPropertiesList' - The properties of the parallel data resources returned by this request.
 --
 -- 'httpStatus', 'listParallelDataResponse_httpStatus' - The response's http status code.
 newListParallelDataResponse ::
@@ -171,21 +171,21 @@ newListParallelDataResponse ::
   ListParallelDataResponse
 newListParallelDataResponse pHttpStatus_ =
   ListParallelDataResponse'
-    { nextToken =
+    { parallelDataPropertiesList =
         Prelude.Nothing,
-      parallelDataPropertiesList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The properties of the parallel data resources returned by this request.
+listParallelDataResponse_parallelDataPropertiesList :: Lens.Lens' ListParallelDataResponse (Prelude.Maybe [ParallelDataProperties])
+listParallelDataResponse_parallelDataPropertiesList = Lens.lens (\ListParallelDataResponse' {parallelDataPropertiesList} -> parallelDataPropertiesList) (\s@ListParallelDataResponse' {} a -> s {parallelDataPropertiesList = a} :: ListParallelDataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
 listParallelDataResponse_nextToken :: Lens.Lens' ListParallelDataResponse (Prelude.Maybe Prelude.Text)
 listParallelDataResponse_nextToken = Lens.lens (\ListParallelDataResponse' {nextToken} -> nextToken) (\s@ListParallelDataResponse' {} a -> s {nextToken = a} :: ListParallelDataResponse)
-
--- | The properties of the parallel data resources returned by this request.
-listParallelDataResponse_parallelDataPropertiesList :: Lens.Lens' ListParallelDataResponse (Prelude.Maybe [ParallelDataProperties])
-listParallelDataResponse_parallelDataPropertiesList = Lens.lens (\ListParallelDataResponse' {parallelDataPropertiesList} -> parallelDataPropertiesList) (\s@ListParallelDataResponse' {} a -> s {parallelDataPropertiesList = a} :: ListParallelDataResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listParallelDataResponse_httpStatus :: Lens.Lens' ListParallelDataResponse Prelude.Int

@@ -20,44 +20,44 @@ module Network.AWS.Translate
     -- * Errors
     -- $errors
 
-    -- ** InvalidFilterException
-    _InvalidFilterException,
-
-    -- ** DetectedLanguageLowConfidenceException
-    _DetectedLanguageLowConfidenceException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- ** UnsupportedLanguagePairException
     _UnsupportedLanguagePairException,
 
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
-
-    -- ** TextSizeLimitExceededException
-    _TextSizeLimitExceededException,
+    -- ** DetectedLanguageLowConfidenceException
+    _DetectedLanguageLowConfidenceException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
 
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** InvalidFilterException
+    _InvalidFilterException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** TextSizeLimitExceededException
+    _TextSizeLimitExceededException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -65,47 +65,23 @@ module Network.AWS.Translate
     -- * Operations
     -- $operations
 
-    -- ** CreateParallelData
-    CreateParallelData (CreateParallelData'),
-    newCreateParallelData,
-    CreateParallelDataResponse (CreateParallelDataResponse'),
-    newCreateParallelDataResponse,
-
     -- ** DescribeTextTranslationJob
     DescribeTextTranslationJob (DescribeTextTranslationJob'),
     newDescribeTextTranslationJob,
     DescribeTextTranslationJobResponse (DescribeTextTranslationJobResponse'),
     newDescribeTextTranslationJobResponse,
 
-    -- ** StartTextTranslationJob
-    StartTextTranslationJob (StartTextTranslationJob'),
-    newStartTextTranslationJob,
-    StartTextTranslationJobResponse (StartTextTranslationJobResponse'),
-    newStartTextTranslationJobResponse,
+    -- ** ListTerminologies (Paginated)
+    ListTerminologies (ListTerminologies'),
+    newListTerminologies,
+    ListTerminologiesResponse (ListTerminologiesResponse'),
+    newListTerminologiesResponse,
 
-    -- ** StopTextTranslationJob
-    StopTextTranslationJob (StopTextTranslationJob'),
-    newStopTextTranslationJob,
-    StopTextTranslationJobResponse (StopTextTranslationJobResponse'),
-    newStopTextTranslationJobResponse,
-
-    -- ** ImportTerminology
-    ImportTerminology (ImportTerminology'),
-    newImportTerminology,
-    ImportTerminologyResponse (ImportTerminologyResponse'),
-    newImportTerminologyResponse,
-
-    -- ** ListTextTranslationJobs
-    ListTextTranslationJobs (ListTextTranslationJobs'),
-    newListTextTranslationJobs,
-    ListTextTranslationJobsResponse (ListTextTranslationJobsResponse'),
-    newListTextTranslationJobsResponse,
-
-    -- ** GetParallelData
-    GetParallelData (GetParallelData'),
-    newGetParallelData,
-    GetParallelDataResponse (GetParallelDataResponse'),
-    newGetParallelDataResponse,
+    -- ** CreateParallelData
+    CreateParallelData (CreateParallelData'),
+    newCreateParallelData,
+    CreateParallelDataResponse (CreateParallelDataResponse'),
+    newCreateParallelDataResponse,
 
     -- ** UpdateParallelData
     UpdateParallelData (UpdateParallelData'),
@@ -119,23 +95,17 @@ module Network.AWS.Translate
     DeleteParallelDataResponse (DeleteParallelDataResponse'),
     newDeleteParallelDataResponse,
 
-    -- ** DeleteTerminology
-    DeleteTerminology (DeleteTerminology'),
-    newDeleteTerminology,
-    DeleteTerminologyResponse (DeleteTerminologyResponse'),
-    newDeleteTerminologyResponse,
+    -- ** GetParallelData
+    GetParallelData (GetParallelData'),
+    newGetParallelData,
+    GetParallelDataResponse (GetParallelDataResponse'),
+    newGetParallelDataResponse,
 
-    -- ** ListTerminologies (Paginated)
-    ListTerminologies (ListTerminologies'),
-    newListTerminologies,
-    ListTerminologiesResponse (ListTerminologiesResponse'),
-    newListTerminologiesResponse,
-
-    -- ** ListParallelData
-    ListParallelData (ListParallelData'),
-    newListParallelData,
-    ListParallelDataResponse (ListParallelDataResponse'),
-    newListParallelDataResponse,
+    -- ** GetTerminology
+    GetTerminology (GetTerminology'),
+    newGetTerminology,
+    GetTerminologyResponse (GetTerminologyResponse'),
+    newGetTerminologyResponse,
 
     -- ** TranslateText
     TranslateText (TranslateText'),
@@ -143,11 +113,41 @@ module Network.AWS.Translate
     TranslateTextResponse (TranslateTextResponse'),
     newTranslateTextResponse,
 
-    -- ** GetTerminology
-    GetTerminology (GetTerminology'),
-    newGetTerminology,
-    GetTerminologyResponse (GetTerminologyResponse'),
-    newGetTerminologyResponse,
+    -- ** ImportTerminology
+    ImportTerminology (ImportTerminology'),
+    newImportTerminology,
+    ImportTerminologyResponse (ImportTerminologyResponse'),
+    newImportTerminologyResponse,
+
+    -- ** StopTextTranslationJob
+    StopTextTranslationJob (StopTextTranslationJob'),
+    newStopTextTranslationJob,
+    StopTextTranslationJobResponse (StopTextTranslationJobResponse'),
+    newStopTextTranslationJobResponse,
+
+    -- ** DeleteTerminology
+    DeleteTerminology (DeleteTerminology'),
+    newDeleteTerminology,
+    DeleteTerminologyResponse (DeleteTerminologyResponse'),
+    newDeleteTerminologyResponse,
+
+    -- ** ListTextTranslationJobs
+    ListTextTranslationJobs (ListTextTranslationJobs'),
+    newListTextTranslationJobs,
+    ListTextTranslationJobsResponse (ListTextTranslationJobsResponse'),
+    newListTextTranslationJobsResponse,
+
+    -- ** StartTextTranslationJob
+    StartTextTranslationJob (StartTextTranslationJob'),
+    newStartTextTranslationJob,
+    StartTextTranslationJobResponse (StartTextTranslationJobResponse'),
+    newStartTextTranslationJobResponse,
+
+    -- ** ListParallelData
+    ListParallelData (ListParallelData'),
+    newListParallelData,
+    ListParallelDataResponse (ListParallelDataResponse'),
+    newListParallelDataResponse,
 
     -- * Types
 

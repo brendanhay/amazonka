@@ -37,9 +37,9 @@ module Network.AWS.Translate.StartTextTranslationJob
     newStartTextTranslationJob,
 
     -- * Request Lenses
+    startTextTranslationJob_jobName,
     startTextTranslationJob_parallelDataNames,
     startTextTranslationJob_terminologyNames,
-    startTextTranslationJob_jobName,
     startTextTranslationJob_inputDataConfig,
     startTextTranslationJob_outputDataConfig,
     startTextTranslationJob_dataAccessRoleArn,
@@ -52,8 +52,8 @@ module Network.AWS.Translate.StartTextTranslationJob
     newStartTextTranslationJobResponse,
 
     -- * Response Lenses
-    startTextTranslationJobResponse_jobStatus,
     startTextTranslationJobResponse_jobId,
+    startTextTranslationJobResponse_jobStatus,
     startTextTranslationJobResponse_httpStatus,
   )
 where
@@ -67,15 +67,15 @@ import Network.AWS.Translate.Types
 
 -- | /See:/ 'newStartTextTranslationJob' smart constructor.
 data StartTextTranslationJob = StartTextTranslationJob'
-  { -- | The names of the parallel data resources to use in the batch translation
+  { -- | The name of the batch translation job to be performed.
+    jobName :: Prelude.Maybe Prelude.Text,
+    -- | The names of the parallel data resources to use in the batch translation
     -- job. For a list of available parallel data resources, use the
     -- ListParallelData operation.
     parallelDataNames :: Prelude.Maybe [Prelude.Text],
     -- | The name of the terminology to use in the batch translation job. For a
     -- list of available terminologies, use the ListTerminologies operation.
     terminologyNames :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the batch translation job to be performed.
-    jobName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the format and S3 location of the input documents for the
     -- translation job.
     inputDataConfig :: InputDataConfig,
@@ -107,14 +107,14 @@ data StartTextTranslationJob = StartTextTranslationJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobName', 'startTextTranslationJob_jobName' - The name of the batch translation job to be performed.
+--
 -- 'parallelDataNames', 'startTextTranslationJob_parallelDataNames' - The names of the parallel data resources to use in the batch translation
 -- job. For a list of available parallel data resources, use the
 -- ListParallelData operation.
 --
 -- 'terminologyNames', 'startTextTranslationJob_terminologyNames' - The name of the terminology to use in the batch translation job. For a
 -- list of available terminologies, use the ListTerminologies operation.
---
--- 'jobName', 'startTextTranslationJob_jobName' - The name of the batch translation job to be performed.
 --
 -- 'inputDataConfig', 'startTextTranslationJob_inputDataConfig' - Specifies the format and S3 location of the input documents for the
 -- translation job.
@@ -157,33 +157,32 @@ newStartTextTranslationJob
   pTargetLanguageCodes_
   pClientToken_ =
     StartTextTranslationJob'
-      { parallelDataNames =
-          Prelude.Nothing,
+      { jobName = Prelude.Nothing,
+        parallelDataNames = Prelude.Nothing,
         terminologyNames = Prelude.Nothing,
-        jobName = Prelude.Nothing,
         inputDataConfig = pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         dataAccessRoleArn = pDataAccessRoleArn_,
         sourceLanguageCode = pSourceLanguageCode_,
         targetLanguageCodes =
-          Lens._Coerce Lens.# pTargetLanguageCodes_,
+          Lens.coerced Lens.# pTargetLanguageCodes_,
         clientToken = pClientToken_
       }
+
+-- | The name of the batch translation job to be performed.
+startTextTranslationJob_jobName :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe Prelude.Text)
+startTextTranslationJob_jobName = Lens.lens (\StartTextTranslationJob' {jobName} -> jobName) (\s@StartTextTranslationJob' {} a -> s {jobName = a} :: StartTextTranslationJob)
 
 -- | The names of the parallel data resources to use in the batch translation
 -- job. For a list of available parallel data resources, use the
 -- ListParallelData operation.
 startTextTranslationJob_parallelDataNames :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe [Prelude.Text])
-startTextTranslationJob_parallelDataNames = Lens.lens (\StartTextTranslationJob' {parallelDataNames} -> parallelDataNames) (\s@StartTextTranslationJob' {} a -> s {parallelDataNames = a} :: StartTextTranslationJob) Prelude.. Lens.mapping Lens._Coerce
+startTextTranslationJob_parallelDataNames = Lens.lens (\StartTextTranslationJob' {parallelDataNames} -> parallelDataNames) (\s@StartTextTranslationJob' {} a -> s {parallelDataNames = a} :: StartTextTranslationJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the terminology to use in the batch translation job. For a
 -- list of available terminologies, use the ListTerminologies operation.
 startTextTranslationJob_terminologyNames :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe [Prelude.Text])
-startTextTranslationJob_terminologyNames = Lens.lens (\StartTextTranslationJob' {terminologyNames} -> terminologyNames) (\s@StartTextTranslationJob' {} a -> s {terminologyNames = a} :: StartTextTranslationJob) Prelude.. Lens.mapping Lens._Coerce
-
--- | The name of the batch translation job to be performed.
-startTextTranslationJob_jobName :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe Prelude.Text)
-startTextTranslationJob_jobName = Lens.lens (\StartTextTranslationJob' {jobName} -> jobName) (\s@StartTextTranslationJob' {} a -> s {jobName = a} :: StartTextTranslationJob)
+startTextTranslationJob_terminologyNames = Lens.lens (\StartTextTranslationJob' {terminologyNames} -> terminologyNames) (\s@StartTextTranslationJob' {} a -> s {terminologyNames = a} :: StartTextTranslationJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the format and S3 location of the input documents for the
 -- translation job.
@@ -210,7 +209,7 @@ startTextTranslationJob_sourceLanguageCode = Lens.lens (\StartTextTranslationJob
 
 -- | The language code of the output language.
 startTextTranslationJob_targetLanguageCodes :: Lens.Lens' StartTextTranslationJob (Prelude.NonEmpty Prelude.Text)
-startTextTranslationJob_targetLanguageCodes = Lens.lens (\StartTextTranslationJob' {targetLanguageCodes} -> targetLanguageCodes) (\s@StartTextTranslationJob' {} a -> s {targetLanguageCodes = a} :: StartTextTranslationJob) Prelude.. Lens._Coerce
+startTextTranslationJob_targetLanguageCodes = Lens.lens (\StartTextTranslationJob' {targetLanguageCodes} -> targetLanguageCodes) (\s@StartTextTranslationJob' {} a -> s {targetLanguageCodes = a} :: StartTextTranslationJob) Prelude.. Lens.coerced
 
 -- | A unique identifier for the request. This token is auto-generated when
 -- using the Amazon Translate SDK.
@@ -226,8 +225,8 @@ instance Core.AWSRequest StartTextTranslationJob where
     Response.receiveJSON
       ( \s h x ->
           StartTextTranslationJobResponse'
-            Prelude.<$> (x Core..?> "JobStatus")
-            Prelude.<*> (x Core..?> "JobId")
+            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<*> (x Core..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -254,11 +253,11 @@ instance Core.ToJSON StartTextTranslationJob where
   toJSON StartTextTranslationJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ParallelDataNames" Core..=)
+          [ ("JobName" Core..=) Prelude.<$> jobName,
+            ("ParallelDataNames" Core..=)
               Prelude.<$> parallelDataNames,
             ("TerminologyNames" Core..=)
               Prelude.<$> terminologyNames,
-            ("JobName" Core..=) Prelude.<$> jobName,
             Prelude.Just
               ("InputDataConfig" Core..= inputDataConfig),
             Prelude.Just
@@ -281,7 +280,10 @@ instance Core.ToQuery StartTextTranslationJob where
 
 -- | /See:/ 'newStartTextTranslationJobResponse' smart constructor.
 data StartTextTranslationJobResponse = StartTextTranslationJobResponse'
-  { -- | The status of the job. Possible values include:
+  { -- | The identifier generated for the job. To get the status of a job, use
+    -- this ID with the DescribeTextTranslationJob operation.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the job. Possible values include:
     --
     -- -   @SUBMITTED@ - The job has been received and is queued for
     --     processing.
@@ -302,9 +304,6 @@ data StartTextTranslationJobResponse = StartTextTranslationJobResponse'
     --
     -- -   @STOPPED@ - The job has been stopped.
     jobStatus :: Prelude.Maybe JobStatus,
-    -- | The identifier generated for the job. To get the status of a job, use
-    -- this ID with the DescribeTextTranslationJob operation.
-    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -317,6 +316,9 @@ data StartTextTranslationJobResponse = StartTextTranslationJobResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'jobId', 'startTextTranslationJobResponse_jobId' - The identifier generated for the job. To get the status of a job, use
+-- this ID with the DescribeTextTranslationJob operation.
 --
 -- 'jobStatus', 'startTextTranslationJobResponse_jobStatus' - The status of the job. Possible values include:
 --
@@ -339,9 +341,6 @@ data StartTextTranslationJobResponse = StartTextTranslationJobResponse'
 --
 -- -   @STOPPED@ - The job has been stopped.
 --
--- 'jobId', 'startTextTranslationJobResponse_jobId' - The identifier generated for the job. To get the status of a job, use
--- this ID with the DescribeTextTranslationJob operation.
---
 -- 'httpStatus', 'startTextTranslationJobResponse_httpStatus' - The response's http status code.
 newStartTextTranslationJobResponse ::
   -- | 'httpStatus'
@@ -349,11 +348,16 @@ newStartTextTranslationJobResponse ::
   StartTextTranslationJobResponse
 newStartTextTranslationJobResponse pHttpStatus_ =
   StartTextTranslationJobResponse'
-    { jobStatus =
+    { jobId =
         Prelude.Nothing,
-      jobId = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The identifier generated for the job. To get the status of a job, use
+-- this ID with the DescribeTextTranslationJob operation.
+startTextTranslationJobResponse_jobId :: Lens.Lens' StartTextTranslationJobResponse (Prelude.Maybe Prelude.Text)
+startTextTranslationJobResponse_jobId = Lens.lens (\StartTextTranslationJobResponse' {jobId} -> jobId) (\s@StartTextTranslationJobResponse' {} a -> s {jobId = a} :: StartTextTranslationJobResponse)
 
 -- | The status of the job. Possible values include:
 --
@@ -377,11 +381,6 @@ newStartTextTranslationJobResponse pHttpStatus_ =
 -- -   @STOPPED@ - The job has been stopped.
 startTextTranslationJobResponse_jobStatus :: Lens.Lens' StartTextTranslationJobResponse (Prelude.Maybe JobStatus)
 startTextTranslationJobResponse_jobStatus = Lens.lens (\StartTextTranslationJobResponse' {jobStatus} -> jobStatus) (\s@StartTextTranslationJobResponse' {} a -> s {jobStatus = a} :: StartTextTranslationJobResponse)
-
--- | The identifier generated for the job. To get the status of a job, use
--- this ID with the DescribeTextTranslationJob operation.
-startTextTranslationJobResponse_jobId :: Lens.Lens' StartTextTranslationJobResponse (Prelude.Maybe Prelude.Text)
-startTextTranslationJobResponse_jobId = Lens.lens (\StartTextTranslationJobResponse' {jobId} -> jobId) (\s@StartTextTranslationJobResponse' {} a -> s {jobId = a} :: StartTextTranslationJobResponse)
 
 -- | The response's http status code.
 startTextTranslationJobResponse_httpStatus :: Lens.Lens' StartTextTranslationJobResponse Prelude.Int

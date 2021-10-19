@@ -37,8 +37,8 @@ module Network.AWS.Translate.ListTerminologies
     newListTerminologiesResponse,
 
     -- * Response Lenses
-    listTerminologiesResponse_nextToken,
     listTerminologiesResponse_terminologyPropertiesList,
+    listTerminologiesResponse_nextToken,
     listTerminologiesResponse_httpStatus,
   )
 where
@@ -120,10 +120,10 @@ instance Core.AWSRequest ListTerminologies where
     Response.receiveJSON
       ( \s h x ->
           ListTerminologiesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "TerminologyPropertiesList"
+            Prelude.<$> ( x Core..?> "TerminologyPropertiesList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,12 +163,12 @@ instance Core.ToQuery ListTerminologies where
 
 -- | /See:/ 'newListTerminologiesResponse' smart constructor.
 data ListTerminologiesResponse = ListTerminologiesResponse'
-  { -- | If the response to the ListTerminologies was truncated, the NextToken
-    -- fetches the next group of custom terminologies.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The properties list of the custom terminologies returned on the list
+  { -- | The properties list of the custom terminologies returned on the list
     -- request.
     terminologyPropertiesList :: Prelude.Maybe [TerminologyProperties],
+    -- | If the response to the ListTerminologies was truncated, the NextToken
+    -- fetches the next group of custom terminologies.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,11 +182,11 @@ data ListTerminologiesResponse = ListTerminologiesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTerminologiesResponse_nextToken' - If the response to the ListTerminologies was truncated, the NextToken
--- fetches the next group of custom terminologies.
---
 -- 'terminologyPropertiesList', 'listTerminologiesResponse_terminologyPropertiesList' - The properties list of the custom terminologies returned on the list
 -- request.
+--
+-- 'nextToken', 'listTerminologiesResponse_nextToken' - If the response to the ListTerminologies was truncated, the NextToken
+-- fetches the next group of custom terminologies.
 --
 -- 'httpStatus', 'listTerminologiesResponse_httpStatus' - The response's http status code.
 newListTerminologiesResponse ::
@@ -195,21 +195,21 @@ newListTerminologiesResponse ::
   ListTerminologiesResponse
 newListTerminologiesResponse pHttpStatus_ =
   ListTerminologiesResponse'
-    { nextToken =
+    { terminologyPropertiesList =
         Prelude.Nothing,
-      terminologyPropertiesList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The properties list of the custom terminologies returned on the list
+-- request.
+listTerminologiesResponse_terminologyPropertiesList :: Lens.Lens' ListTerminologiesResponse (Prelude.Maybe [TerminologyProperties])
+listTerminologiesResponse_terminologyPropertiesList = Lens.lens (\ListTerminologiesResponse' {terminologyPropertiesList} -> terminologyPropertiesList) (\s@ListTerminologiesResponse' {} a -> s {terminologyPropertiesList = a} :: ListTerminologiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response to the ListTerminologies was truncated, the NextToken
 -- fetches the next group of custom terminologies.
 listTerminologiesResponse_nextToken :: Lens.Lens' ListTerminologiesResponse (Prelude.Maybe Prelude.Text)
 listTerminologiesResponse_nextToken = Lens.lens (\ListTerminologiesResponse' {nextToken} -> nextToken) (\s@ListTerminologiesResponse' {} a -> s {nextToken = a} :: ListTerminologiesResponse)
-
--- | The properties list of the custom terminologies returned on the list
--- request.
-listTerminologiesResponse_terminologyPropertiesList :: Lens.Lens' ListTerminologiesResponse (Prelude.Maybe [TerminologyProperties])
-listTerminologiesResponse_terminologyPropertiesList = Lens.lens (\ListTerminologiesResponse' {terminologyPropertiesList} -> terminologyPropertiesList) (\s@ListTerminologiesResponse' {} a -> s {terminologyPropertiesList = a} :: ListTerminologiesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listTerminologiesResponse_httpStatus :: Lens.Lens' ListTerminologiesResponse Prelude.Int

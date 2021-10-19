@@ -169,7 +169,7 @@ newGetAppReplicationConfigurationResponse
 -- | The replication configurations associated with server groups in this
 -- application.
 getAppReplicationConfigurationResponse_serverGroupReplicationConfigurations :: Lens.Lens' GetAppReplicationConfigurationResponse (Prelude.Maybe [ServerGroupReplicationConfiguration])
-getAppReplicationConfigurationResponse_serverGroupReplicationConfigurations = Lens.lens (\GetAppReplicationConfigurationResponse' {serverGroupReplicationConfigurations} -> serverGroupReplicationConfigurations) (\s@GetAppReplicationConfigurationResponse' {} a -> s {serverGroupReplicationConfigurations = a} :: GetAppReplicationConfigurationResponse) Prelude.. Lens.mapping Lens._Coerce
+getAppReplicationConfigurationResponse_serverGroupReplicationConfigurations = Lens.lens (\GetAppReplicationConfigurationResponse' {serverGroupReplicationConfigurations} -> serverGroupReplicationConfigurations) (\s@GetAppReplicationConfigurationResponse' {} a -> s {serverGroupReplicationConfigurations = a} :: GetAppReplicationConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getAppReplicationConfigurationResponse_httpStatus :: Lens.Lens' GetAppReplicationConfigurationResponse Prelude.Int

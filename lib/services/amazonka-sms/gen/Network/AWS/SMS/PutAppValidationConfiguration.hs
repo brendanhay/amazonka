@@ -28,8 +28,8 @@ module Network.AWS.SMS.PutAppValidationConfiguration
     newPutAppValidationConfiguration,
 
     -- * Request Lenses
-    putAppValidationConfiguration_appValidationConfigurations,
     putAppValidationConfiguration_serverGroupValidationConfigurations,
+    putAppValidationConfiguration_appValidationConfigurations,
     putAppValidationConfiguration_appId,
 
     -- * Destructuring the Response
@@ -50,10 +50,10 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'newPutAppValidationConfiguration' smart constructor.
 data PutAppValidationConfiguration = PutAppValidationConfiguration'
-  { -- | The configuration for application validation.
-    appValidationConfigurations :: Prelude.Maybe [AppValidationConfiguration],
-    -- | The configuration for instance validation.
+  { -- | The configuration for instance validation.
     serverGroupValidationConfigurations :: Prelude.Maybe [ServerGroupValidationConfiguration],
+    -- | The configuration for application validation.
+    appValidationConfigurations :: Prelude.Maybe [AppValidationConfiguration],
     -- | The ID of the application.
     appId :: Prelude.Text
   }
@@ -67,9 +67,9 @@ data PutAppValidationConfiguration = PutAppValidationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appValidationConfigurations', 'putAppValidationConfiguration_appValidationConfigurations' - The configuration for application validation.
---
 -- 'serverGroupValidationConfigurations', 'putAppValidationConfiguration_serverGroupValidationConfigurations' - The configuration for instance validation.
+--
+-- 'appValidationConfigurations', 'putAppValidationConfiguration_appValidationConfigurations' - The configuration for application validation.
 --
 -- 'appId', 'putAppValidationConfiguration_appId' - The ID of the application.
 newPutAppValidationConfiguration ::
@@ -78,20 +78,20 @@ newPutAppValidationConfiguration ::
   PutAppValidationConfiguration
 newPutAppValidationConfiguration pAppId_ =
   PutAppValidationConfiguration'
-    { appValidationConfigurations =
+    { serverGroupValidationConfigurations =
         Prelude.Nothing,
-      serverGroupValidationConfigurations =
+      appValidationConfigurations =
         Prelude.Nothing,
       appId = pAppId_
     }
 
--- | The configuration for application validation.
-putAppValidationConfiguration_appValidationConfigurations :: Lens.Lens' PutAppValidationConfiguration (Prelude.Maybe [AppValidationConfiguration])
-putAppValidationConfiguration_appValidationConfigurations = Lens.lens (\PutAppValidationConfiguration' {appValidationConfigurations} -> appValidationConfigurations) (\s@PutAppValidationConfiguration' {} a -> s {appValidationConfigurations = a} :: PutAppValidationConfiguration) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The configuration for instance validation.
 putAppValidationConfiguration_serverGroupValidationConfigurations :: Lens.Lens' PutAppValidationConfiguration (Prelude.Maybe [ServerGroupValidationConfiguration])
-putAppValidationConfiguration_serverGroupValidationConfigurations = Lens.lens (\PutAppValidationConfiguration' {serverGroupValidationConfigurations} -> serverGroupValidationConfigurations) (\s@PutAppValidationConfiguration' {} a -> s {serverGroupValidationConfigurations = a} :: PutAppValidationConfiguration) Prelude.. Lens.mapping Lens._Coerce
+putAppValidationConfiguration_serverGroupValidationConfigurations = Lens.lens (\PutAppValidationConfiguration' {serverGroupValidationConfigurations} -> serverGroupValidationConfigurations) (\s@PutAppValidationConfiguration' {} a -> s {serverGroupValidationConfigurations = a} :: PutAppValidationConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The configuration for application validation.
+putAppValidationConfiguration_appValidationConfigurations :: Lens.Lens' PutAppValidationConfiguration (Prelude.Maybe [AppValidationConfiguration])
+putAppValidationConfiguration_appValidationConfigurations = Lens.lens (\PutAppValidationConfiguration' {appValidationConfigurations} -> appValidationConfigurations) (\s@PutAppValidationConfiguration' {} a -> s {appValidationConfigurations = a} :: PutAppValidationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the application.
 putAppValidationConfiguration_appId :: Lens.Lens' PutAppValidationConfiguration Prelude.Text
@@ -137,10 +137,10 @@ instance Core.ToJSON PutAppValidationConfiguration where
   toJSON PutAppValidationConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("appValidationConfigurations" Core..=)
-              Prelude.<$> appValidationConfigurations,
-            ("serverGroupValidationConfigurations" Core..=)
+          [ ("serverGroupValidationConfigurations" Core..=)
               Prelude.<$> serverGroupValidationConfigurations,
+            ("appValidationConfigurations" Core..=)
+              Prelude.<$> appValidationConfigurations,
             Prelude.Just ("appId" Core..= appId)
           ]
       )

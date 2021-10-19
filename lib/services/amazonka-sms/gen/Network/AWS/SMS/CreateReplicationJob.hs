@@ -29,14 +29,14 @@ module Network.AWS.SMS.CreateReplicationJob
     newCreateReplicationJob,
 
     -- * Request Lenses
-    createReplicationJob_numberOfRecentAmisToKeep,
-    createReplicationJob_encrypted,
-    createReplicationJob_roleName,
-    createReplicationJob_kmsKeyId,
     createReplicationJob_frequency,
+    createReplicationJob_numberOfRecentAmisToKeep,
+    createReplicationJob_licenseType,
+    createReplicationJob_roleName,
+    createReplicationJob_encrypted,
+    createReplicationJob_kmsKeyId,
     createReplicationJob_runOnce,
     createReplicationJob_description,
-    createReplicationJob_licenseType,
     createReplicationJob_serverId,
     createReplicationJob_seedReplicationTime,
 
@@ -59,13 +59,18 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'newCreateReplicationJob' smart constructor.
 data CreateReplicationJob = CreateReplicationJob'
-  { -- | The maximum number of SMS-created AMIs to retain. The oldest is deleted
+  { -- | The time between consecutive replication runs, in hours.
+    frequency :: Prelude.Maybe Prelude.Int,
+    -- | The maximum number of SMS-created AMIs to retain. The oldest is deleted
     -- after the maximum number is reached and a new AMI is created.
     numberOfRecentAmisToKeep :: Prelude.Maybe Prelude.Int,
-    -- | Indicates whether the replication job produces encrypted AMIs.
-    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The license type to be used for the AMI created by a successful
+    -- replication run.
+    licenseType :: Prelude.Maybe LicenseType,
     -- | The name of the IAM role to be used by the AWS SMS.
     roleName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the replication job produces encrypted AMIs.
+    encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
     -- This value can be any of the following:
     --
@@ -80,15 +85,10 @@ data CreateReplicationJob = CreateReplicationJob'
     -- If encrypted is /true/ but a KMS key ID is not specified, the
     -- customer\'s default KMS key for Amazon EBS is used.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The time between consecutive replication runs, in hours.
-    frequency :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether to run the replication job one time.
     runOnce :: Prelude.Maybe Prelude.Bool,
     -- | The description of the replication job.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The license type to be used for the AMI created by a successful
-    -- replication run.
-    licenseType :: Prelude.Maybe LicenseType,
     -- | The ID of the server.
     serverId :: Prelude.Text,
     -- | The seed replication time.
@@ -104,12 +104,17 @@ data CreateReplicationJob = CreateReplicationJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'frequency', 'createReplicationJob_frequency' - The time between consecutive replication runs, in hours.
+--
 -- 'numberOfRecentAmisToKeep', 'createReplicationJob_numberOfRecentAmisToKeep' - The maximum number of SMS-created AMIs to retain. The oldest is deleted
 -- after the maximum number is reached and a new AMI is created.
 --
--- 'encrypted', 'createReplicationJob_encrypted' - Indicates whether the replication job produces encrypted AMIs.
+-- 'licenseType', 'createReplicationJob_licenseType' - The license type to be used for the AMI created by a successful
+-- replication run.
 --
 -- 'roleName', 'createReplicationJob_roleName' - The name of the IAM role to be used by the AWS SMS.
+--
+-- 'encrypted', 'createReplicationJob_encrypted' - Indicates whether the replication job produces encrypted AMIs.
 --
 -- 'kmsKeyId', 'createReplicationJob_kmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs.
 -- This value can be any of the following:
@@ -125,14 +130,9 @@ data CreateReplicationJob = CreateReplicationJob'
 -- If encrypted is /true/ but a KMS key ID is not specified, the
 -- customer\'s default KMS key for Amazon EBS is used.
 --
--- 'frequency', 'createReplicationJob_frequency' - The time between consecutive replication runs, in hours.
---
 -- 'runOnce', 'createReplicationJob_runOnce' - Indicates whether to run the replication job one time.
 --
 -- 'description', 'createReplicationJob_description' - The description of the replication job.
---
--- 'licenseType', 'createReplicationJob_licenseType' - The license type to be used for the AMI created by a successful
--- replication run.
 --
 -- 'serverId', 'createReplicationJob_serverId' - The ID of the server.
 --
@@ -147,32 +147,40 @@ newCreateReplicationJob
   pServerId_
   pSeedReplicationTime_ =
     CreateReplicationJob'
-      { numberOfRecentAmisToKeep =
-          Prelude.Nothing,
-        encrypted = Prelude.Nothing,
+      { frequency = Prelude.Nothing,
+        numberOfRecentAmisToKeep = Prelude.Nothing,
+        licenseType = Prelude.Nothing,
         roleName = Prelude.Nothing,
+        encrypted = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
-        frequency = Prelude.Nothing,
         runOnce = Prelude.Nothing,
         description = Prelude.Nothing,
-        licenseType = Prelude.Nothing,
         serverId = pServerId_,
         seedReplicationTime =
           Core._Time Lens.# pSeedReplicationTime_
       }
+
+-- | The time between consecutive replication runs, in hours.
+createReplicationJob_frequency :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Int)
+createReplicationJob_frequency = Lens.lens (\CreateReplicationJob' {frequency} -> frequency) (\s@CreateReplicationJob' {} a -> s {frequency = a} :: CreateReplicationJob)
 
 -- | The maximum number of SMS-created AMIs to retain. The oldest is deleted
 -- after the maximum number is reached and a new AMI is created.
 createReplicationJob_numberOfRecentAmisToKeep :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Int)
 createReplicationJob_numberOfRecentAmisToKeep = Lens.lens (\CreateReplicationJob' {numberOfRecentAmisToKeep} -> numberOfRecentAmisToKeep) (\s@CreateReplicationJob' {} a -> s {numberOfRecentAmisToKeep = a} :: CreateReplicationJob)
 
--- | Indicates whether the replication job produces encrypted AMIs.
-createReplicationJob_encrypted :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Bool)
-createReplicationJob_encrypted = Lens.lens (\CreateReplicationJob' {encrypted} -> encrypted) (\s@CreateReplicationJob' {} a -> s {encrypted = a} :: CreateReplicationJob)
+-- | The license type to be used for the AMI created by a successful
+-- replication run.
+createReplicationJob_licenseType :: Lens.Lens' CreateReplicationJob (Prelude.Maybe LicenseType)
+createReplicationJob_licenseType = Lens.lens (\CreateReplicationJob' {licenseType} -> licenseType) (\s@CreateReplicationJob' {} a -> s {licenseType = a} :: CreateReplicationJob)
 
 -- | The name of the IAM role to be used by the AWS SMS.
 createReplicationJob_roleName :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Text)
 createReplicationJob_roleName = Lens.lens (\CreateReplicationJob' {roleName} -> roleName) (\s@CreateReplicationJob' {} a -> s {roleName = a} :: CreateReplicationJob)
+
+-- | Indicates whether the replication job produces encrypted AMIs.
+createReplicationJob_encrypted :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Bool)
+createReplicationJob_encrypted = Lens.lens (\CreateReplicationJob' {encrypted} -> encrypted) (\s@CreateReplicationJob' {} a -> s {encrypted = a} :: CreateReplicationJob)
 
 -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
 -- This value can be any of the following:
@@ -190,10 +198,6 @@ createReplicationJob_roleName = Lens.lens (\CreateReplicationJob' {roleName} -> 
 createReplicationJob_kmsKeyId :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Text)
 createReplicationJob_kmsKeyId = Lens.lens (\CreateReplicationJob' {kmsKeyId} -> kmsKeyId) (\s@CreateReplicationJob' {} a -> s {kmsKeyId = a} :: CreateReplicationJob)
 
--- | The time between consecutive replication runs, in hours.
-createReplicationJob_frequency :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Int)
-createReplicationJob_frequency = Lens.lens (\CreateReplicationJob' {frequency} -> frequency) (\s@CreateReplicationJob' {} a -> s {frequency = a} :: CreateReplicationJob)
-
 -- | Indicates whether to run the replication job one time.
 createReplicationJob_runOnce :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Bool)
 createReplicationJob_runOnce = Lens.lens (\CreateReplicationJob' {runOnce} -> runOnce) (\s@CreateReplicationJob' {} a -> s {runOnce = a} :: CreateReplicationJob)
@@ -201,11 +205,6 @@ createReplicationJob_runOnce = Lens.lens (\CreateReplicationJob' {runOnce} -> ru
 -- | The description of the replication job.
 createReplicationJob_description :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Text)
 createReplicationJob_description = Lens.lens (\CreateReplicationJob' {description} -> description) (\s@CreateReplicationJob' {} a -> s {description = a} :: CreateReplicationJob)
-
--- | The license type to be used for the AMI created by a successful
--- replication run.
-createReplicationJob_licenseType :: Lens.Lens' CreateReplicationJob (Prelude.Maybe LicenseType)
-createReplicationJob_licenseType = Lens.lens (\CreateReplicationJob' {licenseType} -> licenseType) (\s@CreateReplicationJob' {} a -> s {licenseType = a} :: CreateReplicationJob)
 
 -- | The ID of the server.
 createReplicationJob_serverId :: Lens.Lens' CreateReplicationJob Prelude.Text
@@ -251,15 +250,15 @@ instance Core.ToJSON CreateReplicationJob where
   toJSON CreateReplicationJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("numberOfRecentAmisToKeep" Core..=)
+          [ ("frequency" Core..=) Prelude.<$> frequency,
+            ("numberOfRecentAmisToKeep" Core..=)
               Prelude.<$> numberOfRecentAmisToKeep,
-            ("encrypted" Core..=) Prelude.<$> encrypted,
+            ("licenseType" Core..=) Prelude.<$> licenseType,
             ("roleName" Core..=) Prelude.<$> roleName,
+            ("encrypted" Core..=) Prelude.<$> encrypted,
             ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("frequency" Core..=) Prelude.<$> frequency,
             ("runOnce" Core..=) Prelude.<$> runOnce,
             ("description" Core..=) Prelude.<$> description,
-            ("licenseType" Core..=) Prelude.<$> licenseType,
             Prelude.Just ("serverId" Core..= serverId),
             Prelude.Just
               ("seedReplicationTime" Core..= seedReplicationTime)

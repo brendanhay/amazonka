@@ -163,11 +163,11 @@ getAppResponse_appSummary = Lens.lens (\GetAppResponse' {appSummary} -> appSumma
 
 -- | The server groups that belong to the application.
 getAppResponse_serverGroups :: Lens.Lens' GetAppResponse (Prelude.Maybe [ServerGroup])
-getAppResponse_serverGroups = Lens.lens (\GetAppResponse' {serverGroups} -> serverGroups) (\s@GetAppResponse' {} a -> s {serverGroups = a} :: GetAppResponse) Prelude.. Lens.mapping Lens._Coerce
+getAppResponse_serverGroups = Lens.lens (\GetAppResponse' {serverGroups} -> serverGroups) (\s@GetAppResponse' {} a -> s {serverGroups = a} :: GetAppResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tags associated with the application.
 getAppResponse_tags :: Lens.Lens' GetAppResponse (Prelude.Maybe [Tag])
-getAppResponse_tags = Lens.lens (\GetAppResponse' {tags} -> tags) (\s@GetAppResponse' {} a -> s {tags = a} :: GetAppResponse) Prelude.. Lens.mapping Lens._Coerce
+getAppResponse_tags = Lens.lens (\GetAppResponse' {tags} -> tags) (\s@GetAppResponse' {} a -> s {tags = a} :: GetAppResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getAppResponse_httpStatus :: Lens.Lens' GetAppResponse Prelude.Int

@@ -30,18 +30,18 @@ import Network.AWS.SMS.Types.ReplicationRunType
 --
 -- /See:/ 'newReplicationRun' smart constructor.
 data ReplicationRun = ReplicationRun'
-  { -- | The description of the current status of the replication job.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the replication run should produce an encrypted AMI.
-    encrypted :: Prelude.Maybe Prelude.Bool,
+  { -- | The state of the replication run.
+    state :: Prelude.Maybe ReplicationRunState,
     -- | The ID of the replication run.
     replicationRunId :: Prelude.Maybe Prelude.Text,
-    -- | The completion time of the last replication run.
-    completedTime :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the Amazon Machine Image (AMI) from the replication run.
-    amiId :: Prelude.Maybe Prelude.Text,
-    -- | The state of the replication run.
-    state :: Prelude.Maybe ReplicationRunState,
+    -- | Indicates whether the replication run should produce an encrypted AMI.
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | Details about the current stage of the replication run.
+    stageDetails :: Prelude.Maybe ReplicationRunStageDetails,
+    -- | The start time of the next replication run.
+    scheduledStartTime :: Prelude.Maybe Core.POSIX,
+    -- | The description of the current status of the replication job.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
     -- This value can be any of the following:
     --
@@ -56,14 +56,14 @@ data ReplicationRun = ReplicationRun'
     -- If encrypted is /true/ but a KMS key ID is not specified, the
     -- customer\'s default KMS key for Amazon EBS is used.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The start time of the next replication run.
-    scheduledStartTime :: Prelude.Maybe Core.POSIX,
-    -- | Details about the current stage of the replication run.
-    stageDetails :: Prelude.Maybe ReplicationRunStageDetails,
-    -- | The description of the replication run.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The completion time of the last replication run.
+    completedTime :: Prelude.Maybe Core.POSIX,
+    -- | The ID of the Amazon Machine Image (AMI) from the replication run.
+    amiId :: Prelude.Maybe Prelude.Text,
     -- | The type of replication run.
-    type' :: Prelude.Maybe ReplicationRunType
+    type' :: Prelude.Maybe ReplicationRunType,
+    -- | The description of the replication run.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,17 +75,17 @@ data ReplicationRun = ReplicationRun'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'replicationRun_statusMessage' - The description of the current status of the replication job.
---
--- 'encrypted', 'replicationRun_encrypted' - Indicates whether the replication run should produce an encrypted AMI.
+-- 'state', 'replicationRun_state' - The state of the replication run.
 --
 -- 'replicationRunId', 'replicationRun_replicationRunId' - The ID of the replication run.
 --
--- 'completedTime', 'replicationRun_completedTime' - The completion time of the last replication run.
+-- 'encrypted', 'replicationRun_encrypted' - Indicates whether the replication run should produce an encrypted AMI.
 --
--- 'amiId', 'replicationRun_amiId' - The ID of the Amazon Machine Image (AMI) from the replication run.
+-- 'stageDetails', 'replicationRun_stageDetails' - Details about the current stage of the replication run.
 --
--- 'state', 'replicationRun_state' - The state of the replication run.
+-- 'scheduledStartTime', 'replicationRun_scheduledStartTime' - The start time of the next replication run.
+--
+-- 'statusMessage', 'replicationRun_statusMessage' - The description of the current status of the replication job.
 --
 -- 'kmsKeyId', 'replicationRun_kmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs.
 -- This value can be any of the following:
@@ -101,53 +101,53 @@ data ReplicationRun = ReplicationRun'
 -- If encrypted is /true/ but a KMS key ID is not specified, the
 -- customer\'s default KMS key for Amazon EBS is used.
 --
--- 'scheduledStartTime', 'replicationRun_scheduledStartTime' - The start time of the next replication run.
+-- 'completedTime', 'replicationRun_completedTime' - The completion time of the last replication run.
 --
--- 'stageDetails', 'replicationRun_stageDetails' - Details about the current stage of the replication run.
---
--- 'description', 'replicationRun_description' - The description of the replication run.
+-- 'amiId', 'replicationRun_amiId' - The ID of the Amazon Machine Image (AMI) from the replication run.
 --
 -- 'type'', 'replicationRun_type' - The type of replication run.
+--
+-- 'description', 'replicationRun_description' - The description of the replication run.
 newReplicationRun ::
   ReplicationRun
 newReplicationRun =
   ReplicationRun'
-    { statusMessage = Prelude.Nothing,
-      encrypted = Prelude.Nothing,
+    { state = Prelude.Nothing,
       replicationRunId = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      stageDetails = Prelude.Nothing,
+      scheduledStartTime = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       completedTime = Prelude.Nothing,
       amiId = Prelude.Nothing,
-      state = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      scheduledStartTime = Prelude.Nothing,
-      stageDetails = Prelude.Nothing,
-      description = Prelude.Nothing,
-      type' = Prelude.Nothing
+      type' = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
--- | The description of the current status of the replication job.
-replicationRun_statusMessage :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.Text)
-replicationRun_statusMessage = Lens.lens (\ReplicationRun' {statusMessage} -> statusMessage) (\s@ReplicationRun' {} a -> s {statusMessage = a} :: ReplicationRun)
-
--- | Indicates whether the replication run should produce an encrypted AMI.
-replicationRun_encrypted :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.Bool)
-replicationRun_encrypted = Lens.lens (\ReplicationRun' {encrypted} -> encrypted) (\s@ReplicationRun' {} a -> s {encrypted = a} :: ReplicationRun)
+-- | The state of the replication run.
+replicationRun_state :: Lens.Lens' ReplicationRun (Prelude.Maybe ReplicationRunState)
+replicationRun_state = Lens.lens (\ReplicationRun' {state} -> state) (\s@ReplicationRun' {} a -> s {state = a} :: ReplicationRun)
 
 -- | The ID of the replication run.
 replicationRun_replicationRunId :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.Text)
 replicationRun_replicationRunId = Lens.lens (\ReplicationRun' {replicationRunId} -> replicationRunId) (\s@ReplicationRun' {} a -> s {replicationRunId = a} :: ReplicationRun)
 
--- | The completion time of the last replication run.
-replicationRun_completedTime :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.UTCTime)
-replicationRun_completedTime = Lens.lens (\ReplicationRun' {completedTime} -> completedTime) (\s@ReplicationRun' {} a -> s {completedTime = a} :: ReplicationRun) Prelude.. Lens.mapping Core._Time
+-- | Indicates whether the replication run should produce an encrypted AMI.
+replicationRun_encrypted :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.Bool)
+replicationRun_encrypted = Lens.lens (\ReplicationRun' {encrypted} -> encrypted) (\s@ReplicationRun' {} a -> s {encrypted = a} :: ReplicationRun)
 
--- | The ID of the Amazon Machine Image (AMI) from the replication run.
-replicationRun_amiId :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.Text)
-replicationRun_amiId = Lens.lens (\ReplicationRun' {amiId} -> amiId) (\s@ReplicationRun' {} a -> s {amiId = a} :: ReplicationRun)
+-- | Details about the current stage of the replication run.
+replicationRun_stageDetails :: Lens.Lens' ReplicationRun (Prelude.Maybe ReplicationRunStageDetails)
+replicationRun_stageDetails = Lens.lens (\ReplicationRun' {stageDetails} -> stageDetails) (\s@ReplicationRun' {} a -> s {stageDetails = a} :: ReplicationRun)
 
--- | The state of the replication run.
-replicationRun_state :: Lens.Lens' ReplicationRun (Prelude.Maybe ReplicationRunState)
-replicationRun_state = Lens.lens (\ReplicationRun' {state} -> state) (\s@ReplicationRun' {} a -> s {state = a} :: ReplicationRun)
+-- | The start time of the next replication run.
+replicationRun_scheduledStartTime :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.UTCTime)
+replicationRun_scheduledStartTime = Lens.lens (\ReplicationRun' {scheduledStartTime} -> scheduledStartTime) (\s@ReplicationRun' {} a -> s {scheduledStartTime = a} :: ReplicationRun) Prelude.. Lens.mapping Core._Time
+
+-- | The description of the current status of the replication job.
+replicationRun_statusMessage :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.Text)
+replicationRun_statusMessage = Lens.lens (\ReplicationRun' {statusMessage} -> statusMessage) (\s@ReplicationRun' {} a -> s {statusMessage = a} :: ReplicationRun)
 
 -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
 -- This value can be any of the following:
@@ -165,21 +165,21 @@ replicationRun_state = Lens.lens (\ReplicationRun' {state} -> state) (\s@Replica
 replicationRun_kmsKeyId :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.Text)
 replicationRun_kmsKeyId = Lens.lens (\ReplicationRun' {kmsKeyId} -> kmsKeyId) (\s@ReplicationRun' {} a -> s {kmsKeyId = a} :: ReplicationRun)
 
--- | The start time of the next replication run.
-replicationRun_scheduledStartTime :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.UTCTime)
-replicationRun_scheduledStartTime = Lens.lens (\ReplicationRun' {scheduledStartTime} -> scheduledStartTime) (\s@ReplicationRun' {} a -> s {scheduledStartTime = a} :: ReplicationRun) Prelude.. Lens.mapping Core._Time
+-- | The completion time of the last replication run.
+replicationRun_completedTime :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.UTCTime)
+replicationRun_completedTime = Lens.lens (\ReplicationRun' {completedTime} -> completedTime) (\s@ReplicationRun' {} a -> s {completedTime = a} :: ReplicationRun) Prelude.. Lens.mapping Core._Time
 
--- | Details about the current stage of the replication run.
-replicationRun_stageDetails :: Lens.Lens' ReplicationRun (Prelude.Maybe ReplicationRunStageDetails)
-replicationRun_stageDetails = Lens.lens (\ReplicationRun' {stageDetails} -> stageDetails) (\s@ReplicationRun' {} a -> s {stageDetails = a} :: ReplicationRun)
-
--- | The description of the replication run.
-replicationRun_description :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.Text)
-replicationRun_description = Lens.lens (\ReplicationRun' {description} -> description) (\s@ReplicationRun' {} a -> s {description = a} :: ReplicationRun)
+-- | The ID of the Amazon Machine Image (AMI) from the replication run.
+replicationRun_amiId :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.Text)
+replicationRun_amiId = Lens.lens (\ReplicationRun' {amiId} -> amiId) (\s@ReplicationRun' {} a -> s {amiId = a} :: ReplicationRun)
 
 -- | The type of replication run.
 replicationRun_type :: Lens.Lens' ReplicationRun (Prelude.Maybe ReplicationRunType)
 replicationRun_type = Lens.lens (\ReplicationRun' {type'} -> type') (\s@ReplicationRun' {} a -> s {type' = a} :: ReplicationRun)
+
+-- | The description of the replication run.
+replicationRun_description :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.Text)
+replicationRun_description = Lens.lens (\ReplicationRun' {description} -> description) (\s@ReplicationRun' {} a -> s {description = a} :: ReplicationRun)
 
 instance Core.FromJSON ReplicationRun where
   parseJSON =
@@ -187,17 +187,17 @@ instance Core.FromJSON ReplicationRun where
       "ReplicationRun"
       ( \x ->
           ReplicationRun'
-            Prelude.<$> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "encrypted")
+            Prelude.<$> (x Core..:? "state")
             Prelude.<*> (x Core..:? "replicationRunId")
+            Prelude.<*> (x Core..:? "encrypted")
+            Prelude.<*> (x Core..:? "stageDetails")
+            Prelude.<*> (x Core..:? "scheduledStartTime")
+            Prelude.<*> (x Core..:? "statusMessage")
+            Prelude.<*> (x Core..:? "kmsKeyId")
             Prelude.<*> (x Core..:? "completedTime")
             Prelude.<*> (x Core..:? "amiId")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "scheduledStartTime")
-            Prelude.<*> (x Core..:? "stageDetails")
-            Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "description")
       )
 
 instance Prelude.Hashable ReplicationRun

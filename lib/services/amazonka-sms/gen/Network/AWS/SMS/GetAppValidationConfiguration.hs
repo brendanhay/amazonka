@@ -35,8 +35,8 @@ module Network.AWS.SMS.GetAppValidationConfiguration
     newGetAppValidationConfigurationResponse,
 
     -- * Response Lenses
-    getAppValidationConfigurationResponse_appValidationConfigurations,
     getAppValidationConfigurationResponse_serverGroupValidationConfigurations,
+    getAppValidationConfigurationResponse_appValidationConfigurations,
     getAppValidationConfigurationResponse_httpStatus,
   )
 where
@@ -87,10 +87,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetAppValidationConfigurationResponse'
-            Prelude.<$> ( x Core..?> "appValidationConfigurations"
+            Prelude.<$> ( x Core..?> "serverGroupValidationConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "serverGroupValidationConfigurations"
+            Prelude.<*> ( x Core..?> "appValidationConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -132,10 +132,10 @@ instance Core.ToQuery GetAppValidationConfiguration where
 
 -- | /See:/ 'newGetAppValidationConfigurationResponse' smart constructor.
 data GetAppValidationConfigurationResponse = GetAppValidationConfigurationResponse'
-  { -- | The configuration for application validation.
-    appValidationConfigurations :: Prelude.Maybe [AppValidationConfiguration],
-    -- | The configuration for instance validation.
+  { -- | The configuration for instance validation.
     serverGroupValidationConfigurations :: Prelude.Maybe [ServerGroupValidationConfiguration],
+    -- | The configuration for application validation.
+    appValidationConfigurations :: Prelude.Maybe [AppValidationConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -149,9 +149,9 @@ data GetAppValidationConfigurationResponse = GetAppValidationConfigurationRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appValidationConfigurations', 'getAppValidationConfigurationResponse_appValidationConfigurations' - The configuration for application validation.
---
 -- 'serverGroupValidationConfigurations', 'getAppValidationConfigurationResponse_serverGroupValidationConfigurations' - The configuration for instance validation.
+--
+-- 'appValidationConfigurations', 'getAppValidationConfigurationResponse_appValidationConfigurations' - The configuration for application validation.
 --
 -- 'httpStatus', 'getAppValidationConfigurationResponse_httpStatus' - The response's http status code.
 newGetAppValidationConfigurationResponse ::
@@ -160,20 +160,20 @@ newGetAppValidationConfigurationResponse ::
   GetAppValidationConfigurationResponse
 newGetAppValidationConfigurationResponse pHttpStatus_ =
   GetAppValidationConfigurationResponse'
-    { appValidationConfigurations =
+    { serverGroupValidationConfigurations =
         Prelude.Nothing,
-      serverGroupValidationConfigurations =
+      appValidationConfigurations =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The configuration for application validation.
-getAppValidationConfigurationResponse_appValidationConfigurations :: Lens.Lens' GetAppValidationConfigurationResponse (Prelude.Maybe [AppValidationConfiguration])
-getAppValidationConfigurationResponse_appValidationConfigurations = Lens.lens (\GetAppValidationConfigurationResponse' {appValidationConfigurations} -> appValidationConfigurations) (\s@GetAppValidationConfigurationResponse' {} a -> s {appValidationConfigurations = a} :: GetAppValidationConfigurationResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The configuration for instance validation.
 getAppValidationConfigurationResponse_serverGroupValidationConfigurations :: Lens.Lens' GetAppValidationConfigurationResponse (Prelude.Maybe [ServerGroupValidationConfiguration])
-getAppValidationConfigurationResponse_serverGroupValidationConfigurations = Lens.lens (\GetAppValidationConfigurationResponse' {serverGroupValidationConfigurations} -> serverGroupValidationConfigurations) (\s@GetAppValidationConfigurationResponse' {} a -> s {serverGroupValidationConfigurations = a} :: GetAppValidationConfigurationResponse) Prelude.. Lens.mapping Lens._Coerce
+getAppValidationConfigurationResponse_serverGroupValidationConfigurations = Lens.lens (\GetAppValidationConfigurationResponse' {serverGroupValidationConfigurations} -> serverGroupValidationConfigurations) (\s@GetAppValidationConfigurationResponse' {} a -> s {serverGroupValidationConfigurations = a} :: GetAppValidationConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The configuration for application validation.
+getAppValidationConfigurationResponse_appValidationConfigurations :: Lens.Lens' GetAppValidationConfigurationResponse (Prelude.Maybe [AppValidationConfiguration])
+getAppValidationConfigurationResponse_appValidationConfigurations = Lens.lens (\GetAppValidationConfigurationResponse' {appValidationConfigurations} -> appValidationConfigurations) (\s@GetAppValidationConfigurationResponse' {} a -> s {appValidationConfigurations = a} :: GetAppValidationConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getAppValidationConfigurationResponse_httpStatus :: Lens.Lens' GetAppValidationConfigurationResponse Prelude.Int

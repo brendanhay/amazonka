@@ -32,24 +32,35 @@ import Network.AWS.SMS.Types.VmServer
 --
 -- /See:/ 'newReplicationJob' smart constructor.
 data ReplicationJob = ReplicationJob'
-  { -- | The start time of the next replication run.
-    nextReplicationRunStartTime :: Prelude.Maybe Core.POSIX,
+  { -- | The time between consecutive replication runs, in hours.
+    frequency :: Prelude.Maybe Prelude.Int,
     -- | The number of recent AMIs to keep in the customer\'s account for a
     -- replication job. By default, the value is set to zero, meaning that all
     -- AMIs are kept.
     numberOfRecentAmisToKeep :: Prelude.Maybe Prelude.Int,
-    -- | The description of the current status of the replication job.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the replication job should produce encrypted AMIs.
-    encrypted :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the latest Amazon Machine Image (AMI).
-    latestAmiId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the IAM role to be used by AWS SMS.
-    roleName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the server.
-    serverId :: Prelude.Maybe Prelude.Text,
     -- | The state of the replication job.
     state :: Prelude.Maybe ReplicationJobState,
+    -- | The type of server.
+    serverType :: Prelude.Maybe ServerType,
+    -- | The ID of the server.
+    serverId :: Prelude.Maybe Prelude.Text,
+    -- | The license type to be used for the AMI created by a successful
+    -- replication run.
+    licenseType :: Prelude.Maybe LicenseType,
+    -- | The name of the IAM role to be used by AWS SMS.
+    roleName :: Prelude.Maybe Prelude.Text,
+    -- | Information about the VM server.
+    vmServer :: Prelude.Maybe VmServer,
+    -- | Indicates whether the replication job should produce encrypted AMIs.
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the replication job.
+    replicationJobId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the replication runs.
+    replicationRunList :: Prelude.Maybe [ReplicationRun],
+    -- | The start time of the next replication run.
+    nextReplicationRunStartTime :: Prelude.Maybe Core.POSIX,
+    -- | The description of the current status of the replication job.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
     -- This value can be any of the following:
     --
@@ -64,25 +75,14 @@ data ReplicationJob = ReplicationJob'
     -- If encrypted is enabled but a KMS key ID is not specified, the
     -- customer\'s default KMS key for Amazon EBS is used.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the replication runs.
-    replicationRunList :: Prelude.Maybe [ReplicationRun],
-    -- | The time between consecutive replication runs, in hours.
-    frequency :: Prelude.Maybe Prelude.Int,
-    -- | The ID of the replication job.
-    replicationJobId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether to run the replication job one time.
-    runOnce :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the latest Amazon Machine Image (AMI).
+    latestAmiId :: Prelude.Maybe Prelude.Text,
     -- | The seed replication time.
     seedReplicationTime :: Prelude.Maybe Core.POSIX,
+    -- | Indicates whether to run the replication job one time.
+    runOnce :: Prelude.Maybe Prelude.Bool,
     -- | The description of the replication job.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Information about the VM server.
-    vmServer :: Prelude.Maybe VmServer,
-    -- | The license type to be used for the AMI created by a successful
-    -- replication run.
-    licenseType :: Prelude.Maybe LicenseType,
-    -- | The type of server.
-    serverType :: Prelude.Maybe ServerType
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,23 +94,34 @@ data ReplicationJob = ReplicationJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextReplicationRunStartTime', 'replicationJob_nextReplicationRunStartTime' - The start time of the next replication run.
+-- 'frequency', 'replicationJob_frequency' - The time between consecutive replication runs, in hours.
 --
 -- 'numberOfRecentAmisToKeep', 'replicationJob_numberOfRecentAmisToKeep' - The number of recent AMIs to keep in the customer\'s account for a
 -- replication job. By default, the value is set to zero, meaning that all
 -- AMIs are kept.
 --
--- 'statusMessage', 'replicationJob_statusMessage' - The description of the current status of the replication job.
+-- 'state', 'replicationJob_state' - The state of the replication job.
 --
--- 'encrypted', 'replicationJob_encrypted' - Indicates whether the replication job should produce encrypted AMIs.
---
--- 'latestAmiId', 'replicationJob_latestAmiId' - The ID of the latest Amazon Machine Image (AMI).
---
--- 'roleName', 'replicationJob_roleName' - The name of the IAM role to be used by AWS SMS.
+-- 'serverType', 'replicationJob_serverType' - The type of server.
 --
 -- 'serverId', 'replicationJob_serverId' - The ID of the server.
 --
--- 'state', 'replicationJob_state' - The state of the replication job.
+-- 'licenseType', 'replicationJob_licenseType' - The license type to be used for the AMI created by a successful
+-- replication run.
+--
+-- 'roleName', 'replicationJob_roleName' - The name of the IAM role to be used by AWS SMS.
+--
+-- 'vmServer', 'replicationJob_vmServer' - Information about the VM server.
+--
+-- 'encrypted', 'replicationJob_encrypted' - Indicates whether the replication job should produce encrypted AMIs.
+--
+-- 'replicationJobId', 'replicationJob_replicationJobId' - The ID of the replication job.
+--
+-- 'replicationRunList', 'replicationJob_replicationRunList' - Information about the replication runs.
+--
+-- 'nextReplicationRunStartTime', 'replicationJob_nextReplicationRunStartTime' - The start time of the next replication run.
+--
+-- 'statusMessage', 'replicationJob_statusMessage' - The description of the current status of the replication job.
 --
 -- 'kmsKeyId', 'replicationJob_kmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs.
 -- This value can be any of the following:
@@ -126,52 +137,40 @@ data ReplicationJob = ReplicationJob'
 -- If encrypted is enabled but a KMS key ID is not specified, the
 -- customer\'s default KMS key for Amazon EBS is used.
 --
--- 'replicationRunList', 'replicationJob_replicationRunList' - Information about the replication runs.
---
--- 'frequency', 'replicationJob_frequency' - The time between consecutive replication runs, in hours.
---
--- 'replicationJobId', 'replicationJob_replicationJobId' - The ID of the replication job.
---
--- 'runOnce', 'replicationJob_runOnce' - Indicates whether to run the replication job one time.
+-- 'latestAmiId', 'replicationJob_latestAmiId' - The ID of the latest Amazon Machine Image (AMI).
 --
 -- 'seedReplicationTime', 'replicationJob_seedReplicationTime' - The seed replication time.
 --
+-- 'runOnce', 'replicationJob_runOnce' - Indicates whether to run the replication job one time.
+--
 -- 'description', 'replicationJob_description' - The description of the replication job.
---
--- 'vmServer', 'replicationJob_vmServer' - Information about the VM server.
---
--- 'licenseType', 'replicationJob_licenseType' - The license type to be used for the AMI created by a successful
--- replication run.
---
--- 'serverType', 'replicationJob_serverType' - The type of server.
 newReplicationJob ::
   ReplicationJob
 newReplicationJob =
   ReplicationJob'
-    { nextReplicationRunStartTime =
-        Prelude.Nothing,
+    { frequency = Prelude.Nothing,
       numberOfRecentAmisToKeep = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
-      encrypted = Prelude.Nothing,
-      latestAmiId = Prelude.Nothing,
-      roleName = Prelude.Nothing,
-      serverId = Prelude.Nothing,
       state = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      replicationRunList = Prelude.Nothing,
-      frequency = Prelude.Nothing,
-      replicationJobId = Prelude.Nothing,
-      runOnce = Prelude.Nothing,
-      seedReplicationTime = Prelude.Nothing,
-      description = Prelude.Nothing,
-      vmServer = Prelude.Nothing,
+      serverType = Prelude.Nothing,
+      serverId = Prelude.Nothing,
       licenseType = Prelude.Nothing,
-      serverType = Prelude.Nothing
+      roleName = Prelude.Nothing,
+      vmServer = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      replicationJobId = Prelude.Nothing,
+      replicationRunList = Prelude.Nothing,
+      nextReplicationRunStartTime = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      latestAmiId = Prelude.Nothing,
+      seedReplicationTime = Prelude.Nothing,
+      runOnce = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
--- | The start time of the next replication run.
-replicationJob_nextReplicationRunStartTime :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.UTCTime)
-replicationJob_nextReplicationRunStartTime = Lens.lens (\ReplicationJob' {nextReplicationRunStartTime} -> nextReplicationRunStartTime) (\s@ReplicationJob' {} a -> s {nextReplicationRunStartTime = a} :: ReplicationJob) Prelude.. Lens.mapping Core._Time
+-- | The time between consecutive replication runs, in hours.
+replicationJob_frequency :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Int)
+replicationJob_frequency = Lens.lens (\ReplicationJob' {frequency} -> frequency) (\s@ReplicationJob' {} a -> s {frequency = a} :: ReplicationJob)
 
 -- | The number of recent AMIs to keep in the customer\'s account for a
 -- replication job. By default, the value is set to zero, meaning that all
@@ -179,29 +178,50 @@ replicationJob_nextReplicationRunStartTime = Lens.lens (\ReplicationJob' {nextRe
 replicationJob_numberOfRecentAmisToKeep :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Int)
 replicationJob_numberOfRecentAmisToKeep = Lens.lens (\ReplicationJob' {numberOfRecentAmisToKeep} -> numberOfRecentAmisToKeep) (\s@ReplicationJob' {} a -> s {numberOfRecentAmisToKeep = a} :: ReplicationJob)
 
--- | The description of the current status of the replication job.
-replicationJob_statusMessage :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Text)
-replicationJob_statusMessage = Lens.lens (\ReplicationJob' {statusMessage} -> statusMessage) (\s@ReplicationJob' {} a -> s {statusMessage = a} :: ReplicationJob)
+-- | The state of the replication job.
+replicationJob_state :: Lens.Lens' ReplicationJob (Prelude.Maybe ReplicationJobState)
+replicationJob_state = Lens.lens (\ReplicationJob' {state} -> state) (\s@ReplicationJob' {} a -> s {state = a} :: ReplicationJob)
 
--- | Indicates whether the replication job should produce encrypted AMIs.
-replicationJob_encrypted :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Bool)
-replicationJob_encrypted = Lens.lens (\ReplicationJob' {encrypted} -> encrypted) (\s@ReplicationJob' {} a -> s {encrypted = a} :: ReplicationJob)
-
--- | The ID of the latest Amazon Machine Image (AMI).
-replicationJob_latestAmiId :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Text)
-replicationJob_latestAmiId = Lens.lens (\ReplicationJob' {latestAmiId} -> latestAmiId) (\s@ReplicationJob' {} a -> s {latestAmiId = a} :: ReplicationJob)
-
--- | The name of the IAM role to be used by AWS SMS.
-replicationJob_roleName :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Text)
-replicationJob_roleName = Lens.lens (\ReplicationJob' {roleName} -> roleName) (\s@ReplicationJob' {} a -> s {roleName = a} :: ReplicationJob)
+-- | The type of server.
+replicationJob_serverType :: Lens.Lens' ReplicationJob (Prelude.Maybe ServerType)
+replicationJob_serverType = Lens.lens (\ReplicationJob' {serverType} -> serverType) (\s@ReplicationJob' {} a -> s {serverType = a} :: ReplicationJob)
 
 -- | The ID of the server.
 replicationJob_serverId :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Text)
 replicationJob_serverId = Lens.lens (\ReplicationJob' {serverId} -> serverId) (\s@ReplicationJob' {} a -> s {serverId = a} :: ReplicationJob)
 
--- | The state of the replication job.
-replicationJob_state :: Lens.Lens' ReplicationJob (Prelude.Maybe ReplicationJobState)
-replicationJob_state = Lens.lens (\ReplicationJob' {state} -> state) (\s@ReplicationJob' {} a -> s {state = a} :: ReplicationJob)
+-- | The license type to be used for the AMI created by a successful
+-- replication run.
+replicationJob_licenseType :: Lens.Lens' ReplicationJob (Prelude.Maybe LicenseType)
+replicationJob_licenseType = Lens.lens (\ReplicationJob' {licenseType} -> licenseType) (\s@ReplicationJob' {} a -> s {licenseType = a} :: ReplicationJob)
+
+-- | The name of the IAM role to be used by AWS SMS.
+replicationJob_roleName :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Text)
+replicationJob_roleName = Lens.lens (\ReplicationJob' {roleName} -> roleName) (\s@ReplicationJob' {} a -> s {roleName = a} :: ReplicationJob)
+
+-- | Information about the VM server.
+replicationJob_vmServer :: Lens.Lens' ReplicationJob (Prelude.Maybe VmServer)
+replicationJob_vmServer = Lens.lens (\ReplicationJob' {vmServer} -> vmServer) (\s@ReplicationJob' {} a -> s {vmServer = a} :: ReplicationJob)
+
+-- | Indicates whether the replication job should produce encrypted AMIs.
+replicationJob_encrypted :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Bool)
+replicationJob_encrypted = Lens.lens (\ReplicationJob' {encrypted} -> encrypted) (\s@ReplicationJob' {} a -> s {encrypted = a} :: ReplicationJob)
+
+-- | The ID of the replication job.
+replicationJob_replicationJobId :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Text)
+replicationJob_replicationJobId = Lens.lens (\ReplicationJob' {replicationJobId} -> replicationJobId) (\s@ReplicationJob' {} a -> s {replicationJobId = a} :: ReplicationJob)
+
+-- | Information about the replication runs.
+replicationJob_replicationRunList :: Lens.Lens' ReplicationJob (Prelude.Maybe [ReplicationRun])
+replicationJob_replicationRunList = Lens.lens (\ReplicationJob' {replicationRunList} -> replicationRunList) (\s@ReplicationJob' {} a -> s {replicationRunList = a} :: ReplicationJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | The start time of the next replication run.
+replicationJob_nextReplicationRunStartTime :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.UTCTime)
+replicationJob_nextReplicationRunStartTime = Lens.lens (\ReplicationJob' {nextReplicationRunStartTime} -> nextReplicationRunStartTime) (\s@ReplicationJob' {} a -> s {nextReplicationRunStartTime = a} :: ReplicationJob) Prelude.. Lens.mapping Core._Time
+
+-- | The description of the current status of the replication job.
+replicationJob_statusMessage :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Text)
+replicationJob_statusMessage = Lens.lens (\ReplicationJob' {statusMessage} -> statusMessage) (\s@ReplicationJob' {} a -> s {statusMessage = a} :: ReplicationJob)
 
 -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
 -- This value can be any of the following:
@@ -219,42 +239,21 @@ replicationJob_state = Lens.lens (\ReplicationJob' {state} -> state) (\s@Replica
 replicationJob_kmsKeyId :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Text)
 replicationJob_kmsKeyId = Lens.lens (\ReplicationJob' {kmsKeyId} -> kmsKeyId) (\s@ReplicationJob' {} a -> s {kmsKeyId = a} :: ReplicationJob)
 
--- | Information about the replication runs.
-replicationJob_replicationRunList :: Lens.Lens' ReplicationJob (Prelude.Maybe [ReplicationRun])
-replicationJob_replicationRunList = Lens.lens (\ReplicationJob' {replicationRunList} -> replicationRunList) (\s@ReplicationJob' {} a -> s {replicationRunList = a} :: ReplicationJob) Prelude.. Lens.mapping Lens._Coerce
-
--- | The time between consecutive replication runs, in hours.
-replicationJob_frequency :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Int)
-replicationJob_frequency = Lens.lens (\ReplicationJob' {frequency} -> frequency) (\s@ReplicationJob' {} a -> s {frequency = a} :: ReplicationJob)
-
--- | The ID of the replication job.
-replicationJob_replicationJobId :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Text)
-replicationJob_replicationJobId = Lens.lens (\ReplicationJob' {replicationJobId} -> replicationJobId) (\s@ReplicationJob' {} a -> s {replicationJobId = a} :: ReplicationJob)
-
--- | Indicates whether to run the replication job one time.
-replicationJob_runOnce :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Bool)
-replicationJob_runOnce = Lens.lens (\ReplicationJob' {runOnce} -> runOnce) (\s@ReplicationJob' {} a -> s {runOnce = a} :: ReplicationJob)
+-- | The ID of the latest Amazon Machine Image (AMI).
+replicationJob_latestAmiId :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Text)
+replicationJob_latestAmiId = Lens.lens (\ReplicationJob' {latestAmiId} -> latestAmiId) (\s@ReplicationJob' {} a -> s {latestAmiId = a} :: ReplicationJob)
 
 -- | The seed replication time.
 replicationJob_seedReplicationTime :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.UTCTime)
 replicationJob_seedReplicationTime = Lens.lens (\ReplicationJob' {seedReplicationTime} -> seedReplicationTime) (\s@ReplicationJob' {} a -> s {seedReplicationTime = a} :: ReplicationJob) Prelude.. Lens.mapping Core._Time
 
+-- | Indicates whether to run the replication job one time.
+replicationJob_runOnce :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Bool)
+replicationJob_runOnce = Lens.lens (\ReplicationJob' {runOnce} -> runOnce) (\s@ReplicationJob' {} a -> s {runOnce = a} :: ReplicationJob)
+
 -- | The description of the replication job.
 replicationJob_description :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Text)
 replicationJob_description = Lens.lens (\ReplicationJob' {description} -> description) (\s@ReplicationJob' {} a -> s {description = a} :: ReplicationJob)
-
--- | Information about the VM server.
-replicationJob_vmServer :: Lens.Lens' ReplicationJob (Prelude.Maybe VmServer)
-replicationJob_vmServer = Lens.lens (\ReplicationJob' {vmServer} -> vmServer) (\s@ReplicationJob' {} a -> s {vmServer = a} :: ReplicationJob)
-
--- | The license type to be used for the AMI created by a successful
--- replication run.
-replicationJob_licenseType :: Lens.Lens' ReplicationJob (Prelude.Maybe LicenseType)
-replicationJob_licenseType = Lens.lens (\ReplicationJob' {licenseType} -> licenseType) (\s@ReplicationJob' {} a -> s {licenseType = a} :: ReplicationJob)
-
--- | The type of server.
-replicationJob_serverType :: Lens.Lens' ReplicationJob (Prelude.Maybe ServerType)
-replicationJob_serverType = Lens.lens (\ReplicationJob' {serverType} -> serverType) (\s@ReplicationJob' {} a -> s {serverType = a} :: ReplicationJob)
 
 instance Core.FromJSON ReplicationJob where
   parseJSON =
@@ -262,26 +261,26 @@ instance Core.FromJSON ReplicationJob where
       "ReplicationJob"
       ( \x ->
           ReplicationJob'
-            Prelude.<$> (x Core..:? "nextReplicationRunStartTime")
+            Prelude.<$> (x Core..:? "frequency")
             Prelude.<*> (x Core..:? "numberOfRecentAmisToKeep")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "encrypted")
-            Prelude.<*> (x Core..:? "latestAmiId")
-            Prelude.<*> (x Core..:? "roleName")
-            Prelude.<*> (x Core..:? "serverId")
             Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "kmsKeyId")
+            Prelude.<*> (x Core..:? "serverType")
+            Prelude.<*> (x Core..:? "serverId")
+            Prelude.<*> (x Core..:? "licenseType")
+            Prelude.<*> (x Core..:? "roleName")
+            Prelude.<*> (x Core..:? "vmServer")
+            Prelude.<*> (x Core..:? "encrypted")
+            Prelude.<*> (x Core..:? "replicationJobId")
             Prelude.<*> ( x Core..:? "replicationRunList"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "frequency")
-            Prelude.<*> (x Core..:? "replicationJobId")
-            Prelude.<*> (x Core..:? "runOnce")
+            Prelude.<*> (x Core..:? "nextReplicationRunStartTime")
+            Prelude.<*> (x Core..:? "statusMessage")
+            Prelude.<*> (x Core..:? "kmsKeyId")
+            Prelude.<*> (x Core..:? "latestAmiId")
             Prelude.<*> (x Core..:? "seedReplicationTime")
+            Prelude.<*> (x Core..:? "runOnce")
             Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "vmServer")
-            Prelude.<*> (x Core..:? "licenseType")
-            Prelude.<*> (x Core..:? "serverType")
       )
 
 instance Prelude.Hashable ReplicationJob

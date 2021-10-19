@@ -86,7 +86,7 @@ putAppReplicationConfiguration_appId = Lens.lens (\PutAppReplicationConfiguratio
 -- | Information about the replication configurations for server groups in
 -- the application.
 putAppReplicationConfiguration_serverGroupReplicationConfigurations :: Lens.Lens' PutAppReplicationConfiguration (Prelude.Maybe [ServerGroupReplicationConfiguration])
-putAppReplicationConfiguration_serverGroupReplicationConfigurations = Lens.lens (\PutAppReplicationConfiguration' {serverGroupReplicationConfigurations} -> serverGroupReplicationConfigurations) (\s@PutAppReplicationConfiguration' {} a -> s {serverGroupReplicationConfigurations = a} :: PutAppReplicationConfiguration) Prelude.. Lens.mapping Lens._Coerce
+putAppReplicationConfiguration_serverGroupReplicationConfigurations = Lens.lens (\PutAppReplicationConfiguration' {serverGroupReplicationConfigurations} -> serverGroupReplicationConfigurations) (\s@PutAppReplicationConfiguration' {} a -> s {serverGroupReplicationConfigurations = a} :: PutAppReplicationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSRequest

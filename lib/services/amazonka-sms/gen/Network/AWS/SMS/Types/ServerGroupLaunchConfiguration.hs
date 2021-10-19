@@ -74,7 +74,7 @@ serverGroupLaunchConfiguration_launchOrder = Lens.lens (\ServerGroupLaunchConfig
 
 -- | The launch configuration for servers in the server group.
 serverGroupLaunchConfiguration_serverLaunchConfigurations :: Lens.Lens' ServerGroupLaunchConfiguration (Prelude.Maybe [ServerLaunchConfiguration])
-serverGroupLaunchConfiguration_serverLaunchConfigurations = Lens.lens (\ServerGroupLaunchConfiguration' {serverLaunchConfigurations} -> serverLaunchConfigurations) (\s@ServerGroupLaunchConfiguration' {} a -> s {serverLaunchConfigurations = a} :: ServerGroupLaunchConfiguration) Prelude.. Lens.mapping Lens._Coerce
+serverGroupLaunchConfiguration_serverLaunchConfigurations = Lens.lens (\ServerGroupLaunchConfiguration' {serverLaunchConfigurations} -> serverLaunchConfigurations) (\s@ServerGroupLaunchConfiguration' {} a -> s {serverLaunchConfigurations = a} :: ServerGroupLaunchConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ServerGroupLaunchConfiguration where
   parseJSON =

@@ -230,7 +230,7 @@ listResolversByFunctionResponse_nextToken = Lens.lens (\ListResolversByFunctionR
 
 -- | The list of resolvers.
 listResolversByFunctionResponse_resolvers :: Lens.Lens' ListResolversByFunctionResponse (Prelude.Maybe [Resolver])
-listResolversByFunctionResponse_resolvers = Lens.lens (\ListResolversByFunctionResponse' {resolvers} -> resolvers) (\s@ListResolversByFunctionResponse' {} a -> s {resolvers = a} :: ListResolversByFunctionResponse) Prelude.. Lens.mapping Lens._Coerce
+listResolversByFunctionResponse_resolvers = Lens.lens (\ListResolversByFunctionResponse' {resolvers} -> resolvers) (\s@ListResolversByFunctionResponse' {} a -> s {resolvers = a} :: ListResolversByFunctionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listResolversByFunctionResponse_httpStatus :: Lens.Lens' ListResolversByFunctionResponse Prelude.Int

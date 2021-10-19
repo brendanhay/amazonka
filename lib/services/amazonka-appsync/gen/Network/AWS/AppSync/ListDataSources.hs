@@ -38,8 +38,8 @@ module Network.AWS.AppSync.ListDataSources
     newListDataSourcesResponse,
 
     -- * Response Lenses
-    listDataSourcesResponse_nextToken,
     listDataSourcesResponse_dataSources,
+    listDataSourcesResponse_nextToken,
     listDataSourcesResponse_httpStatus,
   )
 where
@@ -135,8 +135,8 @@ instance Core.AWSRequest ListDataSources where
     Response.receiveJSON
       ( \s h x ->
           ListDataSourcesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "dataSources" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "dataSources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,11 +169,11 @@ instance Core.ToQuery ListDataSources where
 
 -- | /See:/ 'newListDataSourcesResponse' smart constructor.
 data ListDataSourcesResponse = ListDataSourcesResponse'
-  { -- | An identifier to be passed in the next request to this operation to
+  { -- | The @DataSource@ objects.
+    dataSources :: Prelude.Maybe [DataSource],
+    -- | An identifier to be passed in the next request to this operation to
     -- return the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The @DataSource@ objects.
-    dataSources :: Prelude.Maybe [DataSource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,10 +187,10 @@ data ListDataSourcesResponse = ListDataSourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataSources', 'listDataSourcesResponse_dataSources' - The @DataSource@ objects.
+--
 -- 'nextToken', 'listDataSourcesResponse_nextToken' - An identifier to be passed in the next request to this operation to
 -- return the next set of items in the list.
---
--- 'dataSources', 'listDataSourcesResponse_dataSources' - The @DataSource@ objects.
 --
 -- 'httpStatus', 'listDataSourcesResponse_httpStatus' - The response's http status code.
 newListDataSourcesResponse ::
@@ -199,20 +199,20 @@ newListDataSourcesResponse ::
   ListDataSourcesResponse
 newListDataSourcesResponse pHttpStatus_ =
   ListDataSourcesResponse'
-    { nextToken =
+    { dataSources =
         Prelude.Nothing,
-      dataSources = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The @DataSource@ objects.
+listDataSourcesResponse_dataSources :: Lens.Lens' ListDataSourcesResponse (Prelude.Maybe [DataSource])
+listDataSourcesResponse_dataSources = Lens.lens (\ListDataSourcesResponse' {dataSources} -> dataSources) (\s@ListDataSourcesResponse' {} a -> s {dataSources = a} :: ListDataSourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier to be passed in the next request to this operation to
 -- return the next set of items in the list.
 listDataSourcesResponse_nextToken :: Lens.Lens' ListDataSourcesResponse (Prelude.Maybe Prelude.Text)
 listDataSourcesResponse_nextToken = Lens.lens (\ListDataSourcesResponse' {nextToken} -> nextToken) (\s@ListDataSourcesResponse' {} a -> s {nextToken = a} :: ListDataSourcesResponse)
-
--- | The @DataSource@ objects.
-listDataSourcesResponse_dataSources :: Lens.Lens' ListDataSourcesResponse (Prelude.Maybe [DataSource])
-listDataSourcesResponse_dataSources = Lens.lens (\ListDataSourcesResponse' {dataSources} -> dataSources) (\s@ListDataSourcesResponse' {} a -> s {dataSources = a} :: ListDataSourcesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listDataSourcesResponse_httpStatus :: Lens.Lens' ListDataSourcesResponse Prelude.Int

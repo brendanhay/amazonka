@@ -23,35 +23,35 @@ module Network.AWS.AppSync
     -- ** ApiKeyValidityOutOfBoundsException
     _ApiKeyValidityOutOfBoundsException,
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** BadRequestException
-    _BadRequestException,
-
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
-    -- ** GraphQLSchemaException
-    _GraphQLSchemaException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** ApiLimitExceededException
-    _ApiLimitExceededException,
 
     -- ** ApiKeyLimitExceededException
     _ApiKeyLimitExceededException,
 
+    -- ** ApiLimitExceededException
+    _ApiLimitExceededException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** GraphQLSchemaException
+    _GraphQLSchemaException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
     -- ** InternalFailureException
     _InternalFailureException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -59,35 +59,11 @@ module Network.AWS.AppSync
     -- * Operations
     -- $operations
 
-    -- ** ListResolvers (Paginated)
-    ListResolvers (ListResolvers'),
-    newListResolvers,
-    ListResolversResponse (ListResolversResponse'),
-    newListResolversResponse,
-
     -- ** UpdateDataSource
     UpdateDataSource (UpdateDataSource'),
     newUpdateDataSource,
     UpdateDataSourceResponse (UpdateDataSourceResponse'),
     newUpdateDataSourceResponse,
-
-    -- ** ListDataSources (Paginated)
-    ListDataSources (ListDataSources'),
-    newListDataSources,
-    ListDataSourcesResponse (ListDataSourcesResponse'),
-    newListDataSourcesResponse,
-
-    -- ** GetFunction
-    GetFunction (GetFunction'),
-    newGetFunction,
-    GetFunctionResponse (GetFunctionResponse'),
-    newGetFunctionResponse,
-
-    -- ** CreateType
-    CreateType (CreateType'),
-    newCreateType,
-    CreateTypeResponse (CreateTypeResponse'),
-    newCreateTypeResponse,
 
     -- ** DeleteDataSource
     DeleteDataSource (DeleteDataSource'),
@@ -95,101 +71,11 @@ module Network.AWS.AppSync
     DeleteDataSourceResponse (DeleteDataSourceResponse'),
     newDeleteDataSourceResponse,
 
-    -- ** UpdateType
-    UpdateType (UpdateType'),
-    newUpdateType,
-    UpdateTypeResponse (UpdateTypeResponse'),
-    newUpdateTypeResponse,
-
-    -- ** CreateDataSource
-    CreateDataSource (CreateDataSource'),
-    newCreateDataSource,
-    CreateDataSourceResponse (CreateDataSourceResponse'),
-    newCreateDataSourceResponse,
-
-    -- ** DeleteType
-    DeleteType (DeleteType'),
-    newDeleteType,
-    DeleteTypeResponse (DeleteTypeResponse'),
-    newDeleteTypeResponse,
-
-    -- ** ListResolversByFunction (Paginated)
-    ListResolversByFunction (ListResolversByFunction'),
-    newListResolversByFunction,
-    ListResolversByFunctionResponse (ListResolversByFunctionResponse'),
-    newListResolversByFunctionResponse,
-
-    -- ** ListFunctions (Paginated)
-    ListFunctions (ListFunctions'),
-    newListFunctions,
-    ListFunctionsResponse (ListFunctionsResponse'),
-    newListFunctionsResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** DeleteGraphqlApi
-    DeleteGraphqlApi (DeleteGraphqlApi'),
-    newDeleteGraphqlApi,
-    DeleteGraphqlApiResponse (DeleteGraphqlApiResponse'),
-    newDeleteGraphqlApiResponse,
-
-    -- ** GetResolver
-    GetResolver (GetResolver'),
-    newGetResolver,
-    GetResolverResponse (GetResolverResponse'),
-    newGetResolverResponse,
-
-    -- ** GetIntrospectionSchema
-    GetIntrospectionSchema (GetIntrospectionSchema'),
-    newGetIntrospectionSchema,
-    GetIntrospectionSchemaResponse (GetIntrospectionSchemaResponse'),
-    newGetIntrospectionSchemaResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** ListGraphqlApis (Paginated)
-    ListGraphqlApis (ListGraphqlApis'),
-    newListGraphqlApis,
-    ListGraphqlApisResponse (ListGraphqlApisResponse'),
-    newListGraphqlApisResponse,
-
-    -- ** UpdateGraphqlApi
-    UpdateGraphqlApi (UpdateGraphqlApi'),
-    newUpdateGraphqlApi,
-    UpdateGraphqlApiResponse (UpdateGraphqlApiResponse'),
-    newUpdateGraphqlApiResponse,
-
-    -- ** UpdateApiCache
-    UpdateApiCache (UpdateApiCache'),
-    newUpdateApiCache,
-    UpdateApiCacheResponse (UpdateApiCacheResponse'),
-    newUpdateApiCacheResponse,
-
-    -- ** DeleteApiCache
-    DeleteApiCache (DeleteApiCache'),
-    newDeleteApiCache,
-    DeleteApiCacheResponse (DeleteApiCacheResponse'),
-    newDeleteApiCacheResponse,
-
-    -- ** GetSchemaCreationStatus
-    GetSchemaCreationStatus (GetSchemaCreationStatus'),
-    newGetSchemaCreationStatus,
-    GetSchemaCreationStatusResponse (GetSchemaCreationStatusResponse'),
-    newGetSchemaCreationStatusResponse,
-
-    -- ** GetApiCache
-    GetApiCache (GetApiCache'),
-    newGetApiCache,
-    GetApiCacheResponse (GetApiCacheResponse'),
-    newGetApiCacheResponse,
+    -- ** CreateType
+    CreateType (CreateType'),
+    newCreateType,
+    CreateTypeResponse (CreateTypeResponse'),
+    newCreateTypeResponse,
 
     -- ** GetGraphqlApi
     GetGraphqlApi (GetGraphqlApi'),
@@ -197,29 +83,59 @@ module Network.AWS.AppSync
     GetGraphqlApiResponse (GetGraphqlApiResponse'),
     newGetGraphqlApiResponse,
 
-    -- ** UpdateResolver
-    UpdateResolver (UpdateResolver'),
-    newUpdateResolver,
-    UpdateResolverResponse (UpdateResolverResponse'),
-    newUpdateResolverResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** DeleteResolver
-    DeleteResolver (DeleteResolver'),
-    newDeleteResolver,
-    DeleteResolverResponse (DeleteResolverResponse'),
-    newDeleteResolverResponse,
+    -- ** CreateGraphqlApi
+    CreateGraphqlApi (CreateGraphqlApi'),
+    newCreateGraphqlApi,
+    CreateGraphqlApiResponse (CreateGraphqlApiResponse'),
+    newCreateGraphqlApiResponse,
 
-    -- ** ListTypes (Paginated)
-    ListTypes (ListTypes'),
-    newListTypes,
-    ListTypesResponse (ListTypesResponse'),
-    newListTypesResponse,
+    -- ** StartSchemaCreation
+    StartSchemaCreation (StartSchemaCreation'),
+    newStartSchemaCreation,
+    StartSchemaCreationResponse (StartSchemaCreationResponse'),
+    newStartSchemaCreationResponse,
 
-    -- ** GetType
-    GetType (GetType'),
-    newGetType,
-    GetTypeResponse (GetTypeResponse'),
-    newGetTypeResponse,
+    -- ** FlushApiCache
+    FlushApiCache (FlushApiCache'),
+    newFlushApiCache,
+    FlushApiCacheResponse (FlushApiCacheResponse'),
+    newFlushApiCacheResponse,
+
+    -- ** DeleteGraphqlApi
+    DeleteGraphqlApi (DeleteGraphqlApi'),
+    newDeleteGraphqlApi,
+    DeleteGraphqlApiResponse (DeleteGraphqlApiResponse'),
+    newDeleteGraphqlApiResponse,
+
+    -- ** UpdateGraphqlApi
+    UpdateGraphqlApi (UpdateGraphqlApi'),
+    newUpdateGraphqlApi,
+    UpdateGraphqlApiResponse (UpdateGraphqlApiResponse'),
+    newUpdateGraphqlApiResponse,
+
+    -- ** GetIntrospectionSchema
+    GetIntrospectionSchema (GetIntrospectionSchema'),
+    newGetIntrospectionSchema,
+    GetIntrospectionSchemaResponse (GetIntrospectionSchemaResponse'),
+    newGetIntrospectionSchemaResponse,
+
+    -- ** GetDataSource
+    GetDataSource (GetDataSource'),
+    newGetDataSource,
+    GetDataSourceResponse (GetDataSourceResponse'),
+    newGetDataSourceResponse,
+
+    -- ** ListResolversByFunction (Paginated)
+    ListResolversByFunction (ListResolversByFunction'),
+    newListResolversByFunction,
+    ListResolversByFunctionResponse (ListResolversByFunctionResponse'),
+    newListResolversByFunctionResponse,
 
     -- ** CreateFunction
     CreateFunction (CreateFunction'),
@@ -233,47 +149,101 @@ module Network.AWS.AppSync
     DeleteApiKeyResponse (DeleteApiKeyResponse'),
     newDeleteApiKeyResponse,
 
-    -- ** ListApiKeys (Paginated)
-    ListApiKeys (ListApiKeys'),
-    newListApiKeys,
-    ListApiKeysResponse (ListApiKeysResponse'),
-    newListApiKeysResponse,
-
     -- ** UpdateApiKey
     UpdateApiKey (UpdateApiKey'),
     newUpdateApiKey,
     UpdateApiKeyResponse (UpdateApiKeyResponse'),
     newUpdateApiKeyResponse,
 
-    -- ** CreateApiKey
-    CreateApiKey (CreateApiKey'),
-    newCreateApiKey,
-    CreateApiKeyResponse (CreateApiKeyResponse'),
-    newCreateApiKeyResponse,
+    -- ** UpdateType
+    UpdateType (UpdateType'),
+    newUpdateType,
+    UpdateTypeResponse (UpdateTypeResponse'),
+    newUpdateTypeResponse,
 
-    -- ** DeleteFunction
-    DeleteFunction (DeleteFunction'),
-    newDeleteFunction,
-    DeleteFunctionResponse (DeleteFunctionResponse'),
-    newDeleteFunctionResponse,
+    -- ** DeleteType
+    DeleteType (DeleteType'),
+    newDeleteType,
+    DeleteTypeResponse (DeleteTypeResponse'),
+    newDeleteTypeResponse,
 
-    -- ** UpdateFunction
-    UpdateFunction (UpdateFunction'),
-    newUpdateFunction,
-    UpdateFunctionResponse (UpdateFunctionResponse'),
-    newUpdateFunctionResponse,
+    -- ** CreateDataSource
+    CreateDataSource (CreateDataSource'),
+    newCreateDataSource,
+    CreateDataSourceResponse (CreateDataSourceResponse'),
+    newCreateDataSourceResponse,
 
-    -- ** GetDataSource
-    GetDataSource (GetDataSource'),
-    newGetDataSource,
-    GetDataSourceResponse (GetDataSourceResponse'),
-    newGetDataSourceResponse,
+    -- ** ListTypes (Paginated)
+    ListTypes (ListTypes'),
+    newListTypes,
+    ListTypesResponse (ListTypesResponse'),
+    newListTypesResponse,
 
-    -- ** StartSchemaCreation
-    StartSchemaCreation (StartSchemaCreation'),
-    newStartSchemaCreation,
-    StartSchemaCreationResponse (StartSchemaCreationResponse'),
-    newStartSchemaCreationResponse,
+    -- ** GetFunction
+    GetFunction (GetFunction'),
+    newGetFunction,
+    GetFunctionResponse (GetFunctionResponse'),
+    newGetFunctionResponse,
+
+    -- ** ListDataSources (Paginated)
+    ListDataSources (ListDataSources'),
+    newListDataSources,
+    ListDataSourcesResponse (ListDataSourcesResponse'),
+    newListDataSourcesResponse,
+
+    -- ** UpdateResolver
+    UpdateResolver (UpdateResolver'),
+    newUpdateResolver,
+    UpdateResolverResponse (UpdateResolverResponse'),
+    newUpdateResolverResponse,
+
+    -- ** DeleteResolver
+    DeleteResolver (DeleteResolver'),
+    newDeleteResolver,
+    DeleteResolverResponse (DeleteResolverResponse'),
+    newDeleteResolverResponse,
+
+    -- ** ListResolvers (Paginated)
+    ListResolvers (ListResolvers'),
+    newListResolvers,
+    ListResolversResponse (ListResolversResponse'),
+    newListResolversResponse,
+
+    -- ** CreateResolver
+    CreateResolver (CreateResolver'),
+    newCreateResolver,
+    CreateResolverResponse (CreateResolverResponse'),
+    newCreateResolverResponse,
+
+    -- ** GetSchemaCreationStatus
+    GetSchemaCreationStatus (GetSchemaCreationStatus'),
+    newGetSchemaCreationStatus,
+    GetSchemaCreationStatusResponse (GetSchemaCreationStatusResponse'),
+    newGetSchemaCreationStatusResponse,
+
+    -- ** GetApiCache
+    GetApiCache (GetApiCache'),
+    newGetApiCache,
+    GetApiCacheResponse (GetApiCacheResponse'),
+    newGetApiCacheResponse,
+
+    -- ** UpdateApiCache
+    UpdateApiCache (UpdateApiCache'),
+    newUpdateApiCache,
+    UpdateApiCacheResponse (UpdateApiCacheResponse'),
+    newUpdateApiCacheResponse,
+
+    -- ** DeleteApiCache
+    DeleteApiCache (DeleteApiCache'),
+    newDeleteApiCache,
+    DeleteApiCacheResponse (DeleteApiCacheResponse'),
+    newDeleteApiCacheResponse,
+
+    -- ** ListGraphqlApis (Paginated)
+    ListGraphqlApis (ListGraphqlApis'),
+    newListGraphqlApis,
+    ListGraphqlApisResponse (ListGraphqlApisResponse'),
+    newListGraphqlApisResponse,
 
     -- ** CreateApiCache
     CreateApiCache (CreateApiCache'),
@@ -281,29 +251,59 @@ module Network.AWS.AppSync
     CreateApiCacheResponse (CreateApiCacheResponse'),
     newCreateApiCacheResponse,
 
-    -- ** FlushApiCache
-    FlushApiCache (FlushApiCache'),
-    newFlushApiCache,
-    FlushApiCacheResponse (FlushApiCacheResponse'),
-    newFlushApiCacheResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
-    -- ** CreateGraphqlApi
-    CreateGraphqlApi (CreateGraphqlApi'),
-    newCreateGraphqlApi,
-    CreateGraphqlApiResponse (CreateGraphqlApiResponse'),
-    newCreateGraphqlApiResponse,
+    -- ** GetResolver
+    GetResolver (GetResolver'),
+    newGetResolver,
+    GetResolverResponse (GetResolverResponse'),
+    newGetResolverResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** UpdateFunction
+    UpdateFunction (UpdateFunction'),
+    newUpdateFunction,
+    UpdateFunctionResponse (UpdateFunctionResponse'),
+    newUpdateFunctionResponse,
 
-    -- ** CreateResolver
-    CreateResolver (CreateResolver'),
-    newCreateResolver,
-    CreateResolverResponse (CreateResolverResponse'),
-    newCreateResolverResponse,
+    -- ** DeleteFunction
+    DeleteFunction (DeleteFunction'),
+    newDeleteFunction,
+    DeleteFunctionResponse (DeleteFunctionResponse'),
+    newDeleteFunctionResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** CreateApiKey
+    CreateApiKey (CreateApiKey'),
+    newCreateApiKey,
+    CreateApiKeyResponse (CreateApiKeyResponse'),
+    newCreateApiKeyResponse,
+
+    -- ** ListFunctions (Paginated)
+    ListFunctions (ListFunctions'),
+    newListFunctions,
+    ListFunctionsResponse (ListFunctionsResponse'),
+    newListFunctionsResponse,
+
+    -- ** ListApiKeys (Paginated)
+    ListApiKeys (ListApiKeys'),
+    newListApiKeys,
+    ListApiKeysResponse (ListApiKeysResponse'),
+    newListApiKeysResponse,
+
+    -- ** GetType
+    GetType (GetType'),
+    newGetType,
+    GetTypeResponse (GetTypeResponse'),
+    newGetTypeResponse,
 
     -- * Types
 

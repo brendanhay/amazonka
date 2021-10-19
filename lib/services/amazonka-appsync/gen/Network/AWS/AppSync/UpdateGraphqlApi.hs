@@ -27,13 +27,13 @@ module Network.AWS.AppSync.UpdateGraphqlApi
     newUpdateGraphqlApi,
 
     -- * Request Lenses
-    updateGraphqlApi_openIDConnectConfig,
-    updateGraphqlApi_userPoolConfig,
     updateGraphqlApi_xrayEnabled,
-    updateGraphqlApi_lambdaAuthorizerConfig,
-    updateGraphqlApi_logConfig,
+    updateGraphqlApi_openIDConnectConfig,
     updateGraphqlApi_additionalAuthenticationProviders,
+    updateGraphqlApi_lambdaAuthorizerConfig,
+    updateGraphqlApi_userPoolConfig,
     updateGraphqlApi_authenticationType,
+    updateGraphqlApi_logConfig,
     updateGraphqlApi_apiId,
     updateGraphqlApi_name,
 
@@ -56,21 +56,21 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateGraphqlApi' smart constructor.
 data UpdateGraphqlApi = UpdateGraphqlApi'
-  { -- | The OpenID Connect configuration for the @GraphqlApi@ object.
+  { -- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
+    xrayEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The OpenID Connect configuration for the @GraphqlApi@ object.
     openIDConnectConfig :: Prelude.Maybe OpenIDConnectConfig,
+    -- | A list of additional authentication providers for the @GraphqlApi@ API.
+    additionalAuthenticationProviders :: Prelude.Maybe [AdditionalAuthenticationProvider],
+    -- | Configuration for Amazon Web Services Lambda function authorization.
+    lambdaAuthorizerConfig :: Prelude.Maybe LambdaAuthorizerConfig,
     -- | The new Amazon Cognito user pool configuration for the @GraphqlApi@
     -- object.
     userPoolConfig :: Prelude.Maybe UserPoolConfig,
-    -- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
-    xrayEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Configuration for Amazon Web Services Lambda function authorization.
-    lambdaAuthorizerConfig :: Prelude.Maybe LambdaAuthorizerConfig,
-    -- | The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.
-    logConfig :: Prelude.Maybe LogConfig,
-    -- | A list of additional authentication providers for the @GraphqlApi@ API.
-    additionalAuthenticationProviders :: Prelude.Maybe [AdditionalAuthenticationProvider],
     -- | The new authentication type for the @GraphqlApi@ object.
     authenticationType :: Prelude.Maybe AuthenticationType,
+    -- | The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.
+    logConfig :: Prelude.Maybe LogConfig,
     -- | The API ID.
     apiId :: Prelude.Text,
     -- | The new name for the @GraphqlApi@ object.
@@ -86,20 +86,20 @@ data UpdateGraphqlApi = UpdateGraphqlApi'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'xrayEnabled', 'updateGraphqlApi_xrayEnabled' - A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
+--
 -- 'openIDConnectConfig', 'updateGraphqlApi_openIDConnectConfig' - The OpenID Connect configuration for the @GraphqlApi@ object.
+--
+-- 'additionalAuthenticationProviders', 'updateGraphqlApi_additionalAuthenticationProviders' - A list of additional authentication providers for the @GraphqlApi@ API.
+--
+-- 'lambdaAuthorizerConfig', 'updateGraphqlApi_lambdaAuthorizerConfig' - Configuration for Amazon Web Services Lambda function authorization.
 --
 -- 'userPoolConfig', 'updateGraphqlApi_userPoolConfig' - The new Amazon Cognito user pool configuration for the @GraphqlApi@
 -- object.
 --
--- 'xrayEnabled', 'updateGraphqlApi_xrayEnabled' - A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
---
--- 'lambdaAuthorizerConfig', 'updateGraphqlApi_lambdaAuthorizerConfig' - Configuration for Amazon Web Services Lambda function authorization.
+-- 'authenticationType', 'updateGraphqlApi_authenticationType' - The new authentication type for the @GraphqlApi@ object.
 --
 -- 'logConfig', 'updateGraphqlApi_logConfig' - The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.
---
--- 'additionalAuthenticationProviders', 'updateGraphqlApi_additionalAuthenticationProviders' - A list of additional authentication providers for the @GraphqlApi@ API.
---
--- 'authenticationType', 'updateGraphqlApi_authenticationType' - The new authentication type for the @GraphqlApi@ object.
 --
 -- 'apiId', 'updateGraphqlApi_apiId' - The API ID.
 --
@@ -112,46 +112,45 @@ newUpdateGraphqlApi ::
   UpdateGraphqlApi
 newUpdateGraphqlApi pApiId_ pName_ =
   UpdateGraphqlApi'
-    { openIDConnectConfig =
-        Prelude.Nothing,
-      userPoolConfig = Prelude.Nothing,
-      xrayEnabled = Prelude.Nothing,
-      lambdaAuthorizerConfig = Prelude.Nothing,
-      logConfig = Prelude.Nothing,
+    { xrayEnabled = Prelude.Nothing,
+      openIDConnectConfig = Prelude.Nothing,
       additionalAuthenticationProviders = Prelude.Nothing,
+      lambdaAuthorizerConfig = Prelude.Nothing,
+      userPoolConfig = Prelude.Nothing,
       authenticationType = Prelude.Nothing,
+      logConfig = Prelude.Nothing,
       apiId = pApiId_,
       name = pName_
     }
 
+-- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
+updateGraphqlApi_xrayEnabled :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe Prelude.Bool)
+updateGraphqlApi_xrayEnabled = Lens.lens (\UpdateGraphqlApi' {xrayEnabled} -> xrayEnabled) (\s@UpdateGraphqlApi' {} a -> s {xrayEnabled = a} :: UpdateGraphqlApi)
+
 -- | The OpenID Connect configuration for the @GraphqlApi@ object.
 updateGraphqlApi_openIDConnectConfig :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe OpenIDConnectConfig)
 updateGraphqlApi_openIDConnectConfig = Lens.lens (\UpdateGraphqlApi' {openIDConnectConfig} -> openIDConnectConfig) (\s@UpdateGraphqlApi' {} a -> s {openIDConnectConfig = a} :: UpdateGraphqlApi)
+
+-- | A list of additional authentication providers for the @GraphqlApi@ API.
+updateGraphqlApi_additionalAuthenticationProviders :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe [AdditionalAuthenticationProvider])
+updateGraphqlApi_additionalAuthenticationProviders = Lens.lens (\UpdateGraphqlApi' {additionalAuthenticationProviders} -> additionalAuthenticationProviders) (\s@UpdateGraphqlApi' {} a -> s {additionalAuthenticationProviders = a} :: UpdateGraphqlApi) Prelude.. Lens.mapping Lens.coerced
+
+-- | Configuration for Amazon Web Services Lambda function authorization.
+updateGraphqlApi_lambdaAuthorizerConfig :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe LambdaAuthorizerConfig)
+updateGraphqlApi_lambdaAuthorizerConfig = Lens.lens (\UpdateGraphqlApi' {lambdaAuthorizerConfig} -> lambdaAuthorizerConfig) (\s@UpdateGraphqlApi' {} a -> s {lambdaAuthorizerConfig = a} :: UpdateGraphqlApi)
 
 -- | The new Amazon Cognito user pool configuration for the @GraphqlApi@
 -- object.
 updateGraphqlApi_userPoolConfig :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe UserPoolConfig)
 updateGraphqlApi_userPoolConfig = Lens.lens (\UpdateGraphqlApi' {userPoolConfig} -> userPoolConfig) (\s@UpdateGraphqlApi' {} a -> s {userPoolConfig = a} :: UpdateGraphqlApi)
 
--- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
-updateGraphqlApi_xrayEnabled :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe Prelude.Bool)
-updateGraphqlApi_xrayEnabled = Lens.lens (\UpdateGraphqlApi' {xrayEnabled} -> xrayEnabled) (\s@UpdateGraphqlApi' {} a -> s {xrayEnabled = a} :: UpdateGraphqlApi)
-
--- | Configuration for Amazon Web Services Lambda function authorization.
-updateGraphqlApi_lambdaAuthorizerConfig :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe LambdaAuthorizerConfig)
-updateGraphqlApi_lambdaAuthorizerConfig = Lens.lens (\UpdateGraphqlApi' {lambdaAuthorizerConfig} -> lambdaAuthorizerConfig) (\s@UpdateGraphqlApi' {} a -> s {lambdaAuthorizerConfig = a} :: UpdateGraphqlApi)
+-- | The new authentication type for the @GraphqlApi@ object.
+updateGraphqlApi_authenticationType :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe AuthenticationType)
+updateGraphqlApi_authenticationType = Lens.lens (\UpdateGraphqlApi' {authenticationType} -> authenticationType) (\s@UpdateGraphqlApi' {} a -> s {authenticationType = a} :: UpdateGraphqlApi)
 
 -- | The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.
 updateGraphqlApi_logConfig :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe LogConfig)
 updateGraphqlApi_logConfig = Lens.lens (\UpdateGraphqlApi' {logConfig} -> logConfig) (\s@UpdateGraphqlApi' {} a -> s {logConfig = a} :: UpdateGraphqlApi)
-
--- | A list of additional authentication providers for the @GraphqlApi@ API.
-updateGraphqlApi_additionalAuthenticationProviders :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe [AdditionalAuthenticationProvider])
-updateGraphqlApi_additionalAuthenticationProviders = Lens.lens (\UpdateGraphqlApi' {additionalAuthenticationProviders} -> additionalAuthenticationProviders) (\s@UpdateGraphqlApi' {} a -> s {additionalAuthenticationProviders = a} :: UpdateGraphqlApi) Prelude.. Lens.mapping Lens._Coerce
-
--- | The new authentication type for the @GraphqlApi@ object.
-updateGraphqlApi_authenticationType :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe AuthenticationType)
-updateGraphqlApi_authenticationType = Lens.lens (\UpdateGraphqlApi' {authenticationType} -> authenticationType) (\s@UpdateGraphqlApi' {} a -> s {authenticationType = a} :: UpdateGraphqlApi)
 
 -- | The API ID.
 updateGraphqlApi_apiId :: Lens.Lens' UpdateGraphqlApi Prelude.Text
@@ -193,18 +192,18 @@ instance Core.ToJSON UpdateGraphqlApi where
   toJSON UpdateGraphqlApi' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("openIDConnectConfig" Core..=)
+          [ ("xrayEnabled" Core..=) Prelude.<$> xrayEnabled,
+            ("openIDConnectConfig" Core..=)
               Prelude.<$> openIDConnectConfig,
-            ("userPoolConfig" Core..=)
-              Prelude.<$> userPoolConfig,
-            ("xrayEnabled" Core..=) Prelude.<$> xrayEnabled,
-            ("lambdaAuthorizerConfig" Core..=)
-              Prelude.<$> lambdaAuthorizerConfig,
-            ("logConfig" Core..=) Prelude.<$> logConfig,
             ("additionalAuthenticationProviders" Core..=)
               Prelude.<$> additionalAuthenticationProviders,
+            ("lambdaAuthorizerConfig" Core..=)
+              Prelude.<$> lambdaAuthorizerConfig,
+            ("userPoolConfig" Core..=)
+              Prelude.<$> userPoolConfig,
             ("authenticationType" Core..=)
               Prelude.<$> authenticationType,
+            ("logConfig" Core..=) Prelude.<$> logConfig,
             Prelude.Just ("name" Core..= name)
           ]
       )

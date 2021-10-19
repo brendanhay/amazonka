@@ -211,7 +211,7 @@ listFunctionsResponse_nextToken = Lens.lens (\ListFunctionsResponse' {nextToken}
 
 -- | A list of @Function@ objects.
 listFunctionsResponse_functions :: Lens.Lens' ListFunctionsResponse (Prelude.Maybe [FunctionConfiguration])
-listFunctionsResponse_functions = Lens.lens (\ListFunctionsResponse' {functions} -> functions) (\s@ListFunctionsResponse' {} a -> s {functions = a} :: ListFunctionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listFunctionsResponse_functions = Lens.lens (\ListFunctionsResponse' {functions} -> functions) (\s@ListFunctionsResponse' {} a -> s {functions = a} :: ListFunctionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listFunctionsResponse_httpStatus :: Lens.Lens' ListFunctionsResponse Prelude.Int

@@ -225,7 +225,7 @@ listResolversResponse_nextToken = Lens.lens (\ListResolversResponse' {nextToken}
 
 -- | The @Resolver@ objects.
 listResolversResponse_resolvers :: Lens.Lens' ListResolversResponse (Prelude.Maybe [Resolver])
-listResolversResponse_resolvers = Lens.lens (\ListResolversResponse' {resolvers} -> resolvers) (\s@ListResolversResponse' {} a -> s {resolvers = a} :: ListResolversResponse) Prelude.. Lens.mapping Lens._Coerce
+listResolversResponse_resolvers = Lens.lens (\ListResolversResponse' {resolvers} -> resolvers) (\s@ListResolversResponse' {} a -> s {resolvers = a} :: ListResolversResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listResolversResponse_httpStatus :: Lens.Lens' ListResolversResponse Prelude.Int

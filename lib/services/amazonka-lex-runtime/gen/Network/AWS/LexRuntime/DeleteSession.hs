@@ -38,8 +38,8 @@ module Network.AWS.LexRuntime.DeleteSession
     -- * Response Lenses
     deleteSessionResponse_botAlias,
     deleteSessionResponse_botName,
-    deleteSessionResponse_sessionId,
     deleteSessionResponse_userId,
+    deleteSessionResponse_sessionId,
     deleteSessionResponse_httpStatus,
   )
 where
@@ -113,8 +113,8 @@ instance Core.AWSRequest DeleteSession where
           DeleteSessionResponse'
             Prelude.<$> (x Core..?> "botAlias")
             Prelude.<*> (x Core..?> "botName")
-            Prelude.<*> (x Core..?> "sessionId")
             Prelude.<*> (x Core..?> "userId")
+            Prelude.<*> (x Core..?> "sessionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,10 +154,10 @@ data DeleteSessionResponse = DeleteSessionResponse'
     botAlias :: Prelude.Maybe Prelude.Text,
     -- | The name of the bot associated with the session data.
     botName :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the session.
-    sessionId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the client application user.
     userId :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the session.
+    sessionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,9 +175,9 @@ data DeleteSessionResponse = DeleteSessionResponse'
 --
 -- 'botName', 'deleteSessionResponse_botName' - The name of the bot associated with the session data.
 --
--- 'sessionId', 'deleteSessionResponse_sessionId' - The unique identifier for the session.
---
 -- 'userId', 'deleteSessionResponse_userId' - The ID of the client application user.
+--
+-- 'sessionId', 'deleteSessionResponse_sessionId' - The unique identifier for the session.
 --
 -- 'httpStatus', 'deleteSessionResponse_httpStatus' - The response's http status code.
 newDeleteSessionResponse ::
@@ -188,8 +188,8 @@ newDeleteSessionResponse pHttpStatus_ =
   DeleteSessionResponse'
     { botAlias = Prelude.Nothing,
       botName = Prelude.Nothing,
-      sessionId = Prelude.Nothing,
       userId = Prelude.Nothing,
+      sessionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -201,13 +201,13 @@ deleteSessionResponse_botAlias = Lens.lens (\DeleteSessionResponse' {botAlias} -
 deleteSessionResponse_botName :: Lens.Lens' DeleteSessionResponse (Prelude.Maybe Prelude.Text)
 deleteSessionResponse_botName = Lens.lens (\DeleteSessionResponse' {botName} -> botName) (\s@DeleteSessionResponse' {} a -> s {botName = a} :: DeleteSessionResponse)
 
--- | The unique identifier for the session.
-deleteSessionResponse_sessionId :: Lens.Lens' DeleteSessionResponse (Prelude.Maybe Prelude.Text)
-deleteSessionResponse_sessionId = Lens.lens (\DeleteSessionResponse' {sessionId} -> sessionId) (\s@DeleteSessionResponse' {} a -> s {sessionId = a} :: DeleteSessionResponse)
-
 -- | The ID of the client application user.
 deleteSessionResponse_userId :: Lens.Lens' DeleteSessionResponse (Prelude.Maybe Prelude.Text)
 deleteSessionResponse_userId = Lens.lens (\DeleteSessionResponse' {userId} -> userId) (\s@DeleteSessionResponse' {} a -> s {userId = a} :: DeleteSessionResponse)
+
+-- | The unique identifier for the session.
+deleteSessionResponse_sessionId :: Lens.Lens' DeleteSessionResponse (Prelude.Maybe Prelude.Text)
+deleteSessionResponse_sessionId = Lens.lens (\DeleteSessionResponse' {sessionId} -> sessionId) (\s@DeleteSessionResponse' {} a -> s {sessionId = a} :: DeleteSessionResponse)
 
 -- | The response's http status code.
 deleteSessionResponse_httpStatus :: Lens.Lens' DeleteSessionResponse Prelude.Int

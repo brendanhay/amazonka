@@ -33,14 +33,14 @@ import Test.Tasty
 --         , requestDeleteSession $
 --             newDeleteSession
 --
+--         , requestPostText $
+--             newPostText
+--
 --         , requestPostContent $
 --             newPostContent
 --
 --         , requestGetSession $
 --             newGetSession
---
---         , requestPostText $
---             newPostText
 --
 --           ]
 
@@ -51,14 +51,14 @@ import Test.Tasty
 --         , responseDeleteSession $
 --             newDeleteSessionResponse
 --
+--         , responsePostText $
+--             newPostTextResponse
+--
 --         , responsePostContent $
 --             newPostContentResponse
 --
 --         , responseGetSession $
 --             newGetSessionResponse
---
---         , responsePostText $
---             newPostTextResponse
 --
 --           ]
 --     ]
@@ -77,17 +77,17 @@ requestDeleteSession =
     "DeleteSession"
     "fixture/DeleteSession.yaml"
 
-requestGetSession :: GetSession -> TestTree
-requestGetSession =
-  req
-    "GetSession"
-    "fixture/GetSession.yaml"
-
 requestPostText :: PostText -> TestTree
 requestPostText =
   req
     "PostText"
     "fixture/PostText.yaml"
+
+requestGetSession :: GetSession -> TestTree
+requestGetSession =
+  req
+    "GetSession"
+    "fixture/GetSession.yaml"
 
 -- Responses
 
@@ -99,14 +99,6 @@ responseDeleteSession =
     defaultService
     (Proxy :: Proxy DeleteSession)
 
-responseGetSession :: GetSessionResponse -> TestTree
-responseGetSession =
-  res
-    "GetSessionResponse"
-    "fixture/GetSessionResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetSession)
-
 responsePostText :: PostTextResponse -> TestTree
 responsePostText =
   res
@@ -114,3 +106,11 @@ responsePostText =
     "fixture/PostTextResponse.proto"
     defaultService
     (Proxy :: Proxy PostText)
+
+responseGetSession :: GetSessionResponse -> TestTree
+responseGetSession =
+  res
+    "GetSessionResponse"
+    "fixture/GetSessionResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSession)

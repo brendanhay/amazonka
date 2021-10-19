@@ -27,14 +27,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newActiveContextTimeToLive' smart constructor.
 data ActiveContextTimeToLive = ActiveContextTimeToLive'
-  { -- | The number of seconds that the context should be active after it is
-    -- first sent in a @PostContent@ or @PostText@ response. You can set the
-    -- value between 5 and 86,400 seconds (24 hours).
-    timeToLiveInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The number of conversation turns that the context should be active. A
+  { -- | The number of conversation turns that the context should be active. A
     -- conversation turn is one @PostContent@ or @PostText@ request and the
     -- corresponding response from Amazon Lex.
-    turnsToLive :: Prelude.Maybe Prelude.Natural
+    turnsToLive :: Prelude.Maybe Prelude.Natural,
+    -- | The number of seconds that the context should be active after it is
+    -- first sent in a @PostContent@ or @PostText@ response. You can set the
+    -- value between 5 and 86,400 seconds (24 hours).
+    timeToLiveInSeconds :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,21 @@ data ActiveContextTimeToLive = ActiveContextTimeToLive'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeToLiveInSeconds', 'activeContextTimeToLive_timeToLiveInSeconds' - The number of seconds that the context should be active after it is
--- first sent in a @PostContent@ or @PostText@ response. You can set the
--- value between 5 and 86,400 seconds (24 hours).
---
 -- 'turnsToLive', 'activeContextTimeToLive_turnsToLive' - The number of conversation turns that the context should be active. A
 -- conversation turn is one @PostContent@ or @PostText@ request and the
 -- corresponding response from Amazon Lex.
+--
+-- 'timeToLiveInSeconds', 'activeContextTimeToLive_timeToLiveInSeconds' - The number of seconds that the context should be active after it is
+-- first sent in a @PostContent@ or @PostText@ response. You can set the
+-- value between 5 and 86,400 seconds (24 hours).
 newActiveContextTimeToLive ::
   ActiveContextTimeToLive
 newActiveContextTimeToLive =
   ActiveContextTimeToLive'
-    { timeToLiveInSeconds =
+    { turnsToLive =
         Prelude.Nothing,
-      turnsToLive = Prelude.Nothing
+      timeToLiveInSeconds = Prelude.Nothing
     }
-
--- | The number of seconds that the context should be active after it is
--- first sent in a @PostContent@ or @PostText@ response. You can set the
--- value between 5 and 86,400 seconds (24 hours).
-activeContextTimeToLive_timeToLiveInSeconds :: Lens.Lens' ActiveContextTimeToLive (Prelude.Maybe Prelude.Natural)
-activeContextTimeToLive_timeToLiveInSeconds = Lens.lens (\ActiveContextTimeToLive' {timeToLiveInSeconds} -> timeToLiveInSeconds) (\s@ActiveContextTimeToLive' {} a -> s {timeToLiveInSeconds = a} :: ActiveContextTimeToLive)
 
 -- | The number of conversation turns that the context should be active. A
 -- conversation turn is one @PostContent@ or @PostText@ request and the
@@ -74,14 +68,20 @@ activeContextTimeToLive_timeToLiveInSeconds = Lens.lens (\ActiveContextTimeToLiv
 activeContextTimeToLive_turnsToLive :: Lens.Lens' ActiveContextTimeToLive (Prelude.Maybe Prelude.Natural)
 activeContextTimeToLive_turnsToLive = Lens.lens (\ActiveContextTimeToLive' {turnsToLive} -> turnsToLive) (\s@ActiveContextTimeToLive' {} a -> s {turnsToLive = a} :: ActiveContextTimeToLive)
 
+-- | The number of seconds that the context should be active after it is
+-- first sent in a @PostContent@ or @PostText@ response. You can set the
+-- value between 5 and 86,400 seconds (24 hours).
+activeContextTimeToLive_timeToLiveInSeconds :: Lens.Lens' ActiveContextTimeToLive (Prelude.Maybe Prelude.Natural)
+activeContextTimeToLive_timeToLiveInSeconds = Lens.lens (\ActiveContextTimeToLive' {timeToLiveInSeconds} -> timeToLiveInSeconds) (\s@ActiveContextTimeToLive' {} a -> s {timeToLiveInSeconds = a} :: ActiveContextTimeToLive)
+
 instance Core.FromJSON ActiveContextTimeToLive where
   parseJSON =
     Core.withObject
       "ActiveContextTimeToLive"
       ( \x ->
           ActiveContextTimeToLive'
-            Prelude.<$> (x Core..:? "timeToLiveInSeconds")
-            Prelude.<*> (x Core..:? "turnsToLive")
+            Prelude.<$> (x Core..:? "turnsToLive")
+            Prelude.<*> (x Core..:? "timeToLiveInSeconds")
       )
 
 instance Prelude.Hashable ActiveContextTimeToLive
@@ -92,8 +92,8 @@ instance Core.ToJSON ActiveContextTimeToLive where
   toJSON ActiveContextTimeToLive' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("timeToLiveInSeconds" Core..=)
-              Prelude.<$> timeToLiveInSeconds,
-            ("turnsToLive" Core..=) Prelude.<$> turnsToLive
+          [ ("turnsToLive" Core..=) Prelude.<$> turnsToLive,
+            ("timeToLiveInSeconds" Core..=)
+              Prelude.<$> timeToLiveInSeconds
           ]
       )

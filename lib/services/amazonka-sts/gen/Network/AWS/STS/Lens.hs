@@ -14,92 +14,92 @@
 module Network.AWS.STS.Lens
   ( -- * Operations
 
-    -- ** AssumeRoleWithWebIdentity
-    assumeRoleWithWebIdentity_providerId,
-    assumeRoleWithWebIdentity_policyArns,
-    assumeRoleWithWebIdentity_policy,
-    assumeRoleWithWebIdentity_durationSeconds,
-    assumeRoleWithWebIdentity_roleArn,
-    assumeRoleWithWebIdentity_roleSessionName,
-    assumeRoleWithWebIdentity_webIdentityToken,
-    assumeRoleWithWebIdentityResponse_audience,
-    assumeRoleWithWebIdentityResponse_subjectFromWebIdentityToken,
-    assumeRoleWithWebIdentityResponse_provider,
-    assumeRoleWithWebIdentityResponse_sourceIdentity,
-    assumeRoleWithWebIdentityResponse_credentials,
-    assumeRoleWithWebIdentityResponse_assumedRoleUser,
-    assumeRoleWithWebIdentityResponse_packedPolicySize,
-    assumeRoleWithWebIdentityResponse_httpStatus,
+    -- ** GetCallerIdentity
+    getCallerIdentityResponse_arn,
+    getCallerIdentityResponse_account,
+    getCallerIdentityResponse_userId,
+    getCallerIdentityResponse_httpStatus,
+
+    -- ** AssumeRole
+    assumeRole_transitiveTagKeys,
+    assumeRole_tokenCode,
+    assumeRole_policyArns,
+    assumeRole_durationSeconds,
+    assumeRole_policy,
+    assumeRole_externalId,
+    assumeRole_sourceIdentity,
+    assumeRole_serialNumber,
+    assumeRole_tags,
+    assumeRole_roleArn,
+    assumeRole_roleSessionName,
+    assumeRoleResponse_packedPolicySize,
+    assumeRoleResponse_credentials,
+    assumeRoleResponse_assumedRoleUser,
+    assumeRoleResponse_sourceIdentity,
+    assumeRoleResponse_httpStatus,
 
     -- ** GetAccessKeyInfo
     getAccessKeyInfo_accessKeyId,
     getAccessKeyInfoResponse_account,
     getAccessKeyInfoResponse_httpStatus,
 
-    -- ** GetSessionToken
-    getSessionToken_tokenCode,
-    getSessionToken_serialNumber,
-    getSessionToken_durationSeconds,
-    getSessionTokenResponse_credentials,
-    getSessionTokenResponse_httpStatus,
-
-    -- ** AssumeRole
-    assumeRole_tokenCode,
-    assumeRole_tags,
-    assumeRole_policyArns,
-    assumeRole_serialNumber,
-    assumeRole_sourceIdentity,
-    assumeRole_transitiveTagKeys,
-    assumeRole_policy,
-    assumeRole_externalId,
-    assumeRole_durationSeconds,
-    assumeRole_roleArn,
-    assumeRole_roleSessionName,
-    assumeRoleResponse_sourceIdentity,
-    assumeRoleResponse_credentials,
-    assumeRoleResponse_assumedRoleUser,
-    assumeRoleResponse_packedPolicySize,
-    assumeRoleResponse_httpStatus,
-
-    -- ** GetCallerIdentity
-    getCallerIdentityResponse_arn,
-    getCallerIdentityResponse_userId,
-    getCallerIdentityResponse_account,
-    getCallerIdentityResponse_httpStatus,
-
     -- ** DecodeAuthorizationMessage
     decodeAuthorizationMessage_encodedMessage,
     decodeAuthorizationMessageResponse_decodedMessage,
     decodeAuthorizationMessageResponse_httpStatus,
 
+    -- ** AssumeRoleWithWebIdentity
+    assumeRoleWithWebIdentity_providerId,
+    assumeRoleWithWebIdentity_policyArns,
+    assumeRoleWithWebIdentity_durationSeconds,
+    assumeRoleWithWebIdentity_policy,
+    assumeRoleWithWebIdentity_roleArn,
+    assumeRoleWithWebIdentity_roleSessionName,
+    assumeRoleWithWebIdentity_webIdentityToken,
+    assumeRoleWithWebIdentityResponse_audience,
+    assumeRoleWithWebIdentityResponse_subjectFromWebIdentityToken,
+    assumeRoleWithWebIdentityResponse_packedPolicySize,
+    assumeRoleWithWebIdentityResponse_credentials,
+    assumeRoleWithWebIdentityResponse_assumedRoleUser,
+    assumeRoleWithWebIdentityResponse_sourceIdentity,
+    assumeRoleWithWebIdentityResponse_provider,
+    assumeRoleWithWebIdentityResponse_httpStatus,
+
+    -- ** GetFederationToken
+    getFederationToken_policyArns,
+    getFederationToken_durationSeconds,
+    getFederationToken_policy,
+    getFederationToken_tags,
+    getFederationToken_name,
+    getFederationTokenResponse_packedPolicySize,
+    getFederationTokenResponse_credentials,
+    getFederationTokenResponse_federatedUser,
+    getFederationTokenResponse_httpStatus,
+
+    -- ** GetSessionToken
+    getSessionToken_tokenCode,
+    getSessionToken_durationSeconds,
+    getSessionToken_serialNumber,
+    getSessionTokenResponse_credentials,
+    getSessionTokenResponse_httpStatus,
+
     -- ** AssumeRoleWithSAML
     assumeRoleWithSAML_policyArns,
-    assumeRoleWithSAML_policy,
     assumeRoleWithSAML_durationSeconds,
+    assumeRoleWithSAML_policy,
     assumeRoleWithSAML_roleArn,
     assumeRoleWithSAML_principalArn,
     assumeRoleWithSAML_sAMLAssertion,
-    assumeRoleWithSAMLResponse_nameQualifier,
-    assumeRoleWithSAMLResponse_audience,
-    assumeRoleWithSAMLResponse_subjectType,
     assumeRoleWithSAMLResponse_subject,
+    assumeRoleWithSAMLResponse_audience,
+    assumeRoleWithSAMLResponse_packedPolicySize,
+    assumeRoleWithSAMLResponse_credentials,
+    assumeRoleWithSAMLResponse_subjectType,
+    assumeRoleWithSAMLResponse_nameQualifier,
+    assumeRoleWithSAMLResponse_assumedRoleUser,
     assumeRoleWithSAMLResponse_sourceIdentity,
     assumeRoleWithSAMLResponse_issuer,
-    assumeRoleWithSAMLResponse_credentials,
-    assumeRoleWithSAMLResponse_assumedRoleUser,
-    assumeRoleWithSAMLResponse_packedPolicySize,
     assumeRoleWithSAMLResponse_httpStatus,
-
-    -- ** GetFederationToken
-    getFederationToken_tags,
-    getFederationToken_policyArns,
-    getFederationToken_policy,
-    getFederationToken_durationSeconds,
-    getFederationToken_name,
-    getFederationTokenResponse_credentials,
-    getFederationTokenResponse_federatedUser,
-    getFederationTokenResponse_packedPolicySize,
-    getFederationTokenResponse_httpStatus,
 
     -- * Types
 

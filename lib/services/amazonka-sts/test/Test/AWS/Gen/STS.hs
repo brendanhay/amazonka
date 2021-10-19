@@ -27,85 +27,61 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestAssumeRoleWithWebIdentity $
---             newAssumeRoleWithWebIdentity
---
---         , requestGetAccessKeyInfo $
---             newGetAccessKeyInfo
---
---         , requestGetSessionToken $
---             newGetSessionToken
+--         [ requestGetCallerIdentity $
+--             newGetCallerIdentity
 --
 --         , requestAssumeRole $
 --             newAssumeRole
 --
---         , requestGetCallerIdentity $
---             newGetCallerIdentity
+--         , requestGetAccessKeyInfo $
+--             newGetAccessKeyInfo
 --
 --         , requestDecodeAuthorizationMessage $
 --             newDecodeAuthorizationMessage
 --
---         , requestAssumeRoleWithSAML $
---             newAssumeRoleWithSAML
+--         , requestAssumeRoleWithWebIdentity $
+--             newAssumeRoleWithWebIdentity
 --
 --         , requestGetFederationToken $
 --             newGetFederationToken
 --
+--         , requestGetSessionToken $
+--             newGetSessionToken
+--
+--         , requestAssumeRoleWithSAML $
+--             newAssumeRoleWithSAML
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseAssumeRoleWithWebIdentity $
---             newAssumeRoleWithWebIdentityResponse
---
---         , responseGetAccessKeyInfo $
---             newGetAccessKeyInfoResponse
---
---         , responseGetSessionToken $
---             newGetSessionTokenResponse
+--         [ responseGetCallerIdentity $
+--             newGetCallerIdentityResponse
 --
 --         , responseAssumeRole $
 --             newAssumeRoleResponse
 --
---         , responseGetCallerIdentity $
---             newGetCallerIdentityResponse
+--         , responseGetAccessKeyInfo $
+--             newGetAccessKeyInfoResponse
 --
 --         , responseDecodeAuthorizationMessage $
 --             newDecodeAuthorizationMessageResponse
 --
---         , responseAssumeRoleWithSAML $
---             newAssumeRoleWithSAMLResponse
+--         , responseAssumeRoleWithWebIdentity $
+--             newAssumeRoleWithWebIdentityResponse
 --
 --         , responseGetFederationToken $
 --             newGetFederationTokenResponse
+--
+--         , responseGetSessionToken $
+--             newGetSessionTokenResponse
+--
+--         , responseAssumeRoleWithSAML $
+--             newAssumeRoleWithSAMLResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestAssumeRoleWithWebIdentity :: AssumeRoleWithWebIdentity -> TestTree
-requestAssumeRoleWithWebIdentity =
-  req
-    "AssumeRoleWithWebIdentity"
-    "fixture/AssumeRoleWithWebIdentity.yaml"
-
-requestGetAccessKeyInfo :: GetAccessKeyInfo -> TestTree
-requestGetAccessKeyInfo =
-  req
-    "GetAccessKeyInfo"
-    "fixture/GetAccessKeyInfo.yaml"
-
-requestGetSessionToken :: GetSessionToken -> TestTree
-requestGetSessionToken =
-  req
-    "GetSessionToken"
-    "fixture/GetSessionToken.yaml"
-
-requestAssumeRole :: AssumeRole -> TestTree
-requestAssumeRole =
-  req
-    "AssumeRole"
-    "fixture/AssumeRole.yaml"
 
 requestGetCallerIdentity :: GetCallerIdentity -> TestTree
 requestGetCallerIdentity =
@@ -113,17 +89,29 @@ requestGetCallerIdentity =
     "GetCallerIdentity"
     "fixture/GetCallerIdentity.yaml"
 
+requestAssumeRole :: AssumeRole -> TestTree
+requestAssumeRole =
+  req
+    "AssumeRole"
+    "fixture/AssumeRole.yaml"
+
+requestGetAccessKeyInfo :: GetAccessKeyInfo -> TestTree
+requestGetAccessKeyInfo =
+  req
+    "GetAccessKeyInfo"
+    "fixture/GetAccessKeyInfo.yaml"
+
 requestDecodeAuthorizationMessage :: DecodeAuthorizationMessage -> TestTree
 requestDecodeAuthorizationMessage =
   req
     "DecodeAuthorizationMessage"
     "fixture/DecodeAuthorizationMessage.yaml"
 
-requestAssumeRoleWithSAML :: AssumeRoleWithSAML -> TestTree
-requestAssumeRoleWithSAML =
+requestAssumeRoleWithWebIdentity :: AssumeRoleWithWebIdentity -> TestTree
+requestAssumeRoleWithWebIdentity =
   req
-    "AssumeRoleWithSAML"
-    "fixture/AssumeRoleWithSAML.yaml"
+    "AssumeRoleWithWebIdentity"
+    "fixture/AssumeRoleWithWebIdentity.yaml"
 
 requestGetFederationToken :: GetFederationToken -> TestTree
 requestGetFederationToken =
@@ -131,39 +119,19 @@ requestGetFederationToken =
     "GetFederationToken"
     "fixture/GetFederationToken.yaml"
 
+requestGetSessionToken :: GetSessionToken -> TestTree
+requestGetSessionToken =
+  req
+    "GetSessionToken"
+    "fixture/GetSessionToken.yaml"
+
+requestAssumeRoleWithSAML :: AssumeRoleWithSAML -> TestTree
+requestAssumeRoleWithSAML =
+  req
+    "AssumeRoleWithSAML"
+    "fixture/AssumeRoleWithSAML.yaml"
+
 -- Responses
-
-responseAssumeRoleWithWebIdentity :: AssumeRoleWithWebIdentityResponse -> TestTree
-responseAssumeRoleWithWebIdentity =
-  res
-    "AssumeRoleWithWebIdentityResponse"
-    "fixture/AssumeRoleWithWebIdentityResponse.proto"
-    defaultService
-    (Proxy :: Proxy AssumeRoleWithWebIdentity)
-
-responseGetAccessKeyInfo :: GetAccessKeyInfoResponse -> TestTree
-responseGetAccessKeyInfo =
-  res
-    "GetAccessKeyInfoResponse"
-    "fixture/GetAccessKeyInfoResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetAccessKeyInfo)
-
-responseGetSessionToken :: GetSessionTokenResponse -> TestTree
-responseGetSessionToken =
-  res
-    "GetSessionTokenResponse"
-    "fixture/GetSessionTokenResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetSessionToken)
-
-responseAssumeRole :: AssumeRoleResponse -> TestTree
-responseAssumeRole =
-  res
-    "AssumeRoleResponse"
-    "fixture/AssumeRoleResponse.proto"
-    defaultService
-    (Proxy :: Proxy AssumeRole)
 
 responseGetCallerIdentity :: GetCallerIdentityResponse -> TestTree
 responseGetCallerIdentity =
@@ -173,6 +141,22 @@ responseGetCallerIdentity =
     defaultService
     (Proxy :: Proxy GetCallerIdentity)
 
+responseAssumeRole :: AssumeRoleResponse -> TestTree
+responseAssumeRole =
+  res
+    "AssumeRoleResponse"
+    "fixture/AssumeRoleResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssumeRole)
+
+responseGetAccessKeyInfo :: GetAccessKeyInfoResponse -> TestTree
+responseGetAccessKeyInfo =
+  res
+    "GetAccessKeyInfoResponse"
+    "fixture/GetAccessKeyInfoResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetAccessKeyInfo)
+
 responseDecodeAuthorizationMessage :: DecodeAuthorizationMessageResponse -> TestTree
 responseDecodeAuthorizationMessage =
   res
@@ -181,13 +165,13 @@ responseDecodeAuthorizationMessage =
     defaultService
     (Proxy :: Proxy DecodeAuthorizationMessage)
 
-responseAssumeRoleWithSAML :: AssumeRoleWithSAMLResponse -> TestTree
-responseAssumeRoleWithSAML =
+responseAssumeRoleWithWebIdentity :: AssumeRoleWithWebIdentityResponse -> TestTree
+responseAssumeRoleWithWebIdentity =
   res
-    "AssumeRoleWithSAMLResponse"
-    "fixture/AssumeRoleWithSAMLResponse.proto"
+    "AssumeRoleWithWebIdentityResponse"
+    "fixture/AssumeRoleWithWebIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy AssumeRoleWithSAML)
+    (Proxy :: Proxy AssumeRoleWithWebIdentity)
 
 responseGetFederationToken :: GetFederationTokenResponse -> TestTree
 responseGetFederationToken =
@@ -196,3 +180,19 @@ responseGetFederationToken =
     "fixture/GetFederationTokenResponse.proto"
     defaultService
     (Proxy :: Proxy GetFederationToken)
+
+responseGetSessionToken :: GetSessionTokenResponse -> TestTree
+responseGetSessionToken =
+  res
+    "GetSessionTokenResponse"
+    "fixture/GetSessionTokenResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSessionToken)
+
+responseAssumeRoleWithSAML :: AssumeRoleWithSAMLResponse -> TestTree
+responseAssumeRoleWithSAML =
+  res
+    "AssumeRoleWithSAMLResponse"
+    "fixture/AssumeRoleWithSAMLResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssumeRoleWithSAML)

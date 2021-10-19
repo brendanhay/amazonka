@@ -26,14 +26,20 @@ module Network.AWS.STS
     -- * Errors
     -- $errors
 
-    -- ** RegionDisabledException
-    _RegionDisabledException,
-
     -- ** MalformedPolicyDocumentException
     _MalformedPolicyDocumentException,
 
+    -- ** InvalidAuthorizationMessageException
+    _InvalidAuthorizationMessageException,
+
     -- ** PackedPolicyTooLargeException
     _PackedPolicyTooLargeException,
+
+    -- ** RegionDisabledException
+    _RegionDisabledException,
+
+    -- ** IDPCommunicationErrorException
+    _IDPCommunicationErrorException,
 
     -- ** InvalidIdentityTokenException
     _InvalidIdentityTokenException,
@@ -41,14 +47,8 @@ module Network.AWS.STS
     -- ** ExpiredTokenException
     _ExpiredTokenException,
 
-    -- ** InvalidAuthorizationMessageException
-    _InvalidAuthorizationMessageException,
-
     -- ** IDPRejectedClaimException
     _IDPRejectedClaimException,
-
-    -- ** IDPCommunicationErrorException
-    _IDPCommunicationErrorException,
 
     -- * Waiters
     -- $waiters
@@ -56,23 +56,11 @@ module Network.AWS.STS
     -- * Operations
     -- $operations
 
-    -- ** AssumeRoleWithWebIdentity
-    AssumeRoleWithWebIdentity (AssumeRoleWithWebIdentity'),
-    newAssumeRoleWithWebIdentity,
-    AssumeRoleWithWebIdentityResponse (AssumeRoleWithWebIdentityResponse'),
-    newAssumeRoleWithWebIdentityResponse,
-
-    -- ** GetAccessKeyInfo
-    GetAccessKeyInfo (GetAccessKeyInfo'),
-    newGetAccessKeyInfo,
-    GetAccessKeyInfoResponse (GetAccessKeyInfoResponse'),
-    newGetAccessKeyInfoResponse,
-
-    -- ** GetSessionToken
-    GetSessionToken (GetSessionToken'),
-    newGetSessionToken,
-    GetSessionTokenResponse (GetSessionTokenResponse'),
-    newGetSessionTokenResponse,
+    -- ** GetCallerIdentity
+    GetCallerIdentity (GetCallerIdentity'),
+    newGetCallerIdentity,
+    GetCallerIdentityResponse (GetCallerIdentityResponse'),
+    newGetCallerIdentityResponse,
 
     -- ** AssumeRole
     AssumeRole (AssumeRole'),
@@ -80,11 +68,11 @@ module Network.AWS.STS
     AssumeRoleResponse (AssumeRoleResponse'),
     newAssumeRoleResponse,
 
-    -- ** GetCallerIdentity
-    GetCallerIdentity (GetCallerIdentity'),
-    newGetCallerIdentity,
-    GetCallerIdentityResponse (GetCallerIdentityResponse'),
-    newGetCallerIdentityResponse,
+    -- ** GetAccessKeyInfo
+    GetAccessKeyInfo (GetAccessKeyInfo'),
+    newGetAccessKeyInfo,
+    GetAccessKeyInfoResponse (GetAccessKeyInfoResponse'),
+    newGetAccessKeyInfoResponse,
 
     -- ** DecodeAuthorizationMessage
     DecodeAuthorizationMessage (DecodeAuthorizationMessage'),
@@ -92,17 +80,29 @@ module Network.AWS.STS
     DecodeAuthorizationMessageResponse (DecodeAuthorizationMessageResponse'),
     newDecodeAuthorizationMessageResponse,
 
-    -- ** AssumeRoleWithSAML
-    AssumeRoleWithSAML (AssumeRoleWithSAML'),
-    newAssumeRoleWithSAML,
-    AssumeRoleWithSAMLResponse (AssumeRoleWithSAMLResponse'),
-    newAssumeRoleWithSAMLResponse,
+    -- ** AssumeRoleWithWebIdentity
+    AssumeRoleWithWebIdentity (AssumeRoleWithWebIdentity'),
+    newAssumeRoleWithWebIdentity,
+    AssumeRoleWithWebIdentityResponse (AssumeRoleWithWebIdentityResponse'),
+    newAssumeRoleWithWebIdentityResponse,
 
     -- ** GetFederationToken
     GetFederationToken (GetFederationToken'),
     newGetFederationToken,
     GetFederationTokenResponse (GetFederationTokenResponse'),
     newGetFederationTokenResponse,
+
+    -- ** GetSessionToken
+    GetSessionToken (GetSessionToken'),
+    newGetSessionToken,
+    GetSessionTokenResponse (GetSessionTokenResponse'),
+    newGetSessionTokenResponse,
+
+    -- ** AssumeRoleWithSAML
+    AssumeRoleWithSAML (AssumeRoleWithSAML'),
+    newAssumeRoleWithSAML,
+    AssumeRoleWithSAMLResponse (AssumeRoleWithSAMLResponse'),
+    newAssumeRoleWithSAMLResponse,
 
     -- * Types
 

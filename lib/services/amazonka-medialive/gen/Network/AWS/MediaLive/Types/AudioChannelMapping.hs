@@ -66,7 +66,7 @@ audioChannelMapping_outputChannel = Lens.lens (\AudioChannelMapping' {outputChan
 -- | Indices and gain values for each input channel that should be remixed
 -- into this output channel.
 audioChannelMapping_inputChannelLevels :: Lens.Lens' AudioChannelMapping [InputChannelLevel]
-audioChannelMapping_inputChannelLevels = Lens.lens (\AudioChannelMapping' {inputChannelLevels} -> inputChannelLevels) (\s@AudioChannelMapping' {} a -> s {inputChannelLevels = a} :: AudioChannelMapping) Prelude.. Lens._Coerce
+audioChannelMapping_inputChannelLevels = Lens.lens (\AudioChannelMapping' {inputChannelLevels} -> inputChannelLevels) (\s@AudioChannelMapping' {} a -> s {inputChannelLevels = a} :: AudioChannelMapping) Prelude.. Lens.coerced
 
 instance Core.FromJSON AudioChannelMapping where
   parseJSON =

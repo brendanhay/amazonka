@@ -38,8 +38,8 @@ module Network.AWS.MediaLive.ListMultiplexPrograms
     newListMultiplexProgramsResponse,
 
     -- * Response Lenses
-    listMultiplexProgramsResponse_multiplexPrograms,
     listMultiplexProgramsResponse_nextToken,
+    listMultiplexProgramsResponse_multiplexPrograms,
     listMultiplexProgramsResponse_httpStatus,
   )
 where
@@ -131,10 +131,10 @@ instance Core.AWSRequest ListMultiplexPrograms where
     Response.receiveJSON
       ( \s h x ->
           ListMultiplexProgramsResponse'
-            Prelude.<$> ( x Core..?> "multiplexPrograms"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "multiplexPrograms"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,10 +172,10 @@ instance Core.ToQuery ListMultiplexPrograms where
 --
 -- /See:/ 'newListMultiplexProgramsResponse' smart constructor.
 data ListMultiplexProgramsResponse = ListMultiplexProgramsResponse'
-  { -- | List of multiplex programs.
-    multiplexPrograms :: Prelude.Maybe [MultiplexProgramSummary],
-    -- | Token for the next ListMultiplexProgram request.
+  { -- | Token for the next ListMultiplexProgram request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of multiplex programs.
+    multiplexPrograms :: Prelude.Maybe [MultiplexProgramSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,9 +189,9 @@ data ListMultiplexProgramsResponse = ListMultiplexProgramsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'multiplexPrograms', 'listMultiplexProgramsResponse_multiplexPrograms' - List of multiplex programs.
---
 -- 'nextToken', 'listMultiplexProgramsResponse_nextToken' - Token for the next ListMultiplexProgram request.
+--
+-- 'multiplexPrograms', 'listMultiplexProgramsResponse_multiplexPrograms' - List of multiplex programs.
 --
 -- 'httpStatus', 'listMultiplexProgramsResponse_httpStatus' - The response's http status code.
 newListMultiplexProgramsResponse ::
@@ -200,19 +200,19 @@ newListMultiplexProgramsResponse ::
   ListMultiplexProgramsResponse
 newListMultiplexProgramsResponse pHttpStatus_ =
   ListMultiplexProgramsResponse'
-    { multiplexPrograms =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      multiplexPrograms = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List of multiplex programs.
-listMultiplexProgramsResponse_multiplexPrograms :: Lens.Lens' ListMultiplexProgramsResponse (Prelude.Maybe [MultiplexProgramSummary])
-listMultiplexProgramsResponse_multiplexPrograms = Lens.lens (\ListMultiplexProgramsResponse' {multiplexPrograms} -> multiplexPrograms) (\s@ListMultiplexProgramsResponse' {} a -> s {multiplexPrograms = a} :: ListMultiplexProgramsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Token for the next ListMultiplexProgram request.
 listMultiplexProgramsResponse_nextToken :: Lens.Lens' ListMultiplexProgramsResponse (Prelude.Maybe Prelude.Text)
 listMultiplexProgramsResponse_nextToken = Lens.lens (\ListMultiplexProgramsResponse' {nextToken} -> nextToken) (\s@ListMultiplexProgramsResponse' {} a -> s {nextToken = a} :: ListMultiplexProgramsResponse)
+
+-- | List of multiplex programs.
+listMultiplexProgramsResponse_multiplexPrograms :: Lens.Lens' ListMultiplexProgramsResponse (Prelude.Maybe [MultiplexProgramSummary])
+listMultiplexProgramsResponse_multiplexPrograms = Lens.lens (\ListMultiplexProgramsResponse' {multiplexPrograms} -> multiplexPrograms) (\s@ListMultiplexProgramsResponse' {} a -> s {multiplexPrograms = a} :: ListMultiplexProgramsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listMultiplexProgramsResponse_httpStatus :: Lens.Lens' ListMultiplexProgramsResponse Prelude.Int

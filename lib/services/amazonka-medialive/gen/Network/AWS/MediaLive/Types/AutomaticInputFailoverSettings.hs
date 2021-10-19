@@ -87,7 +87,7 @@ newAutomaticInputFailoverSettings pSecondaryInputId_ =
 -- | A list of failover conditions. If any of these conditions occur,
 -- MediaLive will perform a failover to the other input.
 automaticInputFailoverSettings_failoverConditions :: Lens.Lens' AutomaticInputFailoverSettings (Prelude.Maybe [FailoverCondition])
-automaticInputFailoverSettings_failoverConditions = Lens.lens (\AutomaticInputFailoverSettings' {failoverConditions} -> failoverConditions) (\s@AutomaticInputFailoverSettings' {} a -> s {failoverConditions = a} :: AutomaticInputFailoverSettings) Prelude.. Lens.mapping Lens._Coerce
+automaticInputFailoverSettings_failoverConditions = Lens.lens (\AutomaticInputFailoverSettings' {failoverConditions} -> failoverConditions) (\s@AutomaticInputFailoverSettings' {} a -> s {failoverConditions = a} :: AutomaticInputFailoverSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | This clear time defines the requirement a recovered input must meet to
 -- be considered healthy. The input must have no failover conditions for

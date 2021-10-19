@@ -49,7 +49,7 @@ newAudioTrackSelection =
 
 -- | Selects one or more unique audio tracks from within a source.
 audioTrackSelection_tracks :: Lens.Lens' AudioTrackSelection [AudioTrack]
-audioTrackSelection_tracks = Lens.lens (\AudioTrackSelection' {tracks} -> tracks) (\s@AudioTrackSelection' {} a -> s {tracks = a} :: AudioTrackSelection) Prelude.. Lens._Coerce
+audioTrackSelection_tracks = Lens.lens (\AudioTrackSelection' {tracks} -> tracks) (\s@AudioTrackSelection' {} a -> s {tracks = a} :: AudioTrackSelection) Prelude.. Lens.coerced
 
 instance Core.FromJSON AudioTrackSelection where
   parseJSON =

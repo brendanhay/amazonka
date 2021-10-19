@@ -30,17 +30,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOutputDestination' smart constructor.
 data OutputDestination = OutputDestination'
-  { -- | Destination settings for a MediaPackage output; one destination for both
+  { -- | Destination settings for a standard output; one destination for each
+    -- redundant encoder.
+    settings :: Prelude.Maybe [OutputDestinationSettings],
+    -- | Destination settings for a MediaPackage output; one destination for both
     -- encoders.
     mediaPackageSettings :: Prelude.Maybe [MediaPackageOutputDestinationSettings],
     -- | User-specified id. This is used in an output group or an output.
     id :: Prelude.Maybe Prelude.Text,
     -- | Destination settings for a Multiplex output; one destination for both
     -- encoders.
-    multiplexSettings :: Prelude.Maybe MultiplexProgramChannelDestinationSettings,
-    -- | Destination settings for a standard output; one destination for each
-    -- redundant encoder.
-    settings :: Prelude.Maybe [OutputDestinationSettings]
+    multiplexSettings :: Prelude.Maybe MultiplexProgramChannelDestinationSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,6 +52,9 @@ data OutputDestination = OutputDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'settings', 'outputDestination_settings' - Destination settings for a standard output; one destination for each
+-- redundant encoder.
+--
 -- 'mediaPackageSettings', 'outputDestination_mediaPackageSettings' - Destination settings for a MediaPackage output; one destination for both
 -- encoders.
 --
@@ -59,24 +62,25 @@ data OutputDestination = OutputDestination'
 --
 -- 'multiplexSettings', 'outputDestination_multiplexSettings' - Destination settings for a Multiplex output; one destination for both
 -- encoders.
---
--- 'settings', 'outputDestination_settings' - Destination settings for a standard output; one destination for each
--- redundant encoder.
 newOutputDestination ::
   OutputDestination
 newOutputDestination =
   OutputDestination'
-    { mediaPackageSettings =
-        Prelude.Nothing,
+    { settings = Prelude.Nothing,
+      mediaPackageSettings = Prelude.Nothing,
       id = Prelude.Nothing,
-      multiplexSettings = Prelude.Nothing,
-      settings = Prelude.Nothing
+      multiplexSettings = Prelude.Nothing
     }
+
+-- | Destination settings for a standard output; one destination for each
+-- redundant encoder.
+outputDestination_settings :: Lens.Lens' OutputDestination (Prelude.Maybe [OutputDestinationSettings])
+outputDestination_settings = Lens.lens (\OutputDestination' {settings} -> settings) (\s@OutputDestination' {} a -> s {settings = a} :: OutputDestination) Prelude.. Lens.mapping Lens.coerced
 
 -- | Destination settings for a MediaPackage output; one destination for both
 -- encoders.
 outputDestination_mediaPackageSettings :: Lens.Lens' OutputDestination (Prelude.Maybe [MediaPackageOutputDestinationSettings])
-outputDestination_mediaPackageSettings = Lens.lens (\OutputDestination' {mediaPackageSettings} -> mediaPackageSettings) (\s@OutputDestination' {} a -> s {mediaPackageSettings = a} :: OutputDestination) Prelude.. Lens.mapping Lens._Coerce
+outputDestination_mediaPackageSettings = Lens.lens (\OutputDestination' {mediaPackageSettings} -> mediaPackageSettings) (\s@OutputDestination' {} a -> s {mediaPackageSettings = a} :: OutputDestination) Prelude.. Lens.mapping Lens.coerced
 
 -- | User-specified id. This is used in an output group or an output.
 outputDestination_id :: Lens.Lens' OutputDestination (Prelude.Maybe Prelude.Text)
@@ -87,23 +91,18 @@ outputDestination_id = Lens.lens (\OutputDestination' {id} -> id) (\s@OutputDest
 outputDestination_multiplexSettings :: Lens.Lens' OutputDestination (Prelude.Maybe MultiplexProgramChannelDestinationSettings)
 outputDestination_multiplexSettings = Lens.lens (\OutputDestination' {multiplexSettings} -> multiplexSettings) (\s@OutputDestination' {} a -> s {multiplexSettings = a} :: OutputDestination)
 
--- | Destination settings for a standard output; one destination for each
--- redundant encoder.
-outputDestination_settings :: Lens.Lens' OutputDestination (Prelude.Maybe [OutputDestinationSettings])
-outputDestination_settings = Lens.lens (\OutputDestination' {settings} -> settings) (\s@OutputDestination' {} a -> s {settings = a} :: OutputDestination) Prelude.. Lens.mapping Lens._Coerce
-
 instance Core.FromJSON OutputDestination where
   parseJSON =
     Core.withObject
       "OutputDestination"
       ( \x ->
           OutputDestination'
-            Prelude.<$> ( x Core..:? "mediaPackageSettings"
+            Prelude.<$> (x Core..:? "settings" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "mediaPackageSettings"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "multiplexSettings")
-            Prelude.<*> (x Core..:? "settings" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable OutputDestination
@@ -114,11 +113,11 @@ instance Core.ToJSON OutputDestination where
   toJSON OutputDestination' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("mediaPackageSettings" Core..=)
+          [ ("settings" Core..=) Prelude.<$> settings,
+            ("mediaPackageSettings" Core..=)
               Prelude.<$> mediaPackageSettings,
             ("id" Core..=) Prelude.<$> id,
             ("multiplexSettings" Core..=)
-              Prelude.<$> multiplexSettings,
-            ("settings" Core..=) Prelude.<$> settings
+              Prelude.<$> multiplexSettings
           ]
       )

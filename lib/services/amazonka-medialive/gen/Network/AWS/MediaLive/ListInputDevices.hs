@@ -37,8 +37,8 @@ module Network.AWS.MediaLive.ListInputDevices
     newListInputDevicesResponse,
 
     -- * Response Lenses
-    listInputDevicesResponse_nextToken,
     listInputDevicesResponse_inputDevices,
+    listInputDevicesResponse_nextToken,
     listInputDevicesResponse_httpStatus,
   )
 where
@@ -117,8 +117,8 @@ instance Core.AWSRequest ListInputDevices where
     Response.receiveJSON
       ( \s h x ->
           ListInputDevicesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "inputDevices" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "inputDevices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,10 +151,10 @@ instance Core.ToQuery ListInputDevices where
 --
 -- /See:/ 'newListInputDevicesResponse' smart constructor.
 data ListInputDevicesResponse = ListInputDevicesResponse'
-  { -- | A token to get additional list results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of input devices.
+  { -- | The list of input devices.
     inputDevices :: Prelude.Maybe [InputDeviceSummary],
+    -- | A token to get additional list results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -168,9 +168,9 @@ data ListInputDevicesResponse = ListInputDevicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listInputDevicesResponse_nextToken' - A token to get additional list results.
---
 -- 'inputDevices', 'listInputDevicesResponse_inputDevices' - The list of input devices.
+--
+-- 'nextToken', 'listInputDevicesResponse_nextToken' - A token to get additional list results.
 --
 -- 'httpStatus', 'listInputDevicesResponse_httpStatus' - The response's http status code.
 newListInputDevicesResponse ::
@@ -179,19 +179,19 @@ newListInputDevicesResponse ::
   ListInputDevicesResponse
 newListInputDevicesResponse pHttpStatus_ =
   ListInputDevicesResponse'
-    { nextToken =
+    { inputDevices =
         Prelude.Nothing,
-      inputDevices = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of input devices.
+listInputDevicesResponse_inputDevices :: Lens.Lens' ListInputDevicesResponse (Prelude.Maybe [InputDeviceSummary])
+listInputDevicesResponse_inputDevices = Lens.lens (\ListInputDevicesResponse' {inputDevices} -> inputDevices) (\s@ListInputDevicesResponse' {} a -> s {inputDevices = a} :: ListInputDevicesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to get additional list results.
 listInputDevicesResponse_nextToken :: Lens.Lens' ListInputDevicesResponse (Prelude.Maybe Prelude.Text)
 listInputDevicesResponse_nextToken = Lens.lens (\ListInputDevicesResponse' {nextToken} -> nextToken) (\s@ListInputDevicesResponse' {} a -> s {nextToken = a} :: ListInputDevicesResponse)
-
--- | The list of input devices.
-listInputDevicesResponse_inputDevices :: Lens.Lens' ListInputDevicesResponse (Prelude.Maybe [InputDeviceSummary])
-listInputDevicesResponse_inputDevices = Lens.lens (\ListInputDevicesResponse' {inputDevices} -> inputDevices) (\s@ListInputDevicesResponse' {} a -> s {inputDevices = a} :: ListInputDevicesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listInputDevicesResponse_httpStatus :: Lens.Lens' ListInputDevicesResponse Prelude.Int

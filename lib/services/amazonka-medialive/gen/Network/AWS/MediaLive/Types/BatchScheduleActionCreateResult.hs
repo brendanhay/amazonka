@@ -52,7 +52,7 @@ newBatchScheduleActionCreateResult =
 
 -- | List of actions that have been created in the schedule.
 batchScheduleActionCreateResult_scheduleActions :: Lens.Lens' BatchScheduleActionCreateResult [ScheduleAction]
-batchScheduleActionCreateResult_scheduleActions = Lens.lens (\BatchScheduleActionCreateResult' {scheduleActions} -> scheduleActions) (\s@BatchScheduleActionCreateResult' {} a -> s {scheduleActions = a} :: BatchScheduleActionCreateResult) Prelude.. Lens._Coerce
+batchScheduleActionCreateResult_scheduleActions = Lens.lens (\BatchScheduleActionCreateResult' {scheduleActions} -> scheduleActions) (\s@BatchScheduleActionCreateResult' {} a -> s {scheduleActions = a} :: BatchScheduleActionCreateResult) Prelude.. Lens.coerced
 
 instance
   Core.FromJSON

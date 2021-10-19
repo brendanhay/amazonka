@@ -30,7 +30,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAudioOnlyHlsSettings' smart constructor.
 data AudioOnlyHlsSettings = AudioOnlyHlsSettings'
-  { -- | Specifies the group to which the audio Rendition belongs.
+  { -- | Optional. Specifies the .jpg or .png image to use as the cover art for
+    -- an audio-only output. We recommend a low bit-size file because the image
+    -- increases the output audio bandwidth. The image is attached to the audio
+    -- as an ID3 tag, frame type APIC, picture type 0x10, as per the \"ID3 tag
+    -- version 2.4.0 - Native Frames\" standard.
+    audioOnlyImage :: Prelude.Maybe InputLocation,
+    -- | Specifies the segment type.
+    segmentType :: Prelude.Maybe AudioOnlyHlsSegmentType,
+    -- | Specifies the group to which the audio Rendition belongs.
     audioGroupId :: Prelude.Maybe Prelude.Text,
     -- | Four types of audio-only tracks are supported: Audio-Only Variant Stream
     -- The client can play back this audio-only stream instead of video in
@@ -44,15 +52,7 @@ data AudioOnlyHlsSettings = AudioOnlyHlsSettings'
     -- Auto Select Alternate rendition that the client will not try to play
     -- back by default. Represented as an EXT-X-MEDIA in the HLS manifest with
     -- DEFAULT=NO, AUTOSELECT=NO
-    audioTrackType :: Prelude.Maybe AudioOnlyHlsTrackType,
-    -- | Specifies the segment type.
-    segmentType :: Prelude.Maybe AudioOnlyHlsSegmentType,
-    -- | Optional. Specifies the .jpg or .png image to use as the cover art for
-    -- an audio-only output. We recommend a low bit-size file because the image
-    -- increases the output audio bandwidth. The image is attached to the audio
-    -- as an ID3 tag, frame type APIC, picture type 0x10, as per the \"ID3 tag
-    -- version 2.4.0 - Native Frames\" standard.
-    audioOnlyImage :: Prelude.Maybe InputLocation
+    audioTrackType :: Prelude.Maybe AudioOnlyHlsTrackType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,6 +63,14 @@ data AudioOnlyHlsSettings = AudioOnlyHlsSettings'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'audioOnlyImage', 'audioOnlyHlsSettings_audioOnlyImage' - Optional. Specifies the .jpg or .png image to use as the cover art for
+-- an audio-only output. We recommend a low bit-size file because the image
+-- increases the output audio bandwidth. The image is attached to the audio
+-- as an ID3 tag, frame type APIC, picture type 0x10, as per the \"ID3 tag
+-- version 2.4.0 - Native Frames\" standard.
+--
+-- 'segmentType', 'audioOnlyHlsSettings_segmentType' - Specifies the segment type.
 --
 -- 'audioGroupId', 'audioOnlyHlsSettings_audioGroupId' - Specifies the group to which the audio Rendition belongs.
 --
@@ -78,24 +86,28 @@ data AudioOnlyHlsSettings = AudioOnlyHlsSettings'
 -- Auto Select Alternate rendition that the client will not try to play
 -- back by default. Represented as an EXT-X-MEDIA in the HLS manifest with
 -- DEFAULT=NO, AUTOSELECT=NO
---
--- 'segmentType', 'audioOnlyHlsSettings_segmentType' - Specifies the segment type.
---
--- 'audioOnlyImage', 'audioOnlyHlsSettings_audioOnlyImage' - Optional. Specifies the .jpg or .png image to use as the cover art for
--- an audio-only output. We recommend a low bit-size file because the image
--- increases the output audio bandwidth. The image is attached to the audio
--- as an ID3 tag, frame type APIC, picture type 0x10, as per the \"ID3 tag
--- version 2.4.0 - Native Frames\" standard.
 newAudioOnlyHlsSettings ::
   AudioOnlyHlsSettings
 newAudioOnlyHlsSettings =
   AudioOnlyHlsSettings'
-    { audioGroupId =
+    { audioOnlyImage =
         Prelude.Nothing,
-      audioTrackType = Prelude.Nothing,
       segmentType = Prelude.Nothing,
-      audioOnlyImage = Prelude.Nothing
+      audioGroupId = Prelude.Nothing,
+      audioTrackType = Prelude.Nothing
     }
+
+-- | Optional. Specifies the .jpg or .png image to use as the cover art for
+-- an audio-only output. We recommend a low bit-size file because the image
+-- increases the output audio bandwidth. The image is attached to the audio
+-- as an ID3 tag, frame type APIC, picture type 0x10, as per the \"ID3 tag
+-- version 2.4.0 - Native Frames\" standard.
+audioOnlyHlsSettings_audioOnlyImage :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe InputLocation)
+audioOnlyHlsSettings_audioOnlyImage = Lens.lens (\AudioOnlyHlsSettings' {audioOnlyImage} -> audioOnlyImage) (\s@AudioOnlyHlsSettings' {} a -> s {audioOnlyImage = a} :: AudioOnlyHlsSettings)
+
+-- | Specifies the segment type.
+audioOnlyHlsSettings_segmentType :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe AudioOnlyHlsSegmentType)
+audioOnlyHlsSettings_segmentType = Lens.lens (\AudioOnlyHlsSettings' {segmentType} -> segmentType) (\s@AudioOnlyHlsSettings' {} a -> s {segmentType = a} :: AudioOnlyHlsSettings)
 
 -- | Specifies the group to which the audio Rendition belongs.
 audioOnlyHlsSettings_audioGroupId :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe Prelude.Text)
@@ -116,28 +128,16 @@ audioOnlyHlsSettings_audioGroupId = Lens.lens (\AudioOnlyHlsSettings' {audioGrou
 audioOnlyHlsSettings_audioTrackType :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe AudioOnlyHlsTrackType)
 audioOnlyHlsSettings_audioTrackType = Lens.lens (\AudioOnlyHlsSettings' {audioTrackType} -> audioTrackType) (\s@AudioOnlyHlsSettings' {} a -> s {audioTrackType = a} :: AudioOnlyHlsSettings)
 
--- | Specifies the segment type.
-audioOnlyHlsSettings_segmentType :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe AudioOnlyHlsSegmentType)
-audioOnlyHlsSettings_segmentType = Lens.lens (\AudioOnlyHlsSettings' {segmentType} -> segmentType) (\s@AudioOnlyHlsSettings' {} a -> s {segmentType = a} :: AudioOnlyHlsSettings)
-
--- | Optional. Specifies the .jpg or .png image to use as the cover art for
--- an audio-only output. We recommend a low bit-size file because the image
--- increases the output audio bandwidth. The image is attached to the audio
--- as an ID3 tag, frame type APIC, picture type 0x10, as per the \"ID3 tag
--- version 2.4.0 - Native Frames\" standard.
-audioOnlyHlsSettings_audioOnlyImage :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe InputLocation)
-audioOnlyHlsSettings_audioOnlyImage = Lens.lens (\AudioOnlyHlsSettings' {audioOnlyImage} -> audioOnlyImage) (\s@AudioOnlyHlsSettings' {} a -> s {audioOnlyImage = a} :: AudioOnlyHlsSettings)
-
 instance Core.FromJSON AudioOnlyHlsSettings where
   parseJSON =
     Core.withObject
       "AudioOnlyHlsSettings"
       ( \x ->
           AudioOnlyHlsSettings'
-            Prelude.<$> (x Core..:? "audioGroupId")
-            Prelude.<*> (x Core..:? "audioTrackType")
+            Prelude.<$> (x Core..:? "audioOnlyImage")
             Prelude.<*> (x Core..:? "segmentType")
-            Prelude.<*> (x Core..:? "audioOnlyImage")
+            Prelude.<*> (x Core..:? "audioGroupId")
+            Prelude.<*> (x Core..:? "audioTrackType")
       )
 
 instance Prelude.Hashable AudioOnlyHlsSettings
@@ -148,11 +148,11 @@ instance Core.ToJSON AudioOnlyHlsSettings where
   toJSON AudioOnlyHlsSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("audioGroupId" Core..=) Prelude.<$> audioGroupId,
-            ("audioTrackType" Core..=)
-              Prelude.<$> audioTrackType,
+          [ ("audioOnlyImage" Core..=)
+              Prelude.<$> audioOnlyImage,
             ("segmentType" Core..=) Prelude.<$> segmentType,
-            ("audioOnlyImage" Core..=)
-              Prelude.<$> audioOnlyImage
+            ("audioGroupId" Core..=) Prelude.<$> audioGroupId,
+            ("audioTrackType" Core..=)
+              Prelude.<$> audioTrackType
           ]
       )

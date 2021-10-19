@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.InputType
         InputType_RTMP_PULL,
         InputType_RTMP_PUSH,
         InputType_RTP_PUSH,
+        InputType_TS_FILE,
         InputType_UDP_PUSH,
         InputType_URL_PULL
       ),
@@ -36,7 +37,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | Placeholder documentation for InputType
+-- | The different types of inputs that AWS Elemental MediaLive supports.
 newtype InputType = InputType'
   { fromInputType ::
       Core.Text
@@ -86,6 +87,9 @@ pattern InputType_RTMP_PUSH = InputType' "RTMP_PUSH"
 pattern InputType_RTP_PUSH :: InputType
 pattern InputType_RTP_PUSH = InputType' "RTP_PUSH"
 
+pattern InputType_TS_FILE :: InputType
+pattern InputType_TS_FILE = InputType' "TS_FILE"
+
 pattern InputType_UDP_PUSH :: InputType
 pattern InputType_UDP_PUSH = InputType' "UDP_PUSH"
 
@@ -100,6 +104,7 @@ pattern InputType_URL_PULL = InputType' "URL_PULL"
   InputType_RTMP_PULL,
   InputType_RTMP_PUSH,
   InputType_RTP_PUSH,
+  InputType_TS_FILE,
   InputType_UDP_PUSH,
   InputType_URL_PULL,
   InputType'

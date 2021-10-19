@@ -27,17 +27,17 @@ module Network.AWS.MediaLive.CreateInput
     newCreateInput',
 
     -- * Request Lenses
-    createInput'_inputSecurityGroups,
-    createInput'_roleArn,
-    createInput'_sources,
-    createInput'_mediaConnectFlows,
-    createInput'_name,
-    createInput'_destinations,
     createInput'_requestId,
-    createInput'_tags,
-    createInput'_type,
-    createInput'_vpc,
     createInput'_inputDevices,
+    createInput'_sources,
+    createInput'_inputSecurityGroups,
+    createInput'_destinations,
+    createInput'_name,
+    createInput'_vpc,
+    createInput'_type,
+    createInput'_mediaConnectFlows,
+    createInput'_tags,
+    createInput'_roleArn,
 
     -- * Destructuring the Response
     CreateInputResponse (..),
@@ -60,34 +60,34 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateInput'' smart constructor.
 data CreateInput' = CreateInput''
-  { -- | A list of security groups referenced by IDs to attach to the input.
-    inputSecurityGroups :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Resource Name (ARN) of the role this input assumes during and
-    -- after creation.
-    roleArn :: Prelude.Maybe Prelude.Text,
+  { -- | Unique identifier of the request to ensure the request is handled
+    -- exactly once in case of retries.
+    requestId :: Prelude.Maybe Prelude.Text,
+    -- | Settings for the devices.
+    inputDevices :: Prelude.Maybe [InputDeviceSettings],
     -- | The source URLs for a PULL-type input. Every PULL type input needs
     -- exactly two source URLs for redundancy. Only specify sources for PULL
     -- type Inputs. Leave Destinations empty.
     sources :: Prelude.Maybe [InputSourceRequest],
+    -- | A list of security groups referenced by IDs to attach to the input.
+    inputSecurityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | Destination settings for PUSH type inputs.
+    destinations :: Prelude.Maybe [InputDestinationRequest],
+    -- | Name of the input.
+    name :: Prelude.Maybe Prelude.Text,
+    vpc :: Prelude.Maybe InputVpcRequest,
+    type' :: Prelude.Maybe InputType,
     -- | A list of the MediaConnect Flows that you want to use in this input. You
     -- can specify as few as one Flow and presently, as many as two. The only
     -- requirement is when you have more than one is that each Flow is in a
     -- separate Availability Zone as this ensures your EML input is redundant
     -- to AZ issues.
     mediaConnectFlows :: Prelude.Maybe [MediaConnectFlowRequest],
-    -- | Name of the input.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Destination settings for PUSH type inputs.
-    destinations :: Prelude.Maybe [InputDestinationRequest],
-    -- | Unique identifier of the request to ensure the request is handled
-    -- exactly once in case of retries.
-    requestId :: Prelude.Maybe Prelude.Text,
     -- | A collection of key-value pairs.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    type' :: Prelude.Maybe InputType,
-    vpc :: Prelude.Maybe InputVpcRequest,
-    -- | Settings for the devices.
-    inputDevices :: Prelude.Maybe [InputDeviceSettings]
+    -- | The Amazon Resource Name (ARN) of the role this input assumes during and
+    -- after creation.
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,14 +99,24 @@ data CreateInput' = CreateInput''
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputSecurityGroups', 'createInput'_inputSecurityGroups' - A list of security groups referenced by IDs to attach to the input.
+-- 'requestId', 'createInput'_requestId' - Unique identifier of the request to ensure the request is handled
+-- exactly once in case of retries.
 --
--- 'roleArn', 'createInput'_roleArn' - The Amazon Resource Name (ARN) of the role this input assumes during and
--- after creation.
+-- 'inputDevices', 'createInput'_inputDevices' - Settings for the devices.
 --
 -- 'sources', 'createInput'_sources' - The source URLs for a PULL-type input. Every PULL type input needs
 -- exactly two source URLs for redundancy. Only specify sources for PULL
 -- type Inputs. Leave Destinations empty.
+--
+-- 'inputSecurityGroups', 'createInput'_inputSecurityGroups' - A list of security groups referenced by IDs to attach to the input.
+--
+-- 'destinations', 'createInput'_destinations' - Destination settings for PUSH type inputs.
+--
+-- 'name', 'createInput'_name' - Name of the input.
+--
+-- 'vpc', 'createInput'_vpc' - Undocumented member.
+--
+-- 'type'', 'createInput'_type' - Undocumented member.
 --
 -- 'mediaConnectFlows', 'createInput'_mediaConnectFlows' - A list of the MediaConnect Flows that you want to use in this input. You
 -- can specify as few as one Flow and presently, as many as two. The only
@@ -114,52 +124,61 @@ data CreateInput' = CreateInput''
 -- separate Availability Zone as this ensures your EML input is redundant
 -- to AZ issues.
 --
--- 'name', 'createInput'_name' - Name of the input.
---
--- 'destinations', 'createInput'_destinations' - Destination settings for PUSH type inputs.
---
--- 'requestId', 'createInput'_requestId' - Unique identifier of the request to ensure the request is handled
--- exactly once in case of retries.
---
 -- 'tags', 'createInput'_tags' - A collection of key-value pairs.
 --
--- 'type'', 'createInput'_type' - Undocumented member.
---
--- 'vpc', 'createInput'_vpc' - Undocumented member.
---
--- 'inputDevices', 'createInput'_inputDevices' - Settings for the devices.
+-- 'roleArn', 'createInput'_roleArn' - The Amazon Resource Name (ARN) of the role this input assumes during and
+-- after creation.
 newCreateInput' ::
   CreateInput'
 newCreateInput' =
   CreateInput''
-    { inputSecurityGroups =
-        Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+    { requestId = Prelude.Nothing,
+      inputDevices = Prelude.Nothing,
       sources = Prelude.Nothing,
-      mediaConnectFlows = Prelude.Nothing,
-      name = Prelude.Nothing,
+      inputSecurityGroups = Prelude.Nothing,
       destinations = Prelude.Nothing,
-      requestId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      type' = Prelude.Nothing,
+      name = Prelude.Nothing,
       vpc = Prelude.Nothing,
-      inputDevices = Prelude.Nothing
+      type' = Prelude.Nothing,
+      mediaConnectFlows = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      roleArn = Prelude.Nothing
     }
 
--- | A list of security groups referenced by IDs to attach to the input.
-createInput'_inputSecurityGroups :: Lens.Lens' CreateInput' (Prelude.Maybe [Prelude.Text])
-createInput'_inputSecurityGroups = Lens.lens (\CreateInput'' {inputSecurityGroups} -> inputSecurityGroups) (\s@CreateInput'' {} a -> s {inputSecurityGroups = a} :: CreateInput') Prelude.. Lens.mapping Lens._Coerce
+-- | Unique identifier of the request to ensure the request is handled
+-- exactly once in case of retries.
+createInput'_requestId :: Lens.Lens' CreateInput' (Prelude.Maybe Prelude.Text)
+createInput'_requestId = Lens.lens (\CreateInput'' {requestId} -> requestId) (\s@CreateInput'' {} a -> s {requestId = a} :: CreateInput')
 
--- | The Amazon Resource Name (ARN) of the role this input assumes during and
--- after creation.
-createInput'_roleArn :: Lens.Lens' CreateInput' (Prelude.Maybe Prelude.Text)
-createInput'_roleArn = Lens.lens (\CreateInput'' {roleArn} -> roleArn) (\s@CreateInput'' {} a -> s {roleArn = a} :: CreateInput')
+-- | Settings for the devices.
+createInput'_inputDevices :: Lens.Lens' CreateInput' (Prelude.Maybe [InputDeviceSettings])
+createInput'_inputDevices = Lens.lens (\CreateInput'' {inputDevices} -> inputDevices) (\s@CreateInput'' {} a -> s {inputDevices = a} :: CreateInput') Prelude.. Lens.mapping Lens.coerced
 
 -- | The source URLs for a PULL-type input. Every PULL type input needs
 -- exactly two source URLs for redundancy. Only specify sources for PULL
 -- type Inputs. Leave Destinations empty.
 createInput'_sources :: Lens.Lens' CreateInput' (Prelude.Maybe [InputSourceRequest])
-createInput'_sources = Lens.lens (\CreateInput'' {sources} -> sources) (\s@CreateInput'' {} a -> s {sources = a} :: CreateInput') Prelude.. Lens.mapping Lens._Coerce
+createInput'_sources = Lens.lens (\CreateInput'' {sources} -> sources) (\s@CreateInput'' {} a -> s {sources = a} :: CreateInput') Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of security groups referenced by IDs to attach to the input.
+createInput'_inputSecurityGroups :: Lens.Lens' CreateInput' (Prelude.Maybe [Prelude.Text])
+createInput'_inputSecurityGroups = Lens.lens (\CreateInput'' {inputSecurityGroups} -> inputSecurityGroups) (\s@CreateInput'' {} a -> s {inputSecurityGroups = a} :: CreateInput') Prelude.. Lens.mapping Lens.coerced
+
+-- | Destination settings for PUSH type inputs.
+createInput'_destinations :: Lens.Lens' CreateInput' (Prelude.Maybe [InputDestinationRequest])
+createInput'_destinations = Lens.lens (\CreateInput'' {destinations} -> destinations) (\s@CreateInput'' {} a -> s {destinations = a} :: CreateInput') Prelude.. Lens.mapping Lens.coerced
+
+-- | Name of the input.
+createInput'_name :: Lens.Lens' CreateInput' (Prelude.Maybe Prelude.Text)
+createInput'_name = Lens.lens (\CreateInput'' {name} -> name) (\s@CreateInput'' {} a -> s {name = a} :: CreateInput')
+
+-- | Undocumented member.
+createInput'_vpc :: Lens.Lens' CreateInput' (Prelude.Maybe InputVpcRequest)
+createInput'_vpc = Lens.lens (\CreateInput'' {vpc} -> vpc) (\s@CreateInput'' {} a -> s {vpc = a} :: CreateInput')
+
+-- | Undocumented member.
+createInput'_type :: Lens.Lens' CreateInput' (Prelude.Maybe InputType)
+createInput'_type = Lens.lens (\CreateInput'' {type'} -> type') (\s@CreateInput'' {} a -> s {type' = a} :: CreateInput')
 
 -- | A list of the MediaConnect Flows that you want to use in this input. You
 -- can specify as few as one Flow and presently, as many as two. The only
@@ -167,36 +186,16 @@ createInput'_sources = Lens.lens (\CreateInput'' {sources} -> sources) (\s@Creat
 -- separate Availability Zone as this ensures your EML input is redundant
 -- to AZ issues.
 createInput'_mediaConnectFlows :: Lens.Lens' CreateInput' (Prelude.Maybe [MediaConnectFlowRequest])
-createInput'_mediaConnectFlows = Lens.lens (\CreateInput'' {mediaConnectFlows} -> mediaConnectFlows) (\s@CreateInput'' {} a -> s {mediaConnectFlows = a} :: CreateInput') Prelude.. Lens.mapping Lens._Coerce
-
--- | Name of the input.
-createInput'_name :: Lens.Lens' CreateInput' (Prelude.Maybe Prelude.Text)
-createInput'_name = Lens.lens (\CreateInput'' {name} -> name) (\s@CreateInput'' {} a -> s {name = a} :: CreateInput')
-
--- | Destination settings for PUSH type inputs.
-createInput'_destinations :: Lens.Lens' CreateInput' (Prelude.Maybe [InputDestinationRequest])
-createInput'_destinations = Lens.lens (\CreateInput'' {destinations} -> destinations) (\s@CreateInput'' {} a -> s {destinations = a} :: CreateInput') Prelude.. Lens.mapping Lens._Coerce
-
--- | Unique identifier of the request to ensure the request is handled
--- exactly once in case of retries.
-createInput'_requestId :: Lens.Lens' CreateInput' (Prelude.Maybe Prelude.Text)
-createInput'_requestId = Lens.lens (\CreateInput'' {requestId} -> requestId) (\s@CreateInput'' {} a -> s {requestId = a} :: CreateInput')
+createInput'_mediaConnectFlows = Lens.lens (\CreateInput'' {mediaConnectFlows} -> mediaConnectFlows) (\s@CreateInput'' {} a -> s {mediaConnectFlows = a} :: CreateInput') Prelude.. Lens.mapping Lens.coerced
 
 -- | A collection of key-value pairs.
 createInput'_tags :: Lens.Lens' CreateInput' (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createInput'_tags = Lens.lens (\CreateInput'' {tags} -> tags) (\s@CreateInput'' {} a -> s {tags = a} :: CreateInput') Prelude.. Lens.mapping Lens._Coerce
+createInput'_tags = Lens.lens (\CreateInput'' {tags} -> tags) (\s@CreateInput'' {} a -> s {tags = a} :: CreateInput') Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
-createInput'_type :: Lens.Lens' CreateInput' (Prelude.Maybe InputType)
-createInput'_type = Lens.lens (\CreateInput'' {type'} -> type') (\s@CreateInput'' {} a -> s {type' = a} :: CreateInput')
-
--- | Undocumented member.
-createInput'_vpc :: Lens.Lens' CreateInput' (Prelude.Maybe InputVpcRequest)
-createInput'_vpc = Lens.lens (\CreateInput'' {vpc} -> vpc) (\s@CreateInput'' {} a -> s {vpc = a} :: CreateInput')
-
--- | Settings for the devices.
-createInput'_inputDevices :: Lens.Lens' CreateInput' (Prelude.Maybe [InputDeviceSettings])
-createInput'_inputDevices = Lens.lens (\CreateInput'' {inputDevices} -> inputDevices) (\s@CreateInput'' {} a -> s {inputDevices = a} :: CreateInput') Prelude.. Lens.mapping Lens._Coerce
+-- | The Amazon Resource Name (ARN) of the role this input assumes during and
+-- after creation.
+createInput'_roleArn :: Lens.Lens' CreateInput' (Prelude.Maybe Prelude.Text)
+createInput'_roleArn = Lens.lens (\CreateInput'' {roleArn} -> roleArn) (\s@CreateInput'' {} a -> s {roleArn = a} :: CreateInput')
 
 instance Core.AWSRequest CreateInput' where
   type AWSResponse CreateInput' = CreateInputResponse
@@ -228,19 +227,19 @@ instance Core.ToJSON CreateInput' where
   toJSON CreateInput'' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("inputSecurityGroups" Core..=)
-              Prelude.<$> inputSecurityGroups,
-            ("roleArn" Core..=) Prelude.<$> roleArn,
+          [ ("requestId" Core..=) Prelude.<$> requestId,
+            ("inputDevices" Core..=) Prelude.<$> inputDevices,
             ("sources" Core..=) Prelude.<$> sources,
+            ("inputSecurityGroups" Core..=)
+              Prelude.<$> inputSecurityGroups,
+            ("destinations" Core..=) Prelude.<$> destinations,
+            ("name" Core..=) Prelude.<$> name,
+            ("vpc" Core..=) Prelude.<$> vpc,
+            ("type" Core..=) Prelude.<$> type',
             ("mediaConnectFlows" Core..=)
               Prelude.<$> mediaConnectFlows,
-            ("name" Core..=) Prelude.<$> name,
-            ("destinations" Core..=) Prelude.<$> destinations,
-            ("requestId" Core..=) Prelude.<$> requestId,
             ("tags" Core..=) Prelude.<$> tags,
-            ("type" Core..=) Prelude.<$> type',
-            ("vpc" Core..=) Prelude.<$> vpc,
-            ("inputDevices" Core..=) Prelude.<$> inputDevices
+            ("roleArn" Core..=) Prelude.<$> roleArn
           ]
       )
 

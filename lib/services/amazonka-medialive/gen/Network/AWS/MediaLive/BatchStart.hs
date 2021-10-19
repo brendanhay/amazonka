@@ -27,8 +27,8 @@ module Network.AWS.MediaLive.BatchStart
     newBatchStart',
 
     -- * Request Lenses
-    batchStart'_multiplexIds,
     batchStart'_channelIds,
+    batchStart'_multiplexIds,
 
     -- * Destructuring the Response
     BatchStartResponse (..),
@@ -52,10 +52,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newBatchStart'' smart constructor.
 data BatchStart' = BatchStart''
-  { -- | List of multiplex IDs
-    multiplexIds :: Prelude.Maybe [Prelude.Text],
-    -- | List of channel IDs
-    channelIds :: Prelude.Maybe [Prelude.Text]
+  { -- | List of channel IDs
+    channelIds :: Prelude.Maybe [Prelude.Text],
+    -- | List of multiplex IDs
+    multiplexIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,24 +67,24 @@ data BatchStart' = BatchStart''
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'multiplexIds', 'batchStart'_multiplexIds' - List of multiplex IDs
---
 -- 'channelIds', 'batchStart'_channelIds' - List of channel IDs
+--
+-- 'multiplexIds', 'batchStart'_multiplexIds' - List of multiplex IDs
 newBatchStart' ::
   BatchStart'
 newBatchStart' =
   BatchStart''
-    { multiplexIds = Prelude.Nothing,
-      channelIds = Prelude.Nothing
+    { channelIds = Prelude.Nothing,
+      multiplexIds = Prelude.Nothing
     }
-
--- | List of multiplex IDs
-batchStart'_multiplexIds :: Lens.Lens' BatchStart' (Prelude.Maybe [Prelude.Text])
-batchStart'_multiplexIds = Lens.lens (\BatchStart'' {multiplexIds} -> multiplexIds) (\s@BatchStart'' {} a -> s {multiplexIds = a} :: BatchStart') Prelude.. Lens.mapping Lens._Coerce
 
 -- | List of channel IDs
 batchStart'_channelIds :: Lens.Lens' BatchStart' (Prelude.Maybe [Prelude.Text])
-batchStart'_channelIds = Lens.lens (\BatchStart'' {channelIds} -> channelIds) (\s@BatchStart'' {} a -> s {channelIds = a} :: BatchStart') Prelude.. Lens.mapping Lens._Coerce
+batchStart'_channelIds = Lens.lens (\BatchStart'' {channelIds} -> channelIds) (\s@BatchStart'' {} a -> s {channelIds = a} :: BatchStart') Prelude.. Lens.mapping Lens.coerced
+
+-- | List of multiplex IDs
+batchStart'_multiplexIds :: Lens.Lens' BatchStart' (Prelude.Maybe [Prelude.Text])
+batchStart'_multiplexIds = Lens.lens (\BatchStart'' {multiplexIds} -> multiplexIds) (\s@BatchStart'' {} a -> s {multiplexIds = a} :: BatchStart') Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest BatchStart' where
   type AWSResponse BatchStart' = BatchStartResponse
@@ -117,8 +117,8 @@ instance Core.ToJSON BatchStart' where
   toJSON BatchStart'' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("multiplexIds" Core..=) Prelude.<$> multiplexIds,
-            ("channelIds" Core..=) Prelude.<$> channelIds
+          [ ("channelIds" Core..=) Prelude.<$> channelIds,
+            ("multiplexIds" Core..=) Prelude.<$> multiplexIds
           ]
       )
 
@@ -167,11 +167,11 @@ newBatchStartResponse pHttpStatus_ =
 
 -- | List of successful operations
 batchStartResponse_successful :: Lens.Lens' BatchStartResponse (Prelude.Maybe [BatchSuccessfulResultModel])
-batchStartResponse_successful = Lens.lens (\BatchStartResponse' {successful} -> successful) (\s@BatchStartResponse' {} a -> s {successful = a} :: BatchStartResponse) Prelude.. Lens.mapping Lens._Coerce
+batchStartResponse_successful = Lens.lens (\BatchStartResponse' {successful} -> successful) (\s@BatchStartResponse' {} a -> s {successful = a} :: BatchStartResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | List of failed operations
 batchStartResponse_failed :: Lens.Lens' BatchStartResponse (Prelude.Maybe [BatchFailedResultModel])
-batchStartResponse_failed = Lens.lens (\BatchStartResponse' {failed} -> failed) (\s@BatchStartResponse' {} a -> s {failed = a} :: BatchStartResponse) Prelude.. Lens.mapping Lens._Coerce
+batchStartResponse_failed = Lens.lens (\BatchStartResponse' {failed} -> failed) (\s@BatchStartResponse' {} a -> s {failed = a} :: BatchStartResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchStartResponse_httpStatus :: Lens.Lens' BatchStartResponse Prelude.Int

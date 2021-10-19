@@ -31,9 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | There are two types of input sources, static and dynamic. If an input
 -- source is dynamic you can change the source url of the input dynamically
--- using an input switch action. However, the only input type to support a
--- dynamic url at this time is MP4_FILE. By default all input sources are
--- static.
+-- using an input switch action. Currently, two input types support a
+-- dynamic url at this time, MP4_FILE and TS_FILE. By default all input
+-- sources are static.
 newtype InputSourceType = InputSourceType'
   { fromInputSourceType ::
       Core.Text

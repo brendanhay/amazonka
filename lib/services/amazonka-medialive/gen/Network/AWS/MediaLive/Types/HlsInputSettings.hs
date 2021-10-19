@@ -28,7 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHlsInputSettings' smart constructor.
 data HlsInputSettings = HlsInputSettings'
-  { -- | The number of seconds between retries when an attempt to read a manifest
+  { -- | When specified, reading of the HLS input will begin this many buffer
+    -- segments from the end (most recently written segment). When not
+    -- specified, the HLS input will begin with the first segment specified in
+    -- the m3u8.
+    bufferSegments :: Prelude.Maybe Prelude.Natural,
+    -- | The number of consecutive times that attempts to read a manifest or
+    -- segment must fail before the input is considered unavailable.
+    retries :: Prelude.Maybe Prelude.Natural,
+    -- | The number of seconds between retries when an attempt to read a manifest
     -- or segment fails.
     retryInterval :: Prelude.Maybe Prelude.Natural,
     -- | When specified the HLS stream with the m3u8 BANDWIDTH that most closely
@@ -36,14 +44,6 @@ data HlsInputSettings = HlsInputSettings'
     -- stream in the m3u8 will be chosen. The bitrate is specified in bits per
     -- second, as in an HLS manifest.
     bandwidth :: Prelude.Maybe Prelude.Natural,
-    -- | The number of consecutive times that attempts to read a manifest or
-    -- segment must fail before the input is considered unavailable.
-    retries :: Prelude.Maybe Prelude.Natural,
-    -- | When specified, reading of the HLS input will begin this many buffer
-    -- segments from the end (most recently written segment). When not
-    -- specified, the HLS input will begin with the first segment specified in
-    -- the m3u8.
-    bufferSegments :: Prelude.Maybe Prelude.Natural,
     -- | Identifies the source for the SCTE-35 messages that MediaLive will
     -- ingest. Messages can be ingested from the content segments (in the
     -- stream) or from tags in the playlist (the HLS manifest). MediaLive
@@ -60,6 +60,14 @@ data HlsInputSettings = HlsInputSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bufferSegments', 'hlsInputSettings_bufferSegments' - When specified, reading of the HLS input will begin this many buffer
+-- segments from the end (most recently written segment). When not
+-- specified, the HLS input will begin with the first segment specified in
+-- the m3u8.
+--
+-- 'retries', 'hlsInputSettings_retries' - The number of consecutive times that attempts to read a manifest or
+-- segment must fail before the input is considered unavailable.
+--
 -- 'retryInterval', 'hlsInputSettings_retryInterval' - The number of seconds between retries when an attempt to read a manifest
 -- or segment fails.
 --
@@ -67,14 +75,6 @@ data HlsInputSettings = HlsInputSettings'
 -- matches this value will be chosen, otherwise the highest bandwidth
 -- stream in the m3u8 will be chosen. The bitrate is specified in bits per
 -- second, as in an HLS manifest.
---
--- 'retries', 'hlsInputSettings_retries' - The number of consecutive times that attempts to read a manifest or
--- segment must fail before the input is considered unavailable.
---
--- 'bufferSegments', 'hlsInputSettings_bufferSegments' - When specified, reading of the HLS input will begin this many buffer
--- segments from the end (most recently written segment). When not
--- specified, the HLS input will begin with the first segment specified in
--- the m3u8.
 --
 -- 'scte35Source', 'hlsInputSettings_scte35Source' - Identifies the source for the SCTE-35 messages that MediaLive will
 -- ingest. Messages can be ingested from the content segments (in the
@@ -84,12 +84,24 @@ newHlsInputSettings ::
   HlsInputSettings
 newHlsInputSettings =
   HlsInputSettings'
-    { retryInterval = Prelude.Nothing,
-      bandwidth = Prelude.Nothing,
+    { bufferSegments = Prelude.Nothing,
       retries = Prelude.Nothing,
-      bufferSegments = Prelude.Nothing,
+      retryInterval = Prelude.Nothing,
+      bandwidth = Prelude.Nothing,
       scte35Source = Prelude.Nothing
     }
+
+-- | When specified, reading of the HLS input will begin this many buffer
+-- segments from the end (most recently written segment). When not
+-- specified, the HLS input will begin with the first segment specified in
+-- the m3u8.
+hlsInputSettings_bufferSegments :: Lens.Lens' HlsInputSettings (Prelude.Maybe Prelude.Natural)
+hlsInputSettings_bufferSegments = Lens.lens (\HlsInputSettings' {bufferSegments} -> bufferSegments) (\s@HlsInputSettings' {} a -> s {bufferSegments = a} :: HlsInputSettings)
+
+-- | The number of consecutive times that attempts to read a manifest or
+-- segment must fail before the input is considered unavailable.
+hlsInputSettings_retries :: Lens.Lens' HlsInputSettings (Prelude.Maybe Prelude.Natural)
+hlsInputSettings_retries = Lens.lens (\HlsInputSettings' {retries} -> retries) (\s@HlsInputSettings' {} a -> s {retries = a} :: HlsInputSettings)
 
 -- | The number of seconds between retries when an attempt to read a manifest
 -- or segment fails.
@@ -102,18 +114,6 @@ hlsInputSettings_retryInterval = Lens.lens (\HlsInputSettings' {retryInterval} -
 -- second, as in an HLS manifest.
 hlsInputSettings_bandwidth :: Lens.Lens' HlsInputSettings (Prelude.Maybe Prelude.Natural)
 hlsInputSettings_bandwidth = Lens.lens (\HlsInputSettings' {bandwidth} -> bandwidth) (\s@HlsInputSettings' {} a -> s {bandwidth = a} :: HlsInputSettings)
-
--- | The number of consecutive times that attempts to read a manifest or
--- segment must fail before the input is considered unavailable.
-hlsInputSettings_retries :: Lens.Lens' HlsInputSettings (Prelude.Maybe Prelude.Natural)
-hlsInputSettings_retries = Lens.lens (\HlsInputSettings' {retries} -> retries) (\s@HlsInputSettings' {} a -> s {retries = a} :: HlsInputSettings)
-
--- | When specified, reading of the HLS input will begin this many buffer
--- segments from the end (most recently written segment). When not
--- specified, the HLS input will begin with the first segment specified in
--- the m3u8.
-hlsInputSettings_bufferSegments :: Lens.Lens' HlsInputSettings (Prelude.Maybe Prelude.Natural)
-hlsInputSettings_bufferSegments = Lens.lens (\HlsInputSettings' {bufferSegments} -> bufferSegments) (\s@HlsInputSettings' {} a -> s {bufferSegments = a} :: HlsInputSettings)
 
 -- | Identifies the source for the SCTE-35 messages that MediaLive will
 -- ingest. Messages can be ingested from the content segments (in the
@@ -128,10 +128,10 @@ instance Core.FromJSON HlsInputSettings where
       "HlsInputSettings"
       ( \x ->
           HlsInputSettings'
-            Prelude.<$> (x Core..:? "retryInterval")
-            Prelude.<*> (x Core..:? "bandwidth")
+            Prelude.<$> (x Core..:? "bufferSegments")
             Prelude.<*> (x Core..:? "retries")
-            Prelude.<*> (x Core..:? "bufferSegments")
+            Prelude.<*> (x Core..:? "retryInterval")
+            Prelude.<*> (x Core..:? "bandwidth")
             Prelude.<*> (x Core..:? "scte35Source")
       )
 
@@ -143,11 +143,11 @@ instance Core.ToJSON HlsInputSettings where
   toJSON HlsInputSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("retryInterval" Core..=) Prelude.<$> retryInterval,
-            ("bandwidth" Core..=) Prelude.<$> bandwidth,
-            ("retries" Core..=) Prelude.<$> retries,
-            ("bufferSegments" Core..=)
+          [ ("bufferSegments" Core..=)
               Prelude.<$> bufferSegments,
+            ("retries" Core..=) Prelude.<$> retries,
+            ("retryInterval" Core..=) Prelude.<$> retryInterval,
+            ("bandwidth" Core..=) Prelude.<$> bandwidth,
             ("scte35Source" Core..=) Prelude.<$> scte35Source
           ]
       )

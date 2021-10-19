@@ -30,8 +30,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newH264ColorSpaceSettings' smart constructor.
 data H264ColorSpaceSettings = H264ColorSpaceSettings'
-  { rec601Settings :: Prelude.Maybe Rec601Settings,
-    rec709Settings :: Prelude.Maybe Rec709Settings,
+  { rec709Settings :: Prelude.Maybe Rec709Settings,
+    rec601Settings :: Prelude.Maybe Rec601Settings,
     colorSpacePassthroughSettings :: Prelude.Maybe ColorSpacePassthroughSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,28 +44,28 @@ data H264ColorSpaceSettings = H264ColorSpaceSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rec601Settings', 'h264ColorSpaceSettings_rec601Settings' - Undocumented member.
---
 -- 'rec709Settings', 'h264ColorSpaceSettings_rec709Settings' - Undocumented member.
+--
+-- 'rec601Settings', 'h264ColorSpaceSettings_rec601Settings' - Undocumented member.
 --
 -- 'colorSpacePassthroughSettings', 'h264ColorSpaceSettings_colorSpacePassthroughSettings' - Undocumented member.
 newH264ColorSpaceSettings ::
   H264ColorSpaceSettings
 newH264ColorSpaceSettings =
   H264ColorSpaceSettings'
-    { rec601Settings =
+    { rec709Settings =
         Prelude.Nothing,
-      rec709Settings = Prelude.Nothing,
+      rec601Settings = Prelude.Nothing,
       colorSpacePassthroughSettings = Prelude.Nothing
     }
 
 -- | Undocumented member.
-h264ColorSpaceSettings_rec601Settings :: Lens.Lens' H264ColorSpaceSettings (Prelude.Maybe Rec601Settings)
-h264ColorSpaceSettings_rec601Settings = Lens.lens (\H264ColorSpaceSettings' {rec601Settings} -> rec601Settings) (\s@H264ColorSpaceSettings' {} a -> s {rec601Settings = a} :: H264ColorSpaceSettings)
-
--- | Undocumented member.
 h264ColorSpaceSettings_rec709Settings :: Lens.Lens' H264ColorSpaceSettings (Prelude.Maybe Rec709Settings)
 h264ColorSpaceSettings_rec709Settings = Lens.lens (\H264ColorSpaceSettings' {rec709Settings} -> rec709Settings) (\s@H264ColorSpaceSettings' {} a -> s {rec709Settings = a} :: H264ColorSpaceSettings)
+
+-- | Undocumented member.
+h264ColorSpaceSettings_rec601Settings :: Lens.Lens' H264ColorSpaceSettings (Prelude.Maybe Rec601Settings)
+h264ColorSpaceSettings_rec601Settings = Lens.lens (\H264ColorSpaceSettings' {rec601Settings} -> rec601Settings) (\s@H264ColorSpaceSettings' {} a -> s {rec601Settings = a} :: H264ColorSpaceSettings)
 
 -- | Undocumented member.
 h264ColorSpaceSettings_colorSpacePassthroughSettings :: Lens.Lens' H264ColorSpaceSettings (Prelude.Maybe ColorSpacePassthroughSettings)
@@ -77,8 +77,8 @@ instance Core.FromJSON H264ColorSpaceSettings where
       "H264ColorSpaceSettings"
       ( \x ->
           H264ColorSpaceSettings'
-            Prelude.<$> (x Core..:? "rec601Settings")
-            Prelude.<*> (x Core..:? "rec709Settings")
+            Prelude.<$> (x Core..:? "rec709Settings")
+            Prelude.<*> (x Core..:? "rec601Settings")
             Prelude.<*> (x Core..:? "colorSpacePassthroughSettings")
       )
 
@@ -90,10 +90,10 @@ instance Core.ToJSON H264ColorSpaceSettings where
   toJSON H264ColorSpaceSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("rec601Settings" Core..=)
-              Prelude.<$> rec601Settings,
-            ("rec709Settings" Core..=)
+          [ ("rec709Settings" Core..=)
               Prelude.<$> rec709Settings,
+            ("rec601Settings" Core..=)
+              Prelude.<$> rec601Settings,
             ("colorSpacePassthroughSettings" Core..=)
               Prelude.<$> colorSpacePassthroughSettings
           ]

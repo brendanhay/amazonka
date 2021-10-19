@@ -27,14 +27,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHdr10Settings' smart constructor.
 data Hdr10Settings = Hdr10Settings'
-  { -- | Maximum Content Light Level An integer metadata value defining the
-    -- maximum light level, in nits, of any single pixel within an encoded HDR
-    -- video stream or file.
-    maxCll :: Prelude.Maybe Prelude.Natural,
-    -- | Maximum Frame Average Light Level An integer metadata value defining the
+  { -- | Maximum Frame Average Light Level An integer metadata value defining the
     -- maximum average light level, in nits, for any single frame within an
     -- encoded HDR video stream or file.
-    maxFall :: Prelude.Maybe Prelude.Natural
+    maxFall :: Prelude.Maybe Prelude.Natural,
+    -- | Maximum Content Light Level An integer metadata value defining the
+    -- maximum light level, in nits, of any single pixel within an encoded HDR
+    -- video stream or file.
+    maxCll :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,20 @@ data Hdr10Settings = Hdr10Settings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxCll', 'hdr10Settings_maxCll' - Maximum Content Light Level An integer metadata value defining the
--- maximum light level, in nits, of any single pixel within an encoded HDR
--- video stream or file.
---
 -- 'maxFall', 'hdr10Settings_maxFall' - Maximum Frame Average Light Level An integer metadata value defining the
 -- maximum average light level, in nits, for any single frame within an
 -- encoded HDR video stream or file.
+--
+-- 'maxCll', 'hdr10Settings_maxCll' - Maximum Content Light Level An integer metadata value defining the
+-- maximum light level, in nits, of any single pixel within an encoded HDR
+-- video stream or file.
 newHdr10Settings ::
   Hdr10Settings
 newHdr10Settings =
   Hdr10Settings'
-    { maxCll = Prelude.Nothing,
-      maxFall = Prelude.Nothing
+    { maxFall = Prelude.Nothing,
+      maxCll = Prelude.Nothing
     }
-
--- | Maximum Content Light Level An integer metadata value defining the
--- maximum light level, in nits, of any single pixel within an encoded HDR
--- video stream or file.
-hdr10Settings_maxCll :: Lens.Lens' Hdr10Settings (Prelude.Maybe Prelude.Natural)
-hdr10Settings_maxCll = Lens.lens (\Hdr10Settings' {maxCll} -> maxCll) (\s@Hdr10Settings' {} a -> s {maxCll = a} :: Hdr10Settings)
 
 -- | Maximum Frame Average Light Level An integer metadata value defining the
 -- maximum average light level, in nits, for any single frame within an
@@ -73,14 +67,20 @@ hdr10Settings_maxCll = Lens.lens (\Hdr10Settings' {maxCll} -> maxCll) (\s@Hdr10S
 hdr10Settings_maxFall :: Lens.Lens' Hdr10Settings (Prelude.Maybe Prelude.Natural)
 hdr10Settings_maxFall = Lens.lens (\Hdr10Settings' {maxFall} -> maxFall) (\s@Hdr10Settings' {} a -> s {maxFall = a} :: Hdr10Settings)
 
+-- | Maximum Content Light Level An integer metadata value defining the
+-- maximum light level, in nits, of any single pixel within an encoded HDR
+-- video stream or file.
+hdr10Settings_maxCll :: Lens.Lens' Hdr10Settings (Prelude.Maybe Prelude.Natural)
+hdr10Settings_maxCll = Lens.lens (\Hdr10Settings' {maxCll} -> maxCll) (\s@Hdr10Settings' {} a -> s {maxCll = a} :: Hdr10Settings)
+
 instance Core.FromJSON Hdr10Settings where
   parseJSON =
     Core.withObject
       "Hdr10Settings"
       ( \x ->
           Hdr10Settings'
-            Prelude.<$> (x Core..:? "maxCll")
-            Prelude.<*> (x Core..:? "maxFall")
+            Prelude.<$> (x Core..:? "maxFall")
+            Prelude.<*> (x Core..:? "maxCll")
       )
 
 instance Prelude.Hashable Hdr10Settings
@@ -91,7 +91,7 @@ instance Core.ToJSON Hdr10Settings where
   toJSON Hdr10Settings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("maxCll" Core..=) Prelude.<$> maxCll,
-            ("maxFall" Core..=) Prelude.<$> maxFall
+          [ ("maxFall" Core..=) Prelude.<$> maxFall,
+            ("maxCll" Core..=) Prelude.<$> maxCll
           ]
       )

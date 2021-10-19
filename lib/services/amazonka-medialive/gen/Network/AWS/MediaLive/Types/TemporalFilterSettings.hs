@@ -29,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTemporalFilterSettings' smart constructor.
 data TemporalFilterSettings = TemporalFilterSettings'
-  { -- | If you enable this filter, the results are the following: - If the
+  { -- | Choose a filter strength. We recommend a strength of 1 or 2. A higher
+    -- strength might take out good information, resulting in an image that is
+    -- overly soft.
+    strength :: Prelude.Maybe TemporalFilterStrength,
+    -- | If you enable this filter, the results are the following: - If the
     -- source content is noisy (it contains excessive digital artifacts), the
     -- filter cleans up the source. - If the source content is already clean,
     -- the filter tends to decrease the bitrate, especially when the rate
     -- control mode is QVBR.
-    postFilterSharpening :: Prelude.Maybe TemporalFilterPostFilterSharpening,
-    -- | Choose a filter strength. We recommend a strength of 1 or 2. A higher
-    -- strength might take out good information, resulting in an image that is
-    -- overly soft.
-    strength :: Prelude.Maybe TemporalFilterStrength
+    postFilterSharpening :: Prelude.Maybe TemporalFilterPostFilterSharpening
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,23 +50,28 @@ data TemporalFilterSettings = TemporalFilterSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'strength', 'temporalFilterSettings_strength' - Choose a filter strength. We recommend a strength of 1 or 2. A higher
+-- strength might take out good information, resulting in an image that is
+-- overly soft.
+--
 -- 'postFilterSharpening', 'temporalFilterSettings_postFilterSharpening' - If you enable this filter, the results are the following: - If the
 -- source content is noisy (it contains excessive digital artifacts), the
 -- filter cleans up the source. - If the source content is already clean,
 -- the filter tends to decrease the bitrate, especially when the rate
 -- control mode is QVBR.
---
--- 'strength', 'temporalFilterSettings_strength' - Choose a filter strength. We recommend a strength of 1 or 2. A higher
--- strength might take out good information, resulting in an image that is
--- overly soft.
 newTemporalFilterSettings ::
   TemporalFilterSettings
 newTemporalFilterSettings =
   TemporalFilterSettings'
-    { postFilterSharpening =
-        Prelude.Nothing,
-      strength = Prelude.Nothing
+    { strength = Prelude.Nothing,
+      postFilterSharpening = Prelude.Nothing
     }
+
+-- | Choose a filter strength. We recommend a strength of 1 or 2. A higher
+-- strength might take out good information, resulting in an image that is
+-- overly soft.
+temporalFilterSettings_strength :: Lens.Lens' TemporalFilterSettings (Prelude.Maybe TemporalFilterStrength)
+temporalFilterSettings_strength = Lens.lens (\TemporalFilterSettings' {strength} -> strength) (\s@TemporalFilterSettings' {} a -> s {strength = a} :: TemporalFilterSettings)
 
 -- | If you enable this filter, the results are the following: - If the
 -- source content is noisy (it contains excessive digital artifacts), the
@@ -76,20 +81,14 @@ newTemporalFilterSettings =
 temporalFilterSettings_postFilterSharpening :: Lens.Lens' TemporalFilterSettings (Prelude.Maybe TemporalFilterPostFilterSharpening)
 temporalFilterSettings_postFilterSharpening = Lens.lens (\TemporalFilterSettings' {postFilterSharpening} -> postFilterSharpening) (\s@TemporalFilterSettings' {} a -> s {postFilterSharpening = a} :: TemporalFilterSettings)
 
--- | Choose a filter strength. We recommend a strength of 1 or 2. A higher
--- strength might take out good information, resulting in an image that is
--- overly soft.
-temporalFilterSettings_strength :: Lens.Lens' TemporalFilterSettings (Prelude.Maybe TemporalFilterStrength)
-temporalFilterSettings_strength = Lens.lens (\TemporalFilterSettings' {strength} -> strength) (\s@TemporalFilterSettings' {} a -> s {strength = a} :: TemporalFilterSettings)
-
 instance Core.FromJSON TemporalFilterSettings where
   parseJSON =
     Core.withObject
       "TemporalFilterSettings"
       ( \x ->
           TemporalFilterSettings'
-            Prelude.<$> (x Core..:? "postFilterSharpening")
-            Prelude.<*> (x Core..:? "strength")
+            Prelude.<$> (x Core..:? "strength")
+            Prelude.<*> (x Core..:? "postFilterSharpening")
       )
 
 instance Prelude.Hashable TemporalFilterSettings
@@ -100,8 +99,8 @@ instance Core.ToJSON TemporalFilterSettings where
   toJSON TemporalFilterSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("postFilterSharpening" Core..=)
-              Prelude.<$> postFilterSharpening,
-            ("strength" Core..=) Prelude.<$> strength
+          [ ("strength" Core..=) Prelude.<$> strength,
+            ("postFilterSharpening" Core..=)
+              Prelude.<$> postFilterSharpening
           ]
       )

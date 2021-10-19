@@ -37,8 +37,8 @@ module Network.AWS.MediaLive.ListInputSecurityGroups
     newListInputSecurityGroupsResponse,
 
     -- * Response Lenses
-    listInputSecurityGroupsResponse_inputSecurityGroups,
     listInputSecurityGroupsResponse_nextToken,
+    listInputSecurityGroupsResponse_inputSecurityGroups,
     listInputSecurityGroupsResponse_httpStatus,
   )
 where
@@ -118,10 +118,10 @@ instance Core.AWSRequest ListInputSecurityGroups where
     Response.receiveJSON
       ( \s h x ->
           ListInputSecurityGroupsResponse'
-            Prelude.<$> ( x Core..?> "inputSecurityGroups"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "inputSecurityGroups"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,9 +154,9 @@ instance Core.ToQuery ListInputSecurityGroups where
 --
 -- /See:/ 'newListInputSecurityGroupsResponse' smart constructor.
 data ListInputSecurityGroupsResponse = ListInputSecurityGroupsResponse'
-  { -- | List of input security groups
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of input security groups
     inputSecurityGroups :: Prelude.Maybe [InputSecurityGroup],
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,9 +170,9 @@ data ListInputSecurityGroupsResponse = ListInputSecurityGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputSecurityGroups', 'listInputSecurityGroupsResponse_inputSecurityGroups' - List of input security groups
---
 -- 'nextToken', 'listInputSecurityGroupsResponse_nextToken' - Undocumented member.
+--
+-- 'inputSecurityGroups', 'listInputSecurityGroupsResponse_inputSecurityGroups' - List of input security groups
 --
 -- 'httpStatus', 'listInputSecurityGroupsResponse_httpStatus' - The response's http status code.
 newListInputSecurityGroupsResponse ::
@@ -181,19 +181,19 @@ newListInputSecurityGroupsResponse ::
   ListInputSecurityGroupsResponse
 newListInputSecurityGroupsResponse pHttpStatus_ =
   ListInputSecurityGroupsResponse'
-    { inputSecurityGroups =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      inputSecurityGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List of input security groups
-listInputSecurityGroupsResponse_inputSecurityGroups :: Lens.Lens' ListInputSecurityGroupsResponse (Prelude.Maybe [InputSecurityGroup])
-listInputSecurityGroupsResponse_inputSecurityGroups = Lens.lens (\ListInputSecurityGroupsResponse' {inputSecurityGroups} -> inputSecurityGroups) (\s@ListInputSecurityGroupsResponse' {} a -> s {inputSecurityGroups = a} :: ListInputSecurityGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
 listInputSecurityGroupsResponse_nextToken :: Lens.Lens' ListInputSecurityGroupsResponse (Prelude.Maybe Prelude.Text)
 listInputSecurityGroupsResponse_nextToken = Lens.lens (\ListInputSecurityGroupsResponse' {nextToken} -> nextToken) (\s@ListInputSecurityGroupsResponse' {} a -> s {nextToken = a} :: ListInputSecurityGroupsResponse)
+
+-- | List of input security groups
+listInputSecurityGroupsResponse_inputSecurityGroups :: Lens.Lens' ListInputSecurityGroupsResponse (Prelude.Maybe [InputSecurityGroup])
+listInputSecurityGroupsResponse_inputSecurityGroups = Lens.lens (\ListInputSecurityGroupsResponse' {inputSecurityGroups} -> inputSecurityGroups) (\s@ListInputSecurityGroupsResponse' {} a -> s {inputSecurityGroups = a} :: ListInputSecurityGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listInputSecurityGroupsResponse_httpStatus :: Lens.Lens' ListInputSecurityGroupsResponse Prelude.Int

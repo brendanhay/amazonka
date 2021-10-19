@@ -28,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStopTimecode' smart constructor.
 data StopTimecode = StopTimecode'
-  { -- | The timecode for the frame where you want to stop the clip. Optional; if
-    -- not specified, the clip continues to the end of the file. Enter the
-    -- timecode as HH:MM:SS:FF or HH:MM:SS;FF.
-    timecode :: Prelude.Maybe Prelude.Text,
-    -- | If you specify a StopTimecode in an input (in order to clip the file),
+  { -- | If you specify a StopTimecode in an input (in order to clip the file),
     -- you can specify if you want the clip to exclude (the default) or include
     -- the frame specified by the timecode.
-    lastFrameClippingBehavior :: Prelude.Maybe LastFrameClippingBehavior
+    lastFrameClippingBehavior :: Prelude.Maybe LastFrameClippingBehavior,
+    -- | The timecode for the frame where you want to stop the clip. Optional; if
+    -- not specified, the clip continues to the end of the file. Enter the
+    -- timecode as HH:MM:SS:FF or HH:MM:SS;FF.
+    timecode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,21 @@ data StopTimecode = StopTimecode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timecode', 'stopTimecode_timecode' - The timecode for the frame where you want to stop the clip. Optional; if
--- not specified, the clip continues to the end of the file. Enter the
--- timecode as HH:MM:SS:FF or HH:MM:SS;FF.
---
 -- 'lastFrameClippingBehavior', 'stopTimecode_lastFrameClippingBehavior' - If you specify a StopTimecode in an input (in order to clip the file),
 -- you can specify if you want the clip to exclude (the default) or include
 -- the frame specified by the timecode.
+--
+-- 'timecode', 'stopTimecode_timecode' - The timecode for the frame where you want to stop the clip. Optional; if
+-- not specified, the clip continues to the end of the file. Enter the
+-- timecode as HH:MM:SS:FF or HH:MM:SS;FF.
 newStopTimecode ::
   StopTimecode
 newStopTimecode =
   StopTimecode'
-    { timecode = Prelude.Nothing,
-      lastFrameClippingBehavior = Prelude.Nothing
+    { lastFrameClippingBehavior =
+        Prelude.Nothing,
+      timecode = Prelude.Nothing
     }
-
--- | The timecode for the frame where you want to stop the clip. Optional; if
--- not specified, the clip continues to the end of the file. Enter the
--- timecode as HH:MM:SS:FF or HH:MM:SS;FF.
-stopTimecode_timecode :: Lens.Lens' StopTimecode (Prelude.Maybe Prelude.Text)
-stopTimecode_timecode = Lens.lens (\StopTimecode' {timecode} -> timecode) (\s@StopTimecode' {} a -> s {timecode = a} :: StopTimecode)
 
 -- | If you specify a StopTimecode in an input (in order to clip the file),
 -- you can specify if you want the clip to exclude (the default) or include
@@ -74,14 +69,20 @@ stopTimecode_timecode = Lens.lens (\StopTimecode' {timecode} -> timecode) (\s@St
 stopTimecode_lastFrameClippingBehavior :: Lens.Lens' StopTimecode (Prelude.Maybe LastFrameClippingBehavior)
 stopTimecode_lastFrameClippingBehavior = Lens.lens (\StopTimecode' {lastFrameClippingBehavior} -> lastFrameClippingBehavior) (\s@StopTimecode' {} a -> s {lastFrameClippingBehavior = a} :: StopTimecode)
 
+-- | The timecode for the frame where you want to stop the clip. Optional; if
+-- not specified, the clip continues to the end of the file. Enter the
+-- timecode as HH:MM:SS:FF or HH:MM:SS;FF.
+stopTimecode_timecode :: Lens.Lens' StopTimecode (Prelude.Maybe Prelude.Text)
+stopTimecode_timecode = Lens.lens (\StopTimecode' {timecode} -> timecode) (\s@StopTimecode' {} a -> s {timecode = a} :: StopTimecode)
+
 instance Core.FromJSON StopTimecode where
   parseJSON =
     Core.withObject
       "StopTimecode"
       ( \x ->
           StopTimecode'
-            Prelude.<$> (x Core..:? "timecode")
-            Prelude.<*> (x Core..:? "lastFrameClippingBehavior")
+            Prelude.<$> (x Core..:? "lastFrameClippingBehavior")
+            Prelude.<*> (x Core..:? "timecode")
       )
 
 instance Prelude.Hashable StopTimecode
@@ -92,8 +93,8 @@ instance Core.ToJSON StopTimecode where
   toJSON StopTimecode' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("timecode" Core..=) Prelude.<$> timecode,
-            ("lastFrameClippingBehavior" Core..=)
-              Prelude.<$> lastFrameClippingBehavior
+          [ ("lastFrameClippingBehavior" Core..=)
+              Prelude.<$> lastFrameClippingBehavior,
+            ("timecode" Core..=) Prelude.<$> timecode
           ]
       )

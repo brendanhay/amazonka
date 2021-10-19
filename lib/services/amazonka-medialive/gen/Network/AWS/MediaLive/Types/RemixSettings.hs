@@ -72,7 +72,7 @@ remixSettings_channelsOut = Lens.lens (\RemixSettings' {channelsOut} -> channels
 -- | Mapping of input channels to output channels, with appropriate gain
 -- adjustments.
 remixSettings_channelMappings :: Lens.Lens' RemixSettings [AudioChannelMapping]
-remixSettings_channelMappings = Lens.lens (\RemixSettings' {channelMappings} -> channelMappings) (\s@RemixSettings' {} a -> s {channelMappings = a} :: RemixSettings) Prelude.. Lens._Coerce
+remixSettings_channelMappings = Lens.lens (\RemixSettings' {channelMappings} -> channelMappings) (\s@RemixSettings' {} a -> s {channelMappings = a} :: RemixSettings) Prelude.. Lens.coerced
 
 instance Core.FromJSON RemixSettings where
   parseJSON =

@@ -32,14 +32,14 @@ data InputPrepareScheduleActionSettings = InputPrepareScheduleActionSettings'
     -- If no name is provided, the action will stop the most recent prepare (if
     -- any) when activated.
     inputAttachmentNameReference :: Prelude.Maybe Prelude.Text,
+    -- | Settings to let you create a clip of the file input, in order to set up
+    -- the input to ingest only a portion of the file.
+    inputClippingSettings :: Prelude.Maybe InputClippingSettings,
     -- | The value for the variable portion of the URL for the dynamic input, for
     -- this instance of the input. Each time you use the same dynamic input in
     -- an input switch action, you can provide a different value, in order to
     -- connect the input to a different content source.
-    urlPath :: Prelude.Maybe [Prelude.Text],
-    -- | Settings to let you create a clip of the file input, in order to set up
-    -- the input to ingest only a portion of the file.
-    inputClippingSettings :: Prelude.Maybe InputClippingSettings
+    urlPath :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,21 +55,21 @@ data InputPrepareScheduleActionSettings = InputPrepareScheduleActionSettings'
 -- If no name is provided, the action will stop the most recent prepare (if
 -- any) when activated.
 --
+-- 'inputClippingSettings', 'inputPrepareScheduleActionSettings_inputClippingSettings' - Settings to let you create a clip of the file input, in order to set up
+-- the input to ingest only a portion of the file.
+--
 -- 'urlPath', 'inputPrepareScheduleActionSettings_urlPath' - The value for the variable portion of the URL for the dynamic input, for
 -- this instance of the input. Each time you use the same dynamic input in
 -- an input switch action, you can provide a different value, in order to
 -- connect the input to a different content source.
---
--- 'inputClippingSettings', 'inputPrepareScheduleActionSettings_inputClippingSettings' - Settings to let you create a clip of the file input, in order to set up
--- the input to ingest only a portion of the file.
 newInputPrepareScheduleActionSettings ::
   InputPrepareScheduleActionSettings
 newInputPrepareScheduleActionSettings =
   InputPrepareScheduleActionSettings'
     { inputAttachmentNameReference =
         Prelude.Nothing,
-      urlPath = Prelude.Nothing,
-      inputClippingSettings = Prelude.Nothing
+      inputClippingSettings = Prelude.Nothing,
+      urlPath = Prelude.Nothing
     }
 
 -- | The name of the input attachment that should be prepared by this action.
@@ -78,17 +78,17 @@ newInputPrepareScheduleActionSettings =
 inputPrepareScheduleActionSettings_inputAttachmentNameReference :: Lens.Lens' InputPrepareScheduleActionSettings (Prelude.Maybe Prelude.Text)
 inputPrepareScheduleActionSettings_inputAttachmentNameReference = Lens.lens (\InputPrepareScheduleActionSettings' {inputAttachmentNameReference} -> inputAttachmentNameReference) (\s@InputPrepareScheduleActionSettings' {} a -> s {inputAttachmentNameReference = a} :: InputPrepareScheduleActionSettings)
 
+-- | Settings to let you create a clip of the file input, in order to set up
+-- the input to ingest only a portion of the file.
+inputPrepareScheduleActionSettings_inputClippingSettings :: Lens.Lens' InputPrepareScheduleActionSettings (Prelude.Maybe InputClippingSettings)
+inputPrepareScheduleActionSettings_inputClippingSettings = Lens.lens (\InputPrepareScheduleActionSettings' {inputClippingSettings} -> inputClippingSettings) (\s@InputPrepareScheduleActionSettings' {} a -> s {inputClippingSettings = a} :: InputPrepareScheduleActionSettings)
+
 -- | The value for the variable portion of the URL for the dynamic input, for
 -- this instance of the input. Each time you use the same dynamic input in
 -- an input switch action, you can provide a different value, in order to
 -- connect the input to a different content source.
 inputPrepareScheduleActionSettings_urlPath :: Lens.Lens' InputPrepareScheduleActionSettings (Prelude.Maybe [Prelude.Text])
-inputPrepareScheduleActionSettings_urlPath = Lens.lens (\InputPrepareScheduleActionSettings' {urlPath} -> urlPath) (\s@InputPrepareScheduleActionSettings' {} a -> s {urlPath = a} :: InputPrepareScheduleActionSettings) Prelude.. Lens.mapping Lens._Coerce
-
--- | Settings to let you create a clip of the file input, in order to set up
--- the input to ingest only a portion of the file.
-inputPrepareScheduleActionSettings_inputClippingSettings :: Lens.Lens' InputPrepareScheduleActionSettings (Prelude.Maybe InputClippingSettings)
-inputPrepareScheduleActionSettings_inputClippingSettings = Lens.lens (\InputPrepareScheduleActionSettings' {inputClippingSettings} -> inputClippingSettings) (\s@InputPrepareScheduleActionSettings' {} a -> s {inputClippingSettings = a} :: InputPrepareScheduleActionSettings)
+inputPrepareScheduleActionSettings_urlPath = Lens.lens (\InputPrepareScheduleActionSettings' {urlPath} -> urlPath) (\s@InputPrepareScheduleActionSettings' {} a -> s {urlPath = a} :: InputPrepareScheduleActionSettings) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON
@@ -100,8 +100,8 @@ instance
       ( \x ->
           InputPrepareScheduleActionSettings'
             Prelude.<$> (x Core..:? "inputAttachmentNameReference")
-            Prelude.<*> (x Core..:? "urlPath" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "inputClippingSettings")
+            Prelude.<*> (x Core..:? "urlPath" Core..!= Prelude.mempty)
       )
 
 instance
@@ -121,8 +121,8 @@ instance
       ( Prelude.catMaybes
           [ ("inputAttachmentNameReference" Core..=)
               Prelude.<$> inputAttachmentNameReference,
-            ("urlPath" Core..=) Prelude.<$> urlPath,
             ("inputClippingSettings" Core..=)
-              Prelude.<$> inputClippingSettings
+              Prelude.<$> inputClippingSettings,
+            ("urlPath" Core..=) Prelude.<$> urlPath
           ]
       )

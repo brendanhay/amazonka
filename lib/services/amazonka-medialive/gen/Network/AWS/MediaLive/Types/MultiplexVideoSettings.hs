@@ -28,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMultiplexVideoSettings' smart constructor.
 data MultiplexVideoSettings = MultiplexVideoSettings'
-  { -- | The constant bitrate configuration for the video encode. When this field
-    -- is defined, StatmuxSettings must be undefined.
-    constantBitrate :: Prelude.Maybe Prelude.Natural,
-    -- | Statmux rate control settings. When this field is defined,
+  { -- | Statmux rate control settings. When this field is defined,
     -- ConstantBitrate must be undefined.
-    statmuxSettings :: Prelude.Maybe MultiplexStatmuxVideoSettings
+    statmuxSettings :: Prelude.Maybe MultiplexStatmuxVideoSettings,
+    -- | The constant bitrate configuration for the video encode. When this field
+    -- is defined, StatmuxSettings must be undefined.
+    constantBitrate :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,29 +45,29 @@ data MultiplexVideoSettings = MultiplexVideoSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'constantBitrate', 'multiplexVideoSettings_constantBitrate' - The constant bitrate configuration for the video encode. When this field
--- is defined, StatmuxSettings must be undefined.
---
 -- 'statmuxSettings', 'multiplexVideoSettings_statmuxSettings' - Statmux rate control settings. When this field is defined,
 -- ConstantBitrate must be undefined.
+--
+-- 'constantBitrate', 'multiplexVideoSettings_constantBitrate' - The constant bitrate configuration for the video encode. When this field
+-- is defined, StatmuxSettings must be undefined.
 newMultiplexVideoSettings ::
   MultiplexVideoSettings
 newMultiplexVideoSettings =
   MultiplexVideoSettings'
-    { constantBitrate =
+    { statmuxSettings =
         Prelude.Nothing,
-      statmuxSettings = Prelude.Nothing
+      constantBitrate = Prelude.Nothing
     }
-
--- | The constant bitrate configuration for the video encode. When this field
--- is defined, StatmuxSettings must be undefined.
-multiplexVideoSettings_constantBitrate :: Lens.Lens' MultiplexVideoSettings (Prelude.Maybe Prelude.Natural)
-multiplexVideoSettings_constantBitrate = Lens.lens (\MultiplexVideoSettings' {constantBitrate} -> constantBitrate) (\s@MultiplexVideoSettings' {} a -> s {constantBitrate = a} :: MultiplexVideoSettings)
 
 -- | Statmux rate control settings. When this field is defined,
 -- ConstantBitrate must be undefined.
 multiplexVideoSettings_statmuxSettings :: Lens.Lens' MultiplexVideoSettings (Prelude.Maybe MultiplexStatmuxVideoSettings)
 multiplexVideoSettings_statmuxSettings = Lens.lens (\MultiplexVideoSettings' {statmuxSettings} -> statmuxSettings) (\s@MultiplexVideoSettings' {} a -> s {statmuxSettings = a} :: MultiplexVideoSettings)
+
+-- | The constant bitrate configuration for the video encode. When this field
+-- is defined, StatmuxSettings must be undefined.
+multiplexVideoSettings_constantBitrate :: Lens.Lens' MultiplexVideoSettings (Prelude.Maybe Prelude.Natural)
+multiplexVideoSettings_constantBitrate = Lens.lens (\MultiplexVideoSettings' {constantBitrate} -> constantBitrate) (\s@MultiplexVideoSettings' {} a -> s {constantBitrate = a} :: MultiplexVideoSettings)
 
 instance Core.FromJSON MultiplexVideoSettings where
   parseJSON =
@@ -75,8 +75,8 @@ instance Core.FromJSON MultiplexVideoSettings where
       "MultiplexVideoSettings"
       ( \x ->
           MultiplexVideoSettings'
-            Prelude.<$> (x Core..:? "constantBitrate")
-            Prelude.<*> (x Core..:? "statmuxSettings")
+            Prelude.<$> (x Core..:? "statmuxSettings")
+            Prelude.<*> (x Core..:? "constantBitrate")
       )
 
 instance Prelude.Hashable MultiplexVideoSettings
@@ -87,9 +87,9 @@ instance Core.ToJSON MultiplexVideoSettings where
   toJSON MultiplexVideoSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("constantBitrate" Core..=)
-              Prelude.<$> constantBitrate,
-            ("statmuxSettings" Core..=)
-              Prelude.<$> statmuxSettings
+          [ ("statmuxSettings" Core..=)
+              Prelude.<$> statmuxSettings,
+            ("constantBitrate" Core..=)
+              Prelude.<$> constantBitrate
           ]
       )

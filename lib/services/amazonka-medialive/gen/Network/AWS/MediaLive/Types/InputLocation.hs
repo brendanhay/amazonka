@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInputLocation' smart constructor.
 data InputLocation = InputLocation'
-  { -- | key used to extract the password from EC2 Parameter store
-    passwordParam :: Prelude.Maybe Prelude.Text,
-    -- | Documentation update needed
+  { -- | Documentation update needed
     username :: Prelude.Maybe Prelude.Text,
+    -- | key used to extract the password from EC2 Parameter store
+    passwordParam :: Prelude.Maybe Prelude.Text,
     -- | Uniform Resource Identifier - This should be a path to a file accessible
     -- to the Live system (eg. a http:\/\/ URI) depending on the output type.
     -- For example, a RTMP destination should have a uri simliar to:
@@ -47,9 +47,9 @@ data InputLocation = InputLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'passwordParam', 'inputLocation_passwordParam' - key used to extract the password from EC2 Parameter store
---
 -- 'username', 'inputLocation_username' - Documentation update needed
+--
+-- 'passwordParam', 'inputLocation_passwordParam' - key used to extract the password from EC2 Parameter store
 --
 -- 'uri', 'inputLocation_uri' - Uniform Resource Identifier - This should be a path to a file accessible
 -- to the Live system (eg. a http:\/\/ URI) depending on the output type.
@@ -61,18 +61,18 @@ newInputLocation ::
   InputLocation
 newInputLocation pUri_ =
   InputLocation'
-    { passwordParam = Prelude.Nothing,
-      username = Prelude.Nothing,
+    { username = Prelude.Nothing,
+      passwordParam = Prelude.Nothing,
       uri = pUri_
     }
-
--- | key used to extract the password from EC2 Parameter store
-inputLocation_passwordParam :: Lens.Lens' InputLocation (Prelude.Maybe Prelude.Text)
-inputLocation_passwordParam = Lens.lens (\InputLocation' {passwordParam} -> passwordParam) (\s@InputLocation' {} a -> s {passwordParam = a} :: InputLocation)
 
 -- | Documentation update needed
 inputLocation_username :: Lens.Lens' InputLocation (Prelude.Maybe Prelude.Text)
 inputLocation_username = Lens.lens (\InputLocation' {username} -> username) (\s@InputLocation' {} a -> s {username = a} :: InputLocation)
+
+-- | key used to extract the password from EC2 Parameter store
+inputLocation_passwordParam :: Lens.Lens' InputLocation (Prelude.Maybe Prelude.Text)
+inputLocation_passwordParam = Lens.lens (\InputLocation' {passwordParam} -> passwordParam) (\s@InputLocation' {} a -> s {passwordParam = a} :: InputLocation)
 
 -- | Uniform Resource Identifier - This should be a path to a file accessible
 -- to the Live system (eg. a http:\/\/ URI) depending on the output type.
@@ -87,8 +87,8 @@ instance Core.FromJSON InputLocation where
       "InputLocation"
       ( \x ->
           InputLocation'
-            Prelude.<$> (x Core..:? "passwordParam")
-            Prelude.<*> (x Core..:? "username")
+            Prelude.<$> (x Core..:? "username")
+            Prelude.<*> (x Core..:? "passwordParam")
             Prelude.<*> (x Core..: "uri")
       )
 
@@ -100,8 +100,8 @@ instance Core.ToJSON InputLocation where
   toJSON InputLocation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("passwordParam" Core..=) Prelude.<$> passwordParam,
-            ("username" Core..=) Prelude.<$> username,
+          [ ("username" Core..=) Prelude.<$> username,
+            ("passwordParam" Core..=) Prelude.<$> passwordParam,
             Prelude.Just ("uri" Core..= uri)
           ]
       )

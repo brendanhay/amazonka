@@ -30,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 data CaptionDescription = CaptionDescription'
   { -- | ISO 639-2 three-digit code: http:\/\/www.loc.gov\/standards\/iso639-2\/
     languageCode :: Prelude.Maybe Prelude.Text,
-    -- | Human readable information to indicate captions available for players
-    -- (eg. English, or Spanish).
-    languageDescription :: Prelude.Maybe Prelude.Text,
     -- | Additional settings for captions destination that depend on the
     -- destination type.
     destinationSettings :: Prelude.Maybe CaptionDestinationSettings,
+    -- | Human readable information to indicate captions available for players
+    -- (eg. English, or Spanish).
+    languageDescription :: Prelude.Maybe Prelude.Text,
     -- | Specifies which input caption selector to use as a caption source when
     -- generating output captions. This field should match a captionSelector
     -- name.
@@ -56,11 +56,11 @@ data CaptionDescription = CaptionDescription'
 --
 -- 'languageCode', 'captionDescription_languageCode' - ISO 639-2 three-digit code: http:\/\/www.loc.gov\/standards\/iso639-2\/
 --
--- 'languageDescription', 'captionDescription_languageDescription' - Human readable information to indicate captions available for players
--- (eg. English, or Spanish).
---
 -- 'destinationSettings', 'captionDescription_destinationSettings' - Additional settings for captions destination that depend on the
 -- destination type.
+--
+-- 'languageDescription', 'captionDescription_languageDescription' - Human readable information to indicate captions available for players
+-- (eg. English, or Spanish).
 --
 -- 'captionSelectorName', 'captionDescription_captionSelectorName' - Specifies which input caption selector to use as a caption source when
 -- generating output captions. This field should match a captionSelector
@@ -77,8 +77,8 @@ newCaptionDescription ::
 newCaptionDescription pCaptionSelectorName_ pName_ =
   CaptionDescription'
     { languageCode = Prelude.Nothing,
-      languageDescription = Prelude.Nothing,
       destinationSettings = Prelude.Nothing,
+      languageDescription = Prelude.Nothing,
       captionSelectorName = pCaptionSelectorName_,
       name = pName_
     }
@@ -87,15 +87,15 @@ newCaptionDescription pCaptionSelectorName_ pName_ =
 captionDescription_languageCode :: Lens.Lens' CaptionDescription (Prelude.Maybe Prelude.Text)
 captionDescription_languageCode = Lens.lens (\CaptionDescription' {languageCode} -> languageCode) (\s@CaptionDescription' {} a -> s {languageCode = a} :: CaptionDescription)
 
--- | Human readable information to indicate captions available for players
--- (eg. English, or Spanish).
-captionDescription_languageDescription :: Lens.Lens' CaptionDescription (Prelude.Maybe Prelude.Text)
-captionDescription_languageDescription = Lens.lens (\CaptionDescription' {languageDescription} -> languageDescription) (\s@CaptionDescription' {} a -> s {languageDescription = a} :: CaptionDescription)
-
 -- | Additional settings for captions destination that depend on the
 -- destination type.
 captionDescription_destinationSettings :: Lens.Lens' CaptionDescription (Prelude.Maybe CaptionDestinationSettings)
 captionDescription_destinationSettings = Lens.lens (\CaptionDescription' {destinationSettings} -> destinationSettings) (\s@CaptionDescription' {} a -> s {destinationSettings = a} :: CaptionDescription)
+
+-- | Human readable information to indicate captions available for players
+-- (eg. English, or Spanish).
+captionDescription_languageDescription :: Lens.Lens' CaptionDescription (Prelude.Maybe Prelude.Text)
+captionDescription_languageDescription = Lens.lens (\CaptionDescription' {languageDescription} -> languageDescription) (\s@CaptionDescription' {} a -> s {languageDescription = a} :: CaptionDescription)
 
 -- | Specifies which input caption selector to use as a caption source when
 -- generating output captions. This field should match a captionSelector
@@ -115,8 +115,8 @@ instance Core.FromJSON CaptionDescription where
       ( \x ->
           CaptionDescription'
             Prelude.<$> (x Core..:? "languageCode")
-            Prelude.<*> (x Core..:? "languageDescription")
             Prelude.<*> (x Core..:? "destinationSettings")
+            Prelude.<*> (x Core..:? "languageDescription")
             Prelude.<*> (x Core..: "captionSelectorName")
             Prelude.<*> (x Core..: "name")
       )
@@ -130,10 +130,10 @@ instance Core.ToJSON CaptionDescription where
     Core.object
       ( Prelude.catMaybes
           [ ("languageCode" Core..=) Prelude.<$> languageCode,
-            ("languageDescription" Core..=)
-              Prelude.<$> languageDescription,
             ("destinationSettings" Core..=)
               Prelude.<$> destinationSettings,
+            ("languageDescription" Core..=)
+              Prelude.<$> languageDescription,
             Prelude.Just
               ("captionSelectorName" Core..= captionSelectorName),
             Prelude.Just ("name" Core..= name)

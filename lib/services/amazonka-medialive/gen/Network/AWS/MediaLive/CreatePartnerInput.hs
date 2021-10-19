@@ -94,7 +94,7 @@ createPartnerInput'_requestId = Lens.lens (\CreatePartnerInput'' {requestId} -> 
 
 -- | A collection of key-value pairs.
 createPartnerInput'_tags :: Lens.Lens' CreatePartnerInput' (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createPartnerInput'_tags = Lens.lens (\CreatePartnerInput'' {tags} -> tags) (\s@CreatePartnerInput'' {} a -> s {tags = a} :: CreatePartnerInput') Prelude.. Lens.mapping Lens._Coerce
+createPartnerInput'_tags = Lens.lens (\CreatePartnerInput'' {tags} -> tags) (\s@CreatePartnerInput'' {} a -> s {tags = a} :: CreatePartnerInput') Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique ID of the input.
 createPartnerInput'_inputId :: Lens.Lens' CreatePartnerInput' Prelude.Text

@@ -90,7 +90,7 @@ newUpdateChannelClass' pChannelId_ pChannelClass_ =
 
 -- | A list of output destinations for this channel.
 updateChannelClass'_destinations :: Lens.Lens' UpdateChannelClass' (Prelude.Maybe [OutputDestination])
-updateChannelClass'_destinations = Lens.lens (\UpdateChannelClass'' {destinations} -> destinations) (\s@UpdateChannelClass'' {} a -> s {destinations = a} :: UpdateChannelClass') Prelude.. Lens.mapping Lens._Coerce
+updateChannelClass'_destinations = Lens.lens (\UpdateChannelClass'' {destinations} -> destinations) (\s@UpdateChannelClass'' {} a -> s {destinations = a} :: UpdateChannelClass') Prelude.. Lens.mapping Lens.coerced
 
 -- | Channel Id of the channel whose class should be updated.
 updateChannelClass'_channelId :: Lens.Lens' UpdateChannelClass' Prelude.Text

@@ -143,7 +143,7 @@ newPutQueryDefinition pName_ pQueryString_ =
 -- If you are updating a query definition and you omit this parameter, then
 -- the updated definition will contain no log groups.
 putQueryDefinition_logGroupNames :: Lens.Lens' PutQueryDefinition (Prelude.Maybe [Prelude.Text])
-putQueryDefinition_logGroupNames = Lens.lens (\PutQueryDefinition' {logGroupNames} -> logGroupNames) (\s@PutQueryDefinition' {} a -> s {logGroupNames = a} :: PutQueryDefinition) Prelude.. Lens.mapping Lens._Coerce
+putQueryDefinition_logGroupNames = Lens.lens (\PutQueryDefinition' {logGroupNames} -> logGroupNames) (\s@PutQueryDefinition' {} a -> s {logGroupNames = a} :: PutQueryDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you are updating a query definition, use this parameter to specify
 -- the ID of the query definition that you want to update. You can use

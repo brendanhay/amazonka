@@ -29,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newQueryInfo' smart constructor.
 data QueryInfo = QueryInfo'
-  { -- | The query string used in this query.
-    queryString :: Prelude.Maybe Prelude.Text,
-    -- | The status of this query. Possible values are @Cancelled@, @Complete@,
+  { -- | The status of this query. Possible values are @Cancelled@, @Complete@,
     -- @Failed@, @Running@, @Scheduled@, and @Unknown@.
     status :: Prelude.Maybe QueryStatus,
     -- | The unique ID number of this query.
     queryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the log group scanned by this query.
     logGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The query string used in this query.
+    queryString :: Prelude.Maybe Prelude.Text,
     -- | The date and time that this query was created.
     createTime :: Prelude.Maybe Prelude.Natural
   }
@@ -51,8 +51,6 @@ data QueryInfo = QueryInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queryString', 'queryInfo_queryString' - The query string used in this query.
---
 -- 'status', 'queryInfo_status' - The status of this query. Possible values are @Cancelled@, @Complete@,
 -- @Failed@, @Running@, @Scheduled@, and @Unknown@.
 --
@@ -60,21 +58,19 @@ data QueryInfo = QueryInfo'
 --
 -- 'logGroupName', 'queryInfo_logGroupName' - The name of the log group scanned by this query.
 --
+-- 'queryString', 'queryInfo_queryString' - The query string used in this query.
+--
 -- 'createTime', 'queryInfo_createTime' - The date and time that this query was created.
 newQueryInfo ::
   QueryInfo
 newQueryInfo =
   QueryInfo'
-    { queryString = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { status = Prelude.Nothing,
       queryId = Prelude.Nothing,
       logGroupName = Prelude.Nothing,
+      queryString = Prelude.Nothing,
       createTime = Prelude.Nothing
     }
-
--- | The query string used in this query.
-queryInfo_queryString :: Lens.Lens' QueryInfo (Prelude.Maybe Prelude.Text)
-queryInfo_queryString = Lens.lens (\QueryInfo' {queryString} -> queryString) (\s@QueryInfo' {} a -> s {queryString = a} :: QueryInfo)
 
 -- | The status of this query. Possible values are @Cancelled@, @Complete@,
 -- @Failed@, @Running@, @Scheduled@, and @Unknown@.
@@ -89,6 +85,10 @@ queryInfo_queryId = Lens.lens (\QueryInfo' {queryId} -> queryId) (\s@QueryInfo' 
 queryInfo_logGroupName :: Lens.Lens' QueryInfo (Prelude.Maybe Prelude.Text)
 queryInfo_logGroupName = Lens.lens (\QueryInfo' {logGroupName} -> logGroupName) (\s@QueryInfo' {} a -> s {logGroupName = a} :: QueryInfo)
 
+-- | The query string used in this query.
+queryInfo_queryString :: Lens.Lens' QueryInfo (Prelude.Maybe Prelude.Text)
+queryInfo_queryString = Lens.lens (\QueryInfo' {queryString} -> queryString) (\s@QueryInfo' {} a -> s {queryString = a} :: QueryInfo)
+
 -- | The date and time that this query was created.
 queryInfo_createTime :: Lens.Lens' QueryInfo (Prelude.Maybe Prelude.Natural)
 queryInfo_createTime = Lens.lens (\QueryInfo' {createTime} -> createTime) (\s@QueryInfo' {} a -> s {createTime = a} :: QueryInfo)
@@ -99,10 +99,10 @@ instance Core.FromJSON QueryInfo where
       "QueryInfo"
       ( \x ->
           QueryInfo'
-            Prelude.<$> (x Core..:? "queryString")
-            Prelude.<*> (x Core..:? "status")
+            Prelude.<$> (x Core..:? "status")
             Prelude.<*> (x Core..:? "queryId")
             Prelude.<*> (x Core..:? "logGroupName")
+            Prelude.<*> (x Core..:? "queryString")
             Prelude.<*> (x Core..:? "createTime")
       )
 

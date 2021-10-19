@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLogGroupField' smart constructor.
 data LogGroupField = LogGroupField'
-  { -- | The name of a log field.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The percentage of log events queried that contained the field.
-    percent :: Prelude.Maybe Prelude.Natural
+  { -- | The percentage of log events queried that contained the field.
+    percent :: Prelude.Maybe Prelude.Natural,
+    -- | The name of a log field.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data LogGroupField = LogGroupField'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'logGroupField_name' - The name of a log field.
---
 -- 'percent', 'logGroupField_percent' - The percentage of log events queried that contained the field.
+--
+-- 'name', 'logGroupField_name' - The name of a log field.
 newLogGroupField ::
   LogGroupField
 newLogGroupField =
   LogGroupField'
-    { name = Prelude.Nothing,
-      percent = Prelude.Nothing
+    { percent = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of a log field.
-logGroupField_name :: Lens.Lens' LogGroupField (Prelude.Maybe Prelude.Text)
-logGroupField_name = Lens.lens (\LogGroupField' {name} -> name) (\s@LogGroupField' {} a -> s {name = a} :: LogGroupField)
 
 -- | The percentage of log events queried that contained the field.
 logGroupField_percent :: Lens.Lens' LogGroupField (Prelude.Maybe Prelude.Natural)
 logGroupField_percent = Lens.lens (\LogGroupField' {percent} -> percent) (\s@LogGroupField' {} a -> s {percent = a} :: LogGroupField)
+
+-- | The name of a log field.
+logGroupField_name :: Lens.Lens' LogGroupField (Prelude.Maybe Prelude.Text)
+logGroupField_name = Lens.lens (\LogGroupField' {name} -> name) (\s@LogGroupField' {} a -> s {name = a} :: LogGroupField)
 
 instance Core.FromJSON LogGroupField where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON LogGroupField where
       "LogGroupField"
       ( \x ->
           LogGroupField'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "percent")
+            Prelude.<$> (x Core..:? "percent")
+            Prelude.<*> (x Core..:? "name")
       )
 
 instance Prelude.Hashable LogGroupField

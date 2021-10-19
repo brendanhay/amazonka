@@ -148,7 +148,7 @@ newStartQuery pStartTime_ pEndTime_ pQueryString_ =
 -- A @StartQuery@ operation must include a @logGroupNames@ or a
 -- @logGroupName@ parameter, but not both.
 startQuery_logGroupNames :: Lens.Lens' StartQuery (Prelude.Maybe [Prelude.Text])
-startQuery_logGroupNames = Lens.lens (\StartQuery' {logGroupNames} -> logGroupNames) (\s@StartQuery' {} a -> s {logGroupNames = a} :: StartQuery) Prelude.. Lens.mapping Lens._Coerce
+startQuery_logGroupNames = Lens.lens (\StartQuery' {logGroupNames} -> logGroupNames) (\s@StartQuery' {} a -> s {logGroupNames = a} :: StartQuery) Prelude.. Lens.mapping Lens.coerced
 
 -- | The log group on which to perform the query.
 --

@@ -80,7 +80,7 @@ newTestMetricFilter
     TestMetricFilter'
       { filterPattern = pFilterPattern_,
         logEventMessages =
-          Lens._Coerce Lens.# pLogEventMessages_
+          Lens.coerced Lens.# pLogEventMessages_
       }
 
 -- | Undocumented member.
@@ -89,7 +89,7 @@ testMetricFilter_filterPattern = Lens.lens (\TestMetricFilter' {filterPattern} -
 
 -- | The log event messages to test.
 testMetricFilter_logEventMessages :: Lens.Lens' TestMetricFilter (Prelude.NonEmpty Prelude.Text)
-testMetricFilter_logEventMessages = Lens.lens (\TestMetricFilter' {logEventMessages} -> logEventMessages) (\s@TestMetricFilter' {} a -> s {logEventMessages = a} :: TestMetricFilter) Prelude.. Lens._Coerce
+testMetricFilter_logEventMessages = Lens.lens (\TestMetricFilter' {logEventMessages} -> logEventMessages) (\s@TestMetricFilter' {} a -> s {logEventMessages = a} :: TestMetricFilter) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TestMetricFilter where
   type
@@ -173,7 +173,7 @@ newTestMetricFilterResponse pHttpStatus_ =
 
 -- | The matched events.
 testMetricFilterResponse_matches :: Lens.Lens' TestMetricFilterResponse (Prelude.Maybe [MetricFilterMatchRecord])
-testMetricFilterResponse_matches = Lens.lens (\TestMetricFilterResponse' {matches} -> matches) (\s@TestMetricFilterResponse' {} a -> s {matches = a} :: TestMetricFilterResponse) Prelude.. Lens.mapping Lens._Coerce
+testMetricFilterResponse_matches = Lens.lens (\TestMetricFilterResponse' {matches} -> matches) (\s@TestMetricFilterResponse' {} a -> s {matches = a} :: TestMetricFilterResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 testMetricFilterResponse_httpStatus :: Lens.Lens' TestMetricFilterResponse Prelude.Int

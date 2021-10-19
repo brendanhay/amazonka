@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOutputLogEvent' smart constructor.
 data OutputLogEvent = OutputLogEvent'
-  { -- | The data contained in the log event.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The time the event was ingested, expressed as the number of milliseconds
+  { -- | The time the event was ingested, expressed as the number of milliseconds
     -- after Jan 1, 1970 00:00:00 UTC.
     ingestionTime :: Prelude.Maybe Prelude.Natural,
+    -- | The data contained in the log event.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The time the event occurred, expressed as the number of milliseconds
     -- after Jan 1, 1970 00:00:00 UTC.
     timestamp :: Prelude.Maybe Prelude.Natural
@@ -46,10 +46,10 @@ data OutputLogEvent = OutputLogEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'outputLogEvent_message' - The data contained in the log event.
---
 -- 'ingestionTime', 'outputLogEvent_ingestionTime' - The time the event was ingested, expressed as the number of milliseconds
 -- after Jan 1, 1970 00:00:00 UTC.
+--
+-- 'message', 'outputLogEvent_message' - The data contained in the log event.
 --
 -- 'timestamp', 'outputLogEvent_timestamp' - The time the event occurred, expressed as the number of milliseconds
 -- after Jan 1, 1970 00:00:00 UTC.
@@ -57,19 +57,19 @@ newOutputLogEvent ::
   OutputLogEvent
 newOutputLogEvent =
   OutputLogEvent'
-    { message = Prelude.Nothing,
-      ingestionTime = Prelude.Nothing,
+    { ingestionTime = Prelude.Nothing,
+      message = Prelude.Nothing,
       timestamp = Prelude.Nothing
     }
-
--- | The data contained in the log event.
-outputLogEvent_message :: Lens.Lens' OutputLogEvent (Prelude.Maybe Prelude.Text)
-outputLogEvent_message = Lens.lens (\OutputLogEvent' {message} -> message) (\s@OutputLogEvent' {} a -> s {message = a} :: OutputLogEvent)
 
 -- | The time the event was ingested, expressed as the number of milliseconds
 -- after Jan 1, 1970 00:00:00 UTC.
 outputLogEvent_ingestionTime :: Lens.Lens' OutputLogEvent (Prelude.Maybe Prelude.Natural)
 outputLogEvent_ingestionTime = Lens.lens (\OutputLogEvent' {ingestionTime} -> ingestionTime) (\s@OutputLogEvent' {} a -> s {ingestionTime = a} :: OutputLogEvent)
+
+-- | The data contained in the log event.
+outputLogEvent_message :: Lens.Lens' OutputLogEvent (Prelude.Maybe Prelude.Text)
+outputLogEvent_message = Lens.lens (\OutputLogEvent' {message} -> message) (\s@OutputLogEvent' {} a -> s {message = a} :: OutputLogEvent)
 
 -- | The time the event occurred, expressed as the number of milliseconds
 -- after Jan 1, 1970 00:00:00 UTC.
@@ -82,8 +82,8 @@ instance Core.FromJSON OutputLogEvent where
       "OutputLogEvent"
       ( \x ->
           OutputLogEvent'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "ingestionTime")
+            Prelude.<$> (x Core..:? "ingestionTime")
+            Prelude.<*> (x Core..:? "message")
             Prelude.<*> (x Core..:? "timestamp")
       )
 

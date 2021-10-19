@@ -34,10 +34,10 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     newDescribeLogStreams,
 
     -- * Request Lenses
-    describeLogStreams_logStreamNamePrefix,
-    describeLogStreams_nextToken,
     describeLogStreams_orderBy,
     describeLogStreams_descending,
+    describeLogStreams_nextToken,
+    describeLogStreams_logStreamNamePrefix,
     describeLogStreams_limit,
     describeLogStreams_logGroupName,
 
@@ -61,14 +61,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeLogStreams' smart constructor.
 data DescribeLogStreams = DescribeLogStreams'
-  { -- | The prefix to match.
-    --
-    -- If @orderBy@ is @LastEventTime@, you cannot specify this parameter.
-    logStreamNamePrefix :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | If the value is @LogStreamName@, the results are ordered by log stream
+  { -- | If the value is @LogStreamName@, the results are ordered by log stream
     -- name. If the value is @LastEventTime@, the results are ordered by the
     -- event time. The default value is @LogStreamName@.
     --
@@ -86,6 +79,13 @@ data DescribeLogStreams = DescribeLogStreams'
     -- value is to false, results are returned in ascending order. The default
     -- value is false.
     descending :: Prelude.Maybe Prelude.Bool,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The prefix to match.
+    --
+    -- If @orderBy@ is @LastEventTime@, you cannot specify this parameter.
+    logStreamNamePrefix :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items returned. If you don\'t specify a value, the
     -- default is up to 50 items.
     limit :: Prelude.Maybe Prelude.Natural,
@@ -101,13 +101,6 @@ data DescribeLogStreams = DescribeLogStreams'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'logStreamNamePrefix', 'describeLogStreams_logStreamNamePrefix' - The prefix to match.
---
--- If @orderBy@ is @LastEventTime@, you cannot specify this parameter.
---
--- 'nextToken', 'describeLogStreams_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
 --
 -- 'orderBy', 'describeLogStreams_orderBy' - If the value is @LogStreamName@, the results are ordered by log stream
 -- name. If the value is @LastEventTime@, the results are ordered by the
@@ -127,6 +120,13 @@ data DescribeLogStreams = DescribeLogStreams'
 -- value is to false, results are returned in ascending order. The default
 -- value is false.
 --
+-- 'nextToken', 'describeLogStreams_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
+-- 'logStreamNamePrefix', 'describeLogStreams_logStreamNamePrefix' - The prefix to match.
+--
+-- If @orderBy@ is @LastEventTime@, you cannot specify this parameter.
+--
 -- 'limit', 'describeLogStreams_limit' - The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
 --
@@ -137,25 +137,13 @@ newDescribeLogStreams ::
   DescribeLogStreams
 newDescribeLogStreams pLogGroupName_ =
   DescribeLogStreams'
-    { logStreamNamePrefix =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      orderBy = Prelude.Nothing,
+    { orderBy = Prelude.Nothing,
       descending = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      logStreamNamePrefix = Prelude.Nothing,
       limit = Prelude.Nothing,
       logGroupName = pLogGroupName_
     }
-
--- | The prefix to match.
---
--- If @orderBy@ is @LastEventTime@, you cannot specify this parameter.
-describeLogStreams_logStreamNamePrefix :: Lens.Lens' DescribeLogStreams (Prelude.Maybe Prelude.Text)
-describeLogStreams_logStreamNamePrefix = Lens.lens (\DescribeLogStreams' {logStreamNamePrefix} -> logStreamNamePrefix) (\s@DescribeLogStreams' {} a -> s {logStreamNamePrefix = a} :: DescribeLogStreams)
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeLogStreams_nextToken :: Lens.Lens' DescribeLogStreams (Prelude.Maybe Prelude.Text)
-describeLogStreams_nextToken = Lens.lens (\DescribeLogStreams' {nextToken} -> nextToken) (\s@DescribeLogStreams' {} a -> s {nextToken = a} :: DescribeLogStreams)
 
 -- | If the value is @LogStreamName@, the results are ordered by log stream
 -- name. If the value is @LastEventTime@, the results are ordered by the
@@ -178,6 +166,17 @@ describeLogStreams_orderBy = Lens.lens (\DescribeLogStreams' {orderBy} -> orderB
 -- value is false.
 describeLogStreams_descending :: Lens.Lens' DescribeLogStreams (Prelude.Maybe Prelude.Bool)
 describeLogStreams_descending = Lens.lens (\DescribeLogStreams' {descending} -> descending) (\s@DescribeLogStreams' {} a -> s {descending = a} :: DescribeLogStreams)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeLogStreams_nextToken :: Lens.Lens' DescribeLogStreams (Prelude.Maybe Prelude.Text)
+describeLogStreams_nextToken = Lens.lens (\DescribeLogStreams' {nextToken} -> nextToken) (\s@DescribeLogStreams' {} a -> s {nextToken = a} :: DescribeLogStreams)
+
+-- | The prefix to match.
+--
+-- If @orderBy@ is @LastEventTime@, you cannot specify this parameter.
+describeLogStreams_logStreamNamePrefix :: Lens.Lens' DescribeLogStreams (Prelude.Maybe Prelude.Text)
+describeLogStreams_logStreamNamePrefix = Lens.lens (\DescribeLogStreams' {logStreamNamePrefix} -> logStreamNamePrefix) (\s@DescribeLogStreams' {} a -> s {logStreamNamePrefix = a} :: DescribeLogStreams)
 
 -- | The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
@@ -247,11 +246,11 @@ instance Core.ToJSON DescribeLogStreams where
   toJSON DescribeLogStreams' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("logStreamNamePrefix" Core..=)
-              Prelude.<$> logStreamNamePrefix,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("orderBy" Core..=) Prelude.<$> orderBy,
+          [ ("orderBy" Core..=) Prelude.<$> orderBy,
             ("descending" Core..=) Prelude.<$> descending,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("logStreamNamePrefix" Core..=)
+              Prelude.<$> logStreamNamePrefix,
             ("limit" Core..=) Prelude.<$> limit,
             Prelude.Just ("logGroupName" Core..= logGroupName)
           ]
@@ -304,7 +303,7 @@ describeLogStreamsResponse_nextToken = Lens.lens (\DescribeLogStreamsResponse' {
 
 -- | The log streams.
 describeLogStreamsResponse_logStreams :: Lens.Lens' DescribeLogStreamsResponse (Prelude.Maybe [LogStream])
-describeLogStreamsResponse_logStreams = Lens.lens (\DescribeLogStreamsResponse' {logStreams} -> logStreams) (\s@DescribeLogStreamsResponse' {} a -> s {logStreams = a} :: DescribeLogStreamsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeLogStreamsResponse_logStreams = Lens.lens (\DescribeLogStreamsResponse' {logStreams} -> logStreams) (\s@DescribeLogStreamsResponse' {} a -> s {logStreams = a} :: DescribeLogStreamsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeLogStreamsResponse_httpStatus :: Lens.Lens' DescribeLogStreamsResponse Prelude.Int

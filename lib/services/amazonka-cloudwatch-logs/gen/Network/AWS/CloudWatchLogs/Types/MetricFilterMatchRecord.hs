@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMetricFilterMatchRecord' smart constructor.
 data MetricFilterMatchRecord = MetricFilterMatchRecord'
-  { -- | The event number.
+  { -- | The values extracted from the event data by the filter.
+    extractedValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The event number.
     eventNumber :: Prelude.Maybe Prelude.Integer,
     -- | The raw event data.
-    eventMessage :: Prelude.Maybe Prelude.Text,
-    -- | The values extracted from the event data by the filter.
-    extractedValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    eventMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,20 +44,24 @@ data MetricFilterMatchRecord = MetricFilterMatchRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'extractedValues', 'metricFilterMatchRecord_extractedValues' - The values extracted from the event data by the filter.
+--
 -- 'eventNumber', 'metricFilterMatchRecord_eventNumber' - The event number.
 --
 -- 'eventMessage', 'metricFilterMatchRecord_eventMessage' - The raw event data.
---
--- 'extractedValues', 'metricFilterMatchRecord_extractedValues' - The values extracted from the event data by the filter.
 newMetricFilterMatchRecord ::
   MetricFilterMatchRecord
 newMetricFilterMatchRecord =
   MetricFilterMatchRecord'
-    { eventNumber =
+    { extractedValues =
         Prelude.Nothing,
-      eventMessage = Prelude.Nothing,
-      extractedValues = Prelude.Nothing
+      eventNumber = Prelude.Nothing,
+      eventMessage = Prelude.Nothing
     }
+
+-- | The values extracted from the event data by the filter.
+metricFilterMatchRecord_extractedValues :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+metricFilterMatchRecord_extractedValues = Lens.lens (\MetricFilterMatchRecord' {extractedValues} -> extractedValues) (\s@MetricFilterMatchRecord' {} a -> s {extractedValues = a} :: MetricFilterMatchRecord) Prelude.. Lens.mapping Lens.coerced
 
 -- | The event number.
 metricFilterMatchRecord_eventNumber :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe Prelude.Integer)
@@ -67,21 +71,17 @@ metricFilterMatchRecord_eventNumber = Lens.lens (\MetricFilterMatchRecord' {even
 metricFilterMatchRecord_eventMessage :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe Prelude.Text)
 metricFilterMatchRecord_eventMessage = Lens.lens (\MetricFilterMatchRecord' {eventMessage} -> eventMessage) (\s@MetricFilterMatchRecord' {} a -> s {eventMessage = a} :: MetricFilterMatchRecord)
 
--- | The values extracted from the event data by the filter.
-metricFilterMatchRecord_extractedValues :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-metricFilterMatchRecord_extractedValues = Lens.lens (\MetricFilterMatchRecord' {extractedValues} -> extractedValues) (\s@MetricFilterMatchRecord' {} a -> s {extractedValues = a} :: MetricFilterMatchRecord) Prelude.. Lens.mapping Lens._Coerce
-
 instance Core.FromJSON MetricFilterMatchRecord where
   parseJSON =
     Core.withObject
       "MetricFilterMatchRecord"
       ( \x ->
           MetricFilterMatchRecord'
-            Prelude.<$> (x Core..:? "eventNumber")
-            Prelude.<*> (x Core..:? "eventMessage")
-            Prelude.<*> ( x Core..:? "extractedValues"
+            Prelude.<$> ( x Core..:? "extractedValues"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "eventNumber")
+            Prelude.<*> (x Core..:? "eventMessage")
       )
 
 instance Prelude.Hashable MetricFilterMatchRecord

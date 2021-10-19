@@ -31,8 +31,8 @@ module Network.AWS.CloudWatchLogs.DescribeDestinations
 
     -- * Request Lenses
     describeDestinations_nextToken,
-    describeDestinations_destinationNamePrefix,
     describeDestinations_limit,
+    describeDestinations_destinationNamePrefix,
 
     -- * Destructuring the Response
     DescribeDestinationsResponse (..),
@@ -57,12 +57,12 @@ data DescribeDestinations = DescribeDestinations'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The prefix to match. If you don\'t specify a value, no prefix filter is
-    -- applied.
-    destinationNamePrefix :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items returned. If you don\'t specify a value, the
     -- default is up to 50 items.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The prefix to match. If you don\'t specify a value, no prefix filter is
+    -- applied.
+    destinationNamePrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,18 +77,18 @@ data DescribeDestinations = DescribeDestinations'
 -- 'nextToken', 'describeDestinations_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
 --
--- 'destinationNamePrefix', 'describeDestinations_destinationNamePrefix' - The prefix to match. If you don\'t specify a value, no prefix filter is
--- applied.
---
 -- 'limit', 'describeDestinations_limit' - The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
+--
+-- 'destinationNamePrefix', 'describeDestinations_destinationNamePrefix' - The prefix to match. If you don\'t specify a value, no prefix filter is
+-- applied.
 newDescribeDestinations ::
   DescribeDestinations
 newDescribeDestinations =
   DescribeDestinations'
     { nextToken = Prelude.Nothing,
-      destinationNamePrefix = Prelude.Nothing,
-      limit = Prelude.Nothing
+      limit = Prelude.Nothing,
+      destinationNamePrefix = Prelude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
@@ -96,15 +96,15 @@ newDescribeDestinations =
 describeDestinations_nextToken :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Text)
 describeDestinations_nextToken = Lens.lens (\DescribeDestinations' {nextToken} -> nextToken) (\s@DescribeDestinations' {} a -> s {nextToken = a} :: DescribeDestinations)
 
--- | The prefix to match. If you don\'t specify a value, no prefix filter is
--- applied.
-describeDestinations_destinationNamePrefix :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Text)
-describeDestinations_destinationNamePrefix = Lens.lens (\DescribeDestinations' {destinationNamePrefix} -> destinationNamePrefix) (\s@DescribeDestinations' {} a -> s {destinationNamePrefix = a} :: DescribeDestinations)
-
 -- | The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
 describeDestinations_limit :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Natural)
 describeDestinations_limit = Lens.lens (\DescribeDestinations' {limit} -> limit) (\s@DescribeDestinations' {} a -> s {limit = a} :: DescribeDestinations)
+
+-- | The prefix to match. If you don\'t specify a value, no prefix filter is
+-- applied.
+describeDestinations_destinationNamePrefix :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Text)
+describeDestinations_destinationNamePrefix = Lens.lens (\DescribeDestinations' {destinationNamePrefix} -> destinationNamePrefix) (\s@DescribeDestinations' {} a -> s {destinationNamePrefix = a} :: DescribeDestinations)
 
 instance Core.AWSPager DescribeDestinations where
   page rq rs
@@ -166,9 +166,9 @@ instance Core.ToJSON DescribeDestinations where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("limit" Core..=) Prelude.<$> limit,
             ("DestinationNamePrefix" Core..=)
-              Prelude.<$> destinationNamePrefix,
-            ("limit" Core..=) Prelude.<$> limit
+              Prelude.<$> destinationNamePrefix
           ]
       )
 
@@ -219,7 +219,7 @@ describeDestinationsResponse_nextToken = Lens.lens (\DescribeDestinationsRespons
 
 -- | The destinations.
 describeDestinationsResponse_destinations :: Lens.Lens' DescribeDestinationsResponse (Prelude.Maybe [Destination])
-describeDestinationsResponse_destinations = Lens.lens (\DescribeDestinationsResponse' {destinations} -> destinations) (\s@DescribeDestinationsResponse' {} a -> s {destinations = a} :: DescribeDestinationsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeDestinationsResponse_destinations = Lens.lens (\DescribeDestinationsResponse' {destinations} -> destinations) (\s@DescribeDestinationsResponse' {} a -> s {destinations = a} :: DescribeDestinationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeDestinationsResponse_httpStatus :: Lens.Lens' DescribeDestinationsResponse Prelude.Int

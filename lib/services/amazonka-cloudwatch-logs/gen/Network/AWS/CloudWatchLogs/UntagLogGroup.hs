@@ -81,7 +81,7 @@ newUntagLogGroup ::
 newUntagLogGroup pLogGroupName_ pTags_ =
   UntagLogGroup'
     { logGroupName = pLogGroupName_,
-      tags = Lens._Coerce Lens.# pTags_
+      tags = Lens.coerced Lens.# pTags_
     }
 
 -- | The name of the log group.
@@ -90,7 +90,7 @@ untagLogGroup_logGroupName = Lens.lens (\UntagLogGroup' {logGroupName} -> logGro
 
 -- | The tag keys. The corresponding tags are removed from the log group.
 untagLogGroup_tags :: Lens.Lens' UntagLogGroup (Prelude.NonEmpty Prelude.Text)
-untagLogGroup_tags = Lens.lens (\UntagLogGroup' {tags} -> tags) (\s@UntagLogGroup' {} a -> s {tags = a} :: UntagLogGroup) Prelude.. Lens._Coerce
+untagLogGroup_tags = Lens.lens (\UntagLogGroup' {tags} -> tags) (\s@UntagLogGroup' {} a -> s {tags = a} :: UntagLogGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagLogGroup where
   type

@@ -49,8 +49,8 @@ module Network.AWS.CloudWatchLogs.GetQueryResults
 
     -- * Response Lenses
     getQueryResultsResponse_status,
-    getQueryResultsResponse_statistics,
     getQueryResultsResponse_results,
+    getQueryResultsResponse_statistics,
     getQueryResultsResponse_httpStatus,
   )
 where
@@ -99,8 +99,8 @@ instance Core.AWSRequest GetQueryResults where
       ( \s h x ->
           GetQueryResultsResponse'
             Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "statistics")
             Prelude.<*> (x Core..?> "results" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "statistics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,11 +146,6 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
     -- queries time out, reduce the time range being searched or partition your
     -- query into a number of queries.
     status :: Prelude.Maybe QueryStatus,
-    -- | Includes the number of log events scanned by the query, the number of
-    -- log events that matched the query criteria, and the total number of
-    -- bytes in the log events that were scanned. These values reflect the full
-    -- raw results of the query.
-    statistics :: Prelude.Maybe QueryStatistics,
     -- | The log events that matched the query criteria during the most recent
     -- time it ran.
     --
@@ -158,6 +153,11 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
     -- in the top-level array. Each of these log event objects is an array of
     -- @field@\/@value@ pairs.
     results :: Prelude.Maybe [[ResultField]],
+    -- | Includes the number of log events scanned by the query, the number of
+    -- log events that matched the query criteria, and the total number of
+    -- bytes in the log events that were scanned. These values reflect the full
+    -- raw results of the query.
+    statistics :: Prelude.Maybe QueryStatistics,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,17 +179,17 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
 -- queries time out, reduce the time range being searched or partition your
 -- query into a number of queries.
 --
--- 'statistics', 'getQueryResultsResponse_statistics' - Includes the number of log events scanned by the query, the number of
--- log events that matched the query criteria, and the total number of
--- bytes in the log events that were scanned. These values reflect the full
--- raw results of the query.
---
 -- 'results', 'getQueryResultsResponse_results' - The log events that matched the query criteria during the most recent
 -- time it ran.
 --
 -- The @results@ value is an array of arrays. Each log event is one object
 -- in the top-level array. Each of these log event objects is an array of
 -- @field@\/@value@ pairs.
+--
+-- 'statistics', 'getQueryResultsResponse_statistics' - Includes the number of log events scanned by the query, the number of
+-- log events that matched the query criteria, and the total number of
+-- bytes in the log events that were scanned. These values reflect the full
+-- raw results of the query.
 --
 -- 'httpStatus', 'getQueryResultsResponse_httpStatus' - The response's http status code.
 newGetQueryResultsResponse ::
@@ -199,8 +199,8 @@ newGetQueryResultsResponse ::
 newGetQueryResultsResponse pHttpStatus_ =
   GetQueryResultsResponse'
     { status = Prelude.Nothing,
-      statistics = Prelude.Nothing,
       results = Prelude.Nothing,
+      statistics = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -214,13 +214,6 @@ newGetQueryResultsResponse pHttpStatus_ =
 getQueryResultsResponse_status :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe QueryStatus)
 getQueryResultsResponse_status = Lens.lens (\GetQueryResultsResponse' {status} -> status) (\s@GetQueryResultsResponse' {} a -> s {status = a} :: GetQueryResultsResponse)
 
--- | Includes the number of log events scanned by the query, the number of
--- log events that matched the query criteria, and the total number of
--- bytes in the log events that were scanned. These values reflect the full
--- raw results of the query.
-getQueryResultsResponse_statistics :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe QueryStatistics)
-getQueryResultsResponse_statistics = Lens.lens (\GetQueryResultsResponse' {statistics} -> statistics) (\s@GetQueryResultsResponse' {} a -> s {statistics = a} :: GetQueryResultsResponse)
-
 -- | The log events that matched the query criteria during the most recent
 -- time it ran.
 --
@@ -228,7 +221,14 @@ getQueryResultsResponse_statistics = Lens.lens (\GetQueryResultsResponse' {stati
 -- in the top-level array. Each of these log event objects is an array of
 -- @field@\/@value@ pairs.
 getQueryResultsResponse_results :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe [[ResultField]])
-getQueryResultsResponse_results = Lens.lens (\GetQueryResultsResponse' {results} -> results) (\s@GetQueryResultsResponse' {} a -> s {results = a} :: GetQueryResultsResponse) Prelude.. Lens.mapping Lens._Coerce
+getQueryResultsResponse_results = Lens.lens (\GetQueryResultsResponse' {results} -> results) (\s@GetQueryResultsResponse' {} a -> s {results = a} :: GetQueryResultsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Includes the number of log events scanned by the query, the number of
+-- log events that matched the query criteria, and the total number of
+-- bytes in the log events that were scanned. These values reflect the full
+-- raw results of the query.
+getQueryResultsResponse_statistics :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe QueryStatistics)
+getQueryResultsResponse_statistics = Lens.lens (\GetQueryResultsResponse' {statistics} -> statistics) (\s@GetQueryResultsResponse' {} a -> s {statistics = a} :: GetQueryResultsResponse)
 
 -- | The response's http status code.
 getQueryResultsResponse_httpStatus :: Lens.Lens' GetQueryResultsResponse Prelude.Int

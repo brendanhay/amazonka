@@ -32,10 +32,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResultField' smart constructor.
 data ResultField = ResultField'
-  { -- | The value of this field.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The log event field.
-    field :: Prelude.Maybe Prelude.Text
+  { -- | The log event field.
+    field :: Prelude.Maybe Prelude.Text,
+    -- | The value of this field.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,24 @@ data ResultField = ResultField'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'resultField_value' - The value of this field.
---
 -- 'field', 'resultField_field' - The log event field.
+--
+-- 'value', 'resultField_value' - The value of this field.
 newResultField ::
   ResultField
 newResultField =
   ResultField'
-    { value = Prelude.Nothing,
-      field = Prelude.Nothing
+    { field = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value of this field.
-resultField_value :: Lens.Lens' ResultField (Prelude.Maybe Prelude.Text)
-resultField_value = Lens.lens (\ResultField' {value} -> value) (\s@ResultField' {} a -> s {value = a} :: ResultField)
 
 -- | The log event field.
 resultField_field :: Lens.Lens' ResultField (Prelude.Maybe Prelude.Text)
 resultField_field = Lens.lens (\ResultField' {field} -> field) (\s@ResultField' {} a -> s {field = a} :: ResultField)
+
+-- | The value of this field.
+resultField_value :: Lens.Lens' ResultField (Prelude.Maybe Prelude.Text)
+resultField_value = Lens.lens (\ResultField' {value} -> value) (\s@ResultField' {} a -> s {value = a} :: ResultField)
 
 instance Core.FromJSON ResultField where
   parseJSON =
@@ -72,8 +72,8 @@ instance Core.FromJSON ResultField where
       "ResultField"
       ( \x ->
           ResultField'
-            Prelude.<$> (x Core..:? "value")
-            Prelude.<*> (x Core..:? "field")
+            Prelude.<$> (x Core..:? "field")
+            Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable ResultField

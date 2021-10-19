@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newExportTaskStatus' smart constructor.
 data ExportTaskStatus = ExportTaskStatus'
-  { -- | The status message related to the status code.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The status code of the export task.
-    code :: Prelude.Maybe ExportTaskStatusCode
+  { -- | The status code of the export task.
+    code :: Prelude.Maybe ExportTaskStatusCode,
+    -- | The status message related to the status code.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data ExportTaskStatus = ExportTaskStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'exportTaskStatus_message' - The status message related to the status code.
---
 -- 'code', 'exportTaskStatus_code' - The status code of the export task.
+--
+-- 'message', 'exportTaskStatus_message' - The status message related to the status code.
 newExportTaskStatus ::
   ExportTaskStatus
 newExportTaskStatus =
   ExportTaskStatus'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The status message related to the status code.
-exportTaskStatus_message :: Lens.Lens' ExportTaskStatus (Prelude.Maybe Prelude.Text)
-exportTaskStatus_message = Lens.lens (\ExportTaskStatus' {message} -> message) (\s@ExportTaskStatus' {} a -> s {message = a} :: ExportTaskStatus)
 
 -- | The status code of the export task.
 exportTaskStatus_code :: Lens.Lens' ExportTaskStatus (Prelude.Maybe ExportTaskStatusCode)
 exportTaskStatus_code = Lens.lens (\ExportTaskStatus' {code} -> code) (\s@ExportTaskStatus' {} a -> s {code = a} :: ExportTaskStatus)
+
+-- | The status message related to the status code.
+exportTaskStatus_message :: Lens.Lens' ExportTaskStatus (Prelude.Maybe Prelude.Text)
+exportTaskStatus_message = Lens.lens (\ExportTaskStatus' {message} -> message) (\s@ExportTaskStatus' {} a -> s {message = a} :: ExportTaskStatus)
 
 instance Core.FromJSON ExportTaskStatus where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON ExportTaskStatus where
       "ExportTaskStatus"
       ( \x ->
           ExportTaskStatus'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Core..:? "code")
+            Prelude.<*> (x Core..:? "message")
       )
 
 instance Prelude.Hashable ExportTaskStatus

@@ -41,8 +41,8 @@ module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
     newDescribeSubscriptionFiltersResponse,
 
     -- * Response Lenses
-    describeSubscriptionFiltersResponse_nextToken,
     describeSubscriptionFiltersResponse_subscriptionFilters,
+    describeSubscriptionFiltersResponse_nextToken,
     describeSubscriptionFiltersResponse_httpStatus,
   )
 where
@@ -151,10 +151,10 @@ instance Core.AWSRequest DescribeSubscriptionFilters where
     Response.receiveJSON
       ( \s h x ->
           DescribeSubscriptionFiltersResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "subscriptionFilters"
+            Prelude.<$> ( x Core..?> "subscriptionFilters"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,9 +197,9 @@ instance Core.ToQuery DescribeSubscriptionFilters where
 
 -- | /See:/ 'newDescribeSubscriptionFiltersResponse' smart constructor.
 data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The subscription filters.
+  { -- | The subscription filters.
     subscriptionFilters :: Prelude.Maybe [SubscriptionFilter],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,9 +213,9 @@ data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSubscriptionFiltersResponse_nextToken' - Undocumented member.
---
 -- 'subscriptionFilters', 'describeSubscriptionFiltersResponse_subscriptionFilters' - The subscription filters.
+--
+-- 'nextToken', 'describeSubscriptionFiltersResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'describeSubscriptionFiltersResponse_httpStatus' - The response's http status code.
 newDescribeSubscriptionFiltersResponse ::
@@ -224,19 +224,19 @@ newDescribeSubscriptionFiltersResponse ::
   DescribeSubscriptionFiltersResponse
 newDescribeSubscriptionFiltersResponse pHttpStatus_ =
   DescribeSubscriptionFiltersResponse'
-    { nextToken =
+    { subscriptionFilters =
         Prelude.Nothing,
-      subscriptionFilters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The subscription filters.
+describeSubscriptionFiltersResponse_subscriptionFilters :: Lens.Lens' DescribeSubscriptionFiltersResponse (Prelude.Maybe [SubscriptionFilter])
+describeSubscriptionFiltersResponse_subscriptionFilters = Lens.lens (\DescribeSubscriptionFiltersResponse' {subscriptionFilters} -> subscriptionFilters) (\s@DescribeSubscriptionFiltersResponse' {} a -> s {subscriptionFilters = a} :: DescribeSubscriptionFiltersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 describeSubscriptionFiltersResponse_nextToken :: Lens.Lens' DescribeSubscriptionFiltersResponse (Prelude.Maybe Prelude.Text)
 describeSubscriptionFiltersResponse_nextToken = Lens.lens (\DescribeSubscriptionFiltersResponse' {nextToken} -> nextToken) (\s@DescribeSubscriptionFiltersResponse' {} a -> s {nextToken = a} :: DescribeSubscriptionFiltersResponse)
-
--- | The subscription filters.
-describeSubscriptionFiltersResponse_subscriptionFilters :: Lens.Lens' DescribeSubscriptionFiltersResponse (Prelude.Maybe [SubscriptionFilter])
-describeSubscriptionFiltersResponse_subscriptionFilters = Lens.lens (\DescribeSubscriptionFiltersResponse' {subscriptionFilters} -> subscriptionFilters) (\s@DescribeSubscriptionFiltersResponse' {} a -> s {subscriptionFilters = a} :: DescribeSubscriptionFiltersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeSubscriptionFiltersResponse_httpStatus :: Lens.Lens' DescribeSubscriptionFiltersResponse Prelude.Int

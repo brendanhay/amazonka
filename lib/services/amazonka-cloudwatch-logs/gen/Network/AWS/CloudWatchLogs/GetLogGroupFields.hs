@@ -198,7 +198,7 @@ newGetLogGroupFieldsResponse pHttpStatus_ =
 -- contains the name of the field, along with the percentage of time it
 -- appeared in the log events that were queried.
 getLogGroupFieldsResponse_logGroupFields :: Lens.Lens' GetLogGroupFieldsResponse (Prelude.Maybe [LogGroupField])
-getLogGroupFieldsResponse_logGroupFields = Lens.lens (\GetLogGroupFieldsResponse' {logGroupFields} -> logGroupFields) (\s@GetLogGroupFieldsResponse' {} a -> s {logGroupFields = a} :: GetLogGroupFieldsResponse) Prelude.. Lens.mapping Lens._Coerce
+getLogGroupFieldsResponse_logGroupFields = Lens.lens (\GetLogGroupFieldsResponse' {logGroupFields} -> logGroupFields) (\s@GetLogGroupFieldsResponse' {} a -> s {logGroupFields = a} :: GetLogGroupFieldsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getLogGroupFieldsResponse_httpStatus :: Lens.Lens' GetLogGroupFieldsResponse Prelude.Int

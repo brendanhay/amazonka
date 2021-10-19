@@ -94,7 +94,7 @@ tagLogGroup_logGroupName = Lens.lens (\TagLogGroup' {logGroupName} -> logGroupNa
 
 -- | The key-value pairs to use for the tags.
 tagLogGroup_tags :: Lens.Lens' TagLogGroup (Prelude.HashMap Prelude.Text Prelude.Text)
-tagLogGroup_tags = Lens.lens (\TagLogGroup' {tags} -> tags) (\s@TagLogGroup' {} a -> s {tags = a} :: TagLogGroup) Prelude.. Lens._Coerce
+tagLogGroup_tags = Lens.lens (\TagLogGroup' {tags} -> tags) (\s@TagLogGroup' {} a -> s {tags = a} :: TagLogGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagLogGroup where
   type AWSResponse TagLogGroup = TagLogGroupResponse

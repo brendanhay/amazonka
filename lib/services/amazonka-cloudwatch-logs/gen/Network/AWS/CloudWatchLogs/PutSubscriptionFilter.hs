@@ -54,8 +54,8 @@ module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
     newPutSubscriptionFilter,
 
     -- * Request Lenses
-    putSubscriptionFilter_roleArn,
     putSubscriptionFilter_distribution,
+    putSubscriptionFilter_roleArn,
     putSubscriptionFilter_logGroupName,
     putSubscriptionFilter_filterName,
     putSubscriptionFilter_filterPattern,
@@ -76,16 +76,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutSubscriptionFilter' smart constructor.
 data PutSubscriptionFilter = PutSubscriptionFilter'
-  { -- | The ARN of an IAM role that grants CloudWatch Logs permissions to
-    -- deliver ingested log events to the destination stream. You don\'t need
-    -- to provide the ARN when you are working with a logical destination for
-    -- cross-account delivery.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The method used to distribute log data to the destination. By default,
+  { -- | The method used to distribute log data to the destination. By default,
     -- log data is grouped by log stream, but the grouping can be set to random
     -- for a more even distribution. This property is only applicable when the
     -- destination is an Amazon Kinesis stream.
     distribution :: Prelude.Maybe Distribution,
+    -- | The ARN of an IAM role that grants CloudWatch Logs permissions to
+    -- deliver ingested log events to the destination stream. You don\'t need
+    -- to provide the ARN when you are working with a logical destination for
+    -- cross-account delivery.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the log group.
     logGroupName :: Prelude.Text,
     -- | A name for the subscription filter. If you are updating an existing
@@ -126,15 +126,15 @@ data PutSubscriptionFilter = PutSubscriptionFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'putSubscriptionFilter_roleArn' - The ARN of an IAM role that grants CloudWatch Logs permissions to
--- deliver ingested log events to the destination stream. You don\'t need
--- to provide the ARN when you are working with a logical destination for
--- cross-account delivery.
---
 -- 'distribution', 'putSubscriptionFilter_distribution' - The method used to distribute log data to the destination. By default,
 -- log data is grouped by log stream, but the grouping can be set to random
 -- for a more even distribution. This property is only applicable when the
 -- destination is an Amazon Kinesis stream.
+--
+-- 'roleArn', 'putSubscriptionFilter_roleArn' - The ARN of an IAM role that grants CloudWatch Logs permissions to
+-- deliver ingested log events to the destination stream. You don\'t need
+-- to provide the ARN when you are working with a logical destination for
+-- cross-account delivery.
 --
 -- 'logGroupName', 'putSubscriptionFilter_logGroupName' - The name of the log group.
 --
@@ -180,20 +180,14 @@ newPutSubscriptionFilter
   pFilterPattern_
   pDestinationArn_ =
     PutSubscriptionFilter'
-      { roleArn = Prelude.Nothing,
-        distribution = Prelude.Nothing,
+      { distribution =
+          Prelude.Nothing,
+        roleArn = Prelude.Nothing,
         logGroupName = pLogGroupName_,
         filterName = pFilterName_,
         filterPattern = pFilterPattern_,
         destinationArn = pDestinationArn_
       }
-
--- | The ARN of an IAM role that grants CloudWatch Logs permissions to
--- deliver ingested log events to the destination stream. You don\'t need
--- to provide the ARN when you are working with a logical destination for
--- cross-account delivery.
-putSubscriptionFilter_roleArn :: Lens.Lens' PutSubscriptionFilter (Prelude.Maybe Prelude.Text)
-putSubscriptionFilter_roleArn = Lens.lens (\PutSubscriptionFilter' {roleArn} -> roleArn) (\s@PutSubscriptionFilter' {} a -> s {roleArn = a} :: PutSubscriptionFilter)
 
 -- | The method used to distribute log data to the destination. By default,
 -- log data is grouped by log stream, but the grouping can be set to random
@@ -201,6 +195,13 @@ putSubscriptionFilter_roleArn = Lens.lens (\PutSubscriptionFilter' {roleArn} -> 
 -- destination is an Amazon Kinesis stream.
 putSubscriptionFilter_distribution :: Lens.Lens' PutSubscriptionFilter (Prelude.Maybe Distribution)
 putSubscriptionFilter_distribution = Lens.lens (\PutSubscriptionFilter' {distribution} -> distribution) (\s@PutSubscriptionFilter' {} a -> s {distribution = a} :: PutSubscriptionFilter)
+
+-- | The ARN of an IAM role that grants CloudWatch Logs permissions to
+-- deliver ingested log events to the destination stream. You don\'t need
+-- to provide the ARN when you are working with a logical destination for
+-- cross-account delivery.
+putSubscriptionFilter_roleArn :: Lens.Lens' PutSubscriptionFilter (Prelude.Maybe Prelude.Text)
+putSubscriptionFilter_roleArn = Lens.lens (\PutSubscriptionFilter' {roleArn} -> roleArn) (\s@PutSubscriptionFilter' {} a -> s {roleArn = a} :: PutSubscriptionFilter)
 
 -- | The name of the log group.
 putSubscriptionFilter_logGroupName :: Lens.Lens' PutSubscriptionFilter Prelude.Text
@@ -270,8 +271,8 @@ instance Core.ToJSON PutSubscriptionFilter where
   toJSON PutSubscriptionFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("distribution" Core..=) Prelude.<$> distribution,
+          [ ("distribution" Core..=) Prelude.<$> distribution,
+            ("roleArn" Core..=) Prelude.<$> roleArn,
             Prelude.Just ("logGroupName" Core..= logGroupName),
             Prelude.Just ("filterName" Core..= filterName),
             Prelude.Just ("filterPattern" Core..= filterPattern),

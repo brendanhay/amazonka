@@ -37,8 +37,8 @@ module Network.AWS.Lambda.GetPolicy
     newGetPolicyResponse,
 
     -- * Response Lenses
-    getPolicyResponse_revisionId,
     getPolicyResponse_policy,
+    getPolicyResponse_revisionId,
     getPolicyResponse_httpStatus,
   )
 where
@@ -137,8 +137,8 @@ instance Core.AWSRequest GetPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetPolicyResponse'
-            Prelude.<$> (x Core..?> "RevisionId")
-            Prelude.<*> (x Core..?> "Policy")
+            Prelude.<$> (x Core..?> "Policy")
+            Prelude.<*> (x Core..?> "RevisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,10 +163,10 @@ instance Core.ToQuery GetPolicy where
 
 -- | /See:/ 'newGetPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
-  { -- | A unique identifier for the current revision of the policy.
-    revisionId :: Prelude.Maybe Prelude.Text,
-    -- | The resource-based policy.
+  { -- | The resource-based policy.
     policy :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the current revision of the policy.
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,9 +180,9 @@ data GetPolicyResponse = GetPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revisionId', 'getPolicyResponse_revisionId' - A unique identifier for the current revision of the policy.
---
 -- 'policy', 'getPolicyResponse_policy' - The resource-based policy.
+--
+-- 'revisionId', 'getPolicyResponse_revisionId' - A unique identifier for the current revision of the policy.
 --
 -- 'httpStatus', 'getPolicyResponse_httpStatus' - The response's http status code.
 newGetPolicyResponse ::
@@ -191,18 +191,18 @@ newGetPolicyResponse ::
   GetPolicyResponse
 newGetPolicyResponse pHttpStatus_ =
   GetPolicyResponse'
-    { revisionId = Prelude.Nothing,
-      policy = Prelude.Nothing,
+    { policy = Prelude.Nothing,
+      revisionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A unique identifier for the current revision of the policy.
-getPolicyResponse_revisionId :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
-getPolicyResponse_revisionId = Lens.lens (\GetPolicyResponse' {revisionId} -> revisionId) (\s@GetPolicyResponse' {} a -> s {revisionId = a} :: GetPolicyResponse)
 
 -- | The resource-based policy.
 getPolicyResponse_policy :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
 getPolicyResponse_policy = Lens.lens (\GetPolicyResponse' {policy} -> policy) (\s@GetPolicyResponse' {} a -> s {policy = a} :: GetPolicyResponse)
+
+-- | A unique identifier for the current revision of the policy.
+getPolicyResponse_revisionId :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
+getPolicyResponse_revisionId = Lens.lens (\GetPolicyResponse' {revisionId} -> revisionId) (\s@GetPolicyResponse' {} a -> s {revisionId = a} :: GetPolicyResponse)
 
 -- | The response's http status code.
 getPolicyResponse_httpStatus :: Lens.Lens' GetPolicyResponse Prelude.Int

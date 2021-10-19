@@ -58,7 +58,7 @@ newSelfManagedEventSource =
 -- format:
 -- @\"KAFKA_BOOTSTRAP_SERVERS\": [\"abc.xyz.com:xxxx\",\"abc2.xyz.com:xxxx\"]@.
 selfManagedEventSource_endpoints :: Lens.Lens' SelfManagedEventSource (Prelude.Maybe (Prelude.HashMap EndPointType (Prelude.NonEmpty Prelude.Text)))
-selfManagedEventSource_endpoints = Lens.lens (\SelfManagedEventSource' {endpoints} -> endpoints) (\s@SelfManagedEventSource' {} a -> s {endpoints = a} :: SelfManagedEventSource) Prelude.. Lens.mapping Lens._Coerce
+selfManagedEventSource_endpoints = Lens.lens (\SelfManagedEventSource' {endpoints} -> endpoints) (\s@SelfManagedEventSource' {} a -> s {endpoints = a} :: SelfManagedEventSource) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON SelfManagedEventSource where
   parseJSON =

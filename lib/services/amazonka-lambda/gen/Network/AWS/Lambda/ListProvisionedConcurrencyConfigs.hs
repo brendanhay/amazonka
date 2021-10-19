@@ -30,8 +30,8 @@ module Network.AWS.Lambda.ListProvisionedConcurrencyConfigs
     newListProvisionedConcurrencyConfigs,
 
     -- * Request Lenses
-    listProvisionedConcurrencyConfigs_maxItems,
     listProvisionedConcurrencyConfigs_marker,
+    listProvisionedConcurrencyConfigs_maxItems,
     listProvisionedConcurrencyConfigs_functionName,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListProvisionedConcurrencyConfigs' smart constructor.
 data ListProvisionedConcurrencyConfigs = ListProvisionedConcurrencyConfigs'
-  { -- | Specify a number to limit the number of configurations returned.
-    maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the pagination token that\'s returned by a previous request to
+  { -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | Specify a number to limit the number of configurations returned.
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -84,10 +84,10 @@ data ListProvisionedConcurrencyConfigs = ListProvisionedConcurrencyConfigs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listProvisionedConcurrencyConfigs_maxItems' - Specify a number to limit the number of configurations returned.
---
 -- 'marker', 'listProvisionedConcurrencyConfigs_marker' - Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
+--
+-- 'maxItems', 'listProvisionedConcurrencyConfigs_maxItems' - Specify a number to limit the number of configurations returned.
 --
 -- 'functionName', 'listProvisionedConcurrencyConfigs_functionName' - The name of the Lambda function.
 --
@@ -108,20 +108,20 @@ newListProvisionedConcurrencyConfigs ::
   ListProvisionedConcurrencyConfigs
 newListProvisionedConcurrencyConfigs pFunctionName_ =
   ListProvisionedConcurrencyConfigs'
-    { maxItems =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
       functionName = pFunctionName_
     }
-
--- | Specify a number to limit the number of configurations returned.
-listProvisionedConcurrencyConfigs_maxItems :: Lens.Lens' ListProvisionedConcurrencyConfigs (Prelude.Maybe Prelude.Natural)
-listProvisionedConcurrencyConfigs_maxItems = Lens.lens (\ListProvisionedConcurrencyConfigs' {maxItems} -> maxItems) (\s@ListProvisionedConcurrencyConfigs' {} a -> s {maxItems = a} :: ListProvisionedConcurrencyConfigs)
 
 -- | Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
 listProvisionedConcurrencyConfigs_marker :: Lens.Lens' ListProvisionedConcurrencyConfigs (Prelude.Maybe Prelude.Text)
 listProvisionedConcurrencyConfigs_marker = Lens.lens (\ListProvisionedConcurrencyConfigs' {marker} -> marker) (\s@ListProvisionedConcurrencyConfigs' {} a -> s {marker = a} :: ListProvisionedConcurrencyConfigs)
+
+-- | Specify a number to limit the number of configurations returned.
+listProvisionedConcurrencyConfigs_maxItems :: Lens.Lens' ListProvisionedConcurrencyConfigs (Prelude.Maybe Prelude.Natural)
+listProvisionedConcurrencyConfigs_maxItems = Lens.lens (\ListProvisionedConcurrencyConfigs' {maxItems} -> maxItems) (\s@ListProvisionedConcurrencyConfigs' {} a -> s {maxItems = a} :: ListProvisionedConcurrencyConfigs)
 
 -- | The name of the Lambda function.
 --
@@ -214,8 +214,8 @@ instance
   where
   toQuery ListProvisionedConcurrencyConfigs' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker,
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems,
         "List=ALL"
       ]
 
@@ -258,7 +258,7 @@ newListProvisionedConcurrencyConfigsResponse
 
 -- | A list of provisioned concurrency configurations.
 listProvisionedConcurrencyConfigsResponse_provisionedConcurrencyConfigs :: Lens.Lens' ListProvisionedConcurrencyConfigsResponse (Prelude.Maybe [ProvisionedConcurrencyConfigListItem])
-listProvisionedConcurrencyConfigsResponse_provisionedConcurrencyConfigs = Lens.lens (\ListProvisionedConcurrencyConfigsResponse' {provisionedConcurrencyConfigs} -> provisionedConcurrencyConfigs) (\s@ListProvisionedConcurrencyConfigsResponse' {} a -> s {provisionedConcurrencyConfigs = a} :: ListProvisionedConcurrencyConfigsResponse) Prelude.. Lens.mapping Lens._Coerce
+listProvisionedConcurrencyConfigsResponse_provisionedConcurrencyConfigs = Lens.lens (\ListProvisionedConcurrencyConfigsResponse' {provisionedConcurrencyConfigs} -> provisionedConcurrencyConfigs) (\s@ListProvisionedConcurrencyConfigsResponse' {} a -> s {provisionedConcurrencyConfigs = a} :: ListProvisionedConcurrencyConfigsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that\'s included if more results are available.
 listProvisionedConcurrencyConfigsResponse_nextMarker :: Lens.Lens' ListProvisionedConcurrencyConfigsResponse (Prelude.Maybe Prelude.Text)

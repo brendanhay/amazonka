@@ -24,7 +24,8 @@
 -- use a function. You can apply the policy at the function level, or
 -- specify a qualifier to restrict access to a single version or alias. If
 -- you use a qualifier, the invoker must use the full Amazon Resource Name
--- (ARN) of that version or alias to invoke the function.
+-- (ARN) of that version or alias to invoke the function. Note: Lambda does
+-- not support adding policies to version $LATEST.
 --
 -- To grant permission to another account, specify the account ID as the
 -- @Principal@. For Amazon Web Services services, the principal is a
@@ -44,11 +45,11 @@ module Network.AWS.Lambda.AddPermission
     newAddPermission,
 
     -- * Request Lenses
-    addPermission_revisionId,
-    addPermission_qualifier,
-    addPermission_eventSourceToken,
     addPermission_sourceAccount,
+    addPermission_eventSourceToken,
     addPermission_sourceArn,
+    addPermission_qualifier,
+    addPermission_revisionId,
     addPermission_functionName,
     addPermission_statementId,
     addPermission_action,
@@ -73,25 +74,28 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAddPermission' smart constructor.
 data AddPermission = AddPermission'
-  { -- | Only update the policy if the revision ID matches the ID that\'s
-    -- specified. Use this option to avoid modifying a policy that has changed
-    -- since you last read it.
-    revisionId :: Prelude.Maybe Prelude.Text,
-    -- | Specify a version or alias to add permissions to a published version of
-    -- the function.
-    qualifier :: Prelude.Maybe Prelude.Text,
-    -- | For Alexa Smart Home functions, a token that must be supplied by the
-    -- invoker.
-    eventSourceToken :: Prelude.Maybe Prelude.Text,
-    -- | For Amazon S3, the ID of the account that owns the resource. Use this
+  { -- | For Amazon S3, the ID of the account that owns the resource. Use this
     -- together with @SourceArn@ to ensure that the resource is owned by the
     -- specified account. It is possible for an Amazon S3 bucket to be deleted
     -- by its owner and recreated by another account.
     sourceAccount :: Prelude.Maybe Prelude.Text,
+    -- | For Alexa Smart Home functions, a token that must be supplied by the
+    -- invoker.
+    eventSourceToken :: Prelude.Maybe Prelude.Text,
     -- | For Amazon Web Services services, the ARN of the Amazon Web Services
     -- resource that invokes the function. For example, an Amazon S3 bucket or
     -- Amazon SNS topic.
+    --
+    -- Note that Lambda configures the comparison using the @StringLike@
+    -- operator.
     sourceArn :: Prelude.Maybe Prelude.Text,
+    -- | Specify a version or alias to add permissions to a published version of
+    -- the function.
+    qualifier :: Prelude.Maybe Prelude.Text,
+    -- | Only update the policy if the revision ID matches the ID that\'s
+    -- specified. Use this option to avoid modifying a policy that has changed
+    -- since you last read it.
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function, version, or alias.
     --
     -- __Name formats__
@@ -129,24 +133,27 @@ data AddPermission = AddPermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revisionId', 'addPermission_revisionId' - Only update the policy if the revision ID matches the ID that\'s
--- specified. Use this option to avoid modifying a policy that has changed
--- since you last read it.
---
--- 'qualifier', 'addPermission_qualifier' - Specify a version or alias to add permissions to a published version of
--- the function.
---
--- 'eventSourceToken', 'addPermission_eventSourceToken' - For Alexa Smart Home functions, a token that must be supplied by the
--- invoker.
---
 -- 'sourceAccount', 'addPermission_sourceAccount' - For Amazon S3, the ID of the account that owns the resource. Use this
 -- together with @SourceArn@ to ensure that the resource is owned by the
 -- specified account. It is possible for an Amazon S3 bucket to be deleted
 -- by its owner and recreated by another account.
 --
+-- 'eventSourceToken', 'addPermission_eventSourceToken' - For Alexa Smart Home functions, a token that must be supplied by the
+-- invoker.
+--
 -- 'sourceArn', 'addPermission_sourceArn' - For Amazon Web Services services, the ARN of the Amazon Web Services
 -- resource that invokes the function. For example, an Amazon S3 bucket or
 -- Amazon SNS topic.
+--
+-- Note that Lambda configures the comparison using the @StringLike@
+-- operator.
+--
+-- 'qualifier', 'addPermission_qualifier' - Specify a version or alias to add permissions to a published version of
+-- the function.
+--
+-- 'revisionId', 'addPermission_revisionId' - Only update the policy if the revision ID matches the ID that\'s
+-- specified. Use this option to avoid modifying a policy that has changed
+-- since you last read it.
 --
 -- 'functionName', 'addPermission_functionName' - The name of the Lambda function, version, or alias.
 --
@@ -189,32 +196,16 @@ newAddPermission
   pAction_
   pPrincipal_ =
     AddPermission'
-      { revisionId = Prelude.Nothing,
-        qualifier = Prelude.Nothing,
+      { sourceAccount = Prelude.Nothing,
         eventSourceToken = Prelude.Nothing,
-        sourceAccount = Prelude.Nothing,
         sourceArn = Prelude.Nothing,
+        qualifier = Prelude.Nothing,
+        revisionId = Prelude.Nothing,
         functionName = pFunctionName_,
         statementId = pStatementId_,
         action = pAction_,
         principal = pPrincipal_
       }
-
--- | Only update the policy if the revision ID matches the ID that\'s
--- specified. Use this option to avoid modifying a policy that has changed
--- since you last read it.
-addPermission_revisionId :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
-addPermission_revisionId = Lens.lens (\AddPermission' {revisionId} -> revisionId) (\s@AddPermission' {} a -> s {revisionId = a} :: AddPermission)
-
--- | Specify a version or alias to add permissions to a published version of
--- the function.
-addPermission_qualifier :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
-addPermission_qualifier = Lens.lens (\AddPermission' {qualifier} -> qualifier) (\s@AddPermission' {} a -> s {qualifier = a} :: AddPermission)
-
--- | For Alexa Smart Home functions, a token that must be supplied by the
--- invoker.
-addPermission_eventSourceToken :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
-addPermission_eventSourceToken = Lens.lens (\AddPermission' {eventSourceToken} -> eventSourceToken) (\s@AddPermission' {} a -> s {eventSourceToken = a} :: AddPermission)
 
 -- | For Amazon S3, the ID of the account that owns the resource. Use this
 -- together with @SourceArn@ to ensure that the resource is owned by the
@@ -223,11 +214,30 @@ addPermission_eventSourceToken = Lens.lens (\AddPermission' {eventSourceToken} -
 addPermission_sourceAccount :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
 addPermission_sourceAccount = Lens.lens (\AddPermission' {sourceAccount} -> sourceAccount) (\s@AddPermission' {} a -> s {sourceAccount = a} :: AddPermission)
 
+-- | For Alexa Smart Home functions, a token that must be supplied by the
+-- invoker.
+addPermission_eventSourceToken :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
+addPermission_eventSourceToken = Lens.lens (\AddPermission' {eventSourceToken} -> eventSourceToken) (\s@AddPermission' {} a -> s {eventSourceToken = a} :: AddPermission)
+
 -- | For Amazon Web Services services, the ARN of the Amazon Web Services
 -- resource that invokes the function. For example, an Amazon S3 bucket or
 -- Amazon SNS topic.
+--
+-- Note that Lambda configures the comparison using the @StringLike@
+-- operator.
 addPermission_sourceArn :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
 addPermission_sourceArn = Lens.lens (\AddPermission' {sourceArn} -> sourceArn) (\s@AddPermission' {} a -> s {sourceArn = a} :: AddPermission)
+
+-- | Specify a version or alias to add permissions to a published version of
+-- the function.
+addPermission_qualifier :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
+addPermission_qualifier = Lens.lens (\AddPermission' {qualifier} -> qualifier) (\s@AddPermission' {} a -> s {qualifier = a} :: AddPermission)
+
+-- | Only update the policy if the revision ID matches the ID that\'s
+-- specified. Use this option to avoid modifying a policy that has changed
+-- since you last read it.
+addPermission_revisionId :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
+addPermission_revisionId = Lens.lens (\AddPermission' {revisionId} -> revisionId) (\s@AddPermission' {} a -> s {revisionId = a} :: AddPermission)
 
 -- | The name of the Lambda function, version, or alias.
 --
@@ -287,11 +297,11 @@ instance Core.ToJSON AddPermission where
   toJSON AddPermission' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RevisionId" Core..=) Prelude.<$> revisionId,
+          [ ("SourceAccount" Core..=) Prelude.<$> sourceAccount,
             ("EventSourceToken" Core..=)
               Prelude.<$> eventSourceToken,
-            ("SourceAccount" Core..=) Prelude.<$> sourceAccount,
             ("SourceArn" Core..=) Prelude.<$> sourceArn,
+            ("RevisionId" Core..=) Prelude.<$> revisionId,
             Prelude.Just ("StatementId" Core..= statementId),
             Prelude.Just ("Action" Core..= action),
             Prelude.Just ("Principal" Core..= principal)

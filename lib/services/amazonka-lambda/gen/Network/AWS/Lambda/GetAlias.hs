@@ -36,12 +36,12 @@ module Network.AWS.Lambda.GetAlias
     newAliasConfiguration,
 
     -- * Response Lenses
-    aliasConfiguration_revisionId,
     aliasConfiguration_routingConfig,
-    aliasConfiguration_functionVersion,
     aliasConfiguration_name,
-    aliasConfiguration_description,
+    aliasConfiguration_functionVersion,
     aliasConfiguration_aliasArn,
+    aliasConfiguration_description,
+    aliasConfiguration_revisionId,
   )
 where
 

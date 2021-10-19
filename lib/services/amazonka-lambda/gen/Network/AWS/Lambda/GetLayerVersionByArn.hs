@@ -36,14 +36,15 @@ module Network.AWS.Lambda.GetLayerVersionByArn
     newGetLayerVersionResponse,
 
     -- * Response Lenses
-    getLayerVersionResponse_createdDate,
-    getLayerVersionResponse_layerArn,
-    getLayerVersionResponse_version,
     getLayerVersionResponse_layerVersionArn,
     getLayerVersionResponse_content,
-    getLayerVersionResponse_compatibleRuntimes,
-    getLayerVersionResponse_description,
+    getLayerVersionResponse_createdDate,
+    getLayerVersionResponse_version,
     getLayerVersionResponse_licenseInfo,
+    getLayerVersionResponse_compatibleArchitectures,
+    getLayerVersionResponse_layerArn,
+    getLayerVersionResponse_description,
+    getLayerVersionResponse_compatibleRuntimes,
   )
 where
 

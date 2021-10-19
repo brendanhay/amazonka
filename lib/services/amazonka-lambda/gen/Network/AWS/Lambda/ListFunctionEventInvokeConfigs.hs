@@ -33,8 +33,8 @@ module Network.AWS.Lambda.ListFunctionEventInvokeConfigs
     newListFunctionEventInvokeConfigs,
 
     -- * Request Lenses
-    listFunctionEventInvokeConfigs_maxItems,
     listFunctionEventInvokeConfigs_marker,
+    listFunctionEventInvokeConfigs_maxItems,
     listFunctionEventInvokeConfigs_functionName,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Network.AWS.Lambda.ListFunctionEventInvokeConfigs
     newListFunctionEventInvokeConfigsResponse,
 
     -- * Response Lenses
-    listFunctionEventInvokeConfigsResponse_nextMarker,
     listFunctionEventInvokeConfigsResponse_functionEventInvokeConfigs,
+    listFunctionEventInvokeConfigsResponse_nextMarker,
     listFunctionEventInvokeConfigsResponse_httpStatus,
   )
 where
@@ -57,11 +57,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListFunctionEventInvokeConfigs' smart constructor.
 data ListFunctionEventInvokeConfigs = ListFunctionEventInvokeConfigs'
-  { -- | The maximum number of configurations to return.
-    maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the pagination token that\'s returned by a previous request to
+  { -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of configurations to return.
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -87,10 +87,10 @@ data ListFunctionEventInvokeConfigs = ListFunctionEventInvokeConfigs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listFunctionEventInvokeConfigs_maxItems' - The maximum number of configurations to return.
---
 -- 'marker', 'listFunctionEventInvokeConfigs_marker' - Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
+--
+-- 'maxItems', 'listFunctionEventInvokeConfigs_maxItems' - The maximum number of configurations to return.
 --
 -- 'functionName', 'listFunctionEventInvokeConfigs_functionName' - The name of the Lambda function.
 --
@@ -111,20 +111,20 @@ newListFunctionEventInvokeConfigs ::
   ListFunctionEventInvokeConfigs
 newListFunctionEventInvokeConfigs pFunctionName_ =
   ListFunctionEventInvokeConfigs'
-    { maxItems =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
       functionName = pFunctionName_
     }
-
--- | The maximum number of configurations to return.
-listFunctionEventInvokeConfigs_maxItems :: Lens.Lens' ListFunctionEventInvokeConfigs (Prelude.Maybe Prelude.Natural)
-listFunctionEventInvokeConfigs_maxItems = Lens.lens (\ListFunctionEventInvokeConfigs' {maxItems} -> maxItems) (\s@ListFunctionEventInvokeConfigs' {} a -> s {maxItems = a} :: ListFunctionEventInvokeConfigs)
 
 -- | Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
 listFunctionEventInvokeConfigs_marker :: Lens.Lens' ListFunctionEventInvokeConfigs (Prelude.Maybe Prelude.Text)
 listFunctionEventInvokeConfigs_marker = Lens.lens (\ListFunctionEventInvokeConfigs' {marker} -> marker) (\s@ListFunctionEventInvokeConfigs' {} a -> s {marker = a} :: ListFunctionEventInvokeConfigs)
+
+-- | The maximum number of configurations to return.
+listFunctionEventInvokeConfigs_maxItems :: Lens.Lens' ListFunctionEventInvokeConfigs (Prelude.Maybe Prelude.Natural)
+listFunctionEventInvokeConfigs_maxItems = Lens.lens (\ListFunctionEventInvokeConfigs' {maxItems} -> maxItems) (\s@ListFunctionEventInvokeConfigs' {} a -> s {maxItems = a} :: ListFunctionEventInvokeConfigs)
 
 -- | The name of the Lambda function.
 --
@@ -176,10 +176,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListFunctionEventInvokeConfigsResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
-            Prelude.<*> ( x Core..?> "FunctionEventInvokeConfigs"
+            Prelude.<$> ( x Core..?> "FunctionEventInvokeConfigs"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,16 +208,16 @@ instance Core.ToPath ListFunctionEventInvokeConfigs where
 instance Core.ToQuery ListFunctionEventInvokeConfigs where
   toQuery ListFunctionEventInvokeConfigs' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListFunctionEventInvokeConfigsResponse' smart constructor.
 data ListFunctionEventInvokeConfigsResponse = ListFunctionEventInvokeConfigsResponse'
-  { -- | The pagination token that\'s included if more results are available.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | A list of configurations.
+  { -- | A list of configurations.
     functionEventInvokeConfigs :: Prelude.Maybe [FunctionEventInvokeConfig],
+    -- | The pagination token that\'s included if more results are available.
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -231,9 +231,9 @@ data ListFunctionEventInvokeConfigsResponse = ListFunctionEventInvokeConfigsResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextMarker', 'listFunctionEventInvokeConfigsResponse_nextMarker' - The pagination token that\'s included if more results are available.
---
 -- 'functionEventInvokeConfigs', 'listFunctionEventInvokeConfigsResponse_functionEventInvokeConfigs' - A list of configurations.
+--
+-- 'nextMarker', 'listFunctionEventInvokeConfigsResponse_nextMarker' - The pagination token that\'s included if more results are available.
 --
 -- 'httpStatus', 'listFunctionEventInvokeConfigsResponse_httpStatus' - The response's http status code.
 newListFunctionEventInvokeConfigsResponse ::
@@ -243,20 +243,19 @@ newListFunctionEventInvokeConfigsResponse ::
 newListFunctionEventInvokeConfigsResponse
   pHttpStatus_ =
     ListFunctionEventInvokeConfigsResponse'
-      { nextMarker =
+      { functionEventInvokeConfigs =
           Prelude.Nothing,
-        functionEventInvokeConfigs =
-          Prelude.Nothing,
+        nextMarker = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | A list of configurations.
+listFunctionEventInvokeConfigsResponse_functionEventInvokeConfigs :: Lens.Lens' ListFunctionEventInvokeConfigsResponse (Prelude.Maybe [FunctionEventInvokeConfig])
+listFunctionEventInvokeConfigsResponse_functionEventInvokeConfigs = Lens.lens (\ListFunctionEventInvokeConfigsResponse' {functionEventInvokeConfigs} -> functionEventInvokeConfigs) (\s@ListFunctionEventInvokeConfigsResponse' {} a -> s {functionEventInvokeConfigs = a} :: ListFunctionEventInvokeConfigsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that\'s included if more results are available.
 listFunctionEventInvokeConfigsResponse_nextMarker :: Lens.Lens' ListFunctionEventInvokeConfigsResponse (Prelude.Maybe Prelude.Text)
 listFunctionEventInvokeConfigsResponse_nextMarker = Lens.lens (\ListFunctionEventInvokeConfigsResponse' {nextMarker} -> nextMarker) (\s@ListFunctionEventInvokeConfigsResponse' {} a -> s {nextMarker = a} :: ListFunctionEventInvokeConfigsResponse)
-
--- | A list of configurations.
-listFunctionEventInvokeConfigsResponse_functionEventInvokeConfigs :: Lens.Lens' ListFunctionEventInvokeConfigsResponse (Prelude.Maybe [FunctionEventInvokeConfig])
-listFunctionEventInvokeConfigsResponse_functionEventInvokeConfigs = Lens.lens (\ListFunctionEventInvokeConfigsResponse' {functionEventInvokeConfigs} -> functionEventInvokeConfigs) (\s@ListFunctionEventInvokeConfigsResponse' {} a -> s {functionEventInvokeConfigs = a} :: ListFunctionEventInvokeConfigsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listFunctionEventInvokeConfigsResponse_httpStatus :: Lens.Lens' ListFunctionEventInvokeConfigsResponse Prelude.Int

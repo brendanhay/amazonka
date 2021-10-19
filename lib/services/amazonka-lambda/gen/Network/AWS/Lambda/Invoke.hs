@@ -73,8 +73,8 @@ module Network.AWS.Lambda.Invoke
     newInvoke,
 
     -- * Request Lenses
-    invoke_logType,
     invoke_invocationType,
+    invoke_logType,
     invoke_qualifier,
     invoke_clientContext,
     invoke_functionName,
@@ -85,10 +85,10 @@ module Network.AWS.Lambda.Invoke
     newInvokeResponse,
 
     -- * Response Lenses
-    invokeResponse_payload,
-    invokeResponse_logResult,
-    invokeResponse_executedVersion,
     invokeResponse_functionError,
+    invokeResponse_logResult,
+    invokeResponse_payload,
+    invokeResponse_executedVersion,
     invokeResponse_statusCode,
   )
 where
@@ -102,9 +102,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newInvoke' smart constructor.
 data Invoke = Invoke'
-  { -- | Set to @Tail@ to include the execution log in the response.
-    logType :: Prelude.Maybe LogType,
-    -- | Choose from the following options.
+  { -- | Choose from the following options.
     --
     -- -   @RequestResponse@ (default) - Invoke the function synchronously.
     --     Keep the connection open until the function returns a response or
@@ -118,6 +116,9 @@ data Invoke = Invoke'
     -- -   @DryRun@ - Validate parameter values and verify that the user or
     --     role has permission to invoke the function.
     invocationType :: Prelude.Maybe InvocationType,
+    -- | Set to @Tail@ to include the execution log in the response. Applies to
+    -- synchronously invoked functions only.
+    logType :: Prelude.Maybe LogType,
     -- | Specify a version or alias to invoke a published version of the
     -- function.
     qualifier :: Prelude.Maybe Prelude.Text,
@@ -153,8 +154,6 @@ data Invoke = Invoke'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logType', 'invoke_logType' - Set to @Tail@ to include the execution log in the response.
---
 -- 'invocationType', 'invoke_invocationType' - Choose from the following options.
 --
 -- -   @RequestResponse@ (default) - Invoke the function synchronously.
@@ -168,6 +167,9 @@ data Invoke = Invoke'
 --
 -- -   @DryRun@ - Validate parameter values and verify that the user or
 --     role has permission to invoke the function.
+--
+-- 'logType', 'invoke_logType' - Set to @Tail@ to include the execution log in the response. Applies to
+-- synchronously invoked functions only.
 --
 -- 'qualifier', 'invoke_qualifier' - Specify a version or alias to invoke a published version of the
 -- function.
@@ -200,17 +202,13 @@ newInvoke ::
   Invoke
 newInvoke pFunctionName_ pPayload_ =
   Invoke'
-    { logType = Prelude.Nothing,
-      invocationType = Prelude.Nothing,
+    { invocationType = Prelude.Nothing,
+      logType = Prelude.Nothing,
       qualifier = Prelude.Nothing,
       clientContext = Prelude.Nothing,
       functionName = pFunctionName_,
       payload = pPayload_
     }
-
--- | Set to @Tail@ to include the execution log in the response.
-invoke_logType :: Lens.Lens' Invoke (Prelude.Maybe LogType)
-invoke_logType = Lens.lens (\Invoke' {logType} -> logType) (\s@Invoke' {} a -> s {logType = a} :: Invoke)
 
 -- | Choose from the following options.
 --
@@ -227,6 +225,11 @@ invoke_logType = Lens.lens (\Invoke' {logType} -> logType) (\s@Invoke' {} a -> s
 --     role has permission to invoke the function.
 invoke_invocationType :: Lens.Lens' Invoke (Prelude.Maybe InvocationType)
 invoke_invocationType = Lens.lens (\Invoke' {invocationType} -> invocationType) (\s@Invoke' {} a -> s {invocationType = a} :: Invoke)
+
+-- | Set to @Tail@ to include the execution log in the response. Applies to
+-- synchronously invoked functions only.
+invoke_logType :: Lens.Lens' Invoke (Prelude.Maybe LogType)
+invoke_logType = Lens.lens (\Invoke' {logType} -> logType) (\s@Invoke' {} a -> s {logType = a} :: Invoke)
 
 -- | Specify a version or alias to invoke a published version of the
 -- function.
@@ -267,10 +270,10 @@ instance Core.AWSRequest Invoke where
     Response.receiveBytes
       ( \s h x ->
           InvokeResponse'
-            Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
+            Prelude.<$> (h Core..#? "X-Amz-Function-Error")
             Prelude.<*> (h Core..#? "X-Amz-Log-Result")
+            Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (h Core..#? "X-Amz-Executed-Version")
-            Prelude.<*> (h Core..#? "X-Amz-Function-Error")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -284,8 +287,8 @@ instance Core.ToBody Invoke where
 instance Core.ToHeaders Invoke where
   toHeaders Invoke' {..} =
     Prelude.mconcat
-      [ "X-Amz-Log-Type" Core.=# logType,
-        "X-Amz-Invocation-Type" Core.=# invocationType,
+      [ "X-Amz-Invocation-Type" Core.=# invocationType,
+        "X-Amz-Log-Type" Core.=# logType,
         "X-Amz-Client-Context" Core.=# clientContext
       ]
 
@@ -303,16 +306,16 @@ instance Core.ToQuery Invoke where
 
 -- | /See:/ 'newInvokeResponse' smart constructor.
 data InvokeResponse = InvokeResponse'
-  { -- | The response from the function, or an error object.
-    payload :: Prelude.Maybe Prelude.ByteString,
+  { -- | If present, indicates that an error occurred during function execution.
+    -- Details about the error are included in the response payload.
+    functionError :: Prelude.Maybe Prelude.Text,
     -- | The last 4 KB of the execution log, which is base64 encoded.
     logResult :: Prelude.Maybe Prelude.Text,
+    -- | The response from the function, or an error object.
+    payload :: Prelude.Maybe Prelude.ByteString,
     -- | The version of the function that executed. When you invoke a function
     -- with an alias, this indicates which version the alias resolved to.
     executedVersion :: Prelude.Maybe Prelude.Text,
-    -- | If present, indicates that an error occurred during function execution.
-    -- Details about the error are included in the response payload.
-    functionError :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status code is in the 200 range for a successful request. For
     -- the @RequestResponse@ invocation type, this status code is 200. For the
     -- @Event@ invocation type, this status code is 202. For the @DryRun@
@@ -329,15 +332,15 @@ data InvokeResponse = InvokeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'payload', 'invokeResponse_payload' - The response from the function, or an error object.
+-- 'functionError', 'invokeResponse_functionError' - If present, indicates that an error occurred during function execution.
+-- Details about the error are included in the response payload.
 --
 -- 'logResult', 'invokeResponse_logResult' - The last 4 KB of the execution log, which is base64 encoded.
 --
+-- 'payload', 'invokeResponse_payload' - The response from the function, or an error object.
+--
 -- 'executedVersion', 'invokeResponse_executedVersion' - The version of the function that executed. When you invoke a function
 -- with an alias, this indicates which version the alias resolved to.
---
--- 'functionError', 'invokeResponse_functionError' - If present, indicates that an error occurred during function execution.
--- Details about the error are included in the response payload.
 --
 -- 'statusCode', 'invokeResponse_statusCode' - The HTTP status code is in the 200 range for a successful request. For
 -- the @RequestResponse@ invocation type, this status code is 200. For the
@@ -349,30 +352,30 @@ newInvokeResponse ::
   InvokeResponse
 newInvokeResponse pStatusCode_ =
   InvokeResponse'
-    { payload = Prelude.Nothing,
+    { functionError = Prelude.Nothing,
       logResult = Prelude.Nothing,
+      payload = Prelude.Nothing,
       executedVersion = Prelude.Nothing,
-      functionError = Prelude.Nothing,
       statusCode = pStatusCode_
     }
-
--- | The response from the function, or an error object.
-invokeResponse_payload :: Lens.Lens' InvokeResponse (Prelude.Maybe Prelude.ByteString)
-invokeResponse_payload = Lens.lens (\InvokeResponse' {payload} -> payload) (\s@InvokeResponse' {} a -> s {payload = a} :: InvokeResponse)
-
--- | The last 4 KB of the execution log, which is base64 encoded.
-invokeResponse_logResult :: Lens.Lens' InvokeResponse (Prelude.Maybe Prelude.Text)
-invokeResponse_logResult = Lens.lens (\InvokeResponse' {logResult} -> logResult) (\s@InvokeResponse' {} a -> s {logResult = a} :: InvokeResponse)
-
--- | The version of the function that executed. When you invoke a function
--- with an alias, this indicates which version the alias resolved to.
-invokeResponse_executedVersion :: Lens.Lens' InvokeResponse (Prelude.Maybe Prelude.Text)
-invokeResponse_executedVersion = Lens.lens (\InvokeResponse' {executedVersion} -> executedVersion) (\s@InvokeResponse' {} a -> s {executedVersion = a} :: InvokeResponse)
 
 -- | If present, indicates that an error occurred during function execution.
 -- Details about the error are included in the response payload.
 invokeResponse_functionError :: Lens.Lens' InvokeResponse (Prelude.Maybe Prelude.Text)
 invokeResponse_functionError = Lens.lens (\InvokeResponse' {functionError} -> functionError) (\s@InvokeResponse' {} a -> s {functionError = a} :: InvokeResponse)
+
+-- | The last 4 KB of the execution log, which is base64 encoded.
+invokeResponse_logResult :: Lens.Lens' InvokeResponse (Prelude.Maybe Prelude.Text)
+invokeResponse_logResult = Lens.lens (\InvokeResponse' {logResult} -> logResult) (\s@InvokeResponse' {} a -> s {logResult = a} :: InvokeResponse)
+
+-- | The response from the function, or an error object.
+invokeResponse_payload :: Lens.Lens' InvokeResponse (Prelude.Maybe Prelude.ByteString)
+invokeResponse_payload = Lens.lens (\InvokeResponse' {payload} -> payload) (\s@InvokeResponse' {} a -> s {payload = a} :: InvokeResponse)
+
+-- | The version of the function that executed. When you invoke a function
+-- with an alias, this indicates which version the alias resolved to.
+invokeResponse_executedVersion :: Lens.Lens' InvokeResponse (Prelude.Maybe Prelude.Text)
+invokeResponse_executedVersion = Lens.lens (\InvokeResponse' {executedVersion} -> executedVersion) (\s@InvokeResponse' {} a -> s {executedVersion = a} :: InvokeResponse)
 
 -- | The HTTP status code is in the 200 range for a successful request. For
 -- the @RequestResponse@ invocation type, this status code is 200. For the

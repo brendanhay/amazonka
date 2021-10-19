@@ -31,20 +31,20 @@ import qualified Network.AWS.Prelude as Prelude
 data ProvisionedConcurrencyConfigListItem = ProvisionedConcurrencyConfigListItem'
   { -- | The status of the allocation process.
     status :: Prelude.Maybe ProvisionedConcurrencyStatusEnum,
-    -- | The amount of provisioned concurrency available.
-    availableProvisionedConcurrentExecutions :: Prelude.Maybe Prelude.Natural,
-    -- | The amount of provisioned concurrency requested.
-    requestedProvisionedConcurrentExecutions :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the alias or version.
     functionArn :: Prelude.Maybe Prelude.Text,
+    -- | The amount of provisioned concurrency requested.
+    requestedProvisionedConcurrentExecutions :: Prelude.Maybe Prelude.Natural,
+    -- | The amount of provisioned concurrency available.
+    availableProvisionedConcurrentExecutions :: Prelude.Maybe Prelude.Natural,
+    -- | For failed allocations, the reason that provisioned concurrency could
+    -- not be allocated.
+    statusReason :: Prelude.Maybe Prelude.Text,
     -- | The amount of provisioned concurrency allocated.
     allocatedProvisionedConcurrentExecutions :: Prelude.Maybe Prelude.Natural,
     -- | The date and time that a user last updated the configuration, in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format>.
-    lastModified :: Prelude.Maybe Prelude.Text,
-    -- | For failed allocations, the reason that provisioned concurrency could
-    -- not be allocated.
-    statusReason :: Prelude.Maybe Prelude.Text
+    lastModified :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,51 +58,56 @@ data ProvisionedConcurrencyConfigListItem = ProvisionedConcurrencyConfigListItem
 --
 -- 'status', 'provisionedConcurrencyConfigListItem_status' - The status of the allocation process.
 --
--- 'availableProvisionedConcurrentExecutions', 'provisionedConcurrencyConfigListItem_availableProvisionedConcurrentExecutions' - The amount of provisioned concurrency available.
+-- 'functionArn', 'provisionedConcurrencyConfigListItem_functionArn' - The Amazon Resource Name (ARN) of the alias or version.
 --
 -- 'requestedProvisionedConcurrentExecutions', 'provisionedConcurrencyConfigListItem_requestedProvisionedConcurrentExecutions' - The amount of provisioned concurrency requested.
 --
--- 'functionArn', 'provisionedConcurrencyConfigListItem_functionArn' - The Amazon Resource Name (ARN) of the alias or version.
+-- 'availableProvisionedConcurrentExecutions', 'provisionedConcurrencyConfigListItem_availableProvisionedConcurrentExecutions' - The amount of provisioned concurrency available.
+--
+-- 'statusReason', 'provisionedConcurrencyConfigListItem_statusReason' - For failed allocations, the reason that provisioned concurrency could
+-- not be allocated.
 --
 -- 'allocatedProvisionedConcurrentExecutions', 'provisionedConcurrencyConfigListItem_allocatedProvisionedConcurrentExecutions' - The amount of provisioned concurrency allocated.
 --
 -- 'lastModified', 'provisionedConcurrencyConfigListItem_lastModified' - The date and time that a user last updated the configuration, in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format>.
---
--- 'statusReason', 'provisionedConcurrencyConfigListItem_statusReason' - For failed allocations, the reason that provisioned concurrency could
--- not be allocated.
 newProvisionedConcurrencyConfigListItem ::
   ProvisionedConcurrencyConfigListItem
 newProvisionedConcurrencyConfigListItem =
   ProvisionedConcurrencyConfigListItem'
     { status =
         Prelude.Nothing,
-      availableProvisionedConcurrentExecutions =
-        Prelude.Nothing,
+      functionArn = Prelude.Nothing,
       requestedProvisionedConcurrentExecutions =
         Prelude.Nothing,
-      functionArn = Prelude.Nothing,
+      availableProvisionedConcurrentExecutions =
+        Prelude.Nothing,
+      statusReason = Prelude.Nothing,
       allocatedProvisionedConcurrentExecutions =
         Prelude.Nothing,
-      lastModified = Prelude.Nothing,
-      statusReason = Prelude.Nothing
+      lastModified = Prelude.Nothing
     }
 
 -- | The status of the allocation process.
 provisionedConcurrencyConfigListItem_status :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Prelude.Maybe ProvisionedConcurrencyStatusEnum)
 provisionedConcurrencyConfigListItem_status = Lens.lens (\ProvisionedConcurrencyConfigListItem' {status} -> status) (\s@ProvisionedConcurrencyConfigListItem' {} a -> s {status = a} :: ProvisionedConcurrencyConfigListItem)
 
--- | The amount of provisioned concurrency available.
-provisionedConcurrencyConfigListItem_availableProvisionedConcurrentExecutions :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Prelude.Maybe Prelude.Natural)
-provisionedConcurrencyConfigListItem_availableProvisionedConcurrentExecutions = Lens.lens (\ProvisionedConcurrencyConfigListItem' {availableProvisionedConcurrentExecutions} -> availableProvisionedConcurrentExecutions) (\s@ProvisionedConcurrencyConfigListItem' {} a -> s {availableProvisionedConcurrentExecutions = a} :: ProvisionedConcurrencyConfigListItem)
+-- | The Amazon Resource Name (ARN) of the alias or version.
+provisionedConcurrencyConfigListItem_functionArn :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Prelude.Maybe Prelude.Text)
+provisionedConcurrencyConfigListItem_functionArn = Lens.lens (\ProvisionedConcurrencyConfigListItem' {functionArn} -> functionArn) (\s@ProvisionedConcurrencyConfigListItem' {} a -> s {functionArn = a} :: ProvisionedConcurrencyConfigListItem)
 
 -- | The amount of provisioned concurrency requested.
 provisionedConcurrencyConfigListItem_requestedProvisionedConcurrentExecutions :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Prelude.Maybe Prelude.Natural)
 provisionedConcurrencyConfigListItem_requestedProvisionedConcurrentExecutions = Lens.lens (\ProvisionedConcurrencyConfigListItem' {requestedProvisionedConcurrentExecutions} -> requestedProvisionedConcurrentExecutions) (\s@ProvisionedConcurrencyConfigListItem' {} a -> s {requestedProvisionedConcurrentExecutions = a} :: ProvisionedConcurrencyConfigListItem)
 
--- | The Amazon Resource Name (ARN) of the alias or version.
-provisionedConcurrencyConfigListItem_functionArn :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Prelude.Maybe Prelude.Text)
-provisionedConcurrencyConfigListItem_functionArn = Lens.lens (\ProvisionedConcurrencyConfigListItem' {functionArn} -> functionArn) (\s@ProvisionedConcurrencyConfigListItem' {} a -> s {functionArn = a} :: ProvisionedConcurrencyConfigListItem)
+-- | The amount of provisioned concurrency available.
+provisionedConcurrencyConfigListItem_availableProvisionedConcurrentExecutions :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Prelude.Maybe Prelude.Natural)
+provisionedConcurrencyConfigListItem_availableProvisionedConcurrentExecutions = Lens.lens (\ProvisionedConcurrencyConfigListItem' {availableProvisionedConcurrentExecutions} -> availableProvisionedConcurrentExecutions) (\s@ProvisionedConcurrencyConfigListItem' {} a -> s {availableProvisionedConcurrentExecutions = a} :: ProvisionedConcurrencyConfigListItem)
+
+-- | For failed allocations, the reason that provisioned concurrency could
+-- not be allocated.
+provisionedConcurrencyConfigListItem_statusReason :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Prelude.Maybe Prelude.Text)
+provisionedConcurrencyConfigListItem_statusReason = Lens.lens (\ProvisionedConcurrencyConfigListItem' {statusReason} -> statusReason) (\s@ProvisionedConcurrencyConfigListItem' {} a -> s {statusReason = a} :: ProvisionedConcurrencyConfigListItem)
 
 -- | The amount of provisioned concurrency allocated.
 provisionedConcurrencyConfigListItem_allocatedProvisionedConcurrentExecutions :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Prelude.Maybe Prelude.Natural)
@@ -112,11 +117,6 @@ provisionedConcurrencyConfigListItem_allocatedProvisionedConcurrentExecutions = 
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format>.
 provisionedConcurrencyConfigListItem_lastModified :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Prelude.Maybe Prelude.Text)
 provisionedConcurrencyConfigListItem_lastModified = Lens.lens (\ProvisionedConcurrencyConfigListItem' {lastModified} -> lastModified) (\s@ProvisionedConcurrencyConfigListItem' {} a -> s {lastModified = a} :: ProvisionedConcurrencyConfigListItem)
-
--- | For failed allocations, the reason that provisioned concurrency could
--- not be allocated.
-provisionedConcurrencyConfigListItem_statusReason :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Prelude.Maybe Prelude.Text)
-provisionedConcurrencyConfigListItem_statusReason = Lens.lens (\ProvisionedConcurrencyConfigListItem' {statusReason} -> statusReason) (\s@ProvisionedConcurrencyConfigListItem' {} a -> s {statusReason = a} :: ProvisionedConcurrencyConfigListItem)
 
 instance
   Core.FromJSON
@@ -128,18 +128,18 @@ instance
       ( \x ->
           ProvisionedConcurrencyConfigListItem'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> ( x
-                            Core..:? "AvailableProvisionedConcurrentExecutions"
-                        )
+            Prelude.<*> (x Core..:? "FunctionArn")
             Prelude.<*> ( x
                             Core..:? "RequestedProvisionedConcurrentExecutions"
                         )
-            Prelude.<*> (x Core..:? "FunctionArn")
+            Prelude.<*> ( x
+                            Core..:? "AvailableProvisionedConcurrentExecutions"
+                        )
+            Prelude.<*> (x Core..:? "StatusReason")
             Prelude.<*> ( x
                             Core..:? "AllocatedProvisionedConcurrentExecutions"
                         )
             Prelude.<*> (x Core..:? "LastModified")
-            Prelude.<*> (x Core..:? "StatusReason")
       )
 
 instance

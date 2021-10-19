@@ -53,7 +53,7 @@ newAliasRoutingConfiguration =
 
 -- | The second version, and the percentage of traffic that\'s routed to it.
 aliasRoutingConfiguration_additionalVersionWeights :: Lens.Lens' AliasRoutingConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
-aliasRoutingConfiguration_additionalVersionWeights = Lens.lens (\AliasRoutingConfiguration' {additionalVersionWeights} -> additionalVersionWeights) (\s@AliasRoutingConfiguration' {} a -> s {additionalVersionWeights = a} :: AliasRoutingConfiguration) Prelude.. Lens.mapping Lens._Coerce
+aliasRoutingConfiguration_additionalVersionWeights = Lens.lens (\AliasRoutingConfiguration' {additionalVersionWeights} -> additionalVersionWeights) (\s@AliasRoutingConfiguration' {} a -> s {additionalVersionWeights = a} :: AliasRoutingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON AliasRoutingConfiguration where
   parseJSON =

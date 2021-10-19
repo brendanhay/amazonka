@@ -31,9 +31,9 @@ module Network.AWS.Lambda.ListEventSourceMappings
 
     -- * Request Lenses
     listEventSourceMappings_eventSourceArn,
-    listEventSourceMappings_functionName,
-    listEventSourceMappings_maxItems,
     listEventSourceMappings_marker,
+    listEventSourceMappings_maxItems,
+    listEventSourceMappings_functionName,
 
     -- * Destructuring the Response
     ListEventSourceMappingsResponse (..),
@@ -67,6 +67,12 @@ data ListEventSourceMappings = ListEventSourceMappings'
     -- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
     --     cluster.
     eventSourceArn :: Prelude.Maybe Prelude.Text,
+    -- | A pagination token returned by a previous call.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of event source mappings to return. Note that
+    -- ListEventSourceMappings returns a maximum of 100 items in each response,
+    -- even if you set the number higher.
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -83,13 +89,7 @@ data ListEventSourceMappings = ListEventSourceMappings'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it\'s limited to 64 characters in length.
-    functionName :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of event source mappings to return. Note that
-    -- ListEventSourceMappings returns a maximum of 100 items in each response,
-    -- even if you set the number higher.
-    maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | A pagination token returned by a previous call.
-    marker :: Prelude.Maybe Prelude.Text
+    functionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -113,6 +113,12 @@ data ListEventSourceMappings = ListEventSourceMappings'
 -- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
 --     cluster.
 --
+-- 'marker', 'listEventSourceMappings_marker' - A pagination token returned by a previous call.
+--
+-- 'maxItems', 'listEventSourceMappings_maxItems' - The maximum number of event source mappings to return. Note that
+-- ListEventSourceMappings returns a maximum of 100 items in each response,
+-- even if you set the number higher.
+--
 -- 'functionName', 'listEventSourceMappings_functionName' - The name of the Lambda function.
 --
 -- __Name formats__
@@ -129,21 +135,15 @@ data ListEventSourceMappings = ListEventSourceMappings'
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it\'s limited to 64 characters in length.
---
--- 'maxItems', 'listEventSourceMappings_maxItems' - The maximum number of event source mappings to return. Note that
--- ListEventSourceMappings returns a maximum of 100 items in each response,
--- even if you set the number higher.
---
--- 'marker', 'listEventSourceMappings_marker' - A pagination token returned by a previous call.
 newListEventSourceMappings ::
   ListEventSourceMappings
 newListEventSourceMappings =
   ListEventSourceMappings'
     { eventSourceArn =
         Prelude.Nothing,
-      functionName = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+      functionName = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the event source.
@@ -159,6 +159,16 @@ newListEventSourceMappings =
 --     cluster.
 listEventSourceMappings_eventSourceArn :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
 listEventSourceMappings_eventSourceArn = Lens.lens (\ListEventSourceMappings' {eventSourceArn} -> eventSourceArn) (\s@ListEventSourceMappings' {} a -> s {eventSourceArn = a} :: ListEventSourceMappings)
+
+-- | A pagination token returned by a previous call.
+listEventSourceMappings_marker :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
+listEventSourceMappings_marker = Lens.lens (\ListEventSourceMappings' {marker} -> marker) (\s@ListEventSourceMappings' {} a -> s {marker = a} :: ListEventSourceMappings)
+
+-- | The maximum number of event source mappings to return. Note that
+-- ListEventSourceMappings returns a maximum of 100 items in each response,
+-- even if you set the number higher.
+listEventSourceMappings_maxItems :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Natural)
+listEventSourceMappings_maxItems = Lens.lens (\ListEventSourceMappings' {maxItems} -> maxItems) (\s@ListEventSourceMappings' {} a -> s {maxItems = a} :: ListEventSourceMappings)
 
 -- | The name of the Lambda function.
 --
@@ -178,16 +188,6 @@ listEventSourceMappings_eventSourceArn = Lens.lens (\ListEventSourceMappings' {e
 -- the function name, it\'s limited to 64 characters in length.
 listEventSourceMappings_functionName :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
 listEventSourceMappings_functionName = Lens.lens (\ListEventSourceMappings' {functionName} -> functionName) (\s@ListEventSourceMappings' {} a -> s {functionName = a} :: ListEventSourceMappings)
-
--- | The maximum number of event source mappings to return. Note that
--- ListEventSourceMappings returns a maximum of 100 items in each response,
--- even if you set the number higher.
-listEventSourceMappings_maxItems :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Natural)
-listEventSourceMappings_maxItems = Lens.lens (\ListEventSourceMappings' {maxItems} -> maxItems) (\s@ListEventSourceMappings' {} a -> s {maxItems = a} :: ListEventSourceMappings)
-
--- | A pagination token returned by a previous call.
-listEventSourceMappings_marker :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
-listEventSourceMappings_marker = Lens.lens (\ListEventSourceMappings' {marker} -> marker) (\s@ListEventSourceMappings' {} a -> s {marker = a} :: ListEventSourceMappings)
 
 instance Core.AWSPager ListEventSourceMappings where
   page rq rs
@@ -242,9 +242,9 @@ instance Core.ToQuery ListEventSourceMappings where
   toQuery ListEventSourceMappings' {..} =
     Prelude.mconcat
       [ "EventSourceArn" Core.=: eventSourceArn,
-        "FunctionName" Core.=: functionName,
+        "Marker" Core.=: marker,
         "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+        "FunctionName" Core.=: functionName
       ]
 
 -- | /See:/ 'newListEventSourceMappingsResponse' smart constructor.
@@ -287,7 +287,7 @@ newListEventSourceMappingsResponse pHttpStatus_ =
 
 -- | A list of event source mappings.
 listEventSourceMappingsResponse_eventSourceMappings :: Lens.Lens' ListEventSourceMappingsResponse (Prelude.Maybe [EventSourceMappingConfiguration])
-listEventSourceMappingsResponse_eventSourceMappings = Lens.lens (\ListEventSourceMappingsResponse' {eventSourceMappings} -> eventSourceMappings) (\s@ListEventSourceMappingsResponse' {} a -> s {eventSourceMappings = a} :: ListEventSourceMappingsResponse) Prelude.. Lens.mapping Lens._Coerce
+listEventSourceMappingsResponse_eventSourceMappings = Lens.lens (\ListEventSourceMappingsResponse' {eventSourceMappings} -> eventSourceMappings) (\s@ListEventSourceMappingsResponse' {} a -> s {eventSourceMappings = a} :: ListEventSourceMappingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token that\'s returned when the response doesn\'t contain
 -- all event source mappings.

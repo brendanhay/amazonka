@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEnvironmentError' smart constructor.
 data EnvironmentError = EnvironmentError'
-  { -- | The error message.
-    message :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The error code.
-    errorCode :: Prelude.Maybe Prelude.Text
+  { -- | The error code.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The error message.
+    message :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data EnvironmentError = EnvironmentError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'environmentError_message' - The error message.
---
 -- 'errorCode', 'environmentError_errorCode' - The error code.
+--
+-- 'message', 'environmentError_message' - The error message.
 newEnvironmentError ::
   EnvironmentError
 newEnvironmentError =
   EnvironmentError'
-    { message = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorCode = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The error message.
-environmentError_message :: Lens.Lens' EnvironmentError (Prelude.Maybe Prelude.Text)
-environmentError_message = Lens.lens (\EnvironmentError' {message} -> message) (\s@EnvironmentError' {} a -> s {message = a} :: EnvironmentError) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The error code.
 environmentError_errorCode :: Lens.Lens' EnvironmentError (Prelude.Maybe Prelude.Text)
 environmentError_errorCode = Lens.lens (\EnvironmentError' {errorCode} -> errorCode) (\s@EnvironmentError' {} a -> s {errorCode = a} :: EnvironmentError)
+
+-- | The error message.
+environmentError_message :: Lens.Lens' EnvironmentError (Prelude.Maybe Prelude.Text)
+environmentError_message = Lens.lens (\EnvironmentError' {message} -> message) (\s@EnvironmentError' {} a -> s {message = a} :: EnvironmentError) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON EnvironmentError where
   parseJSON =
@@ -67,8 +67,8 @@ instance Core.FromJSON EnvironmentError where
       "EnvironmentError"
       ( \x ->
           EnvironmentError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "ErrorCode")
+            Prelude.<*> (x Core..:? "Message")
       )
 
 instance Prelude.Hashable EnvironmentError

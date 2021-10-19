@@ -50,13 +50,13 @@ newAllowedPublishers ::
 newAllowedPublishers pSigningProfileVersionArns_ =
   AllowedPublishers'
     { signingProfileVersionArns =
-        Lens._Coerce Lens.# pSigningProfileVersionArns_
+        Lens.coerced Lens.# pSigningProfileVersionArns_
     }
 
 -- | The Amazon Resource Name (ARN) for each of the signing profiles. A
 -- signing profile defines a trusted user who can sign a code package.
 allowedPublishers_signingProfileVersionArns :: Lens.Lens' AllowedPublishers (Prelude.NonEmpty Prelude.Text)
-allowedPublishers_signingProfileVersionArns = Lens.lens (\AllowedPublishers' {signingProfileVersionArns} -> signingProfileVersionArns) (\s@AllowedPublishers' {} a -> s {signingProfileVersionArns = a} :: AllowedPublishers) Prelude.. Lens._Coerce
+allowedPublishers_signingProfileVersionArns = Lens.lens (\AllowedPublishers' {signingProfileVersionArns} -> signingProfileVersionArns) (\s@AllowedPublishers' {} a -> s {signingProfileVersionArns = a} :: AllowedPublishers) Prelude.. Lens.coerced
 
 instance Core.FromJSON AllowedPublishers where
   parseJSON =

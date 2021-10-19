@@ -50,7 +50,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTags' smart constructor.
 data ListTags = ListTags'
-  { -- | The function\'s Amazon Resource Name (ARN).
+  { -- | The function\'s Amazon Resource Name (ARN). Note: Lambda does not
+    -- support adding tags to aliases or versions.
     resource :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +64,8 @@ data ListTags = ListTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resource', 'listTags_resource' - The function\'s Amazon Resource Name (ARN).
+-- 'resource', 'listTags_resource' - The function\'s Amazon Resource Name (ARN). Note: Lambda does not
+-- support adding tags to aliases or versions.
 newListTags ::
   -- | 'resource'
   Prelude.Text ->
@@ -71,7 +73,8 @@ newListTags ::
 newListTags pResource_ =
   ListTags' {resource = pResource_}
 
--- | The function\'s Amazon Resource Name (ARN).
+-- | The function\'s Amazon Resource Name (ARN). Note: Lambda does not
+-- support adding tags to aliases or versions.
 listTags_resource :: Lens.Lens' ListTags Prelude.Text
 listTags_resource = Lens.lens (\ListTags' {resource} -> resource) (\s@ListTags' {} a -> s {resource = a} :: ListTags)
 
@@ -133,7 +136,7 @@ newListTagsResponse pHttpStatus_ =
 
 -- | The function\'s tags.
 listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens._Coerce
+listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int

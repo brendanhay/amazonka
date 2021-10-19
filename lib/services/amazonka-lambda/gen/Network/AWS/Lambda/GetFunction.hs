@@ -38,10 +38,10 @@ module Network.AWS.Lambda.GetFunction
     newGetFunctionResponse,
 
     -- * Response Lenses
-    getFunctionResponse_configuration,
-    getFunctionResponse_code,
-    getFunctionResponse_tags,
     getFunctionResponse_concurrency,
+    getFunctionResponse_code,
+    getFunctionResponse_configuration,
+    getFunctionResponse_tags,
     getFunctionResponse_httpStatus,
   )
 where
@@ -143,10 +143,10 @@ instance Core.AWSRequest GetFunction where
     Response.receiveJSON
       ( \s h x ->
           GetFunctionResponse'
-            Prelude.<$> (x Core..?> "Configuration")
+            Prelude.<$> (x Core..?> "Concurrency")
             Prelude.<*> (x Core..?> "Code")
+            Prelude.<*> (x Core..?> "Configuration")
             Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Concurrency")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,16 +168,16 @@ instance Core.ToQuery GetFunction where
 
 -- | /See:/ 'newGetFunctionResponse' smart constructor.
 data GetFunctionResponse = GetFunctionResponse'
-  { -- | The configuration of the function or version.
-    configuration :: Prelude.Maybe FunctionConfiguration,
+  { -- | The function\'s
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html reserved concurrency>.
+    concurrency :: Prelude.Maybe Concurrency,
     -- | The deployment package of the function or version.
     code :: Prelude.Maybe FunctionCodeLocation,
+    -- | The configuration of the function or version.
+    configuration :: Prelude.Maybe FunctionConfiguration,
     -- | The function\'s
     -- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The function\'s
-    -- <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html reserved concurrency>.
-    concurrency :: Prelude.Maybe Concurrency,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,15 +191,15 @@ data GetFunctionResponse = GetFunctionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configuration', 'getFunctionResponse_configuration' - The configuration of the function or version.
+-- 'concurrency', 'getFunctionResponse_concurrency' - The function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html reserved concurrency>.
 --
 -- 'code', 'getFunctionResponse_code' - The deployment package of the function or version.
 --
+-- 'configuration', 'getFunctionResponse_configuration' - The configuration of the function or version.
+--
 -- 'tags', 'getFunctionResponse_tags' - The function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags>.
---
--- 'concurrency', 'getFunctionResponse_concurrency' - The function\'s
--- <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html reserved concurrency>.
 --
 -- 'httpStatus', 'getFunctionResponse_httpStatus' - The response's http status code.
 newGetFunctionResponse ::
@@ -208,31 +208,30 @@ newGetFunctionResponse ::
   GetFunctionResponse
 newGetFunctionResponse pHttpStatus_ =
   GetFunctionResponse'
-    { configuration =
-        Prelude.Nothing,
+    { concurrency = Prelude.Nothing,
       code = Prelude.Nothing,
+      configuration = Prelude.Nothing,
       tags = Prelude.Nothing,
-      concurrency = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The configuration of the function or version.
-getFunctionResponse_configuration :: Lens.Lens' GetFunctionResponse (Prelude.Maybe FunctionConfiguration)
-getFunctionResponse_configuration = Lens.lens (\GetFunctionResponse' {configuration} -> configuration) (\s@GetFunctionResponse' {} a -> s {configuration = a} :: GetFunctionResponse)
-
--- | The deployment package of the function or version.
-getFunctionResponse_code :: Lens.Lens' GetFunctionResponse (Prelude.Maybe FunctionCodeLocation)
-getFunctionResponse_code = Lens.lens (\GetFunctionResponse' {code} -> code) (\s@GetFunctionResponse' {} a -> s {code = a} :: GetFunctionResponse)
-
--- | The function\'s
--- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags>.
-getFunctionResponse_tags :: Lens.Lens' GetFunctionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getFunctionResponse_tags = Lens.lens (\GetFunctionResponse' {tags} -> tags) (\s@GetFunctionResponse' {} a -> s {tags = a} :: GetFunctionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html reserved concurrency>.
 getFunctionResponse_concurrency :: Lens.Lens' GetFunctionResponse (Prelude.Maybe Concurrency)
 getFunctionResponse_concurrency = Lens.lens (\GetFunctionResponse' {concurrency} -> concurrency) (\s@GetFunctionResponse' {} a -> s {concurrency = a} :: GetFunctionResponse)
+
+-- | The deployment package of the function or version.
+getFunctionResponse_code :: Lens.Lens' GetFunctionResponse (Prelude.Maybe FunctionCodeLocation)
+getFunctionResponse_code = Lens.lens (\GetFunctionResponse' {code} -> code) (\s@GetFunctionResponse' {} a -> s {code = a} :: GetFunctionResponse)
+
+-- | The configuration of the function or version.
+getFunctionResponse_configuration :: Lens.Lens' GetFunctionResponse (Prelude.Maybe FunctionConfiguration)
+getFunctionResponse_configuration = Lens.lens (\GetFunctionResponse' {configuration} -> configuration) (\s@GetFunctionResponse' {} a -> s {configuration = a} :: GetFunctionResponse)
+
+-- | The function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags>.
+getFunctionResponse_tags :: Lens.Lens' GetFunctionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getFunctionResponse_tags = Lens.lens (\GetFunctionResponse' {tags} -> tags) (\s@GetFunctionResponse' {} a -> s {tags = a} :: GetFunctionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getFunctionResponse_httpStatus :: Lens.Lens' GetFunctionResponse Prelude.Int

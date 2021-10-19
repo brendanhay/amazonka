@@ -37,8 +37,8 @@ module Network.AWS.Comprehend.ListEntityRecognizers
 
     -- * Request Lenses
     listEntityRecognizers_nextToken,
-    listEntityRecognizers_maxResults,
     listEntityRecognizers_filter,
+    listEntityRecognizers_maxResults,
 
     -- * Destructuring the Response
     ListEntityRecognizersResponse (..),
@@ -62,13 +62,13 @@ import qualified Network.AWS.Response as Response
 data ListEntityRecognizers = ListEntityRecognizers'
   { -- | Identifies the next page of results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return on each page. The default is
-    -- 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filters the list of entities returned. You can filter on @Status@,
     -- @SubmitTimeBefore@, or @SubmitTimeAfter@. You can only set one filter at
     -- a time.
-    filter' :: Prelude.Maybe EntityRecognizerFilter
+    filter' :: Prelude.Maybe EntityRecognizerFilter,
+    -- | The maximum number of results to return on each page. The default is
+    -- 100.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,35 +82,35 @@ data ListEntityRecognizers = ListEntityRecognizers'
 --
 -- 'nextToken', 'listEntityRecognizers_nextToken' - Identifies the next page of results to return.
 --
--- 'maxResults', 'listEntityRecognizers_maxResults' - The maximum number of results to return on each page. The default is
--- 100.
---
 -- 'filter'', 'listEntityRecognizers_filter' - Filters the list of entities returned. You can filter on @Status@,
 -- @SubmitTimeBefore@, or @SubmitTimeAfter@. You can only set one filter at
 -- a time.
+--
+-- 'maxResults', 'listEntityRecognizers_maxResults' - The maximum number of results to return on each page. The default is
+-- 100.
 newListEntityRecognizers ::
   ListEntityRecognizers
 newListEntityRecognizers =
   ListEntityRecognizers'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filter' = Prelude.Nothing
+      filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | Identifies the next page of results to return.
 listEntityRecognizers_nextToken :: Lens.Lens' ListEntityRecognizers (Prelude.Maybe Prelude.Text)
 listEntityRecognizers_nextToken = Lens.lens (\ListEntityRecognizers' {nextToken} -> nextToken) (\s@ListEntityRecognizers' {} a -> s {nextToken = a} :: ListEntityRecognizers)
 
--- | The maximum number of results to return on each page. The default is
--- 100.
-listEntityRecognizers_maxResults :: Lens.Lens' ListEntityRecognizers (Prelude.Maybe Prelude.Natural)
-listEntityRecognizers_maxResults = Lens.lens (\ListEntityRecognizers' {maxResults} -> maxResults) (\s@ListEntityRecognizers' {} a -> s {maxResults = a} :: ListEntityRecognizers)
-
 -- | Filters the list of entities returned. You can filter on @Status@,
 -- @SubmitTimeBefore@, or @SubmitTimeAfter@. You can only set one filter at
 -- a time.
 listEntityRecognizers_filter :: Lens.Lens' ListEntityRecognizers (Prelude.Maybe EntityRecognizerFilter)
 listEntityRecognizers_filter = Lens.lens (\ListEntityRecognizers' {filter'} -> filter') (\s@ListEntityRecognizers' {} a -> s {filter' = a} :: ListEntityRecognizers)
+
+-- | The maximum number of results to return on each page. The default is
+-- 100.
+listEntityRecognizers_maxResults :: Lens.Lens' ListEntityRecognizers (Prelude.Maybe Prelude.Natural)
+listEntityRecognizers_maxResults = Lens.lens (\ListEntityRecognizers' {maxResults} -> maxResults) (\s@ListEntityRecognizers' {} a -> s {maxResults = a} :: ListEntityRecognizers)
 
 instance Core.AWSPager ListEntityRecognizers where
   page rq rs
@@ -174,8 +174,8 @@ instance Core.ToJSON ListEntityRecognizers where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filter" Core..=) Prelude.<$> filter'
+            ("Filter" Core..=) Prelude.<$> filter',
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -228,7 +228,7 @@ listEntityRecognizersResponse_nextToken = Lens.lens (\ListEntityRecognizersRespo
 
 -- | The list of properties of an entity recognizer.
 listEntityRecognizersResponse_entityRecognizerPropertiesList :: Lens.Lens' ListEntityRecognizersResponse (Prelude.Maybe [EntityRecognizerProperties])
-listEntityRecognizersResponse_entityRecognizerPropertiesList = Lens.lens (\ListEntityRecognizersResponse' {entityRecognizerPropertiesList} -> entityRecognizerPropertiesList) (\s@ListEntityRecognizersResponse' {} a -> s {entityRecognizerPropertiesList = a} :: ListEntityRecognizersResponse) Prelude.. Lens.mapping Lens._Coerce
+listEntityRecognizersResponse_entityRecognizerPropertiesList = Lens.lens (\ListEntityRecognizersResponse' {entityRecognizerPropertiesList} -> entityRecognizerPropertiesList) (\s@ListEntityRecognizersResponse' {} a -> s {entityRecognizerPropertiesList = a} :: ListEntityRecognizersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEntityRecognizersResponse_httpStatus :: Lens.Lens' ListEntityRecognizersResponse Prelude.Int

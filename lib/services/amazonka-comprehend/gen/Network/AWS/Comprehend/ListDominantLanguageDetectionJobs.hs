@@ -31,8 +31,8 @@ module Network.AWS.Comprehend.ListDominantLanguageDetectionJobs
 
     -- * Request Lenses
     listDominantLanguageDetectionJobs_nextToken,
-    listDominantLanguageDetectionJobs_maxResults,
     listDominantLanguageDetectionJobs_filter,
+    listDominantLanguageDetectionJobs_maxResults,
 
     -- * Destructuring the Response
     ListDominantLanguageDetectionJobsResponse (..),
@@ -56,13 +56,13 @@ import qualified Network.AWS.Response as Response
 data ListDominantLanguageDetectionJobs = ListDominantLanguageDetectionJobs'
   { -- | Identifies the next page of results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in each page. The default is
-    -- 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filters that jobs that are returned. You can filter jobs on their name,
     -- status, or the date and time that they were submitted. You can only set
     -- one filter at a time.
-    filter' :: Prelude.Maybe DominantLanguageDetectionJobFilter
+    filter' :: Prelude.Maybe DominantLanguageDetectionJobFilter,
+    -- | The maximum number of results to return in each page. The default is
+    -- 100.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,36 +76,36 @@ data ListDominantLanguageDetectionJobs = ListDominantLanguageDetectionJobs'
 --
 -- 'nextToken', 'listDominantLanguageDetectionJobs_nextToken' - Identifies the next page of results to return.
 --
--- 'maxResults', 'listDominantLanguageDetectionJobs_maxResults' - The maximum number of results to return in each page. The default is
--- 100.
---
 -- 'filter'', 'listDominantLanguageDetectionJobs_filter' - Filters that jobs that are returned. You can filter jobs on their name,
 -- status, or the date and time that they were submitted. You can only set
 -- one filter at a time.
+--
+-- 'maxResults', 'listDominantLanguageDetectionJobs_maxResults' - The maximum number of results to return in each page. The default is
+-- 100.
 newListDominantLanguageDetectionJobs ::
   ListDominantLanguageDetectionJobs
 newListDominantLanguageDetectionJobs =
   ListDominantLanguageDetectionJobs'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filter' = Prelude.Nothing
+      filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | Identifies the next page of results to return.
 listDominantLanguageDetectionJobs_nextToken :: Lens.Lens' ListDominantLanguageDetectionJobs (Prelude.Maybe Prelude.Text)
 listDominantLanguageDetectionJobs_nextToken = Lens.lens (\ListDominantLanguageDetectionJobs' {nextToken} -> nextToken) (\s@ListDominantLanguageDetectionJobs' {} a -> s {nextToken = a} :: ListDominantLanguageDetectionJobs)
 
--- | The maximum number of results to return in each page. The default is
--- 100.
-listDominantLanguageDetectionJobs_maxResults :: Lens.Lens' ListDominantLanguageDetectionJobs (Prelude.Maybe Prelude.Natural)
-listDominantLanguageDetectionJobs_maxResults = Lens.lens (\ListDominantLanguageDetectionJobs' {maxResults} -> maxResults) (\s@ListDominantLanguageDetectionJobs' {} a -> s {maxResults = a} :: ListDominantLanguageDetectionJobs)
-
 -- | Filters that jobs that are returned. You can filter jobs on their name,
 -- status, or the date and time that they were submitted. You can only set
 -- one filter at a time.
 listDominantLanguageDetectionJobs_filter :: Lens.Lens' ListDominantLanguageDetectionJobs (Prelude.Maybe DominantLanguageDetectionJobFilter)
 listDominantLanguageDetectionJobs_filter = Lens.lens (\ListDominantLanguageDetectionJobs' {filter'} -> filter') (\s@ListDominantLanguageDetectionJobs' {} a -> s {filter' = a} :: ListDominantLanguageDetectionJobs)
+
+-- | The maximum number of results to return in each page. The default is
+-- 100.
+listDominantLanguageDetectionJobs_maxResults :: Lens.Lens' ListDominantLanguageDetectionJobs (Prelude.Maybe Prelude.Natural)
+listDominantLanguageDetectionJobs_maxResults = Lens.lens (\ListDominantLanguageDetectionJobs' {maxResults} -> maxResults) (\s@ListDominantLanguageDetectionJobs' {} a -> s {maxResults = a} :: ListDominantLanguageDetectionJobs)
 
 instance
   Core.AWSPager
@@ -186,8 +186,8 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filter" Core..=) Prelude.<$> filter'
+            ("Filter" Core..=) Prelude.<$> filter',
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -247,7 +247,7 @@ listDominantLanguageDetectionJobsResponse_nextToken = Lens.lens (\ListDominantLa
 
 -- | A list containing the properties of each job that is returned.
 listDominantLanguageDetectionJobsResponse_dominantLanguageDetectionJobPropertiesList :: Lens.Lens' ListDominantLanguageDetectionJobsResponse (Prelude.Maybe [DominantLanguageDetectionJobProperties])
-listDominantLanguageDetectionJobsResponse_dominantLanguageDetectionJobPropertiesList = Lens.lens (\ListDominantLanguageDetectionJobsResponse' {dominantLanguageDetectionJobPropertiesList} -> dominantLanguageDetectionJobPropertiesList) (\s@ListDominantLanguageDetectionJobsResponse' {} a -> s {dominantLanguageDetectionJobPropertiesList = a} :: ListDominantLanguageDetectionJobsResponse) Prelude.. Lens.mapping Lens._Coerce
+listDominantLanguageDetectionJobsResponse_dominantLanguageDetectionJobPropertiesList = Lens.lens (\ListDominantLanguageDetectionJobsResponse' {dominantLanguageDetectionJobPropertiesList} -> dominantLanguageDetectionJobPropertiesList) (\s@ListDominantLanguageDetectionJobsResponse' {} a -> s {dominantLanguageDetectionJobPropertiesList = a} :: ListDominantLanguageDetectionJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDominantLanguageDetectionJobsResponse_httpStatus :: Lens.Lens' ListDominantLanguageDetectionJobsResponse Prelude.Int

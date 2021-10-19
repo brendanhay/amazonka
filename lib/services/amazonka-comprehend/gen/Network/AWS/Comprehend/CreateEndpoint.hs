@@ -28,9 +28,9 @@ module Network.AWS.Comprehend.CreateEndpoint
     newCreateEndpoint,
 
     -- * Request Lenses
-    createEndpoint_tags,
-    createEndpoint_clientRequestToken,
     createEndpoint_dataAccessRoleArn,
+    createEndpoint_clientRequestToken,
+    createEndpoint_tags,
     createEndpoint_endpointName,
     createEndpoint_modelArn,
     createEndpoint_desiredInferenceUnits,
@@ -54,19 +54,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateEndpoint' smart constructor.
 data CreateEndpoint = CreateEndpoint'
-  { -- | Tags associated with the endpoint being created. A tag is a key-value
-    -- pair that adds metadata to the endpoint. For example, a tag with
-    -- \"Sales\" as the key might be added to an endpoint to indicate its use
-    -- by the sales department.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The Amazon Resource Name (ARN) of the AWS identity and Access Management
+    -- (IAM) role that grants Amazon Comprehend read access to trained custom
+    -- models encrypted with a customer managed key (ModelKmsKeyId).
+    dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | An idempotency token provided by the customer. If this token matches a
     -- previous endpoint creation request, Amazon Comprehend will not return a
     -- @ResourceInUseException@.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the AWS identity and Access Management
-    -- (IAM) role that grants Amazon Comprehend read access to trained custom
-    -- models encrypted with a customer managed key (ModelKmsKeyId).
-    dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | Tags associated with the endpoint being created. A tag is a key-value
+    -- pair that adds metadata to the endpoint. For example, a tag with
+    -- \"Sales\" as the key might be added to an endpoint to indicate its use
+    -- by the sales department.
+    tags :: Prelude.Maybe [Tag],
     -- | This is the descriptive suffix that becomes part of the @EndpointArn@
     -- used for all subsequent requests to this resource.
     endpointName :: Prelude.Text,
@@ -88,18 +88,18 @@ data CreateEndpoint = CreateEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEndpoint_tags' - Tags associated with the endpoint being created. A tag is a key-value
--- pair that adds metadata to the endpoint. For example, a tag with
--- \"Sales\" as the key might be added to an endpoint to indicate its use
--- by the sales department.
+-- 'dataAccessRoleArn', 'createEndpoint_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS identity and Access Management
+-- (IAM) role that grants Amazon Comprehend read access to trained custom
+-- models encrypted with a customer managed key (ModelKmsKeyId).
 --
 -- 'clientRequestToken', 'createEndpoint_clientRequestToken' - An idempotency token provided by the customer. If this token matches a
 -- previous endpoint creation request, Amazon Comprehend will not return a
 -- @ResourceInUseException@.
 --
--- 'dataAccessRoleArn', 'createEndpoint_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to trained custom
--- models encrypted with a customer managed key (ModelKmsKeyId).
+-- 'tags', 'createEndpoint_tags' - Tags associated with the endpoint being created. A tag is a key-value
+-- pair that adds metadata to the endpoint. For example, a tag with
+-- \"Sales\" as the key might be added to an endpoint to indicate its use
+-- by the sales department.
 --
 -- 'endpointName', 'createEndpoint_endpointName' - This is the descriptive suffix that becomes part of the @EndpointArn@
 -- used for all subsequent requests to this resource.
@@ -123,20 +123,20 @@ newCreateEndpoint
   pModelArn_
   pDesiredInferenceUnits_ =
     CreateEndpoint'
-      { tags = Prelude.Nothing,
+      { dataAccessRoleArn =
+          Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
-        dataAccessRoleArn = Prelude.Nothing,
+        tags = Prelude.Nothing,
         endpointName = pEndpointName_,
         modelArn = pModelArn_,
         desiredInferenceUnits = pDesiredInferenceUnits_
       }
 
--- | Tags associated with the endpoint being created. A tag is a key-value
--- pair that adds metadata to the endpoint. For example, a tag with
--- \"Sales\" as the key might be added to an endpoint to indicate its use
--- by the sales department.
-createEndpoint_tags :: Lens.Lens' CreateEndpoint (Prelude.Maybe [Tag])
-createEndpoint_tags = Lens.lens (\CreateEndpoint' {tags} -> tags) (\s@CreateEndpoint' {} a -> s {tags = a} :: CreateEndpoint) Prelude.. Lens.mapping Lens._Coerce
+-- | The Amazon Resource Name (ARN) of the AWS identity and Access Management
+-- (IAM) role that grants Amazon Comprehend read access to trained custom
+-- models encrypted with a customer managed key (ModelKmsKeyId).
+createEndpoint_dataAccessRoleArn :: Lens.Lens' CreateEndpoint (Prelude.Maybe Prelude.Text)
+createEndpoint_dataAccessRoleArn = Lens.lens (\CreateEndpoint' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@CreateEndpoint' {} a -> s {dataAccessRoleArn = a} :: CreateEndpoint)
 
 -- | An idempotency token provided by the customer. If this token matches a
 -- previous endpoint creation request, Amazon Comprehend will not return a
@@ -144,11 +144,12 @@ createEndpoint_tags = Lens.lens (\CreateEndpoint' {tags} -> tags) (\s@CreateEndp
 createEndpoint_clientRequestToken :: Lens.Lens' CreateEndpoint (Prelude.Maybe Prelude.Text)
 createEndpoint_clientRequestToken = Lens.lens (\CreateEndpoint' {clientRequestToken} -> clientRequestToken) (\s@CreateEndpoint' {} a -> s {clientRequestToken = a} :: CreateEndpoint)
 
--- | The Amazon Resource Name (ARN) of the AWS identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to trained custom
--- models encrypted with a customer managed key (ModelKmsKeyId).
-createEndpoint_dataAccessRoleArn :: Lens.Lens' CreateEndpoint (Prelude.Maybe Prelude.Text)
-createEndpoint_dataAccessRoleArn = Lens.lens (\CreateEndpoint' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@CreateEndpoint' {} a -> s {dataAccessRoleArn = a} :: CreateEndpoint)
+-- | Tags associated with the endpoint being created. A tag is a key-value
+-- pair that adds metadata to the endpoint. For example, a tag with
+-- \"Sales\" as the key might be added to an endpoint to indicate its use
+-- by the sales department.
+createEndpoint_tags :: Lens.Lens' CreateEndpoint (Prelude.Maybe [Tag])
+createEndpoint_tags = Lens.lens (\CreateEndpoint' {tags} -> tags) (\s@CreateEndpoint' {} a -> s {tags = a} :: CreateEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | This is the descriptive suffix that becomes part of the @EndpointArn@
 -- used for all subsequent requests to this resource.
@@ -202,11 +203,11 @@ instance Core.ToJSON CreateEndpoint where
   toJSON CreateEndpoint' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
+          [ ("DataAccessRoleArn" Core..=)
+              Prelude.<$> dataAccessRoleArn,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("DataAccessRoleArn" Core..=)
-              Prelude.<$> dataAccessRoleArn,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("EndpointName" Core..= endpointName),
             Prelude.Just ("ModelArn" Core..= modelArn),
             Prelude.Just

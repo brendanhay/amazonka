@@ -85,7 +85,7 @@ newBatchDetectDominantLanguage =
 -- characters and must contain fewer than 5,000 bytes of UTF-8 encoded
 -- characters.
 batchDetectDominantLanguage_textList :: Lens.Lens' BatchDetectDominantLanguage [Prelude.Text]
-batchDetectDominantLanguage_textList = Lens.lens (\BatchDetectDominantLanguage' {textList} -> textList) (\s@BatchDetectDominantLanguage' {} a -> s {textList = a} :: BatchDetectDominantLanguage) Prelude.. Core._Sensitive Prelude.. Lens._Coerce
+batchDetectDominantLanguage_textList = Lens.lens (\BatchDetectDominantLanguage' {textList} -> textList) (\s@BatchDetectDominantLanguage' {} a -> s {textList = a} :: BatchDetectDominantLanguage) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchDetectDominantLanguage where
   type
@@ -190,14 +190,14 @@ batchDetectDominantLanguageResponse_httpStatus = Lens.lens (\BatchDetectDominant
 -- of the documents in the input list. If all of the documents contain an
 -- error, the @ResultList@ is empty.
 batchDetectDominantLanguageResponse_resultList :: Lens.Lens' BatchDetectDominantLanguageResponse [BatchDetectDominantLanguageItemResult]
-batchDetectDominantLanguageResponse_resultList = Lens.lens (\BatchDetectDominantLanguageResponse' {resultList} -> resultList) (\s@BatchDetectDominantLanguageResponse' {} a -> s {resultList = a} :: BatchDetectDominantLanguageResponse) Prelude.. Lens._Coerce
+batchDetectDominantLanguageResponse_resultList = Lens.lens (\BatchDetectDominantLanguageResponse' {resultList} -> resultList) (\s@BatchDetectDominantLanguageResponse' {} a -> s {resultList = a} :: BatchDetectDominantLanguageResponse) Prelude.. Lens.coerced
 
 -- | A list containing one object for each document that contained an error.
 -- The results are sorted in ascending order by the @Index@ field and match
 -- the order of the documents in the input list. If there are no errors in
 -- the batch, the @ErrorList@ is empty.
 batchDetectDominantLanguageResponse_errorList :: Lens.Lens' BatchDetectDominantLanguageResponse [BatchItemError]
-batchDetectDominantLanguageResponse_errorList = Lens.lens (\BatchDetectDominantLanguageResponse' {errorList} -> errorList) (\s@BatchDetectDominantLanguageResponse' {} a -> s {errorList = a} :: BatchDetectDominantLanguageResponse) Prelude.. Lens._Coerce
+batchDetectDominantLanguageResponse_errorList = Lens.lens (\BatchDetectDominantLanguageResponse' {errorList} -> errorList) (\s@BatchDetectDominantLanguageResponse' {} a -> s {errorList = a} :: BatchDetectDominantLanguageResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

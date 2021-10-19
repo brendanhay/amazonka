@@ -92,7 +92,7 @@ newBatchDetectEntities pLanguageCode_ =
 -- a maximum of 25 documents. Each document must contain fewer than 5,000
 -- bytes of UTF-8 encoded characters.
 batchDetectEntities_textList :: Lens.Lens' BatchDetectEntities [Prelude.Text]
-batchDetectEntities_textList = Lens.lens (\BatchDetectEntities' {textList} -> textList) (\s@BatchDetectEntities' {} a -> s {textList = a} :: BatchDetectEntities) Prelude.. Core._Sensitive Prelude.. Lens._Coerce
+batchDetectEntities_textList = Lens.lens (\BatchDetectEntities' {textList} -> textList) (\s@BatchDetectEntities' {} a -> s {textList = a} :: BatchDetectEntities) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
 -- | The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
@@ -205,13 +205,13 @@ batchDetectEntitiesResponse_httpStatus = Lens.lens (\BatchDetectEntitiesResponse
 -- of the documents in the input list. If all of the documents contain an
 -- error, the @ResultList@ is empty.
 batchDetectEntitiesResponse_resultList :: Lens.Lens' BatchDetectEntitiesResponse [BatchDetectEntitiesItemResult]
-batchDetectEntitiesResponse_resultList = Lens.lens (\BatchDetectEntitiesResponse' {resultList} -> resultList) (\s@BatchDetectEntitiesResponse' {} a -> s {resultList = a} :: BatchDetectEntitiesResponse) Prelude.. Lens._Coerce
+batchDetectEntitiesResponse_resultList = Lens.lens (\BatchDetectEntitiesResponse' {resultList} -> resultList) (\s@BatchDetectEntitiesResponse' {} a -> s {resultList = a} :: BatchDetectEntitiesResponse) Prelude.. Lens.coerced
 
 -- | A list containing one object for each document that contained an error.
 -- The results are sorted in ascending order by the @Index@ field and match
 -- the order of the documents in the input list. If there are no errors in
 -- the batch, the @ErrorList@ is empty.
 batchDetectEntitiesResponse_errorList :: Lens.Lens' BatchDetectEntitiesResponse [BatchItemError]
-batchDetectEntitiesResponse_errorList = Lens.lens (\BatchDetectEntitiesResponse' {errorList} -> errorList) (\s@BatchDetectEntitiesResponse' {} a -> s {errorList = a} :: BatchDetectEntitiesResponse) Prelude.. Lens._Coerce
+batchDetectEntitiesResponse_errorList = Lens.lens (\BatchDetectEntitiesResponse' {errorList} -> errorList) (\s@BatchDetectEntitiesResponse' {} a -> s {errorList = a} :: BatchDetectEntitiesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData BatchDetectEntitiesResponse

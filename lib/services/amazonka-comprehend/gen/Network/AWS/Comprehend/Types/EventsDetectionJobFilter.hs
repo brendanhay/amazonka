@@ -28,19 +28,19 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEventsDetectionJobFilter' smart constructor.
 data EventsDetectionJobFilter = EventsDetectionJobFilter'
-  { -- | Filters the list of jobs based on job status. Returns only jobs with the
-    -- specified status.
-    jobStatus :: Prelude.Maybe JobStatus,
+  { -- | Filters the list of jobs based on the time that the job was submitted
+    -- for processing. Returns only jobs submitted after the specified time.
+    -- Jobs are returned in descending order, newest to oldest.
+    submitTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Returns only jobs submitted before the specified time.
     -- Jobs are returned in ascending order, oldest to newest.
     submitTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | Filters the list of jobs based on the time that the job was submitted
-    -- for processing. Returns only jobs submitted after the specified time.
-    -- Jobs are returned in descending order, newest to oldest.
-    submitTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | Filters on the name of the events detection job.
-    jobName :: Prelude.Maybe Prelude.Text
+    jobName :: Prelude.Maybe Prelude.Text,
+    -- | Filters the list of jobs based on job status. Returns only jobs with the
+    -- specified status.
+    jobStatus :: Prelude.Maybe JobStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,39 +52,28 @@ data EventsDetectionJobFilter = EventsDetectionJobFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobStatus', 'eventsDetectionJobFilter_jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the
--- specified status.
+-- 'submitTimeAfter', 'eventsDetectionJobFilter_submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted
+-- for processing. Returns only jobs submitted after the specified time.
+-- Jobs are returned in descending order, newest to oldest.
 --
 -- 'submitTimeBefore', 'eventsDetectionJobFilter_submitTimeBefore' - Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted before the specified time.
 -- Jobs are returned in ascending order, oldest to newest.
 --
--- 'submitTimeAfter', 'eventsDetectionJobFilter_submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted
--- for processing. Returns only jobs submitted after the specified time.
--- Jobs are returned in descending order, newest to oldest.
---
 -- 'jobName', 'eventsDetectionJobFilter_jobName' - Filters on the name of the events detection job.
+--
+-- 'jobStatus', 'eventsDetectionJobFilter_jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the
+-- specified status.
 newEventsDetectionJobFilter ::
   EventsDetectionJobFilter
 newEventsDetectionJobFilter =
   EventsDetectionJobFilter'
-    { jobStatus =
+    { submitTimeAfter =
         Prelude.Nothing,
       submitTimeBefore = Prelude.Nothing,
-      submitTimeAfter = Prelude.Nothing,
-      jobName = Prelude.Nothing
+      jobName = Prelude.Nothing,
+      jobStatus = Prelude.Nothing
     }
-
--- | Filters the list of jobs based on job status. Returns only jobs with the
--- specified status.
-eventsDetectionJobFilter_jobStatus :: Lens.Lens' EventsDetectionJobFilter (Prelude.Maybe JobStatus)
-eventsDetectionJobFilter_jobStatus = Lens.lens (\EventsDetectionJobFilter' {jobStatus} -> jobStatus) (\s@EventsDetectionJobFilter' {} a -> s {jobStatus = a} :: EventsDetectionJobFilter)
-
--- | Filters the list of jobs based on the time that the job was submitted
--- for processing. Returns only jobs submitted before the specified time.
--- Jobs are returned in ascending order, oldest to newest.
-eventsDetectionJobFilter_submitTimeBefore :: Lens.Lens' EventsDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
-eventsDetectionJobFilter_submitTimeBefore = Lens.lens (\EventsDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@EventsDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: EventsDetectionJobFilter) Prelude.. Lens.mapping Core._Time
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted after the specified time.
@@ -92,9 +81,20 @@ eventsDetectionJobFilter_submitTimeBefore = Lens.lens (\EventsDetectionJobFilter
 eventsDetectionJobFilter_submitTimeAfter :: Lens.Lens' EventsDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
 eventsDetectionJobFilter_submitTimeAfter = Lens.lens (\EventsDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@EventsDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: EventsDetectionJobFilter) Prelude.. Lens.mapping Core._Time
 
+-- | Filters the list of jobs based on the time that the job was submitted
+-- for processing. Returns only jobs submitted before the specified time.
+-- Jobs are returned in ascending order, oldest to newest.
+eventsDetectionJobFilter_submitTimeBefore :: Lens.Lens' EventsDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
+eventsDetectionJobFilter_submitTimeBefore = Lens.lens (\EventsDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@EventsDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: EventsDetectionJobFilter) Prelude.. Lens.mapping Core._Time
+
 -- | Filters on the name of the events detection job.
 eventsDetectionJobFilter_jobName :: Lens.Lens' EventsDetectionJobFilter (Prelude.Maybe Prelude.Text)
 eventsDetectionJobFilter_jobName = Lens.lens (\EventsDetectionJobFilter' {jobName} -> jobName) (\s@EventsDetectionJobFilter' {} a -> s {jobName = a} :: EventsDetectionJobFilter)
+
+-- | Filters the list of jobs based on job status. Returns only jobs with the
+-- specified status.
+eventsDetectionJobFilter_jobStatus :: Lens.Lens' EventsDetectionJobFilter (Prelude.Maybe JobStatus)
+eventsDetectionJobFilter_jobStatus = Lens.lens (\EventsDetectionJobFilter' {jobStatus} -> jobStatus) (\s@EventsDetectionJobFilter' {} a -> s {jobStatus = a} :: EventsDetectionJobFilter)
 
 instance Prelude.Hashable EventsDetectionJobFilter
 
@@ -104,11 +104,11 @@ instance Core.ToJSON EventsDetectionJobFilter where
   toJSON EventsDetectionJobFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("JobStatus" Core..=) Prelude.<$> jobStatus,
+          [ ("SubmitTimeAfter" Core..=)
+              Prelude.<$> submitTimeAfter,
             ("SubmitTimeBefore" Core..=)
               Prelude.<$> submitTimeBefore,
-            ("SubmitTimeAfter" Core..=)
-              Prelude.<$> submitTimeAfter,
-            ("JobName" Core..=) Prelude.<$> jobName
+            ("JobName" Core..=) Prelude.<$> jobName,
+            ("JobStatus" Core..=) Prelude.<$> jobStatus
           ]
       )

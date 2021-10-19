@@ -178,7 +178,7 @@ newContainsPiiEntitiesResponse pHttpStatus_ =
 -- | The labels used in the document being analyzed. Individual labels
 -- represent personally identifiable information (PII) entity types.
 containsPiiEntitiesResponse_labels :: Lens.Lens' ContainsPiiEntitiesResponse (Prelude.Maybe [EntityLabel])
-containsPiiEntitiesResponse_labels = Lens.lens (\ContainsPiiEntitiesResponse' {labels} -> labels) (\s@ContainsPiiEntitiesResponse' {} a -> s {labels = a} :: ContainsPiiEntitiesResponse) Prelude.. Lens.mapping Lens._Coerce
+containsPiiEntitiesResponse_labels = Lens.lens (\ContainsPiiEntitiesResponse' {labels} -> labels) (\s@ContainsPiiEntitiesResponse' {} a -> s {labels = a} :: ContainsPiiEntitiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 containsPiiEntitiesResponse_httpStatus :: Lens.Lens' ContainsPiiEntitiesResponse Prelude.Int

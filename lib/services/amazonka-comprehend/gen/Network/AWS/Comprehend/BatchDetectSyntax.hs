@@ -94,7 +94,7 @@ newBatchDetectSyntax pLanguageCode_ =
 -- a maximum of 25 documents. Each document must contain fewer that 5,000
 -- bytes of UTF-8 encoded characters.
 batchDetectSyntax_textList :: Lens.Lens' BatchDetectSyntax [Prelude.Text]
-batchDetectSyntax_textList = Lens.lens (\BatchDetectSyntax' {textList} -> textList) (\s@BatchDetectSyntax' {} a -> s {textList = a} :: BatchDetectSyntax) Prelude.. Core._Sensitive Prelude.. Lens._Coerce
+batchDetectSyntax_textList = Lens.lens (\BatchDetectSyntax' {textList} -> textList) (\s@BatchDetectSyntax' {} a -> s {textList = a} :: BatchDetectSyntax) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
 -- | The language of the input documents. You can specify any of the
 -- following languages supported by Amazon Comprehend: German (\"de\"),
@@ -208,13 +208,13 @@ batchDetectSyntaxResponse_httpStatus = Lens.lens (\BatchDetectSyntaxResponse' {h
 -- of the documents in the input list. If all of the documents contain an
 -- error, the @ResultList@ is empty.
 batchDetectSyntaxResponse_resultList :: Lens.Lens' BatchDetectSyntaxResponse [BatchDetectSyntaxItemResult]
-batchDetectSyntaxResponse_resultList = Lens.lens (\BatchDetectSyntaxResponse' {resultList} -> resultList) (\s@BatchDetectSyntaxResponse' {} a -> s {resultList = a} :: BatchDetectSyntaxResponse) Prelude.. Lens._Coerce
+batchDetectSyntaxResponse_resultList = Lens.lens (\BatchDetectSyntaxResponse' {resultList} -> resultList) (\s@BatchDetectSyntaxResponse' {} a -> s {resultList = a} :: BatchDetectSyntaxResponse) Prelude.. Lens.coerced
 
 -- | A list containing one object for each document that contained an error.
 -- The results are sorted in ascending order by the @Index@ field and match
 -- the order of the documents in the input list. If there are no errors in
 -- the batch, the @ErrorList@ is empty.
 batchDetectSyntaxResponse_errorList :: Lens.Lens' BatchDetectSyntaxResponse [BatchItemError]
-batchDetectSyntaxResponse_errorList = Lens.lens (\BatchDetectSyntaxResponse' {errorList} -> errorList) (\s@BatchDetectSyntaxResponse' {} a -> s {errorList = a} :: BatchDetectSyntaxResponse) Prelude.. Lens._Coerce
+batchDetectSyntaxResponse_errorList = Lens.lens (\BatchDetectSyntaxResponse' {errorList} -> errorList) (\s@BatchDetectSyntaxResponse' {} a -> s {errorList = a} :: BatchDetectSyntaxResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData BatchDetectSyntaxResponse

@@ -187,7 +187,7 @@ listEntityRecognizerSummariesResponse_nextToken = Lens.lens (\ListEntityRecogniz
 
 -- | The list entity recognizer summaries.
 listEntityRecognizerSummariesResponse_entityRecognizerSummariesList :: Lens.Lens' ListEntityRecognizerSummariesResponse (Prelude.Maybe [EntityRecognizerSummary])
-listEntityRecognizerSummariesResponse_entityRecognizerSummariesList = Lens.lens (\ListEntityRecognizerSummariesResponse' {entityRecognizerSummariesList} -> entityRecognizerSummariesList) (\s@ListEntityRecognizerSummariesResponse' {} a -> s {entityRecognizerSummariesList = a} :: ListEntityRecognizerSummariesResponse) Prelude.. Lens.mapping Lens._Coerce
+listEntityRecognizerSummariesResponse_entityRecognizerSummariesList = Lens.lens (\ListEntityRecognizerSummariesResponse' {entityRecognizerSummariesList} -> entityRecognizerSummariesList) (\s@ListEntityRecognizerSummariesResponse' {} a -> s {entityRecognizerSummariesList = a} :: ListEntityRecognizerSummariesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEntityRecognizerSummariesResponse_httpStatus :: Lens.Lens' ListEntityRecognizerSummariesResponse Prelude.Int

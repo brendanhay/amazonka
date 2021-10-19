@@ -242,7 +242,7 @@ newDetectEntitiesResponse pHttpStatus_ =
 -- Otherwise, it detects the default entity types. For a list of default
 -- entity types, see how-entities.
 detectEntitiesResponse_entities :: Lens.Lens' DetectEntitiesResponse (Prelude.Maybe [Entity])
-detectEntitiesResponse_entities = Lens.lens (\DetectEntitiesResponse' {entities} -> entities) (\s@DetectEntitiesResponse' {} a -> s {entities = a} :: DetectEntitiesResponse) Prelude.. Lens.mapping Lens._Coerce
+detectEntitiesResponse_entities = Lens.lens (\DetectEntitiesResponse' {entities} -> entities) (\s@DetectEntitiesResponse' {} a -> s {entities = a} :: DetectEntitiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 detectEntitiesResponse_httpStatus :: Lens.Lens' DetectEntitiesResponse Prelude.Int

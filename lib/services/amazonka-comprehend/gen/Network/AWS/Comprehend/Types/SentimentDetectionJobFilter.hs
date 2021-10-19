@@ -29,19 +29,19 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSentimentDetectionJobFilter' smart constructor.
 data SentimentDetectionJobFilter = SentimentDetectionJobFilter'
-  { -- | Filters the list of jobs based on job status. Returns only jobs with the
-    -- specified status.
-    jobStatus :: Prelude.Maybe JobStatus,
+  { -- | Filters the list of jobs based on the time that the job was submitted
+    -- for processing. Returns only jobs submitted after the specified time.
+    -- Jobs are returned in descending order, newest to oldest.
+    submitTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Returns only jobs submitted before the specified time.
     -- Jobs are returned in ascending order, oldest to newest.
     submitTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | Filters the list of jobs based on the time that the job was submitted
-    -- for processing. Returns only jobs submitted after the specified time.
-    -- Jobs are returned in descending order, newest to oldest.
-    submitTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | Filters on the name of the job.
-    jobName :: Prelude.Maybe Prelude.Text
+    jobName :: Prelude.Maybe Prelude.Text,
+    -- | Filters the list of jobs based on job status. Returns only jobs with the
+    -- specified status.
+    jobStatus :: Prelude.Maybe JobStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,39 +53,28 @@ data SentimentDetectionJobFilter = SentimentDetectionJobFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobStatus', 'sentimentDetectionJobFilter_jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the
--- specified status.
+-- 'submitTimeAfter', 'sentimentDetectionJobFilter_submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted
+-- for processing. Returns only jobs submitted after the specified time.
+-- Jobs are returned in descending order, newest to oldest.
 --
 -- 'submitTimeBefore', 'sentimentDetectionJobFilter_submitTimeBefore' - Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted before the specified time.
 -- Jobs are returned in ascending order, oldest to newest.
 --
--- 'submitTimeAfter', 'sentimentDetectionJobFilter_submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted
--- for processing. Returns only jobs submitted after the specified time.
--- Jobs are returned in descending order, newest to oldest.
---
 -- 'jobName', 'sentimentDetectionJobFilter_jobName' - Filters on the name of the job.
+--
+-- 'jobStatus', 'sentimentDetectionJobFilter_jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the
+-- specified status.
 newSentimentDetectionJobFilter ::
   SentimentDetectionJobFilter
 newSentimentDetectionJobFilter =
   SentimentDetectionJobFilter'
-    { jobStatus =
+    { submitTimeAfter =
         Prelude.Nothing,
       submitTimeBefore = Prelude.Nothing,
-      submitTimeAfter = Prelude.Nothing,
-      jobName = Prelude.Nothing
+      jobName = Prelude.Nothing,
+      jobStatus = Prelude.Nothing
     }
-
--- | Filters the list of jobs based on job status. Returns only jobs with the
--- specified status.
-sentimentDetectionJobFilter_jobStatus :: Lens.Lens' SentimentDetectionJobFilter (Prelude.Maybe JobStatus)
-sentimentDetectionJobFilter_jobStatus = Lens.lens (\SentimentDetectionJobFilter' {jobStatus} -> jobStatus) (\s@SentimentDetectionJobFilter' {} a -> s {jobStatus = a} :: SentimentDetectionJobFilter)
-
--- | Filters the list of jobs based on the time that the job was submitted
--- for processing. Returns only jobs submitted before the specified time.
--- Jobs are returned in ascending order, oldest to newest.
-sentimentDetectionJobFilter_submitTimeBefore :: Lens.Lens' SentimentDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
-sentimentDetectionJobFilter_submitTimeBefore = Lens.lens (\SentimentDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@SentimentDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: SentimentDetectionJobFilter) Prelude.. Lens.mapping Core._Time
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted after the specified time.
@@ -93,9 +82,20 @@ sentimentDetectionJobFilter_submitTimeBefore = Lens.lens (\SentimentDetectionJob
 sentimentDetectionJobFilter_submitTimeAfter :: Lens.Lens' SentimentDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
 sentimentDetectionJobFilter_submitTimeAfter = Lens.lens (\SentimentDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@SentimentDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: SentimentDetectionJobFilter) Prelude.. Lens.mapping Core._Time
 
+-- | Filters the list of jobs based on the time that the job was submitted
+-- for processing. Returns only jobs submitted before the specified time.
+-- Jobs are returned in ascending order, oldest to newest.
+sentimentDetectionJobFilter_submitTimeBefore :: Lens.Lens' SentimentDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
+sentimentDetectionJobFilter_submitTimeBefore = Lens.lens (\SentimentDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@SentimentDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: SentimentDetectionJobFilter) Prelude.. Lens.mapping Core._Time
+
 -- | Filters on the name of the job.
 sentimentDetectionJobFilter_jobName :: Lens.Lens' SentimentDetectionJobFilter (Prelude.Maybe Prelude.Text)
 sentimentDetectionJobFilter_jobName = Lens.lens (\SentimentDetectionJobFilter' {jobName} -> jobName) (\s@SentimentDetectionJobFilter' {} a -> s {jobName = a} :: SentimentDetectionJobFilter)
+
+-- | Filters the list of jobs based on job status. Returns only jobs with the
+-- specified status.
+sentimentDetectionJobFilter_jobStatus :: Lens.Lens' SentimentDetectionJobFilter (Prelude.Maybe JobStatus)
+sentimentDetectionJobFilter_jobStatus = Lens.lens (\SentimentDetectionJobFilter' {jobStatus} -> jobStatus) (\s@SentimentDetectionJobFilter' {} a -> s {jobStatus = a} :: SentimentDetectionJobFilter)
 
 instance Prelude.Hashable SentimentDetectionJobFilter
 
@@ -105,11 +105,11 @@ instance Core.ToJSON SentimentDetectionJobFilter where
   toJSON SentimentDetectionJobFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("JobStatus" Core..=) Prelude.<$> jobStatus,
+          [ ("SubmitTimeAfter" Core..=)
+              Prelude.<$> submitTimeAfter,
             ("SubmitTimeBefore" Core..=)
               Prelude.<$> submitTimeBefore,
-            ("SubmitTimeAfter" Core..=)
-              Prelude.<$> submitTimeAfter,
-            ("JobName" Core..=) Prelude.<$> jobName
+            ("JobName" Core..=) Prelude.<$> jobName,
+            ("JobStatus" Core..=) Prelude.<$> jobStatus
           ]
       )

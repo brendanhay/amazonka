@@ -31,7 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAugmentedManifestsListItem' smart constructor.
 data AugmentedManifestsListItem = AugmentedManifestsListItem'
-  { -- | The type of augmented manifest. PlainTextDocument or
+  { -- | The S3 prefix to the source files (PDFs) that are referred to in the
+    -- augmented manifest file.
+    sourceDocumentsS3Uri :: Prelude.Maybe Prelude.Text,
+    -- | The type of augmented manifest. PlainTextDocument or
     -- SemiStructuredDocument. If you don\'t specify, the default is
     -- PlainTextDocument.
     --
@@ -43,12 +46,6 @@ data AugmentedManifestsListItem = AugmentedManifestsListItem'
     --     only PDFs are supported. For inference, Amazon Comprehend support
     --     PDFs, DOCX and TXT.
     documentType :: Prelude.Maybe AugmentedManifestsDocumentTypeFormat,
-    -- | The S3 prefix to the source files (PDFs) that are referred to in the
-    -- augmented manifest file.
-    sourceDocumentsS3Uri :: Prelude.Maybe Prelude.Text,
-    -- | The S3 prefix to the annotation files that are referred in the augmented
-    -- manifest file.
-    annotationDataS3Uri :: Prelude.Maybe Prelude.Text,
     -- | The purpose of the data you\'ve provided in the augmented manifest. You
     -- can either train or test this data. If you don\'t specify, the default
     -- is train.
@@ -59,6 +56,9 @@ data AugmentedManifestsListItem = AugmentedManifestsListItem'
     --
     -- TEST - all of the documents in the manifest will be used for testing.
     split :: Prelude.Maybe Split,
+    -- | The S3 prefix to the annotation files that are referred in the augmented
+    -- manifest file.
+    annotationDataS3Uri :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 location of the augmented manifest file.
     s3Uri :: Prelude.Text,
     -- | The JSON attribute that contains the annotations for your training
@@ -85,6 +85,9 @@ data AugmentedManifestsListItem = AugmentedManifestsListItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sourceDocumentsS3Uri', 'augmentedManifestsListItem_sourceDocumentsS3Uri' - The S3 prefix to the source files (PDFs) that are referred to in the
+-- augmented manifest file.
+--
 -- 'documentType', 'augmentedManifestsListItem_documentType' - The type of augmented manifest. PlainTextDocument or
 -- SemiStructuredDocument. If you don\'t specify, the default is
 -- PlainTextDocument.
@@ -97,12 +100,6 @@ data AugmentedManifestsListItem = AugmentedManifestsListItem'
 --     only PDFs are supported. For inference, Amazon Comprehend support
 --     PDFs, DOCX and TXT.
 --
--- 'sourceDocumentsS3Uri', 'augmentedManifestsListItem_sourceDocumentsS3Uri' - The S3 prefix to the source files (PDFs) that are referred to in the
--- augmented manifest file.
---
--- 'annotationDataS3Uri', 'augmentedManifestsListItem_annotationDataS3Uri' - The S3 prefix to the annotation files that are referred in the augmented
--- manifest file.
---
 -- 'split', 'augmentedManifestsListItem_split' - The purpose of the data you\'ve provided in the augmented manifest. You
 -- can either train or test this data. If you don\'t specify, the default
 -- is train.
@@ -112,6 +109,9 @@ data AugmentedManifestsListItem = AugmentedManifestsListItem'
 -- reserve a portion of the training documents for testing.
 --
 -- TEST - all of the documents in the manifest will be used for testing.
+--
+-- 'annotationDataS3Uri', 'augmentedManifestsListItem_annotationDataS3Uri' - The S3 prefix to the annotation files that are referred in the augmented
+-- manifest file.
 --
 -- 's3Uri', 'augmentedManifestsListItem_s3Uri' - The Amazon S3 location of the augmented manifest file.
 --
@@ -133,14 +133,19 @@ newAugmentedManifestsListItem ::
   AugmentedManifestsListItem
 newAugmentedManifestsListItem pS3Uri_ =
   AugmentedManifestsListItem'
-    { documentType =
+    { sourceDocumentsS3Uri =
         Prelude.Nothing,
-      sourceDocumentsS3Uri = Prelude.Nothing,
-      annotationDataS3Uri = Prelude.Nothing,
+      documentType = Prelude.Nothing,
       split = Prelude.Nothing,
+      annotationDataS3Uri = Prelude.Nothing,
       s3Uri = pS3Uri_,
       attributeNames = Prelude.mempty
     }
+
+-- | The S3 prefix to the source files (PDFs) that are referred to in the
+-- augmented manifest file.
+augmentedManifestsListItem_sourceDocumentsS3Uri :: Lens.Lens' AugmentedManifestsListItem (Prelude.Maybe Prelude.Text)
+augmentedManifestsListItem_sourceDocumentsS3Uri = Lens.lens (\AugmentedManifestsListItem' {sourceDocumentsS3Uri} -> sourceDocumentsS3Uri) (\s@AugmentedManifestsListItem' {} a -> s {sourceDocumentsS3Uri = a} :: AugmentedManifestsListItem)
 
 -- | The type of augmented manifest. PlainTextDocument or
 -- SemiStructuredDocument. If you don\'t specify, the default is
@@ -156,16 +161,6 @@ newAugmentedManifestsListItem pS3Uri_ =
 augmentedManifestsListItem_documentType :: Lens.Lens' AugmentedManifestsListItem (Prelude.Maybe AugmentedManifestsDocumentTypeFormat)
 augmentedManifestsListItem_documentType = Lens.lens (\AugmentedManifestsListItem' {documentType} -> documentType) (\s@AugmentedManifestsListItem' {} a -> s {documentType = a} :: AugmentedManifestsListItem)
 
--- | The S3 prefix to the source files (PDFs) that are referred to in the
--- augmented manifest file.
-augmentedManifestsListItem_sourceDocumentsS3Uri :: Lens.Lens' AugmentedManifestsListItem (Prelude.Maybe Prelude.Text)
-augmentedManifestsListItem_sourceDocumentsS3Uri = Lens.lens (\AugmentedManifestsListItem' {sourceDocumentsS3Uri} -> sourceDocumentsS3Uri) (\s@AugmentedManifestsListItem' {} a -> s {sourceDocumentsS3Uri = a} :: AugmentedManifestsListItem)
-
--- | The S3 prefix to the annotation files that are referred in the augmented
--- manifest file.
-augmentedManifestsListItem_annotationDataS3Uri :: Lens.Lens' AugmentedManifestsListItem (Prelude.Maybe Prelude.Text)
-augmentedManifestsListItem_annotationDataS3Uri = Lens.lens (\AugmentedManifestsListItem' {annotationDataS3Uri} -> annotationDataS3Uri) (\s@AugmentedManifestsListItem' {} a -> s {annotationDataS3Uri = a} :: AugmentedManifestsListItem)
-
 -- | The purpose of the data you\'ve provided in the augmented manifest. You
 -- can either train or test this data. If you don\'t specify, the default
 -- is train.
@@ -177,6 +172,11 @@ augmentedManifestsListItem_annotationDataS3Uri = Lens.lens (\AugmentedManifestsL
 -- TEST - all of the documents in the manifest will be used for testing.
 augmentedManifestsListItem_split :: Lens.Lens' AugmentedManifestsListItem (Prelude.Maybe Split)
 augmentedManifestsListItem_split = Lens.lens (\AugmentedManifestsListItem' {split} -> split) (\s@AugmentedManifestsListItem' {} a -> s {split = a} :: AugmentedManifestsListItem)
+
+-- | The S3 prefix to the annotation files that are referred in the augmented
+-- manifest file.
+augmentedManifestsListItem_annotationDataS3Uri :: Lens.Lens' AugmentedManifestsListItem (Prelude.Maybe Prelude.Text)
+augmentedManifestsListItem_annotationDataS3Uri = Lens.lens (\AugmentedManifestsListItem' {annotationDataS3Uri} -> annotationDataS3Uri) (\s@AugmentedManifestsListItem' {} a -> s {annotationDataS3Uri = a} :: AugmentedManifestsListItem)
 
 -- | The Amazon S3 location of the augmented manifest file.
 augmentedManifestsListItem_s3Uri :: Lens.Lens' AugmentedManifestsListItem Prelude.Text
@@ -195,7 +195,7 @@ augmentedManifestsListItem_s3Uri = Lens.lens (\AugmentedManifestsListItem' {s3Ur
 -- LabelAttributeName key for one or more jobs in the chain. Each
 -- LabelAttributeName key provides the annotations from an individual job.
 augmentedManifestsListItem_attributeNames :: Lens.Lens' AugmentedManifestsListItem [Prelude.Text]
-augmentedManifestsListItem_attributeNames = Lens.lens (\AugmentedManifestsListItem' {attributeNames} -> attributeNames) (\s@AugmentedManifestsListItem' {} a -> s {attributeNames = a} :: AugmentedManifestsListItem) Prelude.. Lens._Coerce
+augmentedManifestsListItem_attributeNames = Lens.lens (\AugmentedManifestsListItem' {attributeNames} -> attributeNames) (\s@AugmentedManifestsListItem' {} a -> s {attributeNames = a} :: AugmentedManifestsListItem) Prelude.. Lens.coerced
 
 instance Core.FromJSON AugmentedManifestsListItem where
   parseJSON =
@@ -203,10 +203,10 @@ instance Core.FromJSON AugmentedManifestsListItem where
       "AugmentedManifestsListItem"
       ( \x ->
           AugmentedManifestsListItem'
-            Prelude.<$> (x Core..:? "DocumentType")
-            Prelude.<*> (x Core..:? "SourceDocumentsS3Uri")
-            Prelude.<*> (x Core..:? "AnnotationDataS3Uri")
+            Prelude.<$> (x Core..:? "SourceDocumentsS3Uri")
+            Prelude.<*> (x Core..:? "DocumentType")
             Prelude.<*> (x Core..:? "Split")
+            Prelude.<*> (x Core..:? "AnnotationDataS3Uri")
             Prelude.<*> (x Core..: "S3Uri")
             Prelude.<*> ( x Core..:? "AttributeNames"
                             Core..!= Prelude.mempty
@@ -221,12 +221,12 @@ instance Core.ToJSON AugmentedManifestsListItem where
   toJSON AugmentedManifestsListItem' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DocumentType" Core..=) Prelude.<$> documentType,
-            ("SourceDocumentsS3Uri" Core..=)
+          [ ("SourceDocumentsS3Uri" Core..=)
               Prelude.<$> sourceDocumentsS3Uri,
+            ("DocumentType" Core..=) Prelude.<$> documentType,
+            ("Split" Core..=) Prelude.<$> split,
             ("AnnotationDataS3Uri" Core..=)
               Prelude.<$> annotationDataS3Uri,
-            ("Split" Core..=) Prelude.<$> split,
             Prelude.Just ("S3Uri" Core..= s3Uri),
             Prelude.Just
               ("AttributeNames" Core..= attributeNames)

@@ -18,21 +18,21 @@ module Network.AWS.Comprehend.Types
 
     -- * Errors
     _ResourceUnavailableException,
-    _TooManyTagsException,
-    _InvalidFilterException,
-    _ResourceLimitExceededException,
-    _BatchSizeLimitExceededException,
-    _ConcurrentModificationException,
     _InvalidRequestException,
-    _TextSizeLimitExceededException,
-    _ResourceInUseException,
+    _ResourceLimitExceededException,
+    _TooManyTagsException,
+    _TooManyRequestsException,
+    _ConcurrentModificationException,
+    _InternalServerException,
+    _BatchSizeLimitExceededException,
+    _UnsupportedLanguageException,
+    _JobNotFoundException,
+    _TooManyTagKeysException,
+    _InvalidFilterException,
     _KmsKeyValidationException,
     _ResourceNotFoundException,
-    _TooManyTagKeysException,
-    _JobNotFoundException,
-    _UnsupportedLanguageException,
-    _InternalServerException,
-    _TooManyRequestsException,
+    _TextSizeLimitExceededException,
+    _ResourceInUseException,
 
     -- * AugmentedManifestsDocumentTypeFormat
     AugmentedManifestsDocumentTypeFormat (..),
@@ -97,10 +97,10 @@ module Network.AWS.Comprehend.Types
     -- * AugmentedManifestsListItem
     AugmentedManifestsListItem (..),
     newAugmentedManifestsListItem,
-    augmentedManifestsListItem_documentType,
     augmentedManifestsListItem_sourceDocumentsS3Uri,
-    augmentedManifestsListItem_annotationDataS3Uri,
+    augmentedManifestsListItem_documentType,
     augmentedManifestsListItem_split,
+    augmentedManifestsListItem_annotationDataS3Uri,
     augmentedManifestsListItem_s3Uri,
     augmentedManifestsListItem_attributeNames,
 
@@ -113,14 +113,14 @@ module Network.AWS.Comprehend.Types
     -- * BatchDetectEntitiesItemResult
     BatchDetectEntitiesItemResult (..),
     newBatchDetectEntitiesItemResult,
-    batchDetectEntitiesItemResult_index,
     batchDetectEntitiesItemResult_entities,
+    batchDetectEntitiesItemResult_index,
 
     -- * BatchDetectKeyPhrasesItemResult
     BatchDetectKeyPhrasesItemResult (..),
     newBatchDetectKeyPhrasesItemResult,
-    batchDetectKeyPhrasesItemResult_keyPhrases,
     batchDetectKeyPhrasesItemResult_index,
+    batchDetectKeyPhrasesItemResult_keyPhrases,
 
     -- * BatchDetectSentimentItemResult
     BatchDetectSentimentItemResult (..),
@@ -132,73 +132,73 @@ module Network.AWS.Comprehend.Types
     -- * BatchDetectSyntaxItemResult
     BatchDetectSyntaxItemResult (..),
     newBatchDetectSyntaxItemResult,
-    batchDetectSyntaxItemResult_syntaxTokens,
     batchDetectSyntaxItemResult_index,
+    batchDetectSyntaxItemResult_syntaxTokens,
 
     -- * BatchItemError
     BatchItemError (..),
     newBatchItemError,
-    batchItemError_index,
-    batchItemError_errorMessage,
     batchItemError_errorCode,
+    batchItemError_errorMessage,
+    batchItemError_index,
 
     -- * ClassifierEvaluationMetrics
     ClassifierEvaluationMetrics (..),
     newClassifierEvaluationMetrics,
-    classifierEvaluationMetrics_f1Score,
-    classifierEvaluationMetrics_microRecall,
     classifierEvaluationMetrics_microPrecision,
-    classifierEvaluationMetrics_precision,
-    classifierEvaluationMetrics_accuracy,
-    classifierEvaluationMetrics_hammingLoss,
-    classifierEvaluationMetrics_recall,
     classifierEvaluationMetrics_microF1Score,
+    classifierEvaluationMetrics_recall,
+    classifierEvaluationMetrics_precision,
+    classifierEvaluationMetrics_microRecall,
+    classifierEvaluationMetrics_f1Score,
+    classifierEvaluationMetrics_hammingLoss,
+    classifierEvaluationMetrics_accuracy,
 
     -- * ClassifierMetadata
     ClassifierMetadata (..),
     newClassifierMetadata,
     classifierMetadata_numberOfLabels,
-    classifierMetadata_numberOfTestDocuments,
-    classifierMetadata_numberOfTrainedDocuments,
     classifierMetadata_evaluationMetrics,
+    classifierMetadata_numberOfTrainedDocuments,
+    classifierMetadata_numberOfTestDocuments,
 
     -- * DocumentClass
     DocumentClass (..),
     newDocumentClass,
-    documentClass_name,
     documentClass_score,
+    documentClass_name,
 
     -- * DocumentClassificationJobFilter
     DocumentClassificationJobFilter (..),
     newDocumentClassificationJobFilter,
-    documentClassificationJobFilter_jobStatus,
-    documentClassificationJobFilter_submitTimeBefore,
     documentClassificationJobFilter_submitTimeAfter,
+    documentClassificationJobFilter_submitTimeBefore,
     documentClassificationJobFilter_jobName,
+    documentClassificationJobFilter_jobStatus,
 
     -- * DocumentClassificationJobProperties
     DocumentClassificationJobProperties (..),
     newDocumentClassificationJobProperties,
-    documentClassificationJobProperties_vpcConfig,
-    documentClassificationJobProperties_inputDataConfig,
-    documentClassificationJobProperties_message,
-    documentClassificationJobProperties_jobStatus,
-    documentClassificationJobProperties_outputDataConfig,
-    documentClassificationJobProperties_documentClassifierArn,
-    documentClassificationJobProperties_endTime,
-    documentClassificationJobProperties_jobArn,
-    documentClassificationJobProperties_volumeKmsKeyId,
-    documentClassificationJobProperties_submitTime,
-    documentClassificationJobProperties_jobName,
-    documentClassificationJobProperties_dataAccessRoleArn,
     documentClassificationJobProperties_jobId,
+    documentClassificationJobProperties_jobArn,
+    documentClassificationJobProperties_documentClassifierArn,
+    documentClassificationJobProperties_jobName,
+    documentClassificationJobProperties_inputDataConfig,
+    documentClassificationJobProperties_vpcConfig,
+    documentClassificationJobProperties_volumeKmsKeyId,
+    documentClassificationJobProperties_endTime,
+    documentClassificationJobProperties_outputDataConfig,
+    documentClassificationJobProperties_dataAccessRoleArn,
+    documentClassificationJobProperties_jobStatus,
+    documentClassificationJobProperties_message,
+    documentClassificationJobProperties_submitTime,
 
     -- * DocumentClassifierFilter
     DocumentClassifierFilter (..),
     newDocumentClassifierFilter,
     documentClassifierFilter_status,
-    documentClassifierFilter_submitTimeBefore,
     documentClassifierFilter_submitTimeAfter,
+    documentClassifierFilter_submitTimeBefore,
     documentClassifierFilter_documentClassifierName,
 
     -- * DocumentClassifierInputDataConfig
@@ -206,8 +206,8 @@ module Network.AWS.Comprehend.Types
     newDocumentClassifierInputDataConfig,
     documentClassifierInputDataConfig_augmentedManifests,
     documentClassifierInputDataConfig_dataFormat,
-    documentClassifierInputDataConfig_testS3Uri,
     documentClassifierInputDataConfig_labelDelimiter,
+    documentClassifierInputDataConfig_testS3Uri,
     documentClassifierInputDataConfig_s3Uri,
 
     -- * DocumentClassifierOutputDataConfig
@@ -219,38 +219,38 @@ module Network.AWS.Comprehend.Types
     -- * DocumentClassifierProperties
     DocumentClassifierProperties (..),
     newDocumentClassifierProperties,
-    documentClassifierProperties_languageCode,
-    documentClassifierProperties_vpcConfig,
     documentClassifierProperties_status,
-    documentClassifierProperties_inputDataConfig,
-    documentClassifierProperties_message,
-    documentClassifierProperties_mode,
-    documentClassifierProperties_outputDataConfig,
+    documentClassifierProperties_languageCode,
+    documentClassifierProperties_classifierMetadata,
+    documentClassifierProperties_trainingEndTime,
     documentClassifierProperties_documentClassifierArn,
     documentClassifierProperties_versionName,
-    documentClassifierProperties_endTime,
-    documentClassifierProperties_classifierMetadata,
-    documentClassifierProperties_volumeKmsKeyId,
-    documentClassifierProperties_submitTime,
     documentClassifierProperties_modelKmsKeyId,
+    documentClassifierProperties_mode,
+    documentClassifierProperties_inputDataConfig,
+    documentClassifierProperties_vpcConfig,
+    documentClassifierProperties_volumeKmsKeyId,
+    documentClassifierProperties_endTime,
+    documentClassifierProperties_outputDataConfig,
     documentClassifierProperties_trainingStartTime,
     documentClassifierProperties_dataAccessRoleArn,
-    documentClassifierProperties_trainingEndTime,
+    documentClassifierProperties_message,
+    documentClassifierProperties_submitTime,
 
     -- * DocumentClassifierSummary
     DocumentClassifierSummary (..),
     newDocumentClassifierSummary,
     documentClassifierSummary_latestVersionCreatedAt,
     documentClassifierSummary_documentClassifierName,
-    documentClassifierSummary_latestVersionName,
-    documentClassifierSummary_numberOfVersions,
     documentClassifierSummary_latestVersionStatus,
+    documentClassifierSummary_numberOfVersions,
+    documentClassifierSummary_latestVersionName,
 
     -- * DocumentLabel
     DocumentLabel (..),
     newDocumentLabel,
-    documentLabel_name,
     documentLabel_score,
+    documentLabel_name,
 
     -- * DocumentReaderConfig
     DocumentReaderConfig (..),
@@ -268,90 +268,90 @@ module Network.AWS.Comprehend.Types
     -- * DominantLanguageDetectionJobFilter
     DominantLanguageDetectionJobFilter (..),
     newDominantLanguageDetectionJobFilter,
-    dominantLanguageDetectionJobFilter_jobStatus,
-    dominantLanguageDetectionJobFilter_submitTimeBefore,
     dominantLanguageDetectionJobFilter_submitTimeAfter,
+    dominantLanguageDetectionJobFilter_submitTimeBefore,
     dominantLanguageDetectionJobFilter_jobName,
+    dominantLanguageDetectionJobFilter_jobStatus,
 
     -- * DominantLanguageDetectionJobProperties
     DominantLanguageDetectionJobProperties (..),
     newDominantLanguageDetectionJobProperties,
-    dominantLanguageDetectionJobProperties_vpcConfig,
-    dominantLanguageDetectionJobProperties_inputDataConfig,
-    dominantLanguageDetectionJobProperties_message,
-    dominantLanguageDetectionJobProperties_jobStatus,
-    dominantLanguageDetectionJobProperties_outputDataConfig,
-    dominantLanguageDetectionJobProperties_endTime,
-    dominantLanguageDetectionJobProperties_jobArn,
-    dominantLanguageDetectionJobProperties_volumeKmsKeyId,
-    dominantLanguageDetectionJobProperties_submitTime,
-    dominantLanguageDetectionJobProperties_jobName,
-    dominantLanguageDetectionJobProperties_dataAccessRoleArn,
     dominantLanguageDetectionJobProperties_jobId,
+    dominantLanguageDetectionJobProperties_jobArn,
+    dominantLanguageDetectionJobProperties_jobName,
+    dominantLanguageDetectionJobProperties_inputDataConfig,
+    dominantLanguageDetectionJobProperties_vpcConfig,
+    dominantLanguageDetectionJobProperties_volumeKmsKeyId,
+    dominantLanguageDetectionJobProperties_endTime,
+    dominantLanguageDetectionJobProperties_outputDataConfig,
+    dominantLanguageDetectionJobProperties_dataAccessRoleArn,
+    dominantLanguageDetectionJobProperties_jobStatus,
+    dominantLanguageDetectionJobProperties_message,
+    dominantLanguageDetectionJobProperties_submitTime,
 
     -- * EndpointFilter
     EndpointFilter (..),
     newEndpointFilter,
     endpointFilter_status,
-    endpointFilter_creationTimeBefore,
     endpointFilter_modelArn,
     endpointFilter_creationTimeAfter,
+    endpointFilter_creationTimeBefore,
 
     -- * EndpointProperties
     EndpointProperties (..),
     newEndpointProperties,
-    endpointProperties_currentInferenceUnits,
     endpointProperties_creationTime,
     endpointProperties_status,
-    endpointProperties_desiredInferenceUnits,
-    endpointProperties_message,
-    endpointProperties_desiredDataAccessRoleArn,
     endpointProperties_modelArn,
-    endpointProperties_lastModifiedTime,
-    endpointProperties_endpointArn,
-    endpointProperties_dataAccessRoleArn,
     endpointProperties_desiredModelArn,
+    endpointProperties_lastModifiedTime,
+    endpointProperties_desiredInferenceUnits,
+    endpointProperties_currentInferenceUnits,
+    endpointProperties_dataAccessRoleArn,
+    endpointProperties_desiredDataAccessRoleArn,
+    endpointProperties_message,
+    endpointProperties_endpointArn,
 
     -- * EntitiesDetectionJobFilter
     EntitiesDetectionJobFilter (..),
     newEntitiesDetectionJobFilter,
-    entitiesDetectionJobFilter_jobStatus,
-    entitiesDetectionJobFilter_submitTimeBefore,
     entitiesDetectionJobFilter_submitTimeAfter,
+    entitiesDetectionJobFilter_submitTimeBefore,
     entitiesDetectionJobFilter_jobName,
+    entitiesDetectionJobFilter_jobStatus,
 
     -- * EntitiesDetectionJobProperties
     EntitiesDetectionJobProperties (..),
     newEntitiesDetectionJobProperties,
     entitiesDetectionJobProperties_languageCode,
-    entitiesDetectionJobProperties_vpcConfig,
-    entitiesDetectionJobProperties_inputDataConfig,
-    entitiesDetectionJobProperties_message,
-    entitiesDetectionJobProperties_jobStatus,
-    entitiesDetectionJobProperties_outputDataConfig,
-    entitiesDetectionJobProperties_endTime,
+    entitiesDetectionJobProperties_jobId,
     entitiesDetectionJobProperties_jobArn,
-    entitiesDetectionJobProperties_volumeKmsKeyId,
-    entitiesDetectionJobProperties_submitTime,
     entitiesDetectionJobProperties_entityRecognizerArn,
     entitiesDetectionJobProperties_jobName,
+    entitiesDetectionJobProperties_inputDataConfig,
+    entitiesDetectionJobProperties_vpcConfig,
+    entitiesDetectionJobProperties_volumeKmsKeyId,
+    entitiesDetectionJobProperties_endTime,
+    entitiesDetectionJobProperties_outputDataConfig,
     entitiesDetectionJobProperties_dataAccessRoleArn,
-    entitiesDetectionJobProperties_jobId,
+    entitiesDetectionJobProperties_jobStatus,
+    entitiesDetectionJobProperties_message,
+    entitiesDetectionJobProperties_submitTime,
 
     -- * Entity
     Entity (..),
     newEntity,
+    entity_beginOffset,
+    entity_text,
+    entity_score,
     entity_endOffset,
     entity_type,
-    entity_score,
-    entity_text,
-    entity_beginOffset,
 
     -- * EntityLabel
     EntityLabel (..),
     newEntityLabel,
-    entityLabel_name,
     entityLabel_score,
+    entityLabel_name,
 
     -- * EntityRecognizerAnnotations
     EntityRecognizerAnnotations (..),
@@ -362,8 +362,8 @@ module Network.AWS.Comprehend.Types
     -- * EntityRecognizerDocuments
     EntityRecognizerDocuments (..),
     newEntityRecognizerDocuments,
-    entityRecognizerDocuments_testS3Uri,
     entityRecognizerDocuments_inputFormat,
+    entityRecognizerDocuments_testS3Uri,
     entityRecognizerDocuments_s3Uri,
 
     -- * EntityRecognizerEntityList
@@ -374,77 +374,77 @@ module Network.AWS.Comprehend.Types
     -- * EntityRecognizerEvaluationMetrics
     EntityRecognizerEvaluationMetrics (..),
     newEntityRecognizerEvaluationMetrics,
-    entityRecognizerEvaluationMetrics_f1Score,
-    entityRecognizerEvaluationMetrics_precision,
     entityRecognizerEvaluationMetrics_recall,
+    entityRecognizerEvaluationMetrics_precision,
+    entityRecognizerEvaluationMetrics_f1Score,
 
     -- * EntityRecognizerFilter
     EntityRecognizerFilter (..),
     newEntityRecognizerFilter,
     entityRecognizerFilter_status,
-    entityRecognizerFilter_submitTimeBefore,
     entityRecognizerFilter_submitTimeAfter,
+    entityRecognizerFilter_submitTimeBefore,
     entityRecognizerFilter_recognizerName,
 
     -- * EntityRecognizerInputDataConfig
     EntityRecognizerInputDataConfig (..),
     newEntityRecognizerInputDataConfig,
-    entityRecognizerInputDataConfig_documents,
     entityRecognizerInputDataConfig_augmentedManifests,
-    entityRecognizerInputDataConfig_dataFormat,
     entityRecognizerInputDataConfig_annotations,
+    entityRecognizerInputDataConfig_dataFormat,
+    entityRecognizerInputDataConfig_documents,
     entityRecognizerInputDataConfig_entityList,
     entityRecognizerInputDataConfig_entityTypes,
 
     -- * EntityRecognizerMetadata
     EntityRecognizerMetadata (..),
     newEntityRecognizerMetadata,
-    entityRecognizerMetadata_numberOfTestDocuments,
-    entityRecognizerMetadata_numberOfTrainedDocuments,
-    entityRecognizerMetadata_evaluationMetrics,
     entityRecognizerMetadata_entityTypes,
+    entityRecognizerMetadata_evaluationMetrics,
+    entityRecognizerMetadata_numberOfTrainedDocuments,
+    entityRecognizerMetadata_numberOfTestDocuments,
 
     -- * EntityRecognizerMetadataEntityTypesListItem
     EntityRecognizerMetadataEntityTypesListItem (..),
     newEntityRecognizerMetadataEntityTypesListItem,
-    entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions,
     entityRecognizerMetadataEntityTypesListItem_evaluationMetrics,
     entityRecognizerMetadataEntityTypesListItem_type,
+    entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions,
 
     -- * EntityRecognizerProperties
     EntityRecognizerProperties (..),
     newEntityRecognizerProperties,
-    entityRecognizerProperties_languageCode,
-    entityRecognizerProperties_vpcConfig,
     entityRecognizerProperties_status,
-    entityRecognizerProperties_inputDataConfig,
-    entityRecognizerProperties_message,
+    entityRecognizerProperties_languageCode,
+    entityRecognizerProperties_trainingEndTime,
     entityRecognizerProperties_versionName,
-    entityRecognizerProperties_endTime,
-    entityRecognizerProperties_volumeKmsKeyId,
-    entityRecognizerProperties_submitTime,
-    entityRecognizerProperties_recognizerMetadata,
     entityRecognizerProperties_entityRecognizerArn,
     entityRecognizerProperties_modelKmsKeyId,
+    entityRecognizerProperties_inputDataConfig,
+    entityRecognizerProperties_vpcConfig,
+    entityRecognizerProperties_volumeKmsKeyId,
+    entityRecognizerProperties_endTime,
     entityRecognizerProperties_trainingStartTime,
     entityRecognizerProperties_dataAccessRoleArn,
-    entityRecognizerProperties_trainingEndTime,
+    entityRecognizerProperties_recognizerMetadata,
+    entityRecognizerProperties_message,
+    entityRecognizerProperties_submitTime,
 
     -- * EntityRecognizerSummary
     EntityRecognizerSummary (..),
     newEntityRecognizerSummary,
     entityRecognizerSummary_latestVersionCreatedAt,
-    entityRecognizerSummary_recognizerName,
-    entityRecognizerSummary_latestVersionName,
-    entityRecognizerSummary_numberOfVersions,
     entityRecognizerSummary_latestVersionStatus,
+    entityRecognizerSummary_numberOfVersions,
+    entityRecognizerSummary_latestVersionName,
+    entityRecognizerSummary_recognizerName,
 
     -- * EntityTypesEvaluationMetrics
     EntityTypesEvaluationMetrics (..),
     newEntityTypesEvaluationMetrics,
-    entityTypesEvaluationMetrics_f1Score,
-    entityTypesEvaluationMetrics_precision,
     entityTypesEvaluationMetrics_recall,
+    entityTypesEvaluationMetrics_precision,
+    entityTypesEvaluationMetrics_f1Score,
 
     -- * EntityTypesListItem
     EntityTypesListItem (..),
@@ -454,26 +454,26 @@ module Network.AWS.Comprehend.Types
     -- * EventsDetectionJobFilter
     EventsDetectionJobFilter (..),
     newEventsDetectionJobFilter,
-    eventsDetectionJobFilter_jobStatus,
-    eventsDetectionJobFilter_submitTimeBefore,
     eventsDetectionJobFilter_submitTimeAfter,
+    eventsDetectionJobFilter_submitTimeBefore,
     eventsDetectionJobFilter_jobName,
+    eventsDetectionJobFilter_jobStatus,
 
     -- * EventsDetectionJobProperties
     EventsDetectionJobProperties (..),
     newEventsDetectionJobProperties,
     eventsDetectionJobProperties_languageCode,
-    eventsDetectionJobProperties_inputDataConfig,
-    eventsDetectionJobProperties_message,
-    eventsDetectionJobProperties_jobStatus,
-    eventsDetectionJobProperties_outputDataConfig,
-    eventsDetectionJobProperties_endTime,
-    eventsDetectionJobProperties_jobArn,
-    eventsDetectionJobProperties_submitTime,
-    eventsDetectionJobProperties_targetEventTypes,
-    eventsDetectionJobProperties_jobName,
-    eventsDetectionJobProperties_dataAccessRoleArn,
     eventsDetectionJobProperties_jobId,
+    eventsDetectionJobProperties_jobArn,
+    eventsDetectionJobProperties_jobName,
+    eventsDetectionJobProperties_targetEventTypes,
+    eventsDetectionJobProperties_inputDataConfig,
+    eventsDetectionJobProperties_endTime,
+    eventsDetectionJobProperties_outputDataConfig,
+    eventsDetectionJobProperties_dataAccessRoleArn,
+    eventsDetectionJobProperties_jobStatus,
+    eventsDetectionJobProperties_message,
+    eventsDetectionJobProperties_submitTime,
 
     -- * InputDataConfig
     InputDataConfig (..),
@@ -485,35 +485,35 @@ module Network.AWS.Comprehend.Types
     -- * KeyPhrase
     KeyPhrase (..),
     newKeyPhrase,
-    keyPhrase_endOffset,
-    keyPhrase_score,
-    keyPhrase_text,
     keyPhrase_beginOffset,
+    keyPhrase_text,
+    keyPhrase_score,
+    keyPhrase_endOffset,
 
     -- * KeyPhrasesDetectionJobFilter
     KeyPhrasesDetectionJobFilter (..),
     newKeyPhrasesDetectionJobFilter,
-    keyPhrasesDetectionJobFilter_jobStatus,
-    keyPhrasesDetectionJobFilter_submitTimeBefore,
     keyPhrasesDetectionJobFilter_submitTimeAfter,
+    keyPhrasesDetectionJobFilter_submitTimeBefore,
     keyPhrasesDetectionJobFilter_jobName,
+    keyPhrasesDetectionJobFilter_jobStatus,
 
     -- * KeyPhrasesDetectionJobProperties
     KeyPhrasesDetectionJobProperties (..),
     newKeyPhrasesDetectionJobProperties,
     keyPhrasesDetectionJobProperties_languageCode,
-    keyPhrasesDetectionJobProperties_vpcConfig,
-    keyPhrasesDetectionJobProperties_inputDataConfig,
-    keyPhrasesDetectionJobProperties_message,
-    keyPhrasesDetectionJobProperties_jobStatus,
-    keyPhrasesDetectionJobProperties_outputDataConfig,
-    keyPhrasesDetectionJobProperties_endTime,
-    keyPhrasesDetectionJobProperties_jobArn,
-    keyPhrasesDetectionJobProperties_volumeKmsKeyId,
-    keyPhrasesDetectionJobProperties_submitTime,
-    keyPhrasesDetectionJobProperties_jobName,
-    keyPhrasesDetectionJobProperties_dataAccessRoleArn,
     keyPhrasesDetectionJobProperties_jobId,
+    keyPhrasesDetectionJobProperties_jobArn,
+    keyPhrasesDetectionJobProperties_jobName,
+    keyPhrasesDetectionJobProperties_inputDataConfig,
+    keyPhrasesDetectionJobProperties_vpcConfig,
+    keyPhrasesDetectionJobProperties_volumeKmsKeyId,
+    keyPhrasesDetectionJobProperties_endTime,
+    keyPhrasesDetectionJobProperties_outputDataConfig,
+    keyPhrasesDetectionJobProperties_dataAccessRoleArn,
+    keyPhrasesDetectionJobProperties_jobStatus,
+    keyPhrasesDetectionJobProperties_message,
+    keyPhrasesDetectionJobProperties_submitTime,
 
     -- * OutputDataConfig
     OutputDataConfig (..),
@@ -524,41 +524,41 @@ module Network.AWS.Comprehend.Types
     -- * PartOfSpeechTag
     PartOfSpeechTag (..),
     newPartOfSpeechTag,
-    partOfSpeechTag_score,
     partOfSpeechTag_tag,
+    partOfSpeechTag_score,
 
     -- * PiiEntitiesDetectionJobFilter
     PiiEntitiesDetectionJobFilter (..),
     newPiiEntitiesDetectionJobFilter,
-    piiEntitiesDetectionJobFilter_jobStatus,
-    piiEntitiesDetectionJobFilter_submitTimeBefore,
     piiEntitiesDetectionJobFilter_submitTimeAfter,
+    piiEntitiesDetectionJobFilter_submitTimeBefore,
     piiEntitiesDetectionJobFilter_jobName,
+    piiEntitiesDetectionJobFilter_jobStatus,
 
     -- * PiiEntitiesDetectionJobProperties
     PiiEntitiesDetectionJobProperties (..),
     newPiiEntitiesDetectionJobProperties,
     piiEntitiesDetectionJobProperties_languageCode,
-    piiEntitiesDetectionJobProperties_redactionConfig,
-    piiEntitiesDetectionJobProperties_inputDataConfig,
-    piiEntitiesDetectionJobProperties_message,
-    piiEntitiesDetectionJobProperties_mode,
-    piiEntitiesDetectionJobProperties_jobStatus,
-    piiEntitiesDetectionJobProperties_outputDataConfig,
-    piiEntitiesDetectionJobProperties_endTime,
-    piiEntitiesDetectionJobProperties_jobArn,
-    piiEntitiesDetectionJobProperties_submitTime,
-    piiEntitiesDetectionJobProperties_jobName,
-    piiEntitiesDetectionJobProperties_dataAccessRoleArn,
     piiEntitiesDetectionJobProperties_jobId,
+    piiEntitiesDetectionJobProperties_jobArn,
+    piiEntitiesDetectionJobProperties_jobName,
+    piiEntitiesDetectionJobProperties_mode,
+    piiEntitiesDetectionJobProperties_inputDataConfig,
+    piiEntitiesDetectionJobProperties_redactionConfig,
+    piiEntitiesDetectionJobProperties_endTime,
+    piiEntitiesDetectionJobProperties_outputDataConfig,
+    piiEntitiesDetectionJobProperties_dataAccessRoleArn,
+    piiEntitiesDetectionJobProperties_jobStatus,
+    piiEntitiesDetectionJobProperties_message,
+    piiEntitiesDetectionJobProperties_submitTime,
 
     -- * PiiEntity
     PiiEntity (..),
     newPiiEntity,
+    piiEntity_beginOffset,
+    piiEntity_score,
     piiEntity_endOffset,
     piiEntity_type,
-    piiEntity_score,
-    piiEntity_beginOffset,
 
     -- * PiiOutputDataConfig
     PiiOutputDataConfig (..),
@@ -576,44 +576,44 @@ module Network.AWS.Comprehend.Types
     -- * SentimentDetectionJobFilter
     SentimentDetectionJobFilter (..),
     newSentimentDetectionJobFilter,
-    sentimentDetectionJobFilter_jobStatus,
-    sentimentDetectionJobFilter_submitTimeBefore,
     sentimentDetectionJobFilter_submitTimeAfter,
+    sentimentDetectionJobFilter_submitTimeBefore,
     sentimentDetectionJobFilter_jobName,
+    sentimentDetectionJobFilter_jobStatus,
 
     -- * SentimentDetectionJobProperties
     SentimentDetectionJobProperties (..),
     newSentimentDetectionJobProperties,
     sentimentDetectionJobProperties_languageCode,
-    sentimentDetectionJobProperties_vpcConfig,
-    sentimentDetectionJobProperties_inputDataConfig,
-    sentimentDetectionJobProperties_message,
-    sentimentDetectionJobProperties_jobStatus,
-    sentimentDetectionJobProperties_outputDataConfig,
-    sentimentDetectionJobProperties_endTime,
-    sentimentDetectionJobProperties_jobArn,
-    sentimentDetectionJobProperties_volumeKmsKeyId,
-    sentimentDetectionJobProperties_submitTime,
-    sentimentDetectionJobProperties_jobName,
-    sentimentDetectionJobProperties_dataAccessRoleArn,
     sentimentDetectionJobProperties_jobId,
+    sentimentDetectionJobProperties_jobArn,
+    sentimentDetectionJobProperties_jobName,
+    sentimentDetectionJobProperties_inputDataConfig,
+    sentimentDetectionJobProperties_vpcConfig,
+    sentimentDetectionJobProperties_volumeKmsKeyId,
+    sentimentDetectionJobProperties_endTime,
+    sentimentDetectionJobProperties_outputDataConfig,
+    sentimentDetectionJobProperties_dataAccessRoleArn,
+    sentimentDetectionJobProperties_jobStatus,
+    sentimentDetectionJobProperties_message,
+    sentimentDetectionJobProperties_submitTime,
 
     -- * SentimentScore
     SentimentScore (..),
     newSentimentScore,
-    sentimentScore_negative,
     sentimentScore_mixed,
-    sentimentScore_positive,
+    sentimentScore_negative,
     sentimentScore_neutral,
+    sentimentScore_positive,
 
     -- * SyntaxToken
     SyntaxToken (..),
     newSyntaxToken,
-    syntaxToken_tokenId,
-    syntaxToken_partOfSpeech,
-    syntaxToken_endOffset,
-    syntaxToken_text,
     syntaxToken_beginOffset,
+    syntaxToken_text,
+    syntaxToken_tokenId,
+    syntaxToken_endOffset,
+    syntaxToken_partOfSpeech,
 
     -- * Tag
     Tag (..),
@@ -624,27 +624,27 @@ module Network.AWS.Comprehend.Types
     -- * TopicsDetectionJobFilter
     TopicsDetectionJobFilter (..),
     newTopicsDetectionJobFilter,
-    topicsDetectionJobFilter_jobStatus,
-    topicsDetectionJobFilter_submitTimeBefore,
     topicsDetectionJobFilter_submitTimeAfter,
+    topicsDetectionJobFilter_submitTimeBefore,
     topicsDetectionJobFilter_jobName,
+    topicsDetectionJobFilter_jobStatus,
 
     -- * TopicsDetectionJobProperties
     TopicsDetectionJobProperties (..),
     newTopicsDetectionJobProperties,
-    topicsDetectionJobProperties_vpcConfig,
-    topicsDetectionJobProperties_inputDataConfig,
-    topicsDetectionJobProperties_message,
-    topicsDetectionJobProperties_jobStatus,
-    topicsDetectionJobProperties_outputDataConfig,
-    topicsDetectionJobProperties_endTime,
-    topicsDetectionJobProperties_jobArn,
-    topicsDetectionJobProperties_volumeKmsKeyId,
-    topicsDetectionJobProperties_submitTime,
-    topicsDetectionJobProperties_numberOfTopics,
-    topicsDetectionJobProperties_jobName,
-    topicsDetectionJobProperties_dataAccessRoleArn,
     topicsDetectionJobProperties_jobId,
+    topicsDetectionJobProperties_jobArn,
+    topicsDetectionJobProperties_jobName,
+    topicsDetectionJobProperties_inputDataConfig,
+    topicsDetectionJobProperties_vpcConfig,
+    topicsDetectionJobProperties_volumeKmsKeyId,
+    topicsDetectionJobProperties_endTime,
+    topicsDetectionJobProperties_outputDataConfig,
+    topicsDetectionJobProperties_dataAccessRoleArn,
+    topicsDetectionJobProperties_numberOfTopics,
+    topicsDetectionJobProperties_jobStatus,
+    topicsDetectionJobProperties_message,
+    topicsDetectionJobProperties_submitTime,
 
     -- * VpcConfig
     VpcConfig (..),
@@ -766,37 +766,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -809,6 +786,29 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The specified resource is not available. Check the resource and try your
@@ -819,22 +819,12 @@ _ResourceUnavailableException =
     defaultService
     "ResourceUnavailableException"
 
--- | The request contains more tags than can be associated with a resource
--- (50 tags per resource). The maximum number of tags includes both
--- existing tags and those included in your current request.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
+-- | The request is invalid.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
   Core._MatchServiceError
     defaultService
-    "TooManyTagsException"
-
--- | The filter specified for the operation is invalid. Specify a different
--- filter.
-_InvalidFilterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidFilterException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidFilterException"
+    "InvalidRequestException"
 
 -- | The maximum number of resources per account has been exceeded. Review
 -- the resources, and then try your request again.
@@ -844,13 +834,21 @@ _ResourceLimitExceededException =
     defaultService
     "ResourceLimitExceededException"
 
--- | The number of documents in the request exceeds the limit of 25. Try your
--- request again with fewer documents.
-_BatchSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BatchSizeLimitExceededException =
+-- | The request contains more tags than can be associated with a resource
+-- (50 tags per resource). The maximum number of tags includes both
+-- existing tags and those included in your current request.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
   Core._MatchServiceError
     defaultService
-    "BatchSizeLimitExceededException"
+    "TooManyTagsException"
+
+-- | The number of requests exceeds the limit. Resubmit your request later.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyRequestsException"
 
 -- | Concurrent modification of the tags associated with an Amazon Comprehend
 -- resource is not supported.
@@ -860,27 +858,53 @@ _ConcurrentModificationException =
     defaultService
     "ConcurrentModificationException"
 
--- | The request is invalid.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
+-- | An internal server error occurred. Retry your request.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "InvalidRequestException"
+    "InternalServerException"
 
--- | The size of the input text exceeds the limit. Use a smaller document.
-_TextSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TextSizeLimitExceededException =
+-- | The number of documents in the request exceeds the limit of 25. Try your
+-- request again with fewer documents.
+_BatchSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BatchSizeLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "TextSizeLimitExceededException"
+    "BatchSizeLimitExceededException"
 
--- | The specified resource name is already in use. Use a different name and
--- try your request again.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
+-- | Amazon Comprehend can\'t process the language of the input text. For
+-- custom entity recognition APIs, only English, Spanish, French, Italian,
+-- German, or Portuguese are accepted. For a list of supported languages,
+-- see supported-languages.
+_UnsupportedLanguageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedLanguageException =
   Core._MatchServiceError
     defaultService
-    "ResourceInUseException"
+    "UnsupportedLanguageException"
+
+-- | The specified job was not found. Check the job ID and try again.
+_JobNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_JobNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "JobNotFoundException"
+
+-- | The request contains more tag keys than can be associated with a
+-- resource (50 tag keys per resource).
+_TooManyTagKeysException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagKeysException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagKeysException"
+
+-- | The filter specified for the operation is invalid. Specify a different
+-- filter.
+_InvalidFilterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFilterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidFilterException"
 
 -- | The KMS customer managed key (CMK) entered cannot be validated. Verify
 -- the key and re-enter it.
@@ -898,41 +922,17 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
 
--- | The request contains more tag keys than can be associated with a
--- resource (50 tag keys per resource).
-_TooManyTagKeysException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagKeysException =
+-- | The size of the input text exceeds the limit. Use a smaller document.
+_TextSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TextSizeLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "TooManyTagKeysException"
+    "TextSizeLimitExceededException"
 
--- | The specified job was not found. Check the job ID and try again.
-_JobNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_JobNotFoundException =
+-- | The specified resource name is already in use. Use a different name and
+-- try your request again.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
   Core._MatchServiceError
     defaultService
-    "JobNotFoundException"
-
--- | Amazon Comprehend can\'t process the language of the input text. For
--- custom entity recognition APIs, only English, Spanish, French, Italian,
--- German, or Portuguese are accepted. For a list of supported languages,
--- see supported-languages.
-_UnsupportedLanguageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedLanguageException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedLanguageException"
-
--- | An internal server error occurred. Retry your request.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-
--- | The number of requests exceeds the limit. Resubmit your request later.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyRequestsException"
+    "ResourceInUseException"

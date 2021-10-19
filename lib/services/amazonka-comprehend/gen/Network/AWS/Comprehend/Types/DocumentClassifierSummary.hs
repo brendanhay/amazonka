@@ -33,12 +33,12 @@ data DocumentClassifierSummary = DocumentClassifierSummary'
     latestVersionCreatedAt :: Prelude.Maybe Core.POSIX,
     -- | The name that you assigned the document classifier.
     documentClassifierName :: Prelude.Maybe Prelude.Text,
-    -- | The version name you assigned to the latest document classifier version.
-    latestVersionName :: Prelude.Maybe Prelude.Text,
+    -- | Provides the status of the latest document classifier version.
+    latestVersionStatus :: Prelude.Maybe ModelStatus,
     -- | The number of versions you created.
     numberOfVersions :: Prelude.Maybe Prelude.Int,
-    -- | Provides the status of the latest document classifier version.
-    latestVersionStatus :: Prelude.Maybe ModelStatus
+    -- | The version name you assigned to the latest document classifier version.
+    latestVersionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,11 +55,11 @@ data DocumentClassifierSummary = DocumentClassifierSummary'
 --
 -- 'documentClassifierName', 'documentClassifierSummary_documentClassifierName' - The name that you assigned the document classifier.
 --
--- 'latestVersionName', 'documentClassifierSummary_latestVersionName' - The version name you assigned to the latest document classifier version.
+-- 'latestVersionStatus', 'documentClassifierSummary_latestVersionStatus' - Provides the status of the latest document classifier version.
 --
 -- 'numberOfVersions', 'documentClassifierSummary_numberOfVersions' - The number of versions you created.
 --
--- 'latestVersionStatus', 'documentClassifierSummary_latestVersionStatus' - Provides the status of the latest document classifier version.
+-- 'latestVersionName', 'documentClassifierSummary_latestVersionName' - The version name you assigned to the latest document classifier version.
 newDocumentClassifierSummary ::
   DocumentClassifierSummary
 newDocumentClassifierSummary =
@@ -67,9 +67,9 @@ newDocumentClassifierSummary =
     { latestVersionCreatedAt =
         Prelude.Nothing,
       documentClassifierName = Prelude.Nothing,
-      latestVersionName = Prelude.Nothing,
+      latestVersionStatus = Prelude.Nothing,
       numberOfVersions = Prelude.Nothing,
-      latestVersionStatus = Prelude.Nothing
+      latestVersionName = Prelude.Nothing
     }
 
 -- | The time that the latest document classifier version was submitted for
@@ -81,17 +81,17 @@ documentClassifierSummary_latestVersionCreatedAt = Lens.lens (\DocumentClassifie
 documentClassifierSummary_documentClassifierName :: Lens.Lens' DocumentClassifierSummary (Prelude.Maybe Prelude.Text)
 documentClassifierSummary_documentClassifierName = Lens.lens (\DocumentClassifierSummary' {documentClassifierName} -> documentClassifierName) (\s@DocumentClassifierSummary' {} a -> s {documentClassifierName = a} :: DocumentClassifierSummary)
 
--- | The version name you assigned to the latest document classifier version.
-documentClassifierSummary_latestVersionName :: Lens.Lens' DocumentClassifierSummary (Prelude.Maybe Prelude.Text)
-documentClassifierSummary_latestVersionName = Lens.lens (\DocumentClassifierSummary' {latestVersionName} -> latestVersionName) (\s@DocumentClassifierSummary' {} a -> s {latestVersionName = a} :: DocumentClassifierSummary)
+-- | Provides the status of the latest document classifier version.
+documentClassifierSummary_latestVersionStatus :: Lens.Lens' DocumentClassifierSummary (Prelude.Maybe ModelStatus)
+documentClassifierSummary_latestVersionStatus = Lens.lens (\DocumentClassifierSummary' {latestVersionStatus} -> latestVersionStatus) (\s@DocumentClassifierSummary' {} a -> s {latestVersionStatus = a} :: DocumentClassifierSummary)
 
 -- | The number of versions you created.
 documentClassifierSummary_numberOfVersions :: Lens.Lens' DocumentClassifierSummary (Prelude.Maybe Prelude.Int)
 documentClassifierSummary_numberOfVersions = Lens.lens (\DocumentClassifierSummary' {numberOfVersions} -> numberOfVersions) (\s@DocumentClassifierSummary' {} a -> s {numberOfVersions = a} :: DocumentClassifierSummary)
 
--- | Provides the status of the latest document classifier version.
-documentClassifierSummary_latestVersionStatus :: Lens.Lens' DocumentClassifierSummary (Prelude.Maybe ModelStatus)
-documentClassifierSummary_latestVersionStatus = Lens.lens (\DocumentClassifierSummary' {latestVersionStatus} -> latestVersionStatus) (\s@DocumentClassifierSummary' {} a -> s {latestVersionStatus = a} :: DocumentClassifierSummary)
+-- | The version name you assigned to the latest document classifier version.
+documentClassifierSummary_latestVersionName :: Lens.Lens' DocumentClassifierSummary (Prelude.Maybe Prelude.Text)
+documentClassifierSummary_latestVersionName = Lens.lens (\DocumentClassifierSummary' {latestVersionName} -> latestVersionName) (\s@DocumentClassifierSummary' {} a -> s {latestVersionName = a} :: DocumentClassifierSummary)
 
 instance Core.FromJSON DocumentClassifierSummary where
   parseJSON =
@@ -101,9 +101,9 @@ instance Core.FromJSON DocumentClassifierSummary where
           DocumentClassifierSummary'
             Prelude.<$> (x Core..:? "LatestVersionCreatedAt")
             Prelude.<*> (x Core..:? "DocumentClassifierName")
-            Prelude.<*> (x Core..:? "LatestVersionName")
-            Prelude.<*> (x Core..:? "NumberOfVersions")
             Prelude.<*> (x Core..:? "LatestVersionStatus")
+            Prelude.<*> (x Core..:? "NumberOfVersions")
+            Prelude.<*> (x Core..:? "LatestVersionName")
       )
 
 instance Prelude.Hashable DocumentClassifierSummary

@@ -30,16 +30,16 @@ module Network.AWS.Comprehend.ListSentimentDetectionJobs
 
     -- * Request Lenses
     listSentimentDetectionJobs_nextToken,
-    listSentimentDetectionJobs_maxResults,
     listSentimentDetectionJobs_filter,
+    listSentimentDetectionJobs_maxResults,
 
     -- * Destructuring the Response
     ListSentimentDetectionJobsResponse (..),
     newListSentimentDetectionJobsResponse,
 
     -- * Response Lenses
-    listSentimentDetectionJobsResponse_sentimentDetectionJobPropertiesList,
     listSentimentDetectionJobsResponse_nextToken,
+    listSentimentDetectionJobsResponse_sentimentDetectionJobPropertiesList,
     listSentimentDetectionJobsResponse_httpStatus,
   )
 where
@@ -55,13 +55,13 @@ import qualified Network.AWS.Response as Response
 data ListSentimentDetectionJobs = ListSentimentDetectionJobs'
   { -- | Identifies the next page of results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in each page. The default is
-    -- 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filters the jobs that are returned. You can filter jobs on their name,
     -- status, or the date and time that they were submitted. You can only set
     -- one filter at a time.
-    filter' :: Prelude.Maybe SentimentDetectionJobFilter
+    filter' :: Prelude.Maybe SentimentDetectionJobFilter,
+    -- | The maximum number of results to return in each page. The default is
+    -- 100.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,36 +75,36 @@ data ListSentimentDetectionJobs = ListSentimentDetectionJobs'
 --
 -- 'nextToken', 'listSentimentDetectionJobs_nextToken' - Identifies the next page of results to return.
 --
--- 'maxResults', 'listSentimentDetectionJobs_maxResults' - The maximum number of results to return in each page. The default is
--- 100.
---
 -- 'filter'', 'listSentimentDetectionJobs_filter' - Filters the jobs that are returned. You can filter jobs on their name,
 -- status, or the date and time that they were submitted. You can only set
 -- one filter at a time.
+--
+-- 'maxResults', 'listSentimentDetectionJobs_maxResults' - The maximum number of results to return in each page. The default is
+-- 100.
 newListSentimentDetectionJobs ::
   ListSentimentDetectionJobs
 newListSentimentDetectionJobs =
   ListSentimentDetectionJobs'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filter' = Prelude.Nothing
+      filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | Identifies the next page of results to return.
 listSentimentDetectionJobs_nextToken :: Lens.Lens' ListSentimentDetectionJobs (Prelude.Maybe Prelude.Text)
 listSentimentDetectionJobs_nextToken = Lens.lens (\ListSentimentDetectionJobs' {nextToken} -> nextToken) (\s@ListSentimentDetectionJobs' {} a -> s {nextToken = a} :: ListSentimentDetectionJobs)
 
--- | The maximum number of results to return in each page. The default is
--- 100.
-listSentimentDetectionJobs_maxResults :: Lens.Lens' ListSentimentDetectionJobs (Prelude.Maybe Prelude.Natural)
-listSentimentDetectionJobs_maxResults = Lens.lens (\ListSentimentDetectionJobs' {maxResults} -> maxResults) (\s@ListSentimentDetectionJobs' {} a -> s {maxResults = a} :: ListSentimentDetectionJobs)
-
 -- | Filters the jobs that are returned. You can filter jobs on their name,
 -- status, or the date and time that they were submitted. You can only set
 -- one filter at a time.
 listSentimentDetectionJobs_filter :: Lens.Lens' ListSentimentDetectionJobs (Prelude.Maybe SentimentDetectionJobFilter)
 listSentimentDetectionJobs_filter = Lens.lens (\ListSentimentDetectionJobs' {filter'} -> filter') (\s@ListSentimentDetectionJobs' {} a -> s {filter' = a} :: ListSentimentDetectionJobs)
+
+-- | The maximum number of results to return in each page. The default is
+-- 100.
+listSentimentDetectionJobs_maxResults :: Lens.Lens' ListSentimentDetectionJobs (Prelude.Maybe Prelude.Natural)
+listSentimentDetectionJobs_maxResults = Lens.lens (\ListSentimentDetectionJobs' {maxResults} -> maxResults) (\s@ListSentimentDetectionJobs' {} a -> s {maxResults = a} :: ListSentimentDetectionJobs)
 
 instance Core.AWSPager ListSentimentDetectionJobs where
   page rq rs
@@ -137,10 +137,10 @@ instance Core.AWSRequest ListSentimentDetectionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListSentimentDetectionJobsResponse'
-            Prelude.<$> ( x Core..?> "SentimentDetectionJobPropertiesList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "SentimentDetectionJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,8 +168,8 @@ instance Core.ToJSON ListSentimentDetectionJobs where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filter" Core..=) Prelude.<$> filter'
+            ("Filter" Core..=) Prelude.<$> filter',
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -181,10 +181,10 @@ instance Core.ToQuery ListSentimentDetectionJobs where
 
 -- | /See:/ 'newListSentimentDetectionJobsResponse' smart constructor.
 data ListSentimentDetectionJobsResponse = ListSentimentDetectionJobsResponse'
-  { -- | A list containing the properties of each job that is returned.
-    sentimentDetectionJobPropertiesList :: Prelude.Maybe [SentimentDetectionJobProperties],
-    -- | Identifies the next page of results to return.
+  { -- | Identifies the next page of results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list containing the properties of each job that is returned.
+    sentimentDetectionJobPropertiesList :: Prelude.Maybe [SentimentDetectionJobProperties],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,9 +198,9 @@ data ListSentimentDetectionJobsResponse = ListSentimentDetectionJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sentimentDetectionJobPropertiesList', 'listSentimentDetectionJobsResponse_sentimentDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
---
 -- 'nextToken', 'listSentimentDetectionJobsResponse_nextToken' - Identifies the next page of results to return.
+--
+-- 'sentimentDetectionJobPropertiesList', 'listSentimentDetectionJobsResponse_sentimentDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
 --
 -- 'httpStatus', 'listSentimentDetectionJobsResponse_httpStatus' - The response's http status code.
 newListSentimentDetectionJobsResponse ::
@@ -209,19 +209,20 @@ newListSentimentDetectionJobsResponse ::
   ListSentimentDetectionJobsResponse
 newListSentimentDetectionJobsResponse pHttpStatus_ =
   ListSentimentDetectionJobsResponse'
-    { sentimentDetectionJobPropertiesList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sentimentDetectionJobPropertiesList =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list containing the properties of each job that is returned.
-listSentimentDetectionJobsResponse_sentimentDetectionJobPropertiesList :: Lens.Lens' ListSentimentDetectionJobsResponse (Prelude.Maybe [SentimentDetectionJobProperties])
-listSentimentDetectionJobsResponse_sentimentDetectionJobPropertiesList = Lens.lens (\ListSentimentDetectionJobsResponse' {sentimentDetectionJobPropertiesList} -> sentimentDetectionJobPropertiesList) (\s@ListSentimentDetectionJobsResponse' {} a -> s {sentimentDetectionJobPropertiesList = a} :: ListSentimentDetectionJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Identifies the next page of results to return.
 listSentimentDetectionJobsResponse_nextToken :: Lens.Lens' ListSentimentDetectionJobsResponse (Prelude.Maybe Prelude.Text)
 listSentimentDetectionJobsResponse_nextToken = Lens.lens (\ListSentimentDetectionJobsResponse' {nextToken} -> nextToken) (\s@ListSentimentDetectionJobsResponse' {} a -> s {nextToken = a} :: ListSentimentDetectionJobsResponse)
+
+-- | A list containing the properties of each job that is returned.
+listSentimentDetectionJobsResponse_sentimentDetectionJobPropertiesList :: Lens.Lens' ListSentimentDetectionJobsResponse (Prelude.Maybe [SentimentDetectionJobProperties])
+listSentimentDetectionJobsResponse_sentimentDetectionJobPropertiesList = Lens.lens (\ListSentimentDetectionJobsResponse' {sentimentDetectionJobPropertiesList} -> sentimentDetectionJobPropertiesList) (\s@ListSentimentDetectionJobsResponse' {} a -> s {sentimentDetectionJobPropertiesList = a} :: ListSentimentDetectionJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSentimentDetectionJobsResponse_httpStatus :: Lens.Lens' ListSentimentDetectionJobsResponse Prelude.Int

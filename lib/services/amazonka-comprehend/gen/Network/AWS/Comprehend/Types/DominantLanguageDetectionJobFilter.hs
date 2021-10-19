@@ -29,19 +29,19 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDominantLanguageDetectionJobFilter' smart constructor.
 data DominantLanguageDetectionJobFilter = DominantLanguageDetectionJobFilter'
-  { -- | Filters the list of jobs based on job status. Returns only jobs with the
-    -- specified status.
-    jobStatus :: Prelude.Maybe JobStatus,
+  { -- | Filters the list of jobs based on the time that the job was submitted
+    -- for processing. Returns only jobs submitted after the specified time.
+    -- Jobs are returned in descending order, newest to oldest.
+    submitTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Returns only jobs submitted before the specified time.
     -- Jobs are returned in ascending order, oldest to newest.
     submitTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | Filters the list of jobs based on the time that the job was submitted
-    -- for processing. Returns only jobs submitted after the specified time.
-    -- Jobs are returned in descending order, newest to oldest.
-    submitTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | Filters on the name of the job.
-    jobName :: Prelude.Maybe Prelude.Text
+    jobName :: Prelude.Maybe Prelude.Text,
+    -- | Filters the list of jobs based on job status. Returns only jobs with the
+    -- specified status.
+    jobStatus :: Prelude.Maybe JobStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,39 +53,28 @@ data DominantLanguageDetectionJobFilter = DominantLanguageDetectionJobFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobStatus', 'dominantLanguageDetectionJobFilter_jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the
--- specified status.
+-- 'submitTimeAfter', 'dominantLanguageDetectionJobFilter_submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted
+-- for processing. Returns only jobs submitted after the specified time.
+-- Jobs are returned in descending order, newest to oldest.
 --
 -- 'submitTimeBefore', 'dominantLanguageDetectionJobFilter_submitTimeBefore' - Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted before the specified time.
 -- Jobs are returned in ascending order, oldest to newest.
 --
--- 'submitTimeAfter', 'dominantLanguageDetectionJobFilter_submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted
--- for processing. Returns only jobs submitted after the specified time.
--- Jobs are returned in descending order, newest to oldest.
---
 -- 'jobName', 'dominantLanguageDetectionJobFilter_jobName' - Filters on the name of the job.
+--
+-- 'jobStatus', 'dominantLanguageDetectionJobFilter_jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the
+-- specified status.
 newDominantLanguageDetectionJobFilter ::
   DominantLanguageDetectionJobFilter
 newDominantLanguageDetectionJobFilter =
   DominantLanguageDetectionJobFilter'
-    { jobStatus =
+    { submitTimeAfter =
         Prelude.Nothing,
       submitTimeBefore = Prelude.Nothing,
-      submitTimeAfter = Prelude.Nothing,
-      jobName = Prelude.Nothing
+      jobName = Prelude.Nothing,
+      jobStatus = Prelude.Nothing
     }
-
--- | Filters the list of jobs based on job status. Returns only jobs with the
--- specified status.
-dominantLanguageDetectionJobFilter_jobStatus :: Lens.Lens' DominantLanguageDetectionJobFilter (Prelude.Maybe JobStatus)
-dominantLanguageDetectionJobFilter_jobStatus = Lens.lens (\DominantLanguageDetectionJobFilter' {jobStatus} -> jobStatus) (\s@DominantLanguageDetectionJobFilter' {} a -> s {jobStatus = a} :: DominantLanguageDetectionJobFilter)
-
--- | Filters the list of jobs based on the time that the job was submitted
--- for processing. Returns only jobs submitted before the specified time.
--- Jobs are returned in ascending order, oldest to newest.
-dominantLanguageDetectionJobFilter_submitTimeBefore :: Lens.Lens' DominantLanguageDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
-dominantLanguageDetectionJobFilter_submitTimeBefore = Lens.lens (\DominantLanguageDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@DominantLanguageDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: DominantLanguageDetectionJobFilter) Prelude.. Lens.mapping Core._Time
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted after the specified time.
@@ -93,9 +82,20 @@ dominantLanguageDetectionJobFilter_submitTimeBefore = Lens.lens (\DominantLangua
 dominantLanguageDetectionJobFilter_submitTimeAfter :: Lens.Lens' DominantLanguageDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
 dominantLanguageDetectionJobFilter_submitTimeAfter = Lens.lens (\DominantLanguageDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@DominantLanguageDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: DominantLanguageDetectionJobFilter) Prelude.. Lens.mapping Core._Time
 
+-- | Filters the list of jobs based on the time that the job was submitted
+-- for processing. Returns only jobs submitted before the specified time.
+-- Jobs are returned in ascending order, oldest to newest.
+dominantLanguageDetectionJobFilter_submitTimeBefore :: Lens.Lens' DominantLanguageDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
+dominantLanguageDetectionJobFilter_submitTimeBefore = Lens.lens (\DominantLanguageDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@DominantLanguageDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: DominantLanguageDetectionJobFilter) Prelude.. Lens.mapping Core._Time
+
 -- | Filters on the name of the job.
 dominantLanguageDetectionJobFilter_jobName :: Lens.Lens' DominantLanguageDetectionJobFilter (Prelude.Maybe Prelude.Text)
 dominantLanguageDetectionJobFilter_jobName = Lens.lens (\DominantLanguageDetectionJobFilter' {jobName} -> jobName) (\s@DominantLanguageDetectionJobFilter' {} a -> s {jobName = a} :: DominantLanguageDetectionJobFilter)
+
+-- | Filters the list of jobs based on job status. Returns only jobs with the
+-- specified status.
+dominantLanguageDetectionJobFilter_jobStatus :: Lens.Lens' DominantLanguageDetectionJobFilter (Prelude.Maybe JobStatus)
+dominantLanguageDetectionJobFilter_jobStatus = Lens.lens (\DominantLanguageDetectionJobFilter' {jobStatus} -> jobStatus) (\s@DominantLanguageDetectionJobFilter' {} a -> s {jobStatus = a} :: DominantLanguageDetectionJobFilter)
 
 instance
   Prelude.Hashable
@@ -112,11 +112,11 @@ instance
   toJSON DominantLanguageDetectionJobFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("JobStatus" Core..=) Prelude.<$> jobStatus,
+          [ ("SubmitTimeAfter" Core..=)
+              Prelude.<$> submitTimeAfter,
             ("SubmitTimeBefore" Core..=)
               Prelude.<$> submitTimeBefore,
-            ("SubmitTimeAfter" Core..=)
-              Prelude.<$> submitTimeAfter,
-            ("JobName" Core..=) Prelude.<$> jobName
+            ("JobName" Core..=) Prelude.<$> jobName,
+            ("JobStatus" Core..=) Prelude.<$> jobStatus
           ]
       )

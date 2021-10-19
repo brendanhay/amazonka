@@ -174,7 +174,7 @@ newDetectDominantLanguageResponse pHttpStatus_ =
 -- <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on
 -- the /IETF Tools/ web site.
 detectDominantLanguageResponse_languages :: Lens.Lens' DetectDominantLanguageResponse (Prelude.Maybe [DominantLanguage])
-detectDominantLanguageResponse_languages = Lens.lens (\DetectDominantLanguageResponse' {languages} -> languages) (\s@DetectDominantLanguageResponse' {} a -> s {languages = a} :: DetectDominantLanguageResponse) Prelude.. Lens.mapping Lens._Coerce
+detectDominantLanguageResponse_languages = Lens.lens (\DetectDominantLanguageResponse' {languages} -> languages) (\s@DetectDominantLanguageResponse' {} a -> s {languages = a} :: DetectDominantLanguageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 detectDominantLanguageResponse_httpStatus :: Lens.Lens' DetectDominantLanguageResponse Prelude.Int

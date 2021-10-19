@@ -186,7 +186,7 @@ newDetectKeyPhrasesResponse pHttpStatus_ =
 -- key phrase, where the key phrase begins and ends, and the level of
 -- confidence that Amazon Comprehend has in the accuracy of the detection.
 detectKeyPhrasesResponse_keyPhrases :: Lens.Lens' DetectKeyPhrasesResponse (Prelude.Maybe [KeyPhrase])
-detectKeyPhrasesResponse_keyPhrases = Lens.lens (\DetectKeyPhrasesResponse' {keyPhrases} -> keyPhrases) (\s@DetectKeyPhrasesResponse' {} a -> s {keyPhrases = a} :: DetectKeyPhrasesResponse) Prelude.. Lens.mapping Lens._Coerce
+detectKeyPhrasesResponse_keyPhrases = Lens.lens (\DetectKeyPhrasesResponse' {keyPhrases} -> keyPhrases) (\s@DetectKeyPhrasesResponse' {} a -> s {keyPhrases = a} :: DetectKeyPhrasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 detectKeyPhrasesResponse_httpStatus :: Lens.Lens' DetectKeyPhrasesResponse Prelude.Int

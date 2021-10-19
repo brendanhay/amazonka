@@ -30,8 +30,8 @@ module Network.AWS.Comprehend.ListDocumentClassifiers
 
     -- * Request Lenses
     listDocumentClassifiers_nextToken,
-    listDocumentClassifiers_maxResults,
     listDocumentClassifiers_filter,
+    listDocumentClassifiers_maxResults,
 
     -- * Destructuring the Response
     ListDocumentClassifiersResponse (..),
@@ -55,13 +55,13 @@ import qualified Network.AWS.Response as Response
 data ListDocumentClassifiers = ListDocumentClassifiers'
   { -- | Identifies the next page of results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in each page. The default is
-    -- 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filters the jobs that are returned. You can filter jobs on their name,
     -- status, or the date and time that they were submitted. You can only set
     -- one filter at a time.
-    filter' :: Prelude.Maybe DocumentClassifierFilter
+    filter' :: Prelude.Maybe DocumentClassifierFilter,
+    -- | The maximum number of results to return in each page. The default is
+    -- 100.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,36 +75,36 @@ data ListDocumentClassifiers = ListDocumentClassifiers'
 --
 -- 'nextToken', 'listDocumentClassifiers_nextToken' - Identifies the next page of results to return.
 --
--- 'maxResults', 'listDocumentClassifiers_maxResults' - The maximum number of results to return in each page. The default is
--- 100.
---
 -- 'filter'', 'listDocumentClassifiers_filter' - Filters the jobs that are returned. You can filter jobs on their name,
 -- status, or the date and time that they were submitted. You can only set
 -- one filter at a time.
+--
+-- 'maxResults', 'listDocumentClassifiers_maxResults' - The maximum number of results to return in each page. The default is
+-- 100.
 newListDocumentClassifiers ::
   ListDocumentClassifiers
 newListDocumentClassifiers =
   ListDocumentClassifiers'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filter' = Prelude.Nothing
+      filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | Identifies the next page of results to return.
 listDocumentClassifiers_nextToken :: Lens.Lens' ListDocumentClassifiers (Prelude.Maybe Prelude.Text)
 listDocumentClassifiers_nextToken = Lens.lens (\ListDocumentClassifiers' {nextToken} -> nextToken) (\s@ListDocumentClassifiers' {} a -> s {nextToken = a} :: ListDocumentClassifiers)
 
--- | The maximum number of results to return in each page. The default is
--- 100.
-listDocumentClassifiers_maxResults :: Lens.Lens' ListDocumentClassifiers (Prelude.Maybe Prelude.Natural)
-listDocumentClassifiers_maxResults = Lens.lens (\ListDocumentClassifiers' {maxResults} -> maxResults) (\s@ListDocumentClassifiers' {} a -> s {maxResults = a} :: ListDocumentClassifiers)
-
 -- | Filters the jobs that are returned. You can filter jobs on their name,
 -- status, or the date and time that they were submitted. You can only set
 -- one filter at a time.
 listDocumentClassifiers_filter :: Lens.Lens' ListDocumentClassifiers (Prelude.Maybe DocumentClassifierFilter)
 listDocumentClassifiers_filter = Lens.lens (\ListDocumentClassifiers' {filter'} -> filter') (\s@ListDocumentClassifiers' {} a -> s {filter' = a} :: ListDocumentClassifiers)
+
+-- | The maximum number of results to return in each page. The default is
+-- 100.
+listDocumentClassifiers_maxResults :: Lens.Lens' ListDocumentClassifiers (Prelude.Maybe Prelude.Natural)
+listDocumentClassifiers_maxResults = Lens.lens (\ListDocumentClassifiers' {maxResults} -> maxResults) (\s@ListDocumentClassifiers' {} a -> s {maxResults = a} :: ListDocumentClassifiers)
 
 instance Core.AWSPager ListDocumentClassifiers where
   page rq rs
@@ -168,8 +168,8 @@ instance Core.ToJSON ListDocumentClassifiers where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filter" Core..=) Prelude.<$> filter'
+            ("Filter" Core..=) Prelude.<$> filter',
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -222,7 +222,7 @@ listDocumentClassifiersResponse_nextToken = Lens.lens (\ListDocumentClassifiersR
 
 -- | A list containing the properties of each job returned.
 listDocumentClassifiersResponse_documentClassifierPropertiesList :: Lens.Lens' ListDocumentClassifiersResponse (Prelude.Maybe [DocumentClassifierProperties])
-listDocumentClassifiersResponse_documentClassifierPropertiesList = Lens.lens (\ListDocumentClassifiersResponse' {documentClassifierPropertiesList} -> documentClassifierPropertiesList) (\s@ListDocumentClassifiersResponse' {} a -> s {documentClassifierPropertiesList = a} :: ListDocumentClassifiersResponse) Prelude.. Lens.mapping Lens._Coerce
+listDocumentClassifiersResponse_documentClassifierPropertiesList = Lens.lens (\ListDocumentClassifiersResponse' {documentClassifierPropertiesList} -> documentClassifierPropertiesList) (\s@ListDocumentClassifiersResponse' {} a -> s {documentClassifierPropertiesList = a} :: ListDocumentClassifiersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDocumentClassifiersResponse_httpStatus :: Lens.Lens' ListDocumentClassifiersResponse Prelude.Int

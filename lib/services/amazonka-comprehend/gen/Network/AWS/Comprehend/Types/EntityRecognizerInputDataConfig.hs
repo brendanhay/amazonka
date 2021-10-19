@@ -33,18 +33,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEntityRecognizerInputDataConfig' smart constructor.
 data EntityRecognizerInputDataConfig = EntityRecognizerInputDataConfig'
-  { -- | The S3 location of the folder that contains the training documents for
-    -- your custom entity recognizer.
-    --
-    -- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@.
-    documents :: Prelude.Maybe EntityRecognizerDocuments,
-    -- | A list of augmented manifest files that provide training data for your
+  { -- | A list of augmented manifest files that provide training data for your
     -- custom model. An augmented manifest file is a labeled dataset that is
     -- produced by Amazon SageMaker Ground Truth.
     --
     -- This parameter is required if you set @DataFormat@ to
     -- @AUGMENTED_MANIFEST@.
     augmentedManifests :: Prelude.Maybe [AugmentedManifestsListItem],
+    -- | The S3 location of the CSV file that annotates your training documents.
+    annotations :: Prelude.Maybe EntityRecognizerAnnotations,
     -- | The format of your training data:
     --
     -- -   @COMPREHEND_CSV@: A CSV file that supplements your training
@@ -69,8 +66,11 @@ data EntityRecognizerInputDataConfig = EntityRecognizerInputDataConfig'
     -- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@
     -- as the default.
     dataFormat :: Prelude.Maybe EntityRecognizerDataFormat,
-    -- | The S3 location of the CSV file that annotates your training documents.
-    annotations :: Prelude.Maybe EntityRecognizerAnnotations,
+    -- | The S3 location of the folder that contains the training documents for
+    -- your custom entity recognizer.
+    --
+    -- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@.
+    documents :: Prelude.Maybe EntityRecognizerDocuments,
     -- | The S3 location of the CSV file that has the entity list for your custom
     -- entity recognizer.
     entityList :: Prelude.Maybe EntityRecognizerEntityList,
@@ -95,17 +95,14 @@ data EntityRecognizerInputDataConfig = EntityRecognizerInputDataConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'documents', 'entityRecognizerInputDataConfig_documents' - The S3 location of the folder that contains the training documents for
--- your custom entity recognizer.
---
--- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@.
---
 -- 'augmentedManifests', 'entityRecognizerInputDataConfig_augmentedManifests' - A list of augmented manifest files that provide training data for your
 -- custom model. An augmented manifest file is a labeled dataset that is
 -- produced by Amazon SageMaker Ground Truth.
 --
 -- This parameter is required if you set @DataFormat@ to
 -- @AUGMENTED_MANIFEST@.
+--
+-- 'annotations', 'entityRecognizerInputDataConfig_annotations' - The S3 location of the CSV file that annotates your training documents.
 --
 -- 'dataFormat', 'entityRecognizerInputDataConfig_dataFormat' - The format of your training data:
 --
@@ -131,7 +128,10 @@ data EntityRecognizerInputDataConfig = EntityRecognizerInputDataConfig'
 -- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@
 -- as the default.
 --
--- 'annotations', 'entityRecognizerInputDataConfig_annotations' - The S3 location of the CSV file that annotates your training documents.
+-- 'documents', 'entityRecognizerInputDataConfig_documents' - The S3 location of the folder that contains the training documents for
+-- your custom entity recognizer.
+--
+-- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@.
 --
 -- 'entityList', 'entityRecognizerInputDataConfig_entityList' - The S3 location of the CSV file that has the entity list for your custom
 -- entity recognizer.
@@ -149,21 +149,14 @@ newEntityRecognizerInputDataConfig ::
   EntityRecognizerInputDataConfig
 newEntityRecognizerInputDataConfig =
   EntityRecognizerInputDataConfig'
-    { documents =
+    { augmentedManifests =
         Prelude.Nothing,
-      augmentedManifests = Prelude.Nothing,
-      dataFormat = Prelude.Nothing,
       annotations = Prelude.Nothing,
+      dataFormat = Prelude.Nothing,
+      documents = Prelude.Nothing,
       entityList = Prelude.Nothing,
       entityTypes = Prelude.mempty
     }
-
--- | The S3 location of the folder that contains the training documents for
--- your custom entity recognizer.
---
--- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@.
-entityRecognizerInputDataConfig_documents :: Lens.Lens' EntityRecognizerInputDataConfig (Prelude.Maybe EntityRecognizerDocuments)
-entityRecognizerInputDataConfig_documents = Lens.lens (\EntityRecognizerInputDataConfig' {documents} -> documents) (\s@EntityRecognizerInputDataConfig' {} a -> s {documents = a} :: EntityRecognizerInputDataConfig)
 
 -- | A list of augmented manifest files that provide training data for your
 -- custom model. An augmented manifest file is a labeled dataset that is
@@ -172,7 +165,11 @@ entityRecognizerInputDataConfig_documents = Lens.lens (\EntityRecognizerInputDat
 -- This parameter is required if you set @DataFormat@ to
 -- @AUGMENTED_MANIFEST@.
 entityRecognizerInputDataConfig_augmentedManifests :: Lens.Lens' EntityRecognizerInputDataConfig (Prelude.Maybe [AugmentedManifestsListItem])
-entityRecognizerInputDataConfig_augmentedManifests = Lens.lens (\EntityRecognizerInputDataConfig' {augmentedManifests} -> augmentedManifests) (\s@EntityRecognizerInputDataConfig' {} a -> s {augmentedManifests = a} :: EntityRecognizerInputDataConfig) Prelude.. Lens.mapping Lens._Coerce
+entityRecognizerInputDataConfig_augmentedManifests = Lens.lens (\EntityRecognizerInputDataConfig' {augmentedManifests} -> augmentedManifests) (\s@EntityRecognizerInputDataConfig' {} a -> s {augmentedManifests = a} :: EntityRecognizerInputDataConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | The S3 location of the CSV file that annotates your training documents.
+entityRecognizerInputDataConfig_annotations :: Lens.Lens' EntityRecognizerInputDataConfig (Prelude.Maybe EntityRecognizerAnnotations)
+entityRecognizerInputDataConfig_annotations = Lens.lens (\EntityRecognizerInputDataConfig' {annotations} -> annotations) (\s@EntityRecognizerInputDataConfig' {} a -> s {annotations = a} :: EntityRecognizerInputDataConfig)
 
 -- | The format of your training data:
 --
@@ -200,9 +197,12 @@ entityRecognizerInputDataConfig_augmentedManifests = Lens.lens (\EntityRecognize
 entityRecognizerInputDataConfig_dataFormat :: Lens.Lens' EntityRecognizerInputDataConfig (Prelude.Maybe EntityRecognizerDataFormat)
 entityRecognizerInputDataConfig_dataFormat = Lens.lens (\EntityRecognizerInputDataConfig' {dataFormat} -> dataFormat) (\s@EntityRecognizerInputDataConfig' {} a -> s {dataFormat = a} :: EntityRecognizerInputDataConfig)
 
--- | The S3 location of the CSV file that annotates your training documents.
-entityRecognizerInputDataConfig_annotations :: Lens.Lens' EntityRecognizerInputDataConfig (Prelude.Maybe EntityRecognizerAnnotations)
-entityRecognizerInputDataConfig_annotations = Lens.lens (\EntityRecognizerInputDataConfig' {annotations} -> annotations) (\s@EntityRecognizerInputDataConfig' {} a -> s {annotations = a} :: EntityRecognizerInputDataConfig)
+-- | The S3 location of the folder that contains the training documents for
+-- your custom entity recognizer.
+--
+-- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@.
+entityRecognizerInputDataConfig_documents :: Lens.Lens' EntityRecognizerInputDataConfig (Prelude.Maybe EntityRecognizerDocuments)
+entityRecognizerInputDataConfig_documents = Lens.lens (\EntityRecognizerInputDataConfig' {documents} -> documents) (\s@EntityRecognizerInputDataConfig' {} a -> s {documents = a} :: EntityRecognizerInputDataConfig)
 
 -- | The S3 location of the CSV file that has the entity list for your custom
 -- entity recognizer.
@@ -219,7 +219,7 @@ entityRecognizerInputDataConfig_entityList = Lens.lens (\EntityRecognizerInputDa
 -- return), \\\\r (escaped carriage return), \\t (tab), \\\\t (escaped
 -- tab), space, and , (comma).
 entityRecognizerInputDataConfig_entityTypes :: Lens.Lens' EntityRecognizerInputDataConfig [EntityTypesListItem]
-entityRecognizerInputDataConfig_entityTypes = Lens.lens (\EntityRecognizerInputDataConfig' {entityTypes} -> entityTypes) (\s@EntityRecognizerInputDataConfig' {} a -> s {entityTypes = a} :: EntityRecognizerInputDataConfig) Prelude.. Lens._Coerce
+entityRecognizerInputDataConfig_entityTypes = Lens.lens (\EntityRecognizerInputDataConfig' {entityTypes} -> entityTypes) (\s@EntityRecognizerInputDataConfig' {} a -> s {entityTypes = a} :: EntityRecognizerInputDataConfig) Prelude.. Lens.coerced
 
 instance
   Core.FromJSON
@@ -230,12 +230,12 @@ instance
       "EntityRecognizerInputDataConfig"
       ( \x ->
           EntityRecognizerInputDataConfig'
-            Prelude.<$> (x Core..:? "Documents")
-            Prelude.<*> ( x Core..:? "AugmentedManifests"
+            Prelude.<$> ( x Core..:? "AugmentedManifests"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DataFormat")
             Prelude.<*> (x Core..:? "Annotations")
+            Prelude.<*> (x Core..:? "DataFormat")
+            Prelude.<*> (x Core..:? "Documents")
             Prelude.<*> (x Core..:? "EntityList")
             Prelude.<*> (x Core..:? "EntityTypes" Core..!= Prelude.mempty)
       )
@@ -252,11 +252,11 @@ instance Core.ToJSON EntityRecognizerInputDataConfig where
   toJSON EntityRecognizerInputDataConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Documents" Core..=) Prelude.<$> documents,
-            ("AugmentedManifests" Core..=)
+          [ ("AugmentedManifests" Core..=)
               Prelude.<$> augmentedManifests,
-            ("DataFormat" Core..=) Prelude.<$> dataFormat,
             ("Annotations" Core..=) Prelude.<$> annotations,
+            ("DataFormat" Core..=) Prelude.<$> dataFormat,
+            ("Documents" Core..=) Prelude.<$> documents,
             ("EntityList" Core..=) Prelude.<$> entityList,
             Prelude.Just ("EntityTypes" Core..= entityTypes)
           ]

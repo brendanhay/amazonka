@@ -31,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPartOfSpeechTag' smart constructor.
 data PartOfSpeechTag = PartOfSpeechTag'
-  { -- | The confidence that Amazon Comprehend has that the part of speech was
+  { -- | Identifies the part of speech that the token represents.
+    tag :: Prelude.Maybe PartOfSpeechTagType,
+    -- | The confidence that Amazon Comprehend has that the part of speech was
     -- correctly identified.
-    score :: Prelude.Maybe Prelude.Double,
-    -- | Identifies the part of speech that the token represents.
-    tag :: Prelude.Maybe PartOfSpeechTagType
+    score :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,26 @@ data PartOfSpeechTag = PartOfSpeechTag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tag', 'partOfSpeechTag_tag' - Identifies the part of speech that the token represents.
+--
 -- 'score', 'partOfSpeechTag_score' - The confidence that Amazon Comprehend has that the part of speech was
 -- correctly identified.
---
--- 'tag', 'partOfSpeechTag_tag' - Identifies the part of speech that the token represents.
 newPartOfSpeechTag ::
   PartOfSpeechTag
 newPartOfSpeechTag =
   PartOfSpeechTag'
-    { score = Prelude.Nothing,
-      tag = Prelude.Nothing
+    { tag = Prelude.Nothing,
+      score = Prelude.Nothing
     }
+
+-- | Identifies the part of speech that the token represents.
+partOfSpeechTag_tag :: Lens.Lens' PartOfSpeechTag (Prelude.Maybe PartOfSpeechTagType)
+partOfSpeechTag_tag = Lens.lens (\PartOfSpeechTag' {tag} -> tag) (\s@PartOfSpeechTag' {} a -> s {tag = a} :: PartOfSpeechTag)
 
 -- | The confidence that Amazon Comprehend has that the part of speech was
 -- correctly identified.
 partOfSpeechTag_score :: Lens.Lens' PartOfSpeechTag (Prelude.Maybe Prelude.Double)
 partOfSpeechTag_score = Lens.lens (\PartOfSpeechTag' {score} -> score) (\s@PartOfSpeechTag' {} a -> s {score = a} :: PartOfSpeechTag)
-
--- | Identifies the part of speech that the token represents.
-partOfSpeechTag_tag :: Lens.Lens' PartOfSpeechTag (Prelude.Maybe PartOfSpeechTagType)
-partOfSpeechTag_tag = Lens.lens (\PartOfSpeechTag' {tag} -> tag) (\s@PartOfSpeechTag' {} a -> s {tag = a} :: PartOfSpeechTag)
 
 instance Core.FromJSON PartOfSpeechTag where
   parseJSON =
@@ -74,7 +74,7 @@ instance Core.FromJSON PartOfSpeechTag where
       "PartOfSpeechTag"
       ( \x ->
           PartOfSpeechTag'
-            Prelude.<$> (x Core..:? "Score") Prelude.<*> (x Core..:? "Tag")
+            Prelude.<$> (x Core..:? "Tag") Prelude.<*> (x Core..:? "Score")
       )
 
 instance Prelude.Hashable PartOfSpeechTag

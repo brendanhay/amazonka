@@ -180,7 +180,7 @@ newDetectPiiEntitiesResponse pHttpStatus_ =
 -- begins and ends, and the level of confidence that Amazon Comprehend has
 -- in the detection.
 detectPiiEntitiesResponse_entities :: Lens.Lens' DetectPiiEntitiesResponse (Prelude.Maybe [PiiEntity])
-detectPiiEntitiesResponse_entities = Lens.lens (\DetectPiiEntitiesResponse' {entities} -> entities) (\s@DetectPiiEntitiesResponse' {} a -> s {entities = a} :: DetectPiiEntitiesResponse) Prelude.. Lens.mapping Lens._Coerce
+detectPiiEntitiesResponse_entities = Lens.lens (\DetectPiiEntitiesResponse' {entities} -> entities) (\s@DetectPiiEntitiesResponse' {} a -> s {entities = a} :: DetectPiiEntitiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 detectPiiEntitiesResponse_httpStatus :: Lens.Lens' DetectPiiEntitiesResponse Prelude.Int

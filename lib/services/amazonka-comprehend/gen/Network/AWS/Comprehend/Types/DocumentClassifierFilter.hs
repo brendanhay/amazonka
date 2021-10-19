@@ -33,15 +33,15 @@ data DocumentClassifierFilter = DocumentClassifierFilter'
   { -- | Filters the list of classifiers based on status.
     status :: Prelude.Maybe ModelStatus,
     -- | Filters the list of classifiers based on the time that the classifier
-    -- was submitted for processing. Returns only classifiers submitted before
-    -- the specified time. Classifiers are returned in ascending order, oldest
-    -- to newest.
-    submitTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | Filters the list of classifiers based on the time that the classifier
     -- was submitted for processing. Returns only classifiers submitted after
     -- the specified time. Classifiers are returned in descending order, newest
     -- to oldest.
     submitTimeAfter :: Prelude.Maybe Core.POSIX,
+    -- | Filters the list of classifiers based on the time that the classifier
+    -- was submitted for processing. Returns only classifiers submitted before
+    -- the specified time. Classifiers are returned in ascending order, oldest
+    -- to newest.
+    submitTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | The name that you assigned to the document classifier
     documentClassifierName :: Prelude.Maybe Prelude.Text
   }
@@ -57,15 +57,15 @@ data DocumentClassifierFilter = DocumentClassifierFilter'
 --
 -- 'status', 'documentClassifierFilter_status' - Filters the list of classifiers based on status.
 --
--- 'submitTimeBefore', 'documentClassifierFilter_submitTimeBefore' - Filters the list of classifiers based on the time that the classifier
--- was submitted for processing. Returns only classifiers submitted before
--- the specified time. Classifiers are returned in ascending order, oldest
--- to newest.
---
 -- 'submitTimeAfter', 'documentClassifierFilter_submitTimeAfter' - Filters the list of classifiers based on the time that the classifier
 -- was submitted for processing. Returns only classifiers submitted after
 -- the specified time. Classifiers are returned in descending order, newest
 -- to oldest.
+--
+-- 'submitTimeBefore', 'documentClassifierFilter_submitTimeBefore' - Filters the list of classifiers based on the time that the classifier
+-- was submitted for processing. Returns only classifiers submitted before
+-- the specified time. Classifiers are returned in ascending order, oldest
+-- to newest.
 --
 -- 'documentClassifierName', 'documentClassifierFilter_documentClassifierName' - The name that you assigned to the document classifier
 newDocumentClassifierFilter ::
@@ -73,8 +73,8 @@ newDocumentClassifierFilter ::
 newDocumentClassifierFilter =
   DocumentClassifierFilter'
     { status = Prelude.Nothing,
-      submitTimeBefore = Prelude.Nothing,
       submitTimeAfter = Prelude.Nothing,
+      submitTimeBefore = Prelude.Nothing,
       documentClassifierName = Prelude.Nothing
     }
 
@@ -83,18 +83,18 @@ documentClassifierFilter_status :: Lens.Lens' DocumentClassifierFilter (Prelude.
 documentClassifierFilter_status = Lens.lens (\DocumentClassifierFilter' {status} -> status) (\s@DocumentClassifierFilter' {} a -> s {status = a} :: DocumentClassifierFilter)
 
 -- | Filters the list of classifiers based on the time that the classifier
--- was submitted for processing. Returns only classifiers submitted before
--- the specified time. Classifiers are returned in ascending order, oldest
--- to newest.
-documentClassifierFilter_submitTimeBefore :: Lens.Lens' DocumentClassifierFilter (Prelude.Maybe Prelude.UTCTime)
-documentClassifierFilter_submitTimeBefore = Lens.lens (\DocumentClassifierFilter' {submitTimeBefore} -> submitTimeBefore) (\s@DocumentClassifierFilter' {} a -> s {submitTimeBefore = a} :: DocumentClassifierFilter) Prelude.. Lens.mapping Core._Time
-
--- | Filters the list of classifiers based on the time that the classifier
 -- was submitted for processing. Returns only classifiers submitted after
 -- the specified time. Classifiers are returned in descending order, newest
 -- to oldest.
 documentClassifierFilter_submitTimeAfter :: Lens.Lens' DocumentClassifierFilter (Prelude.Maybe Prelude.UTCTime)
 documentClassifierFilter_submitTimeAfter = Lens.lens (\DocumentClassifierFilter' {submitTimeAfter} -> submitTimeAfter) (\s@DocumentClassifierFilter' {} a -> s {submitTimeAfter = a} :: DocumentClassifierFilter) Prelude.. Lens.mapping Core._Time
+
+-- | Filters the list of classifiers based on the time that the classifier
+-- was submitted for processing. Returns only classifiers submitted before
+-- the specified time. Classifiers are returned in ascending order, oldest
+-- to newest.
+documentClassifierFilter_submitTimeBefore :: Lens.Lens' DocumentClassifierFilter (Prelude.Maybe Prelude.UTCTime)
+documentClassifierFilter_submitTimeBefore = Lens.lens (\DocumentClassifierFilter' {submitTimeBefore} -> submitTimeBefore) (\s@DocumentClassifierFilter' {} a -> s {submitTimeBefore = a} :: DocumentClassifierFilter) Prelude.. Lens.mapping Core._Time
 
 -- | The name that you assigned to the document classifier
 documentClassifierFilter_documentClassifierName :: Lens.Lens' DocumentClassifierFilter (Prelude.Maybe Prelude.Text)
@@ -109,10 +109,10 @@ instance Core.ToJSON DocumentClassifierFilter where
     Core.object
       ( Prelude.catMaybes
           [ ("Status" Core..=) Prelude.<$> status,
-            ("SubmitTimeBefore" Core..=)
-              Prelude.<$> submitTimeBefore,
             ("SubmitTimeAfter" Core..=)
               Prelude.<$> submitTimeAfter,
+            ("SubmitTimeBefore" Core..=)
+              Prelude.<$> submitTimeBefore,
             ("DocumentClassifierName" Core..=)
               Prelude.<$> documentClassifierName
           ]

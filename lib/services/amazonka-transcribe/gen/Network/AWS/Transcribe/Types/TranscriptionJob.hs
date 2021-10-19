@@ -39,39 +39,8 @@ import Network.AWS.Transcribe.Types.TranscriptionJobStatus
 --
 -- /See:/ 'newTranscriptionJob' smart constructor.
 data TranscriptionJob = TranscriptionJob'
-  { -- | The language code for the input speech.
-    languageCode :: Prelude.Maybe LanguageCode,
-    -- | The format of the input media file.
-    mediaFormat :: Prelude.Maybe MediaFormat,
-    -- | An object that describes content redaction settings for the
-    -- transcription job.
-    contentRedaction :: Prelude.Maybe ContentRedaction,
-    -- | A timestamp that shows when the job was created.
+  { -- | A timestamp that shows when the job was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | An object that describes the input media for the transcription job.
-    media :: Prelude.Maybe Media,
-    -- | A timestamp that shows when the job completed.
-    completionTime :: Prelude.Maybe Core.POSIX,
-    -- | An object that describes the output of the transcription job.
-    transcript :: Prelude.Maybe Transcript,
-    -- | A value that shows if automatic language identification was enabled for
-    -- a transcription job.
-    identifyLanguage :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the transcription job.
-    transcriptionJobName :: Prelude.Maybe Prelude.Text,
-    -- | The status of the transcription job.
-    transcriptionJobStatus :: Prelude.Maybe TranscriptionJobStatus,
-    -- | A timestamp that shows when the job started processing.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | An object containing the details of your custom language model.
-    modelSettings :: Prelude.Maybe ModelSettings,
-    -- | A value between zero and one that Amazon Transcribe assigned to the
-    -- language that it identified in the source audio. Larger values indicate
-    -- that Amazon Transcribe has higher confidence in the language it
-    -- identified.
-    identifiedLanguageScore :: Prelude.Maybe Prelude.Double,
-    -- | Generate subtitles for your batch transcription job.
-    subtitles :: Prelude.Maybe SubtitlesOutput,
     -- | If the @TranscriptionJobStatus@ field is @FAILED@, this field contains
     -- information about why the job failed.
     --
@@ -108,20 +77,51 @@ data TranscriptionJob = TranscriptionJob'
     --     <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe Amazon Transcribe Limits>
     --     in the /Amazon Web Services General Reference/.
     failureReason :: Prelude.Maybe Prelude.Text,
-    -- | A key:value pair assigned to a given transcription job.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The sample rate, in Hertz, of the audio track in the input media file.
-    mediaSampleRateHertz :: Prelude.Maybe Prelude.Natural,
-    -- | Provides information about how a transcription job is executed.
-    jobExecutionSettings :: Prelude.Maybe JobExecutionSettings,
+    -- | An object that describes content redaction settings for the
+    -- transcription job.
+    contentRedaction :: Prelude.Maybe ContentRedaction,
+    -- | A value between zero and one that Amazon Transcribe assigned to the
+    -- language that it identified in the source audio. Larger values indicate
+    -- that Amazon Transcribe has higher confidence in the language it
+    -- identified.
+    identifiedLanguageScore :: Prelude.Maybe Prelude.Double,
+    -- | Generate subtitles for your batch transcription job.
+    subtitles :: Prelude.Maybe SubtitlesOutput,
+    -- | The language code for the input speech.
+    languageCode :: Prelude.Maybe LanguageCode,
+    -- | An object that shows the optional array of languages inputted for
+    -- transcription jobs with automatic language identification enabled.
+    languageOptions :: Prelude.Maybe (Prelude.NonEmpty LanguageCode),
     -- | Optional settings for the transcription job. Use these settings to turn
     -- on speaker recognition, to set the maximum number of speakers that
     -- should be identified and to specify a custom vocabulary to use when
     -- processing the transcription job.
     settings :: Prelude.Maybe Settings,
-    -- | An object that shows the optional array of languages inputted for
-    -- transcription jobs with automatic language identification enabled.
-    languageOptions :: Prelude.Maybe (Prelude.NonEmpty LanguageCode)
+    -- | A timestamp that shows when the job started processing.
+    startTime :: Prelude.Maybe Core.POSIX,
+    -- | A timestamp that shows when the job completed.
+    completionTime :: Prelude.Maybe Core.POSIX,
+    -- | An object that describes the input media for the transcription job.
+    media :: Prelude.Maybe Media,
+    -- | The format of the input media file.
+    mediaFormat :: Prelude.Maybe MediaFormat,
+    -- | An object containing the details of your custom language model.
+    modelSettings :: Prelude.Maybe ModelSettings,
+    -- | The status of the transcription job.
+    transcriptionJobStatus :: Prelude.Maybe TranscriptionJobStatus,
+    -- | Provides information about how a transcription job is executed.
+    jobExecutionSettings :: Prelude.Maybe JobExecutionSettings,
+    -- | The name of the transcription job.
+    transcriptionJobName :: Prelude.Maybe Prelude.Text,
+    -- | A value that shows if automatic language identification was enabled for
+    -- a transcription job.
+    identifyLanguage :: Prelude.Maybe Prelude.Bool,
+    -- | An object that describes the output of the transcription job.
+    transcript :: Prelude.Maybe Transcript,
+    -- | A key:value pair assigned to a given transcription job.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The sample rate, in Hertz, of the audio track in the input media file.
+    mediaSampleRateHertz :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -133,38 +133,7 @@ data TranscriptionJob = TranscriptionJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'languageCode', 'transcriptionJob_languageCode' - The language code for the input speech.
---
--- 'mediaFormat', 'transcriptionJob_mediaFormat' - The format of the input media file.
---
--- 'contentRedaction', 'transcriptionJob_contentRedaction' - An object that describes content redaction settings for the
--- transcription job.
---
 -- 'creationTime', 'transcriptionJob_creationTime' - A timestamp that shows when the job was created.
---
--- 'media', 'transcriptionJob_media' - An object that describes the input media for the transcription job.
---
--- 'completionTime', 'transcriptionJob_completionTime' - A timestamp that shows when the job completed.
---
--- 'transcript', 'transcriptionJob_transcript' - An object that describes the output of the transcription job.
---
--- 'identifyLanguage', 'transcriptionJob_identifyLanguage' - A value that shows if automatic language identification was enabled for
--- a transcription job.
---
--- 'transcriptionJobName', 'transcriptionJob_transcriptionJobName' - The name of the transcription job.
---
--- 'transcriptionJobStatus', 'transcriptionJob_transcriptionJobStatus' - The status of the transcription job.
---
--- 'startTime', 'transcriptionJob_startTime' - A timestamp that shows when the job started processing.
---
--- 'modelSettings', 'transcriptionJob_modelSettings' - An object containing the details of your custom language model.
---
--- 'identifiedLanguageScore', 'transcriptionJob_identifiedLanguageScore' - A value between zero and one that Amazon Transcribe assigned to the
--- language that it identified in the source audio. Larger values indicate
--- that Amazon Transcribe has higher confidence in the language it
--- identified.
---
--- 'subtitles', 'transcriptionJob_subtitles' - Generate subtitles for your batch transcription job.
 --
 -- 'failureReason', 'transcriptionJob_failureReason' - If the @TranscriptionJobStatus@ field is @FAILED@, this field contains
 -- information about why the job failed.
@@ -202,105 +171,79 @@ data TranscriptionJob = TranscriptionJob'
 --     <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe Amazon Transcribe Limits>
 --     in the /Amazon Web Services General Reference/.
 --
--- 'tags', 'transcriptionJob_tags' - A key:value pair assigned to a given transcription job.
+-- 'contentRedaction', 'transcriptionJob_contentRedaction' - An object that describes content redaction settings for the
+-- transcription job.
 --
--- 'mediaSampleRateHertz', 'transcriptionJob_mediaSampleRateHertz' - The sample rate, in Hertz, of the audio track in the input media file.
+-- 'identifiedLanguageScore', 'transcriptionJob_identifiedLanguageScore' - A value between zero and one that Amazon Transcribe assigned to the
+-- language that it identified in the source audio. Larger values indicate
+-- that Amazon Transcribe has higher confidence in the language it
+-- identified.
 --
--- 'jobExecutionSettings', 'transcriptionJob_jobExecutionSettings' - Provides information about how a transcription job is executed.
+-- 'subtitles', 'transcriptionJob_subtitles' - Generate subtitles for your batch transcription job.
+--
+-- 'languageCode', 'transcriptionJob_languageCode' - The language code for the input speech.
+--
+-- 'languageOptions', 'transcriptionJob_languageOptions' - An object that shows the optional array of languages inputted for
+-- transcription jobs with automatic language identification enabled.
 --
 -- 'settings', 'transcriptionJob_settings' - Optional settings for the transcription job. Use these settings to turn
 -- on speaker recognition, to set the maximum number of speakers that
 -- should be identified and to specify a custom vocabulary to use when
 -- processing the transcription job.
 --
--- 'languageOptions', 'transcriptionJob_languageOptions' - An object that shows the optional array of languages inputted for
--- transcription jobs with automatic language identification enabled.
+-- 'startTime', 'transcriptionJob_startTime' - A timestamp that shows when the job started processing.
+--
+-- 'completionTime', 'transcriptionJob_completionTime' - A timestamp that shows when the job completed.
+--
+-- 'media', 'transcriptionJob_media' - An object that describes the input media for the transcription job.
+--
+-- 'mediaFormat', 'transcriptionJob_mediaFormat' - The format of the input media file.
+--
+-- 'modelSettings', 'transcriptionJob_modelSettings' - An object containing the details of your custom language model.
+--
+-- 'transcriptionJobStatus', 'transcriptionJob_transcriptionJobStatus' - The status of the transcription job.
+--
+-- 'jobExecutionSettings', 'transcriptionJob_jobExecutionSettings' - Provides information about how a transcription job is executed.
+--
+-- 'transcriptionJobName', 'transcriptionJob_transcriptionJobName' - The name of the transcription job.
+--
+-- 'identifyLanguage', 'transcriptionJob_identifyLanguage' - A value that shows if automatic language identification was enabled for
+-- a transcription job.
+--
+-- 'transcript', 'transcriptionJob_transcript' - An object that describes the output of the transcription job.
+--
+-- 'tags', 'transcriptionJob_tags' - A key:value pair assigned to a given transcription job.
+--
+-- 'mediaSampleRateHertz', 'transcriptionJob_mediaSampleRateHertz' - The sample rate, in Hertz, of the audio track in the input media file.
 newTranscriptionJob ::
   TranscriptionJob
 newTranscriptionJob =
   TranscriptionJob'
-    { languageCode = Prelude.Nothing,
-      mediaFormat = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
       contentRedaction = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      media = Prelude.Nothing,
-      completionTime = Prelude.Nothing,
-      transcript = Prelude.Nothing,
-      identifyLanguage = Prelude.Nothing,
-      transcriptionJobName = Prelude.Nothing,
-      transcriptionJobStatus = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      modelSettings = Prelude.Nothing,
       identifiedLanguageScore = Prelude.Nothing,
       subtitles = Prelude.Nothing,
-      failureReason = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      mediaSampleRateHertz = Prelude.Nothing,
-      jobExecutionSettings = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
+      languageOptions = Prelude.Nothing,
       settings = Prelude.Nothing,
-      languageOptions = Prelude.Nothing
+      startTime = Prelude.Nothing,
+      completionTime = Prelude.Nothing,
+      media = Prelude.Nothing,
+      mediaFormat = Prelude.Nothing,
+      modelSettings = Prelude.Nothing,
+      transcriptionJobStatus = Prelude.Nothing,
+      jobExecutionSettings = Prelude.Nothing,
+      transcriptionJobName = Prelude.Nothing,
+      identifyLanguage = Prelude.Nothing,
+      transcript = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      mediaSampleRateHertz = Prelude.Nothing
     }
-
--- | The language code for the input speech.
-transcriptionJob_languageCode :: Lens.Lens' TranscriptionJob (Prelude.Maybe LanguageCode)
-transcriptionJob_languageCode = Lens.lens (\TranscriptionJob' {languageCode} -> languageCode) (\s@TranscriptionJob' {} a -> s {languageCode = a} :: TranscriptionJob)
-
--- | The format of the input media file.
-transcriptionJob_mediaFormat :: Lens.Lens' TranscriptionJob (Prelude.Maybe MediaFormat)
-transcriptionJob_mediaFormat = Lens.lens (\TranscriptionJob' {mediaFormat} -> mediaFormat) (\s@TranscriptionJob' {} a -> s {mediaFormat = a} :: TranscriptionJob)
-
--- | An object that describes content redaction settings for the
--- transcription job.
-transcriptionJob_contentRedaction :: Lens.Lens' TranscriptionJob (Prelude.Maybe ContentRedaction)
-transcriptionJob_contentRedaction = Lens.lens (\TranscriptionJob' {contentRedaction} -> contentRedaction) (\s@TranscriptionJob' {} a -> s {contentRedaction = a} :: TranscriptionJob)
 
 -- | A timestamp that shows when the job was created.
 transcriptionJob_creationTime :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.UTCTime)
 transcriptionJob_creationTime = Lens.lens (\TranscriptionJob' {creationTime} -> creationTime) (\s@TranscriptionJob' {} a -> s {creationTime = a} :: TranscriptionJob) Prelude.. Lens.mapping Core._Time
-
--- | An object that describes the input media for the transcription job.
-transcriptionJob_media :: Lens.Lens' TranscriptionJob (Prelude.Maybe Media)
-transcriptionJob_media = Lens.lens (\TranscriptionJob' {media} -> media) (\s@TranscriptionJob' {} a -> s {media = a} :: TranscriptionJob)
-
--- | A timestamp that shows when the job completed.
-transcriptionJob_completionTime :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.UTCTime)
-transcriptionJob_completionTime = Lens.lens (\TranscriptionJob' {completionTime} -> completionTime) (\s@TranscriptionJob' {} a -> s {completionTime = a} :: TranscriptionJob) Prelude.. Lens.mapping Core._Time
-
--- | An object that describes the output of the transcription job.
-transcriptionJob_transcript :: Lens.Lens' TranscriptionJob (Prelude.Maybe Transcript)
-transcriptionJob_transcript = Lens.lens (\TranscriptionJob' {transcript} -> transcript) (\s@TranscriptionJob' {} a -> s {transcript = a} :: TranscriptionJob)
-
--- | A value that shows if automatic language identification was enabled for
--- a transcription job.
-transcriptionJob_identifyLanguage :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.Bool)
-transcriptionJob_identifyLanguage = Lens.lens (\TranscriptionJob' {identifyLanguage} -> identifyLanguage) (\s@TranscriptionJob' {} a -> s {identifyLanguage = a} :: TranscriptionJob)
-
--- | The name of the transcription job.
-transcriptionJob_transcriptionJobName :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.Text)
-transcriptionJob_transcriptionJobName = Lens.lens (\TranscriptionJob' {transcriptionJobName} -> transcriptionJobName) (\s@TranscriptionJob' {} a -> s {transcriptionJobName = a} :: TranscriptionJob)
-
--- | The status of the transcription job.
-transcriptionJob_transcriptionJobStatus :: Lens.Lens' TranscriptionJob (Prelude.Maybe TranscriptionJobStatus)
-transcriptionJob_transcriptionJobStatus = Lens.lens (\TranscriptionJob' {transcriptionJobStatus} -> transcriptionJobStatus) (\s@TranscriptionJob' {} a -> s {transcriptionJobStatus = a} :: TranscriptionJob)
-
--- | A timestamp that shows when the job started processing.
-transcriptionJob_startTime :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.UTCTime)
-transcriptionJob_startTime = Lens.lens (\TranscriptionJob' {startTime} -> startTime) (\s@TranscriptionJob' {} a -> s {startTime = a} :: TranscriptionJob) Prelude.. Lens.mapping Core._Time
-
--- | An object containing the details of your custom language model.
-transcriptionJob_modelSettings :: Lens.Lens' TranscriptionJob (Prelude.Maybe ModelSettings)
-transcriptionJob_modelSettings = Lens.lens (\TranscriptionJob' {modelSettings} -> modelSettings) (\s@TranscriptionJob' {} a -> s {modelSettings = a} :: TranscriptionJob)
-
--- | A value between zero and one that Amazon Transcribe assigned to the
--- language that it identified in the source audio. Larger values indicate
--- that Amazon Transcribe has higher confidence in the language it
--- identified.
-transcriptionJob_identifiedLanguageScore :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.Double)
-transcriptionJob_identifiedLanguageScore = Lens.lens (\TranscriptionJob' {identifiedLanguageScore} -> identifiedLanguageScore) (\s@TranscriptionJob' {} a -> s {identifiedLanguageScore = a} :: TranscriptionJob)
-
--- | Generate subtitles for your batch transcription job.
-transcriptionJob_subtitles :: Lens.Lens' TranscriptionJob (Prelude.Maybe SubtitlesOutput)
-transcriptionJob_subtitles = Lens.lens (\TranscriptionJob' {subtitles} -> subtitles) (\s@TranscriptionJob' {} a -> s {subtitles = a} :: TranscriptionJob)
 
 -- | If the @TranscriptionJobStatus@ field is @FAILED@, this field contains
 -- information about why the job failed.
@@ -340,17 +283,30 @@ transcriptionJob_subtitles = Lens.lens (\TranscriptionJob' {subtitles} -> subtit
 transcriptionJob_failureReason :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.Text)
 transcriptionJob_failureReason = Lens.lens (\TranscriptionJob' {failureReason} -> failureReason) (\s@TranscriptionJob' {} a -> s {failureReason = a} :: TranscriptionJob)
 
--- | A key:value pair assigned to a given transcription job.
-transcriptionJob_tags :: Lens.Lens' TranscriptionJob (Prelude.Maybe (Prelude.NonEmpty Tag))
-transcriptionJob_tags = Lens.lens (\TranscriptionJob' {tags} -> tags) (\s@TranscriptionJob' {} a -> s {tags = a} :: TranscriptionJob) Prelude.. Lens.mapping Lens._Coerce
+-- | An object that describes content redaction settings for the
+-- transcription job.
+transcriptionJob_contentRedaction :: Lens.Lens' TranscriptionJob (Prelude.Maybe ContentRedaction)
+transcriptionJob_contentRedaction = Lens.lens (\TranscriptionJob' {contentRedaction} -> contentRedaction) (\s@TranscriptionJob' {} a -> s {contentRedaction = a} :: TranscriptionJob)
 
--- | The sample rate, in Hertz, of the audio track in the input media file.
-transcriptionJob_mediaSampleRateHertz :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.Natural)
-transcriptionJob_mediaSampleRateHertz = Lens.lens (\TranscriptionJob' {mediaSampleRateHertz} -> mediaSampleRateHertz) (\s@TranscriptionJob' {} a -> s {mediaSampleRateHertz = a} :: TranscriptionJob)
+-- | A value between zero and one that Amazon Transcribe assigned to the
+-- language that it identified in the source audio. Larger values indicate
+-- that Amazon Transcribe has higher confidence in the language it
+-- identified.
+transcriptionJob_identifiedLanguageScore :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.Double)
+transcriptionJob_identifiedLanguageScore = Lens.lens (\TranscriptionJob' {identifiedLanguageScore} -> identifiedLanguageScore) (\s@TranscriptionJob' {} a -> s {identifiedLanguageScore = a} :: TranscriptionJob)
 
--- | Provides information about how a transcription job is executed.
-transcriptionJob_jobExecutionSettings :: Lens.Lens' TranscriptionJob (Prelude.Maybe JobExecutionSettings)
-transcriptionJob_jobExecutionSettings = Lens.lens (\TranscriptionJob' {jobExecutionSettings} -> jobExecutionSettings) (\s@TranscriptionJob' {} a -> s {jobExecutionSettings = a} :: TranscriptionJob)
+-- | Generate subtitles for your batch transcription job.
+transcriptionJob_subtitles :: Lens.Lens' TranscriptionJob (Prelude.Maybe SubtitlesOutput)
+transcriptionJob_subtitles = Lens.lens (\TranscriptionJob' {subtitles} -> subtitles) (\s@TranscriptionJob' {} a -> s {subtitles = a} :: TranscriptionJob)
+
+-- | The language code for the input speech.
+transcriptionJob_languageCode :: Lens.Lens' TranscriptionJob (Prelude.Maybe LanguageCode)
+transcriptionJob_languageCode = Lens.lens (\TranscriptionJob' {languageCode} -> languageCode) (\s@TranscriptionJob' {} a -> s {languageCode = a} :: TranscriptionJob)
+
+-- | An object that shows the optional array of languages inputted for
+-- transcription jobs with automatic language identification enabled.
+transcriptionJob_languageOptions :: Lens.Lens' TranscriptionJob (Prelude.Maybe (Prelude.NonEmpty LanguageCode))
+transcriptionJob_languageOptions = Lens.lens (\TranscriptionJob' {languageOptions} -> languageOptions) (\s@TranscriptionJob' {} a -> s {languageOptions = a} :: TranscriptionJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | Optional settings for the transcription job. Use these settings to turn
 -- on speaker recognition, to set the maximum number of speakers that
@@ -359,10 +315,54 @@ transcriptionJob_jobExecutionSettings = Lens.lens (\TranscriptionJob' {jobExecut
 transcriptionJob_settings :: Lens.Lens' TranscriptionJob (Prelude.Maybe Settings)
 transcriptionJob_settings = Lens.lens (\TranscriptionJob' {settings} -> settings) (\s@TranscriptionJob' {} a -> s {settings = a} :: TranscriptionJob)
 
--- | An object that shows the optional array of languages inputted for
--- transcription jobs with automatic language identification enabled.
-transcriptionJob_languageOptions :: Lens.Lens' TranscriptionJob (Prelude.Maybe (Prelude.NonEmpty LanguageCode))
-transcriptionJob_languageOptions = Lens.lens (\TranscriptionJob' {languageOptions} -> languageOptions) (\s@TranscriptionJob' {} a -> s {languageOptions = a} :: TranscriptionJob) Prelude.. Lens.mapping Lens._Coerce
+-- | A timestamp that shows when the job started processing.
+transcriptionJob_startTime :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.UTCTime)
+transcriptionJob_startTime = Lens.lens (\TranscriptionJob' {startTime} -> startTime) (\s@TranscriptionJob' {} a -> s {startTime = a} :: TranscriptionJob) Prelude.. Lens.mapping Core._Time
+
+-- | A timestamp that shows when the job completed.
+transcriptionJob_completionTime :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.UTCTime)
+transcriptionJob_completionTime = Lens.lens (\TranscriptionJob' {completionTime} -> completionTime) (\s@TranscriptionJob' {} a -> s {completionTime = a} :: TranscriptionJob) Prelude.. Lens.mapping Core._Time
+
+-- | An object that describes the input media for the transcription job.
+transcriptionJob_media :: Lens.Lens' TranscriptionJob (Prelude.Maybe Media)
+transcriptionJob_media = Lens.lens (\TranscriptionJob' {media} -> media) (\s@TranscriptionJob' {} a -> s {media = a} :: TranscriptionJob)
+
+-- | The format of the input media file.
+transcriptionJob_mediaFormat :: Lens.Lens' TranscriptionJob (Prelude.Maybe MediaFormat)
+transcriptionJob_mediaFormat = Lens.lens (\TranscriptionJob' {mediaFormat} -> mediaFormat) (\s@TranscriptionJob' {} a -> s {mediaFormat = a} :: TranscriptionJob)
+
+-- | An object containing the details of your custom language model.
+transcriptionJob_modelSettings :: Lens.Lens' TranscriptionJob (Prelude.Maybe ModelSettings)
+transcriptionJob_modelSettings = Lens.lens (\TranscriptionJob' {modelSettings} -> modelSettings) (\s@TranscriptionJob' {} a -> s {modelSettings = a} :: TranscriptionJob)
+
+-- | The status of the transcription job.
+transcriptionJob_transcriptionJobStatus :: Lens.Lens' TranscriptionJob (Prelude.Maybe TranscriptionJobStatus)
+transcriptionJob_transcriptionJobStatus = Lens.lens (\TranscriptionJob' {transcriptionJobStatus} -> transcriptionJobStatus) (\s@TranscriptionJob' {} a -> s {transcriptionJobStatus = a} :: TranscriptionJob)
+
+-- | Provides information about how a transcription job is executed.
+transcriptionJob_jobExecutionSettings :: Lens.Lens' TranscriptionJob (Prelude.Maybe JobExecutionSettings)
+transcriptionJob_jobExecutionSettings = Lens.lens (\TranscriptionJob' {jobExecutionSettings} -> jobExecutionSettings) (\s@TranscriptionJob' {} a -> s {jobExecutionSettings = a} :: TranscriptionJob)
+
+-- | The name of the transcription job.
+transcriptionJob_transcriptionJobName :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.Text)
+transcriptionJob_transcriptionJobName = Lens.lens (\TranscriptionJob' {transcriptionJobName} -> transcriptionJobName) (\s@TranscriptionJob' {} a -> s {transcriptionJobName = a} :: TranscriptionJob)
+
+-- | A value that shows if automatic language identification was enabled for
+-- a transcription job.
+transcriptionJob_identifyLanguage :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.Bool)
+transcriptionJob_identifyLanguage = Lens.lens (\TranscriptionJob' {identifyLanguage} -> identifyLanguage) (\s@TranscriptionJob' {} a -> s {identifyLanguage = a} :: TranscriptionJob)
+
+-- | An object that describes the output of the transcription job.
+transcriptionJob_transcript :: Lens.Lens' TranscriptionJob (Prelude.Maybe Transcript)
+transcriptionJob_transcript = Lens.lens (\TranscriptionJob' {transcript} -> transcript) (\s@TranscriptionJob' {} a -> s {transcript = a} :: TranscriptionJob)
+
+-- | A key:value pair assigned to a given transcription job.
+transcriptionJob_tags :: Lens.Lens' TranscriptionJob (Prelude.Maybe (Prelude.NonEmpty Tag))
+transcriptionJob_tags = Lens.lens (\TranscriptionJob' {tags} -> tags) (\s@TranscriptionJob' {} a -> s {tags = a} :: TranscriptionJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | The sample rate, in Hertz, of the audio track in the input media file.
+transcriptionJob_mediaSampleRateHertz :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.Natural)
+transcriptionJob_mediaSampleRateHertz = Lens.lens (\TranscriptionJob' {mediaSampleRateHertz} -> mediaSampleRateHertz) (\s@TranscriptionJob' {} a -> s {mediaSampleRateHertz = a} :: TranscriptionJob)
 
 instance Core.FromJSON TranscriptionJob where
   parseJSON =
@@ -370,26 +370,26 @@ instance Core.FromJSON TranscriptionJob where
       "TranscriptionJob"
       ( \x ->
           TranscriptionJob'
-            Prelude.<$> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "MediaFormat")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "FailureReason")
             Prelude.<*> (x Core..:? "ContentRedaction")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "Media")
-            Prelude.<*> (x Core..:? "CompletionTime")
-            Prelude.<*> (x Core..:? "Transcript")
-            Prelude.<*> (x Core..:? "IdentifyLanguage")
-            Prelude.<*> (x Core..:? "TranscriptionJobName")
-            Prelude.<*> (x Core..:? "TranscriptionJobStatus")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "ModelSettings")
             Prelude.<*> (x Core..:? "IdentifiedLanguageScore")
             Prelude.<*> (x Core..:? "Subtitles")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<*> (x Core..:? "LanguageCode")
+            Prelude.<*> (x Core..:? "LanguageOptions")
+            Prelude.<*> (x Core..:? "Settings")
+            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Core..:? "CompletionTime")
+            Prelude.<*> (x Core..:? "Media")
+            Prelude.<*> (x Core..:? "MediaFormat")
+            Prelude.<*> (x Core..:? "ModelSettings")
+            Prelude.<*> (x Core..:? "TranscriptionJobStatus")
+            Prelude.<*> (x Core..:? "JobExecutionSettings")
+            Prelude.<*> (x Core..:? "TranscriptionJobName")
+            Prelude.<*> (x Core..:? "IdentifyLanguage")
+            Prelude.<*> (x Core..:? "Transcript")
             Prelude.<*> (x Core..:? "Tags")
             Prelude.<*> (x Core..:? "MediaSampleRateHertz")
-            Prelude.<*> (x Core..:? "JobExecutionSettings")
-            Prelude.<*> (x Core..:? "Settings")
-            Prelude.<*> (x Core..:? "LanguageOptions")
       )
 
 instance Prelude.Hashable TranscriptionJob

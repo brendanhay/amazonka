@@ -29,20 +29,20 @@ import Network.AWS.Transcribe.Types.LanguageCode
 --
 -- /See:/ 'newCallAnalyticsJobSummary' smart constructor.
 data CallAnalyticsJobSummary = CallAnalyticsJobSummary'
-  { -- | The language of the transcript in the source audio file.
-    languageCode :: Prelude.Maybe LanguageCode,
+  { -- | A timestamp that shows when the call analytics job was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | If the @CallAnalyticsJobStatus@ is @FAILED@, a description of the error.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The status of the call analytics job.
     callAnalyticsJobStatus :: Prelude.Maybe CallAnalyticsJobStatus,
-    -- | A timestamp that shows when the call analytics job was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | A timestamp that shows when the job was completed.
-    completionTime :: Prelude.Maybe Core.POSIX,
+    -- | The language of the transcript in the source audio file.
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | A timestamp that shows when the job began processing.
     startTime :: Prelude.Maybe Core.POSIX,
+    -- | A timestamp that shows when the job was completed.
+    completionTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the call analytics job.
-    callAnalyticsJobName :: Prelude.Maybe Prelude.Text,
-    -- | If the @CallAnalyticsJobStatus@ is @FAILED@, a description of the error.
-    failureReason :: Prelude.Maybe Prelude.Text
+    callAnalyticsJobName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,60 +54,60 @@ data CallAnalyticsJobSummary = CallAnalyticsJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'languageCode', 'callAnalyticsJobSummary_languageCode' - The language of the transcript in the source audio file.
+-- 'creationTime', 'callAnalyticsJobSummary_creationTime' - A timestamp that shows when the call analytics job was created.
+--
+-- 'failureReason', 'callAnalyticsJobSummary_failureReason' - If the @CallAnalyticsJobStatus@ is @FAILED@, a description of the error.
 --
 -- 'callAnalyticsJobStatus', 'callAnalyticsJobSummary_callAnalyticsJobStatus' - The status of the call analytics job.
 --
--- 'creationTime', 'callAnalyticsJobSummary_creationTime' - A timestamp that shows when the call analytics job was created.
---
--- 'completionTime', 'callAnalyticsJobSummary_completionTime' - A timestamp that shows when the job was completed.
+-- 'languageCode', 'callAnalyticsJobSummary_languageCode' - The language of the transcript in the source audio file.
 --
 -- 'startTime', 'callAnalyticsJobSummary_startTime' - A timestamp that shows when the job began processing.
 --
--- 'callAnalyticsJobName', 'callAnalyticsJobSummary_callAnalyticsJobName' - The name of the call analytics job.
+-- 'completionTime', 'callAnalyticsJobSummary_completionTime' - A timestamp that shows when the job was completed.
 --
--- 'failureReason', 'callAnalyticsJobSummary_failureReason' - If the @CallAnalyticsJobStatus@ is @FAILED@, a description of the error.
+-- 'callAnalyticsJobName', 'callAnalyticsJobSummary_callAnalyticsJobName' - The name of the call analytics job.
 newCallAnalyticsJobSummary ::
   CallAnalyticsJobSummary
 newCallAnalyticsJobSummary =
   CallAnalyticsJobSummary'
-    { languageCode =
+    { creationTime =
         Prelude.Nothing,
+      failureReason = Prelude.Nothing,
       callAnalyticsJobStatus = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      completionTime = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      callAnalyticsJobName = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      completionTime = Prelude.Nothing,
+      callAnalyticsJobName = Prelude.Nothing
     }
-
--- | The language of the transcript in the source audio file.
-callAnalyticsJobSummary_languageCode :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe LanguageCode)
-callAnalyticsJobSummary_languageCode = Lens.lens (\CallAnalyticsJobSummary' {languageCode} -> languageCode) (\s@CallAnalyticsJobSummary' {} a -> s {languageCode = a} :: CallAnalyticsJobSummary)
-
--- | The status of the call analytics job.
-callAnalyticsJobSummary_callAnalyticsJobStatus :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe CallAnalyticsJobStatus)
-callAnalyticsJobSummary_callAnalyticsJobStatus = Lens.lens (\CallAnalyticsJobSummary' {callAnalyticsJobStatus} -> callAnalyticsJobStatus) (\s@CallAnalyticsJobSummary' {} a -> s {callAnalyticsJobStatus = a} :: CallAnalyticsJobSummary)
 
 -- | A timestamp that shows when the call analytics job was created.
 callAnalyticsJobSummary_creationTime :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe Prelude.UTCTime)
 callAnalyticsJobSummary_creationTime = Lens.lens (\CallAnalyticsJobSummary' {creationTime} -> creationTime) (\s@CallAnalyticsJobSummary' {} a -> s {creationTime = a} :: CallAnalyticsJobSummary) Prelude.. Lens.mapping Core._Time
 
--- | A timestamp that shows when the job was completed.
-callAnalyticsJobSummary_completionTime :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe Prelude.UTCTime)
-callAnalyticsJobSummary_completionTime = Lens.lens (\CallAnalyticsJobSummary' {completionTime} -> completionTime) (\s@CallAnalyticsJobSummary' {} a -> s {completionTime = a} :: CallAnalyticsJobSummary) Prelude.. Lens.mapping Core._Time
+-- | If the @CallAnalyticsJobStatus@ is @FAILED@, a description of the error.
+callAnalyticsJobSummary_failureReason :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe Prelude.Text)
+callAnalyticsJobSummary_failureReason = Lens.lens (\CallAnalyticsJobSummary' {failureReason} -> failureReason) (\s@CallAnalyticsJobSummary' {} a -> s {failureReason = a} :: CallAnalyticsJobSummary)
+
+-- | The status of the call analytics job.
+callAnalyticsJobSummary_callAnalyticsJobStatus :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe CallAnalyticsJobStatus)
+callAnalyticsJobSummary_callAnalyticsJobStatus = Lens.lens (\CallAnalyticsJobSummary' {callAnalyticsJobStatus} -> callAnalyticsJobStatus) (\s@CallAnalyticsJobSummary' {} a -> s {callAnalyticsJobStatus = a} :: CallAnalyticsJobSummary)
+
+-- | The language of the transcript in the source audio file.
+callAnalyticsJobSummary_languageCode :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe LanguageCode)
+callAnalyticsJobSummary_languageCode = Lens.lens (\CallAnalyticsJobSummary' {languageCode} -> languageCode) (\s@CallAnalyticsJobSummary' {} a -> s {languageCode = a} :: CallAnalyticsJobSummary)
 
 -- | A timestamp that shows when the job began processing.
 callAnalyticsJobSummary_startTime :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe Prelude.UTCTime)
 callAnalyticsJobSummary_startTime = Lens.lens (\CallAnalyticsJobSummary' {startTime} -> startTime) (\s@CallAnalyticsJobSummary' {} a -> s {startTime = a} :: CallAnalyticsJobSummary) Prelude.. Lens.mapping Core._Time
 
+-- | A timestamp that shows when the job was completed.
+callAnalyticsJobSummary_completionTime :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe Prelude.UTCTime)
+callAnalyticsJobSummary_completionTime = Lens.lens (\CallAnalyticsJobSummary' {completionTime} -> completionTime) (\s@CallAnalyticsJobSummary' {} a -> s {completionTime = a} :: CallAnalyticsJobSummary) Prelude.. Lens.mapping Core._Time
+
 -- | The name of the call analytics job.
 callAnalyticsJobSummary_callAnalyticsJobName :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe Prelude.Text)
 callAnalyticsJobSummary_callAnalyticsJobName = Lens.lens (\CallAnalyticsJobSummary' {callAnalyticsJobName} -> callAnalyticsJobName) (\s@CallAnalyticsJobSummary' {} a -> s {callAnalyticsJobName = a} :: CallAnalyticsJobSummary)
-
--- | If the @CallAnalyticsJobStatus@ is @FAILED@, a description of the error.
-callAnalyticsJobSummary_failureReason :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe Prelude.Text)
-callAnalyticsJobSummary_failureReason = Lens.lens (\CallAnalyticsJobSummary' {failureReason} -> failureReason) (\s@CallAnalyticsJobSummary' {} a -> s {failureReason = a} :: CallAnalyticsJobSummary)
 
 instance Core.FromJSON CallAnalyticsJobSummary where
   parseJSON =
@@ -115,13 +115,13 @@ instance Core.FromJSON CallAnalyticsJobSummary where
       "CallAnalyticsJobSummary"
       ( \x ->
           CallAnalyticsJobSummary'
-            Prelude.<$> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "CallAnalyticsJobStatus")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "CompletionTime")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "CallAnalyticsJobName")
+            Prelude.<$> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<*> (x Core..:? "CallAnalyticsJobStatus")
+            Prelude.<*> (x Core..:? "LanguageCode")
+            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Core..:? "CompletionTime")
+            Prelude.<*> (x Core..:? "CallAnalyticsJobName")
       )
 
 instance Prelude.Hashable CallAnalyticsJobSummary

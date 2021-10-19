@@ -30,11 +30,11 @@ import Network.AWS.Transcribe.Types.LanguageCode
 data VocabularyFilterInfo = VocabularyFilterInfo'
   { -- | The language code of the words in the vocabulary filter.
     languageCode :: Prelude.Maybe LanguageCode,
+    -- | The date and time that the vocabulary was last updated.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the vocabulary filter. The name must be unique in the
     -- account that holds the filter.
-    vocabularyFilterName :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the vocabulary was last updated.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX
+    vocabularyFilterName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,32 +48,32 @@ data VocabularyFilterInfo = VocabularyFilterInfo'
 --
 -- 'languageCode', 'vocabularyFilterInfo_languageCode' - The language code of the words in the vocabulary filter.
 --
+-- 'lastModifiedTime', 'vocabularyFilterInfo_lastModifiedTime' - The date and time that the vocabulary was last updated.
+--
 -- 'vocabularyFilterName', 'vocabularyFilterInfo_vocabularyFilterName' - The name of the vocabulary filter. The name must be unique in the
 -- account that holds the filter.
---
--- 'lastModifiedTime', 'vocabularyFilterInfo_lastModifiedTime' - The date and time that the vocabulary was last updated.
 newVocabularyFilterInfo ::
   VocabularyFilterInfo
 newVocabularyFilterInfo =
   VocabularyFilterInfo'
     { languageCode =
         Prelude.Nothing,
-      vocabularyFilterName = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing
+      lastModifiedTime = Prelude.Nothing,
+      vocabularyFilterName = Prelude.Nothing
     }
 
 -- | The language code of the words in the vocabulary filter.
 vocabularyFilterInfo_languageCode :: Lens.Lens' VocabularyFilterInfo (Prelude.Maybe LanguageCode)
 vocabularyFilterInfo_languageCode = Lens.lens (\VocabularyFilterInfo' {languageCode} -> languageCode) (\s@VocabularyFilterInfo' {} a -> s {languageCode = a} :: VocabularyFilterInfo)
 
+-- | The date and time that the vocabulary was last updated.
+vocabularyFilterInfo_lastModifiedTime :: Lens.Lens' VocabularyFilterInfo (Prelude.Maybe Prelude.UTCTime)
+vocabularyFilterInfo_lastModifiedTime = Lens.lens (\VocabularyFilterInfo' {lastModifiedTime} -> lastModifiedTime) (\s@VocabularyFilterInfo' {} a -> s {lastModifiedTime = a} :: VocabularyFilterInfo) Prelude.. Lens.mapping Core._Time
+
 -- | The name of the vocabulary filter. The name must be unique in the
 -- account that holds the filter.
 vocabularyFilterInfo_vocabularyFilterName :: Lens.Lens' VocabularyFilterInfo (Prelude.Maybe Prelude.Text)
 vocabularyFilterInfo_vocabularyFilterName = Lens.lens (\VocabularyFilterInfo' {vocabularyFilterName} -> vocabularyFilterName) (\s@VocabularyFilterInfo' {} a -> s {vocabularyFilterName = a} :: VocabularyFilterInfo)
-
--- | The date and time that the vocabulary was last updated.
-vocabularyFilterInfo_lastModifiedTime :: Lens.Lens' VocabularyFilterInfo (Prelude.Maybe Prelude.UTCTime)
-vocabularyFilterInfo_lastModifiedTime = Lens.lens (\VocabularyFilterInfo' {lastModifiedTime} -> lastModifiedTime) (\s@VocabularyFilterInfo' {} a -> s {lastModifiedTime = a} :: VocabularyFilterInfo) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON VocabularyFilterInfo where
   parseJSON =
@@ -82,8 +82,8 @@ instance Core.FromJSON VocabularyFilterInfo where
       ( \x ->
           VocabularyFilterInfo'
             Prelude.<$> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "VocabularyFilterName")
             Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "VocabularyFilterName")
       )
 
 instance Prelude.Hashable VocabularyFilterInfo

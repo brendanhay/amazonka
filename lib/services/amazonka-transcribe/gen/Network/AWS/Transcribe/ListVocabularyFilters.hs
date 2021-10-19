@@ -27,8 +27,8 @@ module Network.AWS.Transcribe.ListVocabularyFilters
     newListVocabularyFilters,
 
     -- * Request Lenses
-    listVocabularyFilters_nextToken,
     listVocabularyFilters_nameContains,
+    listVocabularyFilters_nextToken,
     listVocabularyFilters_maxResults,
 
     -- * Destructuring the Response
@@ -51,12 +51,12 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'newListVocabularyFilters' smart constructor.
 data ListVocabularyFilters = ListVocabularyFilters'
-  { -- | If the result of the previous request to @ListVocabularyFilters@ was
-    -- truncated, include the @NextToken@ to fetch the next set of collections.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the response so that it only contains vocabulary filters whose
+  { -- | Filters the response so that it only contains vocabulary filters whose
     -- name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
+    -- | If the result of the previous request to @ListVocabularyFilters@ was
+    -- truncated, include the @NextToken@ to fetch the next set of collections.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of filters to return in each page of results. If
     -- there are fewer results than the value you specify, only the actual
     -- results are returned. If you do not specify a value, the default of 5 is
@@ -73,11 +73,11 @@ data ListVocabularyFilters = ListVocabularyFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listVocabularyFilters_nextToken' - If the result of the previous request to @ListVocabularyFilters@ was
--- truncated, include the @NextToken@ to fetch the next set of collections.
---
 -- 'nameContains', 'listVocabularyFilters_nameContains' - Filters the response so that it only contains vocabulary filters whose
 -- name contains the specified string.
+--
+-- 'nextToken', 'listVocabularyFilters_nextToken' - If the result of the previous request to @ListVocabularyFilters@ was
+-- truncated, include the @NextToken@ to fetch the next set of collections.
 --
 -- 'maxResults', 'listVocabularyFilters_maxResults' - The maximum number of filters to return in each page of results. If
 -- there are fewer results than the value you specify, only the actual
@@ -87,20 +87,21 @@ newListVocabularyFilters ::
   ListVocabularyFilters
 newListVocabularyFilters =
   ListVocabularyFilters'
-    { nextToken = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
+    { nameContains =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | If the result of the previous request to @ListVocabularyFilters@ was
--- truncated, include the @NextToken@ to fetch the next set of collections.
-listVocabularyFilters_nextToken :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Text)
-listVocabularyFilters_nextToken = Lens.lens (\ListVocabularyFilters' {nextToken} -> nextToken) (\s@ListVocabularyFilters' {} a -> s {nextToken = a} :: ListVocabularyFilters)
 
 -- | Filters the response so that it only contains vocabulary filters whose
 -- name contains the specified string.
 listVocabularyFilters_nameContains :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Text)
 listVocabularyFilters_nameContains = Lens.lens (\ListVocabularyFilters' {nameContains} -> nameContains) (\s@ListVocabularyFilters' {} a -> s {nameContains = a} :: ListVocabularyFilters)
+
+-- | If the result of the previous request to @ListVocabularyFilters@ was
+-- truncated, include the @NextToken@ to fetch the next set of collections.
+listVocabularyFilters_nextToken :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Text)
+listVocabularyFilters_nextToken = Lens.lens (\ListVocabularyFilters' {nextToken} -> nextToken) (\s@ListVocabularyFilters' {} a -> s {nextToken = a} :: ListVocabularyFilters)
 
 -- | The maximum number of filters to return in each page of results. If
 -- there are fewer results than the value you specify, only the actual
@@ -148,8 +149,8 @@ instance Core.ToJSON ListVocabularyFilters where
   toJSON ListVocabularyFilters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
+          [ ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -226,7 +227,7 @@ listVocabularyFiltersResponse_nextToken = Lens.lens (\ListVocabularyFiltersRespo
 -- operation again with the @NextToken@ parameter in the request set to the
 -- value of the @NextToken@ field in the response.
 listVocabularyFiltersResponse_vocabularyFilters :: Lens.Lens' ListVocabularyFiltersResponse (Prelude.Maybe [VocabularyFilterInfo])
-listVocabularyFiltersResponse_vocabularyFilters = Lens.lens (\ListVocabularyFiltersResponse' {vocabularyFilters} -> vocabularyFilters) (\s@ListVocabularyFiltersResponse' {} a -> s {vocabularyFilters = a} :: ListVocabularyFiltersResponse) Prelude.. Lens.mapping Lens._Coerce
+listVocabularyFiltersResponse_vocabularyFilters = Lens.lens (\ListVocabularyFiltersResponse' {vocabularyFilters} -> vocabularyFilters) (\s@ListVocabularyFiltersResponse' {} a -> s {vocabularyFilters = a} :: ListVocabularyFiltersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listVocabularyFiltersResponse_httpStatus :: Lens.Lens' ListVocabularyFiltersResponse Prelude.Int

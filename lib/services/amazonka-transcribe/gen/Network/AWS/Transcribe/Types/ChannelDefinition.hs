@@ -30,11 +30,11 @@ import Network.AWS.Transcribe.Types.ParticipantRole
 --
 -- /See:/ 'newChannelDefinition' smart constructor.
 data ChannelDefinition = ChannelDefinition'
-  { -- | A value that indicates the audio channel.
-    channelId :: Prelude.Maybe Prelude.Natural,
-    -- | Indicates whether the person speaking on the audio channel is the agent
+  { -- | Indicates whether the person speaking on the audio channel is the agent
     -- or customer.
-    participantRole :: Prelude.Maybe ParticipantRole
+    participantRole :: Prelude.Maybe ParticipantRole,
+    -- | A value that indicates the audio channel.
+    channelId :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,27 @@ data ChannelDefinition = ChannelDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelId', 'channelDefinition_channelId' - A value that indicates the audio channel.
---
 -- 'participantRole', 'channelDefinition_participantRole' - Indicates whether the person speaking on the audio channel is the agent
 -- or customer.
+--
+-- 'channelId', 'channelDefinition_channelId' - A value that indicates the audio channel.
 newChannelDefinition ::
   ChannelDefinition
 newChannelDefinition =
   ChannelDefinition'
-    { channelId = Prelude.Nothing,
-      participantRole = Prelude.Nothing
+    { participantRole =
+        Prelude.Nothing,
+      channelId = Prelude.Nothing
     }
-
--- | A value that indicates the audio channel.
-channelDefinition_channelId :: Lens.Lens' ChannelDefinition (Prelude.Maybe Prelude.Natural)
-channelDefinition_channelId = Lens.lens (\ChannelDefinition' {channelId} -> channelId) (\s@ChannelDefinition' {} a -> s {channelId = a} :: ChannelDefinition)
 
 -- | Indicates whether the person speaking on the audio channel is the agent
 -- or customer.
 channelDefinition_participantRole :: Lens.Lens' ChannelDefinition (Prelude.Maybe ParticipantRole)
 channelDefinition_participantRole = Lens.lens (\ChannelDefinition' {participantRole} -> participantRole) (\s@ChannelDefinition' {} a -> s {participantRole = a} :: ChannelDefinition)
+
+-- | A value that indicates the audio channel.
+channelDefinition_channelId :: Lens.Lens' ChannelDefinition (Prelude.Maybe Prelude.Natural)
+channelDefinition_channelId = Lens.lens (\ChannelDefinition' {channelId} -> channelId) (\s@ChannelDefinition' {} a -> s {channelId = a} :: ChannelDefinition)
 
 instance Core.FromJSON ChannelDefinition where
   parseJSON =
@@ -73,8 +74,8 @@ instance Core.FromJSON ChannelDefinition where
       "ChannelDefinition"
       ( \x ->
           ChannelDefinition'
-            Prelude.<$> (x Core..:? "ChannelId")
-            Prelude.<*> (x Core..:? "ParticipantRole")
+            Prelude.<$> (x Core..:? "ParticipantRole")
+            Prelude.<*> (x Core..:? "ChannelId")
       )
 
 instance Prelude.Hashable ChannelDefinition
@@ -85,8 +86,8 @@ instance Core.ToJSON ChannelDefinition where
   toJSON ChannelDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ChannelId" Core..=) Prelude.<$> channelId,
-            ("ParticipantRole" Core..=)
-              Prelude.<$> participantRole
+          [ ("ParticipantRole" Core..=)
+              Prelude.<$> participantRole,
+            ("ChannelId" Core..=) Prelude.<$> channelId
           ]
       )

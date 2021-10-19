@@ -32,7 +32,10 @@ import Network.AWS.Transcribe.Types.TranscriptFilterType
 --
 -- /See:/ 'newTranscriptFilter' smart constructor.
 data TranscriptFilter = TranscriptFilter'
-  { -- | An object that allows percentages to specify the proportion of the call
+  { -- | Determines whether the customer or the agent is speaking the phrases
+    -- that you\'ve specified.
+    participantRole :: Prelude.Maybe ParticipantRole,
+    -- | An object that allows percentages to specify the proportion of the call
     -- where you would like to apply a filter. For example, you can specify the
     -- first half of the call. You can also specify the period of time between
     -- halfway through to three-quarters of the way through the call. Because
@@ -42,9 +45,6 @@ data TranscriptFilter = TranscriptFilter'
     -- | If @TRUE@, the rule that you specify is applied to everything except for
     -- the phrases that you specify.
     negate :: Prelude.Maybe Prelude.Bool,
-    -- | Determines whether the customer or the agent is speaking the phrases
-    -- that you\'ve specified.
-    participantRole :: Prelude.Maybe ParticipantRole,
     -- | A time range, set in seconds, between two points in the call.
     absoluteTimeRange :: Prelude.Maybe AbsoluteTimeRange,
     -- | Matches the phrase to the transcription output in a word for word
@@ -65,6 +65,9 @@ data TranscriptFilter = TranscriptFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'participantRole', 'transcriptFilter_participantRole' - Determines whether the customer or the agent is speaking the phrases
+-- that you\'ve specified.
+--
 -- 'relativeTimeRange', 'transcriptFilter_relativeTimeRange' - An object that allows percentages to specify the proportion of the call
 -- where you would like to apply a filter. For example, you can specify the
 -- first half of the call. You can also specify the period of time between
@@ -74,9 +77,6 @@ data TranscriptFilter = TranscriptFilter'
 --
 -- 'negate', 'transcriptFilter_negate' - If @TRUE@, the rule that you specify is applied to everything except for
 -- the phrases that you specify.
---
--- 'participantRole', 'transcriptFilter_participantRole' - Determines whether the customer or the agent is speaking the phrases
--- that you\'ve specified.
 --
 -- 'absoluteTimeRange', 'transcriptFilter_absoluteTimeRange' - A time range, set in seconds, between two points in the call.
 --
@@ -94,14 +94,19 @@ newTranscriptFilter ::
   TranscriptFilter
 newTranscriptFilter pTranscriptFilterType_ pTargets_ =
   TranscriptFilter'
-    { relativeTimeRange =
+    { participantRole =
         Prelude.Nothing,
+      relativeTimeRange = Prelude.Nothing,
       negate = Prelude.Nothing,
-      participantRole = Prelude.Nothing,
       absoluteTimeRange = Prelude.Nothing,
       transcriptFilterType = pTranscriptFilterType_,
-      targets = Lens._Coerce Lens.# pTargets_
+      targets = Lens.coerced Lens.# pTargets_
     }
+
+-- | Determines whether the customer or the agent is speaking the phrases
+-- that you\'ve specified.
+transcriptFilter_participantRole :: Lens.Lens' TranscriptFilter (Prelude.Maybe ParticipantRole)
+transcriptFilter_participantRole = Lens.lens (\TranscriptFilter' {participantRole} -> participantRole) (\s@TranscriptFilter' {} a -> s {participantRole = a} :: TranscriptFilter)
 
 -- | An object that allows percentages to specify the proportion of the call
 -- where you would like to apply a filter. For example, you can specify the
@@ -117,11 +122,6 @@ transcriptFilter_relativeTimeRange = Lens.lens (\TranscriptFilter' {relativeTime
 transcriptFilter_negate :: Lens.Lens' TranscriptFilter (Prelude.Maybe Prelude.Bool)
 transcriptFilter_negate = Lens.lens (\TranscriptFilter' {negate} -> negate) (\s@TranscriptFilter' {} a -> s {negate = a} :: TranscriptFilter)
 
--- | Determines whether the customer or the agent is speaking the phrases
--- that you\'ve specified.
-transcriptFilter_participantRole :: Lens.Lens' TranscriptFilter (Prelude.Maybe ParticipantRole)
-transcriptFilter_participantRole = Lens.lens (\TranscriptFilter' {participantRole} -> participantRole) (\s@TranscriptFilter' {} a -> s {participantRole = a} :: TranscriptFilter)
-
 -- | A time range, set in seconds, between two points in the call.
 transcriptFilter_absoluteTimeRange :: Lens.Lens' TranscriptFilter (Prelude.Maybe AbsoluteTimeRange)
 transcriptFilter_absoluteTimeRange = Lens.lens (\TranscriptFilter' {absoluteTimeRange} -> absoluteTimeRange) (\s@TranscriptFilter' {} a -> s {absoluteTimeRange = a} :: TranscriptFilter)
@@ -135,7 +135,7 @@ transcriptFilter_transcriptFilterType = Lens.lens (\TranscriptFilter' {transcrip
 
 -- | The phrases that you\'re specifying for the transcript filter to match.
 transcriptFilter_targets :: Lens.Lens' TranscriptFilter (Prelude.NonEmpty Prelude.Text)
-transcriptFilter_targets = Lens.lens (\TranscriptFilter' {targets} -> targets) (\s@TranscriptFilter' {} a -> s {targets = a} :: TranscriptFilter) Prelude.. Lens._Coerce
+transcriptFilter_targets = Lens.lens (\TranscriptFilter' {targets} -> targets) (\s@TranscriptFilter' {} a -> s {targets = a} :: TranscriptFilter) Prelude.. Lens.coerced
 
 instance Core.FromJSON TranscriptFilter where
   parseJSON =
@@ -143,9 +143,9 @@ instance Core.FromJSON TranscriptFilter where
       "TranscriptFilter"
       ( \x ->
           TranscriptFilter'
-            Prelude.<$> (x Core..:? "RelativeTimeRange")
+            Prelude.<$> (x Core..:? "ParticipantRole")
+            Prelude.<*> (x Core..:? "RelativeTimeRange")
             Prelude.<*> (x Core..:? "Negate")
-            Prelude.<*> (x Core..:? "ParticipantRole")
             Prelude.<*> (x Core..:? "AbsoluteTimeRange")
             Prelude.<*> (x Core..: "TranscriptFilterType")
             Prelude.<*> (x Core..: "Targets")
@@ -159,11 +159,11 @@ instance Core.ToJSON TranscriptFilter where
   toJSON TranscriptFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RelativeTimeRange" Core..=)
+          [ ("ParticipantRole" Core..=)
+              Prelude.<$> participantRole,
+            ("RelativeTimeRange" Core..=)
               Prelude.<$> relativeTimeRange,
             ("Negate" Core..=) Prelude.<$> negate,
-            ("ParticipantRole" Core..=)
-              Prelude.<$> participantRole,
             ("AbsoluteTimeRange" Core..=)
               Prelude.<$> absoluteTimeRange,
             Prelude.Just

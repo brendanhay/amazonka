@@ -38,8 +38,8 @@ module Network.AWS.Transcribe.ListCallAnalyticsCategories
     newListCallAnalyticsCategoriesResponse,
 
     -- * Response Lenses
-    listCallAnalyticsCategoriesResponse_nextToken,
     listCallAnalyticsCategoriesResponse_categories,
+    listCallAnalyticsCategoriesResponse_nextToken,
     listCallAnalyticsCategoriesResponse_httpStatus,
   )
 where
@@ -109,8 +109,8 @@ instance Core.AWSRequest ListCallAnalyticsCategories where
     Response.receiveJSON
       ( \s h x ->
           ListCallAnalyticsCategoriesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Categories" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Categories" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,14 +150,14 @@ instance Core.ToQuery ListCallAnalyticsCategories where
 
 -- | /See:/ 'newListCallAnalyticsCategoriesResponse' smart constructor.
 data ListCallAnalyticsCategoriesResponse = ListCallAnalyticsCategoriesResponse'
-  { -- | The operation returns a page of jobs at a time. The maximum size of the
+  { -- | A list of objects containing information about analytics categories.
+    categories :: Prelude.Maybe [CategoryProperties],
+    -- | The operation returns a page of jobs at a time. The maximum size of the
     -- list is set by the @MaxResults@ parameter. If there are more categories
     -- in the list than the page size, Amazon Transcribe returns the @NextPage@
     -- token. Include the token in the next request to the operation to return
     -- the next page of analytics categories.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of objects containing information about analytics categories.
-    categories :: Prelude.Maybe [CategoryProperties],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,13 +171,13 @@ data ListCallAnalyticsCategoriesResponse = ListCallAnalyticsCategoriesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'categories', 'listCallAnalyticsCategoriesResponse_categories' - A list of objects containing information about analytics categories.
+--
 -- 'nextToken', 'listCallAnalyticsCategoriesResponse_nextToken' - The operation returns a page of jobs at a time. The maximum size of the
 -- list is set by the @MaxResults@ parameter. If there are more categories
 -- in the list than the page size, Amazon Transcribe returns the @NextPage@
 -- token. Include the token in the next request to the operation to return
 -- the next page of analytics categories.
---
--- 'categories', 'listCallAnalyticsCategoriesResponse_categories' - A list of objects containing information about analytics categories.
 --
 -- 'httpStatus', 'listCallAnalyticsCategoriesResponse_httpStatus' - The response's http status code.
 newListCallAnalyticsCategoriesResponse ::
@@ -186,11 +186,15 @@ newListCallAnalyticsCategoriesResponse ::
   ListCallAnalyticsCategoriesResponse
 newListCallAnalyticsCategoriesResponse pHttpStatus_ =
   ListCallAnalyticsCategoriesResponse'
-    { nextToken =
+    { categories =
         Prelude.Nothing,
-      categories = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of objects containing information about analytics categories.
+listCallAnalyticsCategoriesResponse_categories :: Lens.Lens' ListCallAnalyticsCategoriesResponse (Prelude.Maybe [CategoryProperties])
+listCallAnalyticsCategoriesResponse_categories = Lens.lens (\ListCallAnalyticsCategoriesResponse' {categories} -> categories) (\s@ListCallAnalyticsCategoriesResponse' {} a -> s {categories = a} :: ListCallAnalyticsCategoriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The operation returns a page of jobs at a time. The maximum size of the
 -- list is set by the @MaxResults@ parameter. If there are more categories
@@ -199,10 +203,6 @@ newListCallAnalyticsCategoriesResponse pHttpStatus_ =
 -- the next page of analytics categories.
 listCallAnalyticsCategoriesResponse_nextToken :: Lens.Lens' ListCallAnalyticsCategoriesResponse (Prelude.Maybe Prelude.Text)
 listCallAnalyticsCategoriesResponse_nextToken = Lens.lens (\ListCallAnalyticsCategoriesResponse' {nextToken} -> nextToken) (\s@ListCallAnalyticsCategoriesResponse' {} a -> s {nextToken = a} :: ListCallAnalyticsCategoriesResponse)
-
--- | A list of objects containing information about analytics categories.
-listCallAnalyticsCategoriesResponse_categories :: Lens.Lens' ListCallAnalyticsCategoriesResponse (Prelude.Maybe [CategoryProperties])
-listCallAnalyticsCategoriesResponse_categories = Lens.lens (\ListCallAnalyticsCategoriesResponse' {categories} -> categories) (\s@ListCallAnalyticsCategoriesResponse' {} a -> s {categories = a} :: ListCallAnalyticsCategoriesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listCallAnalyticsCategoriesResponse_httpStatus :: Lens.Lens' ListCallAnalyticsCategoriesResponse Prelude.Int

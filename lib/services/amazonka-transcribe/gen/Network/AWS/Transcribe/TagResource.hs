@@ -77,7 +77,7 @@ newTagResource ::
 newTagResource pResourceArn_ pTags_ =
   TagResource'
     { resourceArn = pResourceArn_,
-      tags = Lens._Coerce Lens.# pTags_
+      tags = Lens.coerced Lens.# pTags_
     }
 
 -- | The Amazon Resource Name (ARN) of the Amazon Transcribe resource you
@@ -87,7 +87,7 @@ tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn)
 
 -- | The tags you are assigning to a given Amazon Transcribe resource.
 tagResource_tags :: Lens.Lens' TagResource (Prelude.NonEmpty Tag)
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse

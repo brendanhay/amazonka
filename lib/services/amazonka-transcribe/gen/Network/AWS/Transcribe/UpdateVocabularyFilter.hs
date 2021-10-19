@@ -37,8 +37,8 @@ module Network.AWS.Transcribe.UpdateVocabularyFilter
 
     -- * Response Lenses
     updateVocabularyFilterResponse_languageCode,
-    updateVocabularyFilterResponse_vocabularyFilterName,
     updateVocabularyFilterResponse_lastModifiedTime,
+    updateVocabularyFilterResponse_vocabularyFilterName,
     updateVocabularyFilterResponse_httpStatus,
   )
 where
@@ -141,7 +141,7 @@ updateVocabularyFilter_vocabularyFilterFileUri = Lens.lens (\UpdateVocabularyFil
 -- If you provide a list of words in the @Words@ parameter, you can\'t use
 -- the @VocabularyFilterFileUri@ parameter.
 updateVocabularyFilter_words :: Lens.Lens' UpdateVocabularyFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateVocabularyFilter_words = Lens.lens (\UpdateVocabularyFilter' {words} -> words) (\s@UpdateVocabularyFilter' {} a -> s {words = a} :: UpdateVocabularyFilter) Prelude.. Lens.mapping Lens._Coerce
+updateVocabularyFilter_words = Lens.lens (\UpdateVocabularyFilter' {words} -> words) (\s@UpdateVocabularyFilter' {} a -> s {words = a} :: UpdateVocabularyFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the vocabulary filter to update. If you try to update a
 -- vocabulary filter with the same name as another vocabulary filter, you
@@ -159,8 +159,8 @@ instance Core.AWSRequest UpdateVocabularyFilter where
       ( \s h x ->
           UpdateVocabularyFilterResponse'
             Prelude.<$> (x Core..?> "LanguageCode")
-            Prelude.<*> (x Core..?> "VocabularyFilterName")
             Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "VocabularyFilterName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,10 +207,10 @@ instance Core.ToQuery UpdateVocabularyFilter where
 data UpdateVocabularyFilterResponse = UpdateVocabularyFilterResponse'
   { -- | The language code of the words in the vocabulary filter.
     languageCode :: Prelude.Maybe LanguageCode,
-    -- | The name of the updated vocabulary filter.
-    vocabularyFilterName :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the vocabulary filter was updated.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the updated vocabulary filter.
+    vocabularyFilterName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -226,9 +226,9 @@ data UpdateVocabularyFilterResponse = UpdateVocabularyFilterResponse'
 --
 -- 'languageCode', 'updateVocabularyFilterResponse_languageCode' - The language code of the words in the vocabulary filter.
 --
--- 'vocabularyFilterName', 'updateVocabularyFilterResponse_vocabularyFilterName' - The name of the updated vocabulary filter.
---
 -- 'lastModifiedTime', 'updateVocabularyFilterResponse_lastModifiedTime' - The date and time that the vocabulary filter was updated.
+--
+-- 'vocabularyFilterName', 'updateVocabularyFilterResponse_vocabularyFilterName' - The name of the updated vocabulary filter.
 --
 -- 'httpStatus', 'updateVocabularyFilterResponse_httpStatus' - The response's http status code.
 newUpdateVocabularyFilterResponse ::
@@ -239,8 +239,8 @@ newUpdateVocabularyFilterResponse pHttpStatus_ =
   UpdateVocabularyFilterResponse'
     { languageCode =
         Prelude.Nothing,
-      vocabularyFilterName = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      vocabularyFilterName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -248,13 +248,13 @@ newUpdateVocabularyFilterResponse pHttpStatus_ =
 updateVocabularyFilterResponse_languageCode :: Lens.Lens' UpdateVocabularyFilterResponse (Prelude.Maybe LanguageCode)
 updateVocabularyFilterResponse_languageCode = Lens.lens (\UpdateVocabularyFilterResponse' {languageCode} -> languageCode) (\s@UpdateVocabularyFilterResponse' {} a -> s {languageCode = a} :: UpdateVocabularyFilterResponse)
 
--- | The name of the updated vocabulary filter.
-updateVocabularyFilterResponse_vocabularyFilterName :: Lens.Lens' UpdateVocabularyFilterResponse (Prelude.Maybe Prelude.Text)
-updateVocabularyFilterResponse_vocabularyFilterName = Lens.lens (\UpdateVocabularyFilterResponse' {vocabularyFilterName} -> vocabularyFilterName) (\s@UpdateVocabularyFilterResponse' {} a -> s {vocabularyFilterName = a} :: UpdateVocabularyFilterResponse)
-
 -- | The date and time that the vocabulary filter was updated.
 updateVocabularyFilterResponse_lastModifiedTime :: Lens.Lens' UpdateVocabularyFilterResponse (Prelude.Maybe Prelude.UTCTime)
 updateVocabularyFilterResponse_lastModifiedTime = Lens.lens (\UpdateVocabularyFilterResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateVocabularyFilterResponse' {} a -> s {lastModifiedTime = a} :: UpdateVocabularyFilterResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the updated vocabulary filter.
+updateVocabularyFilterResponse_vocabularyFilterName :: Lens.Lens' UpdateVocabularyFilterResponse (Prelude.Maybe Prelude.Text)
+updateVocabularyFilterResponse_vocabularyFilterName = Lens.lens (\UpdateVocabularyFilterResponse' {vocabularyFilterName} -> vocabularyFilterName) (\s@UpdateVocabularyFilterResponse' {} a -> s {vocabularyFilterName = a} :: UpdateVocabularyFilterResponse)
 
 -- | The response's http status code.
 updateVocabularyFilterResponse_httpStatus :: Lens.Lens' UpdateVocabularyFilterResponse Prelude.Int

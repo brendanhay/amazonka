@@ -29,8 +29,8 @@ module Network.AWS.Transcribe.ListTranscriptionJobs
     -- * Request Lenses
     listTranscriptionJobs_status,
     listTranscriptionJobs_nextToken,
-    listTranscriptionJobs_maxResults,
     listTranscriptionJobs_jobNameContains,
+    listTranscriptionJobs_maxResults,
 
     -- * Destructuring the Response
     ListTranscriptionJobsResponse (..),
@@ -61,13 +61,13 @@ data ListTranscriptionJobs = ListTranscriptionJobs'
     -- | If the result of the previous request to @ListTranscriptionJobs@ is
     -- truncated, include the @NextToken@ to fetch the next set of jobs.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | When specified, the jobs returned in the list are limited to jobs whose
+    -- name contains the specified string.
+    jobNameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of jobs to return in each page of results. If there
     -- are fewer results than the value you specify, only the actual results
     -- are returned. If you do not specify a value, the default of 5 is used.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | When specified, the jobs returned in the list are limited to jobs whose
-    -- name contains the specified string.
-    jobNameContains :: Prelude.Maybe Prelude.Text
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,20 +87,20 @@ data ListTranscriptionJobs = ListTranscriptionJobs'
 -- 'nextToken', 'listTranscriptionJobs_nextToken' - If the result of the previous request to @ListTranscriptionJobs@ is
 -- truncated, include the @NextToken@ to fetch the next set of jobs.
 --
+-- 'jobNameContains', 'listTranscriptionJobs_jobNameContains' - When specified, the jobs returned in the list are limited to jobs whose
+-- name contains the specified string.
+--
 -- 'maxResults', 'listTranscriptionJobs_maxResults' - The maximum number of jobs to return in each page of results. If there
 -- are fewer results than the value you specify, only the actual results
 -- are returned. If you do not specify a value, the default of 5 is used.
---
--- 'jobNameContains', 'listTranscriptionJobs_jobNameContains' - When specified, the jobs returned in the list are limited to jobs whose
--- name contains the specified string.
 newListTranscriptionJobs ::
   ListTranscriptionJobs
 newListTranscriptionJobs =
   ListTranscriptionJobs'
     { status = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      jobNameContains = Prelude.Nothing
+      jobNameContains = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | When specified, returns only transcription jobs with the specified
@@ -115,16 +115,16 @@ listTranscriptionJobs_status = Lens.lens (\ListTranscriptionJobs' {status} -> st
 listTranscriptionJobs_nextToken :: Lens.Lens' ListTranscriptionJobs (Prelude.Maybe Prelude.Text)
 listTranscriptionJobs_nextToken = Lens.lens (\ListTranscriptionJobs' {nextToken} -> nextToken) (\s@ListTranscriptionJobs' {} a -> s {nextToken = a} :: ListTranscriptionJobs)
 
+-- | When specified, the jobs returned in the list are limited to jobs whose
+-- name contains the specified string.
+listTranscriptionJobs_jobNameContains :: Lens.Lens' ListTranscriptionJobs (Prelude.Maybe Prelude.Text)
+listTranscriptionJobs_jobNameContains = Lens.lens (\ListTranscriptionJobs' {jobNameContains} -> jobNameContains) (\s@ListTranscriptionJobs' {} a -> s {jobNameContains = a} :: ListTranscriptionJobs)
+
 -- | The maximum number of jobs to return in each page of results. If there
 -- are fewer results than the value you specify, only the actual results
 -- are returned. If you do not specify a value, the default of 5 is used.
 listTranscriptionJobs_maxResults :: Lens.Lens' ListTranscriptionJobs (Prelude.Maybe Prelude.Natural)
 listTranscriptionJobs_maxResults = Lens.lens (\ListTranscriptionJobs' {maxResults} -> maxResults) (\s@ListTranscriptionJobs' {} a -> s {maxResults = a} :: ListTranscriptionJobs)
-
--- | When specified, the jobs returned in the list are limited to jobs whose
--- name contains the specified string.
-listTranscriptionJobs_jobNameContains :: Lens.Lens' ListTranscriptionJobs (Prelude.Maybe Prelude.Text)
-listTranscriptionJobs_jobNameContains = Lens.lens (\ListTranscriptionJobs' {jobNameContains} -> jobNameContains) (\s@ListTranscriptionJobs' {} a -> s {jobNameContains = a} :: ListTranscriptionJobs)
 
 instance Core.AWSRequest ListTranscriptionJobs where
   type
@@ -168,9 +168,9 @@ instance Core.ToJSON ListTranscriptionJobs where
       ( Prelude.catMaybes
           [ ("Status" Core..=) Prelude.<$> status,
             ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("JobNameContains" Core..=)
-              Prelude.<$> jobNameContains
+              Prelude.<$> jobNameContains,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -249,7 +249,7 @@ listTranscriptionJobsResponse_nextToken = Lens.lens (\ListTranscriptionJobsRespo
 -- | A list of objects containing summary information for a transcription
 -- job.
 listTranscriptionJobsResponse_transcriptionJobSummaries :: Lens.Lens' ListTranscriptionJobsResponse (Prelude.Maybe [TranscriptionJobSummary])
-listTranscriptionJobsResponse_transcriptionJobSummaries = Lens.lens (\ListTranscriptionJobsResponse' {transcriptionJobSummaries} -> transcriptionJobSummaries) (\s@ListTranscriptionJobsResponse' {} a -> s {transcriptionJobSummaries = a} :: ListTranscriptionJobsResponse) Prelude.. Lens.mapping Lens._Coerce
+listTranscriptionJobsResponse_transcriptionJobSummaries = Lens.lens (\ListTranscriptionJobsResponse' {transcriptionJobSummaries} -> transcriptionJobSummaries) (\s@ListTranscriptionJobsResponse' {} a -> s {transcriptionJobSummaries = a} :: ListTranscriptionJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTranscriptionJobsResponse_httpStatus :: Lens.Lens' ListTranscriptionJobsResponse Prelude.Int

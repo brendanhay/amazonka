@@ -32,12 +32,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUsageRecord' smart constructor.
 data UsageRecord = UsageRecord'
-  { -- | The set of UsageAllocations to submit. The sum of all UsageAllocation
-    -- quantities must equal the Quantity of the UsageRecord.
-    usageAllocations :: Prelude.Maybe (Prelude.NonEmpty UsageAllocation),
-    -- | The quantity of usage consumed by the customer for the given dimension
+  { -- | The quantity of usage consumed by the customer for the given dimension
     -- and time. Defaults to @0@ if not specified.
     quantity :: Prelude.Maybe Prelude.Natural,
+    -- | The set of UsageAllocations to submit. The sum of all UsageAllocation
+    -- quantities must equal the Quantity of the UsageRecord.
+    usageAllocations :: Prelude.Maybe (Prelude.NonEmpty UsageAllocation),
     -- | Timestamp, in UTC, for which the usage is being reported.
     --
     -- Your application can meter usage for up to one hour in the past. Make
@@ -61,11 +61,11 @@ data UsageRecord = UsageRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'usageAllocations', 'usageRecord_usageAllocations' - The set of UsageAllocations to submit. The sum of all UsageAllocation
--- quantities must equal the Quantity of the UsageRecord.
---
 -- 'quantity', 'usageRecord_quantity' - The quantity of usage consumed by the customer for the given dimension
 -- and time. Defaults to @0@ if not specified.
+--
+-- 'usageAllocations', 'usageRecord_usageAllocations' - The set of UsageAllocations to submit. The sum of all UsageAllocation
+-- quantities must equal the Quantity of the UsageRecord.
 --
 -- 'timestamp', 'usageRecord_timestamp' - Timestamp, in UTC, for which the usage is being reported.
 --
@@ -91,22 +91,22 @@ newUsageRecord
   pCustomerIdentifier_
   pDimension_ =
     UsageRecord'
-      { usageAllocations = Prelude.Nothing,
-        quantity = Prelude.Nothing,
+      { quantity = Prelude.Nothing,
+        usageAllocations = Prelude.Nothing,
         timestamp = Core._Time Lens.# pTimestamp_,
         customerIdentifier = pCustomerIdentifier_,
         dimension = pDimension_
       }
 
--- | The set of UsageAllocations to submit. The sum of all UsageAllocation
--- quantities must equal the Quantity of the UsageRecord.
-usageRecord_usageAllocations :: Lens.Lens' UsageRecord (Prelude.Maybe (Prelude.NonEmpty UsageAllocation))
-usageRecord_usageAllocations = Lens.lens (\UsageRecord' {usageAllocations} -> usageAllocations) (\s@UsageRecord' {} a -> s {usageAllocations = a} :: UsageRecord) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The quantity of usage consumed by the customer for the given dimension
 -- and time. Defaults to @0@ if not specified.
 usageRecord_quantity :: Lens.Lens' UsageRecord (Prelude.Maybe Prelude.Natural)
 usageRecord_quantity = Lens.lens (\UsageRecord' {quantity} -> quantity) (\s@UsageRecord' {} a -> s {quantity = a} :: UsageRecord)
+
+-- | The set of UsageAllocations to submit. The sum of all UsageAllocation
+-- quantities must equal the Quantity of the UsageRecord.
+usageRecord_usageAllocations :: Lens.Lens' UsageRecord (Prelude.Maybe (Prelude.NonEmpty UsageAllocation))
+usageRecord_usageAllocations = Lens.lens (\UsageRecord' {usageAllocations} -> usageAllocations) (\s@UsageRecord' {} a -> s {usageAllocations = a} :: UsageRecord) Prelude.. Lens.mapping Lens.coerced
 
 -- | Timestamp, in UTC, for which the usage is being reported.
 --
@@ -132,8 +132,8 @@ instance Core.FromJSON UsageRecord where
       "UsageRecord"
       ( \x ->
           UsageRecord'
-            Prelude.<$> (x Core..:? "UsageAllocations")
-            Prelude.<*> (x Core..:? "Quantity")
+            Prelude.<$> (x Core..:? "Quantity")
+            Prelude.<*> (x Core..:? "UsageAllocations")
             Prelude.<*> (x Core..: "Timestamp")
             Prelude.<*> (x Core..: "CustomerIdentifier")
             Prelude.<*> (x Core..: "Dimension")
@@ -147,9 +147,9 @@ instance Core.ToJSON UsageRecord where
   toJSON UsageRecord' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("UsageAllocations" Core..=)
+          [ ("Quantity" Core..=) Prelude.<$> quantity,
+            ("UsageAllocations" Core..=)
               Prelude.<$> usageAllocations,
-            ("Quantity" Core..=) Prelude.<$> quantity,
             Prelude.Just ("Timestamp" Core..= timestamp),
             Prelude.Just
               ("CustomerIdentifier" Core..= customerIdentifier),

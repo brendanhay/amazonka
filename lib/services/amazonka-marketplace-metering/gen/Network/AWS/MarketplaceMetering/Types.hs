@@ -17,23 +17,23 @@ module Network.AWS.MarketplaceMetering.Types
     defaultService,
 
     -- * Errors
-    _TimestampOutOfBoundsException,
-    _CustomerNotEntitledException,
-    _InvalidRegionException,
-    _ExpiredTokenException,
-    _InvalidUsageDimensionException,
-    _ThrottlingException,
-    _DisabledApiException,
     _InvalidTagException,
-    _InvalidCustomerIdentifierException,
-    _DuplicateRequestException,
-    _PlatformNotSupportedException,
+    _InvalidEndpointRegionException,
     _InvalidProductCodeException,
-    _InvalidUsageAllocationsException,
+    _InvalidUsageDimensionException,
+    _PlatformNotSupportedException,
+    _CustomerNotEntitledException,
+    _DuplicateRequestException,
+    _DisabledApiException,
+    _TimestampOutOfBoundsException,
+    _ThrottlingException,
+    _InvalidPublicKeyVersionException,
     _InternalServiceErrorException,
     _InvalidTokenException,
-    _InvalidEndpointRegionException,
-    _InvalidPublicKeyVersionException,
+    _InvalidUsageAllocationsException,
+    _ExpiredTokenException,
+    _InvalidRegionException,
+    _InvalidCustomerIdentifierException,
 
     -- * UsageRecordResultStatus
     UsageRecordResultStatus (..),
@@ -53,8 +53,8 @@ module Network.AWS.MarketplaceMetering.Types
     -- * UsageRecord
     UsageRecord (..),
     newUsageRecord,
-    usageRecord_usageAllocations,
     usageRecord_quantity,
+    usageRecord_usageAllocations,
     usageRecord_timestamp,
     usageRecord_customerIdentifier,
     usageRecord_dimension,
@@ -63,8 +63,8 @@ module Network.AWS.MarketplaceMetering.Types
     UsageRecordResult (..),
     newUsageRecordResult,
     usageRecordResult_status,
-    usageRecordResult_meteringRecordId,
     usageRecordResult_usageRecord,
+    usageRecordResult_meteringRecordId,
   )
 where
 
@@ -105,37 +105,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -148,65 +125,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The timestamp value passed in the meterUsage() is out of allowed range.
-_TimestampOutOfBoundsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TimestampOutOfBoundsException =
-  Core._MatchServiceError
-    defaultService
-    "TimestampOutOfBoundsException"
-
--- | Exception thrown when the customer does not have a valid subscription
--- for the product.
-_CustomerNotEntitledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CustomerNotEntitledException =
-  Core._MatchServiceError
-    defaultService
-    "CustomerNotEntitledException"
-
--- | RegisterUsage must be called in the same AWS Region the ECS task was
--- launched in. This prevents a container from hardcoding a Region (e.g.
--- withRegion(“us-east-1”) when calling RegisterUsage.
-_InvalidRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRegionException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRegionException"
-
--- | The submitted registration token has expired. This can happen if the
--- buyer\'s browser takes too long to redirect to your page, the buyer has
--- resubmitted the registration token, or your application has held on to
--- the registration token for too long. Your SaaS registration website
--- should redeem this token as soon as it is submitted by the buyer\'s
--- browser.
-_ExpiredTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ExpiredTokenException =
-  Core._MatchServiceError
-    defaultService
-    "ExpiredTokenException"
-
--- | The usage dimension does not match one of the UsageDimensions associated
--- with products.
-_InvalidUsageDimensionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidUsageDimensionException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidUsageDimensionException"
-
--- | The calls to the API are throttled.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-
--- | The API is disabled in the Region.
-_DisabledApiException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DisabledApiException =
-  Core._MatchServiceError
-    defaultService
-    "DisabledApiException"
 
 -- | The tag is invalid, or the number of tags is greater than 5.
 _InvalidTagException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -215,21 +157,30 @@ _InvalidTagException =
     defaultService
     "InvalidTagException"
 
--- | You have metered usage for a CustomerIdentifier that does not exist.
-_InvalidCustomerIdentifierException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidCustomerIdentifierException =
+-- | The endpoint being called is in a AWS Region different from your EC2
+-- instance, ECS task, or EKS pod. The Region of the Metering Service
+-- endpoint and the AWS Region of the resource must match.
+_InvalidEndpointRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidEndpointRegionException =
   Core._MatchServiceError
     defaultService
-    "InvalidCustomerIdentifierException"
+    "InvalidEndpointRegionException"
 
--- | A metering record has already been emitted by the same EC2 instance, ECS
--- task, or EKS pod for the given {usageDimension, timestamp} with a
--- different usageQuantity.
-_DuplicateRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateRequestException =
+-- | The product code passed does not match the product code used for
+-- publishing the product.
+_InvalidProductCodeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidProductCodeException =
   Core._MatchServiceError
     defaultService
-    "DuplicateRequestException"
+    "InvalidProductCodeException"
+
+-- | The usage dimension does not match one of the UsageDimensions associated
+-- with products.
+_InvalidUsageDimensionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidUsageDimensionException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidUsageDimensionException"
 
 -- | AWS Marketplace does not support metering usage from the underlying
 -- platform. Currently, Amazon ECS, Amazon EKS, and AWS Fargate are
@@ -240,21 +191,50 @@ _PlatformNotSupportedException =
     defaultService
     "PlatformNotSupportedException"
 
--- | The product code passed does not match the product code used for
--- publishing the product.
-_InvalidProductCodeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidProductCodeException =
+-- | Exception thrown when the customer does not have a valid subscription
+-- for the product.
+_CustomerNotEntitledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CustomerNotEntitledException =
   Core._MatchServiceError
     defaultService
-    "InvalidProductCodeException"
+    "CustomerNotEntitledException"
 
--- | The usage allocation objects are invalid, or the number of allocations
--- is greater than 500 for a single usage record.
-_InvalidUsageAllocationsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidUsageAllocationsException =
+-- | A metering record has already been emitted by the same EC2 instance, ECS
+-- task, or EKS pod for the given {usageDimension, timestamp} with a
+-- different usageQuantity.
+_DuplicateRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateRequestException =
   Core._MatchServiceError
     defaultService
-    "InvalidUsageAllocationsException"
+    "DuplicateRequestException"
+
+-- | The API is disabled in the Region.
+_DisabledApiException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DisabledApiException =
+  Core._MatchServiceError
+    defaultService
+    "DisabledApiException"
+
+-- | The timestamp value passed in the meterUsage() is out of allowed range.
+_TimestampOutOfBoundsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TimestampOutOfBoundsException =
+  Core._MatchServiceError
+    defaultService
+    "TimestampOutOfBoundsException"
+
+-- | The calls to the API are throttled.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+
+-- | Public Key version is invalid.
+_InvalidPublicKeyVersionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPublicKeyVersionException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPublicKeyVersionException"
 
 -- | An internal error has occurred. Retry your request. If the problem
 -- persists, post a message with details on the AWS forums.
@@ -271,18 +251,38 @@ _InvalidTokenException =
     defaultService
     "InvalidTokenException"
 
--- | The endpoint being called is in a AWS Region different from your EC2
--- instance, ECS task, or EKS pod. The Region of the Metering Service
--- endpoint and the AWS Region of the resource must match.
-_InvalidEndpointRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidEndpointRegionException =
+-- | The usage allocation objects are invalid, or the number of allocations
+-- is greater than 500 for a single usage record.
+_InvalidUsageAllocationsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidUsageAllocationsException =
   Core._MatchServiceError
     defaultService
-    "InvalidEndpointRegionException"
+    "InvalidUsageAllocationsException"
 
--- | Public Key version is invalid.
-_InvalidPublicKeyVersionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPublicKeyVersionException =
+-- | The submitted registration token has expired. This can happen if the
+-- buyer\'s browser takes too long to redirect to your page, the buyer has
+-- resubmitted the registration token, or your application has held on to
+-- the registration token for too long. Your SaaS registration website
+-- should redeem this token as soon as it is submitted by the buyer\'s
+-- browser.
+_ExpiredTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExpiredTokenException =
   Core._MatchServiceError
     defaultService
-    "InvalidPublicKeyVersionException"
+    "ExpiredTokenException"
+
+-- | RegisterUsage must be called in the same AWS Region the ECS task was
+-- launched in. This prevents a container from hardcoding a Region (e.g.
+-- withRegion(“us-east-1”) when calling RegisterUsage.
+_InvalidRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRegionException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRegionException"
+
+-- | You have metered usage for a CustomerIdentifier that does not exist.
+_InvalidCustomerIdentifierException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCustomerIdentifierException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCustomerIdentifierException"

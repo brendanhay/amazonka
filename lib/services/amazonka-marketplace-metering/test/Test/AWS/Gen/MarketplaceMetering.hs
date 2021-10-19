@@ -27,43 +27,37 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestMeterUsage $
---             newMeterUsage
---
---         , requestRegisterUsage $
+--         [ requestRegisterUsage $
 --             newRegisterUsage
---
---         , requestResolveCustomer $
---             newResolveCustomer
 --
 --         , requestBatchMeterUsage $
 --             newBatchMeterUsage
 --
+--         , requestResolveCustomer $
+--             newResolveCustomer
+--
+--         , requestMeterUsage $
+--             newMeterUsage
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseMeterUsage $
---             newMeterUsageResponse
---
---         , responseRegisterUsage $
+--         [ responseRegisterUsage $
 --             newRegisterUsageResponse
+--
+--         , responseBatchMeterUsage $
+--             newBatchMeterUsageResponse
 --
 --         , responseResolveCustomer $
 --             newResolveCustomerResponse
 --
---         , responseBatchMeterUsage $
---             newBatchMeterUsageResponse
+--         , responseMeterUsage $
+--             newMeterUsageResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestMeterUsage :: MeterUsage -> TestTree
-requestMeterUsage =
-  req
-    "MeterUsage"
-    "fixture/MeterUsage.yaml"
 
 requestRegisterUsage :: RegisterUsage -> TestTree
 requestRegisterUsage =
@@ -71,27 +65,25 @@ requestRegisterUsage =
     "RegisterUsage"
     "fixture/RegisterUsage.yaml"
 
-requestResolveCustomer :: ResolveCustomer -> TestTree
-requestResolveCustomer =
-  req
-    "ResolveCustomer"
-    "fixture/ResolveCustomer.yaml"
-
 requestBatchMeterUsage :: BatchMeterUsage -> TestTree
 requestBatchMeterUsage =
   req
     "BatchMeterUsage"
     "fixture/BatchMeterUsage.yaml"
 
--- Responses
+requestResolveCustomer :: ResolveCustomer -> TestTree
+requestResolveCustomer =
+  req
+    "ResolveCustomer"
+    "fixture/ResolveCustomer.yaml"
 
-responseMeterUsage :: MeterUsageResponse -> TestTree
-responseMeterUsage =
-  res
-    "MeterUsageResponse"
-    "fixture/MeterUsageResponse.proto"
-    defaultService
-    (Proxy :: Proxy MeterUsage)
+requestMeterUsage :: MeterUsage -> TestTree
+requestMeterUsage =
+  req
+    "MeterUsage"
+    "fixture/MeterUsage.yaml"
+
+-- Responses
 
 responseRegisterUsage :: RegisterUsageResponse -> TestTree
 responseRegisterUsage =
@@ -101,6 +93,14 @@ responseRegisterUsage =
     defaultService
     (Proxy :: Proxy RegisterUsage)
 
+responseBatchMeterUsage :: BatchMeterUsageResponse -> TestTree
+responseBatchMeterUsage =
+  res
+    "BatchMeterUsageResponse"
+    "fixture/BatchMeterUsageResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchMeterUsage)
+
 responseResolveCustomer :: ResolveCustomerResponse -> TestTree
 responseResolveCustomer =
   res
@@ -109,10 +109,10 @@ responseResolveCustomer =
     defaultService
     (Proxy :: Proxy ResolveCustomer)
 
-responseBatchMeterUsage :: BatchMeterUsageResponse -> TestTree
-responseBatchMeterUsage =
+responseMeterUsage :: MeterUsageResponse -> TestTree
+responseMeterUsage =
   res
-    "BatchMeterUsageResponse"
-    "fixture/BatchMeterUsageResponse.proto"
+    "MeterUsageResponse"
+    "fixture/MeterUsageResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchMeterUsage)
+    (Proxy :: Proxy MeterUsage)

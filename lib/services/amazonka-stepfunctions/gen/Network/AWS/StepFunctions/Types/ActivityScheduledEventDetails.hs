@@ -28,11 +28,11 @@ import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 --
 -- /See:/ 'newActivityScheduledEventDetails' smart constructor.
 data ActivityScheduledEventDetails = ActivityScheduledEventDetails'
-  { -- | Contains details about the input for an execution history event.
-    inputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
-    -- | The maximum allowed duration between two heartbeats for the activity
+  { -- | The maximum allowed duration between two heartbeats for the activity
     -- task.
     heartbeatInSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | Contains details about the input for an execution history event.
+    inputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
     -- | The JSON data input to the activity task. Length constraints apply to
     -- the payload size, and are expressed as bytes in UTF-8 encoding.
     input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -51,10 +51,10 @@ data ActivityScheduledEventDetails = ActivityScheduledEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputDetails', 'activityScheduledEventDetails_inputDetails' - Contains details about the input for an execution history event.
---
 -- 'heartbeatInSeconds', 'activityScheduledEventDetails_heartbeatInSeconds' - The maximum allowed duration between two heartbeats for the activity
 -- task.
+--
+-- 'inputDetails', 'activityScheduledEventDetails_inputDetails' - Contains details about the input for an execution history event.
 --
 -- 'input', 'activityScheduledEventDetails_input' - The JSON data input to the activity task. Length constraints apply to
 -- the payload size, and are expressed as bytes in UTF-8 encoding.
@@ -68,22 +68,22 @@ newActivityScheduledEventDetails ::
   ActivityScheduledEventDetails
 newActivityScheduledEventDetails pResource_ =
   ActivityScheduledEventDetails'
-    { inputDetails =
+    { heartbeatInSeconds =
         Prelude.Nothing,
-      heartbeatInSeconds = Prelude.Nothing,
+      inputDetails = Prelude.Nothing,
       input = Prelude.Nothing,
       timeoutInSeconds = Prelude.Nothing,
       resource = pResource_
     }
 
--- | Contains details about the input for an execution history event.
-activityScheduledEventDetails_inputDetails :: Lens.Lens' ActivityScheduledEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
-activityScheduledEventDetails_inputDetails = Lens.lens (\ActivityScheduledEventDetails' {inputDetails} -> inputDetails) (\s@ActivityScheduledEventDetails' {} a -> s {inputDetails = a} :: ActivityScheduledEventDetails)
-
 -- | The maximum allowed duration between two heartbeats for the activity
 -- task.
 activityScheduledEventDetails_heartbeatInSeconds :: Lens.Lens' ActivityScheduledEventDetails (Prelude.Maybe Prelude.Integer)
 activityScheduledEventDetails_heartbeatInSeconds = Lens.lens (\ActivityScheduledEventDetails' {heartbeatInSeconds} -> heartbeatInSeconds) (\s@ActivityScheduledEventDetails' {} a -> s {heartbeatInSeconds = a} :: ActivityScheduledEventDetails)
+
+-- | Contains details about the input for an execution history event.
+activityScheduledEventDetails_inputDetails :: Lens.Lens' ActivityScheduledEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
+activityScheduledEventDetails_inputDetails = Lens.lens (\ActivityScheduledEventDetails' {inputDetails} -> inputDetails) (\s@ActivityScheduledEventDetails' {} a -> s {inputDetails = a} :: ActivityScheduledEventDetails)
 
 -- | The JSON data input to the activity task. Length constraints apply to
 -- the payload size, and are expressed as bytes in UTF-8 encoding.
@@ -104,8 +104,8 @@ instance Core.FromJSON ActivityScheduledEventDetails where
       "ActivityScheduledEventDetails"
       ( \x ->
           ActivityScheduledEventDetails'
-            Prelude.<$> (x Core..:? "inputDetails")
-            Prelude.<*> (x Core..:? "heartbeatInSeconds")
+            Prelude.<$> (x Core..:? "heartbeatInSeconds")
+            Prelude.<*> (x Core..:? "inputDetails")
             Prelude.<*> (x Core..:? "input")
             Prelude.<*> (x Core..:? "timeoutInSeconds")
             Prelude.<*> (x Core..: "resource")

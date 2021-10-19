@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLambdaFunctionFailedEventDetails' smart constructor.
 data LambdaFunctionFailedEventDetails = LambdaFunctionFailedEventDetails'
-  { -- | A more detailed explanation of the cause of the failure.
-    cause :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The error code of the failure.
-    error :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+  { -- | The error code of the failure.
+    error :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | A more detailed explanation of the cause of the failure.
+    cause :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data LambdaFunctionFailedEventDetails = LambdaFunctionFailedEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cause', 'lambdaFunctionFailedEventDetails_cause' - A more detailed explanation of the cause of the failure.
---
 -- 'error', 'lambdaFunctionFailedEventDetails_error' - The error code of the failure.
+--
+-- 'cause', 'lambdaFunctionFailedEventDetails_cause' - A more detailed explanation of the cause of the failure.
 newLambdaFunctionFailedEventDetails ::
   LambdaFunctionFailedEventDetails
 newLambdaFunctionFailedEventDetails =
   LambdaFunctionFailedEventDetails'
-    { cause =
+    { error =
         Prelude.Nothing,
-      error = Prelude.Nothing
+      cause = Prelude.Nothing
     }
-
--- | A more detailed explanation of the cause of the failure.
-lambdaFunctionFailedEventDetails_cause :: Lens.Lens' LambdaFunctionFailedEventDetails (Prelude.Maybe Prelude.Text)
-lambdaFunctionFailedEventDetails_cause = Lens.lens (\LambdaFunctionFailedEventDetails' {cause} -> cause) (\s@LambdaFunctionFailedEventDetails' {} a -> s {cause = a} :: LambdaFunctionFailedEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The error code of the failure.
 lambdaFunctionFailedEventDetails_error :: Lens.Lens' LambdaFunctionFailedEventDetails (Prelude.Maybe Prelude.Text)
 lambdaFunctionFailedEventDetails_error = Lens.lens (\LambdaFunctionFailedEventDetails' {error} -> error) (\s@LambdaFunctionFailedEventDetails' {} a -> s {error = a} :: LambdaFunctionFailedEventDetails) Prelude.. Lens.mapping Core._Sensitive
+
+-- | A more detailed explanation of the cause of the failure.
+lambdaFunctionFailedEventDetails_cause :: Lens.Lens' LambdaFunctionFailedEventDetails (Prelude.Maybe Prelude.Text)
+lambdaFunctionFailedEventDetails_cause = Lens.lens (\LambdaFunctionFailedEventDetails' {cause} -> cause) (\s@LambdaFunctionFailedEventDetails' {} a -> s {cause = a} :: LambdaFunctionFailedEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
 instance
   Core.FromJSON
@@ -72,8 +72,8 @@ instance
       "LambdaFunctionFailedEventDetails"
       ( \x ->
           LambdaFunctionFailedEventDetails'
-            Prelude.<$> (x Core..:? "cause")
-            Prelude.<*> (x Core..:? "error")
+            Prelude.<$> (x Core..:? "error")
+            Prelude.<*> (x Core..:? "cause")
       )
 
 instance

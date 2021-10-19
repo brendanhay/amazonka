@@ -57,59 +57,59 @@ import Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails
 --
 -- /See:/ 'newHistoryEvent' smart constructor.
 data HistoryEvent = HistoryEvent'
-  { executionFailedEventDetails :: Prelude.Maybe ExecutionFailedEventDetails,
+  { -- | Contains details about Map state that was started.
+    mapStateStartedEventDetails :: Prelude.Maybe MapStateStartedEventDetails,
     -- | Contains details about a task that where the submit failed.
     taskSubmitFailedEventDetails :: Prelude.Maybe TaskSubmitFailedEventDetails,
-    -- | Contains details about an iteration of a Map state that was started.
-    mapIterationStartedEventDetails :: Prelude.Maybe MapIterationEventDetails,
-    -- | Contains details about an iteration of a Map state that succeeded.
-    mapIterationSucceededEventDetails :: Prelude.Maybe MapIterationEventDetails,
-    -- | Contains details about an iteration of a Map state that failed.
-    mapIterationFailedEventDetails :: Prelude.Maybe MapIterationEventDetails,
+    -- | Contains details about a task that was started.
+    taskStartedEventDetails :: Prelude.Maybe TaskStartedEventDetails,
+    activityStartedEventDetails :: Prelude.Maybe ActivityStartedEventDetails,
+    -- | Contains details about a submitted task.
+    taskSubmittedEventDetails :: Prelude.Maybe TaskSubmittedEventDetails,
+    -- | Contains details about a lambda function that failed to start during an
+    -- execution.
+    lambdaFunctionStartFailedEventDetails :: Prelude.Maybe LambdaFunctionStartFailedEventDetails,
+    -- | Contains details about a task that failed to start.
+    taskStartFailedEventDetails :: Prelude.Maybe TaskStartFailedEventDetails,
+    stateExitedEventDetails :: Prelude.Maybe StateExitedEventDetails,
+    -- | Contains details about a lambda function that terminated successfully
+    -- during an execution.
+    lambdaFunctionSucceededEventDetails :: Prelude.Maybe LambdaFunctionSucceededEventDetails,
+    -- | Contains details about a task that succeeded.
+    taskSucceededEventDetails :: Prelude.Maybe TaskSucceededEventDetails,
+    activitySucceededEventDetails :: Prelude.Maybe ActivitySucceededEventDetails,
     -- | Contains details about an iteration of a Map state that was aborted.
     mapIterationAbortedEventDetails :: Prelude.Maybe MapIterationEventDetails,
-    executionTimedOutEventDetails :: Prelude.Maybe ExecutionTimedOutEventDetails,
-    -- | The id of the previous event.
-    previousEventId :: Prelude.Maybe Prelude.Integer,
-    executionStartedEventDetails :: Prelude.Maybe ExecutionStartedEventDetails,
-    lambdaFunctionScheduleFailedEventDetails :: Prelude.Maybe LambdaFunctionScheduleFailedEventDetails,
-    -- | Contains details about an activity schedule event that failed during an
-    -- execution.
-    activityScheduleFailedEventDetails :: Prelude.Maybe ActivityScheduleFailedEventDetails,
-    -- | Contains details about a task that was scheduled.
-    taskScheduledEventDetails :: Prelude.Maybe TaskScheduledEventDetails,
-    activityScheduledEventDetails :: Prelude.Maybe ActivityScheduledEventDetails,
-    lambdaFunctionScheduledEventDetails :: Prelude.Maybe LambdaFunctionScheduledEventDetails,
-    executionSucceededEventDetails :: Prelude.Maybe ExecutionSucceededEventDetails,
-    executionAbortedEventDetails :: Prelude.Maybe ExecutionAbortedEventDetails,
+    -- | Contains details about an iteration of a Map state that succeeded.
+    mapIterationSucceededEventDetails :: Prelude.Maybe MapIterationEventDetails,
+    -- | Contains details about an iteration of a Map state that was started.
+    mapIterationStartedEventDetails :: Prelude.Maybe MapIterationEventDetails,
     lambdaFunctionTimedOutEventDetails :: Prelude.Maybe LambdaFunctionTimedOutEventDetails,
     -- | Contains details about a task that timed out.
     taskTimedOutEventDetails :: Prelude.Maybe TaskTimedOutEventDetails,
     activityTimedOutEventDetails :: Prelude.Maybe ActivityTimedOutEventDetails,
-    -- | Contains details about Map state that was started.
-    mapStateStartedEventDetails :: Prelude.Maybe MapStateStartedEventDetails,
-    activitySucceededEventDetails :: Prelude.Maybe ActivitySucceededEventDetails,
-    stateExitedEventDetails :: Prelude.Maybe StateExitedEventDetails,
-    activityFailedEventDetails :: Prelude.Maybe ActivityFailedEventDetails,
+    executionFailedEventDetails :: Prelude.Maybe ExecutionFailedEventDetails,
+    executionAbortedEventDetails :: Prelude.Maybe ExecutionAbortedEventDetails,
+    executionSucceededEventDetails :: Prelude.Maybe ExecutionSucceededEventDetails,
+    lambdaFunctionScheduledEventDetails :: Prelude.Maybe LambdaFunctionScheduledEventDetails,
+    -- | Contains details about a task that was scheduled.
+    taskScheduledEventDetails :: Prelude.Maybe TaskScheduledEventDetails,
+    activityScheduledEventDetails :: Prelude.Maybe ActivityScheduledEventDetails,
+    executionStartedEventDetails :: Prelude.Maybe ExecutionStartedEventDetails,
+    -- | Contains details about an activity schedule event that failed during an
+    -- execution.
+    activityScheduleFailedEventDetails :: Prelude.Maybe ActivityScheduleFailedEventDetails,
+    lambdaFunctionScheduleFailedEventDetails :: Prelude.Maybe LambdaFunctionScheduleFailedEventDetails,
     stateEnteredEventDetails :: Prelude.Maybe StateEnteredEventDetails,
-    -- | Contains details about a task that failed to start.
-    taskStartFailedEventDetails :: Prelude.Maybe TaskStartFailedEventDetails,
-    -- | Contains details about a task that succeeded.
-    taskSucceededEventDetails :: Prelude.Maybe TaskSucceededEventDetails,
+    -- | The id of the previous event.
+    previousEventId :: Prelude.Maybe Prelude.Integer,
+    activityFailedEventDetails :: Prelude.Maybe ActivityFailedEventDetails,
     -- | Contains details about the failure of a task.
     taskFailedEventDetails :: Prelude.Maybe TaskFailedEventDetails,
-    -- | Contains details about a lambda function that failed to start during an
-    -- execution.
-    lambdaFunctionStartFailedEventDetails :: Prelude.Maybe LambdaFunctionStartFailedEventDetails,
-    -- | Contains details about a lambda function that terminated successfully
-    -- during an execution.
-    lambdaFunctionSucceededEventDetails :: Prelude.Maybe LambdaFunctionSucceededEventDetails,
     lambdaFunctionFailedEventDetails :: Prelude.Maybe LambdaFunctionFailedEventDetails,
-    -- | Contains details about a task that was started.
-    taskStartedEventDetails :: Prelude.Maybe TaskStartedEventDetails,
-    -- | Contains details about a submitted task.
-    taskSubmittedEventDetails :: Prelude.Maybe TaskSubmittedEventDetails,
-    activityStartedEventDetails :: Prelude.Maybe ActivityStartedEventDetails,
+    executionTimedOutEventDetails :: Prelude.Maybe ExecutionTimedOutEventDetails,
+    -- | Contains details about an iteration of a Map state that failed.
+    mapIterationFailedEventDetails :: Prelude.Maybe MapIterationEventDetails,
     -- | The date and time the event occurred.
     timestamp :: Core.POSIX,
     -- | The type of the event.
@@ -127,38 +127,35 @@ data HistoryEvent = HistoryEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'executionFailedEventDetails', 'historyEvent_executionFailedEventDetails' - Undocumented member.
+-- 'mapStateStartedEventDetails', 'historyEvent_mapStateStartedEventDetails' - Contains details about Map state that was started.
 --
 -- 'taskSubmitFailedEventDetails', 'historyEvent_taskSubmitFailedEventDetails' - Contains details about a task that where the submit failed.
 --
--- 'mapIterationStartedEventDetails', 'historyEvent_mapIterationStartedEventDetails' - Contains details about an iteration of a Map state that was started.
+-- 'taskStartedEventDetails', 'historyEvent_taskStartedEventDetails' - Contains details about a task that was started.
 --
--- 'mapIterationSucceededEventDetails', 'historyEvent_mapIterationSucceededEventDetails' - Contains details about an iteration of a Map state that succeeded.
+-- 'activityStartedEventDetails', 'historyEvent_activityStartedEventDetails' - Undocumented member.
 --
--- 'mapIterationFailedEventDetails', 'historyEvent_mapIterationFailedEventDetails' - Contains details about an iteration of a Map state that failed.
+-- 'taskSubmittedEventDetails', 'historyEvent_taskSubmittedEventDetails' - Contains details about a submitted task.
+--
+-- 'lambdaFunctionStartFailedEventDetails', 'historyEvent_lambdaFunctionStartFailedEventDetails' - Contains details about a lambda function that failed to start during an
+-- execution.
+--
+-- 'taskStartFailedEventDetails', 'historyEvent_taskStartFailedEventDetails' - Contains details about a task that failed to start.
+--
+-- 'stateExitedEventDetails', 'historyEvent_stateExitedEventDetails' - Undocumented member.
+--
+-- 'lambdaFunctionSucceededEventDetails', 'historyEvent_lambdaFunctionSucceededEventDetails' - Contains details about a lambda function that terminated successfully
+-- during an execution.
+--
+-- 'taskSucceededEventDetails', 'historyEvent_taskSucceededEventDetails' - Contains details about a task that succeeded.
+--
+-- 'activitySucceededEventDetails', 'historyEvent_activitySucceededEventDetails' - Undocumented member.
 --
 -- 'mapIterationAbortedEventDetails', 'historyEvent_mapIterationAbortedEventDetails' - Contains details about an iteration of a Map state that was aborted.
 --
--- 'executionTimedOutEventDetails', 'historyEvent_executionTimedOutEventDetails' - Undocumented member.
+-- 'mapIterationSucceededEventDetails', 'historyEvent_mapIterationSucceededEventDetails' - Contains details about an iteration of a Map state that succeeded.
 --
--- 'previousEventId', 'historyEvent_previousEventId' - The id of the previous event.
---
--- 'executionStartedEventDetails', 'historyEvent_executionStartedEventDetails' - Undocumented member.
---
--- 'lambdaFunctionScheduleFailedEventDetails', 'historyEvent_lambdaFunctionScheduleFailedEventDetails' - Undocumented member.
---
--- 'activityScheduleFailedEventDetails', 'historyEvent_activityScheduleFailedEventDetails' - Contains details about an activity schedule event that failed during an
--- execution.
---
--- 'taskScheduledEventDetails', 'historyEvent_taskScheduledEventDetails' - Contains details about a task that was scheduled.
---
--- 'activityScheduledEventDetails', 'historyEvent_activityScheduledEventDetails' - Undocumented member.
---
--- 'lambdaFunctionScheduledEventDetails', 'historyEvent_lambdaFunctionScheduledEventDetails' - Undocumented member.
---
--- 'executionSucceededEventDetails', 'historyEvent_executionSucceededEventDetails' - Undocumented member.
---
--- 'executionAbortedEventDetails', 'historyEvent_executionAbortedEventDetails' - Undocumented member.
+-- 'mapIterationStartedEventDetails', 'historyEvent_mapIterationStartedEventDetails' - Contains details about an iteration of a Map state that was started.
 --
 -- 'lambdaFunctionTimedOutEventDetails', 'historyEvent_lambdaFunctionTimedOutEventDetails' - Undocumented member.
 --
@@ -166,35 +163,38 @@ data HistoryEvent = HistoryEvent'
 --
 -- 'activityTimedOutEventDetails', 'historyEvent_activityTimedOutEventDetails' - Undocumented member.
 --
--- 'mapStateStartedEventDetails', 'historyEvent_mapStateStartedEventDetails' - Contains details about Map state that was started.
+-- 'executionFailedEventDetails', 'historyEvent_executionFailedEventDetails' - Undocumented member.
 --
--- 'activitySucceededEventDetails', 'historyEvent_activitySucceededEventDetails' - Undocumented member.
+-- 'executionAbortedEventDetails', 'historyEvent_executionAbortedEventDetails' - Undocumented member.
 --
--- 'stateExitedEventDetails', 'historyEvent_stateExitedEventDetails' - Undocumented member.
+-- 'executionSucceededEventDetails', 'historyEvent_executionSucceededEventDetails' - Undocumented member.
 --
--- 'activityFailedEventDetails', 'historyEvent_activityFailedEventDetails' - Undocumented member.
+-- 'lambdaFunctionScheduledEventDetails', 'historyEvent_lambdaFunctionScheduledEventDetails' - Undocumented member.
+--
+-- 'taskScheduledEventDetails', 'historyEvent_taskScheduledEventDetails' - Contains details about a task that was scheduled.
+--
+-- 'activityScheduledEventDetails', 'historyEvent_activityScheduledEventDetails' - Undocumented member.
+--
+-- 'executionStartedEventDetails', 'historyEvent_executionStartedEventDetails' - Undocumented member.
+--
+-- 'activityScheduleFailedEventDetails', 'historyEvent_activityScheduleFailedEventDetails' - Contains details about an activity schedule event that failed during an
+-- execution.
+--
+-- 'lambdaFunctionScheduleFailedEventDetails', 'historyEvent_lambdaFunctionScheduleFailedEventDetails' - Undocumented member.
 --
 -- 'stateEnteredEventDetails', 'historyEvent_stateEnteredEventDetails' - Undocumented member.
 --
--- 'taskStartFailedEventDetails', 'historyEvent_taskStartFailedEventDetails' - Contains details about a task that failed to start.
+-- 'previousEventId', 'historyEvent_previousEventId' - The id of the previous event.
 --
--- 'taskSucceededEventDetails', 'historyEvent_taskSucceededEventDetails' - Contains details about a task that succeeded.
+-- 'activityFailedEventDetails', 'historyEvent_activityFailedEventDetails' - Undocumented member.
 --
 -- 'taskFailedEventDetails', 'historyEvent_taskFailedEventDetails' - Contains details about the failure of a task.
 --
--- 'lambdaFunctionStartFailedEventDetails', 'historyEvent_lambdaFunctionStartFailedEventDetails' - Contains details about a lambda function that failed to start during an
--- execution.
---
--- 'lambdaFunctionSucceededEventDetails', 'historyEvent_lambdaFunctionSucceededEventDetails' - Contains details about a lambda function that terminated successfully
--- during an execution.
---
 -- 'lambdaFunctionFailedEventDetails', 'historyEvent_lambdaFunctionFailedEventDetails' - Undocumented member.
 --
--- 'taskStartedEventDetails', 'historyEvent_taskStartedEventDetails' - Contains details about a task that was started.
+-- 'executionTimedOutEventDetails', 'historyEvent_executionTimedOutEventDetails' - Undocumented member.
 --
--- 'taskSubmittedEventDetails', 'historyEvent_taskSubmittedEventDetails' - Contains details about a submitted task.
---
--- 'activityStartedEventDetails', 'historyEvent_activityStartedEventDetails' - Undocumented member.
+-- 'mapIterationFailedEventDetails', 'historyEvent_mapIterationFailedEventDetails' - Contains details about an iteration of a Map state that failed.
 --
 -- 'timestamp', 'historyEvent_timestamp' - The date and time the event occurred.
 --
@@ -211,113 +211,106 @@ newHistoryEvent ::
   HistoryEvent
 newHistoryEvent pTimestamp_ pType_ pId_ =
   HistoryEvent'
-    { executionFailedEventDetails =
+    { mapStateStartedEventDetails =
         Prelude.Nothing,
       taskSubmitFailedEventDetails = Prelude.Nothing,
-      mapIterationStartedEventDetails = Prelude.Nothing,
-      mapIterationSucceededEventDetails = Prelude.Nothing,
-      mapIterationFailedEventDetails = Prelude.Nothing,
+      taskStartedEventDetails = Prelude.Nothing,
+      activityStartedEventDetails = Prelude.Nothing,
+      taskSubmittedEventDetails = Prelude.Nothing,
+      lambdaFunctionStartFailedEventDetails =
+        Prelude.Nothing,
+      taskStartFailedEventDetails = Prelude.Nothing,
+      stateExitedEventDetails = Prelude.Nothing,
+      lambdaFunctionSucceededEventDetails =
+        Prelude.Nothing,
+      taskSucceededEventDetails = Prelude.Nothing,
+      activitySucceededEventDetails = Prelude.Nothing,
       mapIterationAbortedEventDetails = Prelude.Nothing,
-      executionTimedOutEventDetails = Prelude.Nothing,
-      previousEventId = Prelude.Nothing,
-      executionStartedEventDetails = Prelude.Nothing,
-      lambdaFunctionScheduleFailedEventDetails =
-        Prelude.Nothing,
-      activityScheduleFailedEventDetails = Prelude.Nothing,
-      taskScheduledEventDetails = Prelude.Nothing,
-      activityScheduledEventDetails = Prelude.Nothing,
-      lambdaFunctionScheduledEventDetails =
-        Prelude.Nothing,
-      executionSucceededEventDetails = Prelude.Nothing,
-      executionAbortedEventDetails = Prelude.Nothing,
+      mapIterationSucceededEventDetails = Prelude.Nothing,
+      mapIterationStartedEventDetails = Prelude.Nothing,
       lambdaFunctionTimedOutEventDetails = Prelude.Nothing,
       taskTimedOutEventDetails = Prelude.Nothing,
       activityTimedOutEventDetails = Prelude.Nothing,
-      mapStateStartedEventDetails = Prelude.Nothing,
-      activitySucceededEventDetails = Prelude.Nothing,
-      stateExitedEventDetails = Prelude.Nothing,
-      activityFailedEventDetails = Prelude.Nothing,
+      executionFailedEventDetails = Prelude.Nothing,
+      executionAbortedEventDetails = Prelude.Nothing,
+      executionSucceededEventDetails = Prelude.Nothing,
+      lambdaFunctionScheduledEventDetails =
+        Prelude.Nothing,
+      taskScheduledEventDetails = Prelude.Nothing,
+      activityScheduledEventDetails = Prelude.Nothing,
+      executionStartedEventDetails = Prelude.Nothing,
+      activityScheduleFailedEventDetails = Prelude.Nothing,
+      lambdaFunctionScheduleFailedEventDetails =
+        Prelude.Nothing,
       stateEnteredEventDetails = Prelude.Nothing,
-      taskStartFailedEventDetails = Prelude.Nothing,
-      taskSucceededEventDetails = Prelude.Nothing,
+      previousEventId = Prelude.Nothing,
+      activityFailedEventDetails = Prelude.Nothing,
       taskFailedEventDetails = Prelude.Nothing,
-      lambdaFunctionStartFailedEventDetails =
-        Prelude.Nothing,
-      lambdaFunctionSucceededEventDetails =
-        Prelude.Nothing,
       lambdaFunctionFailedEventDetails = Prelude.Nothing,
-      taskStartedEventDetails = Prelude.Nothing,
-      taskSubmittedEventDetails = Prelude.Nothing,
-      activityStartedEventDetails = Prelude.Nothing,
+      executionTimedOutEventDetails = Prelude.Nothing,
+      mapIterationFailedEventDetails = Prelude.Nothing,
       timestamp = Core._Time Lens.# pTimestamp_,
       type' = pType_,
       id = pId_
     }
 
--- | Undocumented member.
-historyEvent_executionFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ExecutionFailedEventDetails)
-historyEvent_executionFailedEventDetails = Lens.lens (\HistoryEvent' {executionFailedEventDetails} -> executionFailedEventDetails) (\s@HistoryEvent' {} a -> s {executionFailedEventDetails = a} :: HistoryEvent)
+-- | Contains details about Map state that was started.
+historyEvent_mapStateStartedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe MapStateStartedEventDetails)
+historyEvent_mapStateStartedEventDetails = Lens.lens (\HistoryEvent' {mapStateStartedEventDetails} -> mapStateStartedEventDetails) (\s@HistoryEvent' {} a -> s {mapStateStartedEventDetails = a} :: HistoryEvent)
 
 -- | Contains details about a task that where the submit failed.
 historyEvent_taskSubmitFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe TaskSubmitFailedEventDetails)
 historyEvent_taskSubmitFailedEventDetails = Lens.lens (\HistoryEvent' {taskSubmitFailedEventDetails} -> taskSubmitFailedEventDetails) (\s@HistoryEvent' {} a -> s {taskSubmitFailedEventDetails = a} :: HistoryEvent)
 
--- | Contains details about an iteration of a Map state that was started.
-historyEvent_mapIterationStartedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe MapIterationEventDetails)
-historyEvent_mapIterationStartedEventDetails = Lens.lens (\HistoryEvent' {mapIterationStartedEventDetails} -> mapIterationStartedEventDetails) (\s@HistoryEvent' {} a -> s {mapIterationStartedEventDetails = a} :: HistoryEvent)
+-- | Contains details about a task that was started.
+historyEvent_taskStartedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe TaskStartedEventDetails)
+historyEvent_taskStartedEventDetails = Lens.lens (\HistoryEvent' {taskStartedEventDetails} -> taskStartedEventDetails) (\s@HistoryEvent' {} a -> s {taskStartedEventDetails = a} :: HistoryEvent)
 
--- | Contains details about an iteration of a Map state that succeeded.
-historyEvent_mapIterationSucceededEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe MapIterationEventDetails)
-historyEvent_mapIterationSucceededEventDetails = Lens.lens (\HistoryEvent' {mapIterationSucceededEventDetails} -> mapIterationSucceededEventDetails) (\s@HistoryEvent' {} a -> s {mapIterationSucceededEventDetails = a} :: HistoryEvent)
+-- | Undocumented member.
+historyEvent_activityStartedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivityStartedEventDetails)
+historyEvent_activityStartedEventDetails = Lens.lens (\HistoryEvent' {activityStartedEventDetails} -> activityStartedEventDetails) (\s@HistoryEvent' {} a -> s {activityStartedEventDetails = a} :: HistoryEvent)
 
--- | Contains details about an iteration of a Map state that failed.
-historyEvent_mapIterationFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe MapIterationEventDetails)
-historyEvent_mapIterationFailedEventDetails = Lens.lens (\HistoryEvent' {mapIterationFailedEventDetails} -> mapIterationFailedEventDetails) (\s@HistoryEvent' {} a -> s {mapIterationFailedEventDetails = a} :: HistoryEvent)
+-- | Contains details about a submitted task.
+historyEvent_taskSubmittedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe TaskSubmittedEventDetails)
+historyEvent_taskSubmittedEventDetails = Lens.lens (\HistoryEvent' {taskSubmittedEventDetails} -> taskSubmittedEventDetails) (\s@HistoryEvent' {} a -> s {taskSubmittedEventDetails = a} :: HistoryEvent)
+
+-- | Contains details about a lambda function that failed to start during an
+-- execution.
+historyEvent_lambdaFunctionStartFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionStartFailedEventDetails)
+historyEvent_lambdaFunctionStartFailedEventDetails = Lens.lens (\HistoryEvent' {lambdaFunctionStartFailedEventDetails} -> lambdaFunctionStartFailedEventDetails) (\s@HistoryEvent' {} a -> s {lambdaFunctionStartFailedEventDetails = a} :: HistoryEvent)
+
+-- | Contains details about a task that failed to start.
+historyEvent_taskStartFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe TaskStartFailedEventDetails)
+historyEvent_taskStartFailedEventDetails = Lens.lens (\HistoryEvent' {taskStartFailedEventDetails} -> taskStartFailedEventDetails) (\s@HistoryEvent' {} a -> s {taskStartFailedEventDetails = a} :: HistoryEvent)
+
+-- | Undocumented member.
+historyEvent_stateExitedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe StateExitedEventDetails)
+historyEvent_stateExitedEventDetails = Lens.lens (\HistoryEvent' {stateExitedEventDetails} -> stateExitedEventDetails) (\s@HistoryEvent' {} a -> s {stateExitedEventDetails = a} :: HistoryEvent)
+
+-- | Contains details about a lambda function that terminated successfully
+-- during an execution.
+historyEvent_lambdaFunctionSucceededEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionSucceededEventDetails)
+historyEvent_lambdaFunctionSucceededEventDetails = Lens.lens (\HistoryEvent' {lambdaFunctionSucceededEventDetails} -> lambdaFunctionSucceededEventDetails) (\s@HistoryEvent' {} a -> s {lambdaFunctionSucceededEventDetails = a} :: HistoryEvent)
+
+-- | Contains details about a task that succeeded.
+historyEvent_taskSucceededEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe TaskSucceededEventDetails)
+historyEvent_taskSucceededEventDetails = Lens.lens (\HistoryEvent' {taskSucceededEventDetails} -> taskSucceededEventDetails) (\s@HistoryEvent' {} a -> s {taskSucceededEventDetails = a} :: HistoryEvent)
+
+-- | Undocumented member.
+historyEvent_activitySucceededEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivitySucceededEventDetails)
+historyEvent_activitySucceededEventDetails = Lens.lens (\HistoryEvent' {activitySucceededEventDetails} -> activitySucceededEventDetails) (\s@HistoryEvent' {} a -> s {activitySucceededEventDetails = a} :: HistoryEvent)
 
 -- | Contains details about an iteration of a Map state that was aborted.
 historyEvent_mapIterationAbortedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe MapIterationEventDetails)
 historyEvent_mapIterationAbortedEventDetails = Lens.lens (\HistoryEvent' {mapIterationAbortedEventDetails} -> mapIterationAbortedEventDetails) (\s@HistoryEvent' {} a -> s {mapIterationAbortedEventDetails = a} :: HistoryEvent)
 
--- | Undocumented member.
-historyEvent_executionTimedOutEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ExecutionTimedOutEventDetails)
-historyEvent_executionTimedOutEventDetails = Lens.lens (\HistoryEvent' {executionTimedOutEventDetails} -> executionTimedOutEventDetails) (\s@HistoryEvent' {} a -> s {executionTimedOutEventDetails = a} :: HistoryEvent)
+-- | Contains details about an iteration of a Map state that succeeded.
+historyEvent_mapIterationSucceededEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe MapIterationEventDetails)
+historyEvent_mapIterationSucceededEventDetails = Lens.lens (\HistoryEvent' {mapIterationSucceededEventDetails} -> mapIterationSucceededEventDetails) (\s@HistoryEvent' {} a -> s {mapIterationSucceededEventDetails = a} :: HistoryEvent)
 
--- | The id of the previous event.
-historyEvent_previousEventId :: Lens.Lens' HistoryEvent (Prelude.Maybe Prelude.Integer)
-historyEvent_previousEventId = Lens.lens (\HistoryEvent' {previousEventId} -> previousEventId) (\s@HistoryEvent' {} a -> s {previousEventId = a} :: HistoryEvent)
-
--- | Undocumented member.
-historyEvent_executionStartedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ExecutionStartedEventDetails)
-historyEvent_executionStartedEventDetails = Lens.lens (\HistoryEvent' {executionStartedEventDetails} -> executionStartedEventDetails) (\s@HistoryEvent' {} a -> s {executionStartedEventDetails = a} :: HistoryEvent)
-
--- | Undocumented member.
-historyEvent_lambdaFunctionScheduleFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionScheduleFailedEventDetails)
-historyEvent_lambdaFunctionScheduleFailedEventDetails = Lens.lens (\HistoryEvent' {lambdaFunctionScheduleFailedEventDetails} -> lambdaFunctionScheduleFailedEventDetails) (\s@HistoryEvent' {} a -> s {lambdaFunctionScheduleFailedEventDetails = a} :: HistoryEvent)
-
--- | Contains details about an activity schedule event that failed during an
--- execution.
-historyEvent_activityScheduleFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivityScheduleFailedEventDetails)
-historyEvent_activityScheduleFailedEventDetails = Lens.lens (\HistoryEvent' {activityScheduleFailedEventDetails} -> activityScheduleFailedEventDetails) (\s@HistoryEvent' {} a -> s {activityScheduleFailedEventDetails = a} :: HistoryEvent)
-
--- | Contains details about a task that was scheduled.
-historyEvent_taskScheduledEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe TaskScheduledEventDetails)
-historyEvent_taskScheduledEventDetails = Lens.lens (\HistoryEvent' {taskScheduledEventDetails} -> taskScheduledEventDetails) (\s@HistoryEvent' {} a -> s {taskScheduledEventDetails = a} :: HistoryEvent)
-
--- | Undocumented member.
-historyEvent_activityScheduledEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivityScheduledEventDetails)
-historyEvent_activityScheduledEventDetails = Lens.lens (\HistoryEvent' {activityScheduledEventDetails} -> activityScheduledEventDetails) (\s@HistoryEvent' {} a -> s {activityScheduledEventDetails = a} :: HistoryEvent)
-
--- | Undocumented member.
-historyEvent_lambdaFunctionScheduledEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionScheduledEventDetails)
-historyEvent_lambdaFunctionScheduledEventDetails = Lens.lens (\HistoryEvent' {lambdaFunctionScheduledEventDetails} -> lambdaFunctionScheduledEventDetails) (\s@HistoryEvent' {} a -> s {lambdaFunctionScheduledEventDetails = a} :: HistoryEvent)
-
--- | Undocumented member.
-historyEvent_executionSucceededEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ExecutionSucceededEventDetails)
-historyEvent_executionSucceededEventDetails = Lens.lens (\HistoryEvent' {executionSucceededEventDetails} -> executionSucceededEventDetails) (\s@HistoryEvent' {} a -> s {executionSucceededEventDetails = a} :: HistoryEvent)
-
--- | Undocumented member.
-historyEvent_executionAbortedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ExecutionAbortedEventDetails)
-historyEvent_executionAbortedEventDetails = Lens.lens (\HistoryEvent' {executionAbortedEventDetails} -> executionAbortedEventDetails) (\s@HistoryEvent' {} a -> s {executionAbortedEventDetails = a} :: HistoryEvent)
+-- | Contains details about an iteration of a Map state that was started.
+historyEvent_mapIterationStartedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe MapIterationEventDetails)
+historyEvent_mapIterationStartedEventDetails = Lens.lens (\HistoryEvent' {mapIterationStartedEventDetails} -> mapIterationStartedEventDetails) (\s@HistoryEvent' {} a -> s {mapIterationStartedEventDetails = a} :: HistoryEvent)
 
 -- | Undocumented member.
 historyEvent_lambdaFunctionTimedOutEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionTimedOutEventDetails)
@@ -331,63 +324,70 @@ historyEvent_taskTimedOutEventDetails = Lens.lens (\HistoryEvent' {taskTimedOutE
 historyEvent_activityTimedOutEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivityTimedOutEventDetails)
 historyEvent_activityTimedOutEventDetails = Lens.lens (\HistoryEvent' {activityTimedOutEventDetails} -> activityTimedOutEventDetails) (\s@HistoryEvent' {} a -> s {activityTimedOutEventDetails = a} :: HistoryEvent)
 
--- | Contains details about Map state that was started.
-historyEvent_mapStateStartedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe MapStateStartedEventDetails)
-historyEvent_mapStateStartedEventDetails = Lens.lens (\HistoryEvent' {mapStateStartedEventDetails} -> mapStateStartedEventDetails) (\s@HistoryEvent' {} a -> s {mapStateStartedEventDetails = a} :: HistoryEvent)
+-- | Undocumented member.
+historyEvent_executionFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ExecutionFailedEventDetails)
+historyEvent_executionFailedEventDetails = Lens.lens (\HistoryEvent' {executionFailedEventDetails} -> executionFailedEventDetails) (\s@HistoryEvent' {} a -> s {executionFailedEventDetails = a} :: HistoryEvent)
 
 -- | Undocumented member.
-historyEvent_activitySucceededEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivitySucceededEventDetails)
-historyEvent_activitySucceededEventDetails = Lens.lens (\HistoryEvent' {activitySucceededEventDetails} -> activitySucceededEventDetails) (\s@HistoryEvent' {} a -> s {activitySucceededEventDetails = a} :: HistoryEvent)
+historyEvent_executionAbortedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ExecutionAbortedEventDetails)
+historyEvent_executionAbortedEventDetails = Lens.lens (\HistoryEvent' {executionAbortedEventDetails} -> executionAbortedEventDetails) (\s@HistoryEvent' {} a -> s {executionAbortedEventDetails = a} :: HistoryEvent)
 
 -- | Undocumented member.
-historyEvent_stateExitedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe StateExitedEventDetails)
-historyEvent_stateExitedEventDetails = Lens.lens (\HistoryEvent' {stateExitedEventDetails} -> stateExitedEventDetails) (\s@HistoryEvent' {} a -> s {stateExitedEventDetails = a} :: HistoryEvent)
+historyEvent_executionSucceededEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ExecutionSucceededEventDetails)
+historyEvent_executionSucceededEventDetails = Lens.lens (\HistoryEvent' {executionSucceededEventDetails} -> executionSucceededEventDetails) (\s@HistoryEvent' {} a -> s {executionSucceededEventDetails = a} :: HistoryEvent)
 
 -- | Undocumented member.
-historyEvent_activityFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivityFailedEventDetails)
-historyEvent_activityFailedEventDetails = Lens.lens (\HistoryEvent' {activityFailedEventDetails} -> activityFailedEventDetails) (\s@HistoryEvent' {} a -> s {activityFailedEventDetails = a} :: HistoryEvent)
+historyEvent_lambdaFunctionScheduledEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionScheduledEventDetails)
+historyEvent_lambdaFunctionScheduledEventDetails = Lens.lens (\HistoryEvent' {lambdaFunctionScheduledEventDetails} -> lambdaFunctionScheduledEventDetails) (\s@HistoryEvent' {} a -> s {lambdaFunctionScheduledEventDetails = a} :: HistoryEvent)
+
+-- | Contains details about a task that was scheduled.
+historyEvent_taskScheduledEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe TaskScheduledEventDetails)
+historyEvent_taskScheduledEventDetails = Lens.lens (\HistoryEvent' {taskScheduledEventDetails} -> taskScheduledEventDetails) (\s@HistoryEvent' {} a -> s {taskScheduledEventDetails = a} :: HistoryEvent)
+
+-- | Undocumented member.
+historyEvent_activityScheduledEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivityScheduledEventDetails)
+historyEvent_activityScheduledEventDetails = Lens.lens (\HistoryEvent' {activityScheduledEventDetails} -> activityScheduledEventDetails) (\s@HistoryEvent' {} a -> s {activityScheduledEventDetails = a} :: HistoryEvent)
+
+-- | Undocumented member.
+historyEvent_executionStartedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ExecutionStartedEventDetails)
+historyEvent_executionStartedEventDetails = Lens.lens (\HistoryEvent' {executionStartedEventDetails} -> executionStartedEventDetails) (\s@HistoryEvent' {} a -> s {executionStartedEventDetails = a} :: HistoryEvent)
+
+-- | Contains details about an activity schedule event that failed during an
+-- execution.
+historyEvent_activityScheduleFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivityScheduleFailedEventDetails)
+historyEvent_activityScheduleFailedEventDetails = Lens.lens (\HistoryEvent' {activityScheduleFailedEventDetails} -> activityScheduleFailedEventDetails) (\s@HistoryEvent' {} a -> s {activityScheduleFailedEventDetails = a} :: HistoryEvent)
+
+-- | Undocumented member.
+historyEvent_lambdaFunctionScheduleFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionScheduleFailedEventDetails)
+historyEvent_lambdaFunctionScheduleFailedEventDetails = Lens.lens (\HistoryEvent' {lambdaFunctionScheduleFailedEventDetails} -> lambdaFunctionScheduleFailedEventDetails) (\s@HistoryEvent' {} a -> s {lambdaFunctionScheduleFailedEventDetails = a} :: HistoryEvent)
 
 -- | Undocumented member.
 historyEvent_stateEnteredEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe StateEnteredEventDetails)
 historyEvent_stateEnteredEventDetails = Lens.lens (\HistoryEvent' {stateEnteredEventDetails} -> stateEnteredEventDetails) (\s@HistoryEvent' {} a -> s {stateEnteredEventDetails = a} :: HistoryEvent)
 
--- | Contains details about a task that failed to start.
-historyEvent_taskStartFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe TaskStartFailedEventDetails)
-historyEvent_taskStartFailedEventDetails = Lens.lens (\HistoryEvent' {taskStartFailedEventDetails} -> taskStartFailedEventDetails) (\s@HistoryEvent' {} a -> s {taskStartFailedEventDetails = a} :: HistoryEvent)
+-- | The id of the previous event.
+historyEvent_previousEventId :: Lens.Lens' HistoryEvent (Prelude.Maybe Prelude.Integer)
+historyEvent_previousEventId = Lens.lens (\HistoryEvent' {previousEventId} -> previousEventId) (\s@HistoryEvent' {} a -> s {previousEventId = a} :: HistoryEvent)
 
--- | Contains details about a task that succeeded.
-historyEvent_taskSucceededEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe TaskSucceededEventDetails)
-historyEvent_taskSucceededEventDetails = Lens.lens (\HistoryEvent' {taskSucceededEventDetails} -> taskSucceededEventDetails) (\s@HistoryEvent' {} a -> s {taskSucceededEventDetails = a} :: HistoryEvent)
+-- | Undocumented member.
+historyEvent_activityFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivityFailedEventDetails)
+historyEvent_activityFailedEventDetails = Lens.lens (\HistoryEvent' {activityFailedEventDetails} -> activityFailedEventDetails) (\s@HistoryEvent' {} a -> s {activityFailedEventDetails = a} :: HistoryEvent)
 
 -- | Contains details about the failure of a task.
 historyEvent_taskFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe TaskFailedEventDetails)
 historyEvent_taskFailedEventDetails = Lens.lens (\HistoryEvent' {taskFailedEventDetails} -> taskFailedEventDetails) (\s@HistoryEvent' {} a -> s {taskFailedEventDetails = a} :: HistoryEvent)
 
--- | Contains details about a lambda function that failed to start during an
--- execution.
-historyEvent_lambdaFunctionStartFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionStartFailedEventDetails)
-historyEvent_lambdaFunctionStartFailedEventDetails = Lens.lens (\HistoryEvent' {lambdaFunctionStartFailedEventDetails} -> lambdaFunctionStartFailedEventDetails) (\s@HistoryEvent' {} a -> s {lambdaFunctionStartFailedEventDetails = a} :: HistoryEvent)
-
--- | Contains details about a lambda function that terminated successfully
--- during an execution.
-historyEvent_lambdaFunctionSucceededEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionSucceededEventDetails)
-historyEvent_lambdaFunctionSucceededEventDetails = Lens.lens (\HistoryEvent' {lambdaFunctionSucceededEventDetails} -> lambdaFunctionSucceededEventDetails) (\s@HistoryEvent' {} a -> s {lambdaFunctionSucceededEventDetails = a} :: HistoryEvent)
-
 -- | Undocumented member.
 historyEvent_lambdaFunctionFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionFailedEventDetails)
 historyEvent_lambdaFunctionFailedEventDetails = Lens.lens (\HistoryEvent' {lambdaFunctionFailedEventDetails} -> lambdaFunctionFailedEventDetails) (\s@HistoryEvent' {} a -> s {lambdaFunctionFailedEventDetails = a} :: HistoryEvent)
 
--- | Contains details about a task that was started.
-historyEvent_taskStartedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe TaskStartedEventDetails)
-historyEvent_taskStartedEventDetails = Lens.lens (\HistoryEvent' {taskStartedEventDetails} -> taskStartedEventDetails) (\s@HistoryEvent' {} a -> s {taskStartedEventDetails = a} :: HistoryEvent)
-
--- | Contains details about a submitted task.
-historyEvent_taskSubmittedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe TaskSubmittedEventDetails)
-historyEvent_taskSubmittedEventDetails = Lens.lens (\HistoryEvent' {taskSubmittedEventDetails} -> taskSubmittedEventDetails) (\s@HistoryEvent' {} a -> s {taskSubmittedEventDetails = a} :: HistoryEvent)
-
 -- | Undocumented member.
-historyEvent_activityStartedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivityStartedEventDetails)
-historyEvent_activityStartedEventDetails = Lens.lens (\HistoryEvent' {activityStartedEventDetails} -> activityStartedEventDetails) (\s@HistoryEvent' {} a -> s {activityStartedEventDetails = a} :: HistoryEvent)
+historyEvent_executionTimedOutEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ExecutionTimedOutEventDetails)
+historyEvent_executionTimedOutEventDetails = Lens.lens (\HistoryEvent' {executionTimedOutEventDetails} -> executionTimedOutEventDetails) (\s@HistoryEvent' {} a -> s {executionTimedOutEventDetails = a} :: HistoryEvent)
+
+-- | Contains details about an iteration of a Map state that failed.
+historyEvent_mapIterationFailedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe MapIterationEventDetails)
+historyEvent_mapIterationFailedEventDetails = Lens.lens (\HistoryEvent' {mapIterationFailedEventDetails} -> mapIterationFailedEventDetails) (\s@HistoryEvent' {} a -> s {mapIterationFailedEventDetails = a} :: HistoryEvent)
 
 -- | The date and time the event occurred.
 historyEvent_timestamp :: Lens.Lens' HistoryEvent Prelude.UTCTime
@@ -407,41 +407,41 @@ instance Core.FromJSON HistoryEvent where
       "HistoryEvent"
       ( \x ->
           HistoryEvent'
-            Prelude.<$> (x Core..:? "executionFailedEventDetails")
+            Prelude.<$> (x Core..:? "mapStateStartedEventDetails")
             Prelude.<*> (x Core..:? "taskSubmitFailedEventDetails")
-            Prelude.<*> (x Core..:? "mapIterationStartedEventDetails")
-            Prelude.<*> (x Core..:? "mapIterationSucceededEventDetails")
-            Prelude.<*> (x Core..:? "mapIterationFailedEventDetails")
+            Prelude.<*> (x Core..:? "taskStartedEventDetails")
+            Prelude.<*> (x Core..:? "activityStartedEventDetails")
+            Prelude.<*> (x Core..:? "taskSubmittedEventDetails")
+            Prelude.<*> (x Core..:? "lambdaFunctionStartFailedEventDetails")
+            Prelude.<*> (x Core..:? "taskStartFailedEventDetails")
+            Prelude.<*> (x Core..:? "stateExitedEventDetails")
+            Prelude.<*> (x Core..:? "lambdaFunctionSucceededEventDetails")
+            Prelude.<*> (x Core..:? "taskSucceededEventDetails")
+            Prelude.<*> (x Core..:? "activitySucceededEventDetails")
             Prelude.<*> (x Core..:? "mapIterationAbortedEventDetails")
-            Prelude.<*> (x Core..:? "executionTimedOutEventDetails")
-            Prelude.<*> (x Core..:? "previousEventId")
-            Prelude.<*> (x Core..:? "executionStartedEventDetails")
-            Prelude.<*> ( x
-                            Core..:? "lambdaFunctionScheduleFailedEventDetails"
-                        )
-            Prelude.<*> (x Core..:? "activityScheduleFailedEventDetails")
-            Prelude.<*> (x Core..:? "taskScheduledEventDetails")
-            Prelude.<*> (x Core..:? "activityScheduledEventDetails")
-            Prelude.<*> (x Core..:? "lambdaFunctionScheduledEventDetails")
-            Prelude.<*> (x Core..:? "executionSucceededEventDetails")
-            Prelude.<*> (x Core..:? "executionAbortedEventDetails")
+            Prelude.<*> (x Core..:? "mapIterationSucceededEventDetails")
+            Prelude.<*> (x Core..:? "mapIterationStartedEventDetails")
             Prelude.<*> (x Core..:? "lambdaFunctionTimedOutEventDetails")
             Prelude.<*> (x Core..:? "taskTimedOutEventDetails")
             Prelude.<*> (x Core..:? "activityTimedOutEventDetails")
-            Prelude.<*> (x Core..:? "mapStateStartedEventDetails")
-            Prelude.<*> (x Core..:? "activitySucceededEventDetails")
-            Prelude.<*> (x Core..:? "stateExitedEventDetails")
-            Prelude.<*> (x Core..:? "activityFailedEventDetails")
+            Prelude.<*> (x Core..:? "executionFailedEventDetails")
+            Prelude.<*> (x Core..:? "executionAbortedEventDetails")
+            Prelude.<*> (x Core..:? "executionSucceededEventDetails")
+            Prelude.<*> (x Core..:? "lambdaFunctionScheduledEventDetails")
+            Prelude.<*> (x Core..:? "taskScheduledEventDetails")
+            Prelude.<*> (x Core..:? "activityScheduledEventDetails")
+            Prelude.<*> (x Core..:? "executionStartedEventDetails")
+            Prelude.<*> (x Core..:? "activityScheduleFailedEventDetails")
+            Prelude.<*> ( x
+                            Core..:? "lambdaFunctionScheduleFailedEventDetails"
+                        )
             Prelude.<*> (x Core..:? "stateEnteredEventDetails")
-            Prelude.<*> (x Core..:? "taskStartFailedEventDetails")
-            Prelude.<*> (x Core..:? "taskSucceededEventDetails")
+            Prelude.<*> (x Core..:? "previousEventId")
+            Prelude.<*> (x Core..:? "activityFailedEventDetails")
             Prelude.<*> (x Core..:? "taskFailedEventDetails")
-            Prelude.<*> (x Core..:? "lambdaFunctionStartFailedEventDetails")
-            Prelude.<*> (x Core..:? "lambdaFunctionSucceededEventDetails")
             Prelude.<*> (x Core..:? "lambdaFunctionFailedEventDetails")
-            Prelude.<*> (x Core..:? "taskStartedEventDetails")
-            Prelude.<*> (x Core..:? "taskSubmittedEventDetails")
-            Prelude.<*> (x Core..:? "activityStartedEventDetails")
+            Prelude.<*> (x Core..:? "executionTimedOutEventDetails")
+            Prelude.<*> (x Core..:? "mapIterationFailedEventDetails")
             Prelude.<*> (x Core..: "timestamp")
             Prelude.<*> (x Core..: "type")
             Prelude.<*> (x Core..: "id")

@@ -43,65 +43,53 @@ module Network.AWS.StepFunctions
     -- ** ExecutionLimitExceeded
     _ExecutionLimitExceeded,
 
-    -- ** ExecutionAlreadyExists
-    _ExecutionAlreadyExists,
-
-    -- ** StateMachineTypeNotSupported
-    _StateMachineTypeNotSupported,
-
-    -- ** ExecutionDoesNotExist
-    _ExecutionDoesNotExist,
-
-    -- ** InvalidName
-    _InvalidName,
-
-    -- ** InvalidOutput
-    _InvalidOutput,
-
-    -- ** ActivityLimitExceeded
-    _ActivityLimitExceeded,
-
-    -- ** InvalidExecutionInput
-    _InvalidExecutionInput,
-
-    -- ** TaskTimedOut
-    _TaskTimedOut,
-
-    -- ** InvalidLoggingConfiguration
-    _InvalidLoggingConfiguration,
-
-    -- ** StateMachineAlreadyExists
-    _StateMachineAlreadyExists,
-
     -- ** InvalidDefinition
     _InvalidDefinition,
-
-    -- ** MissingRequiredParameter
-    _MissingRequiredParameter,
 
     -- ** StateMachineLimitExceeded
     _StateMachineLimitExceeded,
 
-    -- ** InvalidArn
-    _InvalidArn,
+    -- ** ExecutionAlreadyExists
+    _ExecutionAlreadyExists,
 
-    -- ** StateMachineDoesNotExist
-    _StateMachineDoesNotExist,
+    -- ** StateMachineAlreadyExists
+    _StateMachineAlreadyExists,
 
-    -- ** ResourceNotFound
-    _ResourceNotFound,
+    -- ** TaskTimedOut
+    _TaskTimedOut,
 
-    -- ** TooManyTags
-    _TooManyTags,
+    -- ** InvalidExecutionInput
+    _InvalidExecutionInput,
+
+    -- ** InvalidOutput
+    _InvalidOutput,
+
+    -- ** InvalidName
+    _InvalidName,
 
     -- ** TaskDoesNotExist
     _TaskDoesNotExist,
 
+    -- ** ActivityDoesNotExist
+    _ActivityDoesNotExist,
+
     -- ** StateMachineDeleting
     _StateMachineDeleting,
 
-    -- ** ActivityDoesNotExist
-    _ActivityDoesNotExist,
+    -- ** StateMachineTypeNotSupported
+    _StateMachineTypeNotSupported,
+
+    -- ** MissingRequiredParameter
+    _MissingRequiredParameter,
+
+    -- ** InvalidArn
+    _InvalidArn,
+
+    -- ** InvalidToken
+    _InvalidToken,
+
+    -- ** InvalidLoggingConfiguration
+    _InvalidLoggingConfiguration,
 
     -- ** ActivityWorkerLimitExceeded
     _ActivityWorkerLimitExceeded,
@@ -109,8 +97,20 @@ module Network.AWS.StepFunctions
     -- ** InvalidTracingConfiguration
     _InvalidTracingConfiguration,
 
-    -- ** InvalidToken
-    _InvalidToken,
+    -- ** ActivityLimitExceeded
+    _ActivityLimitExceeded,
+
+    -- ** TooManyTags
+    _TooManyTags,
+
+    -- ** ExecutionDoesNotExist
+    _ExecutionDoesNotExist,
+
+    -- ** StateMachineDoesNotExist
+    _StateMachineDoesNotExist,
+
+    -- ** ResourceNotFound
+    _ResourceNotFound,
 
     -- * Waiters
     -- $waiters
@@ -118,11 +118,11 @@ module Network.AWS.StepFunctions
     -- * Operations
     -- $operations
 
-    -- ** DescribeExecution
-    DescribeExecution (DescribeExecution'),
-    newDescribeExecution,
-    DescribeExecutionResponse (DescribeExecutionResponse'),
-    newDescribeExecutionResponse,
+    -- ** DeleteActivity
+    DeleteActivity (DeleteActivity'),
+    newDeleteActivity,
+    DeleteActivityResponse (DeleteActivityResponse'),
+    newDeleteActivityResponse,
 
     -- ** DescribeStateMachine
     DescribeStateMachine (DescribeStateMachine'),
@@ -130,35 +130,35 @@ module Network.AWS.StepFunctions
     DescribeStateMachineResponse (DescribeStateMachineResponse'),
     newDescribeStateMachineResponse,
 
-    -- ** DeleteActivity
-    DeleteActivity (DeleteActivity'),
-    newDeleteActivity,
-    DeleteActivityResponse (DeleteActivityResponse'),
-    newDeleteActivityResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** ListActivities (Paginated)
-    ListActivities (ListActivities'),
-    newListActivities,
-    ListActivitiesResponse (ListActivitiesResponse'),
-    newListActivitiesResponse,
+    -- ** StopExecution
+    StopExecution (StopExecution'),
+    newStopExecution,
+    StopExecutionResponse (StopExecutionResponse'),
+    newStopExecutionResponse,
 
-    -- ** CreateActivity
-    CreateActivity (CreateActivity'),
-    newCreateActivity,
-    CreateActivityResponse (CreateActivityResponse'),
-    newCreateActivityResponse,
+    -- ** DescribeActivity
+    DescribeActivity (DescribeActivity'),
+    newDescribeActivity,
+    DescribeActivityResponse (DescribeActivityResponse'),
+    newDescribeActivityResponse,
 
-    -- ** CreateStateMachine
-    CreateStateMachine (CreateStateMachine'),
-    newCreateStateMachine,
-    CreateStateMachineResponse (CreateStateMachineResponse'),
-    newCreateStateMachineResponse,
+    -- ** ListStateMachines (Paginated)
+    ListStateMachines (ListStateMachines'),
+    newListStateMachines,
+    ListStateMachinesResponse (ListStateMachinesResponse'),
+    newListStateMachinesResponse,
 
-    -- ** GetActivityTask
-    GetActivityTask (GetActivityTask'),
-    newGetActivityTask,
-    GetActivityTaskResponse (GetActivityTaskResponse'),
-    newGetActivityTaskResponse,
+    -- ** ListExecutions (Paginated)
+    ListExecutions (ListExecutions'),
+    newListExecutions,
+    ListExecutionsResponse (ListExecutionsResponse'),
+    newListExecutionsResponse,
 
     -- ** DeleteStateMachine
     DeleteStateMachine (DeleteStateMachine'),
@@ -172,47 +172,29 @@ module Network.AWS.StepFunctions
     UpdateStateMachineResponse (UpdateStateMachineResponse'),
     newUpdateStateMachineResponse,
 
-    -- ** ListExecutions (Paginated)
-    ListExecutions (ListExecutions'),
-    newListExecutions,
-    ListExecutionsResponse (ListExecutionsResponse'),
-    newListExecutionsResponse,
+    -- ** DescribeStateMachineForExecution
+    DescribeStateMachineForExecution (DescribeStateMachineForExecution'),
+    newDescribeStateMachineForExecution,
+    DescribeStateMachineForExecutionResponse (DescribeStateMachineForExecutionResponse'),
+    newDescribeStateMachineForExecutionResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** GetActivityTask
+    GetActivityTask (GetActivityTask'),
+    newGetActivityTask,
+    GetActivityTaskResponse (GetActivityTaskResponse'),
+    newGetActivityTaskResponse,
 
-    -- ** DescribeActivity
-    DescribeActivity (DescribeActivity'),
-    newDescribeActivity,
-    DescribeActivityResponse (DescribeActivityResponse'),
-    newDescribeActivityResponse,
+    -- ** CreateActivity
+    CreateActivity (CreateActivity'),
+    newCreateActivity,
+    CreateActivityResponse (CreateActivityResponse'),
+    newCreateActivityResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** StartSyncExecution
-    StartSyncExecution (StartSyncExecution'),
-    newStartSyncExecution,
-    StartSyncExecutionResponse (StartSyncExecutionResponse'),
-    newStartSyncExecutionResponse,
-
-    -- ** SendTaskSuccess
-    SendTaskSuccess (SendTaskSuccess'),
-    newSendTaskSuccess,
-    SendTaskSuccessResponse (SendTaskSuccessResponse'),
-    newSendTaskSuccessResponse,
-
-    -- ** SendTaskFailure
-    SendTaskFailure (SendTaskFailure'),
-    newSendTaskFailure,
-    SendTaskFailureResponse (SendTaskFailureResponse'),
-    newSendTaskFailureResponse,
+    -- ** ListActivities (Paginated)
+    ListActivities (ListActivities'),
+    newListActivities,
+    ListActivitiesResponse (ListActivitiesResponse'),
+    newListActivitiesResponse,
 
     -- ** SendTaskHeartbeat
     SendTaskHeartbeat (SendTaskHeartbeat'),
@@ -220,23 +202,23 @@ module Network.AWS.StepFunctions
     SendTaskHeartbeatResponse (SendTaskHeartbeatResponse'),
     newSendTaskHeartbeatResponse,
 
-    -- ** DescribeStateMachineForExecution
-    DescribeStateMachineForExecution (DescribeStateMachineForExecution'),
-    newDescribeStateMachineForExecution,
-    DescribeStateMachineForExecutionResponse (DescribeStateMachineForExecutionResponse'),
-    newDescribeStateMachineForExecutionResponse,
+    -- ** SendTaskFailure
+    SendTaskFailure (SendTaskFailure'),
+    newSendTaskFailure,
+    SendTaskFailureResponse (SendTaskFailureResponse'),
+    newSendTaskFailureResponse,
 
-    -- ** GetExecutionHistory (Paginated)
-    GetExecutionHistory (GetExecutionHistory'),
-    newGetExecutionHistory,
-    GetExecutionHistoryResponse (GetExecutionHistoryResponse'),
-    newGetExecutionHistoryResponse,
+    -- ** DescribeExecution
+    DescribeExecution (DescribeExecution'),
+    newDescribeExecution,
+    DescribeExecutionResponse (DescribeExecutionResponse'),
+    newDescribeExecutionResponse,
 
-    -- ** ListStateMachines (Paginated)
-    ListStateMachines (ListStateMachines'),
-    newListStateMachines,
-    ListStateMachinesResponse (ListStateMachinesResponse'),
-    newListStateMachinesResponse,
+    -- ** SendTaskSuccess
+    SendTaskSuccess (SendTaskSuccess'),
+    newSendTaskSuccess,
+    SendTaskSuccessResponse (SendTaskSuccessResponse'),
+    newSendTaskSuccessResponse,
 
     -- ** StartExecution
     StartExecution (StartExecution'),
@@ -244,17 +226,35 @@ module Network.AWS.StepFunctions
     StartExecutionResponse (StartExecutionResponse'),
     newStartExecutionResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** StartSyncExecution
+    StartSyncExecution (StartSyncExecution'),
+    newStartSyncExecution,
+    StartSyncExecutionResponse (StartSyncExecutionResponse'),
+    newStartSyncExecutionResponse,
 
-    -- ** StopExecution
-    StopExecution (StopExecution'),
-    newStopExecution,
-    StopExecutionResponse (StopExecutionResponse'),
-    newStopExecutionResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** GetExecutionHistory (Paginated)
+    GetExecutionHistory (GetExecutionHistory'),
+    newGetExecutionHistory,
+    GetExecutionHistoryResponse (GetExecutionHistoryResponse'),
+    newGetExecutionHistoryResponse,
+
+    -- ** CreateStateMachine
+    CreateStateMachine (CreateStateMachine'),
+    newCreateStateMachine,
+    CreateStateMachineResponse (CreateStateMachineResponse'),
+    newCreateStateMachineResponse,
 
     -- * Types
 

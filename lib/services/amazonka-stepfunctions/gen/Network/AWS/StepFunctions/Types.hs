@@ -18,29 +18,29 @@ module Network.AWS.StepFunctions.Types
 
     -- * Errors
     _ExecutionLimitExceeded,
-    _ExecutionAlreadyExists,
-    _StateMachineTypeNotSupported,
-    _ExecutionDoesNotExist,
-    _InvalidName,
-    _InvalidOutput,
-    _ActivityLimitExceeded,
-    _InvalidExecutionInput,
-    _TaskTimedOut,
-    _InvalidLoggingConfiguration,
-    _StateMachineAlreadyExists,
     _InvalidDefinition,
-    _MissingRequiredParameter,
     _StateMachineLimitExceeded,
-    _InvalidArn,
-    _StateMachineDoesNotExist,
-    _ResourceNotFound,
-    _TooManyTags,
+    _ExecutionAlreadyExists,
+    _StateMachineAlreadyExists,
+    _TaskTimedOut,
+    _InvalidExecutionInput,
+    _InvalidOutput,
+    _InvalidName,
     _TaskDoesNotExist,
-    _StateMachineDeleting,
     _ActivityDoesNotExist,
+    _StateMachineDeleting,
+    _StateMachineTypeNotSupported,
+    _MissingRequiredParameter,
+    _InvalidArn,
+    _InvalidToken,
+    _InvalidLoggingConfiguration,
     _ActivityWorkerLimitExceeded,
     _InvalidTracingConfiguration,
-    _InvalidToken,
+    _ActivityLimitExceeded,
+    _TooManyTags,
+    _ExecutionDoesNotExist,
+    _StateMachineDoesNotExist,
+    _ResourceNotFound,
 
     -- * ExecutionStatus
     ExecutionStatus (..),
@@ -63,8 +63,8 @@ module Network.AWS.StepFunctions.Types
     -- * ActivityFailedEventDetails
     ActivityFailedEventDetails (..),
     newActivityFailedEventDetails,
-    activityFailedEventDetails_cause,
     activityFailedEventDetails_error,
+    activityFailedEventDetails_cause,
 
     -- * ActivityListItem
     ActivityListItem (..),
@@ -76,14 +76,14 @@ module Network.AWS.StepFunctions.Types
     -- * ActivityScheduleFailedEventDetails
     ActivityScheduleFailedEventDetails (..),
     newActivityScheduleFailedEventDetails,
-    activityScheduleFailedEventDetails_cause,
     activityScheduleFailedEventDetails_error,
+    activityScheduleFailedEventDetails_cause,
 
     -- * ActivityScheduledEventDetails
     ActivityScheduledEventDetails (..),
     newActivityScheduledEventDetails,
-    activityScheduledEventDetails_inputDetails,
     activityScheduledEventDetails_heartbeatInSeconds,
+    activityScheduledEventDetails_inputDetails,
     activityScheduledEventDetails_input,
     activityScheduledEventDetails_timeoutInSeconds,
     activityScheduledEventDetails_resource,
@@ -102,8 +102,8 @@ module Network.AWS.StepFunctions.Types
     -- * ActivityTimedOutEventDetails
     ActivityTimedOutEventDetails (..),
     newActivityTimedOutEventDetails,
-    activityTimedOutEventDetails_cause,
     activityTimedOutEventDetails_error,
+    activityTimedOutEventDetails_cause,
 
     -- * BillingDetails
     BillingDetails (..),
@@ -124,14 +124,14 @@ module Network.AWS.StepFunctions.Types
     -- * ExecutionAbortedEventDetails
     ExecutionAbortedEventDetails (..),
     newExecutionAbortedEventDetails,
-    executionAbortedEventDetails_cause,
     executionAbortedEventDetails_error,
+    executionAbortedEventDetails_cause,
 
     -- * ExecutionFailedEventDetails
     ExecutionFailedEventDetails (..),
     newExecutionFailedEventDetails,
-    executionFailedEventDetails_cause,
     executionFailedEventDetails_error,
+    executionFailedEventDetails_cause,
 
     -- * ExecutionListItem
     ExecutionListItem (..),
@@ -147,8 +147,8 @@ module Network.AWS.StepFunctions.Types
     ExecutionStartedEventDetails (..),
     newExecutionStartedEventDetails,
     executionStartedEventDetails_inputDetails,
-    executionStartedEventDetails_roleArn,
     executionStartedEventDetails_input,
+    executionStartedEventDetails_roleArn,
 
     -- * ExecutionSucceededEventDetails
     ExecutionSucceededEventDetails (..),
@@ -159,45 +159,45 @@ module Network.AWS.StepFunctions.Types
     -- * ExecutionTimedOutEventDetails
     ExecutionTimedOutEventDetails (..),
     newExecutionTimedOutEventDetails,
-    executionTimedOutEventDetails_cause,
     executionTimedOutEventDetails_error,
+    executionTimedOutEventDetails_cause,
 
     -- * HistoryEvent
     HistoryEvent (..),
     newHistoryEvent,
-    historyEvent_executionFailedEventDetails,
+    historyEvent_mapStateStartedEventDetails,
     historyEvent_taskSubmitFailedEventDetails,
-    historyEvent_mapIterationStartedEventDetails,
-    historyEvent_mapIterationSucceededEventDetails,
-    historyEvent_mapIterationFailedEventDetails,
+    historyEvent_taskStartedEventDetails,
+    historyEvent_activityStartedEventDetails,
+    historyEvent_taskSubmittedEventDetails,
+    historyEvent_lambdaFunctionStartFailedEventDetails,
+    historyEvent_taskStartFailedEventDetails,
+    historyEvent_stateExitedEventDetails,
+    historyEvent_lambdaFunctionSucceededEventDetails,
+    historyEvent_taskSucceededEventDetails,
+    historyEvent_activitySucceededEventDetails,
     historyEvent_mapIterationAbortedEventDetails,
-    historyEvent_executionTimedOutEventDetails,
-    historyEvent_previousEventId,
-    historyEvent_executionStartedEventDetails,
-    historyEvent_lambdaFunctionScheduleFailedEventDetails,
-    historyEvent_activityScheduleFailedEventDetails,
-    historyEvent_taskScheduledEventDetails,
-    historyEvent_activityScheduledEventDetails,
-    historyEvent_lambdaFunctionScheduledEventDetails,
-    historyEvent_executionSucceededEventDetails,
-    historyEvent_executionAbortedEventDetails,
+    historyEvent_mapIterationSucceededEventDetails,
+    historyEvent_mapIterationStartedEventDetails,
     historyEvent_lambdaFunctionTimedOutEventDetails,
     historyEvent_taskTimedOutEventDetails,
     historyEvent_activityTimedOutEventDetails,
-    historyEvent_mapStateStartedEventDetails,
-    historyEvent_activitySucceededEventDetails,
-    historyEvent_stateExitedEventDetails,
-    historyEvent_activityFailedEventDetails,
+    historyEvent_executionFailedEventDetails,
+    historyEvent_executionAbortedEventDetails,
+    historyEvent_executionSucceededEventDetails,
+    historyEvent_lambdaFunctionScheduledEventDetails,
+    historyEvent_taskScheduledEventDetails,
+    historyEvent_activityScheduledEventDetails,
+    historyEvent_executionStartedEventDetails,
+    historyEvent_activityScheduleFailedEventDetails,
+    historyEvent_lambdaFunctionScheduleFailedEventDetails,
     historyEvent_stateEnteredEventDetails,
-    historyEvent_taskStartFailedEventDetails,
-    historyEvent_taskSucceededEventDetails,
+    historyEvent_previousEventId,
+    historyEvent_activityFailedEventDetails,
     historyEvent_taskFailedEventDetails,
-    historyEvent_lambdaFunctionStartFailedEventDetails,
-    historyEvent_lambdaFunctionSucceededEventDetails,
     historyEvent_lambdaFunctionFailedEventDetails,
-    historyEvent_taskStartedEventDetails,
-    historyEvent_taskSubmittedEventDetails,
-    historyEvent_activityStartedEventDetails,
+    historyEvent_executionTimedOutEventDetails,
+    historyEvent_mapIterationFailedEventDetails,
     historyEvent_timestamp,
     historyEvent_type,
     historyEvent_id,
@@ -210,14 +210,14 @@ module Network.AWS.StepFunctions.Types
     -- * LambdaFunctionFailedEventDetails
     LambdaFunctionFailedEventDetails (..),
     newLambdaFunctionFailedEventDetails,
-    lambdaFunctionFailedEventDetails_cause,
     lambdaFunctionFailedEventDetails_error,
+    lambdaFunctionFailedEventDetails_cause,
 
     -- * LambdaFunctionScheduleFailedEventDetails
     LambdaFunctionScheduleFailedEventDetails (..),
     newLambdaFunctionScheduleFailedEventDetails,
-    lambdaFunctionScheduleFailedEventDetails_cause,
     lambdaFunctionScheduleFailedEventDetails_error,
+    lambdaFunctionScheduleFailedEventDetails_cause,
 
     -- * LambdaFunctionScheduledEventDetails
     LambdaFunctionScheduledEventDetails (..),
@@ -230,8 +230,8 @@ module Network.AWS.StepFunctions.Types
     -- * LambdaFunctionStartFailedEventDetails
     LambdaFunctionStartFailedEventDetails (..),
     newLambdaFunctionStartFailedEventDetails,
-    lambdaFunctionStartFailedEventDetails_cause,
     lambdaFunctionStartFailedEventDetails_error,
+    lambdaFunctionStartFailedEventDetails_cause,
 
     -- * LambdaFunctionSucceededEventDetails
     LambdaFunctionSucceededEventDetails (..),
@@ -242,8 +242,8 @@ module Network.AWS.StepFunctions.Types
     -- * LambdaFunctionTimedOutEventDetails
     LambdaFunctionTimedOutEventDetails (..),
     newLambdaFunctionTimedOutEventDetails,
-    lambdaFunctionTimedOutEventDetails_cause,
     lambdaFunctionTimedOutEventDetails_error,
+    lambdaFunctionTimedOutEventDetails_cause,
 
     -- * LogDestination
     LogDestination (..),
@@ -253,8 +253,8 @@ module Network.AWS.StepFunctions.Types
     -- * LoggingConfiguration
     LoggingConfiguration (..),
     newLoggingConfiguration,
-    loggingConfiguration_destinations,
     loggingConfiguration_includeExecutionData,
+    loggingConfiguration_destinations,
     loggingConfiguration_level,
 
     -- * MapIterationEventDetails
@@ -293,14 +293,14 @@ module Network.AWS.StepFunctions.Types
     -- * Tag
     Tag (..),
     newTag,
-    tag_key,
     tag_value,
+    tag_key,
 
     -- * TaskFailedEventDetails
     TaskFailedEventDetails (..),
     newTaskFailedEventDetails,
-    taskFailedEventDetails_cause,
     taskFailedEventDetails_error,
+    taskFailedEventDetails_cause,
     taskFailedEventDetails_resourceType,
     taskFailedEventDetails_resource,
 
@@ -317,8 +317,8 @@ module Network.AWS.StepFunctions.Types
     -- * TaskStartFailedEventDetails
     TaskStartFailedEventDetails (..),
     newTaskStartFailedEventDetails,
-    taskStartFailedEventDetails_cause,
     taskStartFailedEventDetails_error,
+    taskStartFailedEventDetails_cause,
     taskStartFailedEventDetails_resourceType,
     taskStartFailedEventDetails_resource,
 
@@ -331,8 +331,8 @@ module Network.AWS.StepFunctions.Types
     -- * TaskSubmitFailedEventDetails
     TaskSubmitFailedEventDetails (..),
     newTaskSubmitFailedEventDetails,
-    taskSubmitFailedEventDetails_cause,
     taskSubmitFailedEventDetails_error,
+    taskSubmitFailedEventDetails_cause,
     taskSubmitFailedEventDetails_resourceType,
     taskSubmitFailedEventDetails_resource,
 
@@ -355,8 +355,8 @@ module Network.AWS.StepFunctions.Types
     -- * TaskTimedOutEventDetails
     TaskTimedOutEventDetails (..),
     newTaskTimedOutEventDetails,
-    taskTimedOutEventDetails_cause,
     taskTimedOutEventDetails_error,
+    taskTimedOutEventDetails_cause,
     taskTimedOutEventDetails_resourceType,
     taskTimedOutEventDetails_resource,
 
@@ -445,37 +445,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -488,6 +465,29 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The maximum number of running executions has been reached. Running
@@ -497,6 +497,21 @@ _ExecutionLimitExceeded =
   Core._MatchServiceError
     defaultService
     "ExecutionLimitExceeded"
+
+-- | The provided Amazon States Language definition is invalid.
+_InvalidDefinition :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDefinition =
+  Core._MatchServiceError
+    defaultService
+    "InvalidDefinition"
+
+-- | The maximum number of state machines has been reached. Existing state
+-- machines must be deleted before a new state machine can be created.
+_StateMachineLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StateMachineLimitExceeded =
+  Core._MatchServiceError
+    defaultService
+    "StateMachineLimitExceeded"
 
 -- | The execution has the same @name@ as another execution (but a different
 -- @input@).
@@ -508,63 +523,6 @@ _ExecutionAlreadyExists =
     defaultService
     "ExecutionAlreadyExists"
 
--- |
-_StateMachineTypeNotSupported :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_StateMachineTypeNotSupported =
-  Core._MatchServiceError
-    defaultService
-    "StateMachineTypeNotSupported"
-
--- | The specified execution does not exist.
-_ExecutionDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ExecutionDoesNotExist =
-  Core._MatchServiceError
-    defaultService
-    "ExecutionDoesNotExist"
-
--- | The provided name is invalid.
-_InvalidName :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidName =
-  Core._MatchServiceError
-    defaultService
-    "InvalidName"
-
--- | The provided JSON output data is invalid.
-_InvalidOutput :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidOutput =
-  Core._MatchServiceError
-    defaultService
-    "InvalidOutput"
-
--- | The maximum number of activities has been reached. Existing activities
--- must be deleted before a new activity can be created.
-_ActivityLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ActivityLimitExceeded =
-  Core._MatchServiceError
-    defaultService
-    "ActivityLimitExceeded"
-
--- | The provided JSON input data is invalid.
-_InvalidExecutionInput :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidExecutionInput =
-  Core._MatchServiceError
-    defaultService
-    "InvalidExecutionInput"
-
--- | Prism for TaskTimedOut' errors.
-_TaskTimedOut :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TaskTimedOut =
-  Core._MatchServiceError
-    defaultService
-    "TaskTimedOut"
-
--- |
-_InvalidLoggingConfiguration :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidLoggingConfiguration =
-  Core._MatchServiceError
-    defaultService
-    "InvalidLoggingConfiguration"
-
 -- | A state machine with the same name but a different definition or role
 -- ARN already exists.
 _StateMachineAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -573,12 +531,61 @@ _StateMachineAlreadyExists =
     defaultService
     "StateMachineAlreadyExists"
 
--- | The provided Amazon States Language definition is invalid.
-_InvalidDefinition :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidDefinition =
+-- | Prism for TaskTimedOut' errors.
+_TaskTimedOut :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TaskTimedOut =
   Core._MatchServiceError
     defaultService
-    "InvalidDefinition"
+    "TaskTimedOut"
+
+-- | The provided JSON input data is invalid.
+_InvalidExecutionInput :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidExecutionInput =
+  Core._MatchServiceError
+    defaultService
+    "InvalidExecutionInput"
+
+-- | The provided JSON output data is invalid.
+_InvalidOutput :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOutput =
+  Core._MatchServiceError
+    defaultService
+    "InvalidOutput"
+
+-- | The provided name is invalid.
+_InvalidName :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidName =
+  Core._MatchServiceError
+    defaultService
+    "InvalidName"
+
+-- | Prism for TaskDoesNotExist' errors.
+_TaskDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TaskDoesNotExist =
+  Core._MatchServiceError
+    defaultService
+    "TaskDoesNotExist"
+
+-- | The specified activity does not exist.
+_ActivityDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ActivityDoesNotExist =
+  Core._MatchServiceError
+    defaultService
+    "ActivityDoesNotExist"
+
+-- | The specified state machine is being deleted.
+_StateMachineDeleting :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StateMachineDeleting =
+  Core._MatchServiceError
+    defaultService
+    "StateMachineDeleting"
+
+-- |
+_StateMachineTypeNotSupported :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StateMachineTypeNotSupported =
+  Core._MatchServiceError
+    defaultService
+    "StateMachineTypeNotSupported"
 
 -- | Request is missing a required parameter. This error occurs if both
 -- @definition@ and @roleArn@ are not specified.
@@ -588,63 +595,24 @@ _MissingRequiredParameter =
     defaultService
     "MissingRequiredParameter"
 
--- | The maximum number of state machines has been reached. Existing state
--- machines must be deleted before a new state machine can be created.
-_StateMachineLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_StateMachineLimitExceeded =
-  Core._MatchServiceError
-    defaultService
-    "StateMachineLimitExceeded"
-
 -- | The provided Amazon Resource Name (ARN) is invalid.
 _InvalidArn :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidArn =
   Core._MatchServiceError defaultService "InvalidArn"
 
--- | The specified state machine does not exist.
-_StateMachineDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_StateMachineDoesNotExist =
+-- | The provided token is invalid.
+_InvalidToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidToken =
   Core._MatchServiceError
     defaultService
-    "StateMachineDoesNotExist"
+    "InvalidToken"
 
--- | Could not find the referenced resource. Only state machine and activity
--- ARNs are supported.
-_ResourceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFound =
+-- |
+_InvalidLoggingConfiguration :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidLoggingConfiguration =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFound"
-
--- | You\'ve exceeded the number of tags allowed for a resource. See the
--- <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html Limits Topic>
--- in the AWS Step Functions Developer Guide.
-_TooManyTags :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTags =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTags"
-
--- | Prism for TaskDoesNotExist' errors.
-_TaskDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TaskDoesNotExist =
-  Core._MatchServiceError
-    defaultService
-    "TaskDoesNotExist"
-
--- | The specified state machine is being deleted.
-_StateMachineDeleting :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_StateMachineDeleting =
-  Core._MatchServiceError
-    defaultService
-    "StateMachineDeleting"
-
--- | The specified activity does not exist.
-_ActivityDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ActivityDoesNotExist =
-  Core._MatchServiceError
-    defaultService
-    "ActivityDoesNotExist"
+    "InvalidLoggingConfiguration"
 
 -- | The maximum number of workers concurrently polling for activity tasks
 -- has been reached.
@@ -662,9 +630,41 @@ _InvalidTracingConfiguration =
     defaultService
     "InvalidTracingConfiguration"
 
--- | The provided token is invalid.
-_InvalidToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidToken =
+-- | The maximum number of activities has been reached. Existing activities
+-- must be deleted before a new activity can be created.
+_ActivityLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ActivityLimitExceeded =
   Core._MatchServiceError
     defaultService
-    "InvalidToken"
+    "ActivityLimitExceeded"
+
+-- | You\'ve exceeded the number of tags allowed for a resource. See the
+-- <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html Limits Topic>
+-- in the AWS Step Functions Developer Guide.
+_TooManyTags :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTags =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTags"
+
+-- | The specified execution does not exist.
+_ExecutionDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExecutionDoesNotExist =
+  Core._MatchServiceError
+    defaultService
+    "ExecutionDoesNotExist"
+
+-- | The specified state machine does not exist.
+_StateMachineDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StateMachineDoesNotExist =
+  Core._MatchServiceError
+    defaultService
+    "StateMachineDoesNotExist"
+
+-- | Could not find the referenced resource. Only state machine and activity
+-- ARNs are supported.
+_ResourceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFound =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFound"

@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTaskStartFailedEventDetails' smart constructor.
 data TaskStartFailedEventDetails = TaskStartFailedEventDetails'
-  { -- | A more detailed explanation of the cause of the failure.
-    cause :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The error code of the failure.
+  { -- | The error code of the failure.
     error :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | A more detailed explanation of the cause of the failure.
+    cause :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The action of the resource called by a task state.
     resourceType :: Prelude.Text,
     -- | The service name of the resource in a task state.
@@ -46,9 +46,9 @@ data TaskStartFailedEventDetails = TaskStartFailedEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cause', 'taskStartFailedEventDetails_cause' - A more detailed explanation of the cause of the failure.
---
 -- 'error', 'taskStartFailedEventDetails_error' - The error code of the failure.
+--
+-- 'cause', 'taskStartFailedEventDetails_cause' - A more detailed explanation of the cause of the failure.
 --
 -- 'resourceType', 'taskStartFailedEventDetails_resourceType' - The action of the resource called by a task state.
 --
@@ -63,20 +63,20 @@ newTaskStartFailedEventDetails
   pResourceType_
   pResource_ =
     TaskStartFailedEventDetails'
-      { cause =
+      { error =
           Prelude.Nothing,
-        error = Prelude.Nothing,
+        cause = Prelude.Nothing,
         resourceType = pResourceType_,
         resource = pResource_
       }
 
--- | A more detailed explanation of the cause of the failure.
-taskStartFailedEventDetails_cause :: Lens.Lens' TaskStartFailedEventDetails (Prelude.Maybe Prelude.Text)
-taskStartFailedEventDetails_cause = Lens.lens (\TaskStartFailedEventDetails' {cause} -> cause) (\s@TaskStartFailedEventDetails' {} a -> s {cause = a} :: TaskStartFailedEventDetails) Prelude.. Lens.mapping Core._Sensitive
-
 -- | The error code of the failure.
 taskStartFailedEventDetails_error :: Lens.Lens' TaskStartFailedEventDetails (Prelude.Maybe Prelude.Text)
 taskStartFailedEventDetails_error = Lens.lens (\TaskStartFailedEventDetails' {error} -> error) (\s@TaskStartFailedEventDetails' {} a -> s {error = a} :: TaskStartFailedEventDetails) Prelude.. Lens.mapping Core._Sensitive
+
+-- | A more detailed explanation of the cause of the failure.
+taskStartFailedEventDetails_cause :: Lens.Lens' TaskStartFailedEventDetails (Prelude.Maybe Prelude.Text)
+taskStartFailedEventDetails_cause = Lens.lens (\TaskStartFailedEventDetails' {cause} -> cause) (\s@TaskStartFailedEventDetails' {} a -> s {cause = a} :: TaskStartFailedEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The action of the resource called by a task state.
 taskStartFailedEventDetails_resourceType :: Lens.Lens' TaskStartFailedEventDetails Prelude.Text
@@ -92,8 +92,8 @@ instance Core.FromJSON TaskStartFailedEventDetails where
       "TaskStartFailedEventDetails"
       ( \x ->
           TaskStartFailedEventDetails'
-            Prelude.<$> (x Core..:? "cause")
-            Prelude.<*> (x Core..:? "error")
+            Prelude.<$> (x Core..:? "error")
+            Prelude.<*> (x Core..:? "cause")
             Prelude.<*> (x Core..: "resourceType")
             Prelude.<*> (x Core..: "resource")
       )

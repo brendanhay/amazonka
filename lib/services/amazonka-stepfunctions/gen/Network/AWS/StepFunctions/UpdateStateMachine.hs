@@ -36,10 +36,10 @@ module Network.AWS.StepFunctions.UpdateStateMachine
     newUpdateStateMachine,
 
     -- * Request Lenses
-    updateStateMachine_roleArn,
+    updateStateMachine_definition,
     updateStateMachine_tracingConfiguration,
     updateStateMachine_loggingConfiguration,
-    updateStateMachine_definition,
+    updateStateMachine_roleArn,
     updateStateMachine_stateMachineArn,
 
     -- * Destructuring the Response
@@ -61,16 +61,16 @@ import Network.AWS.StepFunctions.Types
 
 -- | /See:/ 'newUpdateStateMachine' smart constructor.
 data UpdateStateMachine = UpdateStateMachine'
-  { -- | The Amazon Resource Name (ARN) of the IAM role of the state machine.
-    roleArn :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon States Language definition of the state machine. See
+    -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
+    definition :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Selects whether AWS X-Ray tracing is enabled.
     tracingConfiguration :: Prelude.Maybe TracingConfiguration,
     -- | The @LoggingConfiguration@ data type is used to set CloudWatch Logs
     -- options.
     loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
-    -- | The Amazon States Language definition of the state machine. See
-    -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
-    definition :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The Amazon Resource Name (ARN) of the IAM role of the state machine.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the state machine.
     stateMachineArn :: Prelude.Text
   }
@@ -84,15 +84,15 @@ data UpdateStateMachine = UpdateStateMachine'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'updateStateMachine_roleArn' - The Amazon Resource Name (ARN) of the IAM role of the state machine.
+-- 'definition', 'updateStateMachine_definition' - The Amazon States Language definition of the state machine. See
+-- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
 --
 -- 'tracingConfiguration', 'updateStateMachine_tracingConfiguration' - Selects whether AWS X-Ray tracing is enabled.
 --
 -- 'loggingConfiguration', 'updateStateMachine_loggingConfiguration' - The @LoggingConfiguration@ data type is used to set CloudWatch Logs
 -- options.
 --
--- 'definition', 'updateStateMachine_definition' - The Amazon States Language definition of the state machine. See
--- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
+-- 'roleArn', 'updateStateMachine_roleArn' - The Amazon Resource Name (ARN) of the IAM role of the state machine.
 --
 -- 'stateMachineArn', 'updateStateMachine_stateMachineArn' - The Amazon Resource Name (ARN) of the state machine.
 newUpdateStateMachine ::
@@ -101,16 +101,17 @@ newUpdateStateMachine ::
   UpdateStateMachine
 newUpdateStateMachine pStateMachineArn_ =
   UpdateStateMachine'
-    { roleArn = Prelude.Nothing,
+    { definition = Prelude.Nothing,
       tracingConfiguration = Prelude.Nothing,
       loggingConfiguration = Prelude.Nothing,
-      definition = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       stateMachineArn = pStateMachineArn_
     }
 
--- | The Amazon Resource Name (ARN) of the IAM role of the state machine.
-updateStateMachine_roleArn :: Lens.Lens' UpdateStateMachine (Prelude.Maybe Prelude.Text)
-updateStateMachine_roleArn = Lens.lens (\UpdateStateMachine' {roleArn} -> roleArn) (\s@UpdateStateMachine' {} a -> s {roleArn = a} :: UpdateStateMachine)
+-- | The Amazon States Language definition of the state machine. See
+-- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
+updateStateMachine_definition :: Lens.Lens' UpdateStateMachine (Prelude.Maybe Prelude.Text)
+updateStateMachine_definition = Lens.lens (\UpdateStateMachine' {definition} -> definition) (\s@UpdateStateMachine' {} a -> s {definition = a} :: UpdateStateMachine) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Selects whether AWS X-Ray tracing is enabled.
 updateStateMachine_tracingConfiguration :: Lens.Lens' UpdateStateMachine (Prelude.Maybe TracingConfiguration)
@@ -121,10 +122,9 @@ updateStateMachine_tracingConfiguration = Lens.lens (\UpdateStateMachine' {traci
 updateStateMachine_loggingConfiguration :: Lens.Lens' UpdateStateMachine (Prelude.Maybe LoggingConfiguration)
 updateStateMachine_loggingConfiguration = Lens.lens (\UpdateStateMachine' {loggingConfiguration} -> loggingConfiguration) (\s@UpdateStateMachine' {} a -> s {loggingConfiguration = a} :: UpdateStateMachine)
 
--- | The Amazon States Language definition of the state machine. See
--- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
-updateStateMachine_definition :: Lens.Lens' UpdateStateMachine (Prelude.Maybe Prelude.Text)
-updateStateMachine_definition = Lens.lens (\UpdateStateMachine' {definition} -> definition) (\s@UpdateStateMachine' {} a -> s {definition = a} :: UpdateStateMachine) Prelude.. Lens.mapping Core._Sensitive
+-- | The Amazon Resource Name (ARN) of the IAM role of the state machine.
+updateStateMachine_roleArn :: Lens.Lens' UpdateStateMachine (Prelude.Maybe Prelude.Text)
+updateStateMachine_roleArn = Lens.lens (\UpdateStateMachine' {roleArn} -> roleArn) (\s@UpdateStateMachine' {} a -> s {roleArn = a} :: UpdateStateMachine)
 
 -- | The Amazon Resource Name (ARN) of the state machine.
 updateStateMachine_stateMachineArn :: Lens.Lens' UpdateStateMachine Prelude.Text
@@ -166,12 +166,12 @@ instance Core.ToJSON UpdateStateMachine where
   toJSON UpdateStateMachine' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
+          [ ("definition" Core..=) Prelude.<$> definition,
             ("tracingConfiguration" Core..=)
               Prelude.<$> tracingConfiguration,
             ("loggingConfiguration" Core..=)
               Prelude.<$> loggingConfiguration,
-            ("definition" Core..=) Prelude.<$> definition,
+            ("roleArn" Core..=) Prelude.<$> roleArn,
             Prelude.Just
               ("stateMachineArn" Core..= stateMachineArn)
           ]

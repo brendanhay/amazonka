@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newExecutorConfiguration' smart constructor.
 data ExecutorConfiguration = ExecutorConfiguration'
-  { -- | Details about the @JobWorker@ executor of the action type.
-    jobWorkerExecutorConfiguration :: Prelude.Maybe JobWorkerExecutorConfiguration,
-    -- | Details about the @Lambda@ executor of the action type.
-    lambdaExecutorConfiguration :: Prelude.Maybe LambdaExecutorConfiguration
+  { -- | Details about the @Lambda@ executor of the action type.
+    lambdaExecutorConfiguration :: Prelude.Maybe LambdaExecutorConfiguration,
+    -- | Details about the @JobWorker@ executor of the action type.
+    jobWorkerExecutorConfiguration :: Prelude.Maybe JobWorkerExecutorConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,25 @@ data ExecutorConfiguration = ExecutorConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobWorkerExecutorConfiguration', 'executorConfiguration_jobWorkerExecutorConfiguration' - Details about the @JobWorker@ executor of the action type.
---
 -- 'lambdaExecutorConfiguration', 'executorConfiguration_lambdaExecutorConfiguration' - Details about the @Lambda@ executor of the action type.
+--
+-- 'jobWorkerExecutorConfiguration', 'executorConfiguration_jobWorkerExecutorConfiguration' - Details about the @JobWorker@ executor of the action type.
 newExecutorConfiguration ::
   ExecutorConfiguration
 newExecutorConfiguration =
   ExecutorConfiguration'
-    { jobWorkerExecutorConfiguration =
+    { lambdaExecutorConfiguration =
         Prelude.Nothing,
-      lambdaExecutorConfiguration = Prelude.Nothing
+      jobWorkerExecutorConfiguration = Prelude.Nothing
     }
-
--- | Details about the @JobWorker@ executor of the action type.
-executorConfiguration_jobWorkerExecutorConfiguration :: Lens.Lens' ExecutorConfiguration (Prelude.Maybe JobWorkerExecutorConfiguration)
-executorConfiguration_jobWorkerExecutorConfiguration = Lens.lens (\ExecutorConfiguration' {jobWorkerExecutorConfiguration} -> jobWorkerExecutorConfiguration) (\s@ExecutorConfiguration' {} a -> s {jobWorkerExecutorConfiguration = a} :: ExecutorConfiguration)
 
 -- | Details about the @Lambda@ executor of the action type.
 executorConfiguration_lambdaExecutorConfiguration :: Lens.Lens' ExecutorConfiguration (Prelude.Maybe LambdaExecutorConfiguration)
 executorConfiguration_lambdaExecutorConfiguration = Lens.lens (\ExecutorConfiguration' {lambdaExecutorConfiguration} -> lambdaExecutorConfiguration) (\s@ExecutorConfiguration' {} a -> s {lambdaExecutorConfiguration = a} :: ExecutorConfiguration)
+
+-- | Details about the @JobWorker@ executor of the action type.
+executorConfiguration_jobWorkerExecutorConfiguration :: Lens.Lens' ExecutorConfiguration (Prelude.Maybe JobWorkerExecutorConfiguration)
+executorConfiguration_jobWorkerExecutorConfiguration = Lens.lens (\ExecutorConfiguration' {jobWorkerExecutorConfiguration} -> jobWorkerExecutorConfiguration) (\s@ExecutorConfiguration' {} a -> s {jobWorkerExecutorConfiguration = a} :: ExecutorConfiguration)
 
 instance Core.FromJSON ExecutorConfiguration where
   parseJSON =
@@ -72,8 +72,8 @@ instance Core.FromJSON ExecutorConfiguration where
       "ExecutorConfiguration"
       ( \x ->
           ExecutorConfiguration'
-            Prelude.<$> (x Core..:? "jobWorkerExecutorConfiguration")
-            Prelude.<*> (x Core..:? "lambdaExecutorConfiguration")
+            Prelude.<$> (x Core..:? "lambdaExecutorConfiguration")
+            Prelude.<*> (x Core..:? "jobWorkerExecutorConfiguration")
       )
 
 instance Prelude.Hashable ExecutorConfiguration
@@ -84,9 +84,9 @@ instance Core.ToJSON ExecutorConfiguration where
   toJSON ExecutorConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("jobWorkerExecutorConfiguration" Core..=)
-              Prelude.<$> jobWorkerExecutorConfiguration,
-            ("lambdaExecutorConfiguration" Core..=)
-              Prelude.<$> lambdaExecutorConfiguration
+          [ ("lambdaExecutorConfiguration" Core..=)
+              Prelude.<$> lambdaExecutorConfiguration,
+            ("jobWorkerExecutorConfiguration" Core..=)
+              Prelude.<$> jobWorkerExecutorConfiguration
           ]
       )

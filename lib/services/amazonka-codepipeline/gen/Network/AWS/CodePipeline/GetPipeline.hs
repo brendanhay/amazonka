@@ -38,8 +38,8 @@ module Network.AWS.CodePipeline.GetPipeline
     newGetPipelineResponse,
 
     -- * Response Lenses
-    getPipelineResponse_metadata,
     getPipelineResponse_pipeline,
+    getPipelineResponse_metadata,
     getPipelineResponse_httpStatus,
   )
 where
@@ -104,8 +104,8 @@ instance Core.AWSRequest GetPipeline where
     Response.receiveJSON
       ( \s h x ->
           GetPipelineResponse'
-            Prelude.<$> (x Core..?> "metadata")
-            Prelude.<*> (x Core..?> "pipeline")
+            Prelude.<$> (x Core..?> "pipeline")
+            Prelude.<*> (x Core..?> "metadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,12 +147,12 @@ instance Core.ToQuery GetPipeline where
 --
 -- /See:/ 'newGetPipelineResponse' smart constructor.
 data GetPipelineResponse = GetPipelineResponse'
-  { -- | Represents the pipeline metadata information returned as part of the
-    -- output of a @GetPipeline@ action.
-    metadata :: Prelude.Maybe PipelineMetadata,
-    -- | Represents the structure of actions and stages to be performed in the
+  { -- | Represents the structure of actions and stages to be performed in the
     -- pipeline.
     pipeline :: Prelude.Maybe PipelineDeclaration,
+    -- | Represents the pipeline metadata information returned as part of the
+    -- output of a @GetPipeline@ action.
+    metadata :: Prelude.Maybe PipelineMetadata,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,11 +166,11 @@ data GetPipelineResponse = GetPipelineResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metadata', 'getPipelineResponse_metadata' - Represents the pipeline metadata information returned as part of the
--- output of a @GetPipeline@ action.
---
 -- 'pipeline', 'getPipelineResponse_pipeline' - Represents the structure of actions and stages to be performed in the
 -- pipeline.
+--
+-- 'metadata', 'getPipelineResponse_metadata' - Represents the pipeline metadata information returned as part of the
+-- output of a @GetPipeline@ action.
 --
 -- 'httpStatus', 'getPipelineResponse_httpStatus' - The response's http status code.
 newGetPipelineResponse ::
@@ -179,20 +179,20 @@ newGetPipelineResponse ::
   GetPipelineResponse
 newGetPipelineResponse pHttpStatus_ =
   GetPipelineResponse'
-    { metadata = Prelude.Nothing,
-      pipeline = Prelude.Nothing,
+    { pipeline = Prelude.Nothing,
+      metadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Represents the pipeline metadata information returned as part of the
--- output of a @GetPipeline@ action.
-getPipelineResponse_metadata :: Lens.Lens' GetPipelineResponse (Prelude.Maybe PipelineMetadata)
-getPipelineResponse_metadata = Lens.lens (\GetPipelineResponse' {metadata} -> metadata) (\s@GetPipelineResponse' {} a -> s {metadata = a} :: GetPipelineResponse)
 
 -- | Represents the structure of actions and stages to be performed in the
 -- pipeline.
 getPipelineResponse_pipeline :: Lens.Lens' GetPipelineResponse (Prelude.Maybe PipelineDeclaration)
 getPipelineResponse_pipeline = Lens.lens (\GetPipelineResponse' {pipeline} -> pipeline) (\s@GetPipelineResponse' {} a -> s {pipeline = a} :: GetPipelineResponse)
+
+-- | Represents the pipeline metadata information returned as part of the
+-- output of a @GetPipeline@ action.
+getPipelineResponse_metadata :: Lens.Lens' GetPipelineResponse (Prelude.Maybe PipelineMetadata)
+getPipelineResponse_metadata = Lens.lens (\GetPipelineResponse' {metadata} -> metadata) (\s@GetPipelineResponse' {} a -> s {metadata = a} :: GetPipelineResponse)
 
 -- | The response's http status code.
 getPipelineResponse_httpStatus :: Lens.Lens' GetPipelineResponse Prelude.Int

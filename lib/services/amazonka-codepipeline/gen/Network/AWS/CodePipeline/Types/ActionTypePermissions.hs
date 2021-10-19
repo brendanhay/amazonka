@@ -50,13 +50,13 @@ newActionTypePermissions ::
 newActionTypePermissions pAllowedAccounts_ =
   ActionTypePermissions'
     { allowedAccounts =
-        Lens._Coerce Lens.# pAllowedAccounts_
+        Lens.coerced Lens.# pAllowedAccounts_
     }
 
 -- | A list of AWS account IDs with access to use the action type in their
 -- pipelines.
 actionTypePermissions_allowedAccounts :: Lens.Lens' ActionTypePermissions (Prelude.NonEmpty Prelude.Text)
-actionTypePermissions_allowedAccounts = Lens.lens (\ActionTypePermissions' {allowedAccounts} -> allowedAccounts) (\s@ActionTypePermissions' {} a -> s {allowedAccounts = a} :: ActionTypePermissions) Prelude.. Lens._Coerce
+actionTypePermissions_allowedAccounts = Lens.lens (\ActionTypePermissions' {allowedAccounts} -> allowedAccounts) (\s@ActionTypePermissions' {} a -> s {allowedAccounts = a} :: ActionTypePermissions) Prelude.. Lens.coerced
 
 instance Core.FromJSON ActionTypePermissions where
   parseJSON =

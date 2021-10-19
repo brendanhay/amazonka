@@ -27,7 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newActionTypeSettings' smart constructor.
 data ActionTypeSettings = ActionTypeSettings'
-  { -- | The URL returned to the AWS CodePipeline console that contains a link to
+  { -- | The URL of a sign-up page where users can sign up for an external
+    -- service and perform initial configuration of the action provided by that
+    -- service.
+    thirdPartyConfigurationUrl :: Prelude.Maybe Prelude.Text,
+    -- | The URL returned to the AWS CodePipeline console that contains a link to
     -- the top-level landing page for the external system, such as the console
     -- page for AWS CodeDeploy. This link is shown on the pipeline view page in
     -- the AWS CodePipeline console and provides a link to the execution entity
@@ -41,11 +45,7 @@ data ActionTypeSettings = ActionTypeSettings'
     -- link to the resources of the external system, such as the configuration
     -- page for an AWS CodeDeploy deployment group. This link is provided as
     -- part of the action display in the pipeline.
-    entityUrlTemplate :: Prelude.Maybe Prelude.Text,
-    -- | The URL of a sign-up page where users can sign up for an external
-    -- service and perform initial configuration of the action provided by that
-    -- service.
-    thirdPartyConfigurationUrl :: Prelude.Maybe Prelude.Text
+    entityUrlTemplate :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,6 +56,10 @@ data ActionTypeSettings = ActionTypeSettings'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'thirdPartyConfigurationUrl', 'actionTypeSettings_thirdPartyConfigurationUrl' - The URL of a sign-up page where users can sign up for an external
+-- service and perform initial configuration of the action provided by that
+-- service.
 --
 -- 'executionUrlTemplate', 'actionTypeSettings_executionUrlTemplate' - The URL returned to the AWS CodePipeline console that contains a link to
 -- the top-level landing page for the external system, such as the console
@@ -71,20 +75,22 @@ data ActionTypeSettings = ActionTypeSettings'
 -- link to the resources of the external system, such as the configuration
 -- page for an AWS CodeDeploy deployment group. This link is provided as
 -- part of the action display in the pipeline.
---
--- 'thirdPartyConfigurationUrl', 'actionTypeSettings_thirdPartyConfigurationUrl' - The URL of a sign-up page where users can sign up for an external
--- service and perform initial configuration of the action provided by that
--- service.
 newActionTypeSettings ::
   ActionTypeSettings
 newActionTypeSettings =
   ActionTypeSettings'
-    { executionUrlTemplate =
+    { thirdPartyConfigurationUrl =
         Prelude.Nothing,
+      executionUrlTemplate = Prelude.Nothing,
       revisionUrlTemplate = Prelude.Nothing,
-      entityUrlTemplate = Prelude.Nothing,
-      thirdPartyConfigurationUrl = Prelude.Nothing
+      entityUrlTemplate = Prelude.Nothing
     }
+
+-- | The URL of a sign-up page where users can sign up for an external
+-- service and perform initial configuration of the action provided by that
+-- service.
+actionTypeSettings_thirdPartyConfigurationUrl :: Lens.Lens' ActionTypeSettings (Prelude.Maybe Prelude.Text)
+actionTypeSettings_thirdPartyConfigurationUrl = Lens.lens (\ActionTypeSettings' {thirdPartyConfigurationUrl} -> thirdPartyConfigurationUrl) (\s@ActionTypeSettings' {} a -> s {thirdPartyConfigurationUrl = a} :: ActionTypeSettings)
 
 -- | The URL returned to the AWS CodePipeline console that contains a link to
 -- the top-level landing page for the external system, such as the console
@@ -107,22 +113,16 @@ actionTypeSettings_revisionUrlTemplate = Lens.lens (\ActionTypeSettings' {revisi
 actionTypeSettings_entityUrlTemplate :: Lens.Lens' ActionTypeSettings (Prelude.Maybe Prelude.Text)
 actionTypeSettings_entityUrlTemplate = Lens.lens (\ActionTypeSettings' {entityUrlTemplate} -> entityUrlTemplate) (\s@ActionTypeSettings' {} a -> s {entityUrlTemplate = a} :: ActionTypeSettings)
 
--- | The URL of a sign-up page where users can sign up for an external
--- service and perform initial configuration of the action provided by that
--- service.
-actionTypeSettings_thirdPartyConfigurationUrl :: Lens.Lens' ActionTypeSettings (Prelude.Maybe Prelude.Text)
-actionTypeSettings_thirdPartyConfigurationUrl = Lens.lens (\ActionTypeSettings' {thirdPartyConfigurationUrl} -> thirdPartyConfigurationUrl) (\s@ActionTypeSettings' {} a -> s {thirdPartyConfigurationUrl = a} :: ActionTypeSettings)
-
 instance Core.FromJSON ActionTypeSettings where
   parseJSON =
     Core.withObject
       "ActionTypeSettings"
       ( \x ->
           ActionTypeSettings'
-            Prelude.<$> (x Core..:? "executionUrlTemplate")
+            Prelude.<$> (x Core..:? "thirdPartyConfigurationUrl")
+            Prelude.<*> (x Core..:? "executionUrlTemplate")
             Prelude.<*> (x Core..:? "revisionUrlTemplate")
             Prelude.<*> (x Core..:? "entityUrlTemplate")
-            Prelude.<*> (x Core..:? "thirdPartyConfigurationUrl")
       )
 
 instance Prelude.Hashable ActionTypeSettings
@@ -133,13 +133,13 @@ instance Core.ToJSON ActionTypeSettings where
   toJSON ActionTypeSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("executionUrlTemplate" Core..=)
+          [ ("thirdPartyConfigurationUrl" Core..=)
+              Prelude.<$> thirdPartyConfigurationUrl,
+            ("executionUrlTemplate" Core..=)
               Prelude.<$> executionUrlTemplate,
             ("revisionUrlTemplate" Core..=)
               Prelude.<$> revisionUrlTemplate,
             ("entityUrlTemplate" Core..=)
-              Prelude.<$> entityUrlTemplate,
-            ("thirdPartyConfigurationUrl" Core..=)
-              Prelude.<$> thirdPartyConfigurationUrl
+              Prelude.<$> entityUrlTemplate
           ]
       )

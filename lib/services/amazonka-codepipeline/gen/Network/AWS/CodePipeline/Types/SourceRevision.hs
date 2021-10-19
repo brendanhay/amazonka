@@ -28,10 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSourceRevision' smart constructor.
 data SourceRevision = SourceRevision'
-  { -- | The system-generated unique ID that identifies the revision number of
-    -- the artifact.
-    revisionId :: Prelude.Maybe Prelude.Text,
-    -- | Summary information about the most recent revision of the artifact. For
+  { -- | Summary information about the most recent revision of the artifact. For
     -- GitHub and AWS CodeCommit repositories, the commit message. For Amazon
     -- S3 buckets or actions, the user-provided content of a
     -- @codepipeline-artifact-revision-summary@ key specified in the object
@@ -41,6 +38,9 @@ data SourceRevision = SourceRevision'
     -- or AWS CodeCommit repositories, the commit ID is linked to a commit
     -- details page.
     revisionUrl :: Prelude.Maybe Prelude.Text,
+    -- | The system-generated unique ID that identifies the revision number of
+    -- the artifact.
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the action that processed the revision to the source
     -- artifact.
     actionName :: Prelude.Text
@@ -55,9 +55,6 @@ data SourceRevision = SourceRevision'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revisionId', 'sourceRevision_revisionId' - The system-generated unique ID that identifies the revision number of
--- the artifact.
---
 -- 'revisionSummary', 'sourceRevision_revisionSummary' - Summary information about the most recent revision of the artifact. For
 -- GitHub and AWS CodeCommit repositories, the commit message. For Amazon
 -- S3 buckets or actions, the user-provided content of a
@@ -68,6 +65,9 @@ data SourceRevision = SourceRevision'
 -- or AWS CodeCommit repositories, the commit ID is linked to a commit
 -- details page.
 --
+-- 'revisionId', 'sourceRevision_revisionId' - The system-generated unique ID that identifies the revision number of
+-- the artifact.
+--
 -- 'actionName', 'sourceRevision_actionName' - The name of the action that processed the revision to the source
 -- artifact.
 newSourceRevision ::
@@ -76,16 +76,11 @@ newSourceRevision ::
   SourceRevision
 newSourceRevision pActionName_ =
   SourceRevision'
-    { revisionId = Prelude.Nothing,
-      revisionSummary = Prelude.Nothing,
+    { revisionSummary = Prelude.Nothing,
       revisionUrl = Prelude.Nothing,
+      revisionId = Prelude.Nothing,
       actionName = pActionName_
     }
-
--- | The system-generated unique ID that identifies the revision number of
--- the artifact.
-sourceRevision_revisionId :: Lens.Lens' SourceRevision (Prelude.Maybe Prelude.Text)
-sourceRevision_revisionId = Lens.lens (\SourceRevision' {revisionId} -> revisionId) (\s@SourceRevision' {} a -> s {revisionId = a} :: SourceRevision)
 
 -- | Summary information about the most recent revision of the artifact. For
 -- GitHub and AWS CodeCommit repositories, the commit message. For Amazon
@@ -101,6 +96,11 @@ sourceRevision_revisionSummary = Lens.lens (\SourceRevision' {revisionSummary} -
 sourceRevision_revisionUrl :: Lens.Lens' SourceRevision (Prelude.Maybe Prelude.Text)
 sourceRevision_revisionUrl = Lens.lens (\SourceRevision' {revisionUrl} -> revisionUrl) (\s@SourceRevision' {} a -> s {revisionUrl = a} :: SourceRevision)
 
+-- | The system-generated unique ID that identifies the revision number of
+-- the artifact.
+sourceRevision_revisionId :: Lens.Lens' SourceRevision (Prelude.Maybe Prelude.Text)
+sourceRevision_revisionId = Lens.lens (\SourceRevision' {revisionId} -> revisionId) (\s@SourceRevision' {} a -> s {revisionId = a} :: SourceRevision)
+
 -- | The name of the action that processed the revision to the source
 -- artifact.
 sourceRevision_actionName :: Lens.Lens' SourceRevision Prelude.Text
@@ -112,9 +112,9 @@ instance Core.FromJSON SourceRevision where
       "SourceRevision"
       ( \x ->
           SourceRevision'
-            Prelude.<$> (x Core..:? "revisionId")
-            Prelude.<*> (x Core..:? "revisionSummary")
+            Prelude.<$> (x Core..:? "revisionSummary")
             Prelude.<*> (x Core..:? "revisionUrl")
+            Prelude.<*> (x Core..:? "revisionId")
             Prelude.<*> (x Core..: "actionName")
       )
 

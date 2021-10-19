@@ -28,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newExecutionDetails' smart constructor.
 data ExecutionDetails = ExecutionDetails'
-  { -- | The percentage of work completed on the action, represented on a scale
-    -- of 0 to 100 percent.
-    percentComplete :: Prelude.Maybe Prelude.Natural,
+  { -- | The summary of the current status of the actions.
+    summary :: Prelude.Maybe Prelude.Text,
     -- | The system-generated unique ID of this action used to identify this job
     -- worker in any external systems, such as AWS CodeDeploy.
     externalExecutionId :: Prelude.Maybe Prelude.Text,
-    -- | The summary of the current status of the actions.
-    summary :: Prelude.Maybe Prelude.Text
+    -- | The percentage of work completed on the action, represented on a scale
+    -- of 0 to 100 percent.
+    percentComplete :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,36 +47,35 @@ data ExecutionDetails = ExecutionDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'percentComplete', 'executionDetails_percentComplete' - The percentage of work completed on the action, represented on a scale
--- of 0 to 100 percent.
+-- 'summary', 'executionDetails_summary' - The summary of the current status of the actions.
 --
 -- 'externalExecutionId', 'executionDetails_externalExecutionId' - The system-generated unique ID of this action used to identify this job
 -- worker in any external systems, such as AWS CodeDeploy.
 --
--- 'summary', 'executionDetails_summary' - The summary of the current status of the actions.
+-- 'percentComplete', 'executionDetails_percentComplete' - The percentage of work completed on the action, represented on a scale
+-- of 0 to 100 percent.
 newExecutionDetails ::
   ExecutionDetails
 newExecutionDetails =
   ExecutionDetails'
-    { percentComplete =
-        Prelude.Nothing,
+    { summary = Prelude.Nothing,
       externalExecutionId = Prelude.Nothing,
-      summary = Prelude.Nothing
+      percentComplete = Prelude.Nothing
     }
 
--- | The percentage of work completed on the action, represented on a scale
--- of 0 to 100 percent.
-executionDetails_percentComplete :: Lens.Lens' ExecutionDetails (Prelude.Maybe Prelude.Natural)
-executionDetails_percentComplete = Lens.lens (\ExecutionDetails' {percentComplete} -> percentComplete) (\s@ExecutionDetails' {} a -> s {percentComplete = a} :: ExecutionDetails)
+-- | The summary of the current status of the actions.
+executionDetails_summary :: Lens.Lens' ExecutionDetails (Prelude.Maybe Prelude.Text)
+executionDetails_summary = Lens.lens (\ExecutionDetails' {summary} -> summary) (\s@ExecutionDetails' {} a -> s {summary = a} :: ExecutionDetails)
 
 -- | The system-generated unique ID of this action used to identify this job
 -- worker in any external systems, such as AWS CodeDeploy.
 executionDetails_externalExecutionId :: Lens.Lens' ExecutionDetails (Prelude.Maybe Prelude.Text)
 executionDetails_externalExecutionId = Lens.lens (\ExecutionDetails' {externalExecutionId} -> externalExecutionId) (\s@ExecutionDetails' {} a -> s {externalExecutionId = a} :: ExecutionDetails)
 
--- | The summary of the current status of the actions.
-executionDetails_summary :: Lens.Lens' ExecutionDetails (Prelude.Maybe Prelude.Text)
-executionDetails_summary = Lens.lens (\ExecutionDetails' {summary} -> summary) (\s@ExecutionDetails' {} a -> s {summary = a} :: ExecutionDetails)
+-- | The percentage of work completed on the action, represented on a scale
+-- of 0 to 100 percent.
+executionDetails_percentComplete :: Lens.Lens' ExecutionDetails (Prelude.Maybe Prelude.Natural)
+executionDetails_percentComplete = Lens.lens (\ExecutionDetails' {percentComplete} -> percentComplete) (\s@ExecutionDetails' {} a -> s {percentComplete = a} :: ExecutionDetails)
 
 instance Prelude.Hashable ExecutionDetails
 
@@ -86,10 +85,10 @@ instance Core.ToJSON ExecutionDetails where
   toJSON ExecutionDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("percentComplete" Core..=)
-              Prelude.<$> percentComplete,
+          [ ("summary" Core..=) Prelude.<$> summary,
             ("externalExecutionId" Core..=)
               Prelude.<$> externalExecutionId,
-            ("summary" Core..=) Prelude.<$> summary
+            ("percentComplete" Core..=)
+              Prelude.<$> percentComplete
           ]
       )

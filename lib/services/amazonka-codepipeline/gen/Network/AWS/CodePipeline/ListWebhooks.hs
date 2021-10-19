@@ -212,7 +212,7 @@ listWebhooksResponse_nextToken = Lens.lens (\ListWebhooksResponse' {nextToken} -
 -- | The JSON detail returned for each webhook in the list output for the
 -- ListWebhooks call.
 listWebhooksResponse_webhooks :: Lens.Lens' ListWebhooksResponse (Prelude.Maybe [ListWebhookItem])
-listWebhooksResponse_webhooks = Lens.lens (\ListWebhooksResponse' {webhooks} -> webhooks) (\s@ListWebhooksResponse' {} a -> s {webhooks = a} :: ListWebhooksResponse) Prelude.. Lens.mapping Lens._Coerce
+listWebhooksResponse_webhooks = Lens.lens (\ListWebhooksResponse' {webhooks} -> webhooks) (\s@ListWebhooksResponse' {} a -> s {webhooks = a} :: ListWebhooksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listWebhooksResponse_httpStatus :: Lens.Lens' ListWebhooksResponse Prelude.Int

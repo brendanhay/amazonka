@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPipelineSummary' smart constructor.
 data PipelineSummary = PipelineSummary'
-  { -- | The version number of the pipeline.
-    version :: Prelude.Maybe Prelude.Natural,
+  { -- | The date and time the pipeline was created, in timestamp format.
+    created :: Prelude.Maybe Core.POSIX,
     -- | The name of the pipeline.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The date and time the pipeline was created, in timestamp format.
-    created :: Prelude.Maybe Core.POSIX,
+    -- | The version number of the pipeline.
+    version :: Prelude.Maybe Prelude.Natural,
     -- | The date and time of the last update to the pipeline, in timestamp
     -- format.
     updated :: Prelude.Maybe Core.POSIX
@@ -47,11 +47,11 @@ data PipelineSummary = PipelineSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'version', 'pipelineSummary_version' - The version number of the pipeline.
+-- 'created', 'pipelineSummary_created' - The date and time the pipeline was created, in timestamp format.
 --
 -- 'name', 'pipelineSummary_name' - The name of the pipeline.
 --
--- 'created', 'pipelineSummary_created' - The date and time the pipeline was created, in timestamp format.
+-- 'version', 'pipelineSummary_version' - The version number of the pipeline.
 --
 -- 'updated', 'pipelineSummary_updated' - The date and time of the last update to the pipeline, in timestamp
 -- format.
@@ -59,23 +59,23 @@ newPipelineSummary ::
   PipelineSummary
 newPipelineSummary =
   PipelineSummary'
-    { version = Prelude.Nothing,
+    { created = Prelude.Nothing,
       name = Prelude.Nothing,
-      created = Prelude.Nothing,
+      version = Prelude.Nothing,
       updated = Prelude.Nothing
     }
 
--- | The version number of the pipeline.
-pipelineSummary_version :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.Natural)
-pipelineSummary_version = Lens.lens (\PipelineSummary' {version} -> version) (\s@PipelineSummary' {} a -> s {version = a} :: PipelineSummary)
+-- | The date and time the pipeline was created, in timestamp format.
+pipelineSummary_created :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.UTCTime)
+pipelineSummary_created = Lens.lens (\PipelineSummary' {created} -> created) (\s@PipelineSummary' {} a -> s {created = a} :: PipelineSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the pipeline.
 pipelineSummary_name :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.Text)
 pipelineSummary_name = Lens.lens (\PipelineSummary' {name} -> name) (\s@PipelineSummary' {} a -> s {name = a} :: PipelineSummary)
 
--- | The date and time the pipeline was created, in timestamp format.
-pipelineSummary_created :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.UTCTime)
-pipelineSummary_created = Lens.lens (\PipelineSummary' {created} -> created) (\s@PipelineSummary' {} a -> s {created = a} :: PipelineSummary) Prelude.. Lens.mapping Core._Time
+-- | The version number of the pipeline.
+pipelineSummary_version :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.Natural)
+pipelineSummary_version = Lens.lens (\PipelineSummary' {version} -> version) (\s@PipelineSummary' {} a -> s {version = a} :: PipelineSummary)
 
 -- | The date and time of the last update to the pipeline, in timestamp
 -- format.
@@ -88,9 +88,9 @@ instance Core.FromJSON PipelineSummary where
       "PipelineSummary"
       ( \x ->
           PipelineSummary'
-            Prelude.<$> (x Core..:? "version")
+            Prelude.<$> (x Core..:? "created")
             Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "created")
+            Prelude.<*> (x Core..:? "version")
             Prelude.<*> (x Core..:? "updated")
       )
 

@@ -29,36 +29,36 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newActionExecution' smart constructor.
 data ActionExecution = ActionExecution'
-  { -- | The status of the action, or for a completed action, the last status of
+  { -- | The ARN of the user who last changed the pipeline.
+    lastUpdatedBy :: Prelude.Maybe Prelude.Text,
+    -- | A summary of the run of the action.
+    summary :: Prelude.Maybe Prelude.Text,
+    -- | The status of the action, or for a completed action, the last status of
     -- the action.
     status :: Prelude.Maybe ActionExecutionStatus,
+    -- | The last status change of the action.
+    lastStatusChange :: Prelude.Maybe Core.POSIX,
+    -- | The system-generated token used to identify a unique approval request.
+    -- The token for each open approval request can be obtained using the
+    -- @GetPipelineState@ command. It is used to validate that the approval
+    -- request corresponding to this token is still valid.
+    token :: Prelude.Maybe Prelude.Text,
+    -- | The URL of a resource external to AWS that is used when running the
+    -- action (for example, an external repository URL).
+    externalExecutionUrl :: Prelude.Maybe Prelude.Text,
+    -- | The external ID of the run of the action.
+    externalExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | The details of an error returned by a URL external to AWS.
+    errorDetails :: Prelude.Maybe ErrorDetails,
+    -- | A percentage of completeness of the action as it runs.
+    percentComplete :: Prelude.Maybe Prelude.Natural,
     -- | ID of the workflow action execution in the current stage. Use the
     -- GetPipelineState action to retrieve the current action execution details
     -- of the current stage.
     --
     -- For older executions, this field might be empty. The action execution ID
     -- is available for executions run on or after March 2020.
-    actionExecutionId :: Prelude.Maybe Prelude.Text,
-    -- | The last status change of the action.
-    lastStatusChange :: Prelude.Maybe Core.POSIX,
-    -- | A percentage of completeness of the action as it runs.
-    percentComplete :: Prelude.Maybe Prelude.Natural,
-    -- | The external ID of the run of the action.
-    externalExecutionId :: Prelude.Maybe Prelude.Text,
-    -- | The URL of a resource external to AWS that is used when running the
-    -- action (for example, an external repository URL).
-    externalExecutionUrl :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the user who last changed the pipeline.
-    lastUpdatedBy :: Prelude.Maybe Prelude.Text,
-    -- | A summary of the run of the action.
-    summary :: Prelude.Maybe Prelude.Text,
-    -- | The system-generated token used to identify a unique approval request.
-    -- The token for each open approval request can be obtained using the
-    -- @GetPipelineState@ command. It is used to validate that the approval
-    -- request corresponding to this token is still valid.
-    token :: Prelude.Maybe Prelude.Text,
-    -- | The details of an error returned by a URL external to AWS.
-    errorDetails :: Prelude.Maybe ErrorDetails
+    actionExecutionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,8 +70,28 @@ data ActionExecution = ActionExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastUpdatedBy', 'actionExecution_lastUpdatedBy' - The ARN of the user who last changed the pipeline.
+--
+-- 'summary', 'actionExecution_summary' - A summary of the run of the action.
+--
 -- 'status', 'actionExecution_status' - The status of the action, or for a completed action, the last status of
 -- the action.
+--
+-- 'lastStatusChange', 'actionExecution_lastStatusChange' - The last status change of the action.
+--
+-- 'token', 'actionExecution_token' - The system-generated token used to identify a unique approval request.
+-- The token for each open approval request can be obtained using the
+-- @GetPipelineState@ command. It is used to validate that the approval
+-- request corresponding to this token is still valid.
+--
+-- 'externalExecutionUrl', 'actionExecution_externalExecutionUrl' - The URL of a resource external to AWS that is used when running the
+-- action (for example, an external repository URL).
+--
+-- 'externalExecutionId', 'actionExecution_externalExecutionId' - The external ID of the run of the action.
+--
+-- 'errorDetails', 'actionExecution_errorDetails' - The details of an error returned by a URL external to AWS.
+--
+-- 'percentComplete', 'actionExecution_percentComplete' - A percentage of completeness of the action as it runs.
 --
 -- 'actionExecutionId', 'actionExecution_actionExecutionId' - ID of the workflow action execution in the current stage. Use the
 -- GetPipelineState action to retrieve the current action execution details
@@ -79,46 +99,62 @@ data ActionExecution = ActionExecution'
 --
 -- For older executions, this field might be empty. The action execution ID
 -- is available for executions run on or after March 2020.
---
--- 'lastStatusChange', 'actionExecution_lastStatusChange' - The last status change of the action.
---
--- 'percentComplete', 'actionExecution_percentComplete' - A percentage of completeness of the action as it runs.
---
--- 'externalExecutionId', 'actionExecution_externalExecutionId' - The external ID of the run of the action.
---
--- 'externalExecutionUrl', 'actionExecution_externalExecutionUrl' - The URL of a resource external to AWS that is used when running the
--- action (for example, an external repository URL).
---
--- 'lastUpdatedBy', 'actionExecution_lastUpdatedBy' - The ARN of the user who last changed the pipeline.
---
--- 'summary', 'actionExecution_summary' - A summary of the run of the action.
---
--- 'token', 'actionExecution_token' - The system-generated token used to identify a unique approval request.
--- The token for each open approval request can be obtained using the
--- @GetPipelineState@ command. It is used to validate that the approval
--- request corresponding to this token is still valid.
---
--- 'errorDetails', 'actionExecution_errorDetails' - The details of an error returned by a URL external to AWS.
 newActionExecution ::
   ActionExecution
 newActionExecution =
   ActionExecution'
-    { status = Prelude.Nothing,
-      actionExecutionId = Prelude.Nothing,
-      lastStatusChange = Prelude.Nothing,
-      percentComplete = Prelude.Nothing,
-      externalExecutionId = Prelude.Nothing,
-      externalExecutionUrl = Prelude.Nothing,
-      lastUpdatedBy = Prelude.Nothing,
+    { lastUpdatedBy = Prelude.Nothing,
       summary = Prelude.Nothing,
+      status = Prelude.Nothing,
+      lastStatusChange = Prelude.Nothing,
       token = Prelude.Nothing,
-      errorDetails = Prelude.Nothing
+      externalExecutionUrl = Prelude.Nothing,
+      externalExecutionId = Prelude.Nothing,
+      errorDetails = Prelude.Nothing,
+      percentComplete = Prelude.Nothing,
+      actionExecutionId = Prelude.Nothing
     }
+
+-- | The ARN of the user who last changed the pipeline.
+actionExecution_lastUpdatedBy :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
+actionExecution_lastUpdatedBy = Lens.lens (\ActionExecution' {lastUpdatedBy} -> lastUpdatedBy) (\s@ActionExecution' {} a -> s {lastUpdatedBy = a} :: ActionExecution)
+
+-- | A summary of the run of the action.
+actionExecution_summary :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
+actionExecution_summary = Lens.lens (\ActionExecution' {summary} -> summary) (\s@ActionExecution' {} a -> s {summary = a} :: ActionExecution)
 
 -- | The status of the action, or for a completed action, the last status of
 -- the action.
 actionExecution_status :: Lens.Lens' ActionExecution (Prelude.Maybe ActionExecutionStatus)
 actionExecution_status = Lens.lens (\ActionExecution' {status} -> status) (\s@ActionExecution' {} a -> s {status = a} :: ActionExecution)
+
+-- | The last status change of the action.
+actionExecution_lastStatusChange :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.UTCTime)
+actionExecution_lastStatusChange = Lens.lens (\ActionExecution' {lastStatusChange} -> lastStatusChange) (\s@ActionExecution' {} a -> s {lastStatusChange = a} :: ActionExecution) Prelude.. Lens.mapping Core._Time
+
+-- | The system-generated token used to identify a unique approval request.
+-- The token for each open approval request can be obtained using the
+-- @GetPipelineState@ command. It is used to validate that the approval
+-- request corresponding to this token is still valid.
+actionExecution_token :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
+actionExecution_token = Lens.lens (\ActionExecution' {token} -> token) (\s@ActionExecution' {} a -> s {token = a} :: ActionExecution)
+
+-- | The URL of a resource external to AWS that is used when running the
+-- action (for example, an external repository URL).
+actionExecution_externalExecutionUrl :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
+actionExecution_externalExecutionUrl = Lens.lens (\ActionExecution' {externalExecutionUrl} -> externalExecutionUrl) (\s@ActionExecution' {} a -> s {externalExecutionUrl = a} :: ActionExecution)
+
+-- | The external ID of the run of the action.
+actionExecution_externalExecutionId :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
+actionExecution_externalExecutionId = Lens.lens (\ActionExecution' {externalExecutionId} -> externalExecutionId) (\s@ActionExecution' {} a -> s {externalExecutionId = a} :: ActionExecution)
+
+-- | The details of an error returned by a URL external to AWS.
+actionExecution_errorDetails :: Lens.Lens' ActionExecution (Prelude.Maybe ErrorDetails)
+actionExecution_errorDetails = Lens.lens (\ActionExecution' {errorDetails} -> errorDetails) (\s@ActionExecution' {} a -> s {errorDetails = a} :: ActionExecution)
+
+-- | A percentage of completeness of the action as it runs.
+actionExecution_percentComplete :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Natural)
+actionExecution_percentComplete = Lens.lens (\ActionExecution' {percentComplete} -> percentComplete) (\s@ActionExecution' {} a -> s {percentComplete = a} :: ActionExecution)
 
 -- | ID of the workflow action execution in the current stage. Use the
 -- GetPipelineState action to retrieve the current action execution details
@@ -129,58 +165,22 @@ actionExecution_status = Lens.lens (\ActionExecution' {status} -> status) (\s@Ac
 actionExecution_actionExecutionId :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
 actionExecution_actionExecutionId = Lens.lens (\ActionExecution' {actionExecutionId} -> actionExecutionId) (\s@ActionExecution' {} a -> s {actionExecutionId = a} :: ActionExecution)
 
--- | The last status change of the action.
-actionExecution_lastStatusChange :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.UTCTime)
-actionExecution_lastStatusChange = Lens.lens (\ActionExecution' {lastStatusChange} -> lastStatusChange) (\s@ActionExecution' {} a -> s {lastStatusChange = a} :: ActionExecution) Prelude.. Lens.mapping Core._Time
-
--- | A percentage of completeness of the action as it runs.
-actionExecution_percentComplete :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Natural)
-actionExecution_percentComplete = Lens.lens (\ActionExecution' {percentComplete} -> percentComplete) (\s@ActionExecution' {} a -> s {percentComplete = a} :: ActionExecution)
-
--- | The external ID of the run of the action.
-actionExecution_externalExecutionId :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
-actionExecution_externalExecutionId = Lens.lens (\ActionExecution' {externalExecutionId} -> externalExecutionId) (\s@ActionExecution' {} a -> s {externalExecutionId = a} :: ActionExecution)
-
--- | The URL of a resource external to AWS that is used when running the
--- action (for example, an external repository URL).
-actionExecution_externalExecutionUrl :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
-actionExecution_externalExecutionUrl = Lens.lens (\ActionExecution' {externalExecutionUrl} -> externalExecutionUrl) (\s@ActionExecution' {} a -> s {externalExecutionUrl = a} :: ActionExecution)
-
--- | The ARN of the user who last changed the pipeline.
-actionExecution_lastUpdatedBy :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
-actionExecution_lastUpdatedBy = Lens.lens (\ActionExecution' {lastUpdatedBy} -> lastUpdatedBy) (\s@ActionExecution' {} a -> s {lastUpdatedBy = a} :: ActionExecution)
-
--- | A summary of the run of the action.
-actionExecution_summary :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
-actionExecution_summary = Lens.lens (\ActionExecution' {summary} -> summary) (\s@ActionExecution' {} a -> s {summary = a} :: ActionExecution)
-
--- | The system-generated token used to identify a unique approval request.
--- The token for each open approval request can be obtained using the
--- @GetPipelineState@ command. It is used to validate that the approval
--- request corresponding to this token is still valid.
-actionExecution_token :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
-actionExecution_token = Lens.lens (\ActionExecution' {token} -> token) (\s@ActionExecution' {} a -> s {token = a} :: ActionExecution)
-
--- | The details of an error returned by a URL external to AWS.
-actionExecution_errorDetails :: Lens.Lens' ActionExecution (Prelude.Maybe ErrorDetails)
-actionExecution_errorDetails = Lens.lens (\ActionExecution' {errorDetails} -> errorDetails) (\s@ActionExecution' {} a -> s {errorDetails = a} :: ActionExecution)
-
 instance Core.FromJSON ActionExecution where
   parseJSON =
     Core.withObject
       "ActionExecution"
       ( \x ->
           ActionExecution'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "actionExecutionId")
-            Prelude.<*> (x Core..:? "lastStatusChange")
-            Prelude.<*> (x Core..:? "percentComplete")
-            Prelude.<*> (x Core..:? "externalExecutionId")
-            Prelude.<*> (x Core..:? "externalExecutionUrl")
-            Prelude.<*> (x Core..:? "lastUpdatedBy")
+            Prelude.<$> (x Core..:? "lastUpdatedBy")
             Prelude.<*> (x Core..:? "summary")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "lastStatusChange")
             Prelude.<*> (x Core..:? "token")
+            Prelude.<*> (x Core..:? "externalExecutionUrl")
+            Prelude.<*> (x Core..:? "externalExecutionId")
             Prelude.<*> (x Core..:? "errorDetails")
+            Prelude.<*> (x Core..:? "percentComplete")
+            Prelude.<*> (x Core..:? "actionExecutionId")
       )
 
 instance Prelude.Hashable ActionExecution

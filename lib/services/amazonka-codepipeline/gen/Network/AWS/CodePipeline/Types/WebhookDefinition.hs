@@ -147,7 +147,7 @@ webhookDefinition_targetAction = Lens.lens (\WebhookDefinition' {targetAction} -
 -- a webhook URL. All defined rules must pass for the request to be
 -- accepted and the pipeline started.
 webhookDefinition_filters :: Lens.Lens' WebhookDefinition [WebhookFilterRule]
-webhookDefinition_filters = Lens.lens (\WebhookDefinition' {filters} -> filters) (\s@WebhookDefinition' {} a -> s {filters = a} :: WebhookDefinition) Prelude.. Lens._Coerce
+webhookDefinition_filters = Lens.lens (\WebhookDefinition' {filters} -> filters) (\s@WebhookDefinition' {} a -> s {filters = a} :: WebhookDefinition) Prelude.. Lens.coerced
 
 -- | Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.
 --

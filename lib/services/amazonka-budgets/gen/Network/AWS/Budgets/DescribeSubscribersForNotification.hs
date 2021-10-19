@@ -281,7 +281,7 @@ describeSubscribersForNotificationResponse_nextToken = Lens.lens (\DescribeSubsc
 
 -- | A list of subscribers that are associated with a notification.
 describeSubscribersForNotificationResponse_subscribers :: Lens.Lens' DescribeSubscribersForNotificationResponse (Prelude.Maybe (Prelude.NonEmpty Subscriber))
-describeSubscribersForNotificationResponse_subscribers = Lens.lens (\DescribeSubscribersForNotificationResponse' {subscribers} -> subscribers) (\s@DescribeSubscribersForNotificationResponse' {} a -> s {subscribers = a} :: DescribeSubscribersForNotificationResponse) Prelude.. Lens.mapping Lens._Coerce
+describeSubscribersForNotificationResponse_subscribers = Lens.lens (\DescribeSubscribersForNotificationResponse' {subscribers} -> subscribers) (\s@DescribeSubscribersForNotificationResponse' {} a -> s {subscribers = a} :: DescribeSubscribersForNotificationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeSubscribersForNotificationResponse_httpStatus :: Lens.Lens' DescribeSubscribersForNotificationResponse Prelude.Int

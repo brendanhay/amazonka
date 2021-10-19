@@ -29,9 +29,9 @@ module Network.AWS.Budgets.DescribeBudgetActionHistories
     newDescribeBudgetActionHistories,
 
     -- * Request Lenses
+    describeBudgetActionHistories_timePeriod,
     describeBudgetActionHistories_nextToken,
     describeBudgetActionHistories_maxResults,
-    describeBudgetActionHistories_timePeriod,
     describeBudgetActionHistories_accountId,
     describeBudgetActionHistories_budgetName,
     describeBudgetActionHistories_actionId,
@@ -56,9 +56,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeBudgetActionHistories' smart constructor.
 data DescribeBudgetActionHistories = DescribeBudgetActionHistories'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { timePeriod :: Prelude.Maybe TimePeriod,
+    nextToken :: Prelude.Maybe Prelude.Text,
     maxResults :: Prelude.Maybe Prelude.Natural,
-    timePeriod :: Prelude.Maybe TimePeriod,
     accountId :: Prelude.Text,
     budgetName :: Prelude.Text,
     -- | A system-generated universally unique identifier (UUID) for the action.
@@ -74,11 +74,11 @@ data DescribeBudgetActionHistories = DescribeBudgetActionHistories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'timePeriod', 'describeBudgetActionHistories_timePeriod' - Undocumented member.
+--
 -- 'nextToken', 'describeBudgetActionHistories_nextToken' - Undocumented member.
 --
 -- 'maxResults', 'describeBudgetActionHistories_maxResults' - Undocumented member.
---
--- 'timePeriod', 'describeBudgetActionHistories_timePeriod' - Undocumented member.
 --
 -- 'accountId', 'describeBudgetActionHistories_accountId' - Undocumented member.
 --
@@ -98,14 +98,18 @@ newDescribeBudgetActionHistories
   pBudgetName_
   pActionId_ =
     DescribeBudgetActionHistories'
-      { nextToken =
+      { timePeriod =
           Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
-        timePeriod = Prelude.Nothing,
         accountId = pAccountId_,
         budgetName = pBudgetName_,
         actionId = pActionId_
       }
+
+-- | Undocumented member.
+describeBudgetActionHistories_timePeriod :: Lens.Lens' DescribeBudgetActionHistories (Prelude.Maybe TimePeriod)
+describeBudgetActionHistories_timePeriod = Lens.lens (\DescribeBudgetActionHistories' {timePeriod} -> timePeriod) (\s@DescribeBudgetActionHistories' {} a -> s {timePeriod = a} :: DescribeBudgetActionHistories)
 
 -- | Undocumented member.
 describeBudgetActionHistories_nextToken :: Lens.Lens' DescribeBudgetActionHistories (Prelude.Maybe Prelude.Text)
@@ -114,10 +118,6 @@ describeBudgetActionHistories_nextToken = Lens.lens (\DescribeBudgetActionHistor
 -- | Undocumented member.
 describeBudgetActionHistories_maxResults :: Lens.Lens' DescribeBudgetActionHistories (Prelude.Maybe Prelude.Natural)
 describeBudgetActionHistories_maxResults = Lens.lens (\DescribeBudgetActionHistories' {maxResults} -> maxResults) (\s@DescribeBudgetActionHistories' {} a -> s {maxResults = a} :: DescribeBudgetActionHistories)
-
--- | Undocumented member.
-describeBudgetActionHistories_timePeriod :: Lens.Lens' DescribeBudgetActionHistories (Prelude.Maybe TimePeriod)
-describeBudgetActionHistories_timePeriod = Lens.lens (\DescribeBudgetActionHistories' {timePeriod} -> timePeriod) (\s@DescribeBudgetActionHistories' {} a -> s {timePeriod = a} :: DescribeBudgetActionHistories)
 
 -- | Undocumented member.
 describeBudgetActionHistories_accountId :: Lens.Lens' DescribeBudgetActionHistories Prelude.Text
@@ -196,9 +196,9 @@ instance Core.ToJSON DescribeBudgetActionHistories where
   toJSON DescribeBudgetActionHistories' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("TimePeriod" Core..=) Prelude.<$> timePeriod,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("TimePeriod" Core..=) Prelude.<$> timePeriod,
             Prelude.Just ("AccountId" Core..= accountId),
             Prelude.Just ("BudgetName" Core..= budgetName),
             Prelude.Just ("ActionId" Core..= actionId)
@@ -256,7 +256,7 @@ describeBudgetActionHistoriesResponse_httpStatus = Lens.lens (\DescribeBudgetAct
 
 -- | The historical record of the budget action resource.
 describeBudgetActionHistoriesResponse_actionHistories :: Lens.Lens' DescribeBudgetActionHistoriesResponse [ActionHistory]
-describeBudgetActionHistoriesResponse_actionHistories = Lens.lens (\DescribeBudgetActionHistoriesResponse' {actionHistories} -> actionHistories) (\s@DescribeBudgetActionHistoriesResponse' {} a -> s {actionHistories = a} :: DescribeBudgetActionHistoriesResponse) Prelude.. Lens._Coerce
+describeBudgetActionHistoriesResponse_actionHistories = Lens.lens (\DescribeBudgetActionHistoriesResponse' {actionHistories} -> actionHistories) (\s@DescribeBudgetActionHistoriesResponse' {} a -> s {actionHistories = a} :: DescribeBudgetActionHistoriesResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

@@ -67,15 +67,15 @@ newIamActionDefinition pPolicyArn_ =
 
 -- | A list of groups to be attached. There must be at least one group.
 iamActionDefinition_groups :: Lens.Lens' IamActionDefinition (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-iamActionDefinition_groups = Lens.lens (\IamActionDefinition' {groups} -> groups) (\s@IamActionDefinition' {} a -> s {groups = a} :: IamActionDefinition) Prelude.. Lens.mapping Lens._Coerce
+iamActionDefinition_groups = Lens.lens (\IamActionDefinition' {groups} -> groups) (\s@IamActionDefinition' {} a -> s {groups = a} :: IamActionDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of roles to be attached. There must be at least one role.
 iamActionDefinition_roles :: Lens.Lens' IamActionDefinition (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-iamActionDefinition_roles = Lens.lens (\IamActionDefinition' {roles} -> roles) (\s@IamActionDefinition' {} a -> s {roles = a} :: IamActionDefinition) Prelude.. Lens.mapping Lens._Coerce
+iamActionDefinition_roles = Lens.lens (\IamActionDefinition' {roles} -> roles) (\s@IamActionDefinition' {} a -> s {roles = a} :: IamActionDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of users to be attached. There must be at least one user.
 iamActionDefinition_users :: Lens.Lens' IamActionDefinition (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-iamActionDefinition_users = Lens.lens (\IamActionDefinition' {users} -> users) (\s@IamActionDefinition' {} a -> s {users = a} :: IamActionDefinition) Prelude.. Lens.mapping Lens._Coerce
+iamActionDefinition_users = Lens.lens (\IamActionDefinition' {users} -> users) (\s@IamActionDefinition' {} a -> s {users = a} :: IamActionDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the policy to be attached.
 iamActionDefinition_policyArn :: Lens.Lens' IamActionDefinition Prelude.Text

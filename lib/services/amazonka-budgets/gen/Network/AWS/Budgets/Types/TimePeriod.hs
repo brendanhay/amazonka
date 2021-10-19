@@ -29,15 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTimePeriod' smart constructor.
 data TimePeriod = TimePeriod'
-  { -- | The end date for a budget. If you didn\'t specify an end date, AWS set
-    -- your end date to @06\/15\/87 00:00 UTC@. The defaults are the same for
-    -- the AWS Billing and Cost Management console and the API.
-    --
-    -- After the end date, AWS deletes the budget and all associated
-    -- notifications and subscribers. You can change your end date with the
-    -- @UpdateBudget@ operation.
-    end :: Prelude.Maybe Core.POSIX,
-    -- | The start date for a budget. If you created your budget and didn\'t
+  { -- | The start date for a budget. If you created your budget and didn\'t
     -- specify a start date, AWS defaults to the start of your chosen time
     -- period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you
     -- created your budget on January 24, 2018, chose @DAILY@, and didn\'t set
@@ -47,7 +39,15 @@ data TimePeriod = TimePeriod'
     -- and the API.
     --
     -- You can change your start date with the @UpdateBudget@ operation.
-    start :: Prelude.Maybe Core.POSIX
+    start :: Prelude.Maybe Core.POSIX,
+    -- | The end date for a budget. If you didn\'t specify an end date, AWS set
+    -- your end date to @06\/15\/87 00:00 UTC@. The defaults are the same for
+    -- the AWS Billing and Cost Management console and the API.
+    --
+    -- After the end date, AWS deletes the budget and all associated
+    -- notifications and subscribers. You can change your end date with the
+    -- @UpdateBudget@ operation.
+    end :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,14 +59,6 @@ data TimePeriod = TimePeriod'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'end', 'timePeriod_end' - The end date for a budget. If you didn\'t specify an end date, AWS set
--- your end date to @06\/15\/87 00:00 UTC@. The defaults are the same for
--- the AWS Billing and Cost Management console and the API.
---
--- After the end date, AWS deletes the budget and all associated
--- notifications and subscribers. You can change your end date with the
--- @UpdateBudget@ operation.
---
 -- 'start', 'timePeriod_start' - The start date for a budget. If you created your budget and didn\'t
 -- specify a start date, AWS defaults to the start of your chosen time
 -- period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you
@@ -77,23 +69,21 @@ data TimePeriod = TimePeriod'
 -- and the API.
 --
 -- You can change your start date with the @UpdateBudget@ operation.
-newTimePeriod ::
-  TimePeriod
-newTimePeriod =
-  TimePeriod'
-    { end = Prelude.Nothing,
-      start = Prelude.Nothing
-    }
-
--- | The end date for a budget. If you didn\'t specify an end date, AWS set
+--
+-- 'end', 'timePeriod_end' - The end date for a budget. If you didn\'t specify an end date, AWS set
 -- your end date to @06\/15\/87 00:00 UTC@. The defaults are the same for
 -- the AWS Billing and Cost Management console and the API.
 --
 -- After the end date, AWS deletes the budget and all associated
 -- notifications and subscribers. You can change your end date with the
 -- @UpdateBudget@ operation.
-timePeriod_end :: Lens.Lens' TimePeriod (Prelude.Maybe Prelude.UTCTime)
-timePeriod_end = Lens.lens (\TimePeriod' {end} -> end) (\s@TimePeriod' {} a -> s {end = a} :: TimePeriod) Prelude.. Lens.mapping Core._Time
+newTimePeriod ::
+  TimePeriod
+newTimePeriod =
+  TimePeriod'
+    { start = Prelude.Nothing,
+      end = Prelude.Nothing
+    }
 
 -- | The start date for a budget. If you created your budget and didn\'t
 -- specify a start date, AWS defaults to the start of your chosen time
@@ -108,13 +98,23 @@ timePeriod_end = Lens.lens (\TimePeriod' {end} -> end) (\s@TimePeriod' {} a -> s
 timePeriod_start :: Lens.Lens' TimePeriod (Prelude.Maybe Prelude.UTCTime)
 timePeriod_start = Lens.lens (\TimePeriod' {start} -> start) (\s@TimePeriod' {} a -> s {start = a} :: TimePeriod) Prelude.. Lens.mapping Core._Time
 
+-- | The end date for a budget. If you didn\'t specify an end date, AWS set
+-- your end date to @06\/15\/87 00:00 UTC@. The defaults are the same for
+-- the AWS Billing and Cost Management console and the API.
+--
+-- After the end date, AWS deletes the budget and all associated
+-- notifications and subscribers. You can change your end date with the
+-- @UpdateBudget@ operation.
+timePeriod_end :: Lens.Lens' TimePeriod (Prelude.Maybe Prelude.UTCTime)
+timePeriod_end = Lens.lens (\TimePeriod' {end} -> end) (\s@TimePeriod' {} a -> s {end = a} :: TimePeriod) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromJSON TimePeriod where
   parseJSON =
     Core.withObject
       "TimePeriod"
       ( \x ->
           TimePeriod'
-            Prelude.<$> (x Core..:? "End") Prelude.<*> (x Core..:? "Start")
+            Prelude.<$> (x Core..:? "Start") Prelude.<*> (x Core..:? "End")
       )
 
 instance Prelude.Hashable TimePeriod
@@ -125,7 +125,7 @@ instance Core.ToJSON TimePeriod where
   toJSON TimePeriod' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("End" Core..=) Prelude.<$> end,
-            ("Start" Core..=) Prelude.<$> start
+          [ ("Start" Core..=) Prelude.<$> start,
+            ("End" Core..=) Prelude.<$> end
           ]
       )

@@ -62,7 +62,7 @@ newNotificationWithSubscribers
       { notification =
           pNotification_,
         subscribers =
-          Lens._Coerce Lens.# pSubscribers_
+          Lens.coerced Lens.# pSubscribers_
       }
 
 -- | The notification that is associated with a budget.
@@ -71,7 +71,7 @@ notificationWithSubscribers_notification = Lens.lens (\NotificationWithSubscribe
 
 -- | A list of subscribers who are subscribed to this notification.
 notificationWithSubscribers_subscribers :: Lens.Lens' NotificationWithSubscribers (Prelude.NonEmpty Subscriber)
-notificationWithSubscribers_subscribers = Lens.lens (\NotificationWithSubscribers' {subscribers} -> subscribers) (\s@NotificationWithSubscribers' {} a -> s {subscribers = a} :: NotificationWithSubscribers) Prelude.. Lens._Coerce
+notificationWithSubscribers_subscribers = Lens.lens (\NotificationWithSubscribers' {subscribers} -> subscribers) (\s@NotificationWithSubscribers' {} a -> s {subscribers = a} :: NotificationWithSubscribers) Prelude.. Lens.coerced
 
 instance Prelude.Hashable NotificationWithSubscribers
 

@@ -54,7 +54,7 @@ newScpActionDefinition ::
 newScpActionDefinition pPolicyId_ pTargetIds_ =
   ScpActionDefinition'
     { policyId = pPolicyId_,
-      targetIds = Lens._Coerce Lens.# pTargetIds_
+      targetIds = Lens.coerced Lens.# pTargetIds_
     }
 
 -- | The policy ID attached.
@@ -63,7 +63,7 @@ scpActionDefinition_policyId = Lens.lens (\ScpActionDefinition' {policyId} -> po
 
 -- | A list of target IDs.
 scpActionDefinition_targetIds :: Lens.Lens' ScpActionDefinition (Prelude.NonEmpty Prelude.Text)
-scpActionDefinition_targetIds = Lens.lens (\ScpActionDefinition' {targetIds} -> targetIds) (\s@ScpActionDefinition' {} a -> s {targetIds = a} :: ScpActionDefinition) Prelude.. Lens._Coerce
+scpActionDefinition_targetIds = Lens.lens (\ScpActionDefinition' {targetIds} -> targetIds) (\s@ScpActionDefinition' {} a -> s {targetIds = a} :: ScpActionDefinition) Prelude.. Lens.coerced
 
 instance Core.FromJSON ScpActionDefinition where
   parseJSON =

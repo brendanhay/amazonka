@@ -63,8 +63,14 @@ module Network.AWS.Budgets
     -- * Errors
     -- $errors
 
-    -- ** ResourceLockedException
-    _ResourceLockedException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InternalErrorException
+    _InternalErrorException,
 
     -- ** ExpiredNextTokenException
     _ExpiredNextTokenException,
@@ -72,20 +78,14 @@ module Network.AWS.Budgets
     -- ** NotFoundException
     _NotFoundException,
 
-    -- ** InternalErrorException
-    _InternalErrorException,
-
-    -- ** DuplicateRecordException
-    _DuplicateRecordException,
+    -- ** ResourceLockedException
+    _ResourceLockedException,
 
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
-    -- ** AccessDeniedException
-    _AccessDeniedException,
+    -- ** DuplicateRecordException
+    _DuplicateRecordException,
 
     -- ** CreationLimitExceededException
     _CreationLimitExceededException,
@@ -96,29 +96,11 @@ module Network.AWS.Budgets
     -- * Operations
     -- $operations
 
-    -- ** DescribeBudgetActionsForAccount (Paginated)
-    DescribeBudgetActionsForAccount (DescribeBudgetActionsForAccount'),
-    newDescribeBudgetActionsForAccount,
-    DescribeBudgetActionsForAccountResponse (DescribeBudgetActionsForAccountResponse'),
-    newDescribeBudgetActionsForAccountResponse,
-
     -- ** CreateBudgetAction
     CreateBudgetAction (CreateBudgetAction'),
     newCreateBudgetAction,
     CreateBudgetActionResponse (CreateBudgetActionResponse'),
     newCreateBudgetActionResponse,
-
-    -- ** ExecuteBudgetAction
-    ExecuteBudgetAction (ExecuteBudgetAction'),
-    newExecuteBudgetAction,
-    ExecuteBudgetActionResponse (ExecuteBudgetActionResponse'),
-    newExecuteBudgetActionResponse,
-
-    -- ** DescribeBudgetAction
-    DescribeBudgetAction (DescribeBudgetAction'),
-    newDescribeBudgetAction,
-    DescribeBudgetActionResponse (DescribeBudgetActionResponse'),
-    newDescribeBudgetActionResponse,
 
     -- ** UpdateBudgetAction
     UpdateBudgetAction (UpdateBudgetAction'),
@@ -132,17 +114,35 @@ module Network.AWS.Budgets
     DeleteBudgetActionResponse (DeleteBudgetActionResponse'),
     newDeleteBudgetActionResponse,
 
-    -- ** DescribeBudgetActionHistories (Paginated)
-    DescribeBudgetActionHistories (DescribeBudgetActionHistories'),
-    newDescribeBudgetActionHistories,
-    DescribeBudgetActionHistoriesResponse (DescribeBudgetActionHistoriesResponse'),
-    newDescribeBudgetActionHistoriesResponse,
-
     -- ** DescribeSubscribersForNotification (Paginated)
     DescribeSubscribersForNotification (DescribeSubscribersForNotification'),
     newDescribeSubscribersForNotification,
     DescribeSubscribersForNotificationResponse (DescribeSubscribersForNotificationResponse'),
     newDescribeSubscribersForNotificationResponse,
+
+    -- ** DescribeNotificationsForBudget (Paginated)
+    DescribeNotificationsForBudget (DescribeNotificationsForBudget'),
+    newDescribeNotificationsForBudget,
+    DescribeNotificationsForBudgetResponse (DescribeNotificationsForBudgetResponse'),
+    newDescribeNotificationsForBudgetResponse,
+
+    -- ** DescribeBudgets (Paginated)
+    DescribeBudgets (DescribeBudgets'),
+    newDescribeBudgets,
+    DescribeBudgetsResponse (DescribeBudgetsResponse'),
+    newDescribeBudgetsResponse,
+
+    -- ** CreateSubscriber
+    CreateSubscriber (CreateSubscriber'),
+    newCreateSubscriber,
+    CreateSubscriberResponse (CreateSubscriberResponse'),
+    newCreateSubscriberResponse,
+
+    -- ** ExecuteBudgetAction
+    ExecuteBudgetAction (ExecuteBudgetAction'),
+    newExecuteBudgetAction,
+    ExecuteBudgetActionResponse (ExecuteBudgetActionResponse'),
+    newExecuteBudgetActionResponse,
 
     -- ** UpdateBudget
     UpdateBudget (UpdateBudget'),
@@ -150,23 +150,71 @@ module Network.AWS.Budgets
     UpdateBudgetResponse (UpdateBudgetResponse'),
     newUpdateBudgetResponse,
 
-    -- ** DeleteNotification
-    DeleteNotification (DeleteNotification'),
-    newDeleteNotification,
-    DeleteNotificationResponse (DeleteNotificationResponse'),
-    newDeleteNotificationResponse,
-
     -- ** DeleteBudget
     DeleteBudget (DeleteBudget'),
     newDeleteBudget,
     DeleteBudgetResponse (DeleteBudgetResponse'),
     newDeleteBudgetResponse,
 
+    -- ** DeleteNotification
+    DeleteNotification (DeleteNotification'),
+    newDeleteNotification,
+    DeleteNotificationResponse (DeleteNotificationResponse'),
+    newDeleteNotificationResponse,
+
     -- ** UpdateNotification
     UpdateNotification (UpdateNotification'),
     newUpdateNotification,
     UpdateNotificationResponse (UpdateNotificationResponse'),
     newUpdateNotificationResponse,
+
+    -- ** DescribeBudgetActionsForAccount (Paginated)
+    DescribeBudgetActionsForAccount (DescribeBudgetActionsForAccount'),
+    newDescribeBudgetActionsForAccount,
+    DescribeBudgetActionsForAccountResponse (DescribeBudgetActionsForAccountResponse'),
+    newDescribeBudgetActionsForAccountResponse,
+
+    -- ** DescribeBudgetPerformanceHistory (Paginated)
+    DescribeBudgetPerformanceHistory (DescribeBudgetPerformanceHistory'),
+    newDescribeBudgetPerformanceHistory,
+    DescribeBudgetPerformanceHistoryResponse (DescribeBudgetPerformanceHistoryResponse'),
+    newDescribeBudgetPerformanceHistoryResponse,
+
+    -- ** DescribeBudgetActionHistories (Paginated)
+    DescribeBudgetActionHistories (DescribeBudgetActionHistories'),
+    newDescribeBudgetActionHistories,
+    DescribeBudgetActionHistoriesResponse (DescribeBudgetActionHistoriesResponse'),
+    newDescribeBudgetActionHistoriesResponse,
+
+    -- ** DescribeBudget
+    DescribeBudget (DescribeBudget'),
+    newDescribeBudget,
+    DescribeBudgetResponse (DescribeBudgetResponse'),
+    newDescribeBudgetResponse,
+
+    -- ** UpdateSubscriber
+    UpdateSubscriber (UpdateSubscriber'),
+    newUpdateSubscriber,
+    UpdateSubscriberResponse (UpdateSubscriberResponse'),
+    newUpdateSubscriberResponse,
+
+    -- ** DeleteSubscriber
+    DeleteSubscriber (DeleteSubscriber'),
+    newDeleteSubscriber,
+    DeleteSubscriberResponse (DeleteSubscriberResponse'),
+    newDeleteSubscriberResponse,
+
+    -- ** DescribeBudgetActionsForBudget (Paginated)
+    DescribeBudgetActionsForBudget (DescribeBudgetActionsForBudget'),
+    newDescribeBudgetActionsForBudget,
+    DescribeBudgetActionsForBudgetResponse (DescribeBudgetActionsForBudgetResponse'),
+    newDescribeBudgetActionsForBudgetResponse,
+
+    -- ** DescribeBudgetAction
+    DescribeBudgetAction (DescribeBudgetAction'),
+    newDescribeBudgetAction,
+    DescribeBudgetActionResponse (DescribeBudgetActionResponse'),
+    newDescribeBudgetActionResponse,
 
     -- ** CreateBudget
     CreateBudget (CreateBudget'),
@@ -179,54 +227,6 @@ module Network.AWS.Budgets
     newCreateNotification,
     CreateNotificationResponse (CreateNotificationResponse'),
     newCreateNotificationResponse,
-
-    -- ** CreateSubscriber
-    CreateSubscriber (CreateSubscriber'),
-    newCreateSubscriber,
-    CreateSubscriberResponse (CreateSubscriberResponse'),
-    newCreateSubscriberResponse,
-
-    -- ** DescribeBudgets (Paginated)
-    DescribeBudgets (DescribeBudgets'),
-    newDescribeBudgets,
-    DescribeBudgetsResponse (DescribeBudgetsResponse'),
-    newDescribeBudgetsResponse,
-
-    -- ** DeleteSubscriber
-    DeleteSubscriber (DeleteSubscriber'),
-    newDeleteSubscriber,
-    DeleteSubscriberResponse (DeleteSubscriberResponse'),
-    newDeleteSubscriberResponse,
-
-    -- ** UpdateSubscriber
-    UpdateSubscriber (UpdateSubscriber'),
-    newUpdateSubscriber,
-    UpdateSubscriberResponse (UpdateSubscriberResponse'),
-    newUpdateSubscriberResponse,
-
-    -- ** DescribeBudgetActionsForBudget (Paginated)
-    DescribeBudgetActionsForBudget (DescribeBudgetActionsForBudget'),
-    newDescribeBudgetActionsForBudget,
-    DescribeBudgetActionsForBudgetResponse (DescribeBudgetActionsForBudgetResponse'),
-    newDescribeBudgetActionsForBudgetResponse,
-
-    -- ** DescribeBudget
-    DescribeBudget (DescribeBudget'),
-    newDescribeBudget,
-    DescribeBudgetResponse (DescribeBudgetResponse'),
-    newDescribeBudgetResponse,
-
-    -- ** DescribeNotificationsForBudget (Paginated)
-    DescribeNotificationsForBudget (DescribeNotificationsForBudget'),
-    newDescribeNotificationsForBudget,
-    DescribeNotificationsForBudgetResponse (DescribeNotificationsForBudgetResponse'),
-    newDescribeNotificationsForBudgetResponse,
-
-    -- ** DescribeBudgetPerformanceHistory (Paginated)
-    DescribeBudgetPerformanceHistory (DescribeBudgetPerformanceHistory'),
-    newDescribeBudgetPerformanceHistory,
-    DescribeBudgetPerformanceHistoryResponse (DescribeBudgetPerformanceHistoryResponse'),
-    newDescribeBudgetPerformanceHistoryResponse,
 
     -- * Types
 

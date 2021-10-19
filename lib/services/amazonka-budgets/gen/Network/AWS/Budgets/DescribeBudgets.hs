@@ -231,7 +231,7 @@ describeBudgetsResponse_nextToken = Lens.lens (\DescribeBudgetsResponse' {nextTo
 
 -- | A list of budgets.
 describeBudgetsResponse_budgets :: Lens.Lens' DescribeBudgetsResponse (Prelude.Maybe [Budget])
-describeBudgetsResponse_budgets = Lens.lens (\DescribeBudgetsResponse' {budgets} -> budgets) (\s@DescribeBudgetsResponse' {} a -> s {budgets = a} :: DescribeBudgetsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeBudgetsResponse_budgets = Lens.lens (\DescribeBudgetsResponse' {budgets} -> budgets) (\s@DescribeBudgetsResponse' {} a -> s {budgets = a} :: DescribeBudgetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeBudgetsResponse_httpStatus :: Lens.Lens' DescribeBudgetsResponse Prelude.Int

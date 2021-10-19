@@ -73,7 +73,7 @@ newCsrExtensions =
 -- <https://tools.ietf.org/html/rfc5280#section-4.2.2.2 Subject Information Access>
 -- in RFC 5280.
 csrExtensions_subjectInformationAccess :: Lens.Lens' CsrExtensions (Prelude.Maybe [AccessDescription])
-csrExtensions_subjectInformationAccess = Lens.lens (\CsrExtensions' {subjectInformationAccess} -> subjectInformationAccess) (\s@CsrExtensions' {} a -> s {subjectInformationAccess = a} :: CsrExtensions) Prelude.. Lens.mapping Lens._Coerce
+csrExtensions_subjectInformationAccess = Lens.lens (\CsrExtensions' {subjectInformationAccess} -> subjectInformationAccess) (\s@CsrExtensions' {} a -> s {subjectInformationAccess = a} :: CsrExtensions) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates the purpose of the certificate and of the key contained in the
 -- certificate.

@@ -129,7 +129,7 @@ newCreatePermission
       { sourceAccount = Prelude.Nothing,
         certificateAuthorityArn = pCertificateAuthorityArn_,
         principal = pPrincipal_,
-        actions = Lens._Coerce Lens.# pActions_
+        actions = Lens.coerced Lens.# pActions_
       }
 
 -- | The ID of the calling account.
@@ -153,7 +153,7 @@ createPermission_principal = Lens.lens (\CreatePermission' {principal} -> princi
 -- | The actions that the specified AWS service principal can use. These
 -- include @IssueCertificate@, @GetCertificate@, and @ListPermissions@.
 createPermission_actions :: Lens.Lens' CreatePermission (Prelude.NonEmpty ActionType)
-createPermission_actions = Lens.lens (\CreatePermission' {actions} -> actions) (\s@CreatePermission' {} a -> s {actions = a} :: CreatePermission) Prelude.. Lens._Coerce
+createPermission_actions = Lens.lens (\CreatePermission' {actions} -> actions) (\s@CreatePermission' {} a -> s {actions = a} :: CreatePermission) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreatePermission where
   type

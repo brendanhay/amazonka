@@ -27,26 +27,29 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreatePermission $
+--         [ requestImportCertificateAuthorityCertificate $
+--             newImportCertificateAuthorityCertificate
+--
+--         , requestCreatePermission $
 --             newCreatePermission
 --
---         , requestRestoreCertificateAuthority $
---             newRestoreCertificateAuthority
+--         , requestDescribeCertificateAuthorityAuditReport $
+--             newDescribeCertificateAuthorityAuditReport
 --
---         , requestDeletePolicy $
---             newDeletePolicy
+--         , requestDeletePermission $
+--             newDeletePermission
 --
---         , requestDescribeCertificateAuthority $
---             newDescribeCertificateAuthority
+--         , requestRevokeCertificate $
+--             newRevokeCertificate
 --
---         , requestTagCertificateAuthority $
---             newTagCertificateAuthority
+--         , requestUpdateCertificateAuthority $
+--             newUpdateCertificateAuthority
 --
---         , requestCreateCertificateAuthorityAuditReport $
---             newCreateCertificateAuthorityAuditReport
+--         , requestDeleteCertificateAuthority $
+--             newDeleteCertificateAuthority
 --
---         , requestGetCertificate $
---             newGetCertificate
+--         , requestGetCertificateAuthorityCsr $
+--             newGetCertificateAuthorityCsr
 --
 --         , requestCreateCertificateAuthority $
 --             newCreateCertificateAuthority
@@ -54,71 +57,71 @@ import Test.Tasty
 --         , requestListCertificateAuthorities $
 --             newListCertificateAuthorities
 --
---         , requestGetCertificateAuthorityCsr $
---             newGetCertificateAuthorityCsr
+--         , requestGetCertificate $
+--             newGetCertificate
 --
---         , requestRevokeCertificate $
---             newRevokeCertificate
---
---         , requestDeletePermission $
---             newDeletePermission
---
---         , requestListPermissions $
---             newListPermissions
---
---         , requestGetCertificateAuthorityCertificate $
---             newGetCertificateAuthorityCertificate
---
---         , requestIssueCertificate $
---             newIssueCertificate
---
---         , requestImportCertificateAuthorityCertificate $
---             newImportCertificateAuthorityCertificate
+--         , requestTagCertificateAuthority $
+--             newTagCertificateAuthority
 --
 --         , requestPutPolicy $
 --             newPutPolicy
 --
---         , requestGetPolicy $
---             newGetPolicy
+--         , requestDeletePolicy $
+--             newDeletePolicy
 --
---         , requestListTags $
---             newListTags
+--         , requestDescribeCertificateAuthority $
+--             newDescribeCertificateAuthority
 --
---         , requestDeleteCertificateAuthority $
---             newDeleteCertificateAuthority
+--         , requestRestoreCertificateAuthority $
+--             newRestoreCertificateAuthority
+--
+--         , requestIssueCertificate $
+--             newIssueCertificate
+--
+--         , requestGetCertificateAuthorityCertificate $
+--             newGetCertificateAuthorityCertificate
+--
+--         , requestListPermissions $
+--             newListPermissions
 --
 --         , requestUntagCertificateAuthority $
 --             newUntagCertificateAuthority
 --
---         , requestUpdateCertificateAuthority $
---             newUpdateCertificateAuthority
+--         , requestCreateCertificateAuthorityAuditReport $
+--             newCreateCertificateAuthorityAuditReport
 --
---         , requestDescribeCertificateAuthorityAuditReport $
---             newDescribeCertificateAuthorityAuditReport
+--         , requestListTags $
+--             newListTags
+--
+--         , requestGetPolicy $
+--             newGetPolicy
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseCreatePermission $
+--         [ responseImportCertificateAuthorityCertificate $
+--             newImportCertificateAuthorityCertificateResponse
+--
+--         , responseCreatePermission $
 --             newCreatePermissionResponse
 --
---         , responseRestoreCertificateAuthority $
---             newRestoreCertificateAuthorityResponse
+--         , responseDescribeCertificateAuthorityAuditReport $
+--             newDescribeCertificateAuthorityAuditReportResponse
 --
---         , responseDeletePolicy $
---             newDeletePolicyResponse
+--         , responseDeletePermission $
+--             newDeletePermissionResponse
 --
---         , responseDescribeCertificateAuthority $
---             newDescribeCertificateAuthorityResponse
+--         , responseRevokeCertificate $
+--             newRevokeCertificateResponse
 --
---         , responseTagCertificateAuthority $
---             newTagCertificateAuthorityResponse
+--         , responseUpdateCertificateAuthority $
+--             newUpdateCertificateAuthorityResponse
 --
---         , responseCreateCertificateAuthorityAuditReport $
---             newCreateCertificateAuthorityAuditReportResponse
+--         , responseDeleteCertificateAuthority $
+--             newDeleteCertificateAuthorityResponse
 --
---         , responseGetCertificate $
---             newGetCertificateResponse
+--         , responseGetCertificateAuthorityCsr $
+--             newGetCertificateAuthorityCsrResponse
 --
 --         , responseCreateCertificateAuthority $
 --             newCreateCertificateAuthorityResponse
@@ -126,52 +129,55 @@ import Test.Tasty
 --         , responseListCertificateAuthorities $
 --             newListCertificateAuthoritiesResponse
 --
---         , responseGetCertificateAuthorityCsr $
---             newGetCertificateAuthorityCsrResponse
+--         , responseGetCertificate $
+--             newGetCertificateResponse
 --
---         , responseRevokeCertificate $
---             newRevokeCertificateResponse
---
---         , responseDeletePermission $
---             newDeletePermissionResponse
---
---         , responseListPermissions $
---             newListPermissionsResponse
---
---         , responseGetCertificateAuthorityCertificate $
---             newGetCertificateAuthorityCertificateResponse
---
---         , responseIssueCertificate $
---             newIssueCertificateResponse
---
---         , responseImportCertificateAuthorityCertificate $
---             newImportCertificateAuthorityCertificateResponse
+--         , responseTagCertificateAuthority $
+--             newTagCertificateAuthorityResponse
 --
 --         , responsePutPolicy $
 --             newPutPolicyResponse
 --
---         , responseGetPolicy $
---             newGetPolicyResponse
+--         , responseDeletePolicy $
+--             newDeletePolicyResponse
 --
---         , responseListTags $
---             newListTagsResponse
+--         , responseDescribeCertificateAuthority $
+--             newDescribeCertificateAuthorityResponse
 --
---         , responseDeleteCertificateAuthority $
---             newDeleteCertificateAuthorityResponse
+--         , responseRestoreCertificateAuthority $
+--             newRestoreCertificateAuthorityResponse
+--
+--         , responseIssueCertificate $
+--             newIssueCertificateResponse
+--
+--         , responseGetCertificateAuthorityCertificate $
+--             newGetCertificateAuthorityCertificateResponse
+--
+--         , responseListPermissions $
+--             newListPermissionsResponse
 --
 --         , responseUntagCertificateAuthority $
 --             newUntagCertificateAuthorityResponse
 --
---         , responseUpdateCertificateAuthority $
---             newUpdateCertificateAuthorityResponse
+--         , responseCreateCertificateAuthorityAuditReport $
+--             newCreateCertificateAuthorityAuditReportResponse
 --
---         , responseDescribeCertificateAuthorityAuditReport $
---             newDescribeCertificateAuthorityAuditReportResponse
+--         , responseListTags $
+--             newListTagsResponse
+--
+--         , responseGetPolicy $
+--             newGetPolicyResponse
 --
 --           ]
 --     ]
 
 -- Requests
+
+requestImportCertificateAuthorityCertificate :: ImportCertificateAuthorityCertificate -> TestTree
+requestImportCertificateAuthorityCertificate =
+  req
+    "ImportCertificateAuthorityCertificate"
+    "fixture/ImportCertificateAuthorityCertificate.yaml"
 
 requestCreatePermission :: CreatePermission -> TestTree
 requestCreatePermission =
@@ -179,41 +185,41 @@ requestCreatePermission =
     "CreatePermission"
     "fixture/CreatePermission.yaml"
 
-requestRestoreCertificateAuthority :: RestoreCertificateAuthority -> TestTree
-requestRestoreCertificateAuthority =
+requestDescribeCertificateAuthorityAuditReport :: DescribeCertificateAuthorityAuditReport -> TestTree
+requestDescribeCertificateAuthorityAuditReport =
   req
-    "RestoreCertificateAuthority"
-    "fixture/RestoreCertificateAuthority.yaml"
+    "DescribeCertificateAuthorityAuditReport"
+    "fixture/DescribeCertificateAuthorityAuditReport.yaml"
 
-requestDeletePolicy :: DeletePolicy -> TestTree
-requestDeletePolicy =
+requestDeletePermission :: DeletePermission -> TestTree
+requestDeletePermission =
   req
-    "DeletePolicy"
-    "fixture/DeletePolicy.yaml"
+    "DeletePermission"
+    "fixture/DeletePermission.yaml"
 
-requestDescribeCertificateAuthority :: DescribeCertificateAuthority -> TestTree
-requestDescribeCertificateAuthority =
+requestRevokeCertificate :: RevokeCertificate -> TestTree
+requestRevokeCertificate =
   req
-    "DescribeCertificateAuthority"
-    "fixture/DescribeCertificateAuthority.yaml"
+    "RevokeCertificate"
+    "fixture/RevokeCertificate.yaml"
 
-requestTagCertificateAuthority :: TagCertificateAuthority -> TestTree
-requestTagCertificateAuthority =
+requestUpdateCertificateAuthority :: UpdateCertificateAuthority -> TestTree
+requestUpdateCertificateAuthority =
   req
-    "TagCertificateAuthority"
-    "fixture/TagCertificateAuthority.yaml"
+    "UpdateCertificateAuthority"
+    "fixture/UpdateCertificateAuthority.yaml"
 
-requestCreateCertificateAuthorityAuditReport :: CreateCertificateAuthorityAuditReport -> TestTree
-requestCreateCertificateAuthorityAuditReport =
+requestDeleteCertificateAuthority :: DeleteCertificateAuthority -> TestTree
+requestDeleteCertificateAuthority =
   req
-    "CreateCertificateAuthorityAuditReport"
-    "fixture/CreateCertificateAuthorityAuditReport.yaml"
+    "DeleteCertificateAuthority"
+    "fixture/DeleteCertificateAuthority.yaml"
 
-requestGetCertificate :: GetCertificate -> TestTree
-requestGetCertificate =
+requestGetCertificateAuthorityCsr :: GetCertificateAuthorityCsr -> TestTree
+requestGetCertificateAuthorityCsr =
   req
-    "GetCertificate"
-    "fixture/GetCertificate.yaml"
+    "GetCertificateAuthorityCsr"
+    "fixture/GetCertificateAuthorityCsr.yaml"
 
 requestCreateCertificateAuthority :: CreateCertificateAuthority -> TestTree
 requestCreateCertificateAuthority =
@@ -227,47 +233,17 @@ requestListCertificateAuthorities =
     "ListCertificateAuthorities"
     "fixture/ListCertificateAuthorities.yaml"
 
-requestGetCertificateAuthorityCsr :: GetCertificateAuthorityCsr -> TestTree
-requestGetCertificateAuthorityCsr =
+requestGetCertificate :: GetCertificate -> TestTree
+requestGetCertificate =
   req
-    "GetCertificateAuthorityCsr"
-    "fixture/GetCertificateAuthorityCsr.yaml"
+    "GetCertificate"
+    "fixture/GetCertificate.yaml"
 
-requestRevokeCertificate :: RevokeCertificate -> TestTree
-requestRevokeCertificate =
+requestTagCertificateAuthority :: TagCertificateAuthority -> TestTree
+requestTagCertificateAuthority =
   req
-    "RevokeCertificate"
-    "fixture/RevokeCertificate.yaml"
-
-requestDeletePermission :: DeletePermission -> TestTree
-requestDeletePermission =
-  req
-    "DeletePermission"
-    "fixture/DeletePermission.yaml"
-
-requestListPermissions :: ListPermissions -> TestTree
-requestListPermissions =
-  req
-    "ListPermissions"
-    "fixture/ListPermissions.yaml"
-
-requestGetCertificateAuthorityCertificate :: GetCertificateAuthorityCertificate -> TestTree
-requestGetCertificateAuthorityCertificate =
-  req
-    "GetCertificateAuthorityCertificate"
-    "fixture/GetCertificateAuthorityCertificate.yaml"
-
-requestIssueCertificate :: IssueCertificate -> TestTree
-requestIssueCertificate =
-  req
-    "IssueCertificate"
-    "fixture/IssueCertificate.yaml"
-
-requestImportCertificateAuthorityCertificate :: ImportCertificateAuthorityCertificate -> TestTree
-requestImportCertificateAuthorityCertificate =
-  req
-    "ImportCertificateAuthorityCertificate"
-    "fixture/ImportCertificateAuthorityCertificate.yaml"
+    "TagCertificateAuthority"
+    "fixture/TagCertificateAuthority.yaml"
 
 requestPutPolicy :: PutPolicy -> TestTree
 requestPutPolicy =
@@ -275,23 +251,41 @@ requestPutPolicy =
     "PutPolicy"
     "fixture/PutPolicy.yaml"
 
-requestGetPolicy :: GetPolicy -> TestTree
-requestGetPolicy =
+requestDeletePolicy :: DeletePolicy -> TestTree
+requestDeletePolicy =
   req
-    "GetPolicy"
-    "fixture/GetPolicy.yaml"
+    "DeletePolicy"
+    "fixture/DeletePolicy.yaml"
 
-requestListTags :: ListTags -> TestTree
-requestListTags =
+requestDescribeCertificateAuthority :: DescribeCertificateAuthority -> TestTree
+requestDescribeCertificateAuthority =
   req
-    "ListTags"
-    "fixture/ListTags.yaml"
+    "DescribeCertificateAuthority"
+    "fixture/DescribeCertificateAuthority.yaml"
 
-requestDeleteCertificateAuthority :: DeleteCertificateAuthority -> TestTree
-requestDeleteCertificateAuthority =
+requestRestoreCertificateAuthority :: RestoreCertificateAuthority -> TestTree
+requestRestoreCertificateAuthority =
   req
-    "DeleteCertificateAuthority"
-    "fixture/DeleteCertificateAuthority.yaml"
+    "RestoreCertificateAuthority"
+    "fixture/RestoreCertificateAuthority.yaml"
+
+requestIssueCertificate :: IssueCertificate -> TestTree
+requestIssueCertificate =
+  req
+    "IssueCertificate"
+    "fixture/IssueCertificate.yaml"
+
+requestGetCertificateAuthorityCertificate :: GetCertificateAuthorityCertificate -> TestTree
+requestGetCertificateAuthorityCertificate =
+  req
+    "GetCertificateAuthorityCertificate"
+    "fixture/GetCertificateAuthorityCertificate.yaml"
+
+requestListPermissions :: ListPermissions -> TestTree
+requestListPermissions =
+  req
+    "ListPermissions"
+    "fixture/ListPermissions.yaml"
 
 requestUntagCertificateAuthority :: UntagCertificateAuthority -> TestTree
 requestUntagCertificateAuthority =
@@ -299,19 +293,33 @@ requestUntagCertificateAuthority =
     "UntagCertificateAuthority"
     "fixture/UntagCertificateAuthority.yaml"
 
-requestUpdateCertificateAuthority :: UpdateCertificateAuthority -> TestTree
-requestUpdateCertificateAuthority =
+requestCreateCertificateAuthorityAuditReport :: CreateCertificateAuthorityAuditReport -> TestTree
+requestCreateCertificateAuthorityAuditReport =
   req
-    "UpdateCertificateAuthority"
-    "fixture/UpdateCertificateAuthority.yaml"
+    "CreateCertificateAuthorityAuditReport"
+    "fixture/CreateCertificateAuthorityAuditReport.yaml"
 
-requestDescribeCertificateAuthorityAuditReport :: DescribeCertificateAuthorityAuditReport -> TestTree
-requestDescribeCertificateAuthorityAuditReport =
+requestListTags :: ListTags -> TestTree
+requestListTags =
   req
-    "DescribeCertificateAuthorityAuditReport"
-    "fixture/DescribeCertificateAuthorityAuditReport.yaml"
+    "ListTags"
+    "fixture/ListTags.yaml"
+
+requestGetPolicy :: GetPolicy -> TestTree
+requestGetPolicy =
+  req
+    "GetPolicy"
+    "fixture/GetPolicy.yaml"
 
 -- Responses
+
+responseImportCertificateAuthorityCertificate :: ImportCertificateAuthorityCertificateResponse -> TestTree
+responseImportCertificateAuthorityCertificate =
+  res
+    "ImportCertificateAuthorityCertificateResponse"
+    "fixture/ImportCertificateAuthorityCertificateResponse.proto"
+    defaultService
+    (Proxy :: Proxy ImportCertificateAuthorityCertificate)
 
 responseCreatePermission :: CreatePermissionResponse -> TestTree
 responseCreatePermission =
@@ -321,53 +329,53 @@ responseCreatePermission =
     defaultService
     (Proxy :: Proxy CreatePermission)
 
-responseRestoreCertificateAuthority :: RestoreCertificateAuthorityResponse -> TestTree
-responseRestoreCertificateAuthority =
+responseDescribeCertificateAuthorityAuditReport :: DescribeCertificateAuthorityAuditReportResponse -> TestTree
+responseDescribeCertificateAuthorityAuditReport =
   res
-    "RestoreCertificateAuthorityResponse"
-    "fixture/RestoreCertificateAuthorityResponse.proto"
+    "DescribeCertificateAuthorityAuditReportResponse"
+    "fixture/DescribeCertificateAuthorityAuditReportResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreCertificateAuthority)
+    (Proxy :: Proxy DescribeCertificateAuthorityAuditReport)
 
-responseDeletePolicy :: DeletePolicyResponse -> TestTree
-responseDeletePolicy =
+responseDeletePermission :: DeletePermissionResponse -> TestTree
+responseDeletePermission =
   res
-    "DeletePolicyResponse"
-    "fixture/DeletePolicyResponse.proto"
+    "DeletePermissionResponse"
+    "fixture/DeletePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePolicy)
+    (Proxy :: Proxy DeletePermission)
 
-responseDescribeCertificateAuthority :: DescribeCertificateAuthorityResponse -> TestTree
-responseDescribeCertificateAuthority =
+responseRevokeCertificate :: RevokeCertificateResponse -> TestTree
+responseRevokeCertificate =
   res
-    "DescribeCertificateAuthorityResponse"
-    "fixture/DescribeCertificateAuthorityResponse.proto"
+    "RevokeCertificateResponse"
+    "fixture/RevokeCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCertificateAuthority)
+    (Proxy :: Proxy RevokeCertificate)
 
-responseTagCertificateAuthority :: TagCertificateAuthorityResponse -> TestTree
-responseTagCertificateAuthority =
+responseUpdateCertificateAuthority :: UpdateCertificateAuthorityResponse -> TestTree
+responseUpdateCertificateAuthority =
   res
-    "TagCertificateAuthorityResponse"
-    "fixture/TagCertificateAuthorityResponse.proto"
+    "UpdateCertificateAuthorityResponse"
+    "fixture/UpdateCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy TagCertificateAuthority)
+    (Proxy :: Proxy UpdateCertificateAuthority)
 
-responseCreateCertificateAuthorityAuditReport :: CreateCertificateAuthorityAuditReportResponse -> TestTree
-responseCreateCertificateAuthorityAuditReport =
+responseDeleteCertificateAuthority :: DeleteCertificateAuthorityResponse -> TestTree
+responseDeleteCertificateAuthority =
   res
-    "CreateCertificateAuthorityAuditReportResponse"
-    "fixture/CreateCertificateAuthorityAuditReportResponse.proto"
+    "DeleteCertificateAuthorityResponse"
+    "fixture/DeleteCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCertificateAuthorityAuditReport)
+    (Proxy :: Proxy DeleteCertificateAuthority)
 
-responseGetCertificate :: GetCertificateResponse -> TestTree
-responseGetCertificate =
+responseGetCertificateAuthorityCsr :: GetCertificateAuthorityCsrResponse -> TestTree
+responseGetCertificateAuthorityCsr =
   res
-    "GetCertificateResponse"
-    "fixture/GetCertificateResponse.proto"
+    "GetCertificateAuthorityCsrResponse"
+    "fixture/GetCertificateAuthorityCsrResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCertificate)
+    (Proxy :: Proxy GetCertificateAuthorityCsr)
 
 responseCreateCertificateAuthority :: CreateCertificateAuthorityResponse -> TestTree
 responseCreateCertificateAuthority =
@@ -385,61 +393,21 @@ responseListCertificateAuthorities =
     defaultService
     (Proxy :: Proxy ListCertificateAuthorities)
 
-responseGetCertificateAuthorityCsr :: GetCertificateAuthorityCsrResponse -> TestTree
-responseGetCertificateAuthorityCsr =
+responseGetCertificate :: GetCertificateResponse -> TestTree
+responseGetCertificate =
   res
-    "GetCertificateAuthorityCsrResponse"
-    "fixture/GetCertificateAuthorityCsrResponse.proto"
+    "GetCertificateResponse"
+    "fixture/GetCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCertificateAuthorityCsr)
+    (Proxy :: Proxy GetCertificate)
 
-responseRevokeCertificate :: RevokeCertificateResponse -> TestTree
-responseRevokeCertificate =
+responseTagCertificateAuthority :: TagCertificateAuthorityResponse -> TestTree
+responseTagCertificateAuthority =
   res
-    "RevokeCertificateResponse"
-    "fixture/RevokeCertificateResponse.proto"
+    "TagCertificateAuthorityResponse"
+    "fixture/TagCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeCertificate)
-
-responseDeletePermission :: DeletePermissionResponse -> TestTree
-responseDeletePermission =
-  res
-    "DeletePermissionResponse"
-    "fixture/DeletePermissionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeletePermission)
-
-responseListPermissions :: ListPermissionsResponse -> TestTree
-responseListPermissions =
-  res
-    "ListPermissionsResponse"
-    "fixture/ListPermissionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListPermissions)
-
-responseGetCertificateAuthorityCertificate :: GetCertificateAuthorityCertificateResponse -> TestTree
-responseGetCertificateAuthorityCertificate =
-  res
-    "GetCertificateAuthorityCertificateResponse"
-    "fixture/GetCertificateAuthorityCertificateResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetCertificateAuthorityCertificate)
-
-responseIssueCertificate :: IssueCertificateResponse -> TestTree
-responseIssueCertificate =
-  res
-    "IssueCertificateResponse"
-    "fixture/IssueCertificateResponse.proto"
-    defaultService
-    (Proxy :: Proxy IssueCertificate)
-
-responseImportCertificateAuthorityCertificate :: ImportCertificateAuthorityCertificateResponse -> TestTree
-responseImportCertificateAuthorityCertificate =
-  res
-    "ImportCertificateAuthorityCertificateResponse"
-    "fixture/ImportCertificateAuthorityCertificateResponse.proto"
-    defaultService
-    (Proxy :: Proxy ImportCertificateAuthorityCertificate)
+    (Proxy :: Proxy TagCertificateAuthority)
 
 responsePutPolicy :: PutPolicyResponse -> TestTree
 responsePutPolicy =
@@ -449,29 +417,53 @@ responsePutPolicy =
     defaultService
     (Proxy :: Proxy PutPolicy)
 
-responseGetPolicy :: GetPolicyResponse -> TestTree
-responseGetPolicy =
+responseDeletePolicy :: DeletePolicyResponse -> TestTree
+responseDeletePolicy =
   res
-    "GetPolicyResponse"
-    "fixture/GetPolicyResponse.proto"
+    "DeletePolicyResponse"
+    "fixture/DeletePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPolicy)
+    (Proxy :: Proxy DeletePolicy)
 
-responseListTags :: ListTagsResponse -> TestTree
-responseListTags =
+responseDescribeCertificateAuthority :: DescribeCertificateAuthorityResponse -> TestTree
+responseDescribeCertificateAuthority =
   res
-    "ListTagsResponse"
-    "fixture/ListTagsResponse.proto"
+    "DescribeCertificateAuthorityResponse"
+    "fixture/DescribeCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy :: Proxy DescribeCertificateAuthority)
 
-responseDeleteCertificateAuthority :: DeleteCertificateAuthorityResponse -> TestTree
-responseDeleteCertificateAuthority =
+responseRestoreCertificateAuthority :: RestoreCertificateAuthorityResponse -> TestTree
+responseRestoreCertificateAuthority =
   res
-    "DeleteCertificateAuthorityResponse"
-    "fixture/DeleteCertificateAuthorityResponse.proto"
+    "RestoreCertificateAuthorityResponse"
+    "fixture/RestoreCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCertificateAuthority)
+    (Proxy :: Proxy RestoreCertificateAuthority)
+
+responseIssueCertificate :: IssueCertificateResponse -> TestTree
+responseIssueCertificate =
+  res
+    "IssueCertificateResponse"
+    "fixture/IssueCertificateResponse.proto"
+    defaultService
+    (Proxy :: Proxy IssueCertificate)
+
+responseGetCertificateAuthorityCertificate :: GetCertificateAuthorityCertificateResponse -> TestTree
+responseGetCertificateAuthorityCertificate =
+  res
+    "GetCertificateAuthorityCertificateResponse"
+    "fixture/GetCertificateAuthorityCertificateResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCertificateAuthorityCertificate)
+
+responseListPermissions :: ListPermissionsResponse -> TestTree
+responseListPermissions =
+  res
+    "ListPermissionsResponse"
+    "fixture/ListPermissionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListPermissions)
 
 responseUntagCertificateAuthority :: UntagCertificateAuthorityResponse -> TestTree
 responseUntagCertificateAuthority =
@@ -481,18 +473,26 @@ responseUntagCertificateAuthority =
     defaultService
     (Proxy :: Proxy UntagCertificateAuthority)
 
-responseUpdateCertificateAuthority :: UpdateCertificateAuthorityResponse -> TestTree
-responseUpdateCertificateAuthority =
+responseCreateCertificateAuthorityAuditReport :: CreateCertificateAuthorityAuditReportResponse -> TestTree
+responseCreateCertificateAuthorityAuditReport =
   res
-    "UpdateCertificateAuthorityResponse"
-    "fixture/UpdateCertificateAuthorityResponse.proto"
+    "CreateCertificateAuthorityAuditReportResponse"
+    "fixture/CreateCertificateAuthorityAuditReportResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCertificateAuthority)
+    (Proxy :: Proxy CreateCertificateAuthorityAuditReport)
 
-responseDescribeCertificateAuthorityAuditReport :: DescribeCertificateAuthorityAuditReportResponse -> TestTree
-responseDescribeCertificateAuthorityAuditReport =
+responseListTags :: ListTagsResponse -> TestTree
+responseListTags =
   res
-    "DescribeCertificateAuthorityAuditReportResponse"
-    "fixture/DescribeCertificateAuthorityAuditReportResponse.proto"
+    "ListTagsResponse"
+    "fixture/ListTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCertificateAuthorityAuditReport)
+    (Proxy :: Proxy ListTags)
+
+responseGetPolicy :: GetPolicyResponse -> TestTree
+responseGetPolicy =
+  res
+    "GetPolicyResponse"
+    "fixture/GetPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetPolicy)

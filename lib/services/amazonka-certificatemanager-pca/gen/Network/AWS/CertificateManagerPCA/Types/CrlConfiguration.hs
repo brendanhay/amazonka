@@ -107,6 +107,8 @@ data CrlConfiguration = CrlConfiguration'
     -- that enables the use of an alias for the CRL distribution point. Use
     -- this value if you don\'t want the name of your S3 bucket to be public.
     customCname :: Prelude.Maybe Prelude.Text,
+    -- | Validity period of the CRL in days.
+    expirationInDays :: Prelude.Maybe Prelude.Natural,
     -- | Determines whether the CRL will be publicly readable or privately held
     -- in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be
     -- accessible over the public internet. If you choose
@@ -135,8 +137,6 @@ data CrlConfiguration = CrlConfiguration'
     -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-policies bucket policy>
     -- that allows ACM Private CA to write the CRL to your bucket.
     s3BucketName :: Prelude.Maybe Prelude.Text,
-    -- | Validity period of the CRL in days.
-    expirationInDays :: Prelude.Maybe Prelude.Natural,
     -- | Boolean value that specifies whether certificate revocation lists (CRLs)
     -- are enabled. You can use this value to enable certificate revocation for
     -- a new CA when you call the
@@ -159,6 +159,8 @@ data CrlConfiguration = CrlConfiguration'
 -- 'customCname', 'crlConfiguration_customCname' - Name inserted into the certificate __CRL Distribution Points__ extension
 -- that enables the use of an alias for the CRL distribution point. Use
 -- this value if you don\'t want the name of your S3 bucket to be public.
+--
+-- 'expirationInDays', 'crlConfiguration_expirationInDays' - Validity period of the CRL in days.
 --
 -- 's3ObjectAcl', 'crlConfiguration_s3ObjectAcl' - Determines whether the CRL will be publicly readable or privately held
 -- in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be
@@ -188,8 +190,6 @@ data CrlConfiguration = CrlConfiguration'
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-policies bucket policy>
 -- that allows ACM Private CA to write the CRL to your bucket.
 --
--- 'expirationInDays', 'crlConfiguration_expirationInDays' - Validity period of the CRL in days.
---
 -- 'enabled', 'crlConfiguration_enabled' - Boolean value that specifies whether certificate revocation lists (CRLs)
 -- are enabled. You can use this value to enable certificate revocation for
 -- a new CA when you call the
@@ -204,9 +204,9 @@ newCrlConfiguration ::
 newCrlConfiguration pEnabled_ =
   CrlConfiguration'
     { customCname = Prelude.Nothing,
+      expirationInDays = Prelude.Nothing,
       s3ObjectAcl = Prelude.Nothing,
       s3BucketName = Prelude.Nothing,
-      expirationInDays = Prelude.Nothing,
       enabled = pEnabled_
     }
 
@@ -215,6 +215,10 @@ newCrlConfiguration pEnabled_ =
 -- this value if you don\'t want the name of your S3 bucket to be public.
 crlConfiguration_customCname :: Lens.Lens' CrlConfiguration (Prelude.Maybe Prelude.Text)
 crlConfiguration_customCname = Lens.lens (\CrlConfiguration' {customCname} -> customCname) (\s@CrlConfiguration' {} a -> s {customCname = a} :: CrlConfiguration)
+
+-- | Validity period of the CRL in days.
+crlConfiguration_expirationInDays :: Lens.Lens' CrlConfiguration (Prelude.Maybe Prelude.Natural)
+crlConfiguration_expirationInDays = Lens.lens (\CrlConfiguration' {expirationInDays} -> expirationInDays) (\s@CrlConfiguration' {} a -> s {expirationInDays = a} :: CrlConfiguration)
 
 -- | Determines whether the CRL will be publicly readable or privately held
 -- in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be
@@ -248,10 +252,6 @@ crlConfiguration_s3ObjectAcl = Lens.lens (\CrlConfiguration' {s3ObjectAcl} -> s3
 crlConfiguration_s3BucketName :: Lens.Lens' CrlConfiguration (Prelude.Maybe Prelude.Text)
 crlConfiguration_s3BucketName = Lens.lens (\CrlConfiguration' {s3BucketName} -> s3BucketName) (\s@CrlConfiguration' {} a -> s {s3BucketName = a} :: CrlConfiguration)
 
--- | Validity period of the CRL in days.
-crlConfiguration_expirationInDays :: Lens.Lens' CrlConfiguration (Prelude.Maybe Prelude.Natural)
-crlConfiguration_expirationInDays = Lens.lens (\CrlConfiguration' {expirationInDays} -> expirationInDays) (\s@CrlConfiguration' {} a -> s {expirationInDays = a} :: CrlConfiguration)
-
 -- | Boolean value that specifies whether certificate revocation lists (CRLs)
 -- are enabled. You can use this value to enable certificate revocation for
 -- a new CA when you call the
@@ -269,9 +269,9 @@ instance Core.FromJSON CrlConfiguration where
       ( \x ->
           CrlConfiguration'
             Prelude.<$> (x Core..:? "CustomCname")
+            Prelude.<*> (x Core..:? "ExpirationInDays")
             Prelude.<*> (x Core..:? "S3ObjectAcl")
             Prelude.<*> (x Core..:? "S3BucketName")
-            Prelude.<*> (x Core..:? "ExpirationInDays")
             Prelude.<*> (x Core..: "Enabled")
       )
 
@@ -284,10 +284,10 @@ instance Core.ToJSON CrlConfiguration where
     Core.object
       ( Prelude.catMaybes
           [ ("CustomCname" Core..=) Prelude.<$> customCname,
-            ("S3ObjectAcl" Core..=) Prelude.<$> s3ObjectAcl,
-            ("S3BucketName" Core..=) Prelude.<$> s3BucketName,
             ("ExpirationInDays" Core..=)
               Prelude.<$> expirationInDays,
+            ("S3ObjectAcl" Core..=) Prelude.<$> s3ObjectAcl,
+            ("S3BucketName" Core..=) Prelude.<$> s3BucketName,
             Prelude.Just ("Enabled" Core..= enabled)
           ]
       )

@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               amazonka-certificatemanager-pca
-version:            1.6.1
+version:            2.0
 synopsis:
   Amazon Certificate Manager Private Certificate Authority SDK.
 
@@ -115,8 +115,8 @@ library
 
   reexported-modules: Network.AWS
   build-depends:
-    , amazonka  >=1.6.1 && <1.6.2
-    , base      >=4.12  && <5
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
 
 test-suite amazonka-certificatemanager-pca-test
   type:             exitcode-stdio-1.0
@@ -134,9 +134,9 @@ test-suite amazonka-certificatemanager-pca-test
     Test.AWS.Gen.CertificateManagerPCA
 
   build-depends:
-    , amazonka                         >=1.6.1 && <1.6.2
+    , amazonka                         ^>=2.0
     , amazonka-certificatemanager-pca
-    , amazonka-test                    >=1.6.1 && <1.6.2
+    , amazonka-test                    ^>=2.0
     , base
     , bytestring
     , case-insensitive

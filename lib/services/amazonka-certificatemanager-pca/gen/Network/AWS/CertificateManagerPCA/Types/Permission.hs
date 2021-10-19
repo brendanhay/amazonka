@@ -38,21 +38,21 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPermission' smart constructor.
 data Permission = Permission'
-  { -- | The Amazon Resource Number (ARN) of the private CA from which the
-    -- permission was issued.
-    certificateAuthorityArn :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the permission was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+  { -- | The ID of the account that assigned the permission.
+    sourceAccount :: Prelude.Maybe Prelude.Text,
     -- | The private CA actions that can be performed by the designated AWS
     -- service.
     actions :: Prelude.Maybe (Prelude.NonEmpty ActionType),
+    -- | The time at which the permission was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The AWS service or entity that holds the permission. At this time, the
     -- only valid principal is @acm.amazonaws.com@.
     principal :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the account that assigned the permission.
-    sourceAccount :: Prelude.Maybe Prelude.Text,
     -- | The name of the policy that is associated with the permission.
-    policy :: Prelude.Maybe Prelude.Text
+    policy :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Number (ARN) of the private CA from which the
+    -- permission was issued.
+    certificateAuthorityArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,59 +64,58 @@ data Permission = Permission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateAuthorityArn', 'permission_certificateAuthorityArn' - The Amazon Resource Number (ARN) of the private CA from which the
--- permission was issued.
---
--- 'createdAt', 'permission_createdAt' - The time at which the permission was created.
+-- 'sourceAccount', 'permission_sourceAccount' - The ID of the account that assigned the permission.
 --
 -- 'actions', 'permission_actions' - The private CA actions that can be performed by the designated AWS
 -- service.
 --
+-- 'createdAt', 'permission_createdAt' - The time at which the permission was created.
+--
 -- 'principal', 'permission_principal' - The AWS service or entity that holds the permission. At this time, the
 -- only valid principal is @acm.amazonaws.com@.
 --
--- 'sourceAccount', 'permission_sourceAccount' - The ID of the account that assigned the permission.
---
 -- 'policy', 'permission_policy' - The name of the policy that is associated with the permission.
+--
+-- 'certificateAuthorityArn', 'permission_certificateAuthorityArn' - The Amazon Resource Number (ARN) of the private CA from which the
+-- permission was issued.
 newPermission ::
   Permission
 newPermission =
   Permission'
-    { certificateAuthorityArn =
-        Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+    { sourceAccount = Prelude.Nothing,
       actions = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       principal = Prelude.Nothing,
-      sourceAccount = Prelude.Nothing,
-      policy = Prelude.Nothing
+      policy = Prelude.Nothing,
+      certificateAuthorityArn = Prelude.Nothing
     }
 
--- | The Amazon Resource Number (ARN) of the private CA from which the
--- permission was issued.
-permission_certificateAuthorityArn :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
-permission_certificateAuthorityArn = Lens.lens (\Permission' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@Permission' {} a -> s {certificateAuthorityArn = a} :: Permission)
-
--- | The time at which the permission was created.
-permission_createdAt :: Lens.Lens' Permission (Prelude.Maybe Prelude.UTCTime)
-permission_createdAt = Lens.lens (\Permission' {createdAt} -> createdAt) (\s@Permission' {} a -> s {createdAt = a} :: Permission) Prelude.. Lens.mapping Core._Time
+-- | The ID of the account that assigned the permission.
+permission_sourceAccount :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
+permission_sourceAccount = Lens.lens (\Permission' {sourceAccount} -> sourceAccount) (\s@Permission' {} a -> s {sourceAccount = a} :: Permission)
 
 -- | The private CA actions that can be performed by the designated AWS
 -- service.
 permission_actions :: Lens.Lens' Permission (Prelude.Maybe (Prelude.NonEmpty ActionType))
-permission_actions = Lens.lens (\Permission' {actions} -> actions) (\s@Permission' {} a -> s {actions = a} :: Permission) Prelude.. Lens.mapping Lens._Coerce
+permission_actions = Lens.lens (\Permission' {actions} -> actions) (\s@Permission' {} a -> s {actions = a} :: Permission) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time at which the permission was created.
+permission_createdAt :: Lens.Lens' Permission (Prelude.Maybe Prelude.UTCTime)
+permission_createdAt = Lens.lens (\Permission' {createdAt} -> createdAt) (\s@Permission' {} a -> s {createdAt = a} :: Permission) Prelude.. Lens.mapping Core._Time
 
 -- | The AWS service or entity that holds the permission. At this time, the
 -- only valid principal is @acm.amazonaws.com@.
 permission_principal :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
 permission_principal = Lens.lens (\Permission' {principal} -> principal) (\s@Permission' {} a -> s {principal = a} :: Permission)
 
--- | The ID of the account that assigned the permission.
-permission_sourceAccount :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
-permission_sourceAccount = Lens.lens (\Permission' {sourceAccount} -> sourceAccount) (\s@Permission' {} a -> s {sourceAccount = a} :: Permission)
-
 -- | The name of the policy that is associated with the permission.
 permission_policy :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
 permission_policy = Lens.lens (\Permission' {policy} -> policy) (\s@Permission' {} a -> s {policy = a} :: Permission)
+
+-- | The Amazon Resource Number (ARN) of the private CA from which the
+-- permission was issued.
+permission_certificateAuthorityArn :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
+permission_certificateAuthorityArn = Lens.lens (\Permission' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@Permission' {} a -> s {certificateAuthorityArn = a} :: Permission)
 
 instance Core.FromJSON Permission where
   parseJSON =
@@ -124,12 +123,12 @@ instance Core.FromJSON Permission where
       "Permission"
       ( \x ->
           Permission'
-            Prelude.<$> (x Core..:? "CertificateAuthorityArn")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Core..:? "SourceAccount")
             Prelude.<*> (x Core..:? "Actions")
+            Prelude.<*> (x Core..:? "CreatedAt")
             Prelude.<*> (x Core..:? "Principal")
-            Prelude.<*> (x Core..:? "SourceAccount")
             Prelude.<*> (x Core..:? "Policy")
+            Prelude.<*> (x Core..:? "CertificateAuthorityArn")
       )
 
 instance Prelude.Hashable Permission

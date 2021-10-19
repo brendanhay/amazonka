@@ -38,8 +38,8 @@ module Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCertificate
     newGetCertificateAuthorityCertificateResponse,
 
     -- * Response Lenses
-    getCertificateAuthorityCertificateResponse_certificateChain,
     getCertificateAuthorityCertificateResponse_certificate,
+    getCertificateAuthorityCertificateResponse_certificateChain,
     getCertificateAuthorityCertificateResponse_httpStatus,
   )
 where
@@ -100,8 +100,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetCertificateAuthorityCertificateResponse'
-            Prelude.<$> (x Core..?> "CertificateChain")
-              Prelude.<*> (x Core..?> "Certificate")
+            Prelude.<$> (x Core..?> "Certificate")
+              Prelude.<*> (x Core..?> "CertificateChain")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,13 +159,13 @@ instance
 
 -- | /See:/ 'newGetCertificateAuthorityCertificateResponse' smart constructor.
 data GetCertificateAuthorityCertificateResponse = GetCertificateAuthorityCertificateResponse'
-  { -- | Base64-encoded certificate chain that includes any intermediate
+  { -- | Base64-encoded certificate authority (CA) certificate.
+    certificate :: Prelude.Maybe Prelude.Text,
+    -- | Base64-encoded certificate chain that includes any intermediate
     -- certificates and chains up to root certificate that you used to sign
     -- your private CA certificate. The chain does not include your private CA
     -- certificate. If this is a root CA, the value will be null.
     certificateChain :: Prelude.Maybe Prelude.Text,
-    -- | Base64-encoded certificate authority (CA) certificate.
-    certificate :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,12 +179,12 @@ data GetCertificateAuthorityCertificateResponse = GetCertificateAuthorityCertifi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'certificate', 'getCertificateAuthorityCertificateResponse_certificate' - Base64-encoded certificate authority (CA) certificate.
+--
 -- 'certificateChain', 'getCertificateAuthorityCertificateResponse_certificateChain' - Base64-encoded certificate chain that includes any intermediate
 -- certificates and chains up to root certificate that you used to sign
 -- your private CA certificate. The chain does not include your private CA
 -- certificate. If this is a root CA, the value will be null.
---
--- 'certificate', 'getCertificateAuthorityCertificateResponse_certificate' - Base64-encoded certificate authority (CA) certificate.
 --
 -- 'httpStatus', 'getCertificateAuthorityCertificateResponse_httpStatus' - The response's http status code.
 newGetCertificateAuthorityCertificateResponse ::
@@ -194,11 +194,16 @@ newGetCertificateAuthorityCertificateResponse ::
 newGetCertificateAuthorityCertificateResponse
   pHttpStatus_ =
     GetCertificateAuthorityCertificateResponse'
-      { certificateChain =
+      { certificate =
           Prelude.Nothing,
-        certificate = Prelude.Nothing,
+        certificateChain =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Base64-encoded certificate authority (CA) certificate.
+getCertificateAuthorityCertificateResponse_certificate :: Lens.Lens' GetCertificateAuthorityCertificateResponse (Prelude.Maybe Prelude.Text)
+getCertificateAuthorityCertificateResponse_certificate = Lens.lens (\GetCertificateAuthorityCertificateResponse' {certificate} -> certificate) (\s@GetCertificateAuthorityCertificateResponse' {} a -> s {certificate = a} :: GetCertificateAuthorityCertificateResponse)
 
 -- | Base64-encoded certificate chain that includes any intermediate
 -- certificates and chains up to root certificate that you used to sign
@@ -206,10 +211,6 @@ newGetCertificateAuthorityCertificateResponse
 -- certificate. If this is a root CA, the value will be null.
 getCertificateAuthorityCertificateResponse_certificateChain :: Lens.Lens' GetCertificateAuthorityCertificateResponse (Prelude.Maybe Prelude.Text)
 getCertificateAuthorityCertificateResponse_certificateChain = Lens.lens (\GetCertificateAuthorityCertificateResponse' {certificateChain} -> certificateChain) (\s@GetCertificateAuthorityCertificateResponse' {} a -> s {certificateChain = a} :: GetCertificateAuthorityCertificateResponse)
-
--- | Base64-encoded certificate authority (CA) certificate.
-getCertificateAuthorityCertificateResponse_certificate :: Lens.Lens' GetCertificateAuthorityCertificateResponse (Prelude.Maybe Prelude.Text)
-getCertificateAuthorityCertificateResponse_certificate = Lens.lens (\GetCertificateAuthorityCertificateResponse' {certificate} -> certificate) (\s@GetCertificateAuthorityCertificateResponse' {} a -> s {certificate = a} :: GetCertificateAuthorityCertificateResponse)
 
 -- | The response's http status code.
 getCertificateAuthorityCertificateResponse_httpStatus :: Lens.Lens' GetCertificateAuthorityCertificateResponse Prelude.Int

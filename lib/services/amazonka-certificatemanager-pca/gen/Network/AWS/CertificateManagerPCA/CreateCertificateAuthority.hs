@@ -227,7 +227,7 @@ createCertificateAuthority_revocationConfiguration = Lens.lens (\CreateCertifica
 -- with IAM to manage permissions, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags>.
 createCertificateAuthority_tags :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe (Prelude.NonEmpty Tag))
-createCertificateAuthority_tags = Lens.lens (\CreateCertificateAuthority' {tags} -> tags) (\s@CreateCertificateAuthority' {} a -> s {tags = a} :: CreateCertificateAuthority) Prelude.. Lens.mapping Lens._Coerce
+createCertificateAuthority_tags = Lens.lens (\CreateCertificateAuthority' {tags} -> tags) (\s@CreateCertificateAuthority' {} a -> s {tags = a} :: CreateCertificateAuthority) Prelude.. Lens.mapping Lens.coerced
 
 -- | Name and bit size of the private key algorithm, the name of the signing
 -- algorithm, and X.500 certificate subject information.

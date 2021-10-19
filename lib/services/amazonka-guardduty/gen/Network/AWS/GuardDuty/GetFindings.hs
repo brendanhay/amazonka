@@ -96,7 +96,7 @@ getFindings_detectorId = Lens.lens (\GetFindings' {detectorId} -> detectorId) (\
 
 -- | The IDs of the findings that you want to retrieve.
 getFindings_findingIds :: Lens.Lens' GetFindings [Prelude.Text]
-getFindings_findingIds = Lens.lens (\GetFindings' {findingIds} -> findingIds) (\s@GetFindings' {} a -> s {findingIds = a} :: GetFindings) Prelude.. Lens._Coerce
+getFindings_findingIds = Lens.lens (\GetFindings' {findingIds} -> findingIds) (\s@GetFindings' {} a -> s {findingIds = a} :: GetFindings) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetFindings where
   type AWSResponse GetFindings = GetFindingsResponse
@@ -177,6 +177,6 @@ getFindingsResponse_httpStatus = Lens.lens (\GetFindingsResponse' {httpStatus} -
 
 -- | A list of findings.
 getFindingsResponse_findings :: Lens.Lens' GetFindingsResponse [Finding]
-getFindingsResponse_findings = Lens.lens (\GetFindingsResponse' {findings} -> findings) (\s@GetFindingsResponse' {} a -> s {findings = a} :: GetFindingsResponse) Prelude.. Lens._Coerce
+getFindingsResponse_findings = Lens.lens (\GetFindingsResponse' {findings} -> findings) (\s@GetFindingsResponse' {} a -> s {findings = a} :: GetFindingsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetFindingsResponse

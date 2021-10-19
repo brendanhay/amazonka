@@ -89,7 +89,7 @@ archiveFindings_detectorId = Lens.lens (\ArchiveFindings' {detectorId} -> detect
 
 -- | The IDs of the findings that you want to archive.
 archiveFindings_findingIds :: Lens.Lens' ArchiveFindings [Prelude.Text]
-archiveFindings_findingIds = Lens.lens (\ArchiveFindings' {findingIds} -> findingIds) (\s@ArchiveFindings' {} a -> s {findingIds = a} :: ArchiveFindings) Prelude.. Lens._Coerce
+archiveFindings_findingIds = Lens.lens (\ArchiveFindings' {findingIds} -> findingIds) (\s@ArchiveFindings' {} a -> s {findingIds = a} :: ArchiveFindings) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ArchiveFindings where
   type

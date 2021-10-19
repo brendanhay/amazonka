@@ -98,7 +98,7 @@ getFindingsStatistics_detectorId = Lens.lens (\GetFindingsStatistics' {detectorI
 
 -- | The types of finding statistics to retrieve.
 getFindingsStatistics_findingStatisticTypes :: Lens.Lens' GetFindingsStatistics [FindingStatisticType]
-getFindingsStatistics_findingStatisticTypes = Lens.lens (\GetFindingsStatistics' {findingStatisticTypes} -> findingStatisticTypes) (\s@GetFindingsStatistics' {} a -> s {findingStatisticTypes = a} :: GetFindingsStatistics) Prelude.. Lens._Coerce
+getFindingsStatistics_findingStatisticTypes = Lens.lens (\GetFindingsStatistics' {findingStatisticTypes} -> findingStatisticTypes) (\s@GetFindingsStatistics' {} a -> s {findingStatisticTypes = a} :: GetFindingsStatistics) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetFindingsStatistics where
   type

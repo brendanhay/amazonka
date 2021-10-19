@@ -81,7 +81,7 @@ newCreateSampleFindings pDetectorId_ =
 
 -- | The types of sample findings to generate.
 createSampleFindings_findingTypes :: Lens.Lens' CreateSampleFindings (Prelude.Maybe [Prelude.Text])
-createSampleFindings_findingTypes = Lens.lens (\CreateSampleFindings' {findingTypes} -> findingTypes) (\s@CreateSampleFindings' {} a -> s {findingTypes = a} :: CreateSampleFindings) Prelude.. Lens.mapping Lens._Coerce
+createSampleFindings_findingTypes = Lens.lens (\CreateSampleFindings' {findingTypes} -> findingTypes) (\s@CreateSampleFindings' {} a -> s {findingTypes = a} :: CreateSampleFindings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the detector to create sample findings for.
 createSampleFindings_detectorId :: Lens.Lens' CreateSampleFindings Prelude.Text

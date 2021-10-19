@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMember' smart constructor.
 data Member = Member'
-  { -- | The detector ID of the member account.
-    detectorId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the invitation was sent.
+  { -- | The timestamp when the invitation was sent.
     invitedAt :: Prelude.Maybe Prelude.Text,
+    -- | The detector ID of the member account.
+    detectorId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the member account.
     accountId :: Prelude.Text,
     -- | The administrator account ID.
@@ -52,9 +52,9 @@ data Member = Member'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'detectorId', 'member_detectorId' - The detector ID of the member account.
---
 -- 'invitedAt', 'member_invitedAt' - The timestamp when the invitation was sent.
+--
+-- 'detectorId', 'member_detectorId' - The detector ID of the member account.
 --
 -- 'accountId', 'member_accountId' - The ID of the member account.
 --
@@ -84,8 +84,8 @@ newMember
   pRelationshipStatus_
   pUpdatedAt_ =
     Member'
-      { detectorId = Prelude.Nothing,
-        invitedAt = Prelude.Nothing,
+      { invitedAt = Prelude.Nothing,
+        detectorId = Prelude.Nothing,
         accountId = pAccountId_,
         masterId = pMasterId_,
         email = pEmail_,
@@ -93,13 +93,13 @@ newMember
         updatedAt = pUpdatedAt_
       }
 
--- | The detector ID of the member account.
-member_detectorId :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
-member_detectorId = Lens.lens (\Member' {detectorId} -> detectorId) (\s@Member' {} a -> s {detectorId = a} :: Member)
-
 -- | The timestamp when the invitation was sent.
 member_invitedAt :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
 member_invitedAt = Lens.lens (\Member' {invitedAt} -> invitedAt) (\s@Member' {} a -> s {invitedAt = a} :: Member)
+
+-- | The detector ID of the member account.
+member_detectorId :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
+member_detectorId = Lens.lens (\Member' {detectorId} -> detectorId) (\s@Member' {} a -> s {detectorId = a} :: Member)
 
 -- | The ID of the member account.
 member_accountId :: Lens.Lens' Member Prelude.Text
@@ -127,8 +127,8 @@ instance Core.FromJSON Member where
       "Member"
       ( \x ->
           Member'
-            Prelude.<$> (x Core..:? "detectorId")
-            Prelude.<*> (x Core..:? "invitedAt")
+            Prelude.<$> (x Core..:? "invitedAt")
+            Prelude.<*> (x Core..:? "detectorId")
             Prelude.<*> (x Core..: "accountId")
             Prelude.<*> (x Core..: "masterId")
             Prelude.<*> (x Core..: "email")

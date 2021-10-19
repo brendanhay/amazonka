@@ -27,16 +27,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMaster' smart constructor.
 data Master = Master'
-  { -- | The ID of the account used as the administrator account.
-    accountId :: Prelude.Maybe Prelude.Text,
+  { -- | The timestamp when the invitation was sent.
+    invitedAt :: Prelude.Maybe Prelude.Text,
     -- | The status of the relationship between the administrator and member
     -- accounts.
     relationshipStatus :: Prelude.Maybe Prelude.Text,
     -- | The value used to validate the administrator account to the member
     -- account.
     invitationId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the invitation was sent.
-    invitedAt :: Prelude.Maybe Prelude.Text
+    -- | The ID of the account used as the administrator account.
+    accountId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,7 +48,7 @@ data Master = Master'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'master_accountId' - The ID of the account used as the administrator account.
+-- 'invitedAt', 'master_invitedAt' - The timestamp when the invitation was sent.
 --
 -- 'relationshipStatus', 'master_relationshipStatus' - The status of the relationship between the administrator and member
 -- accounts.
@@ -56,20 +56,20 @@ data Master = Master'
 -- 'invitationId', 'master_invitationId' - The value used to validate the administrator account to the member
 -- account.
 --
--- 'invitedAt', 'master_invitedAt' - The timestamp when the invitation was sent.
+-- 'accountId', 'master_accountId' - The ID of the account used as the administrator account.
 newMaster ::
   Master
 newMaster =
   Master'
-    { accountId = Prelude.Nothing,
+    { invitedAt = Prelude.Nothing,
       relationshipStatus = Prelude.Nothing,
       invitationId = Prelude.Nothing,
-      invitedAt = Prelude.Nothing
+      accountId = Prelude.Nothing
     }
 
--- | The ID of the account used as the administrator account.
-master_accountId :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
-master_accountId = Lens.lens (\Master' {accountId} -> accountId) (\s@Master' {} a -> s {accountId = a} :: Master)
+-- | The timestamp when the invitation was sent.
+master_invitedAt :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
+master_invitedAt = Lens.lens (\Master' {invitedAt} -> invitedAt) (\s@Master' {} a -> s {invitedAt = a} :: Master)
 
 -- | The status of the relationship between the administrator and member
 -- accounts.
@@ -81,9 +81,9 @@ master_relationshipStatus = Lens.lens (\Master' {relationshipStatus} -> relation
 master_invitationId :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
 master_invitationId = Lens.lens (\Master' {invitationId} -> invitationId) (\s@Master' {} a -> s {invitationId = a} :: Master)
 
--- | The timestamp when the invitation was sent.
-master_invitedAt :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
-master_invitedAt = Lens.lens (\Master' {invitedAt} -> invitedAt) (\s@Master' {} a -> s {invitedAt = a} :: Master)
+-- | The ID of the account used as the administrator account.
+master_accountId :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
+master_accountId = Lens.lens (\Master' {accountId} -> accountId) (\s@Master' {} a -> s {accountId = a} :: Master)
 
 instance Core.FromJSON Master where
   parseJSON =
@@ -91,10 +91,10 @@ instance Core.FromJSON Master where
       "Master"
       ( \x ->
           Master'
-            Prelude.<$> (x Core..:? "accountId")
+            Prelude.<$> (x Core..:? "invitedAt")
             Prelude.<*> (x Core..:? "relationshipStatus")
             Prelude.<*> (x Core..:? "invitationId")
-            Prelude.<*> (x Core..:? "invitedAt")
+            Prelude.<*> (x Core..:? "accountId")
       )
 
 instance Prelude.Hashable Master

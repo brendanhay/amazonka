@@ -31,33 +31,33 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceDetails' smart constructor.
 data InstanceDetails = InstanceDetails'
-  { -- | The platform of the EC2 instance.
-    platform :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the EC2 instance.
+  { -- | The ID of the EC2 instance.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The type of the EC2 instance.
-    instanceType :: Prelude.Maybe Prelude.Text,
+    -- | The platform of the EC2 instance.
+    platform :: Prelude.Maybe Prelude.Text,
+    -- | The launch time of the EC2 instance.
+    launchTime :: Prelude.Maybe Prelude.Text,
+    -- | The elastic network interface information of the EC2 instance.
+    networkInterfaces :: Prelude.Maybe [NetworkInterface],
     -- | The Amazon Resource Name (ARN) of the AWS Outpost. Only applicable to
     -- AWS Outposts instances.
     outpostArn :: Prelude.Maybe Prelude.Text,
-    -- | The launch time of the EC2 instance.
-    launchTime :: Prelude.Maybe Prelude.Text,
-    -- | The product code of the EC2 instance.
-    productCodes :: Prelude.Maybe [ProductCode],
-    -- | The image ID of the EC2 instance.
-    imageId :: Prelude.Maybe Prelude.Text,
-    -- | The profile information of the EC2 instance.
-    iamInstanceProfile :: Prelude.Maybe IamInstanceProfile,
+    -- | The type of the EC2 instance.
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone of the EC2 instance.
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The image description of the EC2 instance.
-    imageDescription :: Prelude.Maybe Prelude.Text,
-    -- | The tags of the EC2 instance.
-    tags :: Prelude.Maybe [Tag],
+    -- | The profile information of the EC2 instance.
+    iamInstanceProfile :: Prelude.Maybe IamInstanceProfile,
+    -- | The image ID of the EC2 instance.
+    imageId :: Prelude.Maybe Prelude.Text,
+    -- | The product code of the EC2 instance.
+    productCodes :: Prelude.Maybe [ProductCode],
     -- | The state of the EC2 instance.
     instanceState :: Prelude.Maybe Prelude.Text,
-    -- | The elastic network interface information of the EC2 instance.
-    networkInterfaces :: Prelude.Maybe [NetworkInterface]
+    -- | The tags of the EC2 instance.
+    tags :: Prelude.Maybe [Tag],
+    -- | The image description of the EC2 instance.
+    imageDescription :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,103 +69,103 @@ data InstanceDetails = InstanceDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'platform', 'instanceDetails_platform' - The platform of the EC2 instance.
---
 -- 'instanceId', 'instanceDetails_instanceId' - The ID of the EC2 instance.
 --
--- 'instanceType', 'instanceDetails_instanceType' - The type of the EC2 instance.
+-- 'platform', 'instanceDetails_platform' - The platform of the EC2 instance.
+--
+-- 'launchTime', 'instanceDetails_launchTime' - The launch time of the EC2 instance.
+--
+-- 'networkInterfaces', 'instanceDetails_networkInterfaces' - The elastic network interface information of the EC2 instance.
 --
 -- 'outpostArn', 'instanceDetails_outpostArn' - The Amazon Resource Name (ARN) of the AWS Outpost. Only applicable to
 -- AWS Outposts instances.
 --
--- 'launchTime', 'instanceDetails_launchTime' - The launch time of the EC2 instance.
---
--- 'productCodes', 'instanceDetails_productCodes' - The product code of the EC2 instance.
---
--- 'imageId', 'instanceDetails_imageId' - The image ID of the EC2 instance.
---
--- 'iamInstanceProfile', 'instanceDetails_iamInstanceProfile' - The profile information of the EC2 instance.
+-- 'instanceType', 'instanceDetails_instanceType' - The type of the EC2 instance.
 --
 -- 'availabilityZone', 'instanceDetails_availabilityZone' - The Availability Zone of the EC2 instance.
 --
--- 'imageDescription', 'instanceDetails_imageDescription' - The image description of the EC2 instance.
+-- 'iamInstanceProfile', 'instanceDetails_iamInstanceProfile' - The profile information of the EC2 instance.
 --
--- 'tags', 'instanceDetails_tags' - The tags of the EC2 instance.
+-- 'imageId', 'instanceDetails_imageId' - The image ID of the EC2 instance.
+--
+-- 'productCodes', 'instanceDetails_productCodes' - The product code of the EC2 instance.
 --
 -- 'instanceState', 'instanceDetails_instanceState' - The state of the EC2 instance.
 --
--- 'networkInterfaces', 'instanceDetails_networkInterfaces' - The elastic network interface information of the EC2 instance.
+-- 'tags', 'instanceDetails_tags' - The tags of the EC2 instance.
+--
+-- 'imageDescription', 'instanceDetails_imageDescription' - The image description of the EC2 instance.
 newInstanceDetails ::
   InstanceDetails
 newInstanceDetails =
   InstanceDetails'
-    { platform = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      outpostArn = Prelude.Nothing,
+    { instanceId = Prelude.Nothing,
+      platform = Prelude.Nothing,
       launchTime = Prelude.Nothing,
-      productCodes = Prelude.Nothing,
-      imageId = Prelude.Nothing,
-      iamInstanceProfile = Prelude.Nothing,
+      networkInterfaces = Prelude.Nothing,
+      outpostArn = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
-      imageDescription = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      iamInstanceProfile = Prelude.Nothing,
+      imageId = Prelude.Nothing,
+      productCodes = Prelude.Nothing,
       instanceState = Prelude.Nothing,
-      networkInterfaces = Prelude.Nothing
+      tags = Prelude.Nothing,
+      imageDescription = Prelude.Nothing
     }
-
--- | The platform of the EC2 instance.
-instanceDetails_platform :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
-instanceDetails_platform = Lens.lens (\InstanceDetails' {platform} -> platform) (\s@InstanceDetails' {} a -> s {platform = a} :: InstanceDetails)
 
 -- | The ID of the EC2 instance.
 instanceDetails_instanceId :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
 instanceDetails_instanceId = Lens.lens (\InstanceDetails' {instanceId} -> instanceId) (\s@InstanceDetails' {} a -> s {instanceId = a} :: InstanceDetails)
 
--- | The type of the EC2 instance.
-instanceDetails_instanceType :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
-instanceDetails_instanceType = Lens.lens (\InstanceDetails' {instanceType} -> instanceType) (\s@InstanceDetails' {} a -> s {instanceType = a} :: InstanceDetails)
+-- | The platform of the EC2 instance.
+instanceDetails_platform :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
+instanceDetails_platform = Lens.lens (\InstanceDetails' {platform} -> platform) (\s@InstanceDetails' {} a -> s {platform = a} :: InstanceDetails)
+
+-- | The launch time of the EC2 instance.
+instanceDetails_launchTime :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
+instanceDetails_launchTime = Lens.lens (\InstanceDetails' {launchTime} -> launchTime) (\s@InstanceDetails' {} a -> s {launchTime = a} :: InstanceDetails)
+
+-- | The elastic network interface information of the EC2 instance.
+instanceDetails_networkInterfaces :: Lens.Lens' InstanceDetails (Prelude.Maybe [NetworkInterface])
+instanceDetails_networkInterfaces = Lens.lens (\InstanceDetails' {networkInterfaces} -> networkInterfaces) (\s@InstanceDetails' {} a -> s {networkInterfaces = a} :: InstanceDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the AWS Outpost. Only applicable to
 -- AWS Outposts instances.
 instanceDetails_outpostArn :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
 instanceDetails_outpostArn = Lens.lens (\InstanceDetails' {outpostArn} -> outpostArn) (\s@InstanceDetails' {} a -> s {outpostArn = a} :: InstanceDetails)
 
--- | The launch time of the EC2 instance.
-instanceDetails_launchTime :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
-instanceDetails_launchTime = Lens.lens (\InstanceDetails' {launchTime} -> launchTime) (\s@InstanceDetails' {} a -> s {launchTime = a} :: InstanceDetails)
-
--- | The product code of the EC2 instance.
-instanceDetails_productCodes :: Lens.Lens' InstanceDetails (Prelude.Maybe [ProductCode])
-instanceDetails_productCodes = Lens.lens (\InstanceDetails' {productCodes} -> productCodes) (\s@InstanceDetails' {} a -> s {productCodes = a} :: InstanceDetails) Prelude.. Lens.mapping Lens._Coerce
-
--- | The image ID of the EC2 instance.
-instanceDetails_imageId :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
-instanceDetails_imageId = Lens.lens (\InstanceDetails' {imageId} -> imageId) (\s@InstanceDetails' {} a -> s {imageId = a} :: InstanceDetails)
-
--- | The profile information of the EC2 instance.
-instanceDetails_iamInstanceProfile :: Lens.Lens' InstanceDetails (Prelude.Maybe IamInstanceProfile)
-instanceDetails_iamInstanceProfile = Lens.lens (\InstanceDetails' {iamInstanceProfile} -> iamInstanceProfile) (\s@InstanceDetails' {} a -> s {iamInstanceProfile = a} :: InstanceDetails)
+-- | The type of the EC2 instance.
+instanceDetails_instanceType :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
+instanceDetails_instanceType = Lens.lens (\InstanceDetails' {instanceType} -> instanceType) (\s@InstanceDetails' {} a -> s {instanceType = a} :: InstanceDetails)
 
 -- | The Availability Zone of the EC2 instance.
 instanceDetails_availabilityZone :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
 instanceDetails_availabilityZone = Lens.lens (\InstanceDetails' {availabilityZone} -> availabilityZone) (\s@InstanceDetails' {} a -> s {availabilityZone = a} :: InstanceDetails)
 
--- | The image description of the EC2 instance.
-instanceDetails_imageDescription :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
-instanceDetails_imageDescription = Lens.lens (\InstanceDetails' {imageDescription} -> imageDescription) (\s@InstanceDetails' {} a -> s {imageDescription = a} :: InstanceDetails)
+-- | The profile information of the EC2 instance.
+instanceDetails_iamInstanceProfile :: Lens.Lens' InstanceDetails (Prelude.Maybe IamInstanceProfile)
+instanceDetails_iamInstanceProfile = Lens.lens (\InstanceDetails' {iamInstanceProfile} -> iamInstanceProfile) (\s@InstanceDetails' {} a -> s {iamInstanceProfile = a} :: InstanceDetails)
 
--- | The tags of the EC2 instance.
-instanceDetails_tags :: Lens.Lens' InstanceDetails (Prelude.Maybe [Tag])
-instanceDetails_tags = Lens.lens (\InstanceDetails' {tags} -> tags) (\s@InstanceDetails' {} a -> s {tags = a} :: InstanceDetails) Prelude.. Lens.mapping Lens._Coerce
+-- | The image ID of the EC2 instance.
+instanceDetails_imageId :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
+instanceDetails_imageId = Lens.lens (\InstanceDetails' {imageId} -> imageId) (\s@InstanceDetails' {} a -> s {imageId = a} :: InstanceDetails)
+
+-- | The product code of the EC2 instance.
+instanceDetails_productCodes :: Lens.Lens' InstanceDetails (Prelude.Maybe [ProductCode])
+instanceDetails_productCodes = Lens.lens (\InstanceDetails' {productCodes} -> productCodes) (\s@InstanceDetails' {} a -> s {productCodes = a} :: InstanceDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The state of the EC2 instance.
 instanceDetails_instanceState :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
 instanceDetails_instanceState = Lens.lens (\InstanceDetails' {instanceState} -> instanceState) (\s@InstanceDetails' {} a -> s {instanceState = a} :: InstanceDetails)
 
--- | The elastic network interface information of the EC2 instance.
-instanceDetails_networkInterfaces :: Lens.Lens' InstanceDetails (Prelude.Maybe [NetworkInterface])
-instanceDetails_networkInterfaces = Lens.lens (\InstanceDetails' {networkInterfaces} -> networkInterfaces) (\s@InstanceDetails' {} a -> s {networkInterfaces = a} :: InstanceDetails) Prelude.. Lens.mapping Lens._Coerce
+-- | The tags of the EC2 instance.
+instanceDetails_tags :: Lens.Lens' InstanceDetails (Prelude.Maybe [Tag])
+instanceDetails_tags = Lens.lens (\InstanceDetails' {tags} -> tags) (\s@InstanceDetails' {} a -> s {tags = a} :: InstanceDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The image description of the EC2 instance.
+instanceDetails_imageDescription :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
+instanceDetails_imageDescription = Lens.lens (\InstanceDetails' {imageDescription} -> imageDescription) (\s@InstanceDetails' {} a -> s {imageDescription = a} :: InstanceDetails)
 
 instance Core.FromJSON InstanceDetails where
   parseJSON =
@@ -173,21 +173,21 @@ instance Core.FromJSON InstanceDetails where
       "InstanceDetails"
       ( \x ->
           InstanceDetails'
-            Prelude.<$> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "instanceId")
-            Prelude.<*> (x Core..:? "instanceType")
-            Prelude.<*> (x Core..:? "outpostArn")
+            Prelude.<$> (x Core..:? "instanceId")
+            Prelude.<*> (x Core..:? "platform")
             Prelude.<*> (x Core..:? "launchTime")
-            Prelude.<*> (x Core..:? "productCodes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "imageId")
-            Prelude.<*> (x Core..:? "iamInstanceProfile")
-            Prelude.<*> (x Core..:? "availabilityZone")
-            Prelude.<*> (x Core..:? "imageDescription")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "instanceState")
             Prelude.<*> ( x Core..:? "networkInterfaces"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "outpostArn")
+            Prelude.<*> (x Core..:? "instanceType")
+            Prelude.<*> (x Core..:? "availabilityZone")
+            Prelude.<*> (x Core..:? "iamInstanceProfile")
+            Prelude.<*> (x Core..:? "imageId")
+            Prelude.<*> (x Core..:? "productCodes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "instanceState")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "imageDescription")
       )
 
 instance Prelude.Hashable InstanceDetails

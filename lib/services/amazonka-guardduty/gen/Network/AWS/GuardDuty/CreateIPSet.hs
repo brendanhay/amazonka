@@ -31,8 +31,8 @@ module Network.AWS.GuardDuty.CreateIPSet
     newCreateIPSet,
 
     -- * Request Lenses
-    createIPSet_tags,
     createIPSet_clientToken,
+    createIPSet_tags,
     createIPSet_detectorId,
     createIPSet_name,
     createIPSet_format,
@@ -58,10 +58,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateIPSet' smart constructor.
 data CreateIPSet = CreateIPSet'
-  { -- | The tags to be added to a new IP set resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The idempotency token for the create request.
+  { -- | The idempotency token for the create request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags to be added to a new IP set resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique ID of the detector of the GuardDuty account that you want to
     -- create an IPSet for.
     detectorId :: Prelude.Text,
@@ -89,9 +89,9 @@ data CreateIPSet = CreateIPSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createIPSet_tags' - The tags to be added to a new IP set resource.
---
 -- 'clientToken', 'createIPSet_clientToken' - The idempotency token for the create request.
+--
+-- 'tags', 'createIPSet_tags' - The tags to be added to a new IP set resource.
 --
 -- 'detectorId', 'createIPSet_detectorId' - The unique ID of the detector of the GuardDuty account that you want to
 -- create an IPSet for.
@@ -127,8 +127,8 @@ newCreateIPSet
   pLocation_
   pActivate_ =
     CreateIPSet'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
+        tags = Prelude.Nothing,
         detectorId = pDetectorId_,
         name = pName_,
         format = pFormat_,
@@ -136,13 +136,13 @@ newCreateIPSet
         activate = pActivate_
       }
 
--- | The tags to be added to a new IP set resource.
-createIPSet_tags :: Lens.Lens' CreateIPSet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createIPSet_tags = Lens.lens (\CreateIPSet' {tags} -> tags) (\s@CreateIPSet' {} a -> s {tags = a} :: CreateIPSet) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The idempotency token for the create request.
 createIPSet_clientToken :: Lens.Lens' CreateIPSet (Prelude.Maybe Prelude.Text)
 createIPSet_clientToken = Lens.lens (\CreateIPSet' {clientToken} -> clientToken) (\s@CreateIPSet' {} a -> s {clientToken = a} :: CreateIPSet)
+
+-- | The tags to be added to a new IP set resource.
+createIPSet_tags :: Lens.Lens' CreateIPSet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createIPSet_tags = Lens.lens (\CreateIPSet' {tags} -> tags) (\s@CreateIPSet' {} a -> s {tags = a} :: CreateIPSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique ID of the detector of the GuardDuty account that you want to
 -- create an IPSet for.
@@ -200,8 +200,8 @@ instance Core.ToJSON CreateIPSet where
   toJSON CreateIPSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("format" Core..= format),
             Prelude.Just ("location" Core..= location),

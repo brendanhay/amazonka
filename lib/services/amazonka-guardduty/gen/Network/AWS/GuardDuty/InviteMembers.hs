@@ -30,8 +30,8 @@ module Network.AWS.GuardDuty.InviteMembers
     newInviteMembers,
 
     -- * Request Lenses
-    inviteMembers_message,
     inviteMembers_disableEmailNotification,
+    inviteMembers_message,
     inviteMembers_detectorId,
     inviteMembers_accountIds,
 
@@ -54,13 +54,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newInviteMembers' smart constructor.
 data InviteMembers = InviteMembers'
-  { -- | The invitation message that you want to send to the accounts that
-    -- you\'re inviting to GuardDuty as members.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | A Boolean value that specifies whether you want to disable email
+  { -- | A Boolean value that specifies whether you want to disable email
     -- notification to the accounts that you are inviting to GuardDuty as
     -- members.
     disableEmailNotification :: Prelude.Maybe Prelude.Bool,
+    -- | The invitation message that you want to send to the accounts that
+    -- you\'re inviting to GuardDuty as members.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the detector of the GuardDuty account that you want to
     -- invite members with.
     detectorId :: Prelude.Text,
@@ -78,12 +78,12 @@ data InviteMembers = InviteMembers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'inviteMembers_message' - The invitation message that you want to send to the accounts that
--- you\'re inviting to GuardDuty as members.
---
 -- 'disableEmailNotification', 'inviteMembers_disableEmailNotification' - A Boolean value that specifies whether you want to disable email
 -- notification to the accounts that you are inviting to GuardDuty as
 -- members.
+--
+-- 'message', 'inviteMembers_message' - The invitation message that you want to send to the accounts that
+-- you\'re inviting to GuardDuty as members.
 --
 -- 'detectorId', 'inviteMembers_detectorId' - The unique ID of the detector of the GuardDuty account that you want to
 -- invite members with.
@@ -98,22 +98,23 @@ newInviteMembers ::
   InviteMembers
 newInviteMembers pDetectorId_ pAccountIds_ =
   InviteMembers'
-    { message = Prelude.Nothing,
-      disableEmailNotification = Prelude.Nothing,
+    { disableEmailNotification =
+        Prelude.Nothing,
+      message = Prelude.Nothing,
       detectorId = pDetectorId_,
-      accountIds = Lens._Coerce Lens.# pAccountIds_
+      accountIds = Lens.coerced Lens.# pAccountIds_
     }
-
--- | The invitation message that you want to send to the accounts that
--- you\'re inviting to GuardDuty as members.
-inviteMembers_message :: Lens.Lens' InviteMembers (Prelude.Maybe Prelude.Text)
-inviteMembers_message = Lens.lens (\InviteMembers' {message} -> message) (\s@InviteMembers' {} a -> s {message = a} :: InviteMembers)
 
 -- | A Boolean value that specifies whether you want to disable email
 -- notification to the accounts that you are inviting to GuardDuty as
 -- members.
 inviteMembers_disableEmailNotification :: Lens.Lens' InviteMembers (Prelude.Maybe Prelude.Bool)
 inviteMembers_disableEmailNotification = Lens.lens (\InviteMembers' {disableEmailNotification} -> disableEmailNotification) (\s@InviteMembers' {} a -> s {disableEmailNotification = a} :: InviteMembers)
+
+-- | The invitation message that you want to send to the accounts that
+-- you\'re inviting to GuardDuty as members.
+inviteMembers_message :: Lens.Lens' InviteMembers (Prelude.Maybe Prelude.Text)
+inviteMembers_message = Lens.lens (\InviteMembers' {message} -> message) (\s@InviteMembers' {} a -> s {message = a} :: InviteMembers)
 
 -- | The unique ID of the detector of the GuardDuty account that you want to
 -- invite members with.
@@ -123,7 +124,7 @@ inviteMembers_detectorId = Lens.lens (\InviteMembers' {detectorId} -> detectorId
 -- | A list of account IDs of the accounts that you want to invite to
 -- GuardDuty as members.
 inviteMembers_accountIds :: Lens.Lens' InviteMembers (Prelude.NonEmpty Prelude.Text)
-inviteMembers_accountIds = Lens.lens (\InviteMembers' {accountIds} -> accountIds) (\s@InviteMembers' {} a -> s {accountIds = a} :: InviteMembers) Prelude.. Lens._Coerce
+inviteMembers_accountIds = Lens.lens (\InviteMembers' {accountIds} -> accountIds) (\s@InviteMembers' {} a -> s {accountIds = a} :: InviteMembers) Prelude.. Lens.coerced
 
 instance Core.AWSRequest InviteMembers where
   type
@@ -159,9 +160,9 @@ instance Core.ToJSON InviteMembers where
   toJSON InviteMembers' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("message" Core..=) Prelude.<$> message,
-            ("disableEmailNotification" Core..=)
+          [ ("disableEmailNotification" Core..=)
               Prelude.<$> disableEmailNotification,
+            ("message" Core..=) Prelude.<$> message,
             Prelude.Just ("accountIds" Core..= accountIds)
           ]
       )
@@ -216,6 +217,6 @@ inviteMembersResponse_httpStatus = Lens.lens (\InviteMembersResponse' {httpStatu
 -- | A list of objects that contain the unprocessed account and a result
 -- string that explains why it was unprocessed.
 inviteMembersResponse_unprocessedAccounts :: Lens.Lens' InviteMembersResponse [UnprocessedAccount]
-inviteMembersResponse_unprocessedAccounts = Lens.lens (\InviteMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@InviteMembersResponse' {} a -> s {unprocessedAccounts = a} :: InviteMembersResponse) Prelude.. Lens._Coerce
+inviteMembersResponse_unprocessedAccounts = Lens.lens (\InviteMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@InviteMembersResponse' {} a -> s {unprocessedAccounts = a} :: InviteMembersResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData InviteMembersResponse

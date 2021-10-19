@@ -27,9 +27,9 @@ module Network.AWS.GuardDuty.UpdateIPSet
     newUpdateIPSet,
 
     -- * Request Lenses
+    updateIPSet_location,
     updateIPSet_activate,
     updateIPSet_name,
-    updateIPSet_location,
     updateIPSet_detectorId,
     updateIPSet_ipSetId,
 
@@ -51,14 +51,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateIPSet' smart constructor.
 data UpdateIPSet = UpdateIPSet'
-  { -- | The updated Boolean value that specifies whether the IPSet is active or
+  { -- | The updated URI of the file that contains the IPSet. For example:
+    -- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+    location :: Prelude.Maybe Prelude.Text,
+    -- | The updated Boolean value that specifies whether the IPSet is active or
     -- not.
     activate :: Prelude.Maybe Prelude.Bool,
     -- | The unique ID that specifies the IPSet that you want to update.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The updated URI of the file that contains the IPSet. For example:
-    -- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
-    location :: Prelude.Maybe Prelude.Text,
     -- | The detectorID that specifies the GuardDuty service whose IPSet you want
     -- to update.
     detectorId :: Prelude.Text,
@@ -75,13 +75,13 @@ data UpdateIPSet = UpdateIPSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'location', 'updateIPSet_location' - The updated URI of the file that contains the IPSet. For example:
+-- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+--
 -- 'activate', 'updateIPSet_activate' - The updated Boolean value that specifies whether the IPSet is active or
 -- not.
 --
 -- 'name', 'updateIPSet_name' - The unique ID that specifies the IPSet that you want to update.
---
--- 'location', 'updateIPSet_location' - The updated URI of the file that contains the IPSet. For example:
--- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
 --
 -- 'detectorId', 'updateIPSet_detectorId' - The detectorID that specifies the GuardDuty service whose IPSet you want
 -- to update.
@@ -95,12 +95,17 @@ newUpdateIPSet ::
   UpdateIPSet
 newUpdateIPSet pDetectorId_ pIpSetId_ =
   UpdateIPSet'
-    { activate = Prelude.Nothing,
+    { location = Prelude.Nothing,
+      activate = Prelude.Nothing,
       name = Prelude.Nothing,
-      location = Prelude.Nothing,
       detectorId = pDetectorId_,
       ipSetId = pIpSetId_
     }
+
+-- | The updated URI of the file that contains the IPSet. For example:
+-- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+updateIPSet_location :: Lens.Lens' UpdateIPSet (Prelude.Maybe Prelude.Text)
+updateIPSet_location = Lens.lens (\UpdateIPSet' {location} -> location) (\s@UpdateIPSet' {} a -> s {location = a} :: UpdateIPSet)
 
 -- | The updated Boolean value that specifies whether the IPSet is active or
 -- not.
@@ -110,11 +115,6 @@ updateIPSet_activate = Lens.lens (\UpdateIPSet' {activate} -> activate) (\s@Upda
 -- | The unique ID that specifies the IPSet that you want to update.
 updateIPSet_name :: Lens.Lens' UpdateIPSet (Prelude.Maybe Prelude.Text)
 updateIPSet_name = Lens.lens (\UpdateIPSet' {name} -> name) (\s@UpdateIPSet' {} a -> s {name = a} :: UpdateIPSet)
-
--- | The updated URI of the file that contains the IPSet. For example:
--- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
-updateIPSet_location :: Lens.Lens' UpdateIPSet (Prelude.Maybe Prelude.Text)
-updateIPSet_location = Lens.lens (\UpdateIPSet' {location} -> location) (\s@UpdateIPSet' {} a -> s {location = a} :: UpdateIPSet)
 
 -- | The detectorID that specifies the GuardDuty service whose IPSet you want
 -- to update.
@@ -154,9 +154,9 @@ instance Core.ToJSON UpdateIPSet where
   toJSON UpdateIPSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("activate" Core..=) Prelude.<$> activate,
-            ("name" Core..=) Prelude.<$> name,
-            ("location" Core..=) Prelude.<$> location
+          [ ("location" Core..=) Prelude.<$> location,
+            ("activate" Core..=) Prelude.<$> activate,
+            ("name" Core..=) Prelude.<$> name
           ]
       )
 

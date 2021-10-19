@@ -60,7 +60,7 @@ newThreatIntelligenceDetail =
 -- | A list of names of the threats in the threat intelligence list that
 -- triggered the finding.
 threatIntelligenceDetail_threatNames :: Lens.Lens' ThreatIntelligenceDetail (Prelude.Maybe [Prelude.Text])
-threatIntelligenceDetail_threatNames = Lens.lens (\ThreatIntelligenceDetail' {threatNames} -> threatNames) (\s@ThreatIntelligenceDetail' {} a -> s {threatNames = a} :: ThreatIntelligenceDetail) Prelude.. Lens.mapping Lens._Coerce
+threatIntelligenceDetail_threatNames = Lens.lens (\ThreatIntelligenceDetail' {threatNames} -> threatNames) (\s@ThreatIntelligenceDetail' {} a -> s {threatNames = a} :: ThreatIntelligenceDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the threat intelligence list that triggered the finding.
 threatIntelligenceDetail_threatListName :: Lens.Lens' ThreatIntelligenceDetail (Prelude.Maybe Prelude.Text)

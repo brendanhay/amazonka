@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newProductCode' smart constructor.
 data ProductCode = ProductCode'
-  { -- | The product code information.
-    code :: Prelude.Maybe Prelude.Text,
-    -- | The product code type.
-    productType :: Prelude.Maybe Prelude.Text
+  { -- | The product code type.
+    productType :: Prelude.Maybe Prelude.Text,
+    -- | The product code information.
+    code :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data ProductCode = ProductCode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'productCode_code' - The product code information.
---
 -- 'productType', 'productCode_productType' - The product code type.
+--
+-- 'code', 'productCode_code' - The product code information.
 newProductCode ::
   ProductCode
 newProductCode =
   ProductCode'
-    { code = Prelude.Nothing,
-      productType = Prelude.Nothing
+    { productType = Prelude.Nothing,
+      code = Prelude.Nothing
     }
-
--- | The product code information.
-productCode_code :: Lens.Lens' ProductCode (Prelude.Maybe Prelude.Text)
-productCode_code = Lens.lens (\ProductCode' {code} -> code) (\s@ProductCode' {} a -> s {code = a} :: ProductCode)
 
 -- | The product code type.
 productCode_productType :: Lens.Lens' ProductCode (Prelude.Maybe Prelude.Text)
 productCode_productType = Lens.lens (\ProductCode' {productType} -> productType) (\s@ProductCode' {} a -> s {productType = a} :: ProductCode)
+
+-- | The product code information.
+productCode_code :: Lens.Lens' ProductCode (Prelude.Maybe Prelude.Text)
+productCode_code = Lens.lens (\ProductCode' {code} -> code) (\s@ProductCode' {} a -> s {code = a} :: ProductCode)
 
 instance Core.FromJSON ProductCode where
   parseJSON =
@@ -67,8 +67,8 @@ instance Core.FromJSON ProductCode where
       "ProductCode"
       ( \x ->
           ProductCode'
-            Prelude.<$> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "productType")
+            Prelude.<$> (x Core..:? "productType")
+            Prelude.<*> (x Core..:? "code")
       )
 
 instance Prelude.Hashable ProductCode

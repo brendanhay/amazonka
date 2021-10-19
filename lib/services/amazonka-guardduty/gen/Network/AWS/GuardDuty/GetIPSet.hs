@@ -200,7 +200,7 @@ newGetIPSetResponse
 
 -- | The tags of the IPSet resource.
 getIPSetResponse_tags :: Lens.Lens' GetIPSetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getIPSetResponse_tags = Lens.lens (\GetIPSetResponse' {tags} -> tags) (\s@GetIPSetResponse' {} a -> s {tags = a} :: GetIPSetResponse) Prelude.. Lens.mapping Lens._Coerce
+getIPSetResponse_tags = Lens.lens (\GetIPSetResponse' {tags} -> tags) (\s@GetIPSetResponse' {} a -> s {tags = a} :: GetIPSetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getIPSetResponse_httpStatus :: Lens.Lens' GetIPSetResponse Prelude.Int

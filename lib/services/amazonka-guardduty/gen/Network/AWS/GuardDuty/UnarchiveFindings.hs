@@ -82,7 +82,7 @@ unarchiveFindings_detectorId = Lens.lens (\UnarchiveFindings' {detectorId} -> de
 
 -- | The IDs of the findings to unarchive.
 unarchiveFindings_findingIds :: Lens.Lens' UnarchiveFindings [Prelude.Text]
-unarchiveFindings_findingIds = Lens.lens (\UnarchiveFindings' {findingIds} -> findingIds) (\s@UnarchiveFindings' {} a -> s {findingIds = a} :: UnarchiveFindings) Prelude.. Lens._Coerce
+unarchiveFindings_findingIds = Lens.lens (\UnarchiveFindings' {findingIds} -> findingIds) (\s@UnarchiveFindings' {} a -> s {findingIds = a} :: UnarchiveFindings) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UnarchiveFindings where
   type

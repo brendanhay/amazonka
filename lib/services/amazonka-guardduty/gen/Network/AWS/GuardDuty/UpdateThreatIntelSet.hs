@@ -27,9 +27,9 @@ module Network.AWS.GuardDuty.UpdateThreatIntelSet
     newUpdateThreatIntelSet,
 
     -- * Request Lenses
+    updateThreatIntelSet_location,
     updateThreatIntelSet_activate,
     updateThreatIntelSet_name,
-    updateThreatIntelSet_location,
     updateThreatIntelSet_detectorId,
     updateThreatIntelSet_threatIntelSetId,
 
@@ -51,13 +51,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateThreatIntelSet' smart constructor.
 data UpdateThreatIntelSet = UpdateThreatIntelSet'
-  { -- | The updated Boolean value that specifies whether the ThreateIntelSet is
+  { -- | The updated URI of the file that contains the ThreateIntelSet.
+    location :: Prelude.Maybe Prelude.Text,
+    -- | The updated Boolean value that specifies whether the ThreateIntelSet is
     -- active or not.
     activate :: Prelude.Maybe Prelude.Bool,
     -- | The unique ID that specifies the ThreatIntelSet that you want to update.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The updated URI of the file that contains the ThreateIntelSet.
-    location :: Prelude.Maybe Prelude.Text,
     -- | The detectorID that specifies the GuardDuty service whose ThreatIntelSet
     -- you want to update.
     detectorId :: Prelude.Text,
@@ -74,12 +74,12 @@ data UpdateThreatIntelSet = UpdateThreatIntelSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'location', 'updateThreatIntelSet_location' - The updated URI of the file that contains the ThreateIntelSet.
+--
 -- 'activate', 'updateThreatIntelSet_activate' - The updated Boolean value that specifies whether the ThreateIntelSet is
 -- active or not.
 --
 -- 'name', 'updateThreatIntelSet_name' - The unique ID that specifies the ThreatIntelSet that you want to update.
---
--- 'location', 'updateThreatIntelSet_location' - The updated URI of the file that contains the ThreateIntelSet.
 --
 -- 'detectorId', 'updateThreatIntelSet_detectorId' - The detectorID that specifies the GuardDuty service whose ThreatIntelSet
 -- you want to update.
@@ -95,12 +95,16 @@ newUpdateThreatIntelSet
   pDetectorId_
   pThreatIntelSetId_ =
     UpdateThreatIntelSet'
-      { activate = Prelude.Nothing,
+      { location = Prelude.Nothing,
+        activate = Prelude.Nothing,
         name = Prelude.Nothing,
-        location = Prelude.Nothing,
         detectorId = pDetectorId_,
         threatIntelSetId = pThreatIntelSetId_
       }
+
+-- | The updated URI of the file that contains the ThreateIntelSet.
+updateThreatIntelSet_location :: Lens.Lens' UpdateThreatIntelSet (Prelude.Maybe Prelude.Text)
+updateThreatIntelSet_location = Lens.lens (\UpdateThreatIntelSet' {location} -> location) (\s@UpdateThreatIntelSet' {} a -> s {location = a} :: UpdateThreatIntelSet)
 
 -- | The updated Boolean value that specifies whether the ThreateIntelSet is
 -- active or not.
@@ -110,10 +114,6 @@ updateThreatIntelSet_activate = Lens.lens (\UpdateThreatIntelSet' {activate} -> 
 -- | The unique ID that specifies the ThreatIntelSet that you want to update.
 updateThreatIntelSet_name :: Lens.Lens' UpdateThreatIntelSet (Prelude.Maybe Prelude.Text)
 updateThreatIntelSet_name = Lens.lens (\UpdateThreatIntelSet' {name} -> name) (\s@UpdateThreatIntelSet' {} a -> s {name = a} :: UpdateThreatIntelSet)
-
--- | The updated URI of the file that contains the ThreateIntelSet.
-updateThreatIntelSet_location :: Lens.Lens' UpdateThreatIntelSet (Prelude.Maybe Prelude.Text)
-updateThreatIntelSet_location = Lens.lens (\UpdateThreatIntelSet' {location} -> location) (\s@UpdateThreatIntelSet' {} a -> s {location = a} :: UpdateThreatIntelSet)
 
 -- | The detectorID that specifies the GuardDuty service whose ThreatIntelSet
 -- you want to update.
@@ -155,9 +155,9 @@ instance Core.ToJSON UpdateThreatIntelSet where
   toJSON UpdateThreatIntelSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("activate" Core..=) Prelude.<$> activate,
-            ("name" Core..=) Prelude.<$> name,
-            ("location" Core..=) Prelude.<$> location
+          [ ("location" Core..=) Prelude.<$> location,
+            ("activate" Core..=) Prelude.<$> activate,
+            ("name" Core..=) Prelude.<$> name
           ]
       )
 

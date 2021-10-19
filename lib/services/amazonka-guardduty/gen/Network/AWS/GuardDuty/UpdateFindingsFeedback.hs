@@ -103,7 +103,7 @@ updateFindingsFeedback_detectorId = Lens.lens (\UpdateFindingsFeedback' {detecto
 
 -- | The IDs of the findings that you want to mark as useful or not useful.
 updateFindingsFeedback_findingIds :: Lens.Lens' UpdateFindingsFeedback [Prelude.Text]
-updateFindingsFeedback_findingIds = Lens.lens (\UpdateFindingsFeedback' {findingIds} -> findingIds) (\s@UpdateFindingsFeedback' {} a -> s {findingIds = a} :: UpdateFindingsFeedback) Prelude.. Lens._Coerce
+updateFindingsFeedback_findingIds = Lens.lens (\UpdateFindingsFeedback' {findingIds} -> findingIds) (\s@UpdateFindingsFeedback' {} a -> s {findingIds = a} :: UpdateFindingsFeedback) Prelude.. Lens.coerced
 
 -- | The feedback for the finding.
 updateFindingsFeedback_feedback :: Lens.Lens' UpdateFindingsFeedback Feedback

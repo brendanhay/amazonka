@@ -27,10 +27,10 @@ module Network.AWS.GuardDuty.UpdateFilter
     newUpdateFilter,
 
     -- * Request Lenses
-    updateFilter_rank,
     updateFilter_findingCriteria,
     updateFilter_action,
     updateFilter_description,
+    updateFilter_rank,
     updateFilter_detectorId,
     updateFilter_filterName,
 
@@ -53,17 +53,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateFilter' smart constructor.
 data UpdateFilter = UpdateFilter'
-  { -- | Specifies the position of the filter in the list of current filters.
-    -- Also specifies the order in which this filter is applied to the
-    -- findings.
-    rank :: Prelude.Maybe Prelude.Natural,
-    -- | Represents the criteria to be used in the filter for querying findings.
+  { -- | Represents the criteria to be used in the filter for querying findings.
     findingCriteria :: Prelude.Maybe FindingCriteria,
     -- | Specifies the action that is to be applied to the findings that match
     -- the filter.
     action :: Prelude.Maybe FilterAction,
     -- | The description of the filter.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the position of the filter in the list of current filters.
+    -- Also specifies the order in which this filter is applied to the
+    -- findings.
+    rank :: Prelude.Maybe Prelude.Natural,
     -- | The unique ID of the detector that specifies the GuardDuty service where
     -- you want to update a filter.
     detectorId :: Prelude.Text,
@@ -80,16 +80,16 @@ data UpdateFilter = UpdateFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rank', 'updateFilter_rank' - Specifies the position of the filter in the list of current filters.
--- Also specifies the order in which this filter is applied to the
--- findings.
---
 -- 'findingCriteria', 'updateFilter_findingCriteria' - Represents the criteria to be used in the filter for querying findings.
 --
 -- 'action', 'updateFilter_action' - Specifies the action that is to be applied to the findings that match
 -- the filter.
 --
 -- 'description', 'updateFilter_description' - The description of the filter.
+--
+-- 'rank', 'updateFilter_rank' - Specifies the position of the filter in the list of current filters.
+-- Also specifies the order in which this filter is applied to the
+-- findings.
 --
 -- 'detectorId', 'updateFilter_detectorId' - The unique ID of the detector that specifies the GuardDuty service where
 -- you want to update a filter.
@@ -103,19 +103,13 @@ newUpdateFilter ::
   UpdateFilter
 newUpdateFilter pDetectorId_ pFilterName_ =
   UpdateFilter'
-    { rank = Prelude.Nothing,
-      findingCriteria = Prelude.Nothing,
+    { findingCriteria = Prelude.Nothing,
       action = Prelude.Nothing,
       description = Prelude.Nothing,
+      rank = Prelude.Nothing,
       detectorId = pDetectorId_,
       filterName = pFilterName_
     }
-
--- | Specifies the position of the filter in the list of current filters.
--- Also specifies the order in which this filter is applied to the
--- findings.
-updateFilter_rank :: Lens.Lens' UpdateFilter (Prelude.Maybe Prelude.Natural)
-updateFilter_rank = Lens.lens (\UpdateFilter' {rank} -> rank) (\s@UpdateFilter' {} a -> s {rank = a} :: UpdateFilter)
 
 -- | Represents the criteria to be used in the filter for querying findings.
 updateFilter_findingCriteria :: Lens.Lens' UpdateFilter (Prelude.Maybe FindingCriteria)
@@ -129,6 +123,12 @@ updateFilter_action = Lens.lens (\UpdateFilter' {action} -> action) (\s@UpdateFi
 -- | The description of the filter.
 updateFilter_description :: Lens.Lens' UpdateFilter (Prelude.Maybe Prelude.Text)
 updateFilter_description = Lens.lens (\UpdateFilter' {description} -> description) (\s@UpdateFilter' {} a -> s {description = a} :: UpdateFilter)
+
+-- | Specifies the position of the filter in the list of current filters.
+-- Also specifies the order in which this filter is applied to the
+-- findings.
+updateFilter_rank :: Lens.Lens' UpdateFilter (Prelude.Maybe Prelude.Natural)
+updateFilter_rank = Lens.lens (\UpdateFilter' {rank} -> rank) (\s@UpdateFilter' {} a -> s {rank = a} :: UpdateFilter)
 
 -- | The unique ID of the detector that specifies the GuardDuty service where
 -- you want to update a filter.
@@ -169,11 +169,11 @@ instance Core.ToJSON UpdateFilter where
   toJSON UpdateFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("rank" Core..=) Prelude.<$> rank,
-            ("findingCriteria" Core..=)
+          [ ("findingCriteria" Core..=)
               Prelude.<$> findingCriteria,
             ("action" Core..=) Prelude.<$> action,
-            ("description" Core..=) Prelude.<$> description
+            ("description" Core..=) Prelude.<$> description,
+            ("rank" Core..=) Prelude.<$> rank
           ]
       )
 

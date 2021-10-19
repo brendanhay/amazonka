@@ -217,6 +217,6 @@ listFiltersResponse_httpStatus = Lens.lens (\ListFiltersResponse' {httpStatus} -
 
 -- | A list of filter names.
 listFiltersResponse_filterNames :: Lens.Lens' ListFiltersResponse [Prelude.Text]
-listFiltersResponse_filterNames = Lens.lens (\ListFiltersResponse' {filterNames} -> filterNames) (\s@ListFiltersResponse' {} a -> s {filterNames = a} :: ListFiltersResponse) Prelude.. Lens._Coerce
+listFiltersResponse_filterNames = Lens.lens (\ListFiltersResponse' {filterNames} -> filterNames) (\s@ListFiltersResponse' {} a -> s {filterNames = a} :: ListFiltersResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListFiltersResponse

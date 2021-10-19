@@ -27,11 +27,11 @@ module Network.AWS.GuardDuty.CreateFilter
     newCreateFilter,
 
     -- * Request Lenses
-    createFilter_rank,
-    createFilter_tags,
+    createFilter_clientToken,
     createFilter_action,
     createFilter_description,
-    createFilter_clientToken,
+    createFilter_rank,
+    createFilter_tags,
     createFilter_detectorId,
     createFilter_name,
     createFilter_findingCriteria,
@@ -55,19 +55,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateFilter' smart constructor.
 data CreateFilter = CreateFilter'
-  { -- | Specifies the position of the filter in the list of current filters.
-    -- Also specifies the order in which this filter is applied to the
-    -- findings.
-    rank :: Prelude.Maybe Prelude.Natural,
-    -- | The tags to be added to a new filter resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The idempotency token for the create request.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the action that is to be applied to the findings that match
     -- the filter.
     action :: Prelude.Maybe FilterAction,
     -- | The description of the filter.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The idempotency token for the create request.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the position of the filter in the list of current filters.
+    -- Also specifies the order in which this filter is applied to the
+    -- findings.
+    rank :: Prelude.Maybe Prelude.Natural,
+    -- | The tags to be added to a new filter resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the detector belonging to the GuardDuty account that you want
     -- to create a filter for.
     detectorId :: Prelude.Text,
@@ -201,18 +201,18 @@ data CreateFilter = CreateFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rank', 'createFilter_rank' - Specifies the position of the filter in the list of current filters.
--- Also specifies the order in which this filter is applied to the
--- findings.
---
--- 'tags', 'createFilter_tags' - The tags to be added to a new filter resource.
+-- 'clientToken', 'createFilter_clientToken' - The idempotency token for the create request.
 --
 -- 'action', 'createFilter_action' - Specifies the action that is to be applied to the findings that match
 -- the filter.
 --
 -- 'description', 'createFilter_description' - The description of the filter.
 --
--- 'clientToken', 'createFilter_clientToken' - The idempotency token for the create request.
+-- 'rank', 'createFilter_rank' - Specifies the position of the filter in the list of current filters.
+-- Also specifies the order in which this filter is applied to the
+-- findings.
+--
+-- 'tags', 'createFilter_tags' - The tags to be added to a new filter resource.
 --
 -- 'detectorId', 'createFilter_detectorId' - The ID of the detector belonging to the GuardDuty account that you want
 -- to create a filter for.
@@ -345,25 +345,19 @@ newCreateFilter ::
   CreateFilter
 newCreateFilter pDetectorId_ pName_ pFindingCriteria_ =
   CreateFilter'
-    { rank = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       action = Prelude.Nothing,
       description = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+      rank = Prelude.Nothing,
+      tags = Prelude.Nothing,
       detectorId = pDetectorId_,
       name = pName_,
       findingCriteria = pFindingCriteria_
     }
 
--- | Specifies the position of the filter in the list of current filters.
--- Also specifies the order in which this filter is applied to the
--- findings.
-createFilter_rank :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Natural)
-createFilter_rank = Lens.lens (\CreateFilter' {rank} -> rank) (\s@CreateFilter' {} a -> s {rank = a} :: CreateFilter)
-
--- | The tags to be added to a new filter resource.
-createFilter_tags :: Lens.Lens' CreateFilter (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createFilter_tags = Lens.lens (\CreateFilter' {tags} -> tags) (\s@CreateFilter' {} a -> s {tags = a} :: CreateFilter) Prelude.. Lens.mapping Lens._Coerce
+-- | The idempotency token for the create request.
+createFilter_clientToken :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Text)
+createFilter_clientToken = Lens.lens (\CreateFilter' {clientToken} -> clientToken) (\s@CreateFilter' {} a -> s {clientToken = a} :: CreateFilter)
 
 -- | Specifies the action that is to be applied to the findings that match
 -- the filter.
@@ -374,9 +368,15 @@ createFilter_action = Lens.lens (\CreateFilter' {action} -> action) (\s@CreateFi
 createFilter_description :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Text)
 createFilter_description = Lens.lens (\CreateFilter' {description} -> description) (\s@CreateFilter' {} a -> s {description = a} :: CreateFilter)
 
--- | The idempotency token for the create request.
-createFilter_clientToken :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Text)
-createFilter_clientToken = Lens.lens (\CreateFilter' {clientToken} -> clientToken) (\s@CreateFilter' {} a -> s {clientToken = a} :: CreateFilter)
+-- | Specifies the position of the filter in the list of current filters.
+-- Also specifies the order in which this filter is applied to the
+-- findings.
+createFilter_rank :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Natural)
+createFilter_rank = Lens.lens (\CreateFilter' {rank} -> rank) (\s@CreateFilter' {} a -> s {rank = a} :: CreateFilter)
+
+-- | The tags to be added to a new filter resource.
+createFilter_tags :: Lens.Lens' CreateFilter (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createFilter_tags = Lens.lens (\CreateFilter' {tags} -> tags) (\s@CreateFilter' {} a -> s {tags = a} :: CreateFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the detector belonging to the GuardDuty account that you want
 -- to create a filter for.
@@ -536,11 +536,11 @@ instance Core.ToJSON CreateFilter where
   toJSON CreateFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("rank" Core..=) Prelude.<$> rank,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("clientToken" Core..=) Prelude.<$> clientToken,
             ("action" Core..=) Prelude.<$> action,
             ("description" Core..=) Prelude.<$> description,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("rank" Core..=) Prelude.<$> rank,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("name" Core..= name),
             Prelude.Just
               ("findingCriteria" Core..= findingCriteria)

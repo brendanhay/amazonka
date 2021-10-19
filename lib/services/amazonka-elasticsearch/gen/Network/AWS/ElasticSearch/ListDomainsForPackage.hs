@@ -36,8 +36,8 @@ module Network.AWS.ElasticSearch.ListDomainsForPackage
     newListDomainsForPackageResponse,
 
     -- * Response Lenses
-    listDomainsForPackageResponse_nextToken,
     listDomainsForPackageResponse_domainPackageDetailsList,
+    listDomainsForPackageResponse_nextToken,
     listDomainsForPackageResponse_httpStatus,
   )
 where
@@ -113,10 +113,10 @@ instance Core.AWSRequest ListDomainsForPackage where
     Response.receiveJSON
       ( \s h x ->
           ListDomainsForPackageResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DomainPackageDetailsList"
+            Prelude.<$> ( x Core..?> "DomainPackageDetailsList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,9 +147,9 @@ instance Core.ToQuery ListDomainsForPackage where
 --
 -- /See:/ 'newListDomainsForPackageResponse' smart constructor.
 data ListDomainsForPackageResponse = ListDomainsForPackageResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of @DomainPackageDetails@ objects.
+  { -- | List of @DomainPackageDetails@ objects.
     domainPackageDetailsList :: Prelude.Maybe [DomainPackageDetails],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,9 +163,9 @@ data ListDomainsForPackageResponse = ListDomainsForPackageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDomainsForPackageResponse_nextToken' - Undocumented member.
---
 -- 'domainPackageDetailsList', 'listDomainsForPackageResponse_domainPackageDetailsList' - List of @DomainPackageDetails@ objects.
+--
+-- 'nextToken', 'listDomainsForPackageResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'listDomainsForPackageResponse_httpStatus' - The response's http status code.
 newListDomainsForPackageResponse ::
@@ -174,19 +174,19 @@ newListDomainsForPackageResponse ::
   ListDomainsForPackageResponse
 newListDomainsForPackageResponse pHttpStatus_ =
   ListDomainsForPackageResponse'
-    { nextToken =
+    { domainPackageDetailsList =
         Prelude.Nothing,
-      domainPackageDetailsList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | List of @DomainPackageDetails@ objects.
+listDomainsForPackageResponse_domainPackageDetailsList :: Lens.Lens' ListDomainsForPackageResponse (Prelude.Maybe [DomainPackageDetails])
+listDomainsForPackageResponse_domainPackageDetailsList = Lens.lens (\ListDomainsForPackageResponse' {domainPackageDetailsList} -> domainPackageDetailsList) (\s@ListDomainsForPackageResponse' {} a -> s {domainPackageDetailsList = a} :: ListDomainsForPackageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 listDomainsForPackageResponse_nextToken :: Lens.Lens' ListDomainsForPackageResponse (Prelude.Maybe Prelude.Text)
 listDomainsForPackageResponse_nextToken = Lens.lens (\ListDomainsForPackageResponse' {nextToken} -> nextToken) (\s@ListDomainsForPackageResponse' {} a -> s {nextToken = a} :: ListDomainsForPackageResponse)
-
--- | List of @DomainPackageDetails@ objects.
-listDomainsForPackageResponse_domainPackageDetailsList :: Lens.Lens' ListDomainsForPackageResponse (Prelude.Maybe [DomainPackageDetails])
-listDomainsForPackageResponse_domainPackageDetailsList = Lens.lens (\ListDomainsForPackageResponse' {domainPackageDetailsList} -> domainPackageDetailsList) (\s@ListDomainsForPackageResponse' {} a -> s {domainPackageDetailsList = a} :: ListDomainsForPackageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listDomainsForPackageResponse_httpStatus :: Lens.Lens' ListDomainsForPackageResponse Prelude.Int

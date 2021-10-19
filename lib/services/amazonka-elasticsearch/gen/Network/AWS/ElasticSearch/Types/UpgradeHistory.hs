@@ -29,12 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUpgradeHistory' smart constructor.
 data UpgradeHistory = UpgradeHistory'
-  { -- | A string that describes the update briefly
-    upgradeName :: Prelude.Maybe Prelude.Text,
-    -- | UTC Timestamp at which the Upgrade API call was made in
-    -- \"yyyy-MM-ddTHH:mm:ssZ\" format.
-    startTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The overall status of the update. The status can take one of the
+  { -- | The overall status of the update. The status can take one of the
     -- following values:
     --
     -- -   In Progress
@@ -44,7 +39,12 @@ data UpgradeHistory = UpgradeHistory'
     upgradeStatus :: Prelude.Maybe UpgradeStatus,
     -- | A list of @ UpgradeStepItem @ s representing information about each step
     -- performed as pard of a specific Upgrade or Upgrade Eligibility Check.
-    stepsList :: Prelude.Maybe [UpgradeStepItem]
+    stepsList :: Prelude.Maybe [UpgradeStepItem],
+    -- | A string that describes the update briefly
+    upgradeName :: Prelude.Maybe Prelude.Text,
+    -- | UTC Timestamp at which the Upgrade API call was made in
+    -- \"yyyy-MM-ddTHH:mm:ssZ\" format.
+    startTimestamp :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,11 +56,6 @@ data UpgradeHistory = UpgradeHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'upgradeName', 'upgradeHistory_upgradeName' - A string that describes the update briefly
---
--- 'startTimestamp', 'upgradeHistory_startTimestamp' - UTC Timestamp at which the Upgrade API call was made in
--- \"yyyy-MM-ddTHH:mm:ssZ\" format.
---
 -- 'upgradeStatus', 'upgradeHistory_upgradeStatus' - The overall status of the update. The status can take one of the
 -- following values:
 --
@@ -71,24 +66,20 @@ data UpgradeHistory = UpgradeHistory'
 --
 -- 'stepsList', 'upgradeHistory_stepsList' - A list of @ UpgradeStepItem @ s representing information about each step
 -- performed as pard of a specific Upgrade or Upgrade Eligibility Check.
+--
+-- 'upgradeName', 'upgradeHistory_upgradeName' - A string that describes the update briefly
+--
+-- 'startTimestamp', 'upgradeHistory_startTimestamp' - UTC Timestamp at which the Upgrade API call was made in
+-- \"yyyy-MM-ddTHH:mm:ssZ\" format.
 newUpgradeHistory ::
   UpgradeHistory
 newUpgradeHistory =
   UpgradeHistory'
-    { upgradeName = Prelude.Nothing,
-      startTimestamp = Prelude.Nothing,
-      upgradeStatus = Prelude.Nothing,
-      stepsList = Prelude.Nothing
+    { upgradeStatus = Prelude.Nothing,
+      stepsList = Prelude.Nothing,
+      upgradeName = Prelude.Nothing,
+      startTimestamp = Prelude.Nothing
     }
-
--- | A string that describes the update briefly
-upgradeHistory_upgradeName :: Lens.Lens' UpgradeHistory (Prelude.Maybe Prelude.Text)
-upgradeHistory_upgradeName = Lens.lens (\UpgradeHistory' {upgradeName} -> upgradeName) (\s@UpgradeHistory' {} a -> s {upgradeName = a} :: UpgradeHistory)
-
--- | UTC Timestamp at which the Upgrade API call was made in
--- \"yyyy-MM-ddTHH:mm:ssZ\" format.
-upgradeHistory_startTimestamp :: Lens.Lens' UpgradeHistory (Prelude.Maybe Prelude.UTCTime)
-upgradeHistory_startTimestamp = Lens.lens (\UpgradeHistory' {startTimestamp} -> startTimestamp) (\s@UpgradeHistory' {} a -> s {startTimestamp = a} :: UpgradeHistory) Prelude.. Lens.mapping Core._Time
 
 -- | The overall status of the update. The status can take one of the
 -- following values:
@@ -103,7 +94,16 @@ upgradeHistory_upgradeStatus = Lens.lens (\UpgradeHistory' {upgradeStatus} -> up
 -- | A list of @ UpgradeStepItem @ s representing information about each step
 -- performed as pard of a specific Upgrade or Upgrade Eligibility Check.
 upgradeHistory_stepsList :: Lens.Lens' UpgradeHistory (Prelude.Maybe [UpgradeStepItem])
-upgradeHistory_stepsList = Lens.lens (\UpgradeHistory' {stepsList} -> stepsList) (\s@UpgradeHistory' {} a -> s {stepsList = a} :: UpgradeHistory) Prelude.. Lens.mapping Lens._Coerce
+upgradeHistory_stepsList = Lens.lens (\UpgradeHistory' {stepsList} -> stepsList) (\s@UpgradeHistory' {} a -> s {stepsList = a} :: UpgradeHistory) Prelude.. Lens.mapping Lens.coerced
+
+-- | A string that describes the update briefly
+upgradeHistory_upgradeName :: Lens.Lens' UpgradeHistory (Prelude.Maybe Prelude.Text)
+upgradeHistory_upgradeName = Lens.lens (\UpgradeHistory' {upgradeName} -> upgradeName) (\s@UpgradeHistory' {} a -> s {upgradeName = a} :: UpgradeHistory)
+
+-- | UTC Timestamp at which the Upgrade API call was made in
+-- \"yyyy-MM-ddTHH:mm:ssZ\" format.
+upgradeHistory_startTimestamp :: Lens.Lens' UpgradeHistory (Prelude.Maybe Prelude.UTCTime)
+upgradeHistory_startTimestamp = Lens.lens (\UpgradeHistory' {startTimestamp} -> startTimestamp) (\s@UpgradeHistory' {} a -> s {startTimestamp = a} :: UpgradeHistory) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON UpgradeHistory where
   parseJSON =
@@ -111,10 +111,10 @@ instance Core.FromJSON UpgradeHistory where
       "UpgradeHistory"
       ( \x ->
           UpgradeHistory'
-            Prelude.<$> (x Core..:? "UpgradeName")
-            Prelude.<*> (x Core..:? "StartTimestamp")
-            Prelude.<*> (x Core..:? "UpgradeStatus")
+            Prelude.<$> (x Core..:? "UpgradeStatus")
             Prelude.<*> (x Core..:? "StepsList" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "UpgradeName")
+            Prelude.<*> (x Core..:? "StartTimestamp")
       )
 
 instance Prelude.Hashable UpgradeHistory

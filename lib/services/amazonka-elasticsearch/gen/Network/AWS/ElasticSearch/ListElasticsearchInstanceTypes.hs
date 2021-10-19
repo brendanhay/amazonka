@@ -31,8 +31,8 @@ module Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
 
     -- * Request Lenses
     listElasticsearchInstanceTypes_nextToken,
-    listElasticsearchInstanceTypes_maxResults,
     listElasticsearchInstanceTypes_domainName,
+    listElasticsearchInstanceTypes_maxResults,
     listElasticsearchInstanceTypes_elasticsearchVersion,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
     newListElasticsearchInstanceTypesResponse,
 
     -- * Response Lenses
-    listElasticsearchInstanceTypesResponse_nextToken,
     listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes,
+    listElasticsearchInstanceTypesResponse_nextToken,
     listElasticsearchInstanceTypesResponse_httpStatus,
   )
 where
@@ -61,13 +61,13 @@ data ListElasticsearchInstanceTypes = ListElasticsearchInstanceTypes'
   { -- | NextToken should be sent in case if earlier API call produced result
     -- containing NextToken. It is used for pagination.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Set this value to limit the number of results returned. Value provided
-    -- must be greater than 30 else it wont be honored.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | DomainName represents the name of the Domain that we are trying to
     -- modify. This should be present only if we are querying for list of
     -- available Elasticsearch instance types when modifying existing domain.
     domainName :: Prelude.Maybe Prelude.Text,
+    -- | Set this value to limit the number of results returned. Value provided
+    -- must be greater than 30 else it wont be honored.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Version of Elasticsearch for which list of supported elasticsearch
     -- instance types are needed.
     elasticsearchVersion :: Prelude.Text
@@ -85,12 +85,12 @@ data ListElasticsearchInstanceTypes = ListElasticsearchInstanceTypes'
 -- 'nextToken', 'listElasticsearchInstanceTypes_nextToken' - NextToken should be sent in case if earlier API call produced result
 -- containing NextToken. It is used for pagination.
 --
--- 'maxResults', 'listElasticsearchInstanceTypes_maxResults' - Set this value to limit the number of results returned. Value provided
--- must be greater than 30 else it wont be honored.
---
 -- 'domainName', 'listElasticsearchInstanceTypes_domainName' - DomainName represents the name of the Domain that we are trying to
 -- modify. This should be present only if we are querying for list of
 -- available Elasticsearch instance types when modifying existing domain.
+--
+-- 'maxResults', 'listElasticsearchInstanceTypes_maxResults' - Set this value to limit the number of results returned. Value provided
+-- must be greater than 30 else it wont be honored.
 --
 -- 'elasticsearchVersion', 'listElasticsearchInstanceTypes_elasticsearchVersion' - Version of Elasticsearch for which list of supported elasticsearch
 -- instance types are needed.
@@ -103,8 +103,8 @@ newListElasticsearchInstanceTypes
     ListElasticsearchInstanceTypes'
       { nextToken =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
         domainName = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         elasticsearchVersion =
           pElasticsearchVersion_
       }
@@ -114,16 +114,16 @@ newListElasticsearchInstanceTypes
 listElasticsearchInstanceTypes_nextToken :: Lens.Lens' ListElasticsearchInstanceTypes (Prelude.Maybe Prelude.Text)
 listElasticsearchInstanceTypes_nextToken = Lens.lens (\ListElasticsearchInstanceTypes' {nextToken} -> nextToken) (\s@ListElasticsearchInstanceTypes' {} a -> s {nextToken = a} :: ListElasticsearchInstanceTypes)
 
--- | Set this value to limit the number of results returned. Value provided
--- must be greater than 30 else it wont be honored.
-listElasticsearchInstanceTypes_maxResults :: Lens.Lens' ListElasticsearchInstanceTypes (Prelude.Maybe Prelude.Int)
-listElasticsearchInstanceTypes_maxResults = Lens.lens (\ListElasticsearchInstanceTypes' {maxResults} -> maxResults) (\s@ListElasticsearchInstanceTypes' {} a -> s {maxResults = a} :: ListElasticsearchInstanceTypes)
-
 -- | DomainName represents the name of the Domain that we are trying to
 -- modify. This should be present only if we are querying for list of
 -- available Elasticsearch instance types when modifying existing domain.
 listElasticsearchInstanceTypes_domainName :: Lens.Lens' ListElasticsearchInstanceTypes (Prelude.Maybe Prelude.Text)
 listElasticsearchInstanceTypes_domainName = Lens.lens (\ListElasticsearchInstanceTypes' {domainName} -> domainName) (\s@ListElasticsearchInstanceTypes' {} a -> s {domainName = a} :: ListElasticsearchInstanceTypes)
+
+-- | Set this value to limit the number of results returned. Value provided
+-- must be greater than 30 else it wont be honored.
+listElasticsearchInstanceTypes_maxResults :: Lens.Lens' ListElasticsearchInstanceTypes (Prelude.Maybe Prelude.Int)
+listElasticsearchInstanceTypes_maxResults = Lens.lens (\ListElasticsearchInstanceTypes' {maxResults} -> maxResults) (\s@ListElasticsearchInstanceTypes' {} a -> s {maxResults = a} :: ListElasticsearchInstanceTypes)
 
 -- | Version of Elasticsearch for which list of supported elasticsearch
 -- instance types are needed.
@@ -164,10 +164,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListElasticsearchInstanceTypesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ElasticsearchInstanceTypes"
+            Prelude.<$> ( x Core..?> "ElasticsearchInstanceTypes"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,8 +196,8 @@ instance Core.ToQuery ListElasticsearchInstanceTypes where
   toQuery ListElasticsearchInstanceTypes' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "domainName" Core.=: domainName
+        "domainName" Core.=: domainName,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | Container for the parameters returned by
@@ -205,13 +205,13 @@ instance Core.ToQuery ListElasticsearchInstanceTypes where
 --
 -- /See:/ 'newListElasticsearchInstanceTypesResponse' smart constructor.
 data ListElasticsearchInstanceTypesResponse = ListElasticsearchInstanceTypesResponse'
-  { -- | In case if there are more results available NextToken would be present,
+  { -- | List of instance types supported by Amazon Elasticsearch service for
+    -- given @ ElasticsearchVersion @
+    elasticsearchInstanceTypes :: Prelude.Maybe [ESPartitionInstanceType],
+    -- | In case if there are more results available NextToken would be present,
     -- make further request to the same API with received NextToken to paginate
     -- remaining results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of instance types supported by Amazon Elasticsearch service for
-    -- given @ ElasticsearchVersion @
-    elasticsearchInstanceTypes :: Prelude.Maybe [ESPartitionInstanceType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,12 +225,12 @@ data ListElasticsearchInstanceTypesResponse = ListElasticsearchInstanceTypesResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'elasticsearchInstanceTypes', 'listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes' - List of instance types supported by Amazon Elasticsearch service for
+-- given @ ElasticsearchVersion @
+--
 -- 'nextToken', 'listElasticsearchInstanceTypesResponse_nextToken' - In case if there are more results available NextToken would be present,
 -- make further request to the same API with received NextToken to paginate
 -- remaining results.
---
--- 'elasticsearchInstanceTypes', 'listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes' - List of instance types supported by Amazon Elasticsearch service for
--- given @ ElasticsearchVersion @
 --
 -- 'httpStatus', 'listElasticsearchInstanceTypesResponse_httpStatus' - The response's http status code.
 newListElasticsearchInstanceTypesResponse ::
@@ -240,23 +240,22 @@ newListElasticsearchInstanceTypesResponse ::
 newListElasticsearchInstanceTypesResponse
   pHttpStatus_ =
     ListElasticsearchInstanceTypesResponse'
-      { nextToken =
+      { elasticsearchInstanceTypes =
           Prelude.Nothing,
-        elasticsearchInstanceTypes =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | List of instance types supported by Amazon Elasticsearch service for
+-- given @ ElasticsearchVersion @
+listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes :: Lens.Lens' ListElasticsearchInstanceTypesResponse (Prelude.Maybe [ESPartitionInstanceType])
+listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes = Lens.lens (\ListElasticsearchInstanceTypesResponse' {elasticsearchInstanceTypes} -> elasticsearchInstanceTypes) (\s@ListElasticsearchInstanceTypesResponse' {} a -> s {elasticsearchInstanceTypes = a} :: ListElasticsearchInstanceTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | In case if there are more results available NextToken would be present,
 -- make further request to the same API with received NextToken to paginate
 -- remaining results.
 listElasticsearchInstanceTypesResponse_nextToken :: Lens.Lens' ListElasticsearchInstanceTypesResponse (Prelude.Maybe Prelude.Text)
 listElasticsearchInstanceTypesResponse_nextToken = Lens.lens (\ListElasticsearchInstanceTypesResponse' {nextToken} -> nextToken) (\s@ListElasticsearchInstanceTypesResponse' {} a -> s {nextToken = a} :: ListElasticsearchInstanceTypesResponse)
-
--- | List of instance types supported by Amazon Elasticsearch service for
--- given @ ElasticsearchVersion @
-listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes :: Lens.Lens' ListElasticsearchInstanceTypesResponse (Prelude.Maybe [ESPartitionInstanceType])
-listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes = Lens.lens (\ListElasticsearchInstanceTypesResponse' {elasticsearchInstanceTypes} -> elasticsearchInstanceTypes) (\s@ListElasticsearchInstanceTypesResponse' {} a -> s {elasticsearchInstanceTypes = a} :: ListElasticsearchInstanceTypesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listElasticsearchInstanceTypesResponse_httpStatus :: Lens.Lens' ListElasticsearchInstanceTypesResponse Prelude.Int

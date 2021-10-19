@@ -31,8 +31,8 @@ import qualified Network.AWS.Prelude as Prelude
 data StorageType = StorageType'
   { -- | List of limits that are applicable for given storage type.
     storageTypeLimits :: Prelude.Maybe [StorageTypeLimit],
-    storageTypeName :: Prelude.Maybe Prelude.Text,
-    storageSubTypeName :: Prelude.Maybe Prelude.Text
+    storageSubTypeName :: Prelude.Maybe Prelude.Text,
+    storageTypeName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data StorageType = StorageType'
 --
 -- 'storageTypeLimits', 'storageType_storageTypeLimits' - List of limits that are applicable for given storage type.
 --
--- 'storageTypeName', 'storageType_storageTypeName' - Undocumented member.
---
 -- 'storageSubTypeName', 'storageType_storageSubTypeName' - Undocumented member.
+--
+-- 'storageTypeName', 'storageType_storageTypeName' - Undocumented member.
 newStorageType ::
   StorageType
 newStorageType =
   StorageType'
     { storageTypeLimits = Prelude.Nothing,
-      storageTypeName = Prelude.Nothing,
-      storageSubTypeName = Prelude.Nothing
+      storageSubTypeName = Prelude.Nothing,
+      storageTypeName = Prelude.Nothing
     }
 
 -- | List of limits that are applicable for given storage type.
 storageType_storageTypeLimits :: Lens.Lens' StorageType (Prelude.Maybe [StorageTypeLimit])
-storageType_storageTypeLimits = Lens.lens (\StorageType' {storageTypeLimits} -> storageTypeLimits) (\s@StorageType' {} a -> s {storageTypeLimits = a} :: StorageType) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
-storageType_storageTypeName :: Lens.Lens' StorageType (Prelude.Maybe Prelude.Text)
-storageType_storageTypeName = Lens.lens (\StorageType' {storageTypeName} -> storageTypeName) (\s@StorageType' {} a -> s {storageTypeName = a} :: StorageType)
+storageType_storageTypeLimits = Lens.lens (\StorageType' {storageTypeLimits} -> storageTypeLimits) (\s@StorageType' {} a -> s {storageTypeLimits = a} :: StorageType) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 storageType_storageSubTypeName :: Lens.Lens' StorageType (Prelude.Maybe Prelude.Text)
 storageType_storageSubTypeName = Lens.lens (\StorageType' {storageSubTypeName} -> storageSubTypeName) (\s@StorageType' {} a -> s {storageSubTypeName = a} :: StorageType)
+
+-- | Undocumented member.
+storageType_storageTypeName :: Lens.Lens' StorageType (Prelude.Maybe Prelude.Text)
+storageType_storageTypeName = Lens.lens (\StorageType' {storageTypeName} -> storageTypeName) (\s@StorageType' {} a -> s {storageTypeName = a} :: StorageType)
 
 instance Core.FromJSON StorageType where
   parseJSON =
@@ -79,8 +79,8 @@ instance Core.FromJSON StorageType where
             Prelude.<$> ( x Core..:? "StorageTypeLimits"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StorageTypeName")
             Prelude.<*> (x Core..:? "StorageSubTypeName")
+            Prelude.<*> (x Core..:? "StorageTypeName")
       )
 
 instance Prelude.Hashable StorageType

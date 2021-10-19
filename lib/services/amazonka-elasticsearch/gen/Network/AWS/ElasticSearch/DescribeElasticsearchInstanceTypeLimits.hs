@@ -201,7 +201,7 @@ newDescribeElasticsearchInstanceTypeLimitsResponse
 
 -- | Undocumented member.
 describeElasticsearchInstanceTypeLimitsResponse_limitsByRole :: Lens.Lens' DescribeElasticsearchInstanceTypeLimitsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Limits))
-describeElasticsearchInstanceTypeLimitsResponse_limitsByRole = Lens.lens (\DescribeElasticsearchInstanceTypeLimitsResponse' {limitsByRole} -> limitsByRole) (\s@DescribeElasticsearchInstanceTypeLimitsResponse' {} a -> s {limitsByRole = a} :: DescribeElasticsearchInstanceTypeLimitsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeElasticsearchInstanceTypeLimitsResponse_limitsByRole = Lens.lens (\DescribeElasticsearchInstanceTypeLimitsResponse' {limitsByRole} -> limitsByRole) (\s@DescribeElasticsearchInstanceTypeLimitsResponse' {} a -> s {limitsByRole = a} :: DescribeElasticsearchInstanceTypeLimitsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeElasticsearchInstanceTypeLimitsResponse_httpStatus :: Lens.Lens' DescribeElasticsearchInstanceTypeLimitsResponse Prelude.Int

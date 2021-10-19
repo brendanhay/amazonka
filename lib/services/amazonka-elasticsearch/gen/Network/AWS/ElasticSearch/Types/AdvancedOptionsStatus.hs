@@ -75,7 +75,7 @@ newAdvancedOptionsStatus pStatus_ =
 -- | Specifies the status of advanced options for the specified Elasticsearch
 -- domain.
 advancedOptionsStatus_options :: Lens.Lens' AdvancedOptionsStatus (Prelude.HashMap Prelude.Text Prelude.Text)
-advancedOptionsStatus_options = Lens.lens (\AdvancedOptionsStatus' {options} -> options) (\s@AdvancedOptionsStatus' {} a -> s {options = a} :: AdvancedOptionsStatus) Prelude.. Lens._Coerce
+advancedOptionsStatus_options = Lens.lens (\AdvancedOptionsStatus' {options} -> options) (\s@AdvancedOptionsStatus' {} a -> s {options = a} :: AdvancedOptionsStatus) Prelude.. Lens.coerced
 
 -- | Specifies the status of @OptionStatus@ for advanced options for the
 -- specified Elasticsearch domain.

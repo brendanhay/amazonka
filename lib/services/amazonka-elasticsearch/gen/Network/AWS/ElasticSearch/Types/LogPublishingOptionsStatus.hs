@@ -67,7 +67,7 @@ logPublishingOptionsStatus_status = Lens.lens (\LogPublishingOptionsStatus' {sta
 
 -- | The log publishing options configured for the Elasticsearch domain.
 logPublishingOptionsStatus_options :: Lens.Lens' LogPublishingOptionsStatus (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
-logPublishingOptionsStatus_options = Lens.lens (\LogPublishingOptionsStatus' {options} -> options) (\s@LogPublishingOptionsStatus' {} a -> s {options = a} :: LogPublishingOptionsStatus) Prelude.. Lens.mapping Lens._Coerce
+logPublishingOptionsStatus_options = Lens.lens (\LogPublishingOptionsStatus' {options} -> options) (\s@LogPublishingOptionsStatus' {} a -> s {options = a} :: LogPublishingOptionsStatus) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON LogPublishingOptionsStatus where
   parseJSON =

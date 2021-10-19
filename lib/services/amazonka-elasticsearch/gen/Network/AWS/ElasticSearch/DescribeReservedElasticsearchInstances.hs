@@ -30,17 +30,17 @@ module Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances
     newDescribeReservedElasticsearchInstances,
 
     -- * Request Lenses
+    describeReservedElasticsearchInstances_reservedElasticsearchInstanceId,
     describeReservedElasticsearchInstances_nextToken,
     describeReservedElasticsearchInstances_maxResults,
-    describeReservedElasticsearchInstances_reservedElasticsearchInstanceId,
 
     -- * Destructuring the Response
     DescribeReservedElasticsearchInstancesResponse (..),
     newDescribeReservedElasticsearchInstancesResponse,
 
     -- * Response Lenses
-    describeReservedElasticsearchInstancesResponse_nextToken,
     describeReservedElasticsearchInstancesResponse_reservedElasticsearchInstances,
+    describeReservedElasticsearchInstancesResponse_nextToken,
     describeReservedElasticsearchInstancesResponse_httpStatus,
   )
 where
@@ -56,16 +56,16 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeReservedElasticsearchInstances' smart constructor.
 data DescribeReservedElasticsearchInstances = DescribeReservedElasticsearchInstances'
-  { -- | NextToken should be sent in case if earlier API call produced result
+  { -- | The reserved instance identifier filter value. Use this parameter to
+    -- show only the reservation that matches the specified reserved
+    -- Elasticsearch instance ID.
+    reservedElasticsearchInstanceId :: Prelude.Maybe Prelude.Text,
+    -- | NextToken should be sent in case if earlier API call produced result
     -- containing NextToken. It is used for pagination.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Set this value to limit the number of results returned. If not
     -- specified, defaults to 100.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The reserved instance identifier filter value. Use this parameter to
-    -- show only the reservation that matches the specified reserved
-    -- Elasticsearch instance ID.
-    reservedElasticsearchInstanceId :: Prelude.Maybe Prelude.Text
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,25 +77,30 @@ data DescribeReservedElasticsearchInstances = DescribeReservedElasticsearchInsta
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'reservedElasticsearchInstanceId', 'describeReservedElasticsearchInstances_reservedElasticsearchInstanceId' - The reserved instance identifier filter value. Use this parameter to
+-- show only the reservation that matches the specified reserved
+-- Elasticsearch instance ID.
+--
 -- 'nextToken', 'describeReservedElasticsearchInstances_nextToken' - NextToken should be sent in case if earlier API call produced result
 -- containing NextToken. It is used for pagination.
 --
 -- 'maxResults', 'describeReservedElasticsearchInstances_maxResults' - Set this value to limit the number of results returned. If not
 -- specified, defaults to 100.
---
--- 'reservedElasticsearchInstanceId', 'describeReservedElasticsearchInstances_reservedElasticsearchInstanceId' - The reserved instance identifier filter value. Use this parameter to
--- show only the reservation that matches the specified reserved
--- Elasticsearch instance ID.
 newDescribeReservedElasticsearchInstances ::
   DescribeReservedElasticsearchInstances
 newDescribeReservedElasticsearchInstances =
   DescribeReservedElasticsearchInstances'
-    { nextToken =
+    { reservedElasticsearchInstanceId =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      reservedElasticsearchInstanceId =
-        Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | The reserved instance identifier filter value. Use this parameter to
+-- show only the reservation that matches the specified reserved
+-- Elasticsearch instance ID.
+describeReservedElasticsearchInstances_reservedElasticsearchInstanceId :: Lens.Lens' DescribeReservedElasticsearchInstances (Prelude.Maybe Prelude.Text)
+describeReservedElasticsearchInstances_reservedElasticsearchInstanceId = Lens.lens (\DescribeReservedElasticsearchInstances' {reservedElasticsearchInstanceId} -> reservedElasticsearchInstanceId) (\s@DescribeReservedElasticsearchInstances' {} a -> s {reservedElasticsearchInstanceId = a} :: DescribeReservedElasticsearchInstances)
 
 -- | NextToken should be sent in case if earlier API call produced result
 -- containing NextToken. It is used for pagination.
@@ -106,12 +111,6 @@ describeReservedElasticsearchInstances_nextToken = Lens.lens (\DescribeReservedE
 -- specified, defaults to 100.
 describeReservedElasticsearchInstances_maxResults :: Lens.Lens' DescribeReservedElasticsearchInstances (Prelude.Maybe Prelude.Int)
 describeReservedElasticsearchInstances_maxResults = Lens.lens (\DescribeReservedElasticsearchInstances' {maxResults} -> maxResults) (\s@DescribeReservedElasticsearchInstances' {} a -> s {maxResults = a} :: DescribeReservedElasticsearchInstances)
-
--- | The reserved instance identifier filter value. Use this parameter to
--- show only the reservation that matches the specified reserved
--- Elasticsearch instance ID.
-describeReservedElasticsearchInstances_reservedElasticsearchInstanceId :: Lens.Lens' DescribeReservedElasticsearchInstances (Prelude.Maybe Prelude.Text)
-describeReservedElasticsearchInstances_reservedElasticsearchInstanceId = Lens.lens (\DescribeReservedElasticsearchInstances' {reservedElasticsearchInstanceId} -> reservedElasticsearchInstanceId) (\s@DescribeReservedElasticsearchInstances' {} a -> s {reservedElasticsearchInstanceId = a} :: DescribeReservedElasticsearchInstances)
 
 instance
   Core.AWSPager
@@ -151,10 +150,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeReservedElasticsearchInstancesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "ReservedElasticsearchInstances"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Core..?> "ReservedElasticsearchInstances"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Core..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,20 +184,20 @@ instance
   where
   toQuery DescribeReservedElasticsearchInstances' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "reservationId"
-          Core.=: reservedElasticsearchInstanceId
+      [ "reservationId"
+          Core.=: reservedElasticsearchInstanceId,
+        "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | Container for results from @DescribeReservedElasticsearchInstances@
 --
 -- /See:/ 'newDescribeReservedElasticsearchInstancesResponse' smart constructor.
 data DescribeReservedElasticsearchInstancesResponse = DescribeReservedElasticsearchInstancesResponse'
-  { -- | Provides an identifier to allow retrieval of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of reserved Elasticsearch instances.
+  { -- | List of reserved Elasticsearch instances.
     reservedElasticsearchInstances :: Prelude.Maybe [ReservedElasticsearchInstance],
+    -- | Provides an identifier to allow retrieval of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,9 +211,9 @@ data DescribeReservedElasticsearchInstancesResponse = DescribeReservedElasticsea
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeReservedElasticsearchInstancesResponse_nextToken' - Provides an identifier to allow retrieval of paginated results.
---
 -- 'reservedElasticsearchInstances', 'describeReservedElasticsearchInstancesResponse_reservedElasticsearchInstances' - List of reserved Elasticsearch instances.
+--
+-- 'nextToken', 'describeReservedElasticsearchInstancesResponse_nextToken' - Provides an identifier to allow retrieval of paginated results.
 --
 -- 'httpStatus', 'describeReservedElasticsearchInstancesResponse_httpStatus' - The response's http status code.
 newDescribeReservedElasticsearchInstancesResponse ::
@@ -224,20 +223,19 @@ newDescribeReservedElasticsearchInstancesResponse ::
 newDescribeReservedElasticsearchInstancesResponse
   pHttpStatus_ =
     DescribeReservedElasticsearchInstancesResponse'
-      { nextToken =
+      { reservedElasticsearchInstances =
           Prelude.Nothing,
-        reservedElasticsearchInstances =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | List of reserved Elasticsearch instances.
+describeReservedElasticsearchInstancesResponse_reservedElasticsearchInstances :: Lens.Lens' DescribeReservedElasticsearchInstancesResponse (Prelude.Maybe [ReservedElasticsearchInstance])
+describeReservedElasticsearchInstancesResponse_reservedElasticsearchInstances = Lens.lens (\DescribeReservedElasticsearchInstancesResponse' {reservedElasticsearchInstances} -> reservedElasticsearchInstances) (\s@DescribeReservedElasticsearchInstancesResponse' {} a -> s {reservedElasticsearchInstances = a} :: DescribeReservedElasticsearchInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Provides an identifier to allow retrieval of paginated results.
 describeReservedElasticsearchInstancesResponse_nextToken :: Lens.Lens' DescribeReservedElasticsearchInstancesResponse (Prelude.Maybe Prelude.Text)
 describeReservedElasticsearchInstancesResponse_nextToken = Lens.lens (\DescribeReservedElasticsearchInstancesResponse' {nextToken} -> nextToken) (\s@DescribeReservedElasticsearchInstancesResponse' {} a -> s {nextToken = a} :: DescribeReservedElasticsearchInstancesResponse)
-
--- | List of reserved Elasticsearch instances.
-describeReservedElasticsearchInstancesResponse_reservedElasticsearchInstances :: Lens.Lens' DescribeReservedElasticsearchInstancesResponse (Prelude.Maybe [ReservedElasticsearchInstance])
-describeReservedElasticsearchInstancesResponse_reservedElasticsearchInstances = Lens.lens (\DescribeReservedElasticsearchInstancesResponse' {reservedElasticsearchInstances} -> reservedElasticsearchInstances) (\s@DescribeReservedElasticsearchInstancesResponse' {} a -> s {reservedElasticsearchInstances = a} :: DescribeReservedElasticsearchInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeReservedElasticsearchInstancesResponse_httpStatus :: Lens.Lens' DescribeReservedElasticsearchInstancesResponse Prelude.Int

@@ -82,7 +82,7 @@ addTags_arn = Lens.lens (\AddTags' {arn} -> arn) (\s@AddTags' {} a -> s {arn = a
 
 -- | List of @Tag@ that need to be added for the Elasticsearch domain.
 addTags_tagList :: Lens.Lens' AddTags [Tag]
-addTags_tagList = Lens.lens (\AddTags' {tagList} -> tagList) (\s@AddTags' {} a -> s {tagList = a} :: AddTags) Prelude.. Lens._Coerce
+addTags_tagList = Lens.lens (\AddTags' {tagList} -> tagList) (\s@AddTags' {} a -> s {tagList = a} :: AddTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse

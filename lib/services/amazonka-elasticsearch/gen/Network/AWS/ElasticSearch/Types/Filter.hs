@@ -58,7 +58,7 @@ newFilter =
 
 -- | Contains one or more values for the filter.
 filter_values :: Lens.Lens' Filter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.mapping Lens._Coerce
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the name of the filter.
 filter_name :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)

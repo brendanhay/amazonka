@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAdvancedSecurityOptions' smart constructor.
 data AdvancedSecurityOptions = AdvancedSecurityOptions'
-  { -- | True if the internal user database is enabled.
+  { -- | True if advanced security is enabled.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | True if the internal user database is enabled.
     internalUserDatabaseEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Describes the SAML application configured for a domain.
-    sAMLOptions :: Prelude.Maybe SAMLOptionsOutput,
-    -- | True if advanced security is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool
+    sAMLOptions :: Prelude.Maybe SAMLOptionsOutput
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,20 +46,23 @@ data AdvancedSecurityOptions = AdvancedSecurityOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'enabled', 'advancedSecurityOptions_enabled' - True if advanced security is enabled.
+--
 -- 'internalUserDatabaseEnabled', 'advancedSecurityOptions_internalUserDatabaseEnabled' - True if the internal user database is enabled.
 --
 -- 'sAMLOptions', 'advancedSecurityOptions_sAMLOptions' - Describes the SAML application configured for a domain.
---
--- 'enabled', 'advancedSecurityOptions_enabled' - True if advanced security is enabled.
 newAdvancedSecurityOptions ::
   AdvancedSecurityOptions
 newAdvancedSecurityOptions =
   AdvancedSecurityOptions'
-    { internalUserDatabaseEnabled =
-        Prelude.Nothing,
-      sAMLOptions = Prelude.Nothing,
-      enabled = Prelude.Nothing
+    { enabled = Prelude.Nothing,
+      internalUserDatabaseEnabled = Prelude.Nothing,
+      sAMLOptions = Prelude.Nothing
     }
+
+-- | True if advanced security is enabled.
+advancedSecurityOptions_enabled :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.Bool)
+advancedSecurityOptions_enabled = Lens.lens (\AdvancedSecurityOptions' {enabled} -> enabled) (\s@AdvancedSecurityOptions' {} a -> s {enabled = a} :: AdvancedSecurityOptions)
 
 -- | True if the internal user database is enabled.
 advancedSecurityOptions_internalUserDatabaseEnabled :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.Bool)
@@ -69,19 +72,15 @@ advancedSecurityOptions_internalUserDatabaseEnabled = Lens.lens (\AdvancedSecuri
 advancedSecurityOptions_sAMLOptions :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe SAMLOptionsOutput)
 advancedSecurityOptions_sAMLOptions = Lens.lens (\AdvancedSecurityOptions' {sAMLOptions} -> sAMLOptions) (\s@AdvancedSecurityOptions' {} a -> s {sAMLOptions = a} :: AdvancedSecurityOptions)
 
--- | True if advanced security is enabled.
-advancedSecurityOptions_enabled :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.Bool)
-advancedSecurityOptions_enabled = Lens.lens (\AdvancedSecurityOptions' {enabled} -> enabled) (\s@AdvancedSecurityOptions' {} a -> s {enabled = a} :: AdvancedSecurityOptions)
-
 instance Core.FromJSON AdvancedSecurityOptions where
   parseJSON =
     Core.withObject
       "AdvancedSecurityOptions"
       ( \x ->
           AdvancedSecurityOptions'
-            Prelude.<$> (x Core..:? "InternalUserDatabaseEnabled")
+            Prelude.<$> (x Core..:? "Enabled")
+            Prelude.<*> (x Core..:? "InternalUserDatabaseEnabled")
             Prelude.<*> (x Core..:? "SAMLOptions")
-            Prelude.<*> (x Core..:? "Enabled")
       )
 
 instance Prelude.Hashable AdvancedSecurityOptions

@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOptionStatus' smart constructor.
 data OptionStatus = OptionStatus'
-  { -- | Specifies the latest version for the entity.
-    updateVersion :: Prelude.Maybe Prelude.Natural,
-    -- | Indicates whether the Elasticsearch domain is being deleted.
+  { -- | Indicates whether the Elasticsearch domain is being deleted.
     pendingDeletion :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the latest version for the entity.
+    updateVersion :: Prelude.Maybe Prelude.Natural,
     -- | Timestamp which tells the creation date for the entity.
     creationDate :: Core.POSIX,
     -- | Timestamp which tells the last updated time for the entity.
@@ -49,9 +49,9 @@ data OptionStatus = OptionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updateVersion', 'optionStatus_updateVersion' - Specifies the latest version for the entity.
---
 -- 'pendingDeletion', 'optionStatus_pendingDeletion' - Indicates whether the Elasticsearch domain is being deleted.
+--
+-- 'updateVersion', 'optionStatus_updateVersion' - Specifies the latest version for the entity.
 --
 -- 'creationDate', 'optionStatus_creationDate' - Timestamp which tells the creation date for the entity.
 --
@@ -68,20 +68,20 @@ newOptionStatus ::
   OptionStatus
 newOptionStatus pCreationDate_ pUpdateDate_ pState_ =
   OptionStatus'
-    { updateVersion = Prelude.Nothing,
-      pendingDeletion = Prelude.Nothing,
+    { pendingDeletion = Prelude.Nothing,
+      updateVersion = Prelude.Nothing,
       creationDate = Core._Time Lens.# pCreationDate_,
       updateDate = Core._Time Lens.# pUpdateDate_,
       state = pState_
     }
 
--- | Specifies the latest version for the entity.
-optionStatus_updateVersion :: Lens.Lens' OptionStatus (Prelude.Maybe Prelude.Natural)
-optionStatus_updateVersion = Lens.lens (\OptionStatus' {updateVersion} -> updateVersion) (\s@OptionStatus' {} a -> s {updateVersion = a} :: OptionStatus)
-
 -- | Indicates whether the Elasticsearch domain is being deleted.
 optionStatus_pendingDeletion :: Lens.Lens' OptionStatus (Prelude.Maybe Prelude.Bool)
 optionStatus_pendingDeletion = Lens.lens (\OptionStatus' {pendingDeletion} -> pendingDeletion) (\s@OptionStatus' {} a -> s {pendingDeletion = a} :: OptionStatus)
+
+-- | Specifies the latest version for the entity.
+optionStatus_updateVersion :: Lens.Lens' OptionStatus (Prelude.Maybe Prelude.Natural)
+optionStatus_updateVersion = Lens.lens (\OptionStatus' {updateVersion} -> updateVersion) (\s@OptionStatus' {} a -> s {updateVersion = a} :: OptionStatus)
 
 -- | Timestamp which tells the creation date for the entity.
 optionStatus_creationDate :: Lens.Lens' OptionStatus Prelude.UTCTime
@@ -101,8 +101,8 @@ instance Core.FromJSON OptionStatus where
       "OptionStatus"
       ( \x ->
           OptionStatus'
-            Prelude.<$> (x Core..:? "UpdateVersion")
-            Prelude.<*> (x Core..:? "PendingDeletion")
+            Prelude.<$> (x Core..:? "PendingDeletion")
+            Prelude.<*> (x Core..:? "UpdateVersion")
             Prelude.<*> (x Core..: "CreationDate")
             Prelude.<*> (x Core..: "UpdateDate")
             Prelude.<*> (x Core..: "State")

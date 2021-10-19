@@ -27,16 +27,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStorageTypeLimit' smart constructor.
 data StorageTypeLimit = StorageTypeLimit'
-  { -- | Values for the @ StorageTypeLimit$LimitName @ .
-    limitValues :: Prelude.Maybe [Prelude.Text],
-    -- | Name of storage limits that are applicable for given storage type. If
+  { -- | Name of storage limits that are applicable for given storage type. If
     -- @ StorageType @ is ebs, following storage options are applicable
     --
     -- 1.  MinimumVolumeSize
     -- 2.  MaximumVolumeSize
     -- 3.  MaximumIops
     -- 4.  MinimumIops
-    limitName :: Prelude.Maybe Prelude.Text
+    limitName :: Prelude.Maybe Prelude.Text,
+    -- | Values for the @ StorageTypeLimit$LimitName @ .
+    limitValues :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,8 +48,6 @@ data StorageTypeLimit = StorageTypeLimit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'limitValues', 'storageTypeLimit_limitValues' - Values for the @ StorageTypeLimit$LimitName @ .
---
 -- 'limitName', 'storageTypeLimit_limitName' - Name of storage limits that are applicable for given storage type. If
 -- @ StorageType @ is ebs, following storage options are applicable
 --
@@ -57,17 +55,15 @@ data StorageTypeLimit = StorageTypeLimit'
 -- 2.  MaximumVolumeSize
 -- 3.  MaximumIops
 -- 4.  MinimumIops
+--
+-- 'limitValues', 'storageTypeLimit_limitValues' - Values for the @ StorageTypeLimit$LimitName @ .
 newStorageTypeLimit ::
   StorageTypeLimit
 newStorageTypeLimit =
   StorageTypeLimit'
-    { limitValues = Prelude.Nothing,
-      limitName = Prelude.Nothing
+    { limitName = Prelude.Nothing,
+      limitValues = Prelude.Nothing
     }
-
--- | Values for the @ StorageTypeLimit$LimitName @ .
-storageTypeLimit_limitValues :: Lens.Lens' StorageTypeLimit (Prelude.Maybe [Prelude.Text])
-storageTypeLimit_limitValues = Lens.lens (\StorageTypeLimit' {limitValues} -> limitValues) (\s@StorageTypeLimit' {} a -> s {limitValues = a} :: StorageTypeLimit) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Name of storage limits that are applicable for given storage type. If
 -- @ StorageType @ is ebs, following storage options are applicable
@@ -79,14 +75,18 @@ storageTypeLimit_limitValues = Lens.lens (\StorageTypeLimit' {limitValues} -> li
 storageTypeLimit_limitName :: Lens.Lens' StorageTypeLimit (Prelude.Maybe Prelude.Text)
 storageTypeLimit_limitName = Lens.lens (\StorageTypeLimit' {limitName} -> limitName) (\s@StorageTypeLimit' {} a -> s {limitName = a} :: StorageTypeLimit)
 
+-- | Values for the @ StorageTypeLimit$LimitName @ .
+storageTypeLimit_limitValues :: Lens.Lens' StorageTypeLimit (Prelude.Maybe [Prelude.Text])
+storageTypeLimit_limitValues = Lens.lens (\StorageTypeLimit' {limitValues} -> limitValues) (\s@StorageTypeLimit' {} a -> s {limitValues = a} :: StorageTypeLimit) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON StorageTypeLimit where
   parseJSON =
     Core.withObject
       "StorageTypeLimit"
       ( \x ->
           StorageTypeLimit'
-            Prelude.<$> (x Core..:? "LimitValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LimitName")
+            Prelude.<$> (x Core..:? "LimitName")
+            Prelude.<*> (x Core..:? "LimitValues" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable StorageTypeLimit

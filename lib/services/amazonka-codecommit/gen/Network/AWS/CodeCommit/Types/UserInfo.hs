@@ -27,13 +27,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUserInfo' smart constructor.
 data UserInfo = UserInfo'
-  { -- | The name of the user who made the specified commit.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The email address associated with the user who made the commit, if any.
+    email :: Prelude.Maybe Prelude.Text,
     -- | The date when the specified commit was commited, in timestamp format
     -- with GMT offset.
     date :: Prelude.Maybe Prelude.Text,
-    -- | The email address associated with the user who made the commit, if any.
-    email :: Prelude.Maybe Prelude.Text
+    -- | The name of the user who made the specified commit.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,33 +45,33 @@ data UserInfo = UserInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'userInfo_name' - The name of the user who made the specified commit.
+-- 'email', 'userInfo_email' - The email address associated with the user who made the commit, if any.
 --
 -- 'date', 'userInfo_date' - The date when the specified commit was commited, in timestamp format
 -- with GMT offset.
 --
--- 'email', 'userInfo_email' - The email address associated with the user who made the commit, if any.
+-- 'name', 'userInfo_name' - The name of the user who made the specified commit.
 newUserInfo ::
   UserInfo
 newUserInfo =
   UserInfo'
-    { name = Prelude.Nothing,
+    { email = Prelude.Nothing,
       date = Prelude.Nothing,
-      email = Prelude.Nothing
+      name = Prelude.Nothing
     }
 
--- | The name of the user who made the specified commit.
-userInfo_name :: Lens.Lens' UserInfo (Prelude.Maybe Prelude.Text)
-userInfo_name = Lens.lens (\UserInfo' {name} -> name) (\s@UserInfo' {} a -> s {name = a} :: UserInfo)
+-- | The email address associated with the user who made the commit, if any.
+userInfo_email :: Lens.Lens' UserInfo (Prelude.Maybe Prelude.Text)
+userInfo_email = Lens.lens (\UserInfo' {email} -> email) (\s@UserInfo' {} a -> s {email = a} :: UserInfo)
 
 -- | The date when the specified commit was commited, in timestamp format
 -- with GMT offset.
 userInfo_date :: Lens.Lens' UserInfo (Prelude.Maybe Prelude.Text)
 userInfo_date = Lens.lens (\UserInfo' {date} -> date) (\s@UserInfo' {} a -> s {date = a} :: UserInfo)
 
--- | The email address associated with the user who made the commit, if any.
-userInfo_email :: Lens.Lens' UserInfo (Prelude.Maybe Prelude.Text)
-userInfo_email = Lens.lens (\UserInfo' {email} -> email) (\s@UserInfo' {} a -> s {email = a} :: UserInfo)
+-- | The name of the user who made the specified commit.
+userInfo_name :: Lens.Lens' UserInfo (Prelude.Maybe Prelude.Text)
+userInfo_name = Lens.lens (\UserInfo' {name} -> name) (\s@UserInfo' {} a -> s {name = a} :: UserInfo)
 
 instance Core.FromJSON UserInfo where
   parseJSON =
@@ -79,9 +79,9 @@ instance Core.FromJSON UserInfo where
       "UserInfo"
       ( \x ->
           UserInfo'
-            Prelude.<$> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "email")
             Prelude.<*> (x Core..:? "date")
-            Prelude.<*> (x Core..:? "email")
+            Prelude.<*> (x Core..:? "name")
       )
 
 instance Prelude.Hashable UserInfo

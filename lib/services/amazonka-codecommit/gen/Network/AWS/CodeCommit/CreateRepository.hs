@@ -127,7 +127,7 @@ createRepository_repositoryDescription = Lens.lens (\CreateRepository' {reposito
 
 -- | One or more tag key-value pairs to use when tagging this repository.
 createRepository_tags :: Lens.Lens' CreateRepository (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRepository_tags = Lens.lens (\CreateRepository' {tags} -> tags) (\s@CreateRepository' {} a -> s {tags = a} :: CreateRepository) Prelude.. Lens.mapping Lens._Coerce
+createRepository_tags = Lens.lens (\CreateRepository' {tags} -> tags) (\s@CreateRepository' {} a -> s {tags = a} :: CreateRepository) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new repository to be created.
 --

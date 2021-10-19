@@ -28,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newIsBinaryFile' smart constructor.
 data IsBinaryFile = IsBinaryFile'
-  { -- | The binary or non-binary status of file in the source of a merge or pull
-    -- request.
-    source :: Prelude.Maybe Prelude.Bool,
-    -- | The binary or non-binary status of a file in the destination of a merge
+  { -- | The binary or non-binary status of a file in the destination of a merge
     -- or pull request.
     destination :: Prelude.Maybe Prelude.Bool,
     -- | The binary or non-binary status of a file in the base of a merge or pull
     -- request.
-    base :: Prelude.Maybe Prelude.Bool
+    base :: Prelude.Maybe Prelude.Bool,
+    -- | The binary or non-binary status of file in the source of a merge or pull
+    -- request.
+    source :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,27 +48,22 @@ data IsBinaryFile = IsBinaryFile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'source', 'isBinaryFile_source' - The binary or non-binary status of file in the source of a merge or pull
--- request.
---
 -- 'destination', 'isBinaryFile_destination' - The binary or non-binary status of a file in the destination of a merge
 -- or pull request.
 --
 -- 'base', 'isBinaryFile_base' - The binary or non-binary status of a file in the base of a merge or pull
 -- request.
+--
+-- 'source', 'isBinaryFile_source' - The binary or non-binary status of file in the source of a merge or pull
+-- request.
 newIsBinaryFile ::
   IsBinaryFile
 newIsBinaryFile =
   IsBinaryFile'
-    { source = Prelude.Nothing,
-      destination = Prelude.Nothing,
-      base = Prelude.Nothing
+    { destination = Prelude.Nothing,
+      base = Prelude.Nothing,
+      source = Prelude.Nothing
     }
-
--- | The binary or non-binary status of file in the source of a merge or pull
--- request.
-isBinaryFile_source :: Lens.Lens' IsBinaryFile (Prelude.Maybe Prelude.Bool)
-isBinaryFile_source = Lens.lens (\IsBinaryFile' {source} -> source) (\s@IsBinaryFile' {} a -> s {source = a} :: IsBinaryFile)
 
 -- | The binary or non-binary status of a file in the destination of a merge
 -- or pull request.
@@ -80,15 +75,20 @@ isBinaryFile_destination = Lens.lens (\IsBinaryFile' {destination} -> destinatio
 isBinaryFile_base :: Lens.Lens' IsBinaryFile (Prelude.Maybe Prelude.Bool)
 isBinaryFile_base = Lens.lens (\IsBinaryFile' {base} -> base) (\s@IsBinaryFile' {} a -> s {base = a} :: IsBinaryFile)
 
+-- | The binary or non-binary status of file in the source of a merge or pull
+-- request.
+isBinaryFile_source :: Lens.Lens' IsBinaryFile (Prelude.Maybe Prelude.Bool)
+isBinaryFile_source = Lens.lens (\IsBinaryFile' {source} -> source) (\s@IsBinaryFile' {} a -> s {source = a} :: IsBinaryFile)
+
 instance Core.FromJSON IsBinaryFile where
   parseJSON =
     Core.withObject
       "IsBinaryFile"
       ( \x ->
           IsBinaryFile'
-            Prelude.<$> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "destination")
+            Prelude.<$> (x Core..:? "destination")
             Prelude.<*> (x Core..:? "base")
+            Prelude.<*> (x Core..:? "source")
       )
 
 instance Prelude.Hashable IsBinaryFile

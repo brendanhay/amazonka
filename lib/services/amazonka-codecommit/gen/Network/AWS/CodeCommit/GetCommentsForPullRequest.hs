@@ -33,11 +33,11 @@ module Network.AWS.CodeCommit.GetCommentsForPullRequest
     newGetCommentsForPullRequest,
 
     -- * Request Lenses
-    getCommentsForPullRequest_nextToken,
-    getCommentsForPullRequest_maxResults,
-    getCommentsForPullRequest_repositoryName,
-    getCommentsForPullRequest_beforeCommitId,
     getCommentsForPullRequest_afterCommitId,
+    getCommentsForPullRequest_nextToken,
+    getCommentsForPullRequest_beforeCommitId,
+    getCommentsForPullRequest_repositoryName,
+    getCommentsForPullRequest_maxResults,
     getCommentsForPullRequest_pullRequestId,
 
     -- * Destructuring the Response
@@ -60,21 +60,21 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetCommentsForPullRequest' smart constructor.
 data GetCommentsForPullRequest = GetCommentsForPullRequest'
-  { -- | An enumeration token that, when provided in a request, returns the next
+  { -- | The full commit ID of the commit in the source branch that was the tip
+    -- of the branch at the time the comment was made.
+    afterCommitId :: Prelude.Maybe Prelude.Text,
+    -- | An enumeration token that, when provided in a request, returns the next
     -- batch of the results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The full commit ID of the commit in the destination branch that was the
+    -- tip of the branch at the time the pull request was created.
+    beforeCommitId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the repository that contains the pull request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | A non-zero, non-negative integer used to limit the number of returned
     -- results. The default is 100 comments. You can return up to 500 comments
     -- with a single request.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The name of the repository that contains the pull request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
-    -- | The full commit ID of the commit in the destination branch that was the
-    -- tip of the branch at the time the pull request was created.
-    beforeCommitId :: Prelude.Maybe Prelude.Text,
-    -- | The full commit ID of the commit in the source branch that was the tip
-    -- of the branch at the time the comment was made.
-    afterCommitId :: Prelude.Maybe Prelude.Text,
     -- | The system-generated ID of the pull request. To get this ID, use
     -- ListPullRequests.
     pullRequestId :: Prelude.Text
@@ -89,20 +89,20 @@ data GetCommentsForPullRequest = GetCommentsForPullRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'afterCommitId', 'getCommentsForPullRequest_afterCommitId' - The full commit ID of the commit in the source branch that was the tip
+-- of the branch at the time the comment was made.
+--
 -- 'nextToken', 'getCommentsForPullRequest_nextToken' - An enumeration token that, when provided in a request, returns the next
 -- batch of the results.
---
--- 'maxResults', 'getCommentsForPullRequest_maxResults' - A non-zero, non-negative integer used to limit the number of returned
--- results. The default is 100 comments. You can return up to 500 comments
--- with a single request.
---
--- 'repositoryName', 'getCommentsForPullRequest_repositoryName' - The name of the repository that contains the pull request.
 --
 -- 'beforeCommitId', 'getCommentsForPullRequest_beforeCommitId' - The full commit ID of the commit in the destination branch that was the
 -- tip of the branch at the time the pull request was created.
 --
--- 'afterCommitId', 'getCommentsForPullRequest_afterCommitId' - The full commit ID of the commit in the source branch that was the tip
--- of the branch at the time the comment was made.
+-- 'repositoryName', 'getCommentsForPullRequest_repositoryName' - The name of the repository that contains the pull request.
+--
+-- 'maxResults', 'getCommentsForPullRequest_maxResults' - A non-zero, non-negative integer used to limit the number of returned
+-- results. The default is 100 comments. You can return up to 500 comments
+-- with a single request.
 --
 -- 'pullRequestId', 'getCommentsForPullRequest_pullRequestId' - The system-generated ID of the pull request. To get this ID, use
 -- ListPullRequests.
@@ -112,39 +112,39 @@ newGetCommentsForPullRequest ::
   GetCommentsForPullRequest
 newGetCommentsForPullRequest pPullRequestId_ =
   GetCommentsForPullRequest'
-    { nextToken =
+    { afterCommitId =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       beforeCommitId = Prelude.Nothing,
-      afterCommitId = Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       pullRequestId = pPullRequestId_
     }
+
+-- | The full commit ID of the commit in the source branch that was the tip
+-- of the branch at the time the comment was made.
+getCommentsForPullRequest_afterCommitId :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Text)
+getCommentsForPullRequest_afterCommitId = Lens.lens (\GetCommentsForPullRequest' {afterCommitId} -> afterCommitId) (\s@GetCommentsForPullRequest' {} a -> s {afterCommitId = a} :: GetCommentsForPullRequest)
 
 -- | An enumeration token that, when provided in a request, returns the next
 -- batch of the results.
 getCommentsForPullRequest_nextToken :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Text)
 getCommentsForPullRequest_nextToken = Lens.lens (\GetCommentsForPullRequest' {nextToken} -> nextToken) (\s@GetCommentsForPullRequest' {} a -> s {nextToken = a} :: GetCommentsForPullRequest)
 
--- | A non-zero, non-negative integer used to limit the number of returned
--- results. The default is 100 comments. You can return up to 500 comments
--- with a single request.
-getCommentsForPullRequest_maxResults :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Int)
-getCommentsForPullRequest_maxResults = Lens.lens (\GetCommentsForPullRequest' {maxResults} -> maxResults) (\s@GetCommentsForPullRequest' {} a -> s {maxResults = a} :: GetCommentsForPullRequest)
-
--- | The name of the repository that contains the pull request.
-getCommentsForPullRequest_repositoryName :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Text)
-getCommentsForPullRequest_repositoryName = Lens.lens (\GetCommentsForPullRequest' {repositoryName} -> repositoryName) (\s@GetCommentsForPullRequest' {} a -> s {repositoryName = a} :: GetCommentsForPullRequest)
-
 -- | The full commit ID of the commit in the destination branch that was the
 -- tip of the branch at the time the pull request was created.
 getCommentsForPullRequest_beforeCommitId :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Text)
 getCommentsForPullRequest_beforeCommitId = Lens.lens (\GetCommentsForPullRequest' {beforeCommitId} -> beforeCommitId) (\s@GetCommentsForPullRequest' {} a -> s {beforeCommitId = a} :: GetCommentsForPullRequest)
 
--- | The full commit ID of the commit in the source branch that was the tip
--- of the branch at the time the comment was made.
-getCommentsForPullRequest_afterCommitId :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Text)
-getCommentsForPullRequest_afterCommitId = Lens.lens (\GetCommentsForPullRequest' {afterCommitId} -> afterCommitId) (\s@GetCommentsForPullRequest' {} a -> s {afterCommitId = a} :: GetCommentsForPullRequest)
+-- | The name of the repository that contains the pull request.
+getCommentsForPullRequest_repositoryName :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Text)
+getCommentsForPullRequest_repositoryName = Lens.lens (\GetCommentsForPullRequest' {repositoryName} -> repositoryName) (\s@GetCommentsForPullRequest' {} a -> s {repositoryName = a} :: GetCommentsForPullRequest)
+
+-- | A non-zero, non-negative integer used to limit the number of returned
+-- results. The default is 100 comments. You can return up to 500 comments
+-- with a single request.
+getCommentsForPullRequest_maxResults :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Int)
+getCommentsForPullRequest_maxResults = Lens.lens (\GetCommentsForPullRequest' {maxResults} -> maxResults) (\s@GetCommentsForPullRequest' {} a -> s {maxResults = a} :: GetCommentsForPullRequest)
 
 -- | The system-generated ID of the pull request. To get this ID, use
 -- ListPullRequests.
@@ -212,13 +212,13 @@ instance Core.ToJSON GetCommentsForPullRequest where
   toJSON GetCommentsForPullRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("repositoryName" Core..=)
-              Prelude.<$> repositoryName,
+          [ ("afterCommitId" Core..=) Prelude.<$> afterCommitId,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("beforeCommitId" Core..=)
               Prelude.<$> beforeCommitId,
-            ("afterCommitId" Core..=) Prelude.<$> afterCommitId,
+            ("repositoryName" Core..=)
+              Prelude.<$> repositoryName,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("pullRequestId" Core..= pullRequestId)
           ]
@@ -270,7 +270,7 @@ newGetCommentsForPullRequestResponse pHttpStatus_ =
 
 -- | An array of comment objects on the pull request.
 getCommentsForPullRequestResponse_commentsForPullRequestData :: Lens.Lens' GetCommentsForPullRequestResponse (Prelude.Maybe [CommentsForPullRequest])
-getCommentsForPullRequestResponse_commentsForPullRequestData = Lens.lens (\GetCommentsForPullRequestResponse' {commentsForPullRequestData} -> commentsForPullRequestData) (\s@GetCommentsForPullRequestResponse' {} a -> s {commentsForPullRequestData = a} :: GetCommentsForPullRequestResponse) Prelude.. Lens.mapping Lens._Coerce
+getCommentsForPullRequestResponse_commentsForPullRequestData = Lens.lens (\GetCommentsForPullRequestResponse' {commentsForPullRequestData} -> commentsForPullRequestData) (\s@GetCommentsForPullRequestResponse' {} a -> s {commentsForPullRequestData = a} :: GetCommentsForPullRequestResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An enumeration token that can be used in a request to return the next
 -- batch of the results.

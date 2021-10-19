@@ -90,7 +90,7 @@ putRepositoryTriggers_repositoryName = Lens.lens (\PutRepositoryTriggers' {repos
 
 -- | The JSON block of configuration information for each trigger.
 putRepositoryTriggers_triggers :: Lens.Lens' PutRepositoryTriggers [RepositoryTrigger]
-putRepositoryTriggers_triggers = Lens.lens (\PutRepositoryTriggers' {triggers} -> triggers) (\s@PutRepositoryTriggers' {} a -> s {triggers = a} :: PutRepositoryTriggers) Prelude.. Lens._Coerce
+putRepositoryTriggers_triggers = Lens.lens (\PutRepositoryTriggers' {triggers} -> triggers) (\s@PutRepositoryTriggers' {} a -> s {triggers = a} :: PutRepositoryTriggers) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutRepositoryTriggers where
   type

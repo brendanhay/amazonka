@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newApprovalStateChangedEventMetadata' smart constructor.
 data ApprovalStateChangedEventMetadata = ApprovalStateChangedEventMetadata'
-  { -- | The revision ID of the pull request when the approval state changed.
-    revisionId :: Prelude.Maybe Prelude.Text,
-    -- | The approval status for the pull request.
-    approvalStatus :: Prelude.Maybe ApprovalState
+  { -- | The approval status for the pull request.
+    approvalStatus :: Prelude.Maybe ApprovalState,
+    -- | The revision ID of the pull request when the approval state changed.
+    revisionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data ApprovalStateChangedEventMetadata = ApprovalStateChangedEventMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revisionId', 'approvalStateChangedEventMetadata_revisionId' - The revision ID of the pull request when the approval state changed.
---
 -- 'approvalStatus', 'approvalStateChangedEventMetadata_approvalStatus' - The approval status for the pull request.
+--
+-- 'revisionId', 'approvalStateChangedEventMetadata_revisionId' - The revision ID of the pull request when the approval state changed.
 newApprovalStateChangedEventMetadata ::
   ApprovalStateChangedEventMetadata
 newApprovalStateChangedEventMetadata =
   ApprovalStateChangedEventMetadata'
-    { revisionId =
+    { approvalStatus =
         Prelude.Nothing,
-      approvalStatus = Prelude.Nothing
+      revisionId = Prelude.Nothing
     }
-
--- | The revision ID of the pull request when the approval state changed.
-approvalStateChangedEventMetadata_revisionId :: Lens.Lens' ApprovalStateChangedEventMetadata (Prelude.Maybe Prelude.Text)
-approvalStateChangedEventMetadata_revisionId = Lens.lens (\ApprovalStateChangedEventMetadata' {revisionId} -> revisionId) (\s@ApprovalStateChangedEventMetadata' {} a -> s {revisionId = a} :: ApprovalStateChangedEventMetadata)
 
 -- | The approval status for the pull request.
 approvalStateChangedEventMetadata_approvalStatus :: Lens.Lens' ApprovalStateChangedEventMetadata (Prelude.Maybe ApprovalState)
 approvalStateChangedEventMetadata_approvalStatus = Lens.lens (\ApprovalStateChangedEventMetadata' {approvalStatus} -> approvalStatus) (\s@ApprovalStateChangedEventMetadata' {} a -> s {approvalStatus = a} :: ApprovalStateChangedEventMetadata)
+
+-- | The revision ID of the pull request when the approval state changed.
+approvalStateChangedEventMetadata_revisionId :: Lens.Lens' ApprovalStateChangedEventMetadata (Prelude.Maybe Prelude.Text)
+approvalStateChangedEventMetadata_revisionId = Lens.lens (\ApprovalStateChangedEventMetadata' {revisionId} -> revisionId) (\s@ApprovalStateChangedEventMetadata' {} a -> s {revisionId = a} :: ApprovalStateChangedEventMetadata)
 
 instance
   Core.FromJSON
@@ -73,8 +73,8 @@ instance
       "ApprovalStateChangedEventMetadata"
       ( \x ->
           ApprovalStateChangedEventMetadata'
-            Prelude.<$> (x Core..:? "revisionId")
-            Prelude.<*> (x Core..:? "approvalStatus")
+            Prelude.<$> (x Core..:? "approvalStatus")
+            Prelude.<*> (x Core..:? "revisionId")
       )
 
 instance

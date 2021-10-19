@@ -38,8 +38,8 @@ module Network.AWS.CodeCommit.TestRepositoryTriggers
     newTestRepositoryTriggersResponse,
 
     -- * Response Lenses
-    testRepositoryTriggersResponse_successfulExecutions,
     testRepositoryTriggersResponse_failedExecutions,
+    testRepositoryTriggersResponse_successfulExecutions,
     testRepositoryTriggersResponse_httpStatus,
   )
 where
@@ -90,7 +90,7 @@ testRepositoryTriggers_repositoryName = Lens.lens (\TestRepositoryTriggers' {rep
 
 -- | The list of triggers to test.
 testRepositoryTriggers_triggers :: Lens.Lens' TestRepositoryTriggers [RepositoryTrigger]
-testRepositoryTriggers_triggers = Lens.lens (\TestRepositoryTriggers' {triggers} -> triggers) (\s@TestRepositoryTriggers' {} a -> s {triggers = a} :: TestRepositoryTriggers) Prelude.. Lens._Coerce
+testRepositoryTriggers_triggers = Lens.lens (\TestRepositoryTriggers' {triggers} -> triggers) (\s@TestRepositoryTriggers' {} a -> s {triggers = a} :: TestRepositoryTriggers) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TestRepositoryTriggers where
   type
@@ -101,10 +101,10 @@ instance Core.AWSRequest TestRepositoryTriggers where
     Response.receiveJSON
       ( \s h x ->
           TestRepositoryTriggersResponse'
-            Prelude.<$> ( x Core..?> "successfulExecutions"
+            Prelude.<$> ( x Core..?> "failedExecutions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "failedExecutions"
+            Prelude.<*> ( x Core..?> "successfulExecutions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -149,13 +149,13 @@ instance Core.ToQuery TestRepositoryTriggers where
 --
 -- /See:/ 'newTestRepositoryTriggersResponse' smart constructor.
 data TestRepositoryTriggersResponse = TestRepositoryTriggersResponse'
-  { -- | The list of triggers that were successfully tested. This list provides
+  { -- | The list of triggers that were not tested. This list provides the names
+    -- of the triggers that could not be tested, separated by commas.
+    failedExecutions :: Prelude.Maybe [RepositoryTriggerExecutionFailure],
+    -- | The list of triggers that were successfully tested. This list provides
     -- the names of the triggers that were successfully tested, separated by
     -- commas.
     successfulExecutions :: Prelude.Maybe [Prelude.Text],
-    -- | The list of triggers that were not tested. This list provides the names
-    -- of the triggers that could not be tested, separated by commas.
-    failedExecutions :: Prelude.Maybe [RepositoryTriggerExecutionFailure],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,12 +169,12 @@ data TestRepositoryTriggersResponse = TestRepositoryTriggersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'failedExecutions', 'testRepositoryTriggersResponse_failedExecutions' - The list of triggers that were not tested. This list provides the names
+-- of the triggers that could not be tested, separated by commas.
+--
 -- 'successfulExecutions', 'testRepositoryTriggersResponse_successfulExecutions' - The list of triggers that were successfully tested. This list provides
 -- the names of the triggers that were successfully tested, separated by
 -- commas.
---
--- 'failedExecutions', 'testRepositoryTriggersResponse_failedExecutions' - The list of triggers that were not tested. This list provides the names
--- of the triggers that could not be tested, separated by commas.
 --
 -- 'httpStatus', 'testRepositoryTriggersResponse_httpStatus' - The response's http status code.
 newTestRepositoryTriggersResponse ::
@@ -183,22 +183,22 @@ newTestRepositoryTriggersResponse ::
   TestRepositoryTriggersResponse
 newTestRepositoryTriggersResponse pHttpStatus_ =
   TestRepositoryTriggersResponse'
-    { successfulExecutions =
+    { failedExecutions =
         Prelude.Nothing,
-      failedExecutions = Prelude.Nothing,
+      successfulExecutions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of triggers that were not tested. This list provides the names
+-- of the triggers that could not be tested, separated by commas.
+testRepositoryTriggersResponse_failedExecutions :: Lens.Lens' TestRepositoryTriggersResponse (Prelude.Maybe [RepositoryTriggerExecutionFailure])
+testRepositoryTriggersResponse_failedExecutions = Lens.lens (\TestRepositoryTriggersResponse' {failedExecutions} -> failedExecutions) (\s@TestRepositoryTriggersResponse' {} a -> s {failedExecutions = a} :: TestRepositoryTriggersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of triggers that were successfully tested. This list provides
 -- the names of the triggers that were successfully tested, separated by
 -- commas.
 testRepositoryTriggersResponse_successfulExecutions :: Lens.Lens' TestRepositoryTriggersResponse (Prelude.Maybe [Prelude.Text])
-testRepositoryTriggersResponse_successfulExecutions = Lens.lens (\TestRepositoryTriggersResponse' {successfulExecutions} -> successfulExecutions) (\s@TestRepositoryTriggersResponse' {} a -> s {successfulExecutions = a} :: TestRepositoryTriggersResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The list of triggers that were not tested. This list provides the names
--- of the triggers that could not be tested, separated by commas.
-testRepositoryTriggersResponse_failedExecutions :: Lens.Lens' TestRepositoryTriggersResponse (Prelude.Maybe [RepositoryTriggerExecutionFailure])
-testRepositoryTriggersResponse_failedExecutions = Lens.lens (\TestRepositoryTriggersResponse' {failedExecutions} -> failedExecutions) (\s@TestRepositoryTriggersResponse' {} a -> s {failedExecutions = a} :: TestRepositoryTriggersResponse) Prelude.. Lens.mapping Lens._Coerce
+testRepositoryTriggersResponse_successfulExecutions = Lens.lens (\TestRepositoryTriggersResponse' {successfulExecutions} -> successfulExecutions) (\s@TestRepositoryTriggersResponse' {} a -> s {successfulExecutions = a} :: TestRepositoryTriggersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 testRepositoryTriggersResponse_httpStatus :: Lens.Lens' TestRepositoryTriggersResponse Prelude.Int

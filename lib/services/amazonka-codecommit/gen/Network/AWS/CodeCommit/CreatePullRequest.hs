@@ -27,8 +27,8 @@ module Network.AWS.CodeCommit.CreatePullRequest
     newCreatePullRequest,
 
     -- * Request Lenses
-    createPullRequest_description,
     createPullRequest_clientRequestToken,
+    createPullRequest_description,
     createPullRequest_title,
     createPullRequest_targets,
 
@@ -51,9 +51,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreatePullRequest' smart constructor.
 data CreatePullRequest = CreatePullRequest'
-  { -- | A description of the pull request.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A unique, client-generated idempotency token that, when provided in a
+  { -- | A unique, client-generated idempotency token that, when provided in a
     -- request, ensures the request cannot be repeated with a changed
     -- parameter. If a request is received with the same parameters and a token
     -- is included, the request returns information about the initial request
@@ -62,6 +60,8 @@ data CreatePullRequest = CreatePullRequest'
     -- The AWS SDKs prepopulate client request tokens. If you are using an AWS
     -- SDK, an idempotency token is created for you.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | A description of the pull request.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The title of the pull request. This title is used to identify the pull
     -- request to other users in the repository.
     title :: Prelude.Text,
@@ -81,8 +81,6 @@ data CreatePullRequest = CreatePullRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createPullRequest_description' - A description of the pull request.
---
 -- 'clientRequestToken', 'createPullRequest_clientRequestToken' - A unique, client-generated idempotency token that, when provided in a
 -- request, ensures the request cannot be repeated with a changed
 -- parameter. If a request is received with the same parameters and a token
@@ -91,6 +89,8 @@ data CreatePullRequest = CreatePullRequest'
 --
 -- The AWS SDKs prepopulate client request tokens. If you are using an AWS
 -- SDK, an idempotency token is created for you.
+--
+-- 'description', 'createPullRequest_description' - A description of the pull request.
 --
 -- 'title', 'createPullRequest_title' - The title of the pull request. This title is used to identify the pull
 -- request to other users in the repository.
@@ -105,15 +105,12 @@ newCreatePullRequest ::
   CreatePullRequest
 newCreatePullRequest pTitle_ =
   CreatePullRequest'
-    { description = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
+      description = Prelude.Nothing,
       title = pTitle_,
       targets = Prelude.mempty
     }
-
--- | A description of the pull request.
-createPullRequest_description :: Lens.Lens' CreatePullRequest (Prelude.Maybe Prelude.Text)
-createPullRequest_description = Lens.lens (\CreatePullRequest' {description} -> description) (\s@CreatePullRequest' {} a -> s {description = a} :: CreatePullRequest)
 
 -- | A unique, client-generated idempotency token that, when provided in a
 -- request, ensures the request cannot be repeated with a changed
@@ -126,6 +123,10 @@ createPullRequest_description = Lens.lens (\CreatePullRequest' {description} -> 
 createPullRequest_clientRequestToken :: Lens.Lens' CreatePullRequest (Prelude.Maybe Prelude.Text)
 createPullRequest_clientRequestToken = Lens.lens (\CreatePullRequest' {clientRequestToken} -> clientRequestToken) (\s@CreatePullRequest' {} a -> s {clientRequestToken = a} :: CreatePullRequest)
 
+-- | A description of the pull request.
+createPullRequest_description :: Lens.Lens' CreatePullRequest (Prelude.Maybe Prelude.Text)
+createPullRequest_description = Lens.lens (\CreatePullRequest' {description} -> description) (\s@CreatePullRequest' {} a -> s {description = a} :: CreatePullRequest)
+
 -- | The title of the pull request. This title is used to identify the pull
 -- request to other users in the repository.
 createPullRequest_title :: Lens.Lens' CreatePullRequest Prelude.Text
@@ -136,7 +137,7 @@ createPullRequest_title = Lens.lens (\CreatePullRequest' {title} -> title) (\s@C
 -- the pull request intends the code to be merged after the pull request is
 -- closed (the destination branch).
 createPullRequest_targets :: Lens.Lens' CreatePullRequest [Target]
-createPullRequest_targets = Lens.lens (\CreatePullRequest' {targets} -> targets) (\s@CreatePullRequest' {} a -> s {targets = a} :: CreatePullRequest) Prelude.. Lens._Coerce
+createPullRequest_targets = Lens.lens (\CreatePullRequest' {targets} -> targets) (\s@CreatePullRequest' {} a -> s {targets = a} :: CreatePullRequest) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreatePullRequest where
   type
@@ -174,9 +175,9 @@ instance Core.ToJSON CreatePullRequest where
   toJSON CreatePullRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("clientRequestToken" Core..=)
+          [ ("clientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("title" Core..= title),
             Prelude.Just ("targets" Core..= targets)
           ]

@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMergeOperations' smart constructor.
 data MergeOperations = MergeOperations'
-  { -- | The operation (add, modify, or delete) on a file in the source of a
+  { -- | The operation on a file in the destination of a merge or pull request.
+    destination :: Prelude.Maybe ChangeTypeEnum,
+    -- | The operation (add, modify, or delete) on a file in the source of a
     -- merge or pull request.
-    source :: Prelude.Maybe ChangeTypeEnum,
-    -- | The operation on a file in the destination of a merge or pull request.
-    destination :: Prelude.Maybe ChangeTypeEnum
+    source :: Prelude.Maybe ChangeTypeEnum
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data MergeOperations = MergeOperations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'destination', 'mergeOperations_destination' - The operation on a file in the destination of a merge or pull request.
+--
 -- 'source', 'mergeOperations_source' - The operation (add, modify, or delete) on a file in the source of a
 -- merge or pull request.
---
--- 'destination', 'mergeOperations_destination' - The operation on a file in the destination of a merge or pull request.
 newMergeOperations ::
   MergeOperations
 newMergeOperations =
   MergeOperations'
-    { source = Prelude.Nothing,
-      destination = Prelude.Nothing
+    { destination = Prelude.Nothing,
+      source = Prelude.Nothing
     }
+
+-- | The operation on a file in the destination of a merge or pull request.
+mergeOperations_destination :: Lens.Lens' MergeOperations (Prelude.Maybe ChangeTypeEnum)
+mergeOperations_destination = Lens.lens (\MergeOperations' {destination} -> destination) (\s@MergeOperations' {} a -> s {destination = a} :: MergeOperations)
 
 -- | The operation (add, modify, or delete) on a file in the source of a
 -- merge or pull request.
 mergeOperations_source :: Lens.Lens' MergeOperations (Prelude.Maybe ChangeTypeEnum)
 mergeOperations_source = Lens.lens (\MergeOperations' {source} -> source) (\s@MergeOperations' {} a -> s {source = a} :: MergeOperations)
-
--- | The operation on a file in the destination of a merge or pull request.
-mergeOperations_destination :: Lens.Lens' MergeOperations (Prelude.Maybe ChangeTypeEnum)
-mergeOperations_destination = Lens.lens (\MergeOperations' {destination} -> destination) (\s@MergeOperations' {} a -> s {destination = a} :: MergeOperations)
 
 instance Core.FromJSON MergeOperations where
   parseJSON =
@@ -71,8 +71,8 @@ instance Core.FromJSON MergeOperations where
       "MergeOperations"
       ( \x ->
           MergeOperations'
-            Prelude.<$> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "destination")
+            Prelude.<$> (x Core..:? "destination")
+            Prelude.<*> (x Core..:? "source")
       )
 
 instance Prelude.Hashable MergeOperations

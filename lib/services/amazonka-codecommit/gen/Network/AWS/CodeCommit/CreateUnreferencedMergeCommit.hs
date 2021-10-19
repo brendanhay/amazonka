@@ -35,13 +35,13 @@ module Network.AWS.CodeCommit.CreateUnreferencedMergeCommit
     newCreateUnreferencedMergeCommit,
 
     -- * Request Lenses
-    createUnreferencedMergeCommit_authorName,
-    createUnreferencedMergeCommit_commitMessage,
     createUnreferencedMergeCommit_email,
+    createUnreferencedMergeCommit_authorName,
     createUnreferencedMergeCommit_conflictDetailLevel,
-    createUnreferencedMergeCommit_keepEmptyFolders,
-    createUnreferencedMergeCommit_conflictResolutionStrategy,
+    createUnreferencedMergeCommit_commitMessage,
     createUnreferencedMergeCommit_conflictResolution,
+    createUnreferencedMergeCommit_conflictResolutionStrategy,
+    createUnreferencedMergeCommit_keepEmptyFolders,
     createUnreferencedMergeCommit_repositoryName,
     createUnreferencedMergeCommit_sourceCommitSpecifier,
     createUnreferencedMergeCommit_destinationCommitSpecifier,
@@ -67,32 +67,32 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateUnreferencedMergeCommit' smart constructor.
 data CreateUnreferencedMergeCommit = CreateUnreferencedMergeCommit'
-  { -- | The name of the author who created the unreferenced commit. This
+  { -- | The email address for the person who created the unreferenced commit.
+    email :: Prelude.Maybe Prelude.Text,
+    -- | The name of the author who created the unreferenced commit. This
     -- information is used as both the author and committer for the commit.
     authorName :: Prelude.Maybe Prelude.Text,
-    -- | The commit message for the unreferenced commit.
-    commitMessage :: Prelude.Maybe Prelude.Text,
-    -- | The email address for the person who created the unreferenced commit.
-    email :: Prelude.Maybe Prelude.Text,
     -- | The level of conflict detail to use. If unspecified, the default
     -- FILE_LEVEL is used, which returns a not-mergeable result if the same
     -- file has differences in both branches. If LINE_LEVEL is specified, a
     -- conflict is considered not mergeable if the same file in both branches
     -- has differences on the same line.
     conflictDetailLevel :: Prelude.Maybe ConflictDetailLevelTypeEnum,
-    -- | If the commit contains deletions, whether to keep a folder or folder
-    -- structure if the changes leave the folders empty. If this is specified
-    -- as true, a .gitkeep file is created for empty folders. The default is
-    -- false.
-    keepEmptyFolders :: Prelude.Maybe Prelude.Bool,
+    -- | The commit message for the unreferenced commit.
+    commitMessage :: Prelude.Maybe Prelude.Text,
+    -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
+    -- use when resolving conflicts during a merge.
+    conflictResolution :: Prelude.Maybe ConflictResolution,
     -- | Specifies which branch to use when resolving conflicts, or whether to
     -- attempt automatically merging two versions of a file. The default is
     -- NONE, which requires any conflicts to be resolved manually before the
     -- merge operation is successful.
     conflictResolutionStrategy :: Prelude.Maybe ConflictResolutionStrategyTypeEnum,
-    -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
-    -- use when resolving conflicts during a merge.
-    conflictResolution :: Prelude.Maybe ConflictResolution,
+    -- | If the commit contains deletions, whether to keep a folder or folder
+    -- structure if the changes leave the folders empty. If this is specified
+    -- as true, a .gitkeep file is created for empty folders. The default is
+    -- false.
+    keepEmptyFolders :: Prelude.Maybe Prelude.Bool,
     -- | The name of the repository where you want to create the unreferenced
     -- merge commit.
     repositoryName :: Prelude.Text,
@@ -115,12 +115,10 @@ data CreateUnreferencedMergeCommit = CreateUnreferencedMergeCommit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'email', 'createUnreferencedMergeCommit_email' - The email address for the person who created the unreferenced commit.
+--
 -- 'authorName', 'createUnreferencedMergeCommit_authorName' - The name of the author who created the unreferenced commit. This
 -- information is used as both the author and committer for the commit.
---
--- 'commitMessage', 'createUnreferencedMergeCommit_commitMessage' - The commit message for the unreferenced commit.
---
--- 'email', 'createUnreferencedMergeCommit_email' - The email address for the person who created the unreferenced commit.
 --
 -- 'conflictDetailLevel', 'createUnreferencedMergeCommit_conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default
 -- FILE_LEVEL is used, which returns a not-mergeable result if the same
@@ -128,18 +126,20 @@ data CreateUnreferencedMergeCommit = CreateUnreferencedMergeCommit'
 -- conflict is considered not mergeable if the same file in both branches
 -- has differences on the same line.
 --
--- 'keepEmptyFolders', 'createUnreferencedMergeCommit_keepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder
--- structure if the changes leave the folders empty. If this is specified
--- as true, a .gitkeep file is created for empty folders. The default is
--- false.
+-- 'commitMessage', 'createUnreferencedMergeCommit_commitMessage' - The commit message for the unreferenced commit.
+--
+-- 'conflictResolution', 'createUnreferencedMergeCommit_conflictResolution' - If AUTOMERGE is the conflict resolution strategy, a list of inputs to
+-- use when resolving conflicts during a merge.
 --
 -- 'conflictResolutionStrategy', 'createUnreferencedMergeCommit_conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to
 -- attempt automatically merging two versions of a file. The default is
 -- NONE, which requires any conflicts to be resolved manually before the
 -- merge operation is successful.
 --
--- 'conflictResolution', 'createUnreferencedMergeCommit_conflictResolution' - If AUTOMERGE is the conflict resolution strategy, a list of inputs to
--- use when resolving conflicts during a merge.
+-- 'keepEmptyFolders', 'createUnreferencedMergeCommit_keepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder
+-- structure if the changes leave the folders empty. If this is specified
+-- as true, a .gitkeep file is created for empty folders. The default is
+-- false.
 --
 -- 'repositoryName', 'createUnreferencedMergeCommit_repositoryName' - The name of the repository where you want to create the unreferenced
 -- merge commit.
@@ -167,14 +167,14 @@ newCreateUnreferencedMergeCommit
   pDestinationCommitSpecifier_
   pMergeOption_ =
     CreateUnreferencedMergeCommit'
-      { authorName =
+      { email =
           Prelude.Nothing,
-        commitMessage = Prelude.Nothing,
-        email = Prelude.Nothing,
+        authorName = Prelude.Nothing,
         conflictDetailLevel = Prelude.Nothing,
-        keepEmptyFolders = Prelude.Nothing,
-        conflictResolutionStrategy = Prelude.Nothing,
+        commitMessage = Prelude.Nothing,
         conflictResolution = Prelude.Nothing,
+        conflictResolutionStrategy = Prelude.Nothing,
+        keepEmptyFolders = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         sourceCommitSpecifier =
           pSourceCommitSpecifier_,
@@ -183,18 +183,14 @@ newCreateUnreferencedMergeCommit
         mergeOption = pMergeOption_
       }
 
+-- | The email address for the person who created the unreferenced commit.
+createUnreferencedMergeCommit_email :: Lens.Lens' CreateUnreferencedMergeCommit (Prelude.Maybe Prelude.Text)
+createUnreferencedMergeCommit_email = Lens.lens (\CreateUnreferencedMergeCommit' {email} -> email) (\s@CreateUnreferencedMergeCommit' {} a -> s {email = a} :: CreateUnreferencedMergeCommit)
+
 -- | The name of the author who created the unreferenced commit. This
 -- information is used as both the author and committer for the commit.
 createUnreferencedMergeCommit_authorName :: Lens.Lens' CreateUnreferencedMergeCommit (Prelude.Maybe Prelude.Text)
 createUnreferencedMergeCommit_authorName = Lens.lens (\CreateUnreferencedMergeCommit' {authorName} -> authorName) (\s@CreateUnreferencedMergeCommit' {} a -> s {authorName = a} :: CreateUnreferencedMergeCommit)
-
--- | The commit message for the unreferenced commit.
-createUnreferencedMergeCommit_commitMessage :: Lens.Lens' CreateUnreferencedMergeCommit (Prelude.Maybe Prelude.Text)
-createUnreferencedMergeCommit_commitMessage = Lens.lens (\CreateUnreferencedMergeCommit' {commitMessage} -> commitMessage) (\s@CreateUnreferencedMergeCommit' {} a -> s {commitMessage = a} :: CreateUnreferencedMergeCommit)
-
--- | The email address for the person who created the unreferenced commit.
-createUnreferencedMergeCommit_email :: Lens.Lens' CreateUnreferencedMergeCommit (Prelude.Maybe Prelude.Text)
-createUnreferencedMergeCommit_email = Lens.lens (\CreateUnreferencedMergeCommit' {email} -> email) (\s@CreateUnreferencedMergeCommit' {} a -> s {email = a} :: CreateUnreferencedMergeCommit)
 
 -- | The level of conflict detail to use. If unspecified, the default
 -- FILE_LEVEL is used, which returns a not-mergeable result if the same
@@ -204,12 +200,14 @@ createUnreferencedMergeCommit_email = Lens.lens (\CreateUnreferencedMergeCommit'
 createUnreferencedMergeCommit_conflictDetailLevel :: Lens.Lens' CreateUnreferencedMergeCommit (Prelude.Maybe ConflictDetailLevelTypeEnum)
 createUnreferencedMergeCommit_conflictDetailLevel = Lens.lens (\CreateUnreferencedMergeCommit' {conflictDetailLevel} -> conflictDetailLevel) (\s@CreateUnreferencedMergeCommit' {} a -> s {conflictDetailLevel = a} :: CreateUnreferencedMergeCommit)
 
--- | If the commit contains deletions, whether to keep a folder or folder
--- structure if the changes leave the folders empty. If this is specified
--- as true, a .gitkeep file is created for empty folders. The default is
--- false.
-createUnreferencedMergeCommit_keepEmptyFolders :: Lens.Lens' CreateUnreferencedMergeCommit (Prelude.Maybe Prelude.Bool)
-createUnreferencedMergeCommit_keepEmptyFolders = Lens.lens (\CreateUnreferencedMergeCommit' {keepEmptyFolders} -> keepEmptyFolders) (\s@CreateUnreferencedMergeCommit' {} a -> s {keepEmptyFolders = a} :: CreateUnreferencedMergeCommit)
+-- | The commit message for the unreferenced commit.
+createUnreferencedMergeCommit_commitMessage :: Lens.Lens' CreateUnreferencedMergeCommit (Prelude.Maybe Prelude.Text)
+createUnreferencedMergeCommit_commitMessage = Lens.lens (\CreateUnreferencedMergeCommit' {commitMessage} -> commitMessage) (\s@CreateUnreferencedMergeCommit' {} a -> s {commitMessage = a} :: CreateUnreferencedMergeCommit)
+
+-- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
+-- use when resolving conflicts during a merge.
+createUnreferencedMergeCommit_conflictResolution :: Lens.Lens' CreateUnreferencedMergeCommit (Prelude.Maybe ConflictResolution)
+createUnreferencedMergeCommit_conflictResolution = Lens.lens (\CreateUnreferencedMergeCommit' {conflictResolution} -> conflictResolution) (\s@CreateUnreferencedMergeCommit' {} a -> s {conflictResolution = a} :: CreateUnreferencedMergeCommit)
 
 -- | Specifies which branch to use when resolving conflicts, or whether to
 -- attempt automatically merging two versions of a file. The default is
@@ -218,10 +216,12 @@ createUnreferencedMergeCommit_keepEmptyFolders = Lens.lens (\CreateUnreferencedM
 createUnreferencedMergeCommit_conflictResolutionStrategy :: Lens.Lens' CreateUnreferencedMergeCommit (Prelude.Maybe ConflictResolutionStrategyTypeEnum)
 createUnreferencedMergeCommit_conflictResolutionStrategy = Lens.lens (\CreateUnreferencedMergeCommit' {conflictResolutionStrategy} -> conflictResolutionStrategy) (\s@CreateUnreferencedMergeCommit' {} a -> s {conflictResolutionStrategy = a} :: CreateUnreferencedMergeCommit)
 
--- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
--- use when resolving conflicts during a merge.
-createUnreferencedMergeCommit_conflictResolution :: Lens.Lens' CreateUnreferencedMergeCommit (Prelude.Maybe ConflictResolution)
-createUnreferencedMergeCommit_conflictResolution = Lens.lens (\CreateUnreferencedMergeCommit' {conflictResolution} -> conflictResolution) (\s@CreateUnreferencedMergeCommit' {} a -> s {conflictResolution = a} :: CreateUnreferencedMergeCommit)
+-- | If the commit contains deletions, whether to keep a folder or folder
+-- structure if the changes leave the folders empty. If this is specified
+-- as true, a .gitkeep file is created for empty folders. The default is
+-- false.
+createUnreferencedMergeCommit_keepEmptyFolders :: Lens.Lens' CreateUnreferencedMergeCommit (Prelude.Maybe Prelude.Bool)
+createUnreferencedMergeCommit_keepEmptyFolders = Lens.lens (\CreateUnreferencedMergeCommit' {keepEmptyFolders} -> keepEmptyFolders) (\s@CreateUnreferencedMergeCommit' {} a -> s {keepEmptyFolders = a} :: CreateUnreferencedMergeCommit)
 
 -- | The name of the repository where you want to create the unreferenced
 -- merge commit.
@@ -284,17 +284,17 @@ instance Core.ToJSON CreateUnreferencedMergeCommit where
   toJSON CreateUnreferencedMergeCommit' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("authorName" Core..=) Prelude.<$> authorName,
-            ("commitMessage" Core..=) Prelude.<$> commitMessage,
-            ("email" Core..=) Prelude.<$> email,
+          [ ("email" Core..=) Prelude.<$> email,
+            ("authorName" Core..=) Prelude.<$> authorName,
             ("conflictDetailLevel" Core..=)
               Prelude.<$> conflictDetailLevel,
-            ("keepEmptyFolders" Core..=)
-              Prelude.<$> keepEmptyFolders,
-            ("conflictResolutionStrategy" Core..=)
-              Prelude.<$> conflictResolutionStrategy,
+            ("commitMessage" Core..=) Prelude.<$> commitMessage,
             ("conflictResolution" Core..=)
               Prelude.<$> conflictResolution,
+            ("conflictResolutionStrategy" Core..=)
+              Prelude.<$> conflictResolutionStrategy,
+            ("keepEmptyFolders" Core..=)
+              Prelude.<$> keepEmptyFolders,
             Prelude.Just
               ("repositoryName" Core..= repositoryName),
             Prelude.Just

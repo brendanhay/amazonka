@@ -90,7 +90,7 @@ newBatchGetCommits pRepositoryName_ =
 -- You must supply the full SHA IDs of each commit. You cannot use
 -- shortened SHA IDs.
 batchGetCommits_commitIds :: Lens.Lens' BatchGetCommits [Prelude.Text]
-batchGetCommits_commitIds = Lens.lens (\BatchGetCommits' {commitIds} -> commitIds) (\s@BatchGetCommits' {} a -> s {commitIds = a} :: BatchGetCommits) Prelude.. Lens._Coerce
+batchGetCommits_commitIds = Lens.lens (\BatchGetCommits' {commitIds} -> commitIds) (\s@BatchGetCommits' {} a -> s {commitIds = a} :: BatchGetCommits) Prelude.. Lens.coerced
 
 -- | The name of the repository that contains the commits.
 batchGetCommits_repositoryName :: Lens.Lens' BatchGetCommits Prelude.Text
@@ -191,14 +191,14 @@ newBatchGetCommitsResponse pHttpStatus_ =
 -- | An array of commit data type objects, each of which contains information
 -- about a specified commit.
 batchGetCommitsResponse_commits :: Lens.Lens' BatchGetCommitsResponse (Prelude.Maybe [Commit])
-batchGetCommitsResponse_commits = Lens.lens (\BatchGetCommitsResponse' {commits} -> commits) (\s@BatchGetCommitsResponse' {} a -> s {commits = a} :: BatchGetCommitsResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetCommitsResponse_commits = Lens.lens (\BatchGetCommitsResponse' {commits} -> commits) (\s@BatchGetCommitsResponse' {} a -> s {commits = a} :: BatchGetCommitsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Returns any commit IDs for which information could not be found. For
 -- example, if one of the commit IDs was a shortened SHA ID or that commit
 -- was not found in the specified repository, the ID returns an error
 -- object with more information.
 batchGetCommitsResponse_errors :: Lens.Lens' BatchGetCommitsResponse (Prelude.Maybe [BatchGetCommitsError])
-batchGetCommitsResponse_errors = Lens.lens (\BatchGetCommitsResponse' {errors} -> errors) (\s@BatchGetCommitsResponse' {} a -> s {errors = a} :: BatchGetCommitsResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetCommitsResponse_errors = Lens.lens (\BatchGetCommitsResponse' {errors} -> errors) (\s@BatchGetCommitsResponse' {} a -> s {errors = a} :: BatchGetCommitsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetCommitsResponse_httpStatus :: Lens.Lens' BatchGetCommitsResponse Prelude.Int

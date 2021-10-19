@@ -28,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchAssociateApprovalRuleTemplateWithRepositoriesError' smart constructor.
 data BatchAssociateApprovalRuleTemplateWithRepositoriesError = BatchAssociateApprovalRuleTemplateWithRepositoriesError'
-  { -- | The name of the repository where the association was not made.
+  { -- | An error code that specifies whether the repository name was not valid
+    -- or not found.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The name of the repository where the association was not made.
     repositoryName :: Prelude.Maybe Prelude.Text,
     -- | An error message that provides details about why the repository name was
     -- not found or not valid.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | An error code that specifies whether the repository name was not valid
-    -- or not found.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,29 @@ data BatchAssociateApprovalRuleTemplateWithRepositoriesError = BatchAssociateApp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorCode', 'batchAssociateApprovalRuleTemplateWithRepositoriesError_errorCode' - An error code that specifies whether the repository name was not valid
+-- or not found.
+--
 -- 'repositoryName', 'batchAssociateApprovalRuleTemplateWithRepositoriesError_repositoryName' - The name of the repository where the association was not made.
 --
 -- 'errorMessage', 'batchAssociateApprovalRuleTemplateWithRepositoriesError_errorMessage' - An error message that provides details about why the repository name was
 -- not found or not valid.
---
--- 'errorCode', 'batchAssociateApprovalRuleTemplateWithRepositoriesError_errorCode' - An error code that specifies whether the repository name was not valid
--- or not found.
 newBatchAssociateApprovalRuleTemplateWithRepositoriesError ::
   BatchAssociateApprovalRuleTemplateWithRepositoriesError
 newBatchAssociateApprovalRuleTemplateWithRepositoriesError =
   BatchAssociateApprovalRuleTemplateWithRepositoriesError'
-    { repositoryName =
+    { errorCode =
+        Prelude.Nothing,
+      repositoryName =
         Prelude.Nothing,
       errorMessage =
-        Prelude.Nothing,
-      errorCode =
         Prelude.Nothing
     }
+
+-- | An error code that specifies whether the repository name was not valid
+-- or not found.
+batchAssociateApprovalRuleTemplateWithRepositoriesError_errorCode :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesError (Prelude.Maybe Prelude.Text)
+batchAssociateApprovalRuleTemplateWithRepositoriesError_errorCode = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositoriesError' {errorCode} -> errorCode) (\s@BatchAssociateApprovalRuleTemplateWithRepositoriesError' {} a -> s {errorCode = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesError)
 
 -- | The name of the repository where the association was not made.
 batchAssociateApprovalRuleTemplateWithRepositoriesError_repositoryName :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesError (Prelude.Maybe Prelude.Text)
@@ -75,11 +80,6 @@ batchAssociateApprovalRuleTemplateWithRepositoriesError_repositoryName = Lens.le
 batchAssociateApprovalRuleTemplateWithRepositoriesError_errorMessage :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesError (Prelude.Maybe Prelude.Text)
 batchAssociateApprovalRuleTemplateWithRepositoriesError_errorMessage = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositoriesError' {errorMessage} -> errorMessage) (\s@BatchAssociateApprovalRuleTemplateWithRepositoriesError' {} a -> s {errorMessage = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesError)
 
--- | An error code that specifies whether the repository name was not valid
--- or not found.
-batchAssociateApprovalRuleTemplateWithRepositoriesError_errorCode :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesError (Prelude.Maybe Prelude.Text)
-batchAssociateApprovalRuleTemplateWithRepositoriesError_errorCode = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositoriesError' {errorCode} -> errorCode) (\s@BatchAssociateApprovalRuleTemplateWithRepositoriesError' {} a -> s {errorCode = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesError)
-
 instance
   Core.FromJSON
     BatchAssociateApprovalRuleTemplateWithRepositoriesError
@@ -89,9 +89,9 @@ instance
       "BatchAssociateApprovalRuleTemplateWithRepositoriesError"
       ( \x ->
           BatchAssociateApprovalRuleTemplateWithRepositoriesError'
-            Prelude.<$> (x Core..:? "repositoryName")
+            Prelude.<$> (x Core..:? "errorCode")
+              Prelude.<*> (x Core..:? "repositoryName")
               Prelude.<*> (x Core..:? "errorMessage")
-              Prelude.<*> (x Core..:? "errorCode")
       )
 
 instance

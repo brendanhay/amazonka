@@ -38,10 +38,10 @@ module Network.AWS.CodeCommit.GetMergeCommit
     newGetMergeCommitResponse,
 
     -- * Response Lenses
-    getMergeCommitResponse_baseCommitId,
     getMergeCommitResponse_mergedCommitId,
-    getMergeCommitResponse_sourceCommitId,
     getMergeCommitResponse_destinationCommitId,
+    getMergeCommitResponse_baseCommitId,
+    getMergeCommitResponse_sourceCommitId,
     getMergeCommitResponse_httpStatus,
   )
 where
@@ -166,10 +166,10 @@ instance Core.AWSRequest GetMergeCommit where
     Response.receiveJSON
       ( \s h x ->
           GetMergeCommitResponse'
-            Prelude.<$> (x Core..?> "baseCommitId")
-            Prelude.<*> (x Core..?> "mergedCommitId")
-            Prelude.<*> (x Core..?> "sourceCommitId")
+            Prelude.<$> (x Core..?> "mergedCommitId")
             Prelude.<*> (x Core..?> "destinationCommitId")
+            Prelude.<*> (x Core..?> "baseCommitId")
+            Prelude.<*> (x Core..?> "sourceCommitId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -221,18 +221,18 @@ instance Core.ToQuery GetMergeCommit where
 
 -- | /See:/ 'newGetMergeCommitResponse' smart constructor.
 data GetMergeCommitResponse = GetMergeCommitResponse'
-  { -- | The commit ID of the merge base.
-    baseCommitId :: Prelude.Maybe Prelude.Text,
-    -- | The commit ID for the merge commit created when the source branch was
+  { -- | The commit ID for the merge commit created when the source branch was
     -- merged into the destination branch. If the fast-forward merge strategy
     -- was used, there is no merge commit.
     mergedCommitId :: Prelude.Maybe Prelude.Text,
-    -- | The commit ID of the source commit specifier that was used in the merge
-    -- evaluation.
-    sourceCommitId :: Prelude.Maybe Prelude.Text,
     -- | The commit ID of the destination commit specifier that was used in the
     -- merge evaluation.
     destinationCommitId :: Prelude.Maybe Prelude.Text,
+    -- | The commit ID of the merge base.
+    baseCommitId :: Prelude.Maybe Prelude.Text,
+    -- | The commit ID of the source commit specifier that was used in the merge
+    -- evaluation.
+    sourceCommitId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -246,17 +246,17 @@ data GetMergeCommitResponse = GetMergeCommitResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'baseCommitId', 'getMergeCommitResponse_baseCommitId' - The commit ID of the merge base.
---
 -- 'mergedCommitId', 'getMergeCommitResponse_mergedCommitId' - The commit ID for the merge commit created when the source branch was
 -- merged into the destination branch. If the fast-forward merge strategy
 -- was used, there is no merge commit.
 --
--- 'sourceCommitId', 'getMergeCommitResponse_sourceCommitId' - The commit ID of the source commit specifier that was used in the merge
--- evaluation.
---
 -- 'destinationCommitId', 'getMergeCommitResponse_destinationCommitId' - The commit ID of the destination commit specifier that was used in the
 -- merge evaluation.
+--
+-- 'baseCommitId', 'getMergeCommitResponse_baseCommitId' - The commit ID of the merge base.
+--
+-- 'sourceCommitId', 'getMergeCommitResponse_sourceCommitId' - The commit ID of the source commit specifier that was used in the merge
+-- evaluation.
 --
 -- 'httpStatus', 'getMergeCommitResponse_httpStatus' - The response's http status code.
 newGetMergeCommitResponse ::
@@ -265,17 +265,13 @@ newGetMergeCommitResponse ::
   GetMergeCommitResponse
 newGetMergeCommitResponse pHttpStatus_ =
   GetMergeCommitResponse'
-    { baseCommitId =
+    { mergedCommitId =
         Prelude.Nothing,
-      mergedCommitId = Prelude.Nothing,
-      sourceCommitId = Prelude.Nothing,
       destinationCommitId = Prelude.Nothing,
+      baseCommitId = Prelude.Nothing,
+      sourceCommitId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The commit ID of the merge base.
-getMergeCommitResponse_baseCommitId :: Lens.Lens' GetMergeCommitResponse (Prelude.Maybe Prelude.Text)
-getMergeCommitResponse_baseCommitId = Lens.lens (\GetMergeCommitResponse' {baseCommitId} -> baseCommitId) (\s@GetMergeCommitResponse' {} a -> s {baseCommitId = a} :: GetMergeCommitResponse)
 
 -- | The commit ID for the merge commit created when the source branch was
 -- merged into the destination branch. If the fast-forward merge strategy
@@ -283,15 +279,19 @@ getMergeCommitResponse_baseCommitId = Lens.lens (\GetMergeCommitResponse' {baseC
 getMergeCommitResponse_mergedCommitId :: Lens.Lens' GetMergeCommitResponse (Prelude.Maybe Prelude.Text)
 getMergeCommitResponse_mergedCommitId = Lens.lens (\GetMergeCommitResponse' {mergedCommitId} -> mergedCommitId) (\s@GetMergeCommitResponse' {} a -> s {mergedCommitId = a} :: GetMergeCommitResponse)
 
--- | The commit ID of the source commit specifier that was used in the merge
--- evaluation.
-getMergeCommitResponse_sourceCommitId :: Lens.Lens' GetMergeCommitResponse (Prelude.Maybe Prelude.Text)
-getMergeCommitResponse_sourceCommitId = Lens.lens (\GetMergeCommitResponse' {sourceCommitId} -> sourceCommitId) (\s@GetMergeCommitResponse' {} a -> s {sourceCommitId = a} :: GetMergeCommitResponse)
-
 -- | The commit ID of the destination commit specifier that was used in the
 -- merge evaluation.
 getMergeCommitResponse_destinationCommitId :: Lens.Lens' GetMergeCommitResponse (Prelude.Maybe Prelude.Text)
 getMergeCommitResponse_destinationCommitId = Lens.lens (\GetMergeCommitResponse' {destinationCommitId} -> destinationCommitId) (\s@GetMergeCommitResponse' {} a -> s {destinationCommitId = a} :: GetMergeCommitResponse)
+
+-- | The commit ID of the merge base.
+getMergeCommitResponse_baseCommitId :: Lens.Lens' GetMergeCommitResponse (Prelude.Maybe Prelude.Text)
+getMergeCommitResponse_baseCommitId = Lens.lens (\GetMergeCommitResponse' {baseCommitId} -> baseCommitId) (\s@GetMergeCommitResponse' {} a -> s {baseCommitId = a} :: GetMergeCommitResponse)
+
+-- | The commit ID of the source commit specifier that was used in the merge
+-- evaluation.
+getMergeCommitResponse_sourceCommitId :: Lens.Lens' GetMergeCommitResponse (Prelude.Maybe Prelude.Text)
+getMergeCommitResponse_sourceCommitId = Lens.lens (\GetMergeCommitResponse' {sourceCommitId} -> sourceCommitId) (\s@GetMergeCommitResponse' {} a -> s {sourceCommitId = a} :: GetMergeCommitResponse)
 
 -- | The response's http status code.
 getMergeCommitResponse_httpStatus :: Lens.Lens' GetMergeCommitResponse Prelude.Int

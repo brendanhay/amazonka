@@ -30,14 +30,14 @@ module Network.AWS.CodeCommit.MergePullRequestBySquash
     newMergePullRequestBySquash,
 
     -- * Request Lenses
-    mergePullRequestBySquash_authorName,
-    mergePullRequestBySquash_commitMessage,
     mergePullRequestBySquash_email,
-    mergePullRequestBySquash_sourceCommitId,
+    mergePullRequestBySquash_authorName,
     mergePullRequestBySquash_conflictDetailLevel,
-    mergePullRequestBySquash_keepEmptyFolders,
-    mergePullRequestBySquash_conflictResolutionStrategy,
+    mergePullRequestBySquash_commitMessage,
     mergePullRequestBySquash_conflictResolution,
+    mergePullRequestBySquash_conflictResolutionStrategy,
+    mergePullRequestBySquash_keepEmptyFolders,
+    mergePullRequestBySquash_sourceCommitId,
     mergePullRequestBySquash_pullRequestId,
     mergePullRequestBySquash_repositoryName,
 
@@ -60,37 +60,37 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newMergePullRequestBySquash' smart constructor.
 data MergePullRequestBySquash = MergePullRequestBySquash'
-  { -- | The name of the author who created the commit. This information is used
-    -- as both the author and committer for the commit.
-    authorName :: Prelude.Maybe Prelude.Text,
-    -- | The commit message to include in the commit information for the merge.
-    commitMessage :: Prelude.Maybe Prelude.Text,
-    -- | The email address of the person merging the branches. This information
+  { -- | The email address of the person merging the branches. This information
     -- is used in the commit information for the merge.
     email :: Prelude.Maybe Prelude.Text,
-    -- | The full commit ID of the original or updated commit in the pull request
-    -- source branch. Pass this value if you want an exception thrown if the
-    -- current commit ID of the tip of the source branch does not match this
-    -- commit ID.
-    sourceCommitId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the author who created the commit. This information is used
+    -- as both the author and committer for the commit.
+    authorName :: Prelude.Maybe Prelude.Text,
     -- | The level of conflict detail to use. If unspecified, the default
     -- FILE_LEVEL is used, which returns a not-mergeable result if the same
     -- file has differences in both branches. If LINE_LEVEL is specified, a
     -- conflict is considered not mergeable if the same file in both branches
     -- has differences on the same line.
     conflictDetailLevel :: Prelude.Maybe ConflictDetailLevelTypeEnum,
-    -- | If the commit contains deletions, whether to keep a folder or folder
-    -- structure if the changes leave the folders empty. If true, a .gitkeep
-    -- file is created for empty folders. The default is false.
-    keepEmptyFolders :: Prelude.Maybe Prelude.Bool,
+    -- | The commit message to include in the commit information for the merge.
+    commitMessage :: Prelude.Maybe Prelude.Text,
+    -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
+    -- use when resolving conflicts during a merge.
+    conflictResolution :: Prelude.Maybe ConflictResolution,
     -- | Specifies which branch to use when resolving conflicts, or whether to
     -- attempt automatically merging two versions of a file. The default is
     -- NONE, which requires any conflicts to be resolved manually before the
     -- merge operation is successful.
     conflictResolutionStrategy :: Prelude.Maybe ConflictResolutionStrategyTypeEnum,
-    -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
-    -- use when resolving conflicts during a merge.
-    conflictResolution :: Prelude.Maybe ConflictResolution,
+    -- | If the commit contains deletions, whether to keep a folder or folder
+    -- structure if the changes leave the folders empty. If true, a .gitkeep
+    -- file is created for empty folders. The default is false.
+    keepEmptyFolders :: Prelude.Maybe Prelude.Bool,
+    -- | The full commit ID of the original or updated commit in the pull request
+    -- source branch. Pass this value if you want an exception thrown if the
+    -- current commit ID of the tip of the source branch does not match this
+    -- commit ID.
+    sourceCommitId :: Prelude.Maybe Prelude.Text,
     -- | The system-generated ID of the pull request. To get this ID, use
     -- ListPullRequests.
     pullRequestId :: Prelude.Text,
@@ -107,18 +107,11 @@ data MergePullRequestBySquash = MergePullRequestBySquash'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authorName', 'mergePullRequestBySquash_authorName' - The name of the author who created the commit. This information is used
--- as both the author and committer for the commit.
---
--- 'commitMessage', 'mergePullRequestBySquash_commitMessage' - The commit message to include in the commit information for the merge.
---
 -- 'email', 'mergePullRequestBySquash_email' - The email address of the person merging the branches. This information
 -- is used in the commit information for the merge.
 --
--- 'sourceCommitId', 'mergePullRequestBySquash_sourceCommitId' - The full commit ID of the original or updated commit in the pull request
--- source branch. Pass this value if you want an exception thrown if the
--- current commit ID of the tip of the source branch does not match this
--- commit ID.
+-- 'authorName', 'mergePullRequestBySquash_authorName' - The name of the author who created the commit. This information is used
+-- as both the author and committer for the commit.
 --
 -- 'conflictDetailLevel', 'mergePullRequestBySquash_conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default
 -- FILE_LEVEL is used, which returns a not-mergeable result if the same
@@ -126,17 +119,24 @@ data MergePullRequestBySquash = MergePullRequestBySquash'
 -- conflict is considered not mergeable if the same file in both branches
 -- has differences on the same line.
 --
--- 'keepEmptyFolders', 'mergePullRequestBySquash_keepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder
--- structure if the changes leave the folders empty. If true, a .gitkeep
--- file is created for empty folders. The default is false.
+-- 'commitMessage', 'mergePullRequestBySquash_commitMessage' - The commit message to include in the commit information for the merge.
+--
+-- 'conflictResolution', 'mergePullRequestBySquash_conflictResolution' - If AUTOMERGE is the conflict resolution strategy, a list of inputs to
+-- use when resolving conflicts during a merge.
 --
 -- 'conflictResolutionStrategy', 'mergePullRequestBySquash_conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to
 -- attempt automatically merging two versions of a file. The default is
 -- NONE, which requires any conflicts to be resolved manually before the
 -- merge operation is successful.
 --
--- 'conflictResolution', 'mergePullRequestBySquash_conflictResolution' - If AUTOMERGE is the conflict resolution strategy, a list of inputs to
--- use when resolving conflicts during a merge.
+-- 'keepEmptyFolders', 'mergePullRequestBySquash_keepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder
+-- structure if the changes leave the folders empty. If true, a .gitkeep
+-- file is created for empty folders. The default is false.
+--
+-- 'sourceCommitId', 'mergePullRequestBySquash_sourceCommitId' - The full commit ID of the original or updated commit in the pull request
+-- source branch. Pass this value if you want an exception thrown if the
+-- current commit ID of the tip of the source branch does not match this
+-- commit ID.
 --
 -- 'pullRequestId', 'mergePullRequestBySquash_pullRequestId' - The system-generated ID of the pull request. To get this ID, use
 -- ListPullRequests.
@@ -152,39 +152,27 @@ newMergePullRequestBySquash
   pPullRequestId_
   pRepositoryName_ =
     MergePullRequestBySquash'
-      { authorName =
-          Prelude.Nothing,
-        commitMessage = Prelude.Nothing,
-        email = Prelude.Nothing,
-        sourceCommitId = Prelude.Nothing,
+      { email = Prelude.Nothing,
+        authorName = Prelude.Nothing,
         conflictDetailLevel = Prelude.Nothing,
-        keepEmptyFolders = Prelude.Nothing,
-        conflictResolutionStrategy = Prelude.Nothing,
+        commitMessage = Prelude.Nothing,
         conflictResolution = Prelude.Nothing,
+        conflictResolutionStrategy = Prelude.Nothing,
+        keepEmptyFolders = Prelude.Nothing,
+        sourceCommitId = Prelude.Nothing,
         pullRequestId = pPullRequestId_,
         repositoryName = pRepositoryName_
       }
-
--- | The name of the author who created the commit. This information is used
--- as both the author and committer for the commit.
-mergePullRequestBySquash_authorName :: Lens.Lens' MergePullRequestBySquash (Prelude.Maybe Prelude.Text)
-mergePullRequestBySquash_authorName = Lens.lens (\MergePullRequestBySquash' {authorName} -> authorName) (\s@MergePullRequestBySquash' {} a -> s {authorName = a} :: MergePullRequestBySquash)
-
--- | The commit message to include in the commit information for the merge.
-mergePullRequestBySquash_commitMessage :: Lens.Lens' MergePullRequestBySquash (Prelude.Maybe Prelude.Text)
-mergePullRequestBySquash_commitMessage = Lens.lens (\MergePullRequestBySquash' {commitMessage} -> commitMessage) (\s@MergePullRequestBySquash' {} a -> s {commitMessage = a} :: MergePullRequestBySquash)
 
 -- | The email address of the person merging the branches. This information
 -- is used in the commit information for the merge.
 mergePullRequestBySquash_email :: Lens.Lens' MergePullRequestBySquash (Prelude.Maybe Prelude.Text)
 mergePullRequestBySquash_email = Lens.lens (\MergePullRequestBySquash' {email} -> email) (\s@MergePullRequestBySquash' {} a -> s {email = a} :: MergePullRequestBySquash)
 
--- | The full commit ID of the original or updated commit in the pull request
--- source branch. Pass this value if you want an exception thrown if the
--- current commit ID of the tip of the source branch does not match this
--- commit ID.
-mergePullRequestBySquash_sourceCommitId :: Lens.Lens' MergePullRequestBySquash (Prelude.Maybe Prelude.Text)
-mergePullRequestBySquash_sourceCommitId = Lens.lens (\MergePullRequestBySquash' {sourceCommitId} -> sourceCommitId) (\s@MergePullRequestBySquash' {} a -> s {sourceCommitId = a} :: MergePullRequestBySquash)
+-- | The name of the author who created the commit. This information is used
+-- as both the author and committer for the commit.
+mergePullRequestBySquash_authorName :: Lens.Lens' MergePullRequestBySquash (Prelude.Maybe Prelude.Text)
+mergePullRequestBySquash_authorName = Lens.lens (\MergePullRequestBySquash' {authorName} -> authorName) (\s@MergePullRequestBySquash' {} a -> s {authorName = a} :: MergePullRequestBySquash)
 
 -- | The level of conflict detail to use. If unspecified, the default
 -- FILE_LEVEL is used, which returns a not-mergeable result if the same
@@ -194,11 +182,14 @@ mergePullRequestBySquash_sourceCommitId = Lens.lens (\MergePullRequestBySquash' 
 mergePullRequestBySquash_conflictDetailLevel :: Lens.Lens' MergePullRequestBySquash (Prelude.Maybe ConflictDetailLevelTypeEnum)
 mergePullRequestBySquash_conflictDetailLevel = Lens.lens (\MergePullRequestBySquash' {conflictDetailLevel} -> conflictDetailLevel) (\s@MergePullRequestBySquash' {} a -> s {conflictDetailLevel = a} :: MergePullRequestBySquash)
 
--- | If the commit contains deletions, whether to keep a folder or folder
--- structure if the changes leave the folders empty. If true, a .gitkeep
--- file is created for empty folders. The default is false.
-mergePullRequestBySquash_keepEmptyFolders :: Lens.Lens' MergePullRequestBySquash (Prelude.Maybe Prelude.Bool)
-mergePullRequestBySquash_keepEmptyFolders = Lens.lens (\MergePullRequestBySquash' {keepEmptyFolders} -> keepEmptyFolders) (\s@MergePullRequestBySquash' {} a -> s {keepEmptyFolders = a} :: MergePullRequestBySquash)
+-- | The commit message to include in the commit information for the merge.
+mergePullRequestBySquash_commitMessage :: Lens.Lens' MergePullRequestBySquash (Prelude.Maybe Prelude.Text)
+mergePullRequestBySquash_commitMessage = Lens.lens (\MergePullRequestBySquash' {commitMessage} -> commitMessage) (\s@MergePullRequestBySquash' {} a -> s {commitMessage = a} :: MergePullRequestBySquash)
+
+-- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
+-- use when resolving conflicts during a merge.
+mergePullRequestBySquash_conflictResolution :: Lens.Lens' MergePullRequestBySquash (Prelude.Maybe ConflictResolution)
+mergePullRequestBySquash_conflictResolution = Lens.lens (\MergePullRequestBySquash' {conflictResolution} -> conflictResolution) (\s@MergePullRequestBySquash' {} a -> s {conflictResolution = a} :: MergePullRequestBySquash)
 
 -- | Specifies which branch to use when resolving conflicts, or whether to
 -- attempt automatically merging two versions of a file. The default is
@@ -207,10 +198,18 @@ mergePullRequestBySquash_keepEmptyFolders = Lens.lens (\MergePullRequestBySquash
 mergePullRequestBySquash_conflictResolutionStrategy :: Lens.Lens' MergePullRequestBySquash (Prelude.Maybe ConflictResolutionStrategyTypeEnum)
 mergePullRequestBySquash_conflictResolutionStrategy = Lens.lens (\MergePullRequestBySquash' {conflictResolutionStrategy} -> conflictResolutionStrategy) (\s@MergePullRequestBySquash' {} a -> s {conflictResolutionStrategy = a} :: MergePullRequestBySquash)
 
--- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
--- use when resolving conflicts during a merge.
-mergePullRequestBySquash_conflictResolution :: Lens.Lens' MergePullRequestBySquash (Prelude.Maybe ConflictResolution)
-mergePullRequestBySquash_conflictResolution = Lens.lens (\MergePullRequestBySquash' {conflictResolution} -> conflictResolution) (\s@MergePullRequestBySquash' {} a -> s {conflictResolution = a} :: MergePullRequestBySquash)
+-- | If the commit contains deletions, whether to keep a folder or folder
+-- structure if the changes leave the folders empty. If true, a .gitkeep
+-- file is created for empty folders. The default is false.
+mergePullRequestBySquash_keepEmptyFolders :: Lens.Lens' MergePullRequestBySquash (Prelude.Maybe Prelude.Bool)
+mergePullRequestBySquash_keepEmptyFolders = Lens.lens (\MergePullRequestBySquash' {keepEmptyFolders} -> keepEmptyFolders) (\s@MergePullRequestBySquash' {} a -> s {keepEmptyFolders = a} :: MergePullRequestBySquash)
+
+-- | The full commit ID of the original or updated commit in the pull request
+-- source branch. Pass this value if you want an exception thrown if the
+-- current commit ID of the tip of the source branch does not match this
+-- commit ID.
+mergePullRequestBySquash_sourceCommitId :: Lens.Lens' MergePullRequestBySquash (Prelude.Maybe Prelude.Text)
+mergePullRequestBySquash_sourceCommitId = Lens.lens (\MergePullRequestBySquash' {sourceCommitId} -> sourceCommitId) (\s@MergePullRequestBySquash' {} a -> s {sourceCommitId = a} :: MergePullRequestBySquash)
 
 -- | The system-generated ID of the pull request. To get this ID, use
 -- ListPullRequests.
@@ -257,19 +256,19 @@ instance Core.ToJSON MergePullRequestBySquash where
   toJSON MergePullRequestBySquash' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("authorName" Core..=) Prelude.<$> authorName,
-            ("commitMessage" Core..=) Prelude.<$> commitMessage,
-            ("email" Core..=) Prelude.<$> email,
-            ("sourceCommitId" Core..=)
-              Prelude.<$> sourceCommitId,
+          [ ("email" Core..=) Prelude.<$> email,
+            ("authorName" Core..=) Prelude.<$> authorName,
             ("conflictDetailLevel" Core..=)
               Prelude.<$> conflictDetailLevel,
-            ("keepEmptyFolders" Core..=)
-              Prelude.<$> keepEmptyFolders,
-            ("conflictResolutionStrategy" Core..=)
-              Prelude.<$> conflictResolutionStrategy,
+            ("commitMessage" Core..=) Prelude.<$> commitMessage,
             ("conflictResolution" Core..=)
               Prelude.<$> conflictResolution,
+            ("conflictResolutionStrategy" Core..=)
+              Prelude.<$> conflictResolutionStrategy,
+            ("keepEmptyFolders" Core..=)
+              Prelude.<$> keepEmptyFolders,
+            ("sourceCommitId" Core..=)
+              Prelude.<$> sourceCommitId,
             Prelude.Just ("pullRequestId" Core..= pullRequestId),
             Prelude.Just
               ("repositoryName" Core..= repositoryName)

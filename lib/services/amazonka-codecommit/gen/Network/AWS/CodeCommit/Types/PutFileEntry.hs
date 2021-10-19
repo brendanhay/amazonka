@@ -31,13 +31,13 @@ import qualified Network.AWS.Prelude as Prelude
 data PutFileEntry = PutFileEntry'
   { -- | The content of the file, if a source file is not specified.
     fileContent :: Prelude.Maybe Core.Base64,
+    -- | The extrapolated file mode permissions for the file. Valid values
+    -- include EXECUTABLE and NORMAL.
+    fileMode :: Prelude.Maybe FileModeTypeEnum,
     -- | The name and full path of the file that contains the changes you want to
     -- make as part of the commit, if you are not providing the file content
     -- directly.
     sourceFile :: Prelude.Maybe SourceFileSpecifier,
-    -- | The extrapolated file mode permissions for the file. Valid values
-    -- include EXECUTABLE and NORMAL.
-    fileMode :: Prelude.Maybe FileModeTypeEnum,
     -- | The full path to the file in the repository, including the name of the
     -- file.
     filePath :: Prelude.Text
@@ -58,12 +58,12 @@ data PutFileEntry = PutFileEntry'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
+-- 'fileMode', 'putFileEntry_fileMode' - The extrapolated file mode permissions for the file. Valid values
+-- include EXECUTABLE and NORMAL.
+--
 -- 'sourceFile', 'putFileEntry_sourceFile' - The name and full path of the file that contains the changes you want to
 -- make as part of the commit, if you are not providing the file content
 -- directly.
---
--- 'fileMode', 'putFileEntry_fileMode' - The extrapolated file mode permissions for the file. Valid values
--- include EXECUTABLE and NORMAL.
 --
 -- 'filePath', 'putFileEntry_filePath' - The full path to the file in the repository, including the name of the
 -- file.
@@ -74,8 +74,8 @@ newPutFileEntry ::
 newPutFileEntry pFilePath_ =
   PutFileEntry'
     { fileContent = Prelude.Nothing,
-      sourceFile = Prelude.Nothing,
       fileMode = Prelude.Nothing,
+      sourceFile = Prelude.Nothing,
       filePath = pFilePath_
     }
 
@@ -87,16 +87,16 @@ newPutFileEntry pFilePath_ =
 putFileEntry_fileContent :: Lens.Lens' PutFileEntry (Prelude.Maybe Prelude.ByteString)
 putFileEntry_fileContent = Lens.lens (\PutFileEntry' {fileContent} -> fileContent) (\s@PutFileEntry' {} a -> s {fileContent = a} :: PutFileEntry) Prelude.. Lens.mapping Core._Base64
 
+-- | The extrapolated file mode permissions for the file. Valid values
+-- include EXECUTABLE and NORMAL.
+putFileEntry_fileMode :: Lens.Lens' PutFileEntry (Prelude.Maybe FileModeTypeEnum)
+putFileEntry_fileMode = Lens.lens (\PutFileEntry' {fileMode} -> fileMode) (\s@PutFileEntry' {} a -> s {fileMode = a} :: PutFileEntry)
+
 -- | The name and full path of the file that contains the changes you want to
 -- make as part of the commit, if you are not providing the file content
 -- directly.
 putFileEntry_sourceFile :: Lens.Lens' PutFileEntry (Prelude.Maybe SourceFileSpecifier)
 putFileEntry_sourceFile = Lens.lens (\PutFileEntry' {sourceFile} -> sourceFile) (\s@PutFileEntry' {} a -> s {sourceFile = a} :: PutFileEntry)
-
--- | The extrapolated file mode permissions for the file. Valid values
--- include EXECUTABLE and NORMAL.
-putFileEntry_fileMode :: Lens.Lens' PutFileEntry (Prelude.Maybe FileModeTypeEnum)
-putFileEntry_fileMode = Lens.lens (\PutFileEntry' {fileMode} -> fileMode) (\s@PutFileEntry' {} a -> s {fileMode = a} :: PutFileEntry)
 
 -- | The full path to the file in the repository, including the name of the
 -- file.
@@ -112,8 +112,8 @@ instance Core.ToJSON PutFileEntry where
     Core.object
       ( Prelude.catMaybes
           [ ("fileContent" Core..=) Prelude.<$> fileContent,
-            ("sourceFile" Core..=) Prelude.<$> sourceFile,
             ("fileMode" Core..=) Prelude.<$> fileMode,
+            ("sourceFile" Core..=) Prelude.<$> sourceFile,
             Prelude.Just ("filePath" Core..= filePath)
           ]
       )

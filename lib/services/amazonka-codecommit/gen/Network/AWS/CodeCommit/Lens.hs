@@ -14,26 +14,56 @@
 module Network.AWS.CodeCommit.Lens
   ( -- * Operations
 
-    -- ** PutFile
-    putFile_parentCommitId,
-    putFile_commitMessage,
-    putFile_name,
-    putFile_email,
-    putFile_fileMode,
-    putFile_repositoryName,
-    putFile_branchName,
-    putFile_fileContent,
-    putFile_filePath,
-    putFileResponse_httpStatus,
-    putFileResponse_commitId,
-    putFileResponse_blobId,
-    putFileResponse_treeId,
+    -- ** MergePullRequestByFastForward
+    mergePullRequestByFastForward_sourceCommitId,
+    mergePullRequestByFastForward_pullRequestId,
+    mergePullRequestByFastForward_repositoryName,
+    mergePullRequestByFastForwardResponse_pullRequest,
+    mergePullRequestByFastForwardResponse_httpStatus,
 
-    -- ** GetRepositoryTriggers
-    getRepositoryTriggers_repositoryName,
-    getRepositoryTriggersResponse_triggers,
-    getRepositoryTriggersResponse_configurationId,
-    getRepositoryTriggersResponse_httpStatus,
+    -- ** UpdateRepositoryName
+    updateRepositoryName_oldName,
+    updateRepositoryName_newName,
+
+    -- ** PostCommentForPullRequest
+    postCommentForPullRequest_location,
+    postCommentForPullRequest_clientRequestToken,
+    postCommentForPullRequest_pullRequestId,
+    postCommentForPullRequest_repositoryName,
+    postCommentForPullRequest_beforeCommitId,
+    postCommentForPullRequest_afterCommitId,
+    postCommentForPullRequest_content,
+    postCommentForPullRequestResponse_beforeBlobId,
+    postCommentForPullRequestResponse_location,
+    postCommentForPullRequestResponse_afterCommitId,
+    postCommentForPullRequestResponse_pullRequestId,
+    postCommentForPullRequestResponse_afterBlobId,
+    postCommentForPullRequestResponse_beforeCommitId,
+    postCommentForPullRequestResponse_repositoryName,
+    postCommentForPullRequestResponse_comment,
+    postCommentForPullRequestResponse_httpStatus,
+
+    -- ** MergeBranchesBySquash
+    mergeBranchesBySquash_email,
+    mergeBranchesBySquash_authorName,
+    mergeBranchesBySquash_targetBranch,
+    mergeBranchesBySquash_conflictDetailLevel,
+    mergeBranchesBySquash_commitMessage,
+    mergeBranchesBySquash_conflictResolution,
+    mergeBranchesBySquash_conflictResolutionStrategy,
+    mergeBranchesBySquash_keepEmptyFolders,
+    mergeBranchesBySquash_repositoryName,
+    mergeBranchesBySquash_sourceCommitSpecifier,
+    mergeBranchesBySquash_destinationCommitSpecifier,
+    mergeBranchesBySquashResponse_commitId,
+    mergeBranchesBySquashResponse_treeId,
+    mergeBranchesBySquashResponse_httpStatus,
+
+    -- ** GetCommit
+    getCommit_repositoryName,
+    getCommit_commitId,
+    getCommitResponse_httpStatus,
+    getCommitResponse_commit,
 
     -- ** BatchAssociateApprovalRuleTemplateWithRepositories
     batchAssociateApprovalRuleTemplateWithRepositories_approvalRuleTemplateName,
@@ -42,318 +72,10 @@ module Network.AWS.CodeCommit.Lens
     batchAssociateApprovalRuleTemplateWithRepositoriesResponse_associatedRepositoryNames,
     batchAssociateApprovalRuleTemplateWithRepositoriesResponse_errors,
 
-    -- ** DisassociateApprovalRuleTemplateFromRepository
-    disassociateApprovalRuleTemplateFromRepository_approvalRuleTemplateName,
-    disassociateApprovalRuleTemplateFromRepository_repositoryName,
-
-    -- ** UpdateRepositoryName
-    updateRepositoryName_oldName,
-    updateRepositoryName_newName,
-
-    -- ** BatchDescribeMergeConflicts
-    batchDescribeMergeConflicts_maxMergeHunks,
-    batchDescribeMergeConflicts_nextToken,
-    batchDescribeMergeConflicts_maxConflictFiles,
-    batchDescribeMergeConflicts_conflictDetailLevel,
-    batchDescribeMergeConflicts_conflictResolutionStrategy,
-    batchDescribeMergeConflicts_filePaths,
-    batchDescribeMergeConflicts_repositoryName,
-    batchDescribeMergeConflicts_destinationCommitSpecifier,
-    batchDescribeMergeConflicts_sourceCommitSpecifier,
-    batchDescribeMergeConflicts_mergeOption,
-    batchDescribeMergeConflictsResponse_nextToken,
-    batchDescribeMergeConflictsResponse_baseCommitId,
-    batchDescribeMergeConflictsResponse_errors,
-    batchDescribeMergeConflictsResponse_httpStatus,
-    batchDescribeMergeConflictsResponse_conflicts,
-    batchDescribeMergeConflictsResponse_destinationCommitId,
-    batchDescribeMergeConflictsResponse_sourceCommitId,
-
-    -- ** ListRepositoriesForApprovalRuleTemplate
-    listRepositoriesForApprovalRuleTemplate_nextToken,
-    listRepositoriesForApprovalRuleTemplate_maxResults,
-    listRepositoriesForApprovalRuleTemplate_approvalRuleTemplateName,
-    listRepositoriesForApprovalRuleTemplateResponse_nextToken,
-    listRepositoriesForApprovalRuleTemplateResponse_repositoryNames,
-    listRepositoriesForApprovalRuleTemplateResponse_httpStatus,
-
-    -- ** DeletePullRequestApprovalRule
-    deletePullRequestApprovalRule_pullRequestId,
-    deletePullRequestApprovalRule_approvalRuleName,
-    deletePullRequestApprovalRuleResponse_httpStatus,
-    deletePullRequestApprovalRuleResponse_approvalRuleId,
-
-    -- ** GetRepository
-    getRepository_repositoryName,
-    getRepositoryResponse_repositoryMetadata,
-    getRepositoryResponse_httpStatus,
-
-    -- ** GetCommentsForPullRequest
-    getCommentsForPullRequest_nextToken,
-    getCommentsForPullRequest_maxResults,
-    getCommentsForPullRequest_repositoryName,
-    getCommentsForPullRequest_beforeCommitId,
-    getCommentsForPullRequest_afterCommitId,
-    getCommentsForPullRequest_pullRequestId,
-    getCommentsForPullRequestResponse_commentsForPullRequestData,
-    getCommentsForPullRequestResponse_nextToken,
-    getCommentsForPullRequestResponse_httpStatus,
-
-    -- ** GetPullRequestOverrideState
-    getPullRequestOverrideState_pullRequestId,
-    getPullRequestOverrideState_revisionId,
-    getPullRequestOverrideStateResponse_overridden,
-    getPullRequestOverrideStateResponse_overrider,
-    getPullRequestOverrideStateResponse_httpStatus,
-
-    -- ** PostCommentReply
-    postCommentReply_clientRequestToken,
-    postCommentReply_inReplyTo,
-    postCommentReply_content,
-    postCommentReplyResponse_comment,
-    postCommentReplyResponse_httpStatus,
-
-    -- ** UpdatePullRequestStatus
-    updatePullRequestStatus_pullRequestId,
-    updatePullRequestStatus_pullRequestStatus,
-    updatePullRequestStatusResponse_httpStatus,
-    updatePullRequestStatusResponse_pullRequest,
-
-    -- ** MergePullRequestByThreeWay
-    mergePullRequestByThreeWay_authorName,
-    mergePullRequestByThreeWay_commitMessage,
-    mergePullRequestByThreeWay_email,
-    mergePullRequestByThreeWay_sourceCommitId,
-    mergePullRequestByThreeWay_conflictDetailLevel,
-    mergePullRequestByThreeWay_keepEmptyFolders,
-    mergePullRequestByThreeWay_conflictResolutionStrategy,
-    mergePullRequestByThreeWay_conflictResolution,
-    mergePullRequestByThreeWay_pullRequestId,
-    mergePullRequestByThreeWay_repositoryName,
-    mergePullRequestByThreeWayResponse_pullRequest,
-    mergePullRequestByThreeWayResponse_httpStatus,
-
-    -- ** UpdateDefaultBranch
-    updateDefaultBranch_repositoryName,
-    updateDefaultBranch_defaultBranchName,
-
-    -- ** BatchGetRepositories
-    batchGetRepositories_repositoryNames,
-    batchGetRepositoriesResponse_repositoriesNotFound,
-    batchGetRepositoriesResponse_repositories,
-    batchGetRepositoriesResponse_httpStatus,
-
-    -- ** GetMergeOptions
-    getMergeOptions_conflictDetailLevel,
-    getMergeOptions_conflictResolutionStrategy,
-    getMergeOptions_repositoryName,
-    getMergeOptions_sourceCommitSpecifier,
-    getMergeOptions_destinationCommitSpecifier,
-    getMergeOptionsResponse_httpStatus,
-    getMergeOptionsResponse_mergeOptions,
-    getMergeOptionsResponse_sourceCommitId,
-    getMergeOptionsResponse_destinationCommitId,
-    getMergeOptionsResponse_baseCommitId,
-
-    -- ** PutCommentReaction
-    putCommentReaction_commentId,
-    putCommentReaction_reactionValue,
-
-    -- ** GetMergeConflicts
-    getMergeConflicts_nextToken,
-    getMergeConflicts_maxConflictFiles,
-    getMergeConflicts_conflictDetailLevel,
-    getMergeConflicts_conflictResolutionStrategy,
-    getMergeConflicts_repositoryName,
-    getMergeConflicts_destinationCommitSpecifier,
-    getMergeConflicts_sourceCommitSpecifier,
-    getMergeConflicts_mergeOption,
-    getMergeConflictsResponse_nextToken,
-    getMergeConflictsResponse_baseCommitId,
-    getMergeConflictsResponse_httpStatus,
-    getMergeConflictsResponse_mergeable,
-    getMergeConflictsResponse_destinationCommitId,
-    getMergeConflictsResponse_sourceCommitId,
-    getMergeConflictsResponse_conflictMetadataList,
-
-    -- ** UpdatePullRequestDescription
-    updatePullRequestDescription_pullRequestId,
-    updatePullRequestDescription_description,
-    updatePullRequestDescriptionResponse_httpStatus,
-    updatePullRequestDescriptionResponse_pullRequest,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-
-    -- ** DeleteApprovalRuleTemplate
-    deleteApprovalRuleTemplate_approvalRuleTemplateName,
-    deleteApprovalRuleTemplateResponse_httpStatus,
-    deleteApprovalRuleTemplateResponse_approvalRuleTemplateId,
-
-    -- ** GetFile
-    getFile_commitSpecifier,
-    getFile_repositoryName,
-    getFile_filePath,
-    getFileResponse_httpStatus,
-    getFileResponse_commitId,
-    getFileResponse_blobId,
-    getFileResponse_filePath,
-    getFileResponse_fileMode,
-    getFileResponse_fileSize,
-    getFileResponse_fileContent,
-
-    -- ** ListApprovalRuleTemplates
-    listApprovalRuleTemplates_nextToken,
-    listApprovalRuleTemplates_maxResults,
-    listApprovalRuleTemplatesResponse_nextToken,
-    listApprovalRuleTemplatesResponse_approvalRuleTemplateNames,
-    listApprovalRuleTemplatesResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-
-    -- ** MergeBranchesByThreeWay
-    mergeBranchesByThreeWay_authorName,
-    mergeBranchesByThreeWay_commitMessage,
-    mergeBranchesByThreeWay_email,
-    mergeBranchesByThreeWay_conflictDetailLevel,
-    mergeBranchesByThreeWay_keepEmptyFolders,
-    mergeBranchesByThreeWay_conflictResolutionStrategy,
-    mergeBranchesByThreeWay_conflictResolution,
-    mergeBranchesByThreeWay_targetBranch,
-    mergeBranchesByThreeWay_repositoryName,
-    mergeBranchesByThreeWay_sourceCommitSpecifier,
-    mergeBranchesByThreeWay_destinationCommitSpecifier,
-    mergeBranchesByThreeWayResponse_commitId,
-    mergeBranchesByThreeWayResponse_treeId,
-    mergeBranchesByThreeWayResponse_httpStatus,
-
-    -- ** ListBranches
-    listBranches_nextToken,
-    listBranches_repositoryName,
-    listBranchesResponse_nextToken,
-    listBranchesResponse_branches,
-    listBranchesResponse_httpStatus,
-
-    -- ** PutRepositoryTriggers
-    putRepositoryTriggers_repositoryName,
-    putRepositoryTriggers_triggers,
-    putRepositoryTriggersResponse_configurationId,
-    putRepositoryTriggersResponse_httpStatus,
-
-    -- ** CreateBranch
-    createBranch_repositoryName,
-    createBranch_branchName,
-    createBranch_commitId,
-
-    -- ** UpdatePullRequestApprovalRuleContent
-    updatePullRequestApprovalRuleContent_existingRuleContentSha256,
-    updatePullRequestApprovalRuleContent_pullRequestId,
-    updatePullRequestApprovalRuleContent_approvalRuleName,
-    updatePullRequestApprovalRuleContent_newRuleContent,
-    updatePullRequestApprovalRuleContentResponse_httpStatus,
-    updatePullRequestApprovalRuleContentResponse_approvalRule,
-
-    -- ** UpdatePullRequestTitle
-    updatePullRequestTitle_pullRequestId,
-    updatePullRequestTitle_title,
-    updatePullRequestTitleResponse_httpStatus,
-    updatePullRequestTitleResponse_pullRequest,
-
-    -- ** UpdateRepositoryDescription
-    updateRepositoryDescription_repositoryDescription,
-    updateRepositoryDescription_repositoryName,
-
-    -- ** GetPullRequest
-    getPullRequest_pullRequestId,
-    getPullRequestResponse_httpStatus,
-    getPullRequestResponse_pullRequest,
-
-    -- ** GetDifferences
-    getDifferences_beforeCommitSpecifier,
-    getDifferences_nextToken,
-    getDifferences_maxResults,
-    getDifferences_beforePath,
-    getDifferences_afterPath,
-    getDifferences_repositoryName,
-    getDifferences_afterCommitSpecifier,
-    getDifferencesResponse_differences,
-    getDifferencesResponse_nextToken,
-    getDifferencesResponse_httpStatus,
-
-    -- ** OverridePullRequestApprovalRules
-    overridePullRequestApprovalRules_pullRequestId,
-    overridePullRequestApprovalRules_revisionId,
-    overridePullRequestApprovalRules_overrideStatus,
-
-    -- ** UpdateComment
-    updateComment_commentId,
-    updateComment_content,
-    updateCommentResponse_comment,
-    updateCommentResponse_httpStatus,
-
-    -- ** DeleteFile
-    deleteFile_commitMessage,
-    deleteFile_name,
-    deleteFile_email,
-    deleteFile_keepEmptyFolders,
-    deleteFile_repositoryName,
-    deleteFile_branchName,
-    deleteFile_filePath,
-    deleteFile_parentCommitId,
-    deleteFileResponse_httpStatus,
-    deleteFileResponse_commitId,
-    deleteFileResponse_blobId,
-    deleteFileResponse_treeId,
-    deleteFileResponse_filePath,
-
-    -- ** UpdateApprovalRuleTemplateName
-    updateApprovalRuleTemplateName_oldApprovalRuleTemplateName,
-    updateApprovalRuleTemplateName_newApprovalRuleTemplateName,
-    updateApprovalRuleTemplateNameResponse_httpStatus,
-    updateApprovalRuleTemplateNameResponse_approvalRuleTemplate,
-
-    -- ** GetCommentsForComparedCommit
-    getCommentsForComparedCommit_nextToken,
-    getCommentsForComparedCommit_maxResults,
-    getCommentsForComparedCommit_beforeCommitId,
-    getCommentsForComparedCommit_repositoryName,
-    getCommentsForComparedCommit_afterCommitId,
-    getCommentsForComparedCommitResponse_nextToken,
-    getCommentsForComparedCommitResponse_commentsForComparedCommitData,
-    getCommentsForComparedCommitResponse_httpStatus,
-
-    -- ** TestRepositoryTriggers
-    testRepositoryTriggers_repositoryName,
-    testRepositoryTriggers_triggers,
-    testRepositoryTriggersResponse_successfulExecutions,
-    testRepositoryTriggersResponse_failedExecutions,
-    testRepositoryTriggersResponse_httpStatus,
-
-    -- ** GetMergeCommit
-    getMergeCommit_conflictDetailLevel,
-    getMergeCommit_conflictResolutionStrategy,
-    getMergeCommit_repositoryName,
-    getMergeCommit_sourceCommitSpecifier,
-    getMergeCommit_destinationCommitSpecifier,
-    getMergeCommitResponse_baseCommitId,
-    getMergeCommitResponse_mergedCommitId,
-    getMergeCommitResponse_sourceCommitId,
-    getMergeCommitResponse_destinationCommitId,
-    getMergeCommitResponse_httpStatus,
-
-    -- ** GetCommit
-    getCommit_repositoryName,
-    getCommit_commitId,
-    getCommitResponse_httpStatus,
-    getCommitResponse_commit,
-
     -- ** GetCommentReactions
     getCommentReactions_nextToken,
-    getCommentReactions_maxResults,
     getCommentReactions_reactionUserArn,
+    getCommentReactions_maxResults,
     getCommentReactions_commentId,
     getCommentReactionsResponse_nextToken,
     getCommentReactionsResponse_httpStatus,
@@ -364,182 +86,88 @@ module Network.AWS.CodeCommit.Lens
     getApprovalRuleTemplateResponse_httpStatus,
     getApprovalRuleTemplateResponse_approvalRuleTemplate,
 
-    -- ** MergePullRequestByFastForward
-    mergePullRequestByFastForward_sourceCommitId,
-    mergePullRequestByFastForward_pullRequestId,
-    mergePullRequestByFastForward_repositoryName,
-    mergePullRequestByFastForwardResponse_pullRequest,
-    mergePullRequestByFastForwardResponse_httpStatus,
+    -- ** DisassociateApprovalRuleTemplateFromRepository
+    disassociateApprovalRuleTemplateFromRepository_approvalRuleTemplateName,
+    disassociateApprovalRuleTemplateFromRepository_repositoryName,
 
-    -- ** PostCommentForPullRequest
-    postCommentForPullRequest_clientRequestToken,
-    postCommentForPullRequest_location,
-    postCommentForPullRequest_pullRequestId,
-    postCommentForPullRequest_repositoryName,
-    postCommentForPullRequest_beforeCommitId,
-    postCommentForPullRequest_afterCommitId,
-    postCommentForPullRequest_content,
-    postCommentForPullRequestResponse_beforeBlobId,
-    postCommentForPullRequestResponse_comment,
-    postCommentForPullRequestResponse_repositoryName,
-    postCommentForPullRequestResponse_beforeCommitId,
-    postCommentForPullRequestResponse_afterBlobId,
-    postCommentForPullRequestResponse_pullRequestId,
-    postCommentForPullRequestResponse_afterCommitId,
-    postCommentForPullRequestResponse_location,
-    postCommentForPullRequestResponse_httpStatus,
+    -- ** GetBranch
+    getBranch_branchName,
+    getBranch_repositoryName,
+    getBranchResponse_branch,
+    getBranchResponse_httpStatus,
 
-    -- ** MergeBranchesBySquash
-    mergeBranchesBySquash_authorName,
-    mergeBranchesBySquash_commitMessage,
-    mergeBranchesBySquash_email,
-    mergeBranchesBySquash_conflictDetailLevel,
-    mergeBranchesBySquash_keepEmptyFolders,
-    mergeBranchesBySquash_conflictResolutionStrategy,
-    mergeBranchesBySquash_conflictResolution,
-    mergeBranchesBySquash_targetBranch,
-    mergeBranchesBySquash_repositoryName,
-    mergeBranchesBySquash_sourceCommitSpecifier,
-    mergeBranchesBySquash_destinationCommitSpecifier,
-    mergeBranchesBySquashResponse_commitId,
-    mergeBranchesBySquashResponse_treeId,
-    mergeBranchesBySquashResponse_httpStatus,
+    -- ** GetDifferences
+    getDifferences_afterPath,
+    getDifferences_nextToken,
+    getDifferences_beforeCommitSpecifier,
+    getDifferences_beforePath,
+    getDifferences_maxResults,
+    getDifferences_repositoryName,
+    getDifferences_afterCommitSpecifier,
+    getDifferencesResponse_nextToken,
+    getDifferencesResponse_differences,
+    getDifferencesResponse_httpStatus,
 
-    -- ** CreateUnreferencedMergeCommit
-    createUnreferencedMergeCommit_authorName,
-    createUnreferencedMergeCommit_commitMessage,
-    createUnreferencedMergeCommit_email,
-    createUnreferencedMergeCommit_conflictDetailLevel,
-    createUnreferencedMergeCommit_keepEmptyFolders,
-    createUnreferencedMergeCommit_conflictResolutionStrategy,
-    createUnreferencedMergeCommit_conflictResolution,
-    createUnreferencedMergeCommit_repositoryName,
-    createUnreferencedMergeCommit_sourceCommitSpecifier,
-    createUnreferencedMergeCommit_destinationCommitSpecifier,
-    createUnreferencedMergeCommit_mergeOption,
-    createUnreferencedMergeCommitResponse_commitId,
-    createUnreferencedMergeCommitResponse_treeId,
-    createUnreferencedMergeCommitResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_nextToken,
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
-    -- ** CreatePullRequestApprovalRule
-    createPullRequestApprovalRule_pullRequestId,
-    createPullRequestApprovalRule_approvalRuleName,
-    createPullRequestApprovalRule_approvalRuleContent,
-    createPullRequestApprovalRuleResponse_httpStatus,
-    createPullRequestApprovalRuleResponse_approvalRule,
+    -- ** GetPullRequest
+    getPullRequest_pullRequestId,
+    getPullRequestResponse_httpStatus,
+    getPullRequestResponse_pullRequest,
 
-    -- ** GetPullRequestApprovalStates
-    getPullRequestApprovalStates_pullRequestId,
-    getPullRequestApprovalStates_revisionId,
-    getPullRequestApprovalStatesResponse_approvals,
-    getPullRequestApprovalStatesResponse_httpStatus,
+    -- ** OverridePullRequestApprovalRules
+    overridePullRequestApprovalRules_pullRequestId,
+    overridePullRequestApprovalRules_revisionId,
+    overridePullRequestApprovalRules_overrideStatus,
 
-    -- ** ListAssociatedApprovalRuleTemplatesForRepository
-    listAssociatedApprovalRuleTemplatesForRepository_nextToken,
-    listAssociatedApprovalRuleTemplatesForRepository_maxResults,
-    listAssociatedApprovalRuleTemplatesForRepository_repositoryName,
-    listAssociatedApprovalRuleTemplatesForRepositoryResponse_nextToken,
-    listAssociatedApprovalRuleTemplatesForRepositoryResponse_approvalRuleTemplateNames,
-    listAssociatedApprovalRuleTemplatesForRepositoryResponse_httpStatus,
+    -- ** ListPullRequests
+    listPullRequests_authorArn,
+    listPullRequests_nextToken,
+    listPullRequests_pullRequestStatus,
+    listPullRequests_maxResults,
+    listPullRequests_repositoryName,
+    listPullRequestsResponse_nextToken,
+    listPullRequestsResponse_httpStatus,
+    listPullRequestsResponse_pullRequestIds,
 
-    -- ** UpdateApprovalRuleTemplateContent
-    updateApprovalRuleTemplateContent_existingRuleContentSha256,
-    updateApprovalRuleTemplateContent_approvalRuleTemplateName,
-    updateApprovalRuleTemplateContent_newRuleContent,
-    updateApprovalRuleTemplateContentResponse_httpStatus,
-    updateApprovalRuleTemplateContentResponse_approvalRuleTemplate,
-
-    -- ** DescribePullRequestEvents
-    describePullRequestEvents_nextToken,
-    describePullRequestEvents_maxResults,
-    describePullRequestEvents_pullRequestEventType,
-    describePullRequestEvents_actorArn,
-    describePullRequestEvents_pullRequestId,
-    describePullRequestEventsResponse_nextToken,
-    describePullRequestEventsResponse_httpStatus,
-    describePullRequestEventsResponse_pullRequestEvents,
-
-    -- ** ListRepositories
-    listRepositories_nextToken,
-    listRepositories_sortBy,
-    listRepositories_order,
-    listRepositoriesResponse_nextToken,
-    listRepositoriesResponse_repositories,
-    listRepositoriesResponse_httpStatus,
-
-    -- ** CreateRepository
-    createRepository_repositoryDescription,
-    createRepository_tags,
-    createRepository_repositoryName,
-    createRepositoryResponse_repositoryMetadata,
-    createRepositoryResponse_httpStatus,
-
-    -- ** UpdateApprovalRuleTemplateDescription
-    updateApprovalRuleTemplateDescription_approvalRuleTemplateName,
-    updateApprovalRuleTemplateDescription_approvalRuleTemplateDescription,
-    updateApprovalRuleTemplateDescriptionResponse_httpStatus,
-    updateApprovalRuleTemplateDescriptionResponse_approvalRuleTemplate,
-
-    -- ** DeleteRepository
-    deleteRepository_repositoryName,
-    deleteRepositoryResponse_repositoryId,
-    deleteRepositoryResponse_httpStatus,
-
-    -- ** DeleteCommentContent
-    deleteCommentContent_commentId,
-    deleteCommentContentResponse_comment,
-    deleteCommentContentResponse_httpStatus,
-
-    -- ** BatchGetCommits
-    batchGetCommits_commitIds,
-    batchGetCommits_repositoryName,
-    batchGetCommitsResponse_commits,
-    batchGetCommitsResponse_errors,
-    batchGetCommitsResponse_httpStatus,
-
-    -- ** DescribeMergeConflicts
-    describeMergeConflicts_maxMergeHunks,
-    describeMergeConflicts_nextToken,
-    describeMergeConflicts_conflictDetailLevel,
-    describeMergeConflicts_conflictResolutionStrategy,
-    describeMergeConflicts_repositoryName,
-    describeMergeConflicts_destinationCommitSpecifier,
-    describeMergeConflicts_sourceCommitSpecifier,
-    describeMergeConflicts_mergeOption,
-    describeMergeConflicts_filePath,
-    describeMergeConflictsResponse_nextToken,
-    describeMergeConflictsResponse_baseCommitId,
-    describeMergeConflictsResponse_httpStatus,
-    describeMergeConflictsResponse_conflictMetadata,
-    describeMergeConflictsResponse_mergeHunks,
-    describeMergeConflictsResponse_destinationCommitId,
-    describeMergeConflictsResponse_sourceCommitId,
-
-    -- ** CreatePullRequest
-    createPullRequest_description,
-    createPullRequest_clientRequestToken,
-    createPullRequest_title,
-    createPullRequest_targets,
-    createPullRequestResponse_httpStatus,
-    createPullRequestResponse_pullRequest,
-
-    -- ** GetFolder
-    getFolder_commitSpecifier,
-    getFolder_repositoryName,
-    getFolder_folderPath,
-    getFolderResponse_symbolicLinks,
-    getFolderResponse_subFolders,
-    getFolderResponse_treeId,
-    getFolderResponse_files,
-    getFolderResponse_subModules,
-    getFolderResponse_httpStatus,
-    getFolderResponse_commitId,
-    getFolderResponse_folderPath,
+    -- ** CreateCommit
+    createCommit_setFileModes,
+    createCommit_email,
+    createCommit_authorName,
+    createCommit_parentCommitId,
+    createCommit_deleteFiles,
+    createCommit_putFiles,
+    createCommit_commitMessage,
+    createCommit_keepEmptyFolders,
+    createCommit_repositoryName,
+    createCommit_branchName,
+    createCommitResponse_commitId,
+    createCommitResponse_treeId,
+    createCommitResponse_filesAdded,
+    createCommitResponse_filesUpdated,
+    createCommitResponse_filesDeleted,
+    createCommitResponse_httpStatus,
 
     -- ** UpdatePullRequestApprovalState
     updatePullRequestApprovalState_pullRequestId,
     updatePullRequestApprovalState_revisionId,
     updatePullRequestApprovalState_approvalState,
+
+    -- ** EvaluatePullRequestApprovalRules
+    evaluatePullRequestApprovalRules_pullRequestId,
+    evaluatePullRequestApprovalRules_revisionId,
+    evaluatePullRequestApprovalRulesResponse_httpStatus,
+    evaluatePullRequestApprovalRulesResponse_evaluation,
+
+    -- ** GetComment
+    getComment_commentId,
+    getCommentResponse_comment,
+    getCommentResponse_httpStatus,
 
     -- ** CreateApprovalRuleTemplate
     createApprovalRuleTemplate_approvalRuleTemplateDescription,
@@ -554,90 +182,276 @@ module Network.AWS.CodeCommit.Lens
     deleteBranchResponse_deletedBranch,
     deleteBranchResponse_httpStatus,
 
-    -- ** CreateCommit
-    createCommit_deleteFiles,
-    createCommit_setFileModes,
-    createCommit_parentCommitId,
-    createCommit_authorName,
-    createCommit_commitMessage,
-    createCommit_putFiles,
-    createCommit_email,
-    createCommit_keepEmptyFolders,
-    createCommit_repositoryName,
-    createCommit_branchName,
-    createCommitResponse_commitId,
-    createCommitResponse_treeId,
-    createCommitResponse_filesAdded,
-    createCommitResponse_filesDeleted,
-    createCommitResponse_filesUpdated,
-    createCommitResponse_httpStatus,
+    -- ** UpdateRepositoryDescription
+    updateRepositoryDescription_repositoryDescription,
+    updateRepositoryDescription_repositoryName,
 
-    -- ** GetComment
-    getComment_commentId,
-    getCommentResponse_comment,
-    getCommentResponse_httpStatus,
+    -- ** CreateBranch
+    createBranch_repositoryName,
+    createBranch_branchName,
+    createBranch_commitId,
 
-    -- ** EvaluatePullRequestApprovalRules
-    evaluatePullRequestApprovalRules_pullRequestId,
-    evaluatePullRequestApprovalRules_revisionId,
-    evaluatePullRequestApprovalRulesResponse_httpStatus,
-    evaluatePullRequestApprovalRulesResponse_evaluation,
+    -- ** GetFolder
+    getFolder_commitSpecifier,
+    getFolder_repositoryName,
+    getFolder_folderPath,
+    getFolderResponse_subModules,
+    getFolderResponse_treeId,
+    getFolderResponse_subFolders,
+    getFolderResponse_symbolicLinks,
+    getFolderResponse_files,
+    getFolderResponse_httpStatus,
+    getFolderResponse_commitId,
+    getFolderResponse_folderPath,
 
-    -- ** AssociateApprovalRuleTemplateWithRepository
-    associateApprovalRuleTemplateWithRepository_approvalRuleTemplateName,
-    associateApprovalRuleTemplateWithRepository_repositoryName,
+    -- ** CreatePullRequest
+    createPullRequest_clientRequestToken,
+    createPullRequest_description,
+    createPullRequest_title,
+    createPullRequest_targets,
+    createPullRequestResponse_httpStatus,
+    createPullRequestResponse_pullRequest,
 
-    -- ** ListPullRequests
-    listPullRequests_nextToken,
-    listPullRequests_maxResults,
-    listPullRequests_pullRequestStatus,
-    listPullRequests_authorArn,
-    listPullRequests_repositoryName,
-    listPullRequestsResponse_nextToken,
-    listPullRequestsResponse_httpStatus,
-    listPullRequestsResponse_pullRequestIds,
+    -- ** DeleteApprovalRuleTemplate
+    deleteApprovalRuleTemplate_approvalRuleTemplateName,
+    deleteApprovalRuleTemplateResponse_httpStatus,
+    deleteApprovalRuleTemplateResponse_approvalRuleTemplateId,
 
-    -- ** BatchDisassociateApprovalRuleTemplateFromRepositories
-    batchDisassociateApprovalRuleTemplateFromRepositories_approvalRuleTemplateName,
-    batchDisassociateApprovalRuleTemplateFromRepositories_repositoryNames,
-    batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_httpStatus,
-    batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_disassociatedRepositoryNames,
-    batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_errors,
+    -- ** ListBranches
+    listBranches_nextToken,
+    listBranches_repositoryName,
+    listBranchesResponse_branches,
+    listBranchesResponse_nextToken,
+    listBranchesResponse_httpStatus,
 
-    -- ** GetBlob
-    getBlob_repositoryName,
-    getBlob_blobId,
-    getBlobResponse_httpStatus,
-    getBlobResponse_content,
+    -- ** BatchGetCommits
+    batchGetCommits_commitIds,
+    batchGetCommits_repositoryName,
+    batchGetCommitsResponse_commits,
+    batchGetCommitsResponse_errors,
+    batchGetCommitsResponse_httpStatus,
+
+    -- ** PutCommentReaction
+    putCommentReaction_commentId,
+    putCommentReaction_reactionValue,
+
+    -- ** UpdatePullRequestDescription
+    updatePullRequestDescription_pullRequestId,
+    updatePullRequestDescription_description,
+    updatePullRequestDescriptionResponse_httpStatus,
+    updatePullRequestDescriptionResponse_pullRequest,
+
+    -- ** ListRepositories
+    listRepositories_nextToken,
+    listRepositories_order,
+    listRepositories_sortBy,
+    listRepositoriesResponse_repositories,
+    listRepositoriesResponse_nextToken,
+    listRepositoriesResponse_httpStatus,
+
+    -- ** CreateRepository
+    createRepository_repositoryDescription,
+    createRepository_tags,
+    createRepository_repositoryName,
+    createRepositoryResponse_repositoryMetadata,
+    createRepositoryResponse_httpStatus,
+
+    -- ** UpdateDefaultBranch
+    updateDefaultBranch_repositoryName,
+    updateDefaultBranch_defaultBranchName,
+
+    -- ** GetMergeOptions
+    getMergeOptions_conflictDetailLevel,
+    getMergeOptions_conflictResolutionStrategy,
+    getMergeOptions_repositoryName,
+    getMergeOptions_sourceCommitSpecifier,
+    getMergeOptions_destinationCommitSpecifier,
+    getMergeOptionsResponse_httpStatus,
+    getMergeOptionsResponse_mergeOptions,
+    getMergeOptionsResponse_sourceCommitId,
+    getMergeOptionsResponse_destinationCommitId,
+    getMergeOptionsResponse_baseCommitId,
+
+    -- ** CreatePullRequestApprovalRule
+    createPullRequestApprovalRule_pullRequestId,
+    createPullRequestApprovalRule_approvalRuleName,
+    createPullRequestApprovalRule_approvalRuleContent,
+    createPullRequestApprovalRuleResponse_httpStatus,
+    createPullRequestApprovalRuleResponse_approvalRule,
+
+    -- ** PostCommentReply
+    postCommentReply_clientRequestToken,
+    postCommentReply_inReplyTo,
+    postCommentReply_content,
+    postCommentReplyResponse_comment,
+    postCommentReplyResponse_httpStatus,
+
+    -- ** UpdateApprovalRuleTemplateContent
+    updateApprovalRuleTemplateContent_existingRuleContentSha256,
+    updateApprovalRuleTemplateContent_approvalRuleTemplateName,
+    updateApprovalRuleTemplateContent_newRuleContent,
+    updateApprovalRuleTemplateContentResponse_httpStatus,
+    updateApprovalRuleTemplateContentResponse_approvalRuleTemplate,
+
+    -- ** CreateUnreferencedMergeCommit
+    createUnreferencedMergeCommit_email,
+    createUnreferencedMergeCommit_authorName,
+    createUnreferencedMergeCommit_conflictDetailLevel,
+    createUnreferencedMergeCommit_commitMessage,
+    createUnreferencedMergeCommit_conflictResolution,
+    createUnreferencedMergeCommit_conflictResolutionStrategy,
+    createUnreferencedMergeCommit_keepEmptyFolders,
+    createUnreferencedMergeCommit_repositoryName,
+    createUnreferencedMergeCommit_sourceCommitSpecifier,
+    createUnreferencedMergeCommit_destinationCommitSpecifier,
+    createUnreferencedMergeCommit_mergeOption,
+    createUnreferencedMergeCommitResponse_commitId,
+    createUnreferencedMergeCommitResponse_treeId,
+    createUnreferencedMergeCommitResponse_httpStatus,
+
+    -- ** ListRepositoriesForApprovalRuleTemplate
+    listRepositoriesForApprovalRuleTemplate_nextToken,
+    listRepositoriesForApprovalRuleTemplate_maxResults,
+    listRepositoriesForApprovalRuleTemplate_approvalRuleTemplateName,
+    listRepositoriesForApprovalRuleTemplateResponse_repositoryNames,
+    listRepositoriesForApprovalRuleTemplateResponse_nextToken,
+    listRepositoriesForApprovalRuleTemplateResponse_httpStatus,
+
+    -- ** GetRepository
+    getRepository_repositoryName,
+    getRepositoryResponse_repositoryMetadata,
+    getRepositoryResponse_httpStatus,
+
+    -- ** BatchDescribeMergeConflicts
+    batchDescribeMergeConflicts_filePaths,
+    batchDescribeMergeConflicts_conflictDetailLevel,
+    batchDescribeMergeConflicts_nextToken,
+    batchDescribeMergeConflicts_maxConflictFiles,
+    batchDescribeMergeConflicts_maxMergeHunks,
+    batchDescribeMergeConflicts_conflictResolutionStrategy,
+    batchDescribeMergeConflicts_repositoryName,
+    batchDescribeMergeConflicts_destinationCommitSpecifier,
+    batchDescribeMergeConflicts_sourceCommitSpecifier,
+    batchDescribeMergeConflicts_mergeOption,
+    batchDescribeMergeConflictsResponse_baseCommitId,
+    batchDescribeMergeConflictsResponse_nextToken,
+    batchDescribeMergeConflictsResponse_errors,
+    batchDescribeMergeConflictsResponse_httpStatus,
+    batchDescribeMergeConflictsResponse_conflicts,
+    batchDescribeMergeConflictsResponse_destinationCommitId,
+    batchDescribeMergeConflictsResponse_sourceCommitId,
+
+    -- ** DeletePullRequestApprovalRule
+    deletePullRequestApprovalRule_pullRequestId,
+    deletePullRequestApprovalRule_approvalRuleName,
+    deletePullRequestApprovalRuleResponse_httpStatus,
+    deletePullRequestApprovalRuleResponse_approvalRuleId,
+
+    -- ** GetRepositoryTriggers
+    getRepositoryTriggers_repositoryName,
+    getRepositoryTriggersResponse_configurationId,
+    getRepositoryTriggersResponse_triggers,
+    getRepositoryTriggersResponse_httpStatus,
+
+    -- ** UpdateApprovalRuleTemplateName
+    updateApprovalRuleTemplateName_oldApprovalRuleTemplateName,
+    updateApprovalRuleTemplateName_newApprovalRuleTemplateName,
+    updateApprovalRuleTemplateNameResponse_httpStatus,
+    updateApprovalRuleTemplateNameResponse_approvalRuleTemplate,
+
+    -- ** PutFile
+    putFile_email,
+    putFile_fileMode,
+    putFile_parentCommitId,
+    putFile_name,
+    putFile_commitMessage,
+    putFile_repositoryName,
+    putFile_branchName,
+    putFile_fileContent,
+    putFile_filePath,
+    putFileResponse_httpStatus,
+    putFileResponse_commitId,
+    putFileResponse_blobId,
+    putFileResponse_treeId,
+
+    -- ** DeleteFile
+    deleteFile_email,
+    deleteFile_name,
+    deleteFile_commitMessage,
+    deleteFile_keepEmptyFolders,
+    deleteFile_repositoryName,
+    deleteFile_branchName,
+    deleteFile_filePath,
+    deleteFile_parentCommitId,
+    deleteFileResponse_httpStatus,
+    deleteFileResponse_commitId,
+    deleteFileResponse_blobId,
+    deleteFileResponse_treeId,
+    deleteFileResponse_filePath,
+
+    -- ** GetCommentsForComparedCommit
+    getCommentsForComparedCommit_nextToken,
+    getCommentsForComparedCommit_beforeCommitId,
+    getCommentsForComparedCommit_maxResults,
+    getCommentsForComparedCommit_repositoryName,
+    getCommentsForComparedCommit_afterCommitId,
+    getCommentsForComparedCommitResponse_commentsForComparedCommitData,
+    getCommentsForComparedCommitResponse_nextToken,
+    getCommentsForComparedCommitResponse_httpStatus,
+
+    -- ** GetMergeCommit
+    getMergeCommit_conflictDetailLevel,
+    getMergeCommit_conflictResolutionStrategy,
+    getMergeCommit_repositoryName,
+    getMergeCommit_sourceCommitSpecifier,
+    getMergeCommit_destinationCommitSpecifier,
+    getMergeCommitResponse_mergedCommitId,
+    getMergeCommitResponse_destinationCommitId,
+    getMergeCommitResponse_baseCommitId,
+    getMergeCommitResponse_sourceCommitId,
+    getMergeCommitResponse_httpStatus,
+
+    -- ** TestRepositoryTriggers
+    testRepositoryTriggers_repositoryName,
+    testRepositoryTriggers_triggers,
+    testRepositoryTriggersResponse_failedExecutions,
+    testRepositoryTriggersResponse_successfulExecutions,
+    testRepositoryTriggersResponse_httpStatus,
 
     -- ** MergePullRequestBySquash
-    mergePullRequestBySquash_authorName,
-    mergePullRequestBySquash_commitMessage,
     mergePullRequestBySquash_email,
-    mergePullRequestBySquash_sourceCommitId,
+    mergePullRequestBySquash_authorName,
     mergePullRequestBySquash_conflictDetailLevel,
-    mergePullRequestBySquash_keepEmptyFolders,
-    mergePullRequestBySquash_conflictResolutionStrategy,
+    mergePullRequestBySquash_commitMessage,
     mergePullRequestBySquash_conflictResolution,
+    mergePullRequestBySquash_conflictResolutionStrategy,
+    mergePullRequestBySquash_keepEmptyFolders,
+    mergePullRequestBySquash_sourceCommitId,
     mergePullRequestBySquash_pullRequestId,
     mergePullRequestBySquash_repositoryName,
     mergePullRequestBySquashResponse_pullRequest,
     mergePullRequestBySquashResponse_httpStatus,
 
+    -- ** UpdateComment
+    updateComment_commentId,
+    updateComment_content,
+    updateCommentResponse_comment,
+    updateCommentResponse_httpStatus,
+
     -- ** PostCommentForComparedCommit
+    postCommentForComparedCommit_location,
     postCommentForComparedCommit_beforeCommitId,
     postCommentForComparedCommit_clientRequestToken,
-    postCommentForComparedCommit_location,
     postCommentForComparedCommit_repositoryName,
     postCommentForComparedCommit_afterCommitId,
     postCommentForComparedCommit_content,
     postCommentForComparedCommitResponse_beforeBlobId,
-    postCommentForComparedCommitResponse_comment,
-    postCommentForComparedCommitResponse_repositoryName,
-    postCommentForComparedCommitResponse_beforeCommitId,
-    postCommentForComparedCommitResponse_afterBlobId,
-    postCommentForComparedCommitResponse_afterCommitId,
     postCommentForComparedCommitResponse_location,
+    postCommentForComparedCommitResponse_afterCommitId,
+    postCommentForComparedCommitResponse_afterBlobId,
+    postCommentForComparedCommitResponse_beforeCommitId,
+    postCommentForComparedCommitResponse_repositoryName,
+    postCommentForComparedCommitResponse_comment,
     postCommentForComparedCommitResponse_httpStatus,
 
     -- ** MergeBranchesByFastForward
@@ -649,62 +463,248 @@ module Network.AWS.CodeCommit.Lens
     mergeBranchesByFastForwardResponse_treeId,
     mergeBranchesByFastForwardResponse_httpStatus,
 
-    -- ** GetBranch
-    getBranch_branchName,
-    getBranch_repositoryName,
-    getBranchResponse_branch,
-    getBranchResponse_httpStatus,
+    -- ** UpdatePullRequestTitle
+    updatePullRequestTitle_pullRequestId,
+    updatePullRequestTitle_title,
+    updatePullRequestTitleResponse_httpStatus,
+    updatePullRequestTitleResponse_pullRequest,
 
-    -- ** ListTagsForResource
-    listTagsForResource_nextToken,
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_nextToken,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** BatchDisassociateApprovalRuleTemplateFromRepositories
+    batchDisassociateApprovalRuleTemplateFromRepositories_approvalRuleTemplateName,
+    batchDisassociateApprovalRuleTemplateFromRepositories_repositoryNames,
+    batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_httpStatus,
+    batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_disassociatedRepositoryNames,
+    batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_errors,
+
+    -- ** UpdatePullRequestApprovalRuleContent
+    updatePullRequestApprovalRuleContent_existingRuleContentSha256,
+    updatePullRequestApprovalRuleContent_pullRequestId,
+    updatePullRequestApprovalRuleContent_approvalRuleName,
+    updatePullRequestApprovalRuleContent_newRuleContent,
+    updatePullRequestApprovalRuleContentResponse_httpStatus,
+    updatePullRequestApprovalRuleContentResponse_approvalRule,
+
+    -- ** GetBlob
+    getBlob_repositoryName,
+    getBlob_blobId,
+    getBlobResponse_httpStatus,
+    getBlobResponse_content,
+
+    -- ** AssociateApprovalRuleTemplateWithRepository
+    associateApprovalRuleTemplateWithRepository_approvalRuleTemplateName,
+    associateApprovalRuleTemplateWithRepository_repositoryName,
+
+    -- ** PutRepositoryTriggers
+    putRepositoryTriggers_repositoryName,
+    putRepositoryTriggers_triggers,
+    putRepositoryTriggersResponse_configurationId,
+    putRepositoryTriggersResponse_httpStatus,
+
+    -- ** ListApprovalRuleTemplates
+    listApprovalRuleTemplates_nextToken,
+    listApprovalRuleTemplates_maxResults,
+    listApprovalRuleTemplatesResponse_nextToken,
+    listApprovalRuleTemplatesResponse_approvalRuleTemplateNames,
+    listApprovalRuleTemplatesResponse_httpStatus,
+
+    -- ** DescribeMergeConflicts
+    describeMergeConflicts_conflictDetailLevel,
+    describeMergeConflicts_nextToken,
+    describeMergeConflicts_maxMergeHunks,
+    describeMergeConflicts_conflictResolutionStrategy,
+    describeMergeConflicts_repositoryName,
+    describeMergeConflicts_destinationCommitSpecifier,
+    describeMergeConflicts_sourceCommitSpecifier,
+    describeMergeConflicts_mergeOption,
+    describeMergeConflicts_filePath,
+    describeMergeConflictsResponse_baseCommitId,
+    describeMergeConflictsResponse_nextToken,
+    describeMergeConflictsResponse_httpStatus,
+    describeMergeConflictsResponse_conflictMetadata,
+    describeMergeConflictsResponse_mergeHunks,
+    describeMergeConflictsResponse_destinationCommitId,
+    describeMergeConflictsResponse_sourceCommitId,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+
+    -- ** MergeBranchesByThreeWay
+    mergeBranchesByThreeWay_email,
+    mergeBranchesByThreeWay_authorName,
+    mergeBranchesByThreeWay_targetBranch,
+    mergeBranchesByThreeWay_conflictDetailLevel,
+    mergeBranchesByThreeWay_commitMessage,
+    mergeBranchesByThreeWay_conflictResolution,
+    mergeBranchesByThreeWay_conflictResolutionStrategy,
+    mergeBranchesByThreeWay_keepEmptyFolders,
+    mergeBranchesByThreeWay_repositoryName,
+    mergeBranchesByThreeWay_sourceCommitSpecifier,
+    mergeBranchesByThreeWay_destinationCommitSpecifier,
+    mergeBranchesByThreeWayResponse_commitId,
+    mergeBranchesByThreeWayResponse_treeId,
+    mergeBranchesByThreeWayResponse_httpStatus,
+
+    -- ** GetFile
+    getFile_commitSpecifier,
+    getFile_repositoryName,
+    getFile_filePath,
+    getFileResponse_httpStatus,
+    getFileResponse_commitId,
+    getFileResponse_blobId,
+    getFileResponse_filePath,
+    getFileResponse_fileMode,
+    getFileResponse_fileSize,
+    getFileResponse_fileContent,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+
+    -- ** GetMergeConflicts
+    getMergeConflicts_conflictDetailLevel,
+    getMergeConflicts_nextToken,
+    getMergeConflicts_maxConflictFiles,
+    getMergeConflicts_conflictResolutionStrategy,
+    getMergeConflicts_repositoryName,
+    getMergeConflicts_destinationCommitSpecifier,
+    getMergeConflicts_sourceCommitSpecifier,
+    getMergeConflicts_mergeOption,
+    getMergeConflictsResponse_baseCommitId,
+    getMergeConflictsResponse_nextToken,
+    getMergeConflictsResponse_httpStatus,
+    getMergeConflictsResponse_mergeable,
+    getMergeConflictsResponse_destinationCommitId,
+    getMergeConflictsResponse_sourceCommitId,
+    getMergeConflictsResponse_conflictMetadataList,
+
+    -- ** DeleteRepository
+    deleteRepository_repositoryName,
+    deleteRepositoryResponse_repositoryId,
+    deleteRepositoryResponse_httpStatus,
+
+    -- ** DeleteCommentContent
+    deleteCommentContent_commentId,
+    deleteCommentContentResponse_comment,
+    deleteCommentContentResponse_httpStatus,
+
+    -- ** MergePullRequestByThreeWay
+    mergePullRequestByThreeWay_email,
+    mergePullRequestByThreeWay_authorName,
+    mergePullRequestByThreeWay_conflictDetailLevel,
+    mergePullRequestByThreeWay_commitMessage,
+    mergePullRequestByThreeWay_conflictResolution,
+    mergePullRequestByThreeWay_conflictResolutionStrategy,
+    mergePullRequestByThreeWay_keepEmptyFolders,
+    mergePullRequestByThreeWay_sourceCommitId,
+    mergePullRequestByThreeWay_pullRequestId,
+    mergePullRequestByThreeWay_repositoryName,
+    mergePullRequestByThreeWayResponse_pullRequest,
+    mergePullRequestByThreeWayResponse_httpStatus,
+
+    -- ** DescribePullRequestEvents
+    describePullRequestEvents_pullRequestEventType,
+    describePullRequestEvents_actorArn,
+    describePullRequestEvents_nextToken,
+    describePullRequestEvents_maxResults,
+    describePullRequestEvents_pullRequestId,
+    describePullRequestEventsResponse_nextToken,
+    describePullRequestEventsResponse_httpStatus,
+    describePullRequestEventsResponse_pullRequestEvents,
+
+    -- ** BatchGetRepositories
+    batchGetRepositories_repositoryNames,
+    batchGetRepositoriesResponse_repositories,
+    batchGetRepositoriesResponse_repositoriesNotFound,
+    batchGetRepositoriesResponse_httpStatus,
+
+    -- ** UpdateApprovalRuleTemplateDescription
+    updateApprovalRuleTemplateDescription_approvalRuleTemplateName,
+    updateApprovalRuleTemplateDescription_approvalRuleTemplateDescription,
+    updateApprovalRuleTemplateDescriptionResponse_httpStatus,
+    updateApprovalRuleTemplateDescriptionResponse_approvalRuleTemplate,
+
+    -- ** GetPullRequestOverrideState
+    getPullRequestOverrideState_pullRequestId,
+    getPullRequestOverrideState_revisionId,
+    getPullRequestOverrideStateResponse_overridden,
+    getPullRequestOverrideStateResponse_overrider,
+    getPullRequestOverrideStateResponse_httpStatus,
+
+    -- ** GetPullRequestApprovalStates
+    getPullRequestApprovalStates_pullRequestId,
+    getPullRequestApprovalStates_revisionId,
+    getPullRequestApprovalStatesResponse_approvals,
+    getPullRequestApprovalStatesResponse_httpStatus,
+
+    -- ** GetCommentsForPullRequest
+    getCommentsForPullRequest_afterCommitId,
+    getCommentsForPullRequest_nextToken,
+    getCommentsForPullRequest_beforeCommitId,
+    getCommentsForPullRequest_repositoryName,
+    getCommentsForPullRequest_maxResults,
+    getCommentsForPullRequest_pullRequestId,
+    getCommentsForPullRequestResponse_commentsForPullRequestData,
+    getCommentsForPullRequestResponse_nextToken,
+    getCommentsForPullRequestResponse_httpStatus,
+
+    -- ** UpdatePullRequestStatus
+    updatePullRequestStatus_pullRequestId,
+    updatePullRequestStatus_pullRequestStatus,
+    updatePullRequestStatusResponse_httpStatus,
+    updatePullRequestStatusResponse_pullRequest,
+
+    -- ** ListAssociatedApprovalRuleTemplatesForRepository
+    listAssociatedApprovalRuleTemplatesForRepository_nextToken,
+    listAssociatedApprovalRuleTemplatesForRepository_maxResults,
+    listAssociatedApprovalRuleTemplatesForRepository_repositoryName,
+    listAssociatedApprovalRuleTemplatesForRepositoryResponse_nextToken,
+    listAssociatedApprovalRuleTemplatesForRepositoryResponse_approvalRuleTemplateNames,
+    listAssociatedApprovalRuleTemplatesForRepositoryResponse_httpStatus,
 
     -- * Types
 
     -- ** Approval
-    approval_userArn,
     approval_approvalState,
+    approval_userArn,
 
     -- ** ApprovalRule
-    approvalRule_lastModifiedDate,
-    approvalRule_approvalRuleContent,
-    approvalRule_creationDate,
-    approvalRule_originApprovalRuleTemplate,
     approvalRule_ruleContentSha256,
-    approvalRule_approvalRuleId,
+    approvalRule_lastModifiedDate,
     approvalRule_approvalRuleName,
+    approvalRule_approvalRuleId,
     approvalRule_lastModifiedUser,
+    approvalRule_originApprovalRuleTemplate,
+    approvalRule_creationDate,
+    approvalRule_approvalRuleContent,
 
     -- ** ApprovalRuleEventMetadata
-    approvalRuleEventMetadata_approvalRuleContent,
-    approvalRuleEventMetadata_approvalRuleId,
     approvalRuleEventMetadata_approvalRuleName,
+    approvalRuleEventMetadata_approvalRuleId,
+    approvalRuleEventMetadata_approvalRuleContent,
 
     -- ** ApprovalRuleOverriddenEventMetadata
-    approvalRuleOverriddenEventMetadata_revisionId,
     approvalRuleOverriddenEventMetadata_overrideStatus,
+    approvalRuleOverriddenEventMetadata_revisionId,
 
     -- ** ApprovalRuleTemplate
-    approvalRuleTemplate_lastModifiedDate,
-    approvalRuleTemplate_approvalRuleTemplateId,
-    approvalRuleTemplate_approvalRuleTemplateName,
-    approvalRuleTemplate_creationDate,
-    approvalRuleTemplate_approvalRuleTemplateDescription,
     approvalRuleTemplate_ruleContentSha256,
+    approvalRuleTemplate_approvalRuleTemplateId,
+    approvalRuleTemplate_lastModifiedDate,
+    approvalRuleTemplate_approvalRuleTemplateDescription,
     approvalRuleTemplate_approvalRuleTemplateContent,
     approvalRuleTemplate_lastModifiedUser,
+    approvalRuleTemplate_creationDate,
+    approvalRuleTemplate_approvalRuleTemplateName,
 
     -- ** ApprovalStateChangedEventMetadata
-    approvalStateChangedEventMetadata_revisionId,
     approvalStateChangedEventMetadata_approvalStatus,
+    approvalStateChangedEventMetadata_revisionId,
 
     -- ** BatchAssociateApprovalRuleTemplateWithRepositoriesError
+    batchAssociateApprovalRuleTemplateWithRepositoriesError_errorCode,
     batchAssociateApprovalRuleTemplateWithRepositoriesError_repositoryName,
     batchAssociateApprovalRuleTemplateWithRepositoriesError_errorMessage,
-    batchAssociateApprovalRuleTemplateWithRepositoriesError_errorCode,
 
     -- ** BatchDescribeMergeConflictsError
     batchDescribeMergeConflictsError_filePath,
@@ -712,196 +712,196 @@ module Network.AWS.CodeCommit.Lens
     batchDescribeMergeConflictsError_message,
 
     -- ** BatchDisassociateApprovalRuleTemplateFromRepositoriesError
+    batchDisassociateApprovalRuleTemplateFromRepositoriesError_errorCode,
     batchDisassociateApprovalRuleTemplateFromRepositoriesError_repositoryName,
     batchDisassociateApprovalRuleTemplateFromRepositoriesError_errorMessage,
-    batchDisassociateApprovalRuleTemplateFromRepositoriesError_errorCode,
 
     -- ** BatchGetCommitsError
     batchGetCommitsError_commitId,
-    batchGetCommitsError_errorMessage,
     batchGetCommitsError_errorCode,
+    batchGetCommitsError_errorMessage,
 
     -- ** BlobMetadata
+    blobMetadata_path,
     blobMetadata_mode,
     blobMetadata_blobId,
-    blobMetadata_path,
 
     -- ** BranchInfo
     branchInfo_commitId,
     branchInfo_branchName,
 
     -- ** Comment
-    comment_callerReactions,
     comment_lastModifiedDate,
-    comment_creationDate,
-    comment_content,
-    comment_reactionCounts,
-    comment_inReplyTo,
-    comment_commentId,
-    comment_clientRequestToken,
     comment_authorArn,
+    comment_content,
+    comment_callerReactions,
+    comment_creationDate,
     comment_deleted,
+    comment_clientRequestToken,
+    comment_commentId,
+    comment_inReplyTo,
+    comment_reactionCounts,
 
     -- ** CommentsForComparedCommit
     commentsForComparedCommit_beforeBlobId,
-    commentsForComparedCommit_repositoryName,
-    commentsForComparedCommit_beforeCommitId,
-    commentsForComparedCommit_afterBlobId,
-    commentsForComparedCommit_afterCommitId,
-    commentsForComparedCommit_comments,
     commentsForComparedCommit_location,
+    commentsForComparedCommit_afterCommitId,
+    commentsForComparedCommit_afterBlobId,
+    commentsForComparedCommit_beforeCommitId,
+    commentsForComparedCommit_repositoryName,
+    commentsForComparedCommit_comments,
 
     -- ** CommentsForPullRequest
     commentsForPullRequest_beforeBlobId,
-    commentsForPullRequest_repositoryName,
-    commentsForPullRequest_beforeCommitId,
-    commentsForPullRequest_afterBlobId,
-    commentsForPullRequest_pullRequestId,
-    commentsForPullRequest_afterCommitId,
-    commentsForPullRequest_comments,
     commentsForPullRequest_location,
+    commentsForPullRequest_afterCommitId,
+    commentsForPullRequest_pullRequestId,
+    commentsForPullRequest_afterBlobId,
+    commentsForPullRequest_beforeCommitId,
+    commentsForPullRequest_repositoryName,
+    commentsForPullRequest_comments,
 
     -- ** Commit
-    commit_parents,
     commit_commitId,
-    commit_additionalData,
-    commit_message,
-    commit_treeId,
-    commit_author,
     commit_committer,
+    commit_treeId,
+    commit_additionalData,
+    commit_parents,
+    commit_author,
+    commit_message,
 
     -- ** Conflict
-    conflict_conflictMetadata,
     conflict_mergeHunks,
+    conflict_conflictMetadata,
 
     -- ** ConflictMetadata
-    conflictMetadata_mergeOperations,
-    conflictMetadata_filePath,
-    conflictMetadata_isBinaryFile,
-    conflictMetadata_objectTypeConflict,
-    conflictMetadata_fileModeConflict,
     conflictMetadata_numberOfConflicts,
     conflictMetadata_contentConflict,
-    conflictMetadata_fileModes,
-    conflictMetadata_objectTypes,
     conflictMetadata_fileSizes,
+    conflictMetadata_filePath,
+    conflictMetadata_isBinaryFile,
+    conflictMetadata_fileModeConflict,
+    conflictMetadata_objectTypeConflict,
+    conflictMetadata_mergeOperations,
+    conflictMetadata_objectTypes,
+    conflictMetadata_fileModes,
 
     -- ** ConflictResolution
-    conflictResolution_deleteFiles,
     conflictResolution_setFileModes,
+    conflictResolution_deleteFiles,
     conflictResolution_replaceContents,
 
     -- ** DeleteFileEntry
     deleteFileEntry_filePath,
 
     -- ** Difference
-    difference_changeType,
     difference_afterBlob,
     difference_beforeBlob,
+    difference_changeType,
 
     -- ** Evaluation
-    evaluation_overridden,
     evaluation_approvalRulesSatisfied,
-    evaluation_approved,
     evaluation_approvalRulesNotSatisfied,
+    evaluation_approved,
+    evaluation_overridden,
 
     -- ** File
     file_absolutePath,
-    file_relativePath,
-    file_blobId,
     file_fileMode,
+    file_blobId,
+    file_relativePath,
 
     -- ** FileMetadata
     fileMetadata_absolutePath,
-    fileMetadata_blobId,
     fileMetadata_fileMode,
+    fileMetadata_blobId,
 
     -- ** FileModes
-    fileModes_source,
     fileModes_destination,
     fileModes_base,
+    fileModes_source,
 
     -- ** FileSizes
-    fileSizes_source,
     fileSizes_destination,
     fileSizes_base,
+    fileSizes_source,
 
     -- ** Folder
-    folder_treeId,
     folder_absolutePath,
+    folder_treeId,
     folder_relativePath,
 
     -- ** IsBinaryFile
-    isBinaryFile_source,
     isBinaryFile_destination,
     isBinaryFile_base,
+    isBinaryFile_source,
 
     -- ** Location
+    location_relativeFileVersion,
     location_filePath,
     location_filePosition,
-    location_relativeFileVersion,
 
     -- ** MergeHunk
-    mergeHunk_source,
     mergeHunk_destination,
-    mergeHunk_isConflict,
     mergeHunk_base,
+    mergeHunk_isConflict,
+    mergeHunk_source,
 
     -- ** MergeHunkDetail
-    mergeHunkDetail_hunkContent,
     mergeHunkDetail_startLine,
     mergeHunkDetail_endLine,
+    mergeHunkDetail_hunkContent,
 
     -- ** MergeMetadata
     mergeMetadata_mergedBy,
-    mergeMetadata_mergeCommitId,
-    mergeMetadata_isMerged,
     mergeMetadata_mergeOption,
+    mergeMetadata_isMerged,
+    mergeMetadata_mergeCommitId,
 
     -- ** MergeOperations
-    mergeOperations_source,
     mergeOperations_destination,
+    mergeOperations_source,
 
     -- ** ObjectTypes
-    objectTypes_source,
     objectTypes_destination,
     objectTypes_base,
+    objectTypes_source,
 
     -- ** OriginApprovalRuleTemplate
     originApprovalRuleTemplate_approvalRuleTemplateId,
     originApprovalRuleTemplate_approvalRuleTemplateName,
 
     -- ** PullRequest
-    pullRequest_pullRequestTargets,
-    pullRequest_revisionId,
-    pullRequest_title,
-    pullRequest_pullRequestStatus,
-    pullRequest_creationDate,
-    pullRequest_pullRequestId,
-    pullRequest_description,
-    pullRequest_lastActivityDate,
-    pullRequest_clientRequestToken,
-    pullRequest_authorArn,
     pullRequest_approvalRules,
+    pullRequest_authorArn,
+    pullRequest_pullRequestId,
+    pullRequest_creationDate,
+    pullRequest_pullRequestStatus,
+    pullRequest_title,
+    pullRequest_clientRequestToken,
+    pullRequest_lastActivityDate,
+    pullRequest_revisionId,
+    pullRequest_pullRequestTargets,
+    pullRequest_description,
 
     -- ** PullRequestCreatedEventMetadata
-    pullRequestCreatedEventMetadata_repositoryName,
-    pullRequestCreatedEventMetadata_sourceCommitId,
     pullRequestCreatedEventMetadata_destinationCommitId,
     pullRequestCreatedEventMetadata_mergeBase,
+    pullRequestCreatedEventMetadata_repositoryName,
+    pullRequestCreatedEventMetadata_sourceCommitId,
 
     -- ** PullRequestEvent
     pullRequestEvent_pullRequestMergedStateChangedEventMetadata,
-    pullRequestEvent_pullRequestSourceReferenceUpdatedEventMetadata,
-    pullRequestEvent_approvalStateChangedEventMetadata,
-    pullRequestEvent_eventDate,
-    pullRequestEvent_pullRequestEventType,
     pullRequestEvent_pullRequestCreatedEventMetadata,
-    pullRequestEvent_pullRequestId,
-    pullRequestEvent_actorArn,
-    pullRequestEvent_approvalRuleOverriddenEventMetadata,
-    pullRequestEvent_pullRequestStatusChangedEventMetadata,
     pullRequestEvent_approvalRuleEventMetadata,
+    pullRequestEvent_pullRequestEventType,
+    pullRequestEvent_pullRequestStatusChangedEventMetadata,
+    pullRequestEvent_actorArn,
+    pullRequestEvent_pullRequestId,
+    pullRequestEvent_eventDate,
+    pullRequestEvent_approvalStateChangedEventMetadata,
+    pullRequestEvent_pullRequestSourceReferenceUpdatedEventMetadata,
+    pullRequestEvent_approvalRuleOverriddenEventMetadata,
 
     -- ** PullRequestMergedStateChangedEventMetadata
     pullRequestMergedStateChangedEventMetadata_destinationReference,
@@ -909,64 +909,64 @@ module Network.AWS.CodeCommit.Lens
     pullRequestMergedStateChangedEventMetadata_repositoryName,
 
     -- ** PullRequestSourceReferenceUpdatedEventMetadata
-    pullRequestSourceReferenceUpdatedEventMetadata_repositoryName,
-    pullRequestSourceReferenceUpdatedEventMetadata_beforeCommitId,
     pullRequestSourceReferenceUpdatedEventMetadata_afterCommitId,
+    pullRequestSourceReferenceUpdatedEventMetadata_beforeCommitId,
     pullRequestSourceReferenceUpdatedEventMetadata_mergeBase,
+    pullRequestSourceReferenceUpdatedEventMetadata_repositoryName,
 
     -- ** PullRequestStatusChangedEventMetadata
     pullRequestStatusChangedEventMetadata_pullRequestStatus,
 
     -- ** PullRequestTarget
-    pullRequestTarget_destinationReference,
     pullRequestTarget_sourceCommit,
+    pullRequestTarget_destinationReference,
     pullRequestTarget_mergeMetadata,
-    pullRequestTarget_repositoryName,
-    pullRequestTarget_sourceReference,
     pullRequestTarget_mergeBase,
     pullRequestTarget_destinationCommit,
+    pullRequestTarget_repositoryName,
+    pullRequestTarget_sourceReference,
 
     -- ** PutFileEntry
     putFileEntry_fileContent,
-    putFileEntry_sourceFile,
     putFileEntry_fileMode,
+    putFileEntry_sourceFile,
     putFileEntry_filePath,
 
     -- ** ReactionForComment
-    reactionForComment_reaction,
     reactionForComment_reactionUsers,
     reactionForComment_reactionsFromDeletedUsersCount,
+    reactionForComment_reaction,
 
     -- ** ReactionValueFormats
+    reactionValueFormats_emoji,
     reactionValueFormats_shortCode,
     reactionValueFormats_unicode,
-    reactionValueFormats_emoji,
 
     -- ** ReplaceContentEntry
-    replaceContentEntry_content,
     replaceContentEntry_fileMode,
+    replaceContentEntry_content,
     replaceContentEntry_filePath,
     replaceContentEntry_replacementType,
 
     -- ** RepositoryMetadata
-    repositoryMetadata_lastModifiedDate,
-    repositoryMetadata_defaultBranch,
-    repositoryMetadata_accountId,
-    repositoryMetadata_cloneUrlHttp,
-    repositoryMetadata_cloneUrlSsh,
-    repositoryMetadata_arn,
-    repositoryMetadata_creationDate,
-    repositoryMetadata_repositoryName,
-    repositoryMetadata_repositoryId,
     repositoryMetadata_repositoryDescription,
+    repositoryMetadata_lastModifiedDate,
+    repositoryMetadata_arn,
+    repositoryMetadata_cloneUrlHttp,
+    repositoryMetadata_accountId,
+    repositoryMetadata_defaultBranch,
+    repositoryMetadata_repositoryId,
+    repositoryMetadata_repositoryName,
+    repositoryMetadata_creationDate,
+    repositoryMetadata_cloneUrlSsh,
 
     -- ** RepositoryNameIdPair
-    repositoryNameIdPair_repositoryName,
     repositoryNameIdPair_repositoryId,
+    repositoryNameIdPair_repositoryName,
 
     -- ** RepositoryTrigger
-    repositoryTrigger_customData,
     repositoryTrigger_branches,
+    repositoryTrigger_customData,
     repositoryTrigger_name,
     repositoryTrigger_destinationArn,
     repositoryTrigger_events,
@@ -990,9 +990,9 @@ module Network.AWS.CodeCommit.Lens
 
     -- ** SymbolicLink
     symbolicLink_absolutePath,
-    symbolicLink_relativePath,
-    symbolicLink_blobId,
     symbolicLink_fileMode,
+    symbolicLink_blobId,
+    symbolicLink_relativePath,
 
     -- ** Target
     target_destinationReference,
@@ -1000,9 +1000,9 @@ module Network.AWS.CodeCommit.Lens
     target_sourceReference,
 
     -- ** UserInfo
-    userInfo_name,
-    userInfo_date,
     userInfo_email,
+    userInfo_date,
+    userInfo_name,
   )
 where
 

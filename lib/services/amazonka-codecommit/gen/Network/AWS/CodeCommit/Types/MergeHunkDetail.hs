@@ -28,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMergeHunkDetail' smart constructor.
 data MergeHunkDetail = MergeHunkDetail'
-  { -- | The base-64 encoded content of the hunk merged region that might contain
-    -- a conflict.
-    hunkContent :: Prelude.Maybe Prelude.Text,
-    -- | The start position of the hunk in the merge result.
+  { -- | The start position of the hunk in the merge result.
     startLine :: Prelude.Maybe Prelude.Int,
     -- | The end position of the hunk in the merge result.
-    endLine :: Prelude.Maybe Prelude.Int
+    endLine :: Prelude.Maybe Prelude.Int,
+    -- | The base-64 encoded content of the hunk merged region that might contain
+    -- a conflict.
+    hunkContent :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,20 @@ data MergeHunkDetail = MergeHunkDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hunkContent', 'mergeHunkDetail_hunkContent' - The base-64 encoded content of the hunk merged region that might contain
--- a conflict.
---
 -- 'startLine', 'mergeHunkDetail_startLine' - The start position of the hunk in the merge result.
 --
 -- 'endLine', 'mergeHunkDetail_endLine' - The end position of the hunk in the merge result.
+--
+-- 'hunkContent', 'mergeHunkDetail_hunkContent' - The base-64 encoded content of the hunk merged region that might contain
+-- a conflict.
 newMergeHunkDetail ::
   MergeHunkDetail
 newMergeHunkDetail =
   MergeHunkDetail'
-    { hunkContent = Prelude.Nothing,
-      startLine = Prelude.Nothing,
-      endLine = Prelude.Nothing
+    { startLine = Prelude.Nothing,
+      endLine = Prelude.Nothing,
+      hunkContent = Prelude.Nothing
     }
-
--- | The base-64 encoded content of the hunk merged region that might contain
--- a conflict.
-mergeHunkDetail_hunkContent :: Lens.Lens' MergeHunkDetail (Prelude.Maybe Prelude.Text)
-mergeHunkDetail_hunkContent = Lens.lens (\MergeHunkDetail' {hunkContent} -> hunkContent) (\s@MergeHunkDetail' {} a -> s {hunkContent = a} :: MergeHunkDetail)
 
 -- | The start position of the hunk in the merge result.
 mergeHunkDetail_startLine :: Lens.Lens' MergeHunkDetail (Prelude.Maybe Prelude.Int)
@@ -74,15 +69,20 @@ mergeHunkDetail_startLine = Lens.lens (\MergeHunkDetail' {startLine} -> startLin
 mergeHunkDetail_endLine :: Lens.Lens' MergeHunkDetail (Prelude.Maybe Prelude.Int)
 mergeHunkDetail_endLine = Lens.lens (\MergeHunkDetail' {endLine} -> endLine) (\s@MergeHunkDetail' {} a -> s {endLine = a} :: MergeHunkDetail)
 
+-- | The base-64 encoded content of the hunk merged region that might contain
+-- a conflict.
+mergeHunkDetail_hunkContent :: Lens.Lens' MergeHunkDetail (Prelude.Maybe Prelude.Text)
+mergeHunkDetail_hunkContent = Lens.lens (\MergeHunkDetail' {hunkContent} -> hunkContent) (\s@MergeHunkDetail' {} a -> s {hunkContent = a} :: MergeHunkDetail)
+
 instance Core.FromJSON MergeHunkDetail where
   parseJSON =
     Core.withObject
       "MergeHunkDetail"
       ( \x ->
           MergeHunkDetail'
-            Prelude.<$> (x Core..:? "hunkContent")
-            Prelude.<*> (x Core..:? "startLine")
+            Prelude.<$> (x Core..:? "startLine")
             Prelude.<*> (x Core..:? "endLine")
+            Prelude.<*> (x Core..:? "hunkContent")
       )
 
 instance Prelude.Hashable MergeHunkDetail

@@ -100,7 +100,7 @@ batchAssociateApprovalRuleTemplateWithRepositories_approvalRuleTemplateName = Le
 -- The length constraint limit is for each string in the array. The array
 -- itself can be empty.
 batchAssociateApprovalRuleTemplateWithRepositories_repositoryNames :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositories [Prelude.Text]
-batchAssociateApprovalRuleTemplateWithRepositories_repositoryNames = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositories' {repositoryNames} -> repositoryNames) (\s@BatchAssociateApprovalRuleTemplateWithRepositories' {} a -> s {repositoryNames = a} :: BatchAssociateApprovalRuleTemplateWithRepositories) Prelude.. Lens._Coerce
+batchAssociateApprovalRuleTemplateWithRepositories_repositoryNames = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositories' {repositoryNames} -> repositoryNames) (\s@BatchAssociateApprovalRuleTemplateWithRepositories' {} a -> s {repositoryNames = a} :: BatchAssociateApprovalRuleTemplateWithRepositories) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -227,12 +227,12 @@ batchAssociateApprovalRuleTemplateWithRepositoriesResponse_httpStatus = Lens.len
 -- | A list of names of the repositories that have been associated with the
 -- template.
 batchAssociateApprovalRuleTemplateWithRepositoriesResponse_associatedRepositoryNames :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesResponse [Prelude.Text]
-batchAssociateApprovalRuleTemplateWithRepositoriesResponse_associatedRepositoryNames = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {associatedRepositoryNames} -> associatedRepositoryNames) (\s@BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {} a -> s {associatedRepositoryNames = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse) Prelude.. Lens._Coerce
+batchAssociateApprovalRuleTemplateWithRepositoriesResponse_associatedRepositoryNames = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {associatedRepositoryNames} -> associatedRepositoryNames) (\s@BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {} a -> s {associatedRepositoryNames = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse) Prelude.. Lens.coerced
 
 -- | A list of any errors that might have occurred while attempting to create
 -- the association between the template and the repositories.
 batchAssociateApprovalRuleTemplateWithRepositoriesResponse_errors :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesResponse [BatchAssociateApprovalRuleTemplateWithRepositoriesError]
-batchAssociateApprovalRuleTemplateWithRepositoriesResponse_errors = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {errors} -> errors) (\s@BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {} a -> s {errors = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse) Prelude.. Lens._Coerce
+batchAssociateApprovalRuleTemplateWithRepositoriesResponse_errors = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {errors} -> errors) (\s@BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {} a -> s {errors = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

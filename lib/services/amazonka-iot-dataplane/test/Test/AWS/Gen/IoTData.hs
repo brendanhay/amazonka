@@ -30,23 +30,23 @@ import Test.Tasty
 --         [ requestGetThingShadow $
 --             newGetThingShadow
 --
---         , requestPublish $
---             newPublish
---
---         , requestListRetainedMessages $
---             newListRetainedMessages
---
 --         , requestListNamedShadowsForThing $
 --             newListNamedShadowsForThing
---
---         , requestUpdateThingShadow $
---             newUpdateThingShadow
 --
 --         , requestDeleteThingShadow $
 --             newDeleteThingShadow
 --
+--         , requestUpdateThingShadow $
+--             newUpdateThingShadow
+--
+--         , requestListRetainedMessages $
+--             newListRetainedMessages
+--
 --         , requestGetRetainedMessage $
 --             newGetRetainedMessage
+--
+--         , requestPublish $
+--             newPublish
 --
 --           ]
 
@@ -54,23 +54,23 @@ import Test.Tasty
 --         [ responseGetThingShadow $
 --             newGetThingShadowResponse
 --
---         , responsePublish $
---             newPublishResponse
---
---         , responseListRetainedMessages $
---             newListRetainedMessagesResponse
---
 --         , responseListNamedShadowsForThing $
 --             newListNamedShadowsForThingResponse
---
---         , responseUpdateThingShadow $
---             newUpdateThingShadowResponse
 --
 --         , responseDeleteThingShadow $
 --             newDeleteThingShadowResponse
 --
+--         , responseUpdateThingShadow $
+--             newUpdateThingShadowResponse
+--
+--         , responseListRetainedMessages $
+--             newListRetainedMessagesResponse
+--
 --         , responseGetRetainedMessage $
 --             newGetRetainedMessageResponse
+--
+--         , responsePublish $
+--             newPublishResponse
 --
 --           ]
 --     ]
@@ -83,29 +83,11 @@ requestGetThingShadow =
     "GetThingShadow"
     "fixture/GetThingShadow.yaml"
 
-requestPublish :: Publish -> TestTree
-requestPublish =
-  req
-    "Publish"
-    "fixture/Publish.yaml"
-
-requestListRetainedMessages :: ListRetainedMessages -> TestTree
-requestListRetainedMessages =
-  req
-    "ListRetainedMessages"
-    "fixture/ListRetainedMessages.yaml"
-
 requestListNamedShadowsForThing :: ListNamedShadowsForThing -> TestTree
 requestListNamedShadowsForThing =
   req
     "ListNamedShadowsForThing"
     "fixture/ListNamedShadowsForThing.yaml"
-
-requestUpdateThingShadow :: UpdateThingShadow -> TestTree
-requestUpdateThingShadow =
-  req
-    "UpdateThingShadow"
-    "fixture/UpdateThingShadow.yaml"
 
 requestDeleteThingShadow :: DeleteThingShadow -> TestTree
 requestDeleteThingShadow =
@@ -113,11 +95,29 @@ requestDeleteThingShadow =
     "DeleteThingShadow"
     "fixture/DeleteThingShadow.yaml"
 
+requestUpdateThingShadow :: UpdateThingShadow -> TestTree
+requestUpdateThingShadow =
+  req
+    "UpdateThingShadow"
+    "fixture/UpdateThingShadow.yaml"
+
+requestListRetainedMessages :: ListRetainedMessages -> TestTree
+requestListRetainedMessages =
+  req
+    "ListRetainedMessages"
+    "fixture/ListRetainedMessages.yaml"
+
 requestGetRetainedMessage :: GetRetainedMessage -> TestTree
 requestGetRetainedMessage =
   req
     "GetRetainedMessage"
     "fixture/GetRetainedMessage.yaml"
+
+requestPublish :: Publish -> TestTree
+requestPublish =
+  req
+    "Publish"
+    "fixture/Publish.yaml"
 
 -- Responses
 
@@ -129,22 +129,6 @@ responseGetThingShadow =
     defaultService
     (Proxy :: Proxy GetThingShadow)
 
-responsePublish :: PublishResponse -> TestTree
-responsePublish =
-  res
-    "PublishResponse"
-    "fixture/PublishResponse.proto"
-    defaultService
-    (Proxy :: Proxy Publish)
-
-responseListRetainedMessages :: ListRetainedMessagesResponse -> TestTree
-responseListRetainedMessages =
-  res
-    "ListRetainedMessagesResponse"
-    "fixture/ListRetainedMessagesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListRetainedMessages)
-
 responseListNamedShadowsForThing :: ListNamedShadowsForThingResponse -> TestTree
 responseListNamedShadowsForThing =
   res
@@ -152,14 +136,6 @@ responseListNamedShadowsForThing =
     "fixture/ListNamedShadowsForThingResponse.proto"
     defaultService
     (Proxy :: Proxy ListNamedShadowsForThing)
-
-responseUpdateThingShadow :: UpdateThingShadowResponse -> TestTree
-responseUpdateThingShadow =
-  res
-    "UpdateThingShadowResponse"
-    "fixture/UpdateThingShadowResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateThingShadow)
 
 responseDeleteThingShadow :: DeleteThingShadowResponse -> TestTree
 responseDeleteThingShadow =
@@ -169,6 +145,22 @@ responseDeleteThingShadow =
     defaultService
     (Proxy :: Proxy DeleteThingShadow)
 
+responseUpdateThingShadow :: UpdateThingShadowResponse -> TestTree
+responseUpdateThingShadow =
+  res
+    "UpdateThingShadowResponse"
+    "fixture/UpdateThingShadowResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateThingShadow)
+
+responseListRetainedMessages :: ListRetainedMessagesResponse -> TestTree
+responseListRetainedMessages =
+  res
+    "ListRetainedMessagesResponse"
+    "fixture/ListRetainedMessagesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListRetainedMessages)
+
 responseGetRetainedMessage :: GetRetainedMessageResponse -> TestTree
 responseGetRetainedMessage =
   res
@@ -176,3 +168,11 @@ responseGetRetainedMessage =
     "fixture/GetRetainedMessageResponse.proto"
     defaultService
     (Proxy :: Proxy GetRetainedMessage)
+
+responsePublish :: PublishResponse -> TestTree
+responsePublish =
+  res
+    "PublishResponse"
+    "fixture/PublishResponse.proto"
+    defaultService
+    (Proxy :: Proxy Publish)

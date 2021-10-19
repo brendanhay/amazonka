@@ -44,8 +44,8 @@ module Network.AWS.CloudWatchEvents.ListRules
     newListRulesResponse,
 
     -- * Response Lenses
-    listRulesResponse_nextToken,
     listRulesResponse_rules,
+    listRulesResponse_nextToken,
     listRulesResponse_httpStatus,
   )
 where
@@ -143,8 +143,8 @@ instance Core.AWSRequest ListRules where
     Response.receiveJSON
       ( \s h x ->
           ListRulesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Rules" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Rules" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,11 +184,11 @@ instance Core.ToQuery ListRules where
 
 -- | /See:/ 'newListRulesResponse' smart constructor.
 data ListRulesResponse = ListRulesResponse'
-  { -- | Indicates whether there are additional results to retrieve. If there are
+  { -- | The rules that match the specified criteria.
+    rules :: Prelude.Maybe [Rule],
+    -- | Indicates whether there are additional results to retrieve. If there are
     -- no more results, the value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The rules that match the specified criteria.
-    rules :: Prelude.Maybe [Rule],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,10 +202,10 @@ data ListRulesResponse = ListRulesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'rules', 'listRulesResponse_rules' - The rules that match the specified criteria.
+--
 -- 'nextToken', 'listRulesResponse_nextToken' - Indicates whether there are additional results to retrieve. If there are
 -- no more results, the value is null.
---
--- 'rules', 'listRulesResponse_rules' - The rules that match the specified criteria.
 --
 -- 'httpStatus', 'listRulesResponse_httpStatus' - The response's http status code.
 newListRulesResponse ::
@@ -214,19 +214,19 @@ newListRulesResponse ::
   ListRulesResponse
 newListRulesResponse pHttpStatus_ =
   ListRulesResponse'
-    { nextToken = Prelude.Nothing,
-      rules = Prelude.Nothing,
+    { rules = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The rules that match the specified criteria.
+listRulesResponse_rules :: Lens.Lens' ListRulesResponse (Prelude.Maybe [Rule])
+listRulesResponse_rules = Lens.lens (\ListRulesResponse' {rules} -> rules) (\s@ListRulesResponse' {} a -> s {rules = a} :: ListRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether there are additional results to retrieve. If there are
 -- no more results, the value is null.
 listRulesResponse_nextToken :: Lens.Lens' ListRulesResponse (Prelude.Maybe Prelude.Text)
 listRulesResponse_nextToken = Lens.lens (\ListRulesResponse' {nextToken} -> nextToken) (\s@ListRulesResponse' {} a -> s {nextToken = a} :: ListRulesResponse)
-
--- | The rules that match the specified criteria.
-listRulesResponse_rules :: Lens.Lens' ListRulesResponse (Prelude.Maybe [Rule])
-listRulesResponse_rules = Lens.lens (\ListRulesResponse' {rules} -> rules) (\s@ListRulesResponse' {} a -> s {rules = a} :: ListRulesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listRulesResponse_httpStatus :: Lens.Lens' ListRulesResponse Prelude.Int

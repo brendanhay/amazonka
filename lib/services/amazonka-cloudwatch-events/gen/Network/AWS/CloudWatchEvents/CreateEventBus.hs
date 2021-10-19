@@ -30,8 +30,8 @@ module Network.AWS.CloudWatchEvents.CreateEventBus
     newCreateEventBus,
 
     -- * Request Lenses
-    createEventBus_tags,
     createEventBus_eventSourceName,
+    createEventBus_tags,
     createEventBus_name,
 
     -- * Destructuring the Response
@@ -53,11 +53,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateEventBus' smart constructor.
 data CreateEventBus = CreateEventBus'
-  { -- | Tags to associate with the event bus.
-    tags :: Prelude.Maybe [Tag],
-    -- | If you are creating a partner event bus, this specifies the partner
+  { -- | If you are creating a partner event bus, this specifies the partner
     -- event source that the new event bus will be matched with.
     eventSourceName :: Prelude.Maybe Prelude.Text,
+    -- | Tags to associate with the event bus.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the new event bus.
     --
     -- Event bus names cannot contain the \/ character. You can\'t use the name
@@ -78,10 +78,10 @@ data CreateEventBus = CreateEventBus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEventBus_tags' - Tags to associate with the event bus.
---
 -- 'eventSourceName', 'createEventBus_eventSourceName' - If you are creating a partner event bus, this specifies the partner
 -- event source that the new event bus will be matched with.
+--
+-- 'tags', 'createEventBus_tags' - Tags to associate with the event bus.
 --
 -- 'name', 'createEventBus_name' - The name of the new event bus.
 --
@@ -97,19 +97,19 @@ newCreateEventBus ::
   CreateEventBus
 newCreateEventBus pName_ =
   CreateEventBus'
-    { tags = Prelude.Nothing,
-      eventSourceName = Prelude.Nothing,
+    { eventSourceName = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
-
--- | Tags to associate with the event bus.
-createEventBus_tags :: Lens.Lens' CreateEventBus (Prelude.Maybe [Tag])
-createEventBus_tags = Lens.lens (\CreateEventBus' {tags} -> tags) (\s@CreateEventBus' {} a -> s {tags = a} :: CreateEventBus) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If you are creating a partner event bus, this specifies the partner
 -- event source that the new event bus will be matched with.
 createEventBus_eventSourceName :: Lens.Lens' CreateEventBus (Prelude.Maybe Prelude.Text)
 createEventBus_eventSourceName = Lens.lens (\CreateEventBus' {eventSourceName} -> eventSourceName) (\s@CreateEventBus' {} a -> s {eventSourceName = a} :: CreateEventBus)
+
+-- | Tags to associate with the event bus.
+createEventBus_tags :: Lens.Lens' CreateEventBus (Prelude.Maybe [Tag])
+createEventBus_tags = Lens.lens (\CreateEventBus' {tags} -> tags) (\s@CreateEventBus' {} a -> s {tags = a} :: CreateEventBus) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new event bus.
 --
@@ -156,9 +156,9 @@ instance Core.ToJSON CreateEventBus where
   toJSON CreateEventBus' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("EventSourceName" Core..=)
+          [ ("EventSourceName" Core..=)
               Prelude.<$> eventSourceName,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name)
           ]
       )

@@ -37,8 +37,8 @@ module Network.AWS.CloudWatchEvents.ListEventBuses
     newListEventBusesResponse,
 
     -- * Response Lenses
-    listEventBusesResponse_nextToken,
     listEventBusesResponse_eventBuses,
+    listEventBusesResponse_nextToken,
     listEventBusesResponse_httpStatus,
   )
 where
@@ -116,8 +116,8 @@ instance Core.AWSRequest ListEventBuses where
     Response.receiveJSON
       ( \s h x ->
           ListEventBusesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "EventBuses" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "EventBuses" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,11 +156,11 @@ instance Core.ToQuery ListEventBuses where
 
 -- | /See:/ 'newListEventBusesResponse' smart constructor.
 data ListEventBusesResponse = ListEventBusesResponse'
-  { -- | A token you can use in a subsequent operation to retrieve the next set
+  { -- | This list of event buses.
+    eventBuses :: Prelude.Maybe [EventBus],
+    -- | A token you can use in a subsequent operation to retrieve the next set
     -- of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | This list of event buses.
-    eventBuses :: Prelude.Maybe [EventBus],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,10 +174,10 @@ data ListEventBusesResponse = ListEventBusesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventBuses', 'listEventBusesResponse_eventBuses' - This list of event buses.
+--
 -- 'nextToken', 'listEventBusesResponse_nextToken' - A token you can use in a subsequent operation to retrieve the next set
 -- of results.
---
--- 'eventBuses', 'listEventBusesResponse_eventBuses' - This list of event buses.
 --
 -- 'httpStatus', 'listEventBusesResponse_httpStatus' - The response's http status code.
 newListEventBusesResponse ::
@@ -186,20 +186,20 @@ newListEventBusesResponse ::
   ListEventBusesResponse
 newListEventBusesResponse pHttpStatus_ =
   ListEventBusesResponse'
-    { nextToken =
+    { eventBuses =
         Prelude.Nothing,
-      eventBuses = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | This list of event buses.
+listEventBusesResponse_eventBuses :: Lens.Lens' ListEventBusesResponse (Prelude.Maybe [EventBus])
+listEventBusesResponse_eventBuses = Lens.lens (\ListEventBusesResponse' {eventBuses} -> eventBuses) (\s@ListEventBusesResponse' {} a -> s {eventBuses = a} :: ListEventBusesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token you can use in a subsequent operation to retrieve the next set
 -- of results.
 listEventBusesResponse_nextToken :: Lens.Lens' ListEventBusesResponse (Prelude.Maybe Prelude.Text)
 listEventBusesResponse_nextToken = Lens.lens (\ListEventBusesResponse' {nextToken} -> nextToken) (\s@ListEventBusesResponse' {} a -> s {nextToken = a} :: ListEventBusesResponse)
-
--- | This list of event buses.
-listEventBusesResponse_eventBuses :: Lens.Lens' ListEventBusesResponse (Prelude.Maybe [EventBus])
-listEventBusesResponse_eventBuses = Lens.lens (\ListEventBusesResponse' {eventBuses} -> eventBuses) (\s@ListEventBusesResponse' {} a -> s {eventBuses = a} :: ListEventBusesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listEventBusesResponse_httpStatus :: Lens.Lens' ListEventBusesResponse Prelude.Int

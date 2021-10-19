@@ -37,10 +37,10 @@ data ConnectionOAuthResponseParameters = ConnectionOAuthResponseParameters'
     -- about the client parameters returned when OAuth is specified as the
     -- authorization type.
     clientParameters :: Prelude.Maybe ConnectionOAuthClientResponseParameters,
-    -- | The URL to the HTTP endpoint that authorized the request.
-    authorizationEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The additional HTTP parameters used for the OAuth authorization request.
-    oAuthHttpParameters :: Prelude.Maybe ConnectionHttpParameters
+    oAuthHttpParameters :: Prelude.Maybe ConnectionHttpParameters,
+    -- | The URL to the HTTP endpoint that authorized the request.
+    authorizationEndpoint :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,9 +58,9 @@ data ConnectionOAuthResponseParameters = ConnectionOAuthResponseParameters'
 -- about the client parameters returned when OAuth is specified as the
 -- authorization type.
 --
--- 'authorizationEndpoint', 'connectionOAuthResponseParameters_authorizationEndpoint' - The URL to the HTTP endpoint that authorized the request.
---
 -- 'oAuthHttpParameters', 'connectionOAuthResponseParameters_oAuthHttpParameters' - The additional HTTP parameters used for the OAuth authorization request.
+--
+-- 'authorizationEndpoint', 'connectionOAuthResponseParameters_authorizationEndpoint' - The URL to the HTTP endpoint that authorized the request.
 newConnectionOAuthResponseParameters ::
   ConnectionOAuthResponseParameters
 newConnectionOAuthResponseParameters =
@@ -68,8 +68,8 @@ newConnectionOAuthResponseParameters =
     { httpMethod =
         Prelude.Nothing,
       clientParameters = Prelude.Nothing,
-      authorizationEndpoint = Prelude.Nothing,
-      oAuthHttpParameters = Prelude.Nothing
+      oAuthHttpParameters = Prelude.Nothing,
+      authorizationEndpoint = Prelude.Nothing
     }
 
 -- | The method used to connect to the HTTP endpoint.
@@ -82,13 +82,13 @@ connectionOAuthResponseParameters_httpMethod = Lens.lens (\ConnectionOAuthRespon
 connectionOAuthResponseParameters_clientParameters :: Lens.Lens' ConnectionOAuthResponseParameters (Prelude.Maybe ConnectionOAuthClientResponseParameters)
 connectionOAuthResponseParameters_clientParameters = Lens.lens (\ConnectionOAuthResponseParameters' {clientParameters} -> clientParameters) (\s@ConnectionOAuthResponseParameters' {} a -> s {clientParameters = a} :: ConnectionOAuthResponseParameters)
 
--- | The URL to the HTTP endpoint that authorized the request.
-connectionOAuthResponseParameters_authorizationEndpoint :: Lens.Lens' ConnectionOAuthResponseParameters (Prelude.Maybe Prelude.Text)
-connectionOAuthResponseParameters_authorizationEndpoint = Lens.lens (\ConnectionOAuthResponseParameters' {authorizationEndpoint} -> authorizationEndpoint) (\s@ConnectionOAuthResponseParameters' {} a -> s {authorizationEndpoint = a} :: ConnectionOAuthResponseParameters)
-
 -- | The additional HTTP parameters used for the OAuth authorization request.
 connectionOAuthResponseParameters_oAuthHttpParameters :: Lens.Lens' ConnectionOAuthResponseParameters (Prelude.Maybe ConnectionHttpParameters)
 connectionOAuthResponseParameters_oAuthHttpParameters = Lens.lens (\ConnectionOAuthResponseParameters' {oAuthHttpParameters} -> oAuthHttpParameters) (\s@ConnectionOAuthResponseParameters' {} a -> s {oAuthHttpParameters = a} :: ConnectionOAuthResponseParameters)
+
+-- | The URL to the HTTP endpoint that authorized the request.
+connectionOAuthResponseParameters_authorizationEndpoint :: Lens.Lens' ConnectionOAuthResponseParameters (Prelude.Maybe Prelude.Text)
+connectionOAuthResponseParameters_authorizationEndpoint = Lens.lens (\ConnectionOAuthResponseParameters' {authorizationEndpoint} -> authorizationEndpoint) (\s@ConnectionOAuthResponseParameters' {} a -> s {authorizationEndpoint = a} :: ConnectionOAuthResponseParameters)
 
 instance
   Core.FromJSON
@@ -101,8 +101,8 @@ instance
           ConnectionOAuthResponseParameters'
             Prelude.<$> (x Core..:? "HttpMethod")
             Prelude.<*> (x Core..:? "ClientParameters")
-            Prelude.<*> (x Core..:? "AuthorizationEndpoint")
             Prelude.<*> (x Core..:? "OAuthHttpParameters")
+            Prelude.<*> (x Core..:? "AuthorizationEndpoint")
       )
 
 instance

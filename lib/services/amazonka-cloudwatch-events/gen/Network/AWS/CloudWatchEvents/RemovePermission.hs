@@ -32,9 +32,9 @@ module Network.AWS.CloudWatchEvents.RemovePermission
     newRemovePermission,
 
     -- * Request Lenses
-    removePermission_statementId,
     removePermission_eventBusName,
     removePermission_removeAllPermissions,
+    removePermission_statementId,
 
     -- * Destructuring the Response
     RemovePermissionResponse (..),
@@ -51,14 +51,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRemovePermission' smart constructor.
 data RemovePermission = RemovePermission'
-  { -- | The statement ID corresponding to the account that is no longer allowed
-    -- to put events to the default event bus.
-    statementId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the event bus to revoke permissions for. If you omit this,
+  { -- | The name of the event bus to revoke permissions for. If you omit this,
     -- the default event bus is used.
     eventBusName :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to remove all permissions.
-    removeAllPermissions :: Prelude.Maybe Prelude.Bool
+    removeAllPermissions :: Prelude.Maybe Prelude.Bool,
+    -- | The statement ID corresponding to the account that is no longer allowed
+    -- to put events to the default event bus.
+    statementId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,26 +70,21 @@ data RemovePermission = RemovePermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statementId', 'removePermission_statementId' - The statement ID corresponding to the account that is no longer allowed
--- to put events to the default event bus.
---
 -- 'eventBusName', 'removePermission_eventBusName' - The name of the event bus to revoke permissions for. If you omit this,
 -- the default event bus is used.
 --
 -- 'removeAllPermissions', 'removePermission_removeAllPermissions' - Specifies whether to remove all permissions.
+--
+-- 'statementId', 'removePermission_statementId' - The statement ID corresponding to the account that is no longer allowed
+-- to put events to the default event bus.
 newRemovePermission ::
   RemovePermission
 newRemovePermission =
   RemovePermission'
-    { statementId = Prelude.Nothing,
-      eventBusName = Prelude.Nothing,
-      removeAllPermissions = Prelude.Nothing
+    { eventBusName = Prelude.Nothing,
+      removeAllPermissions = Prelude.Nothing,
+      statementId = Prelude.Nothing
     }
-
--- | The statement ID corresponding to the account that is no longer allowed
--- to put events to the default event bus.
-removePermission_statementId :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Text)
-removePermission_statementId = Lens.lens (\RemovePermission' {statementId} -> statementId) (\s@RemovePermission' {} a -> s {statementId = a} :: RemovePermission)
 
 -- | The name of the event bus to revoke permissions for. If you omit this,
 -- the default event bus is used.
@@ -99,6 +94,11 @@ removePermission_eventBusName = Lens.lens (\RemovePermission' {eventBusName} -> 
 -- | Specifies whether to remove all permissions.
 removePermission_removeAllPermissions :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Bool)
 removePermission_removeAllPermissions = Lens.lens (\RemovePermission' {removeAllPermissions} -> removeAllPermissions) (\s@RemovePermission' {} a -> s {removeAllPermissions = a} :: RemovePermission)
+
+-- | The statement ID corresponding to the account that is no longer allowed
+-- to put events to the default event bus.
+removePermission_statementId :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Text)
+removePermission_statementId = Lens.lens (\RemovePermission' {statementId} -> statementId) (\s@RemovePermission' {} a -> s {statementId = a} :: RemovePermission)
 
 instance Core.AWSRequest RemovePermission where
   type
@@ -129,10 +129,10 @@ instance Core.ToJSON RemovePermission where
   toJSON RemovePermission' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StatementId" Core..=) Prelude.<$> statementId,
-            ("EventBusName" Core..=) Prelude.<$> eventBusName,
+          [ ("EventBusName" Core..=) Prelude.<$> eventBusName,
             ("RemoveAllPermissions" Core..=)
-              Prelude.<$> removeAllPermissions
+              Prelude.<$> removeAllPermissions,
+            ("StatementId" Core..=) Prelude.<$> statementId
           ]
       )
 

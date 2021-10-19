@@ -59,7 +59,7 @@ newReplayDestination pArn_ =
 
 -- | A list of ARNs for rules to replay events to.
 replayDestination_filterArns :: Lens.Lens' ReplayDestination (Prelude.Maybe [Prelude.Text])
-replayDestination_filterArns = Lens.lens (\ReplayDestination' {filterArns} -> filterArns) (\s@ReplayDestination' {} a -> s {filterArns = a} :: ReplayDestination) Prelude.. Lens.mapping Lens._Coerce
+replayDestination_filterArns = Lens.lens (\ReplayDestination' {filterArns} -> filterArns) (\s@ReplayDestination' {} a -> s {filterArns = a} :: ReplayDestination) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the event bus to replay event to. You can replay events only
 -- to the event bus specified to create the archive.

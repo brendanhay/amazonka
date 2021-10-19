@@ -31,13 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCreateConnectionAuthRequestParameters' smart constructor.
 data CreateConnectionAuthRequestParameters = CreateConnectionAuthRequestParameters'
-  { -- | A @CreateConnectionBasicAuthRequestParameters@ object that contains the
-    -- Basic authorization parameters to use for the connection.
-    basicAuthParameters :: Prelude.Maybe CreateConnectionBasicAuthRequestParameters,
-    -- | A @CreateConnectionApiKeyAuthRequestParameters@ object that contains the
-    -- API key authorization parameters to use for the connection.
-    apiKeyAuthParameters :: Prelude.Maybe CreateConnectionApiKeyAuthRequestParameters,
-    -- | A @CreateConnectionOAuthRequestParameters@ object that contains the
+  { -- | A @CreateConnectionOAuthRequestParameters@ object that contains the
     -- OAuth authorization parameters to use for the connection.
     oAuthParameters :: Prelude.Maybe CreateConnectionOAuthRequestParameters,
     -- | A @ConnectionHttpParameters@ object that contains the API key
@@ -45,7 +39,13 @@ data CreateConnectionAuthRequestParameters = CreateConnectionAuthRequestParamete
     -- include additional parameters for the target of a rule via
     -- @HttpParameters@, including query strings, the parameters added for the
     -- connection take precedence.
-    invocationHttpParameters :: Prelude.Maybe ConnectionHttpParameters
+    invocationHttpParameters :: Prelude.Maybe ConnectionHttpParameters,
+    -- | A @CreateConnectionApiKeyAuthRequestParameters@ object that contains the
+    -- API key authorization parameters to use for the connection.
+    apiKeyAuthParameters :: Prelude.Maybe CreateConnectionApiKeyAuthRequestParameters,
+    -- | A @CreateConnectionBasicAuthRequestParameters@ object that contains the
+    -- Basic authorization parameters to use for the connection.
+    basicAuthParameters :: Prelude.Maybe CreateConnectionBasicAuthRequestParameters
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,12 +57,6 @@ data CreateConnectionAuthRequestParameters = CreateConnectionAuthRequestParamete
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'basicAuthParameters', 'createConnectionAuthRequestParameters_basicAuthParameters' - A @CreateConnectionBasicAuthRequestParameters@ object that contains the
--- Basic authorization parameters to use for the connection.
---
--- 'apiKeyAuthParameters', 'createConnectionAuthRequestParameters_apiKeyAuthParameters' - A @CreateConnectionApiKeyAuthRequestParameters@ object that contains the
--- API key authorization parameters to use for the connection.
---
 -- 'oAuthParameters', 'createConnectionAuthRequestParameters_oAuthParameters' - A @CreateConnectionOAuthRequestParameters@ object that contains the
 -- OAuth authorization parameters to use for the connection.
 --
@@ -71,28 +65,25 @@ data CreateConnectionAuthRequestParameters = CreateConnectionAuthRequestParamete
 -- include additional parameters for the target of a rule via
 -- @HttpParameters@, including query strings, the parameters added for the
 -- connection take precedence.
+--
+-- 'apiKeyAuthParameters', 'createConnectionAuthRequestParameters_apiKeyAuthParameters' - A @CreateConnectionApiKeyAuthRequestParameters@ object that contains the
+-- API key authorization parameters to use for the connection.
+--
+-- 'basicAuthParameters', 'createConnectionAuthRequestParameters_basicAuthParameters' - A @CreateConnectionBasicAuthRequestParameters@ object that contains the
+-- Basic authorization parameters to use for the connection.
 newCreateConnectionAuthRequestParameters ::
   CreateConnectionAuthRequestParameters
 newCreateConnectionAuthRequestParameters =
   CreateConnectionAuthRequestParameters'
-    { basicAuthParameters =
+    { oAuthParameters =
+        Prelude.Nothing,
+      invocationHttpParameters =
         Prelude.Nothing,
       apiKeyAuthParameters =
         Prelude.Nothing,
-      oAuthParameters = Prelude.Nothing,
-      invocationHttpParameters =
+      basicAuthParameters =
         Prelude.Nothing
     }
-
--- | A @CreateConnectionBasicAuthRequestParameters@ object that contains the
--- Basic authorization parameters to use for the connection.
-createConnectionAuthRequestParameters_basicAuthParameters :: Lens.Lens' CreateConnectionAuthRequestParameters (Prelude.Maybe CreateConnectionBasicAuthRequestParameters)
-createConnectionAuthRequestParameters_basicAuthParameters = Lens.lens (\CreateConnectionAuthRequestParameters' {basicAuthParameters} -> basicAuthParameters) (\s@CreateConnectionAuthRequestParameters' {} a -> s {basicAuthParameters = a} :: CreateConnectionAuthRequestParameters)
-
--- | A @CreateConnectionApiKeyAuthRequestParameters@ object that contains the
--- API key authorization parameters to use for the connection.
-createConnectionAuthRequestParameters_apiKeyAuthParameters :: Lens.Lens' CreateConnectionAuthRequestParameters (Prelude.Maybe CreateConnectionApiKeyAuthRequestParameters)
-createConnectionAuthRequestParameters_apiKeyAuthParameters = Lens.lens (\CreateConnectionAuthRequestParameters' {apiKeyAuthParameters} -> apiKeyAuthParameters) (\s@CreateConnectionAuthRequestParameters' {} a -> s {apiKeyAuthParameters = a} :: CreateConnectionAuthRequestParameters)
 
 -- | A @CreateConnectionOAuthRequestParameters@ object that contains the
 -- OAuth authorization parameters to use for the connection.
@@ -106,6 +97,16 @@ createConnectionAuthRequestParameters_oAuthParameters = Lens.lens (\CreateConnec
 -- connection take precedence.
 createConnectionAuthRequestParameters_invocationHttpParameters :: Lens.Lens' CreateConnectionAuthRequestParameters (Prelude.Maybe ConnectionHttpParameters)
 createConnectionAuthRequestParameters_invocationHttpParameters = Lens.lens (\CreateConnectionAuthRequestParameters' {invocationHttpParameters} -> invocationHttpParameters) (\s@CreateConnectionAuthRequestParameters' {} a -> s {invocationHttpParameters = a} :: CreateConnectionAuthRequestParameters)
+
+-- | A @CreateConnectionApiKeyAuthRequestParameters@ object that contains the
+-- API key authorization parameters to use for the connection.
+createConnectionAuthRequestParameters_apiKeyAuthParameters :: Lens.Lens' CreateConnectionAuthRequestParameters (Prelude.Maybe CreateConnectionApiKeyAuthRequestParameters)
+createConnectionAuthRequestParameters_apiKeyAuthParameters = Lens.lens (\CreateConnectionAuthRequestParameters' {apiKeyAuthParameters} -> apiKeyAuthParameters) (\s@CreateConnectionAuthRequestParameters' {} a -> s {apiKeyAuthParameters = a} :: CreateConnectionAuthRequestParameters)
+
+-- | A @CreateConnectionBasicAuthRequestParameters@ object that contains the
+-- Basic authorization parameters to use for the connection.
+createConnectionAuthRequestParameters_basicAuthParameters :: Lens.Lens' CreateConnectionAuthRequestParameters (Prelude.Maybe CreateConnectionBasicAuthRequestParameters)
+createConnectionAuthRequestParameters_basicAuthParameters = Lens.lens (\CreateConnectionAuthRequestParameters' {basicAuthParameters} -> basicAuthParameters) (\s@CreateConnectionAuthRequestParameters' {} a -> s {basicAuthParameters = a} :: CreateConnectionAuthRequestParameters)
 
 instance
   Prelude.Hashable
@@ -122,13 +123,13 @@ instance
   toJSON CreateConnectionAuthRequestParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("BasicAuthParameters" Core..=)
-              Prelude.<$> basicAuthParameters,
-            ("ApiKeyAuthParameters" Core..=)
-              Prelude.<$> apiKeyAuthParameters,
-            ("OAuthParameters" Core..=)
+          [ ("OAuthParameters" Core..=)
               Prelude.<$> oAuthParameters,
             ("InvocationHttpParameters" Core..=)
-              Prelude.<$> invocationHttpParameters
+              Prelude.<$> invocationHttpParameters,
+            ("ApiKeyAuthParameters" Core..=)
+              Prelude.<$> apiKeyAuthParameters,
+            ("BasicAuthParameters" Core..=)
+              Prelude.<$> basicAuthParameters
           ]
       )

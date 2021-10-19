@@ -176,7 +176,7 @@ newInputTransformer pInputTemplate_ =
 --
 -- The keys cannot start with \"Amazon Web Services.\"
 inputTransformer_inputPathsMap :: Lens.Lens' InputTransformer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-inputTransformer_inputPathsMap = Lens.lens (\InputTransformer' {inputPathsMap} -> inputPathsMap) (\s@InputTransformer' {} a -> s {inputPathsMap = a} :: InputTransformer) Prelude.. Lens.mapping Lens._Coerce
+inputTransformer_inputPathsMap = Lens.lens (\InputTransformer' {inputPathsMap} -> inputPathsMap) (\s@InputTransformer' {} a -> s {inputPathsMap = a} :: InputTransformer) Prelude.. Lens.mapping Lens.coerced
 
 -- | Input template where you specify placeholders that will be filled with
 -- the values of the keys from @InputPathsMap@ to customize the data sent

@@ -232,7 +232,7 @@ listTargetsByRuleResponse_nextToken = Lens.lens (\ListTargetsByRuleResponse' {ne
 
 -- | The targets assigned to the rule.
 listTargetsByRuleResponse_targets :: Lens.Lens' ListTargetsByRuleResponse (Prelude.Maybe (Prelude.NonEmpty Target))
-listTargetsByRuleResponse_targets = Lens.lens (\ListTargetsByRuleResponse' {targets} -> targets) (\s@ListTargetsByRuleResponse' {} a -> s {targets = a} :: ListTargetsByRuleResponse) Prelude.. Lens.mapping Lens._Coerce
+listTargetsByRuleResponse_targets = Lens.lens (\ListTargetsByRuleResponse' {targets} -> targets) (\s@ListTargetsByRuleResponse' {} a -> s {targets = a} :: ListTargetsByRuleResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTargetsByRuleResponse_httpStatus :: Lens.Lens' ListTargetsByRuleResponse Prelude.Int

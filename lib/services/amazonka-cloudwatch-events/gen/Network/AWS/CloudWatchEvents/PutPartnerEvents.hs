@@ -71,12 +71,12 @@ newPutPartnerEvents ::
 newPutPartnerEvents pEntries_ =
   PutPartnerEvents'
     { entries =
-        Lens._Coerce Lens.# pEntries_
+        Lens.coerced Lens.# pEntries_
     }
 
 -- | The list of events to write to the event bus.
 putPartnerEvents_entries :: Lens.Lens' PutPartnerEvents (Prelude.NonEmpty PutPartnerEventsRequestEntry)
-putPartnerEvents_entries = Lens.lens (\PutPartnerEvents' {entries} -> entries) (\s@PutPartnerEvents' {} a -> s {entries = a} :: PutPartnerEvents) Prelude.. Lens._Coerce
+putPartnerEvents_entries = Lens.lens (\PutPartnerEvents' {entries} -> entries) (\s@PutPartnerEvents' {} a -> s {entries = a} :: PutPartnerEvents) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutPartnerEvents where
   type
@@ -170,7 +170,7 @@ putPartnerEventsResponse_failedEntryCount = Lens.lens (\PutPartnerEventsResponse
 -- | The list of events from this operation that were successfully written to
 -- the partner event bus.
 putPartnerEventsResponse_entries :: Lens.Lens' PutPartnerEventsResponse (Prelude.Maybe [PutPartnerEventsResultEntry])
-putPartnerEventsResponse_entries = Lens.lens (\PutPartnerEventsResponse' {entries} -> entries) (\s@PutPartnerEventsResponse' {} a -> s {entries = a} :: PutPartnerEventsResponse) Prelude.. Lens.mapping Lens._Coerce
+putPartnerEventsResponse_entries = Lens.lens (\PutPartnerEventsResponse' {entries} -> entries) (\s@PutPartnerEventsResponse' {} a -> s {entries = a} :: PutPartnerEventsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putPartnerEventsResponse_httpStatus :: Lens.Lens' PutPartnerEventsResponse Prelude.Int

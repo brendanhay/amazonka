@@ -109,7 +109,7 @@ newRemoveTargets pRule_ pIds_ =
     { force = Prelude.Nothing,
       eventBusName = Prelude.Nothing,
       rule = pRule_,
-      ids = Lens._Coerce Lens.# pIds_
+      ids = Lens.coerced Lens.# pIds_
     }
 
 -- | If this is a managed rule, created by an Amazon Web Services service on
@@ -131,7 +131,7 @@ removeTargets_rule = Lens.lens (\RemoveTargets' {rule} -> rule) (\s@RemoveTarget
 
 -- | The IDs of the targets to remove from the rule.
 removeTargets_ids :: Lens.Lens' RemoveTargets (Prelude.NonEmpty Prelude.Text)
-removeTargets_ids = Lens.lens (\RemoveTargets' {ids} -> ids) (\s@RemoveTargets' {} a -> s {ids = a} :: RemoveTargets) Prelude.. Lens._Coerce
+removeTargets_ids = Lens.lens (\RemoveTargets' {ids} -> ids) (\s@RemoveTargets' {} a -> s {ids = a} :: RemoveTargets) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RemoveTargets where
   type
@@ -223,7 +223,7 @@ removeTargetsResponse_failedEntryCount = Lens.lens (\RemoveTargetsResponse' {fai
 
 -- | The failed target entries.
 removeTargetsResponse_failedEntries :: Lens.Lens' RemoveTargetsResponse (Prelude.Maybe [RemoveTargetsResultEntry])
-removeTargetsResponse_failedEntries = Lens.lens (\RemoveTargetsResponse' {failedEntries} -> failedEntries) (\s@RemoveTargetsResponse' {} a -> s {failedEntries = a} :: RemoveTargetsResponse) Prelude.. Lens.mapping Lens._Coerce
+removeTargetsResponse_failedEntries = Lens.lens (\RemoveTargetsResponse' {failedEntries} -> failedEntries) (\s@RemoveTargetsResponse' {} a -> s {failedEntries = a} :: RemoveTargetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 removeTargetsResponse_httpStatus :: Lens.Lens' RemoveTargetsResponse Prelude.Int
